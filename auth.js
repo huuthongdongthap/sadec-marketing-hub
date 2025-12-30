@@ -2,6 +2,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * AUTH.JS - Centralized Authentication & Permission System
  * Mekong Marketing - Binh Pháp Aligned
+ * 
+ * FIX: Uses window.AuthAPI (from supabase-config.js) instead of raw window.supabase
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -56,13 +58,22 @@ const AuthState = {
         this.isLoading = true;
 
         try {
-            // Try Supabase first
-            if (typeof window.supabase !== 'undefined') {
-                const { data: { session } } = await window.supabase.auth.getSession();
+            // Try Supabase via AuthAPI
+            if (window.AuthAPI) {
+                const session = await window.AuthAPI.getSession();
 
                 if (session?.user) {
                     this.user = session.user;
-                    await this.loadProfile();
+                    // Load profile using AuthAPI
+                    const profile = await window.AuthAPI.getProfile();
+
+                    if (profile) {
+                        this.profile = profile;
+                        // Cache in localStorage for quick access
+                        localStorage.setItem('userRole', profile.role);
+                        localStorage.setItem('userName', profile.full_name);
+                    }
+
                     this.isAuthenticated = true;
                     this.isLoading = false;
                     return true;
@@ -92,32 +103,6 @@ const AuthState = {
 
         this.isLoading = false;
         return this.isAuthenticated;
-    },
-
-    // Load user profile from database
-    async loadProfile() {
-        if (!this.user) return null;
-
-        try {
-            if (typeof window.supabase !== 'undefined') {
-                const { data, error } = await window.supabase
-                    .from('user_profiles')
-                    .select('*')
-                    .eq('id', this.user.id)
-                    .single();
-
-                if (data) {
-                    this.profile = data;
-                    // Cache in localStorage for quick access
-                    localStorage.setItem('userRole', data.role);
-                    localStorage.setItem('userName', data.full_name);
-                }
-            }
-        } catch (error) {
-            console.error('Load profile error:', error);
-        }
-
-        return this.profile;
     },
 
     // Get current role
@@ -165,21 +150,17 @@ const AuthActions = {
     // Sign in with email/password
     async signIn(email, password) {
         try {
-            // Try Supabase
-            if (typeof window.supabase !== 'undefined') {
-                const { data, error } = await window.supabase.auth.signInWithPassword({
-                    email,
-                    password
-                });
+            // Try Supabase via AuthAPI
+            if (window.AuthAPI) {
+                const result = await window.AuthAPI.signIn(email, password);
 
-                if (!error && data.user) {
+                if (result.data?.user) {
                     await AuthState.init();
-                    return { success: true, user: data.user };
+                    return { success: true, user: result.data.user };
                 }
 
-                if (error) {
-                    // Don't throw, fall through to demo mode
-                    console.warn('Supabase auth failed, trying demo mode');
+                if (result.error) {
+                    console.warn('Supabase auth failed, trying demo mode:', result.error);
                 }
             }
 
@@ -216,24 +197,18 @@ const AuthActions = {
     // Sign up new user
     async signUp(email, password, metadata = {}) {
         try {
-            if (typeof window.supabase !== 'undefined') {
-                const { data, error } = await window.supabase.auth.signUp({
-                    email,
-                    password,
-                    options: {
-                        data: {
-                            full_name: metadata.fullName,
-                            role: metadata.role || 'affiliate',
-                            phone: metadata.phone
-                        }
-                    }
+            if (window.AuthAPI) {
+                const result = await window.AuthAPI.signUp(email, password, {
+                    full_name: metadata.fullName,
+                    role: metadata.role || 'affiliate',
+                    phone: metadata.phone
                 });
 
-                if (error) throw error;
+                if (result.error) throw result.error;
 
                 return {
                     success: true,
-                    user: data.user,
+                    user: result.data?.user,
                     message: 'Đăng ký thành công! Kiểm tra email để xác nhận.'
                 };
             }
@@ -257,8 +232,8 @@ const AuthActions = {
     // Sign out
     async signOut() {
         try {
-            if (typeof window.supabase !== 'undefined') {
-                await window.supabase.auth.signOut();
+            if (window.AuthAPI) {
+                await window.AuthAPI.signOut();
             }
         } catch (error) {
             console.error('Sign out error:', error);
@@ -283,13 +258,16 @@ const AuthActions = {
     // Reset password request
     async resetPassword(email) {
         try {
-            if (typeof window.supabase !== 'undefined') {
-                const { error } = await window.supabase.auth.resetPasswordForEmail(email, {
-                    redirectTo: `${window.location.origin}/reset-password.html`
-                });
+            if (window.SupabaseAPI) {
+                const client = window.SupabaseAPI.getClient();
+                if (client) {
+                    const { error } = await client.auth.resetPasswordForEmail(email, {
+                        redirectTo: `${window.location.origin}/reset-password.html`
+                    });
 
-                if (error) throw error;
-                return { success: true, message: 'Email đặt lại mật khẩu đã được gửi!' };
+                    if (error) throw error;
+                    return { success: true, message: 'Email đặt lại mật khẩu đã được gửi!' };
+                }
             }
 
             return { success: false, error: 'Demo mode: Liên hệ admin để reset mật khẩu' };

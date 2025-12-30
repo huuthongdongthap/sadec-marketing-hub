@@ -550,6 +550,117 @@
             return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
         }
 
+        // ============================================================================
+        // SUPABASE INTEGRATION
+        // ============================================================================
+        const AffiliateService = {
+            getClient() {
+                return window.SupabaseAPI?.getClient();
+            },
+
+            async loadData() {
+                // If demo mode or no client, use DEMO_DATA
+                if (localStorage.getItem('isDemoMode') === 'true' || !this.getClient()) {
+                    console.log('Using Demo Data');
+                    return DEMO_DATA;
+                }
+
+                try {
+                    const client = this.getClient();
+                    const user = Auth.State.user;
+                    if (!user) return DEMO_DATA;
+
+                    // 1. Get Affiliate Profile
+                    let { data: affiliate, error: affError } = await client
+                        .from('affiliates')
+                        .select('*')
+                        .eq('user_id', user.id)
+                        .single();
+
+                    if (affError || !affiliate) {
+                        console.warn('Affiliate profile not found, checking if user needs registration or defaulting to demo logic for UI');
+                        // In a real app we might redirect to "Become an Affiliate" page
+                        // For this hybrid audit, we'll try to use user metadata or fallback
+                        return DEMO_DATA;
+                    }
+
+                    // 2. Get Referrals
+                    const { data: referrals, error: refError } = await client
+                        .from('referrals')
+                        .select('*')
+                        .eq('affiliate_id', affiliate.id)
+                        .order('created_at', { ascending: false });
+
+                    // Calculate stats
+                    const totalRef = referrals?.length || 0;
+                    const successRef = referrals?.filter(r => r.status === 'converted' || r.status === 'paid').length || 0;
+                    const pendingPayout = referrals
+                        ?.filter(r => r.status === 'converted') // assuming converted means commission earned but not paid
+                        .reduce((sum, r) => sum + (r.commission_amount || 0), 0) || 0;
+                    const totalComm = referrals
+                        ?.filter(r => r.status === 'paid' || r.status === 'converted')
+                        .reduce((sum, r) => sum + (r.commission_amount || 0), 0) || 0;
+
+                    return {
+                        affiliate: {
+                            ...affiliate,
+                            total_referrals: totalRef,
+                            successful_referrals: successRef,
+                            total_commission: totalComm,
+                            pending_payout: pendingPayout,
+                            tier: affiliate.tier || 'starter' // fallback
+                        },
+                        referrals: referrals || []
+                    };
+
+                } catch (err) {
+                    console.error('Error loading affiliate data:', err);
+                    return DEMO_DATA;
+                }
+            },
+
+            async addReferral(referralData) {
+                if (localStorage.getItem('isDemoMode') === 'true' || !this.getClient()) {
+                    // Demo logic
+                    const newRef = {
+                        name: referralData.name,
+                        phone: referralData.phone,
+                        email: referralData.email,
+                        created_at: new Date().toISOString().split('T')[0],
+                        status: 'pending',
+                        deal_value: 0,
+                        commission_amount: 0
+                    };
+                    DEMO_DATA.referrals.unshift(newRef);
+                    DEMO_DATA.affiliate.total_referrals++;
+                    updateDashboard(DEMO_DATA);
+                    return { success: true };
+                }
+
+                const client = this.getClient();
+                // We need the affiliate ID (pk) not user_id
+                const { data: affiliate } = await client
+                    .from('affiliates')
+                    .select('id')
+                    .eq('user_id', Auth.State.user.id)
+                    .single();
+
+                if (!affiliate) return { error: 'Không tìm thấy thông tin affiliate' };
+
+                const { error } = await client
+                    .from('referrals')
+                    .insert([{
+                        affiliate_id: affiliate.id,
+                        name: referralData.name,
+                        phone: referralData.phone,
+                        email: referralData.email,
+                        status: 'pending'
+                    }]);
+
+                return error ? { error: error.message } : { success: true };
+            }
+        };
+
         // Update UI with data
         function updateDashboard(data) {
             const aff = data.affiliate;
@@ -557,12 +668,12 @@
             // Stats
             document.getElementById('totalReferrals').textContent = aff.total_referrals;
             document.getElementById('successfulReferrals').textContent = aff.successful_referrals;
-            document.getElementById('totalCommission').textContent = formatVND(aff.total_commission);
-            document.getElementById('pendingPayout').textContent = formatVND(aff.pending_payout);
+            document.getElementById('totalCommission').textContent = formatVND(aff.total_commission || 0);
+            document.getElementById('pendingPayout').textContent = formatVND(aff.pending_payout || 0);
 
             // Referral Code
-            document.getElementById('myReferralCode').textContent = aff.referral_code;
-            document.getElementById('referralLink').value = `https://mekongmarketing.com?ref=${aff.referral_code}`;
+            document.getElementById('myReferralCode').textContent = aff.code || aff.referral_code || '---';
+            document.getElementById('referralLink').value = `https://mekongmarketing.com?ref=${aff.code || aff.referral_code}`;
 
             // Tier
             updateTierUI(aff);
@@ -578,17 +689,19 @@
                 vip: { badge: '💎', name: 'VIP', rate: 20, next: null, nextReq: null }
             };
 
-            const tier = tiers[aff.tier] || tiers.starter;
+            const tierKey = (aff.tier || 'starter').toLowerCase();
+            const tier = tiers[tierKey] || tiers.starter;
 
             document.getElementById('tierBadge').textContent = tier.badge;
             document.getElementById('tierName').textContent = tier.name;
             document.getElementById('tierRate').textContent = `(${tier.rate}%)`;
 
             if (tier.next) {
-                const remaining = tier.nextReq - aff.successful_referrals;
-                const progress = (aff.successful_referrals / tier.nextReq) * 100;
+                const currentSuccess = aff.successful_referrals || 0;
+                const remaining = Math.max(0, tier.nextReq - currentSuccess);
+                const progress = Math.min((currentSuccess / tier.nextReq) * 100, 100);
 
-                document.getElementById('progressFill').style.width = `${Math.min(progress, 100)}%`;
+                document.getElementById('progressFill').style.width = `${progress}%`;
                 document.getElementById('nextTierText').textContent = `Tiếp theo: ${tiers[tier.next.toLowerCase()]?.badge || '⭐'} ${tier.next} (${tier.rate + 5}%)`;
                 document.getElementById('progressInfo').innerHTML = `Còn <strong>${remaining}</strong> khách nữa để lên hạng ${tier.next}!`;
             } else {
@@ -602,7 +715,7 @@
             const tbody = document.getElementById('referralsBody');
             const emptyState = document.getElementById('emptyState');
 
-            if (referrals.length === 0) {
+            if (!referrals || referrals.length === 0) {
                 tbody.innerHTML = '';
                 emptyState.style.display = 'block';
                 return;
@@ -619,11 +732,16 @@
 
             tbody.innerHTML = referrals.map(ref => {
                 const status = statusLabels[ref.status] || statusLabels.pending;
+                // Handle different field names between schema and demo data
+                const name = ref.name || ref.referred_name || 'Khách hàng';
+                const phone = ref.phone || ref.referred_phone || '';
+                const date = ref.created_at ? new Date(ref.created_at).toLocaleDateString('vi-VN') : '';
+
                 return `
                     <tr>
-                        <td>${ref.name}</td>
-                        <td>${ref.phone}</td>
-                        <td>${ref.created_at}</td>
+                        <td>${name}</td>
+                        <td>${phone}</td>
+                        <td>${date}</td>
                         <td><span class="status-badge ${status.class}">${status.label}</span></td>
                         <td>${ref.deal_value ? formatVND(ref.deal_value) : '-'}</td>
                         <td>${ref.commission_amount ? formatVND(ref.commission_amount) : '-'}</td>
@@ -655,25 +773,18 @@
             const phone = document.getElementById('refPhone').value;
             const email = document.getElementById('refEmail').value;
 
-            // Demo mode - just add to UI
-            const newRef = {
-                name,
-                phone,
-                email,
-                created_at: new Date().toISOString().split('T')[0],
-                status: 'pending',
-                deal_value: 0,
-                commission_amount: 0
-            };
+            const result = await AffiliateService.addReferral({ name, phone, email });
 
-            DEMO_DATA.referrals.unshift(newRef);
-            DEMO_DATA.affiliate.total_referrals++;
+            if (result.success) {
+                e.target.reset();
+                alert('✅ Đã gửi referral! Đội ngũ sẽ liên hệ khách trong 24h.');
 
-            updateDashboard(DEMO_DATA);
-
-            // Reset form
-            e.target.reset();
-            alert('✅ Đã gửi referral! Đội ngũ sẽ liên hệ khách trong 24h.');
+                // Reload data
+                const data = await AffiliateService.loadData();
+                updateDashboard(data);
+            } else {
+                alert('❌ Lỗi: ' + (result.error || 'Không thể thêm referral'));
+            }
         });
 
         // Initialize
@@ -692,8 +803,9 @@
             Auth.UI.populateUserInfo();
             Auth.UI.setupLogoutButtons();
 
-            // Load data (demo mode for now)
-            updateDashboard(DEMO_DATA);
+            // Load data
+            const data = await AffiliateService.loadData();
+            updateDashboard(data);
         }
 
         init();

@@ -1087,7 +1087,7 @@
         <!-- 🏆 TOP AFFILIATES (Binh Pháp: Chứng Minh Xã Hội) -->
         <section class="top-affiliates">
             <h2 class="section-title">🏆 Top Đối Tác <span>Tháng 12</span></h2>
-            <div class="affiliate-grid">
+            <div class="affiliate-grid" id="leaderboardGrid">
                 <div class="affiliate-card affiliate-card--gold">
                     <span class="affiliate-rank">🥇</span>
                     <div class="affiliate-avatar">👨‍💼</div>
@@ -1329,6 +1329,70 @@
             const income = calculateIncome(refs);
             incomeValueDisplay.textContent = formatVND(income.monthly);
             yearlyIncomeDisplay.textContent = formatVND(income.yearly);
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        // 🏆 LEADERBOARD SERVICE (Supabase Integration)
+        // ═══════════════════════════════════════════════════════════════
+        const LeaderboardService = {
+            getClient() {
+                return window.SupabaseAPI?.getClient();
+            },
+
+            async loadTopAffiliates() {
+                const client = this.getClient();
+                if (!client) return null;
+
+                try {
+                    const { data, error } = await client
+                        .from('affiliates')
+                        .select('id, full_name, total_commission, tier, referral_count')
+                        .order('total_commission', { ascending: false })
+                        .limit(3);
+
+                    if (error) throw error;
+                    return data;
+                } catch (err) {
+                    console.warn('Error loading leaderboard:', err);
+                    return null;
+                }
+            },
+
+            async renderLeaderboard() {
+                const grid = document.getElementById('leaderboardGrid');
+                if (!grid) return;
+
+                const data = await this.loadTopAffiliates();
+                if (!data || data.length === 0) return; // Keep demo data
+
+                const ranks = ['gold', 'silver', 'bronze'];
+                const badges = ['🥇', '🥈', '🥉'];
+                const avatars = ['👨‍💼', '👩‍💻', '👨‍🔧'];
+                const quotes = [
+                    'Top performer tháng này!',
+                    'Đang tăng tốc mạnh mẽ!',
+                    'Thành tích ấn tượng!'
+                ];
+
+                grid.innerHTML = data.map((aff, i) => {
+                    const earnings = aff.total_commission || 0;
+                    return `
+                        <div class="affiliate-card affiliate-card--${ranks[i]}">
+                            <span class="affiliate-rank">${badges[i]}</span>
+                            <div class="affiliate-avatar">${avatars[i]}</div>
+                            <h4 class="affiliate-name">${aff.full_name || 'Top Affiliate'}</h4>
+                            <p class="affiliate-role">${aff.tier || 'Partner'}</p>
+                            <div class="affiliate-earnings">+${new Intl.NumberFormat('vi-VN').format(earnings)}đ</div>
+                            <p class="affiliate-quote">"${quotes[i]}"</p>
+                        </div>
+                    `;
+                }).join('');
+            }
+        };
+
+        // Load leaderboard (attempt Supabase, fallback to static)
+        document.addEventListener('DOMContentLoaded', () => {
+            LeaderboardService.renderLeaderboard();
         });
 
         // ═══════════════════════════════════════════════════════════════

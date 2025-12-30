@@ -551,7 +551,180 @@
     <script src="supabase-config.js"></script>
     <script src="auth.js"></script>
     <script>
-        // Initialize
+        // ============================================================================
+        // DEMO DATA
+        // ============================================================================
+        const DEMO_DATA = {
+            projects: [
+                {
+                    id: 1, name: 'Thiết kế Logo + Bộ nhận diện', package: 'Standard', status: 'active', progress: 75, start_date:
+                        '2024-12-01', end_date: '2025-01-15'
+                },
+                {
+                    id: 2, name: 'Quản lý Fanpage 3 tháng', package: 'Premium', status: 'active', progress: 55, start_date:
+                        '2024-12-15', end_date: '2025-03-15'
+                }
+            ],
+            invoices: [
+                { id: 'INV-2024-001', project_name: 'Thiết kế Logo', amount: 8000000, date: '2024-12-01', status: 'paid' },
+                { id: 'INV-2024-002', project_name: 'Fanpage tháng 1', amount: 7000000, date: '2024-12-25', status: 'pending' }
+            ]
+        };
+
+        // ============================================================================
+        // CLIENT SERVICE
+        // ============================================================================
+        const ClientService = {
+            getClient() {
+                return window.SupabaseAPI?.getClient();
+            },
+
+            async loadData() {
+                if (localStorage.getItem('isDemoMode') === 'true' || !this.getClient()) {
+                    console.log('Client Portal: Using Demo Data');
+                    return DEMO_DATA;
+                }
+
+                try {
+                    const client = this.getClient();
+                    const user = Auth.State.user;
+                    if (!user) return DEMO_DATA;
+
+                    // 1. Get Projects for this client
+                    const { data: projects, error: projError } = await client
+                        .from('projects')
+                        .select('*')
+                        .eq('client_id', user.id)
+                        .order('created_at', { ascending: false });
+
+                    if (projError) {
+                        console.warn('Error loading projects:', projError);
+                    }
+
+                    // 2. Get Invoices (if table exists)
+                    // For now, we'll generate invoices from projects or use demo data
+                    // In production, you'd have an invoices table
+
+                    return {
+                        projects: projects?.length > 0 ? projects : DEMO_DATA.projects,
+                        invoices: DEMO_DATA.invoices // Using demo invoices until table is created
+                    };
+
+                } catch (err) {
+                    console.error('Error loading client data:', err);
+                    return DEMO_DATA;
+                }
+            }
+        };
+
+        // ============================================================================
+        // UI HELPERS
+        // ============================================================================
+        function formatVND(num) {
+            return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('vi-VN');
+        }
+
+        function updateStats(data) {
+            const totalProjects = data.projects?.length || 0;
+            const avgProgress = data.projects?.length > 0
+                ? Math.round(data.projects.reduce((sum, p) => sum + (p.progress || 0), 0) / data.projects.length)
+                : 0;
+            const pendingInvoices = data.invoices?.filter(i => i.status === 'pending').length || 0;
+            const totalSpent = data.invoices
+                ?.filter(i => i.status === 'paid')
+                .reduce((sum, i) => sum + (i.amount || 0), 0) || 0;
+
+            document.getElementById('totalProjects').textContent = totalProjects;
+            document.getElementById('avgProgress').textContent = avgProgress + '%';
+            document.getElementById('pendingInvoices').textContent = pendingInvoices;
+            document.getElementById('totalSpent').textContent = totalSpent >= 1000000
+                ? Math.round(totalSpent / 1000000) + 'tr'
+                : formatVND(totalSpent);
+        }
+
+        function renderProjects(projects) {
+            const container = document.getElementById('projectCards');
+            if (!container || !projects || projects.length === 0) return;
+
+            const statusLabels = {
+                active: { label: 'Đang thực hiện', class: 'status-active' },
+                completed: { label: 'Hoàn thành', class: 'status-completed' },
+                paused: { label: 'Tạm dừng', class: 'status-paused' }
+            };
+
+            const packageClasses = {
+                'Basic': 'package-basic',
+                'Standard': 'package-standard',
+                'Premium': 'package-premium'
+            };
+
+            container.innerHTML = projects.map(project => {
+                const status = statusLabels[project.status] || statusLabels.active;
+                const pkgClass = packageClasses[project.package] || 'package-standard';
+
+                return `
+    <div class="project-card">
+        <div class="project-card__header">
+            <div class="project-card__name">${project.name}</div>
+            <span class="project-card__package ${pkgClass}">${project.package || 'Standard'}</span>
+        </div>
+        <div class="project-card__status">
+            <span class="status-dot ${status.class}"></span>
+            <span>${status.label}</span>
+        </div>
+        <div class="project-card__progress">
+            <div class="progress-label">
+                <span>Tiến độ</span>
+                <span>${project.progress || 0}%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${project.progress || 0}%"></div>
+            </div>
+        </div>
+        <div class="project-card__dates">
+            <span>Bắt đầu: ${formatDate(project.start_date)}</span>
+            <span>Dự kiến: ${formatDate(project.end_date)}</span>
+        </div>
+    </div>
+    `;
+            }).join('');
+        }
+
+        function renderInvoices(invoices) {
+            const tbody = document.getElementById('invoiceBody');
+            if (!tbody || !invoices || invoices.length === 0) return;
+
+            const statusLabels = {
+                paid: { label: 'Đã thanh toán', class: 'invoice-paid' },
+                pending: { label: 'Chờ thanh toán', class: 'invoice-pending' },
+                overdue: { label: 'Quá hạn', class: 'invoice-overdue' }
+            };
+
+            tbody.innerHTML = invoices.map(inv => {
+                const status = statusLabels[inv.status] || statusLabels.pending;
+
+                return `
+    <tr>
+        <td>#${inv.id}</td>
+        <td>${inv.project_name}</td>
+        <td>${formatVND(inv.amount)}</td>
+        <td>${formatDate(inv.date)}</td>
+        <td><span class="invoice-status ${status.class}">${status.label}</span></td>
+        <td><button class="btn-download">📥 Tải PDF</button></td>
+    </tr>
+    `;
+            }).join('');
+        }
+
+        // ============================================================================
+        // INITIALIZE
+        // ============================================================================
         async function init() {
             // Check auth
             const isAuth = await Auth.Guards.requireAuth();
@@ -566,6 +739,12 @@
             // Update UI with user info
             Auth.UI.populateUserInfo();
             Auth.UI.setupLogoutButtons();
+
+            // Load and render data
+            const data = await ClientService.loadData();
+            updateStats(data);
+            renderProjects(data.projects);
+            renderInvoices(data.invoices);
         }
 
         init();

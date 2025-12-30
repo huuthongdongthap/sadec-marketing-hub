@@ -425,8 +425,9 @@
 
             <!-- Links -->
             <div class="login-links">
-                <a href="#" class="login-link" id="forgotPassword">Quên mật khẩu?</a>
-                <a href="register.html" class="login-link">Chưa có tài khoản? <strong>Đăng ký</strong></a>
+                <a href="forgot-password.html" class="login-link" id="forgotPassword">Quên mật khẩu?</a>
+                <a href="register.html" class="login-link" id="registerLink">Chưa có tài khoản? <strong>Đăng
+                        ký</strong></a>
             </div>
 
             <div style="text-align: center; margin-top: 16px;">
@@ -447,18 +448,10 @@
         // ========== LOGIN LOGIC ==========
         const loginForm = document.getElementById('loginForm');
         const emailInput = document.getElementById('email');
+
         const passwordInput = document.getElementById('password');
         const loginBtn = document.getElementById('loginBtn');
         const errorMessage = document.getElementById('errorMessage');
-
-        // Demo credentials - all 5 roles
-        const DEMO_USERS = {
-            'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin' },
-            'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager' },
-            'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator' },
-            'client@mekongmarketing.com': { password: 'client123', role: 'client', name: 'Client Demo' },
-            'affiliate@mekongmarketing.com': { password: 'affiliate123', role: 'affiliate', name: 'Affiliate Demo' }
-        };
 
         function showError(message) {
             errorMessage.textContent = message;
@@ -489,38 +482,22 @@
             setLoading(true);
 
             try {
-                // Check if Supabase is available
-                const isSupabaseReady = typeof window.AuthAPI !== 'undefined';
+                // Use centralized Auth action
+                const result = await Auth.Actions.signIn(email, password);
 
-                if (isSupabaseReady) {
-                    // Try Supabase auth first
-                    const { data, error } = await AuthAPI.signIn(email, password);
+                if (result.success) {
+                    // Check for redirect param
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirectParam = urlParams.get('redirect');
 
-                    if (!error && data.user) {
-                        // Success - redirect to admin
-                        localStorage.setItem('isLoggedIn', 'true');
-                        localStorage.setItem('userEmail', email);
-                        window.location.href = 'admin-dashboard.html';
-                        return;
+                    if (redirectParam) {
+                        window.location.href = decodeURIComponent(redirectParam);
+                    } else {
+                        // Default role-based redirect
+                        window.location.href = Auth.Guards.getRedirectUrl();
                     }
-                }
-
-                // Fall back to demo mode
-                const demoUser = DEMO_USERS[email];
-
-                if (demoUser && demoUser.password === password) {
-                    // Demo login success
-                    localStorage.setItem('isLoggedIn', 'true');
-                    localStorage.setItem('userEmail', email);
-                    localStorage.setItem('userRole', demoUser.role);
-                    localStorage.setItem('userName', demoUser.name);
-                    localStorage.setItem('isDemoMode', 'true');
-
-                    // Redirect based on role
-                    const redirectUrl = Auth.ROLE_REDIRECTS[demoUser.role] || '/admin-dashboard.html';
-                    window.location.href = redirectUrl;
                 } else {
-                    showError('Email hoặc mật khẩu không đúng');
+                    showError(result.error || 'Email hoặc mật khẩu không đúng');
                 }
 
             } catch (err) {
@@ -538,12 +515,16 @@
         });
 
         // Check if already logged in
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            window.location.href = 'admin-dashboard.html';
+        Auth.Guards.redirectIfAuthenticated();
+
+        // Update register link with current query params
+        const registerLink = document.getElementById('registerLink');
+        if (window.location.search) {
+            registerLink.href += window.location.search;
         }
 
         // Prefill demo email for convenience
-        emailInput.value = 'admin@mekongmarketing.com';
+        // emailInput.value = 'admin@mekongmarketing.com';
     </script>
 </body>
 

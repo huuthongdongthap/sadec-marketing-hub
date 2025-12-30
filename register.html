@@ -441,7 +441,8 @@
             </form>
 
             <div class="register-links">
-                <a href="login.html" class="register-link">Đã có tài khoản? <strong>Đăng nhập</strong></a>
+                <a href="login.html" class="register-link" id="loginLink">Đã có tài khoản? <strong>Đăng
+                        nhập</strong></a>
             </div>
         </div>
 
@@ -526,7 +527,15 @@
                         // Demo mode - redirect immediately
                         showSuccess('Đăng ký thành công! Đang chuyển hướng...');
                         setTimeout(() => {
-                            window.location.href = Auth.Guards.getRedirectUrl();
+                            // Check for redirect param
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const redirectParam = urlParams.get('redirect');
+                            
+                            if (redirectParam) {
+                                window.location.href = decodeURIComponent(redirectParam);
+                            } else {
+                                window.location.href = Auth.Guards.getRedirectUrl();
+                            }
                         }, 1500);
                     } else {
                         // Real Supabase - wait for email confirmation
@@ -545,6 +554,12 @@
 
         // Redirect if already logged in
         Auth.Guards.redirectIfAuthenticated();
+        
+        // Update login link with current query params
+        const loginLink = document.getElementById('loginLink');
+        if (window.location.search) {
+            loginLink.href += window.location.search;
+        }
     </script>
 </body>
 

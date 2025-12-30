@@ -48,12 +48,17 @@ const AppState = {
 // SUPABASE ADMIN API
 // ============================================================================
 const SupabaseAdmin = {
+    getClient() {
+        return window.SupabaseAPI?.getClient();
+    },
+
     async loadCustomers() {
         if (AppState.isDemoMode) return { data: AppState.customers };
 
-        if (!window.supabaseClient) return { error: 'Not initialized', data: [] };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized', data: [] };
 
-        const { data, error } = await window.supabaseClient
+        const { data, error } = await client
             .from('customers')
             .select('*')
             .order('created_at', { ascending: false });
@@ -75,17 +80,18 @@ const SupabaseAdmin = {
         }
 
         // Real Supabase operation
-        if (!window.supabaseClient) return { error: 'Not initialized' };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized' };
 
         if (customer.id) {
-            const { data, error } = await window.supabaseClient
+            const { data, error } = await client
                 .from('customers')
                 .update(customer)
                 .eq('id', customer.id)
                 .select();
             return error ? { error } : { data: data[0] };
         } else {
-            const { data, error } = await window.supabaseClient
+            const { data, error } = await client
                 .from('customers')
                 .insert([customer])
                 .select();
@@ -99,9 +105,10 @@ const SupabaseAdmin = {
             return { success: true };
         }
 
-        if (!window.supabaseClient) return { error: 'Not initialized' };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized' };
 
-        const { error } = await window.supabaseClient
+        const { error } = await client
             .from('customers')
             .delete()
             .eq('id', id);
@@ -112,9 +119,10 @@ const SupabaseAdmin = {
     async loadPosts() {
         if (AppState.isDemoMode) return { data: AppState.posts };
 
-        if (!window.supabaseClient) return { error: 'Not initialized', data: [] };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized', data: [] };
 
-        const { data, error } = await window.supabaseClient
+        const { data, error } = await client
             .from('scheduled_posts')
             .select('*')
             .order('scheduled_at', { ascending: true });
@@ -134,17 +142,18 @@ const SupabaseAdmin = {
             return { data: post };
         }
 
-        if (!window.supabaseClient) return { error: 'Not initialized' };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized' };
 
         if (post.id) {
-            const { data, error } = await window.supabaseClient
+            const { data, error } = await client
                 .from('scheduled_posts')
                 .update(post)
                 .eq('id', post.id)
                 .select();
             return error ? { error } : { data: data[0] };
         } else {
-            const { data, error } = await window.supabaseClient
+            const { data, error } = await client
                 .from('scheduled_posts')
                 .insert([post])
                 .select();
@@ -158,9 +167,10 @@ const SupabaseAdmin = {
             return { success: true };
         }
 
-        if (!window.supabaseClient) return { error: 'Not initialized' };
+        const client = this.getClient();
+        if (!client) return { error: 'Not initialized' };
 
-        const { error } = await window.supabaseClient
+        const { error } = await client
             .from('scheduled_posts')
             .delete()
             .eq('id', id);
@@ -798,20 +808,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('✅ Admin Dashboard Ready!');
     console.log(`👤 User: ${AppState.currentUser?.name} | Role: ${AppState.currentRole} | Demo: ${AppState.isDemoMode}`);
-    UIManager.showToast(`🎉 Chào mừng ${AppState.currentUser?.name || 'bạn'}!`, 'success');
 });
-
-// ============================================================================
-// GLOBAL FUNCTIONS (for onclick handlers)
-// ============================================================================
-window.CustomerManager = CustomerManager;
-window.ContentScheduler = ContentScheduler;
-window.UIManager = UIManager;
-window.AuthManager = AuthManager;
-window.executeDelete = function () {
-    if (AppState.deletingCustomerId) {
-        CustomerManager.executeDelete();
-    } else if (AppState.deletingPostId) {
-        ContentScheduler.executeDelete();
-    }
-};
