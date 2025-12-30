@@ -426,6 +426,10 @@
             <!-- Links -->
             <div class="login-links">
                 <a href="#" class="login-link" id="forgotPassword">Quên mật khẩu?</a>
+                <a href="register.html" class="login-link">Chưa có tài khoản? <strong>Đăng ký</strong></a>
+            </div>
+
+            <div style="text-align: center; margin-top: 16px;">
                 <a href="index.html" class="login-link">← Về trang chủ</a>
             </div>
         </div>
@@ -438,6 +442,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
     <script>
         // ========== LOGIN LOGIC ==========
         const loginForm = document.getElementById('loginForm');
@@ -446,11 +451,13 @@
         const loginBtn = document.getElementById('loginBtn');
         const errorMessage = document.getElementById('errorMessage');
 
-        // Demo credentials
+        // Demo credentials - all 5 roles
         const DEMO_USERS = {
             'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin' },
             'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager' },
-            'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator' }
+            'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator' },
+            'client@mekongmarketing.com': { password: 'client123', role: 'client', name: 'Client Demo' },
+            'affiliate@mekongmarketing.com': { password: 'affiliate123', role: 'affiliate', name: 'Affiliate Demo' }
         };
 
         function showError(message) {
@@ -509,8 +516,9 @@
                     localStorage.setItem('userName', demoUser.name);
                     localStorage.setItem('isDemoMode', 'true');
 
-                    // Redirect to admin dashboard
-                    window.location.href = 'admin-dashboard.html';
+                    // Redirect based on role
+                    const redirectUrl = Auth.ROLE_REDIRECTS[demoUser.role] || '/admin-dashboard.html';
+                    window.location.href = redirectUrl;
                 } else {
                     showError('Email hoặc mật khẩu không đúng');
                 }
@@ -526,7 +534,7 @@
         // Forgot password
         document.getElementById('forgotPassword').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Demo Mode: Liên hệ admin để reset mật khẩu.\n\nDemo accounts:\n• admin@mekongmarketing.com / admin123\n• manager@mekongmarketing.com / manager123\n• creator@mekongmarketing.com / creator123');
+            alert('Demo Mode: Liên hệ admin để reset mật khẩu.\n\nDemo accounts:\n• admin@mekongmarketing.com / admin123\n• manager@mekongmarketing.com / manager123\n• creator@mekongmarketing.com / creator123\n• client@mekongmarketing.com / client123\n• affiliate@mekongmarketing.com / affiliate123');
         });
 
         // Check if already logged in

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký | Mekong Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --neon-pink: #ff0080;
+            --neon-cyan: #00ffff;
+            --neon-purple: #bf00ff;
+            --neon-green: #00ff88;
+            --neon-gold: #ffc107;
+
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition-normal: 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* ========== BACKGROUND ========== */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            pointer-events: none;
+            animation: floatGlow 20s infinite;
+        }
+
+        .bg-glow--pink {
+            background: var(--neon-pink);
+            top: -200px;
+            right: -200px;
+        }
+
+        .bg-glow--cyan {
+            background: var(--neon-cyan);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatGlow {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-50px, 50px) scale(1.2);
+            }
+        }
+
+        /* ========== REGISTER CARD ========== */
+        .register-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .register-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan), var(--neon-gold));
+            background-size: 200% 100%;
+            animation: gradientBorder 3s linear infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* ========== LOGO ========== */
+        .register-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .register-logo__icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .register-logo__title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .register-logo__subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ========== FORM ========== */
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            transition: all var(--transition-normal);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* ========== ROLE SELECTOR ========== */
+        .role-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .role-option {
+            position: relative;
+        }
+
+        .role-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .role-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+
+        .role-option label:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        .role-option input:checked+label {
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 136, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .role-icon {
+            font-size: 32px;
+        }
+
+        .role-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .role-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ========== BUTTON ========== */
+        .btn-register {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            border: none;
+            border-radius: var(--radius-md);
+            color: #000;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-register:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-register.loading {
+            background: rgba(0, 255, 136, 0.3);
+        }
+
+        /* ========== MESSAGES ========== */
+        .message {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            display: none;
+        }
+
+        .message.visible {
+            display: block;
+        }
+
+        .message--error {
+            background: rgba(255, 0, 80, 0.1);
+            border: 1px solid rgba(255, 0, 80, 0.3);
+            color: var(--neon-pink);
+        }
+
+        .message--success {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--neon-green);
+        }
+
+        /* ========== LINKS ========== */
+        .register-links {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .register-link {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .register-link:hover {
+            color: var(--neon-cyan);
+        }
+
+        .register-link strong {
+            color: var(--neon-cyan);
+        }
+
+        /* ========== FOOTER ========== */
+        .register-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 500px) {
+            .register-card {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .role-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--pink"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-logo">
+                <span class="register-logo__icon">🚀</span>
+                <h1 class="register-logo__title">MEKONG MARKETING</h1>
+                <p class="register-logo__subtitle">TẠO TÀI KHOẢN MỚI</p>
+            </div>
+
+            <form class="register-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">👤 Họ và Tên</label>
+                        <input type="text" class="form-input" id="fullName" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">📱 Số điện thoại</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="0909 888 168">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">📧 Email</label>
+                    <input type="email" class="form-input" id="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">🔐 Mật khẩu</label>
+                    <input type="password" class="form-input" id="password" placeholder="Tối thiểu 6 ký tự" required
+                        minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">🎯 Bạn muốn đăng ký với vai trò:</label>
+                    <div class="role-selector">
+                        <div class="role-option">
+                            <input type="radio" name="role" value="affiliate" id="roleAffiliate" checked>
+                            <label for="roleAffiliate">
+                                <span class="role-icon">🤝</span>
+                                <span class="role-name">Affiliate Partner</span>
+                                <span class="role-desc">Giới thiệu khách, nhận hoa hồng</span>
+                            </label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" name="role" value="client" id="roleClient">
+                            <label for="roleClient">
+                                <span class="role-icon">🏢</span>
+                                <span class="role-name">Client</span>
+                                <span class="role-desc">Theo dõi dự án của bạn</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message message--error" id="errorMessage"></div>
+                <div class="message message--success" id="successMessage"></div>
+
+                <button type="submit" class="btn-register" id="registerBtn">
+                    🚀 Đăng Ký Ngay
+                </button>
+            </form>
+
+            <div class="register-links">
+                <a href="login.html" class="register-link">Đã có tài khoản? <strong>Đăng nhập</strong></a>
+            </div>
+        </div>
+
+        <div class="register-footer">
+            © 2025 Mekong Marketing. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // ========== REGISTER LOGIC ==========
+        const registerForm = document.getElementById('registerForm');
+        const registerBtn = document.getElementById('registerBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('visible');
+            successMessage.classList.remove('visible');
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.classList.add('visible');
+            errorMessage.classList.remove('visible');
+        }
+
+        function hideMessages() {
+            errorMessage.classList.remove('visible');
+            successMessage.classList.remove('visible');
+        }
+
+        function setLoading(isLoading) {
+            registerBtn.classList.toggle('loading', isLoading);
+            registerBtn.disabled = isLoading;
+            registerBtn.textContent = isLoading ? '⏳ Đang xử lý...' : '🚀 Đăng Ký Ngay';
+        }
+
+        // Phone formatting
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 4) value = value.slice(0, 4) + ' ' + value.slice(4);
+            if (value.length > 8) value = value.slice(0, 8) + ' ' + value.slice(8);
+            e.target.value = value.slice(0, 12);
+        });
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const role = document.querySelector('input[name="role"]:checked').value;
+
+            if (!fullName || !email || !password) {
+                showError('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('Mật khẩu phải có ít nhất 6 ký tự');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                const result = await Auth.Actions.signUp(email, password, {
+                    fullName,
+                    phone,
+                    role
+                });
+
+                if (result.success) {
+                    if (result.isDemo) {
+                        // Demo mode - redirect immediately
+                        showSuccess('Đăng ký thành công! Đang chuyển hướng...');
+                        setTimeout(() => {
+                            window.location.href = Auth.Guards.getRedirectUrl();
+                        }, 1500);
+                    } else {
+                        // Real Supabase - wait for email confirmation
+                        showSuccess(result.message || 'Đăng ký thành công! Kiểm tra email để xác nhận.');
+                    }
+                } else {
+                    showError(result.error || 'Có lỗi xảy ra');
+                }
+            } catch (err) {
+                console.error('Register error:', err);
+                showError('Có lỗi xảy ra, vui lòng thử lại');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Redirect if already logged in
+        Auth.Guards.redirectIfAuthenticated();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Dashboard | Mekong Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #001F3F;
+            --accent: #E91E63;
+            --gold: #FFC107;
+            --success: #4CAF50;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #001F3F 50%, #0a0a1a 100%);
+            min-height: 100vh;
+            color: var(--text);
+        }
+
+        /* Header */
+        .header {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header__user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header__name {
+            font-weight: 600;
+        }
+
+        .header__role {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .btn-logout {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Main */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .welcome {
+            margin-bottom: 40px;
+        }
+
+        .welcome h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            opacity: 0.7;
+        }
+
+        /* Stats Grid */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .stat-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card__value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card__label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* Referral Code Section */
+        .referral-section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .referral-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .referral-box {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .referral-code {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.2), rgba(255, 193, 7, 0.2));
+            border: 2px dashed var(--gold);
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: monospace;
+            letter-spacing: 3px;
+        }
+
+        .btn-copy {
+            padding: 15px 25px;
+            background: var(--success);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-copy:hover {
+            transform: scale(1.05);
+        }
+
+        .referral-link {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .referral-link input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Tier Progress */
+        .tier-section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tier-current {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-badge {
+            font-size: 2rem;
+        }
+
+        .tier-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tier-rate {
+            color: var(--gold);
+        }
+
+        .tier-progress {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .tier-progress__fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .tier-info {
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Referrals Table */
+        .table-section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .table-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            font-weight: 600;
+            opacity: 0.7;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: var(--gold);
+        }
+
+        .status-contacted {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+        }
+
+        .status-converted {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+
+        .status-paid {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9C27B0;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            opacity: 0.6;
+        }
+
+        .empty-state__icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Add Referral Form */
+        .add-referral {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .add-referral h3 {
+            margin-bottom: 15px;
+        }
+
+        .add-referral form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .add-referral input {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .add-referral input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-add {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .main {
+                padding: 20px;
+            }
+
+            .referral-box {
+                flex-direction: column;
+            }
+
+            .referral-code {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">🚀 MEKONG AFFILIATE</div>
+        <div class="header__user">
+            <div>
+                <div class="header__name" data-user-name>Loading...</div>
+                <div class="header__role" data-user-role>🤝 Affiliate</div>
+            </div>
+            <button class="btn-logout" data-logout>Đăng Xuất</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Welcome -->
+        <div class="welcome">
+            <h1>👋 Chào <span data-user-name>Partner</span>!</h1>
+            <p>Theo dõi referrals và hoa hồng của bạn tại đây</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-card__icon">👥</div>
+                <div class="stat-card__value" id="totalReferrals">0</div>
+                <div class="stat-card__label">Tổng Referrals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__icon">✅</div>
+                <div class="stat-card__value" id="successfulReferrals">0</div>
+                <div class="stat-card__label">Thành Công</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__icon">💰</div>
+                <div class="stat-card__value" id="totalCommission">0đ</div>
+                <div class="stat-card__label">Tổng Hoa Hồng</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__icon">💸</div>
+                <div class="stat-card__value" id="pendingPayout">0đ</div>
+                <div class="stat-card__label">Chờ Thanh Toán</div>
+            </div>
+        </div>
+
+        <!-- Referral Code -->
+        <section class="referral-section">
+            <h2>🔗 Mã Giới Thiệu Của Bạn</h2>
+            <div class="referral-box">
+                <div class="referral-code" id="myReferralCode">MK-XXXX</div>
+                <button class="btn-copy" onclick="copyCode()">📋 Copy Mã</button>
+                <div class="referral-link">
+                    <input type="text" id="referralLink" readonly value="https://mekongmarketing.com?ref=MK-XXXX">
+                </div>
+                <button class="btn-copy" onclick="copyLink()">🔗 Copy Link</button>
+            </div>
+        </section>
+
+        <!-- Tier Progress -->
+        <section class="tier-section">
+            <div class="tier-header">
+                <div class="tier-current">
+                    <span class="tier-badge" id="tierBadge">🌱</span>
+                    <span class="tier-name" id="tierName">Starter</span>
+                    <span class="tier-rate" id="tierRate">(10%)</span>
+                </div>
+                <span id="nextTierText">Tiếp theo: ⭐ Partner (15%)</span>
+            </div>
+            <div class="tier-progress">
+                <div class="tier-progress__fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <p class="tier-info" id="progressInfo">Còn <strong>6</strong> khách nữa để lên hạng ⭐ Partner!</p>
+        </section>
+
+        <!-- Add Referral -->
+        <section class="table-section">
+            <div class="add-referral">
+                <h3>➕ Thêm Referral Mới</h3>
+                <form id="addReferralForm">
+                    <input type="text" id="refName" placeholder="Tên khách hàng" required>
+                    <input type="tel" id="refPhone" placeholder="Số điện thoại" required>
+                    <input type="email" id="refEmail" placeholder="Email (tùy chọn)">
+                    <button type="submit" class="btn-add">🚀 Gửi Referral</button>
+                </form>
+            </div>
+
+            <h2>📋 Danh Sách Referrals</h2>
+            <div class="table-wrapper">
+                <table id="referralsTable">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Phone</th>
+                            <th>Ngày</th>
+                            <th>Trạng Thái</th>
+                            <th>Giá Trị</th>
+                            <th>Hoa Hồng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="referralsBody">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-state__icon">📭</div>
+                    <p>Chưa có referral nào. Bắt đầu giới thiệu khách hàng ngay!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // ========== AFFILIATE DASHBOARD LOGIC ==========
+
+        // Sample data for demo mode
+        const DEMO_DATA = {
+            affiliate: {
+                referral_code: 'MK-DEMO1234',
+                tier: 'starter',
+                commission_rate: 10,
+                total_referrals: 3,
+                successful_referrals: 2,
+                total_commission: 1500000,
+                pending_payout: 500000
+            },
+            referrals: [
+                { name: 'Chị Lan', phone: '0909 123 456', created_at: '2024-12-28', status: 'converted', deal_value: 5000000, commission_amount: 500000 },
+                { name: 'Anh Minh', phone: '0912 345 678', created_at: '2024-12-29', status: 'contacted', deal_value: 0, commission_amount: 0 },
+                { name: 'Cô Hương', phone: '0987 654 321', created_at: '2024-12-30', status: 'pending', deal_value: 0, commission_amount: 0 }
+            ]
+        };
+
+        // Format VND
+        function formatVND(num) {
+            return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
+        }
+
+        // Update UI with data
+        function updateDashboard(data) {
+            const aff = data.affiliate;
+
+            // Stats
+            document.getElementById('totalReferrals').textContent = aff.total_referrals;
+            document.getElementById('successfulReferrals').textContent = aff.successful_referrals;
+            document.getElementById('totalCommission').textContent = formatVND(aff.total_commission);
+            document.getElementById('pendingPayout').textContent = formatVND(aff.pending_payout);
+
+            // Referral Code
+            document.getElementById('myReferralCode').textContent = aff.referral_code;
+            document.getElementById('referralLink').value = `https://mekongmarketing.com?ref=${aff.referral_code}`;
+
+            // Tier
+            updateTierUI(aff);
+
+            // Referrals table
+            updateReferralsTable(data.referrals);
+        }
+
+        function updateTierUI(aff) {
+            const tiers = {
+                starter: { badge: '🌱', name: 'Starter', rate: 10, next: 'Partner', nextReq: 6 },
+                partner: { badge: '⭐', name: 'Partner', rate: 15, next: 'VIP', nextReq: 16 },
+                vip: { badge: '💎', name: 'VIP', rate: 20, next: null, nextReq: null }
+            };
+
+            const tier = tiers[aff.tier] || tiers.starter;
+
+            document.getElementById('tierBadge').textContent = tier.badge;
+            document.getElementById('tierName').textContent = tier.name;
+            document.getElementById('tierRate').textContent = `(${tier.rate}%)`;
+
+            if (tier.next) {
+                const remaining = tier.nextReq - aff.successful_referrals;
+                const progress = (aff.successful_referrals / tier.nextReq) * 100;
+
+                document.getElementById('progressFill').style.width = `${Math.min(progress, 100)}%`;
+                document.getElementById('nextTierText').textContent = `Tiếp theo: ${tiers[tier.next.toLowerCase()]?.badge || '⭐'} ${tier.next} (${tier.rate + 5}%)`;
+                document.getElementById('progressInfo').innerHTML = `Còn <strong>${remaining}</strong> khách nữa để lên hạng ${tier.next}!`;
+            } else {
+                document.getElementById('progressFill').style.width = '100%';
+                document.getElementById('nextTierText').textContent = '🎉 Đạt cấp cao nhất!';
+                document.getElementById('progressInfo').textContent = 'Bạn đang ở hạng VIP với hoa hồng cao nhất!';
+            }
+        }
+
+        function updateReferralsTable(referrals) {
+            const tbody = document.getElementById('referralsBody');
+            const emptyState = document.getElementById('emptyState');
+
+            if (referrals.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            const statusLabels = {
+                pending: { label: 'Chờ liên hệ', class: 'status-pending' },
+                contacted: { label: 'Đã liên hệ', class: 'status-contacted' },
+                converted: { label: 'Thành công', class: 'status-converted' },
+                paid: { label: 'Đã thanh toán', class: 'status-paid' }
+            };
+
+            tbody.innerHTML = referrals.map(ref => {
+                const status = statusLabels[ref.status] || statusLabels.pending;
+                return `
+                    <tr>
+                        <td>${ref.name}</td>
+                        <td>${ref.phone}</td>
+                        <td>${ref.created_at}</td>
+                        <td><span class="status-badge ${status.class}">${status.label}</span></td>
+                        <td>${ref.deal_value ? formatVND(ref.deal_value) : '-'}</td>
+                        <td>${ref.commission_amount ? formatVND(ref.commission_amount) : '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Copy functions
+        function copyCode() {
+            const code = document.getElementById('myReferralCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ Đã copy mã: ' + code);
+            });
+        }
+
+        function copyLink() {
+            const link = document.getElementById('referralLink').value;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('✅ Đã copy link giới thiệu!');
+            });
+        }
+
+        // Add referral form
+        document.getElementById('addReferralForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('refName').value;
+            const phone = document.getElementById('refPhone').value;
+            const email = document.getElementById('refEmail').value;
+
+            // Demo mode - just add to UI
+            const newRef = {
+                name,
+                phone,
+                email,
+                created_at: new Date().toISOString().split('T')[0],
+                status: 'pending',
+                deal_value: 0,
+                commission_amount: 0
+            };
+
+            DEMO_DATA.referrals.unshift(newRef);
+            DEMO_DATA.affiliate.total_referrals++;
+
+            updateDashboard(DEMO_DATA);
+
+            // Reset form
+            e.target.reset();
+            alert('✅ Đã gửi referral! Đội ngũ sẽ liên hệ khách trong 24h.');
+        });
+
+        // Initialize
+        async function init() {
+            // Check auth
+            const isAuth = await Auth.Guards.requireAuth();
+            if (!isAuth) return;
+
+            // Check role
+            if (!Auth.State.hasRole('affiliate') && !Auth.State.hasPermission('manager')) {
+                window.location.href = Auth.Guards.getRedirectUrl();
+                return;
+            }
+
+            // Update UI with user info
+            Auth.UI.populateUserInfo();
+            Auth.UI.setupLogoutButtons();
+
+            // Load data (demo mode for now)
+            updateDashboard(DEMO_DATA);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
