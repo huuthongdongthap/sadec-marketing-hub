@@ -472,6 +472,333 @@
             text-decoration: none;
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           🔥 URGENCY BANNER (Binh Pháp)
+           ═══════════════════════════════════════════════════════════════ */
+        .urgency-banner {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.2), rgba(255, 193, 7, 0.2));
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: urgencyPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes urgencyPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+            }
+        }
+
+        .urgency__content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .urgency__icon {
+            font-size: 2rem;
+            animation: shake 0.5s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .urgency__text {
+            font-size: 1.1rem;
+        }
+
+        .urgency__text strong {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .urgency__countdown {
+            text-align: right;
+        }
+
+        .countdown__label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .countdown__timer {
+            display: flex;
+            gap: 8px;
+        }
+
+        .countdown__unit {
+            background: var(--primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .countdown__unit span {
+            color: var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           💰 INCOME CALCULATOR
+           ═══════════════════════════════════════════════════════════════ */
+        .calculator {
+            margin: 80px 0;
+        }
+
+        .calc-container {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calc-slider-group {
+            margin-bottom: 30px;
+        }
+
+        .calc-label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .calc-slider-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .calc-slider {
+            flex: 1;
+            height: 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.5);
+        }
+
+        .calc-value-display {
+            background: var(--accent);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 193, 7, 0.2));
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .calc-result__label {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .calc-result__value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), var(--success));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .calc-result__yearly {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .calc-result__yearly span {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .calc-note {
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.85rem;
+            margin-top: 20px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           🏆 TOP AFFILIATES
+           ═══════════════════════════════════════════════════════════════ */
+        .top-affiliates {
+            margin: 80px 0;
+        }
+
+        .affiliate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .affiliate-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .affiliate-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .affiliate-card--gold {
+            border-color: #FFD700;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .affiliate-card--silver {
+            border-color: #C0C0C0;
+        }
+
+        .affiliate-card--bronze {
+            border-color: #CD7F32;
+        }
+
+        .affiliate-rank {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+        }
+
+        .affiliate-avatar {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+
+        .affiliate-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .affiliate-role {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        .affiliate-earnings {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+
+        .affiliate-quote {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           📢 FOMO LIVE FEED
+           ═══════════════════════════════════════════════════════════════ */
+        .fomo-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease, fadeOut 0.5s ease 4.5s forwards;
+            max-width: 350px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+
+        .fomo-toast__avatar {
+            font-size: 2rem;
+        }
+
+        .fomo-toast__text {
+            font-size: 0.9rem;
+        }
+
+        .fomo-toast__text strong {
+            color: var(--accent);
+        }
+
+        .fomo-toast__time {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: 3px;
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .header {
@@ -480,6 +807,24 @@
 
             .register {
                 padding: 40px 20px;
+            }
+
+            .urgency-banner {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .urgency__countdown {
+                text-align: center;
+            }
+
+            .calc-slider-wrapper {
+                flex-direction: column;
+            }
+
+            .calc-result__value {
+                font-size: 2rem;
             }
         }
     </style>
@@ -498,6 +843,23 @@
                 Hoa hồng lên đến <strong>20%</strong> trọn đời!
             </p>
         </header>
+
+        <!-- 🔥 URGENCY BANNER (Binh Pháp: Tạo Khan Hiếm) -->
+        <div class="urgency-banner">
+            <div class="urgency__content">
+                <span class="urgency__icon">⏰</span>
+                <span class="urgency__text">Chỉ còn <strong id="slotsRemaining">27</strong> suất Partner trong tháng
+                    12!</span>
+            </div>
+            <div class="urgency__countdown">
+                <span class="countdown__label">Kết thúc sau:</span>
+                <div class="countdown__timer" id="countdown">
+                    <span class="countdown__unit"><span id="hours">23</span>h</span>
+                    <span class="countdown__unit"><span id="minutes">59</span>m</span>
+                    <span class="countdown__unit"><span id="seconds">59</span>s</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Stats -->
         <div class="stats">
@@ -589,6 +951,57 @@
                         <li>Priority support 24/7</li>
                         <li>Revenue share deals</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💰 INCOME CALCULATOR (Binh Pháp: Vẽ Tranh Tương Lai) -->
+        <section class="calculator">
+            <h2 class="section-title">💰 Tính <span>Thu Nhập</span> Tiềm Năng</h2>
+            <div class="calc-container">
+                <div class="calc-slider-group">
+                    <label class="calc-label">Số khách giới thiệu mỗi tháng:</label>
+                    <div class="calc-slider-wrapper">
+                        <input type="range" id="refSlider" min="1" max="20" value="5" class="calc-slider">
+                        <span class="calc-value-display" id="refCount">5 khách</span>
+                    </div>
+                </div>
+                <div class="calc-result">
+                    <div class="calc-result__label">Thu nhập ước tính/tháng:</div>
+                    <div class="calc-result__value" id="incomeValue">3.750.000đ</div>
+                    <div class="calc-result__yearly">📅 ~<span id="yearlyIncome">45.000.000đ</span>/năm</div>
+                </div>
+                <p class="calc-note">* Dựa trên gói dịch vụ trung bình 5 triệu và hoa hồng 15%</p>
+            </div>
+        </section>
+
+        <!-- 🏆 TOP AFFILIATES (Binh Pháp: Chứng Minh Xã Hội) -->
+        <section class="top-affiliates">
+            <h2 class="section-title">🏆 Top Đối Tác <span>Tháng 12</span></h2>
+            <div class="affiliate-grid">
+                <div class="affiliate-card affiliate-card--gold">
+                    <span class="affiliate-rank">🥇</span>
+                    <div class="affiliate-avatar">👨‍💼</div>
+                    <h4 class="affiliate-name">Anh An</h4>
+                    <p class="affiliate-role">Freelancer Marketing</p>
+                    <div class="affiliate-earnings">+12.500.000đ</div>
+                    <p class="affiliate-quote">"Giới thiệu 8 khách trong 3 tuần đầu!"</p>
+                </div>
+                <div class="affiliate-card affiliate-card--silver">
+                    <span class="affiliate-rank">🥈</span>
+                    <div class="affiliate-avatar">👩‍💻</div>
+                    <h4 class="affiliate-name">Chị Hương</h4>
+                    <p class="affiliate-role">Chủ tiệm in Cần Thơ</p>
+                    <div class="affiliate-earnings">+8.200.000đ</div>
+                    <p class="affiliate-quote">"Khách in ấn đều cần marketing!"</p>
+                </div>
+                <div class="affiliate-card affiliate-card--bronze">
+                    <span class="affiliate-rank">🥉</span>
+                    <div class="affiliate-avatar">👨‍🔧</div>
+                    <h4 class="affiliate-name">Anh Tuấn</h4>
+                    <p class="affiliate-role">IT Freelancer</p>
+                    <div class="affiliate-earnings">+5.600.000đ</div>
+                    <p class="affiliate-quote">"Làm web xong giới thiệu marketing!"</p>
                 </div>
             </div>
         </section>
@@ -733,6 +1146,98 @@
             }
         `;
         document.head.appendChild(style);
+
+        // ═══════════════════════════════════════════════════════════════
+        // 🔥 COUNTDOWN TIMER (Binh Pháp: Urgency)
+        // ═══════════════════════════════════════════════════════════════
+        function updateCountdown() {
+            const now = new Date();
+            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+            const diff = endOfMonth - now;
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ═══════════════════════════════════════════════════════════════
+        // 💰 INCOME CALCULATOR (Binh Pháp: Visualize Future)
+        // ═══════════════════════════════════════════════════════════════
+        const slider = document.getElementById('refSlider');
+        const refCountDisplay = document.getElementById('refCount');
+        const incomeValueDisplay = document.getElementById('incomeValue');
+        const yearlyIncomeDisplay = document.getElementById('yearlyIncome');
+
+        function formatVND(num) {
+            return num.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function calculateIncome(refs) {
+            const avgDealValue = 5000000; // 5 million VND average
+            let commissionRate;
+
+            if (refs <= 5) commissionRate = 0.10;
+            else if (refs <= 15) commissionRate = 0.15;
+            else commissionRate = 0.20;
+
+            const monthlyIncome = refs * avgDealValue * commissionRate;
+            const yearlyIncome = monthlyIncome * 12;
+
+            return { monthly: monthlyIncome, yearly: yearlyIncome };
+        }
+
+        slider.addEventListener('input', function() {
+            const refs = parseInt(this.value);
+            refCountDisplay.textContent = refs + ' khách';
+
+            const income = calculateIncome(refs);
+            incomeValueDisplay.textContent = formatVND(income.monthly);
+            yearlyIncomeDisplay.textContent = formatVND(income.yearly);
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        // 📢 FOMO TOAST NOTIFICATIONS (Binh Pháp: Social Proof)
+        // ═══════════════════════════════════════════════════════════════
+        const fomoData = [
+            { name: 'Chị Hương', location: 'Cần Thơ', avatar: '👩‍💼' },
+            { name: 'Anh Minh', location: 'Vĩnh Long', avatar: '👨‍💻' },
+            { name: 'Cô Năm', location: 'An Giang', avatar: '👩‍🌾' },
+            { name: 'Anh Phúc', location: 'Đồng Tháp', avatar: '👨‍💼' },
+            { name: 'Chị Lan', location: 'Sóc Trăng', avatar: '👩‍🎨' },
+            { name: 'Anh Tuấn', location: 'Bến Tre', avatar: '👨‍🔧' }
+        ];
+
+        function showFomoToast() {
+            const data = fomoData[Math.floor(Math.random() * fomoData.length)];
+            const timeAgo = Math.floor(Math.random() * 10) + 1;
+
+            const toast = document.createElement('div');
+            toast.className = 'fomo-toast';
+            toast.innerHTML = `
+                <span class="fomo-toast__avatar">${data.avatar}</span>
+                <div>
+                    <div class="fomo-toast__text"><strong>${data.name}</strong> từ ${data.location} vừa đăng ký!</div>
+                    <div class="fomo-toast__time">${timeAgo} phút trước</div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => toast.remove(), 5000);
+        }
+
+        // Show first toast after 5 seconds, then every 15-30 seconds
+        setTimeout(showFomoToast, 5000);
+        setInterval(() => {
+            if (Math.random() > 0.3) showFomoToast(); // 70% chance
+        }, 20000);
+
     </script>
 </body>
 
