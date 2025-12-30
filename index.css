@@ -2010,16 +2010,19 @@ a {
     z-index: 2;
 }
 
-/* Responsive Grid */
+/* Responsive Grid - Fixed Spacing */
 .team__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: 40px;
+    /* Increased gap to prevent overlap */
     margin-top: var(--spacing-xl);
     position: relative;
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    /* Add padding for hover scale effect */
 }
 
 @media (min-width: 640px) {
@@ -2037,21 +2040,19 @@ a {
 /* Glassmorphism Card 2026 - High Contrast Update */
 .team__member {
     background: rgba(255, 255, 255, 0.15);
-    /* Increased visibility */
     border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Stronger border */
     border-radius: 20px;
     padding: var(--spacing-xl);
     text-align: center;
     backdrop-filter: blur(20px);
-    /* Higher blur */
     -webkit-backdrop-filter: blur(20px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    overflow: visible;
-    /* Changed to visible for potential pop-out elements */
+    overflow: hidden;
+    /* Changed to hidden to contain animations */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    /* Added base shadow */
+    isolation: isolate;
+    /* Create stacking context */
 }
 
 /* Shine Effect on Hover */
@@ -4625,6 +4626,65 @@ section {
 .form-input:focus {
     border-color: #E91E63 !important;
     box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1) !important;
+}
+
+/* ==========================================================================
+   FOOTER REGIONAL BADGES
+   ========================================================================== */
+.footer__regions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer__region-label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.footer__region {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.footer__region:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.footer__region--active {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 193, 7, 0.5);
+    color: #FFC107;
+    font-weight: 600;
+}
+
+.footer__region--more {
+    background: rgba(233, 30, 99, 0.15);
+    border-color: rgba(233, 30, 99, 0.3);
+    color: rgba(233, 30, 99, 0.9);
+}
+
+@media (max-width: 768px) {
+    .footer__regions {
+        padding: 0 20px;
+    }
+
+    .footer__region-label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
 
 /* ==========================================================================

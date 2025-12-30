@@ -108,7 +108,7 @@ CREATE POLICY "Allow anonymous insert" ON analytics_events
 INSERT INTO testimonials (author, business, content, rating, is_featured) VALUES
 ('Chị Hương', 'Bánh Tráng Cô Hương', 'Từ khi có Marketing Hub hỗ trợ, đơn hàng online tăng 300%. Giờ bà con ở Sài Gòn cũng đặt bánh tráng mỗi tuần!', 5, true),
 ('Anh Minh', 'Cơ Khí Minh Phát', 'Fanpage chạy quảng cáo có người gọi hỏi thăm liên tục. Thợ làm không kịp việc!', 5, true),
-('Cô Năm', 'Mắm Cá Lóc Cô Năm', 'Chưa biết gì về marketing mà giờ có người đặt hàng từ Mỹ về. Cảm ơn Sa Đéc Marketing Hub nhiều lắm!', 5, true);
+('Cô Năm', 'Mắm Cá Lóc Cô Năm', 'Chưa biết gì về marketing mà giờ có người đặt hàng từ Mỹ về. Cảm ơn Mekong Marketing nhiều lắm!', 5, true);
 
 -- Sample Services  
 INSERT INTO services (name, slug, price, price_note, description, features, is_popular, sort_order) VALUES

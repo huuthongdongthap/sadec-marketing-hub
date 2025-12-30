@@ -1,4 +1,4 @@
-# 🚀 Hướng Dẫn Thiết Lập Supabase - Sa Đéc Marketing Hub
+# 🚀 Hướng Dẫn Thiết Lập Supabase - Mekong Marketing
 
 ## Bước 1: Tạo Supabase Project
 

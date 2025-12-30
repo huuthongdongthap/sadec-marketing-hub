@@ -1,5 +1,5 @@
 -- ============================================================================
--- TEST DATA: 100 Contact Records cho Sa Đéc Marketing Hub
+-- TEST DATA: 100 Contact Records cho Mekong Marketing
 -- Chạy trong Supabase SQL Editor để thêm data test
 -- ============================================================================
 

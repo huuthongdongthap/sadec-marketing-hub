@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ═══════════════════════════════════════════════════════════════
     // 10. CONSOLE BRANDING
     // ═══════════════════════════════════════════════════════════════
-    console.log('%c🌸 Sa Đéc Marketing Hub', 'font-size: 24px; font-weight: bold; color: #E91E63;');
+    console.log('%c🌸 Mekong Marketing', 'font-size: 24px; font-weight: bold; color: #E91E63;');
     console.log('%c2026 WOW Edition Loaded', 'font-size: 14px; color: #FFC107;');
     console.log('%c✨ Effects: Aurora, Cursor Glow, Confetti, Sound UI', 'font-size: 11px; color: #00d4ff;');
 });

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập | Mekong Marketing Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Neon Colors */
+            --neon-pink: #ff0080;
+            --neon-cyan: #00ffff;
+            --neon-purple: #bf00ff;
+            --neon-green: #00ff88;
+            --neon-blue: #0088ff;
+
+            /* Glow Effects */
+            --neon-pink-glow: rgba(255, 0, 128, 0.5);
+            --neon-cyan-glow: rgba(0, 255, 255, 0.4);
+            --neon-green-glow: rgba(0, 255, 136, 0.4);
+
+            /* Backgrounds */
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+            /* Text */
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+
+            /* Spacing */
+            --radius-md: 12px;
+            --radius-lg: 20px;
+
+            /* Transitions */
+            --transition-normal: 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* ========== BACKGROUND EFFECTS ========== */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            pointer-events: none;
+            animation: floatGlow 20s infinite;
+        }
+
+        .bg-glow--pink {
+            background: var(--neon-pink);
+            top: -200px;
+            right: -200px;
+        }
+
+        .bg-glow--cyan {
+            background: var(--neon-cyan);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatGlow {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-50px, 50px) scale(1.2);
+            }
+        }
+
+        /* ========== LOGIN CARD ========== */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
+            background-size: 200% 100%;
+            animation: gradientBorder 3s linear infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* ========== LOGO ========== */
+        .login-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-logo__icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .login-logo__title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .login-logo__subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* ========== FORM ========== */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            transition: all var(--transition-normal);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan-glow);
+        }
+
+        /* ========== BUTTON ========== */
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            border: none;
+            border-radius: var(--radius-md);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px var(--neon-pink-glow);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-login__text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-login__loading {
+            display: none;
+        }
+
+        .btn-login.loading .btn-login__text {
+            display: none;
+        }
+
+        .btn-login.loading .btn-login__loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ========== ERROR MESSAGE ========== */
+        .error-message {
+            background: rgba(255, 0, 80, 0.1);
+            border: 1px solid rgba(255, 0, 80, 0.3);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            color: var(--neon-pink);
+            font-size: 13px;
+            display: none;
+            animation: shake 0.4s ease;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        /* ========== LINKS ========== */
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .login-link {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .login-link:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* ========== DEMO BADGE ========== */
+        .demo-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--neon-green);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== FOOTER ========== */
+        .login-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--pink"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <span class="demo-badge">🎭 Demo Mode</span>
+
+            <!-- Logo -->
+            <div class="login-logo">
+                <span class="login-logo__icon">🚀</span>
+                <h1 class="login-logo__title">MEKONG MARKETING</h1>
+                <p class="login-logo__subtitle">ADMIN DASHBOARD</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="email" placeholder="admin@mekongmarketing.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-input" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="error-message" id="errorMessage"></div>
+
+                <button type="submit" class="btn-login" id="loginBtn">
+                    <span class="btn-login__text">🔐 Đăng Nhập</span>
+                    <span class="btn-login__loading">
+                        <span class="spinner"></span>
+                        Đang xử lý...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Links -->
+            <div class="login-links">
+                <a href="#" class="login-link" id="forgotPassword">Quên mật khẩu?</a>
+                <a href="index.html" class="login-link">← Về trang chủ</a>
+            </div>
+        </div>
+
+        <div class="login-footer">
+            © 2024 Mekong Marketing. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        // ========== LOGIN LOGIC ==========
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('loginBtn');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Demo credentials
+        const DEMO_USERS = {
+            'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin' },
+            'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager' },
+            'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator' }
+        };
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('visible');
+        }
+
+        function hideError() {
+            errorMessage.classList.remove('visible');
+        }
+
+        function setLoading(isLoading) {
+            loginBtn.classList.toggle('loading', isLoading);
+            loginBtn.disabled = isLoading;
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+
+            const email = emailInput.value.trim().toLowerCase();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                showError('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                // Check if Supabase is available
+                const isSupabaseReady = typeof window.AuthAPI !== 'undefined';
+
+                if (isSupabaseReady) {
+                    // Try Supabase auth first
+                    const { data, error } = await AuthAPI.signIn(email, password);
+
+                    if (!error && data.user) {
+                        // Success - redirect to admin
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userEmail', email);
+                        window.location.href = 'admin-dashboard.html';
+                        return;
+                    }
+                }
+
+                // Fall back to demo mode
+                const demoUser = DEMO_USERS[email];
+
+                if (demoUser && demoUser.password === password) {
+                    // Demo login success
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userRole', demoUser.role);
+                    localStorage.setItem('userName', demoUser.name);
+                    localStorage.setItem('isDemoMode', 'true');
+
+                    // Redirect to admin dashboard
+                    window.location.href = 'admin-dashboard.html';
+                } else {
+                    showError('Email hoặc mật khẩu không đúng');
+                }
+
+            } catch (err) {
+                console.error('Login error:', err);
+                showError('Có lỗi xảy ra, vui lòng thử lại');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Forgot password
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Demo Mode: Liên hệ admin để reset mật khẩu.\n\nDemo accounts:\n• admin@mekongmarketing.com / admin123\n• manager@mekongmarketing.com / manager123\n• creator@mekongmarketing.com / creator123');
+        });
+
+        // Check if already logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            window.location.href = 'admin-dashboard.html';
+        }
+
+        // Prefill demo email for convenience
+        emailInput.value = 'admin@mekongmarketing.com';
+    </script>
+</body>
+
+</html>

@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    console.log('🌸 Sa Đéc Marketing Hub v4.0 - Full UX Features Loaded!');
+    console.log('🌸 Mekong Marketing v4.0 - Full UX Features Loaded!');
 
     // ========== 15. UX WAO: SCROLL REVEAL ANIMATION ==========
     const observerOptions = {
