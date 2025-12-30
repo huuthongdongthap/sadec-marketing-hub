@@ -275,6 +275,67 @@ const AuthActions = {
         } catch (error) {
             return { success: false, error: error.message };
         }
+    },
+
+    // Resend verification email
+    async resendVerificationEmail(email) {
+        try {
+            if (window.SupabaseAPI) {
+                const client = window.SupabaseAPI.getClient();
+                if (client) {
+                    const { error } = await client.auth.resend({
+                        type: 'signup',
+                        email: email,
+                        options: {
+                            emailRedirectTo: `${window.location.origin}/verify-email.html`
+                        }
+                    });
+
+                    if (error) throw error;
+                    return { success: true, message: 'Email xác thực đã được gửi lại!' };
+                }
+            }
+
+            return { success: false, error: 'Demo mode: Không cần xác thực email' };
+
+        } catch (error) {
+            return { success: false, error: error.message };
+        }
+    },
+
+    // Check if email is verified
+    async checkEmailVerified() {
+        try {
+            if (window.SupabaseAPI) {
+                const client = window.SupabaseAPI.getClient();
+                if (client) {
+                    const { data: { user } } = await client.auth.getUser();
+                    if (user) {
+                        return {
+                            verified: !!user.email_confirmed_at,
+                            email: user.email
+                        };
+                    }
+                }
+            }
+            // Demo mode - always verified
+            return { verified: true, email: localStorage.getItem('userEmail') };
+
+        } catch (error) {
+            console.error('Check email verified error:', error);
+            return { verified: false, email: null };
+        }
+    },
+
+    // Sign in with Zalo (placeholder - coming soon)
+    async signInWithZalo() {
+        // Zalo OA integration requires business verification
+        // This is a placeholder for future implementation
+        return {
+            success: false,
+            error: 'Đăng nhập bằng Zalo sẽ sớm ra mắt! 🚀',
+            isPlaceholder: true
+        };
     }
 };
 

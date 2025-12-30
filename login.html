@@ -421,6 +421,54 @@
                         Đang xử lý...
                     </span>
                 </button>
+
+                <!-- Divider -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+                    <span style="color: var(--text-muted); font-size: 12px;">hoặc</span>
+                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+                </div>
+
+                <!-- Zalo Button (Placeholder) -->
+                <button type="button" class="btn-zalo" id="zaloBtn" style="
+                    width: 100%;
+                    padding: 14px;
+                    margin-top: 12px;
+                    background: linear-gradient(135deg, #0068ff, #0091ff);
+                    border: none;
+                    border-radius: 12px;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 600;
+                    font-family: inherit;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    position: relative;
+                ">
+                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor">
+                        <path
+                            d="M24 4C12.95 4 4 12.95 4 24c0 6.07 2.72 11.51 7 15.17V44l4.69-2.58C18.38 42.44 21.12 43 24 43c11.05 0 20-8.95 20-20S35.05 4 24 4z" />
+                        <path fill="#0068ff"
+                            d="M19 17h10c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H19c-.55 0-1-.45-1-1V18c0-.55.45-1 1-1z" />
+                        <text x="24" y="26" text-anchor="middle" fill="white" font-size="8" font-weight="bold">Z</text>
+                    </svg>
+                    Đăng nhập bằng Zalo
+                    <span style="
+                        position: absolute;
+                        top: -8px;
+                        right: -8px;
+                        background: linear-gradient(135deg, #ffc107, #ff9800);
+                        color: #000;
+                        font-size: 9px;
+                        padding: 3px 8px;
+                        border-radius: 10px;
+                        font-weight: 700;
+                    ">SẮP RA MẮT</span>
+                </button>
             </form>
 
             <!-- Links -->
@@ -525,6 +573,15 @@
 
         // Prefill demo email for convenience
         // emailInput.value = 'admin@mekongmarketing.com';
+
+        // Zalo button (Coming Soon)
+        document.getElementById('zaloBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const result = await Auth.Actions.signInWithZalo();
+            if (result.isPlaceholder) {
+                alert('🚀 ' + result.error + '\n\nTính năng đăng nhập bằng Zalo sẽ được cập nhật sớm!\nHiện tại bạn có thể đăng nhập bằng email.');
+            }
+        });
     </script>
 </body>
 
