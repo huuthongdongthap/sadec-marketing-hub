@@ -250,6 +250,7 @@ const UIManager = {
             scheduler: '📅 Lịch Đăng Bài',
             kpi: '📈 KPI & Báo Cáo',
             messages: '💬 Tin Nhắn',
+            users: '🔐 Quản Lý Users',
             settings: '⚙️ Cài Đặt'
         };
 
@@ -261,8 +262,14 @@ const UIManager = {
     },
 
     updateTabContent(tabName) {
-        // For now, all content is visible on dashboard
-        // Future: show/hide specific sections
+        // Show/hide Users panel based on tab
+        const usersPanel = document.getElementById('usersPanel');
+        if (usersPanel) {
+            usersPanel.style.display = tabName === 'users' ? 'block' : 'none';
+            if (tabName === 'users') {
+                UserManager.loadAndRender();
+            }
+        }
         console.log(`📑 Switched to tab: ${tabName}`);
     },
 
@@ -597,6 +604,124 @@ const ContentScheduler = {
         UIManager.closeModal('deleteConfirmModal');
         UIManager.showToast('🗑️ Đã xóa bài đăng');
         this.loadAndRender();
+    }
+};
+
+// ============================================================================
+// USER MANAGER (Phase 4: Admin User Management)
+// ============================================================================
+const UserManager = {
+    users: [],
+
+    async loadUsers() {
+        if (AppState.isDemoMode) {
+            // Demo users data
+            this.users = [
+                { id: 1, email: 'admin@mekongmarketing.com', full_name: 'Admin', role: 'super_admin', created_at: '2024-12-01' },
+                { id: 2, email: 'manager@mekongmarketing.com', full_name: 'Manager', role: 'manager', created_at: '2024-12-05' },
+                { id: 3, email: 'creator@mekongmarketing.com', full_name: 'Content Creator', role: 'content_creator', created_at: '2024-12-10' },
+                { id: 4, email: 'client@mekongmarketing.com', full_name: 'Demo Client', role: 'client', created_at: '2024-12-15' },
+                { id: 5, email: 'affiliate@mekongmarketing.com', full_name: 'Demo Affiliate', role: 'affiliate', created_at: '2024-12-20' }
+            ];
+            return { data: this.users };
+        }
+
+        const client = SupabaseAdmin.getClient();
+        if (!client) return { error: 'Not initialized', data: [] };
+
+        const { data, error } = await client
+            .from('user_profiles')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (!error && data) this.users = data;
+        return { data: data || [], error };
+    },
+
+    async updateUserRole(userId, newRole) {
+        if (AppState.isDemoMode) {
+            const user = this.users.find(u => u.id === userId);
+            if (user) user.role = newRole;
+            UIManager.showToast(`✅ Đã cập nhật role thành ${newRole}`);
+            return { success: true };
+        }
+
+        const client = SupabaseAdmin.getClient();
+        if (!client) return { error: 'Not initialized' };
+
+        const { error } = await client
+            .from('user_profiles')
+            .update({ role: newRole })
+            .eq('id', userId);
+
+        if (error) {
+            UIManager.showToast('Lỗi cập nhật role', 'error');
+            return { error };
+        }
+
+        UIManager.showToast(`✅ Đã cập nhật role thành ${newRole}`);
+        return { success: true };
+    },
+
+    getRoleLabel(role) {
+        const labels = {
+            super_admin: '👑 Super Admin',
+            manager: '📊 Manager',
+            content_creator: '✍️ Creator',
+            client: '🏢 Client',
+            affiliate: '🤝 Affiliate'
+        };
+        return labels[role] || role;
+    },
+
+    getRoleBadgeClass(role) {
+        const classes = {
+            super_admin: 'role-badge--admin',
+            manager: 'role-badge--manager',
+            content_creator: 'role-badge--creator',
+            client: 'role-badge--client',
+            affiliate: 'role-badge--affiliate'
+        };
+        return classes[role] || '';
+    },
+
+    renderUsersList() {
+        const container = document.getElementById('usersTableBody');
+        if (!container) return;
+
+        container.innerHTML = this.users.map(user => `
+            <tr class="crm-row">
+                <td>
+                    <div class="user-info">
+                        <span class="user-avatar">${user.full_name?.charAt(0) || '?'}</span>
+                        <div>
+                            <div class="user-name">${user.full_name || 'N/A'}</div>
+                            <div class="user-email">${user.email}</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <select class="role-select" onchange="UserManager.handleRoleChange(${user.id}, this.value)" ${user.role === 'super_admin' ? 'disabled' : ''}>
+                        <option value="super_admin" ${user.role === 'super_admin' ? 'selected' : ''}>👑 Super Admin</option>
+                        <option value="manager" ${user.role === 'manager' ? 'selected' : ''}>📊 Manager</option>
+                        <option value="content_creator" ${user.role === 'content_creator' ? 'selected' : ''}>✍️ Creator</option>
+                        <option value="client" ${user.role === 'client' ? 'selected' : ''}>🏢 Client</option>
+                        <option value="affiliate" ${user.role === 'affiliate' ? 'selected' : ''}>🤝 Affiliate</option>
+                    </select>
+                </td>
+                <td>${new Date(user.created_at).toLocaleDateString('vi-VN')}</td>
+            </tr>
+        `).join('');
+    },
+
+    async handleRoleChange(userId, newRole) {
+        await this.updateUserRole(userId, newRole);
+        await this.loadAndRender();
+    },
+
+    async loadAndRender() {
+        await this.loadUsers();
+        this.renderUsersList();
     }
 };
 
