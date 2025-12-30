@@ -974,6 +974,100 @@
     margin: 0;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   22. NEWSLETTER SUBSCRIBE (Binh Pháp)
+   ═══════════════════════════════════════════════════════════════ */
+.footer__newsletter {
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(255, 193, 7, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.newsletter__content {
+    flex: 1;
+}
+
+.newsletter__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #fff;
+}
+
+.newsletter__desc {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.newsletter__form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter__input {
+    padding: 14px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.newsletter__input:focus {
+    outline: none;
+    border-color: var(--wow-accent-pink);
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
+}
+
+.newsletter__input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.newsletter__btn {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--wow-accent-pink), var(--wow-accent-gold));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+}
+
+@media (max-width: 768px) {
+    .footer__newsletter {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .newsletter__form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .newsletter__input {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
 /* ==========================================================================
    ✅ HOMEPAGE WOW 2026 CSS COMPLETE
    ========================================================================== */

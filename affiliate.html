@@ -799,6 +799,115 @@
             margin-top: 3px;
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           🎮 TIER PROGRESS BAR (Binh Pháp: Gamification)
+           ═══════════════════════════════════════════════════════════════ */
+        .tier-progress {
+            margin: 60px 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .tier-progress__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tier-progress__current {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-progress__badge {
+            font-size: 2rem;
+        }
+
+        .tier-progress__name {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tier-progress__next {
+            color: var(--gold);
+            font-weight: 600;
+            animation: pulseText 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseText {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .tier-progress__bar {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tier-progress__fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .tier-progress__fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .tier-progress__info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .tier-progress__info strong {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .tier-progress__reward {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 193, 7, 0.2));
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .header {
@@ -1006,6 +1115,26 @@
             </div>
         </section>
 
+        <!-- 🎮 TIER PROGRESS BAR (Binh Pháp: Gamification) -->
+        <section class="tier-progress" id="tierProgress">
+            <div class="tier-progress__header">
+                <div class="tier-progress__current">
+                    <span class="tier-progress__badge">🌱</span>
+                    <span class="tier-progress__name">Starter (10%)</span>
+                </div>
+                <span class="tier-progress__next">Tiếp theo: ⭐ Partner (15%)</span>
+            </div>
+            <div class="tier-progress__bar">
+                <div class="tier-progress__fill" id="progressFill" style="width: 60%"></div>
+            </div>
+            <p class="tier-progress__info">
+                Còn <strong id="remainingRefs">2</strong> khách nữa để lên hạng ⭐ <strong>Partner</strong>!
+            </p>
+            <div class="tier-progress__reward">
+                🎁 Thưởng: +5% hoa hồng + Dashboard riêng + Hotline VIP
+            </div>
+        </section>
+
         <!-- Registration Form -->
         <section class="register" id="register">
             <h2 class="section-title">Đăng Ký <span>Ngay</span></h2>
@@ -1193,7 +1322,7 @@
             return { monthly: monthlyIncome, yearly: yearlyIncome };
         }
 
-        slider.addEventListener('input', function() {
+        slider.addEventListener('input', function () {
             const refs = parseInt(this.value);
             refCountDisplay.textContent = refs + ' khách';
 
