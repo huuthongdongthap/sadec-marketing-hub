@@ -1,0 +1,639 @@
+/* ============================================================================
+   LAYOUT SAFETY + M3 DESIGN TOKENS
+   Sa Đéc Marketing Hub - 2026 Standards
+   ============================================================================ */
+
+/* ============================================================================
+   1. M3 TYPOGRAPHY SCALE - Safe & Responsive
+   ============================================================================ */
+:root {
+    /* Font Families - Google Fonts */
+    --font-brand: 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', 'Roboto', system-ui, sans-serif;
+    --font-headline: 'Roboto', 'Inter', system-ui, sans-serif;
+
+    /* Display - Hero Headlines (responsive) */
+    --text-display-large: clamp(40px, 8vw, 57px);
+    --text-display-medium: clamp(32px, 6vw, 45px);
+    --text-display-small: clamp(28px, 5vw, 36px);
+
+    /* Headline - Section Titles */
+    --text-headline-large: clamp(26px, 4vw, 32px);
+    --text-headline-medium: clamp(22px, 3.5vw, 28px);
+    --text-headline-small: clamp(20px, 3vw, 24px);
+
+    /* Title - Card Titles */
+    --text-title-large: clamp(18px, 2.5vw, 22px);
+    --text-title-medium: 16px;
+    --text-title-small: 14px;
+
+    /* Body - Content */
+    --text-body-large: 16px;
+    --text-body-medium: 14px;
+    --text-body-small: 12px;
+
+    /* Label - Buttons */
+    --text-label-large: 14px;
+    --text-label-medium: 12px;
+    --text-label-small: 11px;
+
+    /* Line Heights */
+    --leading-tight: 1.1;
+    --leading-snug: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.7;
+}
+
+/* ============================================================================
+   2. SPACING SYSTEM - 4px Base
+   ============================================================================ */
+:root {
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+
+    /* Section Padding (responsive) */
+    --section-padding-y: clamp(60px, 10vh, 100px);
+    --section-padding-x: clamp(16px, 5vw, 24px);
+
+    /* Container Max Width */
+    --container-max: 1200px;
+    --container-narrow: 800px;
+    --container-wide: 1400px;
+}
+
+/* ============================================================================
+   3. SHAPE TOKENS - Border Radius
+   ============================================================================ */
+:root {
+    --radius-none: 0;
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 28px;
+    --radius-full: 9999px;
+}
+
+/* ============================================================================
+   4. ELEVATION - Shadows
+   ============================================================================ */
+:root {
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-2: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-3: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-4: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04);
+    --shadow-5: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================================================
+   5. GLOBAL TYPOGRAPHY - Apply Fonts
+   ============================================================================ */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: var(--leading-normal);
+    color: #1a1a2e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-headline);
+    line-height: var(--leading-snug);
+    font-weight: 700;
+}
+
+/* ============================================================================
+   6. LAYOUT SAFETY RULES
+   ============================================================================ */
+
+/* Container Safety */
+.container-safe {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--section-padding-x);
+    padding-right: var(--section-padding-x);
+    box-sizing: border-box;
+}
+
+/* Text Safety - Prevent Overflow */
+.text-safe {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Prevent Text Clipping */
+.text-no-clip {
+    padding: 0.1em 0;
+    margin: -0.1em 0;
+}
+
+/* Touch Target Safety - Min 48x48 */
+.touch-safe {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Safety */
+.image-safe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    background-color: #f5f5f5;
+}
+
+/* Grid Safety - Auto-fit with minimum */
+.grid-safe {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+.grid-safe-2 {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+.grid-safe-4 {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
+
+/* Section Safety */
+.section-safe {
+    padding: var(--section-padding-y) 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Flex Safety */
+.flex-safe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================================
+   6. SAFE COMPONENT CLASSES
+   ============================================================================ */
+
+/* Safe Header */
+.header-safe {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--section-padding-x);
+    min-height: 64px;
+    background: white;
+    box-shadow: var(--shadow-1);
+}
+
+/* Safe Hero */
+.hero-safe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: clamp(100px, 15vh, 160px) var(--section-padding-x);
+    min-height: 100vh;
+    min-height: 100dvh;
+    gap: var(--space-6);
+}
+
+.hero-safe__headline {
+    font-size: var(--text-display-large);
+    font-weight: 900;
+    line-height: var(--leading-tight);
+    max-width: 900px;
+}
+
+.hero-safe__subheadline {
+    font-size: var(--text-body-large);
+    line-height: var(--leading-relaxed);
+    max-width: 700px;
+    opacity: 0.85;
+}
+
+/* Safe Card */
+.card-safe {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    background: white;
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+}
+
+.card-safe__icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(233, 30, 99, 0.05));
+    flex-shrink: 0;
+    margin-bottom: var(--space-4);
+}
+
+.card-safe__title {
+    font-size: var(--text-title-large);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: #1a1a2e;
+}
+
+.card-safe__text {
+    font-size: var(--text-body-medium);
+    line-height: var(--leading-relaxed);
+    color: #666;
+}
+
+/* Safe Pricing Card */
+.pricing-safe {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-8);
+    border-radius: var(--radius-2xl);
+    background: white;
+    box-shadow: var(--shadow-4);
+    text-align: center;
+}
+
+.pricing-safe__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    color: white;
+    font-size: var(--text-label-large);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+}
+
+.pricing-safe__price {
+    font-size: clamp(48px, 10vw, 64px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.pricing-safe__features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0;
+    text-align: left;
+}
+
+.pricing-safe__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: var(--text-body-large);
+}
+
+.pricing-safe__feature:last-child {
+    border-bottom: none;
+}
+
+/* Safe Button */
+.btn-safe {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--text-label-large);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-safe--primary {
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    color: white;
+    box-shadow: 0 4px 14px rgba(233, 30, 99, 0.4);
+}
+
+.btn-safe--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.5);
+}
+
+.btn-safe--secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-safe--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.btn-safe--full {
+    width: 100%;
+}
+
+/* Safe Step Cards */
+.step-safe {
+    position: relative;
+    padding: var(--space-10) var(--space-6) var(--space-6);
+    border-radius: var(--radius-xl);
+    background: white;
+    box-shadow: var(--shadow-2);
+    text-align: center;
+}
+
+.step-safe__number {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, #E91E63, #C2185B);
+    color: white;
+    font-size: var(--text-title-medium);
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+}
+
+.step-safe__icon {
+    font-size: 48px;
+    margin-bottom: var(--space-4);
+}
+
+.step-safe__title {
+    font-size: var(--text-title-medium);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.step-safe__text {
+    font-size: var(--text-body-small);
+    color: #666;
+    line-height: var(--leading-relaxed);
+}
+
+/* Safe Testimonial */
+.testimonial-safe {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-safe__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid #FFC107;
+}
+
+.testimonial-safe__quote {
+    font-size: var(--text-body-large);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.testimonial-safe__author {
+    font-size: var(--text-title-medium);
+    font-weight: 700;
+}
+
+.testimonial-safe__role {
+    font-size: var(--text-body-small);
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    .testimonial-safe {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* Safe Blog Card */
+.blog-safe {
+    border-radius: var(--radius-xl);
+    background: white;
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+}
+
+.blog-safe__image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.blog-safe__content {
+    padding: var(--space-6);
+}
+
+.blog-safe__category {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    background: rgba(233, 30, 99, 0.1);
+    color: #E91E63;
+    font-size: var(--text-label-small);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.blog-safe__title {
+    font-size: var(--text-title-medium);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-safe__excerpt {
+    font-size: var(--text-body-small);
+    color: #666;
+    line-height: var(--leading-relaxed);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Safe Footer */
+.footer-safe {
+    background: #0a1628;
+    color: white;
+    padding: var(--space-16) var(--section-padding-x) var(--space-8);
+}
+
+.footer-safe__grid {
+    display: grid;
+    gap: var(--space-8);
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    margin-bottom: var(--space-12);
+}
+
+.footer-safe__link {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    font-size: var(--text-body-medium);
+    transition: color 0.2s;
+}
+
+.footer-safe__link:hover {
+    color: white;
+}
+
+.footer-safe__copyright {
+    text-align: center;
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--text-body-small);
+    opacity: 0.6;
+}
+
+/* ============================================================================
+   7. SECTION HEADER SAFE
+   ============================================================================ */
+.section-header-safe {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+}
+
+.section-header-safe__title {
+    font-size: var(--text-headline-large);
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+    color: #1a1a2e;
+}
+
+.section-header-safe__title span {
+    background: linear-gradient(135deg, #E91E63, #FF4081);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header-safe__subtitle {
+    font-size: var(--text-body-large);
+    color: #666;
+    line-height: var(--leading-relaxed);
+}
+
+/* ============================================================================
+   8. FORM SAFE
+   ============================================================================ */
+.form-safe {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--space-8);
+    background: white;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-3);
+}
+
+.form-safe__row {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
+
+.form-safe__field {
+    width: 100%;
+}
+
+.form-safe__input {
+    width: 100%;
+    padding: var(--space-4);
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-md);
+    font-size: var(--text-body-large);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-safe__input:focus {
+    outline: none;
+    border-color: #E91E63;
+}
+
+.form-safe__label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--text-label-medium);
+    font-weight: 600;
+    color: #333;
+}

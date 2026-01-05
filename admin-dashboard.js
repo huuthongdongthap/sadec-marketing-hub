@@ -339,29 +339,45 @@ const CustomerManager = {
         if (!tbody) return;
 
         tbody.innerHTML = customers.map(customer => `
-            <tr data-id="${customer.id}">
-                <td>
-                    <div class="crm-table__customer">
-                        <div class="crm-table__avatar">${customer.avatar_emoji || '👤'}</div>
+            <tr style="border-bottom: 1px solid var(--md-sys-color-outline-variant); transition: background 0.2s ease;">
+                <td style="padding: 12px 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; background: var(--md-sys-color-surface-container-highest); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                            ${customer.avatar_emoji || '👤'}
+                        </div>
                         <div>
-                            <div class="crm-table__name">${customer.name}</div>
-                            <div class="crm-table__email">${customer.phone || ''}</div>
+                            <div style="font-weight: 600; font-size: 14px; color: var(--md-sys-color-on-surface);">${customer.name}</div>
+                            <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">${customer.phone || ''}</div>
                         </div>
                     </div>
                 </td>
-                <td><span class="crm-table__badge crm-table__badge--${customer.status}">${this.getStatusLabel(customer.status)}</span></td>
-                <td>${this.getSourceLabel(customer.source)}</td>
-                <td>${customer.created_at}</td>
-                <td>
-                    <div class="crm-table__actions">
-                        <button class="crm-table__btn crm-table__btn--edit" onclick="CustomerManager.edit(${customer.id})" title="Sửa">✏️</button>
-                        <button class="crm-table__btn crm-table__btn--call" onclick="CustomerManager.call('${customer.phone}')" title="Gọi">📞</button>
-                        <button class="crm-table__btn crm-table__btn--zalo" onclick="CustomerManager.zalo('${customer.phone}')" title="Zalo">💬</button>
-                        <button class="crm-table__btn crm-table__btn--delete" onclick="CustomerManager.confirmDelete(${customer.id})" title="Xóa">🗑️</button>
+                <td style="padding: 12px 16px;">
+                    <span class="trust-chip-exp" style="font-size: 11px; ${this.getStatusStyle(customer.status)}">
+                        ${this.getStatusLabel(customer.status)}
+                    </span>
+                </td>
+                <td style="padding: 12px 16px; font-size: 13px; color: var(--md-sys-color-on-surface-variant);">
+                    ${this.getSourceLabel(customer.source)}
+                </td>
+                <td style="padding: 12px 16px; text-align: right;">
+                    <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                        <button class="btn-exp btn-exp-outlined" onclick="CustomerManager.edit(${customer.id})" style="width: 32px; height: 32px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="Sửa">✏️</button>
+                        <button class="btn-exp btn-exp-text" onclick="CustomerManager.call('${customer.phone}')" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gọi">📞</button>
                     </div>
                 </td>
             </tr>
         `).join('');
+    },
+
+    getStatusStyle(status) {
+        const styles = {
+            new: 'background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container);',
+            hot: 'background: var(--md-sys-color-error-container); color: var(--md-sys-color-on-error-container);',
+            warm: 'background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);',
+            closed: 'background: var(--md-sys-color-green-container, #d1e7dd); color: var(--md-sys-color-green-on-container, #0f5132);',
+            lost: 'background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-on-surface);'
+        };
+        return styles[status] || '';
     },
 
     getStatusLabel(status) {
@@ -496,22 +512,39 @@ const ContentScheduler = {
         if (!container) return;
 
         container.innerHTML = posts.map(post => `
-            <div class="scheduler__item scheduler__item--${post.status}" data-id="${post.id}">
-                <div class="scheduler__time">
-                    <div class="scheduler__date">${post.scheduled_at?.split(' - ')[0] || '--/--'}</div>
-                    <div class="scheduler__hour">${post.scheduled_at?.split(' - ')[1] || '--:--'}</div>
+            <div style="background: var(--md-sys-color-surface-container); padding: 16px; border-radius: var(--shape-medium); display: flex; gap: 16px; align-items: flex-start; transition: all 0.2s ease; border: 1px solid var(--md-sys-color-outline-variant);">
+                <div style="background: var(--md-sys-color-surface-container-high); padding: 8px 12px; border-radius: var(--shape-small); text-align: center; min-width: 60px;">
+                    <div style="font-size: 11px; font-weight: 700; color: var(--md-sys-color-primary);">${post.scheduled_at?.split(' - ')[0] || '--/--'}</div>
+                    <div style="font-size: 13px; font-weight: 500; margin-top: 2px;">${post.scheduled_at?.split(' - ')[1] || '--:--'}</div>
                 </div>
-                <div class="scheduler__content">
-                    <span class="scheduler__platform scheduler__platform--${post.platform}">${this.getPlatformLabel(post.platform)}</span>
-                    <div class="scheduler__title">${post.title}</div>
-                    <div class="scheduler__status scheduler__status--${post.status}">${this.getStatusLabel(post.status)}</div>
+                
+                <div style="flex: 1;">
+                    <div style="display: flex; gap: 8px; margin-bottom: 4px;">
+                        <span class="trust-chip-exp" style="font-size: 10px; padding: 2px 8px; ${this.getPlatformStyle(post.platform)}">
+                            ${this.getPlatformLabel(post.platform)}
+                        </span>
+                        <span class="trust-chip-exp" style="font-size: 10px; padding: 2px 8px; background: var(--md-sys-color-surface-container-highest);">
+                            ${this.getStatusLabel(post.status)}
+                        </span>
+                    </div>
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">${post.title}</div>
                 </div>
-                <div class="scheduler__actions">
-                    <button class="scheduler__btn" onclick="ContentScheduler.edit(${post.id})" title="Sửa">✏️</button>
-                    <button class="scheduler__btn" onclick="ContentScheduler.confirmDelete(${post.id})" title="Xóa">🗑️</button>
+                
+                <div style="display: flex; gap: 4px;">
+                     <button class="btn-exp btn-exp-text" onclick="ContentScheduler.edit(${post.id})" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">✏️</button>
                 </div>
             </div>
         `).join('');
+    },
+
+    getPlatformStyle(platform) {
+        const styles = {
+            facebook: 'background: #e7f5ff; color: #1877f2;',
+            zalo: 'background: #eef2ff; color: #0068ff;',
+            tiktok: 'background: #000000; color: #ffffff;',
+            instagram: 'background: #fff0f5; color: #d62976;'
+        };
+        return styles[platform] || '';
     },
 
     getPlatformLabel(platform) {

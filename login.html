@@ -11,305 +11,68 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
 
+
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
     <style>
-        /* ========== CSS RESET & VARIABLES ========== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            /* Neon Colors */
-            --neon-pink: #ff0080;
-            --neon-cyan: #00ffff;
-            --neon-purple: #bf00ff;
-            --neon-green: #00ff88;
-            --neon-blue: #0088ff;
-
-            /* Glow Effects */
-            --neon-pink-glow: rgba(255, 0, 128, 0.5);
-            --neon-cyan-glow: rgba(0, 255, 255, 0.4);
-            --neon-green-glow: rgba(0, 255, 136, 0.4);
-
-            /* Backgrounds */
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
-            --bg-card: rgba(20, 20, 30, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.08);
-
-            /* Text */
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.4);
-
-            /* Spacing */
-            --radius-md: 12px;
-            --radius-lg: 20px;
-
-            /* Transitions */
-            --transition-normal: 0.3s ease;
-        }
-
+        /* M3 Expressive Override for Auth Pages */
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
+            background: var(--md-sys-color-surface);
             overflow: hidden;
+            font-family: var(--font-brand);
         }
 
-        /* ========== BACKGROUND EFFECTS ========== */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-        }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.3;
-            pointer-events: none;
-            animation: floatGlow 20s infinite;
-        }
-
-        .bg-glow--pink {
-            background: var(--neon-pink);
-            top: -200px;
-            right: -200px;
-        }
-
-        .bg-glow--cyan {
-            background: var(--neon-cyan);
-            bottom: -200px;
-            left: -200px;
-            animation-delay: -10s;
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-50px, 50px) scale(1.2);
-            }
-        }
-
-        /* ========== LOGIN CARD ========== */
-        .login-container {
-            position: relative;
-            z-index: 10;
+        .auth-container {
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             padding: 20px;
+            z-index: 10;
         }
 
-        .login-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 40px;
+        /* Input Field Styling Wrapper */
+        .md-field-wrapper {
+            margin-bottom: 20px;
             position: relative;
-            overflow: hidden;
         }
 
-        .login-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
-            background-size: 200% 100%;
-            animation: gradientBorder 3s linear infinite;
-        }
-
-        @keyframes gradientBorder {
-            0% {
-                background-position: 0% 0%;
-            }
-
-            100% {
-                background-position: 200% 0%;
-            }
-        }
-
-        /* ========== LOGO ========== */
-        .login-logo {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .login-logo__icon {
-            font-size: 48px;
-            margin-bottom: 12px;
+        .md-field-wrapper label {
             display: block;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .login-logo__title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
-
-        .login-logo__subtitle {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            letter-spacing: 1px;
-        }
-
-        /* ========== FORM ========== */
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-label {
-            font-size: 13px;
+            margin-bottom: 8px;
+            font-size: 14px;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--md-sys-color-on-surface-variant);
         }
 
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 15px;
-            font-family: inherit;
-            transition: all var(--transition-normal);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px var(--neon-cyan-glow);
-        }
-
-        /* ========== BUTTON ========== */
-        .btn-login {
+        .md-field-wrapper input {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-            border: none;
-            border-radius: var(--radius-md);
-            color: white;
-            font-size: 15px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
+            border-radius: var(--shape-small);
+            border: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface-container-highest);
+            color: var(--md-sys-color-on-surface);
+            font-size: 16px;
+            transition: all 0.2s ease;
         }
 
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px var(--neon-pink-glow);
+        .md-field-wrapper input:focus {
+            border-color: var(--md-exp-primary);
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+            outline: none;
         }
 
-        .btn-login:active {
-            transform: translateY(0);
-        }
-
-        .btn-login:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-login__text {
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-login__loading {
-            display: none;
-        }
-
-        .btn-login.loading .btn-login__text {
-            display: none;
-        }
-
-        .btn-login.loading .btn-login__loading {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2px solid transparent;
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ========== ERROR MESSAGE ========== */
+        /* Error Message Animation */
         .error-message {
-            background: rgba(255, 0, 80, 0.1);
-            border: 1px solid rgba(255, 0, 80, 0.3);
-            border-radius: var(--radius-md);
-            padding: 12px 16px;
-            color: var(--neon-pink);
-            font-size: 13px;
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-on-error-container);
+            padding: 12px;
+            border-radius: var(--shape-small);
+            font-size: 14px;
+            margin-bottom: 20px;
             display: none;
             animation: shake 0.4s ease;
         }
@@ -335,163 +98,91 @@
                 transform: translateX(5px);
             }
         }
-
-        /* ========== LINKS ========== */
-        .login-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .login-link {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color var(--transition-normal);
-        }
-
-        .login-link:hover {
-            color: var(--neon-cyan);
-        }
-
-        /* ========== DEMO BADGE ========== */
-        .demo-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid var(--neon-green);
-            border-radius: 20px;
-            padding: 6px 12px;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--neon-green);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ========== FOOTER ========== */
-        .login-footer {
-            text-align: center;
-            margin-top: 24px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
     </style>
 </head>
 
 <body>
-    <!-- Background Effects -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow--pink"></div>
-    <div class="bg-glow bg-glow--cyan"></div>
+    <!-- M3 Expressive Backgrounds -->
+    <div class="gradient-mesh-exp"></div>
+    <div class="hero-particles"></div>
 
-    <!-- Login Container -->
-    <div class="login-container">
-        <div class="login-card">
-            <span class="demo-badge">🎭 Demo Mode</span>
+    <div class="auth-container">
+        <div class="card-exp glass-exp reveal-exp-scale visible">
+            <span class="trust-chip-exp"
+                style="position: absolute; top: 20px; right: 20px; padding: 6px 12px; font-size: 10px;">
+                🎭 Demo Mode
+            </span>
 
-            <!-- Logo -->
-            <div class="login-logo">
-                <span class="login-logo__icon">🚀</span>
-                <h1 class="login-logo__title">MEKONG MARKETING</h1>
-                <p class="login-logo__subtitle">ADMIN DASHBOARD</p>
+            <div style="text-align: center; margin-bottom: 32px;">
+                <div class="card-exp__icon" style="margin: 0 auto 16px; width: 64px; height: 64px; font-size: 32px;">
+                    🚀
+                </div>
+                <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 8px;" class="gradient-text-exp">
+                    MEKONG MARKETING
+                </h1>
+                <p style="color: var(--md-sys-color-on-surface-variant); font-size: 14px;">
+                    Đăng nhập hệ thống quản trị
+                </p>
             </div>
 
-            <!-- Login Form -->
-            <form class="login-form" id="loginForm">
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-input" id="email" placeholder="admin@mekongmarketing.com" required>
+            <form id="loginForm">
+                <div class="md-field-wrapper">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="admin@mekongmarketing.com" required>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Mật khẩu</label>
-                    <input type="password" class="form-input" id="password" placeholder="••••••••" required>
+                <div class="md-field-wrapper">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
                 <div class="error-message" id="errorMessage"></div>
 
-                <button type="submit" class="btn-login" id="loginBtn">
-                    <span class="btn-login__text">🔐 Đăng Nhập</span>
-                    <span class="btn-login__loading">
-                        <span class="spinner"></span>
-                        Đang xử lý...
-                    </span>
+                <button type="submit" class="btn-exp btn-exp-filled" id="loginBtn"
+                    style="width: 100%; justify-content: center;">
+                    <span class="btn-text">🔐 Đăng Nhập</span>
+                    <span class="btn-loader" style="display: none;">⏳ Đang xử lý...</span>
                 </button>
 
-                <!-- Divider -->
-                <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
-                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
-                    <span style="color: var(--text-muted); font-size: 12px;">hoặc</span>
-                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+                <div style="display: flex; align-items: center; gap: 12px; margin: 24px 0;">
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                    <span style="color: var(--md-sys-color-on-surface-variant); font-size: 12px;">hoặc</span>
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
                 </div>
 
-                <!-- Zalo Button (Placeholder) -->
-                <button type="button" class="btn-zalo" id="zaloBtn" style="
-                    width: 100%;
-                    padding: 14px;
-                    margin-top: 12px;
-                    background: linear-gradient(135deg, #0068ff, #0091ff);
-                    border: none;
-                    border-radius: 12px;
-                    color: white;
-                    font-size: 14px;
-                    font-weight: 600;
-                    font-family: inherit;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                    position: relative;
-                ">
-                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor">
-                        <path
-                            d="M24 4C12.95 4 4 12.95 4 24c0 6.07 2.72 11.51 7 15.17V44l4.69-2.58C18.38 42.44 21.12 43 24 43c11.05 0 20-8.95 20-20S35.05 4 24 4z" />
-                        <path fill="#0068ff"
-                            d="M19 17h10c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H19c-.55 0-1-.45-1-1V18c0-.55.45-1 1-1z" />
-                        <text x="24" y="26" text-anchor="middle" fill="white" font-size="8" font-weight="bold">Z</text>
-                    </svg>
-                    Đăng nhập bằng Zalo
-                    <span style="
-                        position: absolute;
-                        top: -8px;
-                        right: -8px;
-                        background: linear-gradient(135deg, #ffc107, #ff9800);
-                        color: #000;
-                        font-size: 9px;
-                        padding: 3px 8px;
-                        border-radius: 10px;
-                        font-weight: 700;
-                    ">SẮP RA MẮT</span>
+                <button type="button" class="btn-exp btn-exp-outlined" id="zaloBtn"
+                    style="width: 100%; justify-content: center;">
+                    💬 Đăng nhập bằng Zalo
                 </button>
             </form>
 
-            <!-- Links -->
-            <div class="login-links">
-                <a href="forgot-password.html" class="login-link" id="forgotPassword">Quên mật khẩu?</a>
-                <a href="register.html" class="login-link" id="registerLink">Chưa có tài khoản? <strong>Đăng
-                        ký</strong></a>
+            <div
+                style="text-align: center; margin-top: 24px; display: flex; justify-content: space-between; font-size: 14px;">
+                <a href="forgot-password.html" id="forgotPassword"
+                    style="color: var(--md-exp-primary); text-decoration: none;">Quên mật
+                    khẩu?</a>
+                <a href="register.html" id="registerLink"
+                    style="color: var(--md-exp-primary); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
             </div>
 
-            <div style="text-align: center; margin-top: 16px;">
-                <a href="index.html" class="login-link">← Về trang chủ</a>
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="index.html"
+                    style="color: var(--md-sys-color-on-surface-variant); text-decoration: none; font-size: 13px;">
+                    ← Về trang chủ
+                </a>
             </div>
         </div>
 
-        <div class="login-footer">
-            © 2024 Mekong Marketing. All rights reserved.
-        </div>
+        <p style="text-align: center; margin-top: 24px; color: rgba(255,255,255,0.6); font-size: 12px;">
+            © 2026 Mekong Marketing. M3 Expressive Edition.
+        </p>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
     <script src="auth.js"></script>
+    <script src="material-interactions.js"></script>
     <script>
         // ========== LOGIN LOGIC ==========
         const loginForm = document.getElementById('loginForm');
@@ -511,8 +202,12 @@
         }
 
         function setLoading(isLoading) {
-            loginBtn.classList.toggle('loading', isLoading);
             loginBtn.disabled = isLoading;
+            const btnText = loginBtn.querySelector('.btn-text');
+            const btnLoader = loginBtn.querySelector('.btn-loader');
+
+            if (btnText) btnText.style.display = isLoading ? 'none' : 'inline';
+            if (btnLoader) btnLoader.style.display = isLoading ? 'inline-flex' : 'none';
         }
 
         loginForm.addEventListener('submit', async (e) => {

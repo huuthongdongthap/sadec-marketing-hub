@@ -4,1897 +4,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Mekong Marketing | Neon 2026</title>
+    <title>Admin Dashboard | Mekong Marketing</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
     <style>
-        /* ==========================================================================
-           NEON 2026 ADMIN DASHBOARD - SA ĐÉC MARKETING HUB
-           Ultra-modern futuristic design with neon effects
-           ========================================================================== */
-
-        /* ========== DESIGN TOKENS ========== */
-        :root {
-            /* Neon Colors */
-            --neon-pink: #ff0080;
-            --neon-pink-glow: rgba(255, 0, 128, 0.5);
-            --neon-cyan: #00ffff;
-            --neon-cyan-glow: rgba(0, 255, 255, 0.5);
-            --neon-purple: #bf00ff;
-            --neon-purple-glow: rgba(191, 0, 255, 0.5);
-            --neon-green: #00ff88;
-            --neon-green-glow: rgba(0, 255, 136, 0.5);
-            --neon-orange: #ff6600;
-            --neon-orange-glow: rgba(255, 102, 0, 0.5);
-            --neon-blue: #0088ff;
-            --neon-blue-glow: rgba(0, 136, 255, 0.5);
-
-            /* Backgrounds */
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
-            --bg-card: rgba(255, 255, 255, 0.02);
-            --bg-card-hover: rgba(255, 255, 255, 0.05);
-            --bg-sidebar: rgba(10, 10, 20, 0.95);
-
-            /* Glass Effects */
-            --glass-blur: blur(20px);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-border-hover: rgba(255, 255, 255, 0.15);
-
-            /* Text */
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.6);
-            --text-muted: rgba(255, 255, 255, 0.4);
-
-            /* Layout */
-            --sidebar-width: 280px;
-            --header-height: 80px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-
-            /* Transitions */
-            --transition-fast: 0.15s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-        }
-
-        /* ========== RESET & BASE ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* M3 Admin Overrides */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Grid pattern background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Ambient glow effects */
-        body::after {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background:
-                radial-gradient(ellipse at 20% 20%, var(--neon-purple-glow) 0%, transparent 40%),
-                radial-gradient(ellipse at 80% 80%, var(--neon-cyan-glow) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 50%, var(--neon-pink-glow) 0%, transparent 50%);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-            animation: ambientMove 20s ease-in-out infinite;
-        }
-
-        @keyframes ambientMove {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            25% {
-                transform: translate(2%, 2%) rotate(5deg);
-            }
-
-            50% {
-                transform: translate(-1%, 3%) rotate(-3deg);
-            }
-
-            75% {
-                transform: translate(3%, -2%) rotate(3deg);
-            }
-        }
-
-        /* ========== LAYOUT ========== */
-        .admin-layout {
+            background: var(--md-sys-color-surface);
             display: flex;
             min-height: 100vh;
-            position: relative;
-            z-index: 1;
+            overflow: hidden;
+            /* Prevent body scroll with rail */
         }
 
-        /* ========== SIDEBAR ========== */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: var(--bg-sidebar);
-            backdrop-filter: var(--glass-blur);
-            border-right: 1px solid var(--glass-border);
-            position: fixed;
-            height: 100vh;
-            padding: 24px;
-            z-index: 100;
+        /* Nav Rail */
+        .nav-rail-exp {
+            width: 80px;
+            background: var(--md-sys-color-surface-container);
             display: flex;
             flex-direction: column;
-        }
-
-        .sidebar__logo {
-            display: flex;
             align-items: center;
-            gap: 14px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--glass-border);
-            margin-bottom: 24px;
+            padding: 24px 0;
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            height: 100vh;
+            z-index: 100;
+            transition: width 0.3s var(--motion-spring-bouncy);
+            position: relative;
         }
 
-        .sidebar__logo-icon {
+        .nav-rail-exp:hover {
+            width: 260px;
+            align-items: flex-start;
+            padding-left: 16px;
+        }
+
+        .nav-rail-exp:hover .nav-text {
+            opacity: 1;
+            width: auto;
+            visibility: visible;
+        }
+
+        .nav-rail-exp:hover .nav-item {
+            width: 228px;
+            justify-content: flex-start;
+            padding-left: 16px;
+        }
+
+        .nav-item {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-            border-radius: var(--radius-md);
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+        }
+
+        .nav-item:hover:not(.active) {
+            background: var(--md-sys-color-surface-container-highest);
+        }
+
+        .nav-icon {
             font-size: 24px;
-            box-shadow: 0 0 20px var(--neon-pink-glow);
-            animation: logoGlow 3s ease-in-out infinite;
+            min-width: 24px;
+            text-align: center;
         }
 
-        @keyframes logoGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 20px var(--neon-pink-glow);
-            }
-
-            50% {
-                box-shadow: 0 0 40px var(--neon-pink-glow), 0 0 60px var(--neon-purple-glow);
-            }
-        }
-
-        .sidebar__logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .sidebar__menu {
-            list-style: none;
-            flex: 1;
-        }
-
-        .sidebar__item {
-            margin-bottom: 6px;
-        }
-
-        .sidebar__link {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
+        .nav-text {
+            margin-left: 16px;
             font-size: 14px;
             font-weight: 500;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sidebar__link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--neon-pink), var(--neon-cyan));
+            white-space: nowrap;
             opacity: 0;
-            transition: opacity var(--transition-normal);
+            width: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
         }
 
-        .sidebar__link:hover {
-            background: var(--bg-card-hover);
-            color: var(--text-primary);
-        }
-
-        .sidebar__link.active {
-            background: linear-gradient(90deg, rgba(255, 0, 128, 0.15), rgba(0, 255, 255, 0.05));
-            color: var(--text-primary);
-            box-shadow: inset 0 0 20px rgba(255, 0, 128, 0.1);
-        }
-
-        .sidebar__link.active::before {
-            opacity: 1;
-        }
-
-        .sidebar__icon {
-            font-size: 20px;
-            width: 28px;
-            text-align: center;
-            filter: grayscale(0.3);
-            transition: filter var(--transition-normal);
-        }
-
-        .sidebar__link:hover .sidebar__icon,
-        .sidebar__link.active .sidebar__icon {
-            filter: grayscale(0);
-        }
-
-        /* Demo Mode Toggle */
-        .demo-mode {
-            margin-top: auto;
-            padding-top: 24px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .demo-mode__btn {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 18px;
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-size: 13px;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-
-        .demo-mode__btn:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-        }
-
-        .demo-mode__btn.active {
-            border-color: var(--neon-green);
-            background: rgba(0, 255, 136, 0.1);
-        }
-
-        .demo-mode__btn.active .demo-mode__status {
-            color: var(--neon-green);
-            text-shadow: 0 0 10px var(--neon-green-glow);
-        }
-
-        /* ========== MAIN CONTENT ========== */
+        /* Main Content */
         .main-content {
             flex: 1;
-            margin-left: var(--sidebar-width);
-            padding: 24px 32px;
+            padding: 24px;
+            overflow-y: auto;
+            height: 100vh;
             position: relative;
-            z-index: 1;
         }
 
-        /* ========== HEADER ========== */
-        .admin-header {
+        /* Top Bar */
+        .top-bar-exp {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 32px;
-            padding: 20px 28px;
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
+            padding: 16px 24px;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: var(--shape-large);
+            box-shadow: var(--elevation-1);
         }
 
-        .admin-header__title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            font-weight: 600;
-            background: linear-gradient(90deg, var(--text-primary), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .admin-header__user {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .user-role {
-            background: rgba(191, 0, 255, 0.15);
-            border: 1px solid var(--neon-purple);
-            border-radius: 20px;
-            padding: 4px 12px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--neon-purple);
-        }
-
-        .user-name {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .user-logout {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all var(--transition-normal);
-        }
-
-        .user-logout:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 15px var(--neon-pink-glow);
-        }
-
-        .admin-header__info {
-            text-align: right;
-        }
-
-        .admin-header__name {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-
-        .admin-header__role {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .admin-header__avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 0 20px var(--neon-orange-glow);
-        }
-
-        /* ========== KPI CARDS ========== */
+        /* KPI Cards M3 */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
             margin-bottom: 32px;
         }
 
         .kpi-card {
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--transition-normal);
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .kpi-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .kpi-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .kpi-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .kpi-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--glass-border-hover);
-        }
-
-        /* Animated gradient border */
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
-            background-size: 300% 100%;
-            animation: borderGlow 4s linear infinite;
-        }
-
-        @keyframes borderGlow {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            100% {
-                background-position: 300% 50%;
-            }
-        }
-
-        .kpi-card--leads::before {
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
-            background-size: 200% 100%;
-        }
-
-        .kpi-card--revenue::before {
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
-            background-size: 200% 100%;
-        }
-
-        .kpi-card--engagement::before {
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue));
-            background-size: 200% 100%;
-        }
-
-        .kpi-card--customers::before {
-            background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
-            background-size: 200% 100%;
-        }
-
-        .kpi-card__icon {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius-md);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 16px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .kpi-card--leads .kpi-card__icon {
-            background: rgba(255, 0, 128, 0.1);
-            box-shadow: 0 0 30px rgba(255, 0, 128, 0.2);
-        }
-
-        .kpi-card--revenue .kpi-card__icon {
-            background: rgba(0, 255, 136, 0.1);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
-        }
-
-        .kpi-card--engagement .kpi-card__icon {
-            background: rgba(0, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-        }
-
-        .kpi-card--customers .kpi-card__icon {
-            background: rgba(191, 0, 255, 0.1);
-            box-shadow: 0 0 30px rgba(191, 0, 255, 0.2);
-        }
-
-        .kpi-card__value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            text-shadow: 0 0 30px currentColor;
-        }
-
-        .kpi-card--leads .kpi-card__value {
-            color: var(--neon-pink);
-        }
-
-        .kpi-card--revenue .kpi-card__value {
-            color: var(--neon-green);
-        }
-
-        .kpi-card--engagement .kpi-card__value {
-            color: var(--neon-cyan);
-        }
-
-        .kpi-card--customers .kpi-card__value {
-            color: var(--neon-purple);
-        }
-
-        .kpi-card__label {
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .kpi-card__progress {
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .kpi-card__progress-bar {
-            height: 100%;
-            border-radius: 2px;
-            transition: width 1.5s ease;
-            box-shadow: 0 0 10px currentColor;
-        }
-
-        .kpi-card--leads .kpi-card__progress-bar {
-            background: var(--neon-pink);
-            width: 75%;
-        }
-
-        .kpi-card--revenue .kpi-card__progress-bar {
-            background: var(--neon-green);
-            width: 60%;
-        }
-
-        .kpi-card--engagement .kpi-card__progress-bar {
-            background: var(--neon-cyan);
-            width: 85%;
-        }
-
-        .kpi-card--customers .kpi-card__progress-bar {
-            background: var(--neon-purple);
-            width: 45%;
-        }
-
-        .kpi-card__change {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .kpi-card__change--up {
-            background: rgba(0, 255, 136, 0.15);
-            color: var(--neon-green);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-        }
-
-        .kpi-card__change--down {
-            background: rgba(255, 102, 0, 0.15);
-            color: var(--neon-orange);
-            border: 1px solid rgba(255, 102, 0, 0.3);
-        }
-
-        /* ========== PANELS ========== */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .panel {
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            animation-delay: 0.5s;
-        }
-
-        .panel__header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .panel__title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .panel__action {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            padding: 10px 18px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            font-family: inherit;
-        }
-
-        .panel__action:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            box-shadow: 0 0 20px var(--neon-cyan-glow);
-        }
-
-        /* ========== CRM TABLE ========== */
-        .crm-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .crm-table th,
-        .crm-table td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .crm-table th {
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .crm-table tr {
-            transition: background var(--transition-fast);
-        }
-
-        .crm-table tbody tr:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .crm-table__customer {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .crm-table__avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 0 15px var(--neon-orange-glow);
-        }
-
-        .crm-table__name {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-
-        .crm-table__email {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .crm-table__badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-        }
-
-        .crm-table__badge--new {
-            background: rgba(0, 136, 255, 0.15);
-            color: var(--neon-blue);
-            border: 1px solid rgba(0, 136, 255, 0.3);
-        }
-
-        .crm-table__badge--hot {
-            background: rgba(255, 0, 128, 0.15);
-            color: var(--neon-pink);
-            border: 1px solid rgba(255, 0, 128, 0.3);
-            animation: pulseHot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseHot {
-
-            0%,
-            100% {
-                box-shadow: 0 0 5px var(--neon-pink-glow);
-            }
-
-            50% {
-                box-shadow: 0 0 20px var(--neon-pink-glow);
-            }
-        }
-
-        .crm-table__badge--warm {
-            background: rgba(255, 102, 0, 0.15);
-            color: var(--neon-orange);
-            border: 1px solid rgba(255, 102, 0, 0.3);
-        }
-
-        .crm-table__badge--closed {
-            background: rgba(0, 255, 136, 0.15);
-            color: var(--neon-green);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-        }
-
-        .crm-table__badge--lost {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-            border: 1px solid var(--glass-border);
-        }
-
-        .crm-table__actions {
-            display: flex;
+            flex-direction: column;
             gap: 8px;
-        }
-
-        .crm-table__btn {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            background: transparent;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .crm-table__btn:hover {
-            transform: scale(1.1);
-        }
-
-        .crm-table__btn--edit:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px var(--neon-cyan-glow);
-        }
-
-        .crm-table__btn--call:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 15px var(--neon-green-glow);
-        }
-
-        /* ========== USER MANAGEMENT STYLES ========== */
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 700;
-            color: #000;
-        }
-
-        .user-name {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .user-email {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .role-select {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            padding: 8px 12px;
-            color: var(--text-primary);
-            font-size: 13px;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-        }
-
-        .role-select:hover:not(:disabled) {
-            border-color: var(--neon-cyan);
-        }
-
-        .role-select:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .panel__info {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .crm-table__btn--zalo:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue-glow);
-        }
-
-        .crm-table__btn--delete:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 15px var(--neon-pink-glow);
-        }
-
-        /* ========== CONTENT SCHEDULER ========== */
-        .scheduler {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .scheduler__item {
-            display: flex;
-            gap: 16px;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            border-left: 3px solid;
-            transition: all var(--transition-normal);
-        }
-
-        .scheduler__item:hover {
-            background: var(--bg-card-hover);
-            transform: translateX(4px);
-        }
-
-        .scheduler__item--published {
-            border-left-color: var(--neon-green);
-        }
-
-        .scheduler__item--scheduled {
-            border-left-color: var(--neon-cyan);
-        }
-
-        .scheduler__item--draft {
-            border-left-color: var(--text-muted);
-        }
-
-        .scheduler__time {
-            min-width: 65px;
-            text-align: center;
-        }
-
-        .scheduler__date {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .scheduler__hour {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-
-        .scheduler__content {
-            flex: 1;
-        }
-
-        .scheduler__platform {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        .scheduler__platform--facebook {
-            background: #1877F2;
-            color: white;
-        }
-
-        .scheduler__platform--zalo {
-            background: #0068ff;
-            color: white;
-        }
-
-        .scheduler__platform--tiktok {
-            background: linear-gradient(90deg, #00f2ea, #ff0050);
-            color: white;
-        }
-
-        .scheduler__platform--instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color: white;
-        }
-
-        .scheduler__title {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .scheduler__status {
-            font-size: 12px;
-        }
-
-        .scheduler__status--published {
-            color: var(--neon-green);
-        }
-
-        .scheduler__status--scheduled {
-            color: var(--neon-cyan);
-        }
-
-        .scheduler__status--draft {
-            color: var(--text-muted);
-        }
-
-        .scheduler__actions {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .scheduler__btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            background: transparent;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            font-size: 12px;
-        }
-
-        .scheduler__btn:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 10px var(--neon-cyan-glow);
-        }
-
-        /* ========== CHARTS ========== */
-        .chart-container {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            animation-delay: 0.7s;
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 220px;
-            padding: 20px 10px 40px;
-            gap: 12px;
-        }
-
-        .chart-bar {
-            flex: 1;
-            max-width: 50px;
-            background: linear-gradient(180deg, var(--neon-pink), var(--neon-purple));
-            border-radius: 8px 8px 0 0;
-            position: relative;
-            animation: barGrow 1s ease-out forwards;
-            transform-origin: bottom;
-            transform: scaleY(0);
-            box-shadow: 0 0 20px var(--neon-pink-glow);
-        }
-
-        .chart-bar:nth-child(1) {
-            height: 60%;
-            animation-delay: 0.1s;
-        }
-
-        .chart-bar:nth-child(2) {
-            height: 80%;
-            animation-delay: 0.2s;
-        }
-
-        .chart-bar:nth-child(3) {
-            height: 45%;
-            animation-delay: 0.3s;
-        }
-
-        .chart-bar:nth-child(4) {
-            height: 90%;
-            animation-delay: 0.4s;
-        }
-
-        .chart-bar:nth-child(5) {
-            height: 70%;
-            animation-delay: 0.5s;
-        }
-
-        .chart-bar:nth-child(6) {
-            height: 55%;
-            animation-delay: 0.6s;
-        }
-
-        .chart-bar:nth-child(7) {
-            height: 85%;
-            animation-delay: 0.7s;
-        }
-
-        @keyframes barGrow {
-            to {
-                transform: scaleY(1);
-            }
-        }
-
-        .chart-bar__label {
-            position: absolute;
-            bottom: -28px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* ========== MODALS ========== */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-        }
-
-        .modal--open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal__content {
-            background: var(--bg-darker);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            padding: 32px;
-            width: 100%;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: transform var(--transition-normal);
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal--open .modal__content {
-            transform: scale(1) translateY(0);
-        }
-
-        .modal__header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .modal__title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .modal__close {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 18px;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal__close:hover {
-            border-color: var(--neon-pink);
-            color: var(--neon-pink);
-            box-shadow: 0 0 15px var(--neon-pink-glow);
-        }
-
-        /* ========== FORMS ========== */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 14px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 14px;
-            font-family: inherit;
-            transition: all var(--transition-normal);
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px var(--neon-cyan-glow);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-        }
-
-        .form-textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        /* Emoji Dropdown Picker */
-        .emoji-dropdown {
-            position: relative;
-        }
-
-        .emoji-dropdown__trigger {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            font-family: inherit;
-        }
-
-        .emoji-dropdown__trigger:hover {
-            border-color: var(--neon-cyan);
-        }
-
-        .emoji-dropdown__selected {
-            font-size: 28px;
-            line-height: 1;
-        }
-
-        .emoji-dropdown__label {
-            flex: 1;
-            color: var(--text-secondary);
-            font-size: 14px;
-            text-align: left;
-        }
-
-        .emoji-dropdown__arrow {
-            color: var(--text-muted);
-            font-size: 10px;
-            transition: transform var(--transition-normal);
-        }
-
-        .emoji-dropdown.open .emoji-dropdown__arrow {
-            transform: rotate(180deg);
-        }
-
-        .emoji-dropdown__menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            right: 0;
-            background: var(--bg-darker);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 12px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all var(--transition-normal);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .emoji-dropdown.open .emoji-dropdown__menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .emoji-dropdown__category {
-            margin-bottom: 12px;
-        }
-
-        .emoji-dropdown__category:last-child {
-            margin-bottom: 0;
-        }
-
-        .emoji-dropdown__category-title {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .emoji-dropdown__grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .emoji-btn {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            background: var(--bg-card);
-            cursor: pointer;
-            font-size: 18px;
-            transition: all var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .emoji-btn:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px var(--neon-cyan-glow);
-            transform: scale(1.15);
-            background: rgba(0, 255, 255, 0.1);
-        }
-
-        .emoji-btn:active {
-            transform: scale(0.95);
-        }
-
-        .btn {
-            flex: 1;
-            padding: 14px 24px;
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            border: none;
-        }
-
-        .btn--primary {
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
-            color: white;
-            box-shadow: 0 0 20px var(--neon-pink-glow);
-        }
-
-        .btn--primary:hover {
-            box-shadow: 0 0 40px var(--neon-pink-glow);
-            transform: translateY(-2px);
-        }
-
-        .btn--secondary {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            color: var(--text-secondary);
-        }
-
-        .btn--secondary:hover {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
-        }
-
-        .btn--danger {
-            background: linear-gradient(90deg, #ff4444, #ff0000);
-            color: white;
-        }
-
-        .btn--danger:hover {
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-        }
-
-        /* ========== TOAST NOTIFICATIONS ========== */
-        .toast-container {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .toast {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 20px;
-            background: var(--bg-darker);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transform: translateX(120%);
-            transition: transform var(--transition-normal);
-            min-width: 280px;
-        }
-
-        .toast--show {
-            transform: translateX(0);
-        }
-
-        .toast--success {
-            border-left: 3px solid var(--neon-green);
-        }
-
-        .toast--error {
-            border-left: 3px solid var(--neon-pink);
-        }
-
-        .toast--info {
-            border-left: 3px solid var(--neon-cyan);
-        }
-
-        .toast__icon {
-            font-size: 18px;
-        }
-
-        .toast__message {
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1200px) {
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform var(--transition-normal);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 16px;
-            }
-
-            .kpi-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .admin-header {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .admin-header__user {
-                flex-direction: column;
-            }
-
-            .admin-header__info {
-                text-align: center;
-            }
-
-            .crm-table {
-                display: block;
-                overflow-x: auto;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="admin-layout">
-        <!-- ========== SIDEBAR ========== -->
-        <aside class="sidebar">
-            <div class="sidebar__logo">
-                <div class="sidebar__logo-icon">🌸</div>
-                <span class="sidebar__logo-text">SA ĐÉC HUB</span>
+    <!-- M3 Nav Rail -->
+    <nav class="nav-rail-exp">
+        <div style="margin-bottom: 32px; padding-left: 0; width: 100%; display: flex; justify-content: center;">
+            <div
+                style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--md-exp-primary), var(--md-exp-tertiary)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+                🚀</div>
+        </div>
+
+        <div class="nav-item active">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Tổng quan</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span class="nav-text">Khách hàng</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">📈</span>
+            <span class="nav-text">Chiến dịch</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">Đối tác</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">⚙️</span>
+            <span class="nav-text">Cài đặt</span>
+        </div>
+
+        <div style="flex: 1;"></div>
+
+        <div class="nav-item" id="logoutBtn" style="margin-bottom: 24px;">
+            <span class="nav-icon">🚪</span>
+            <span class="nav-text">Đăng xuất</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top App Bar -->
+        <header class="top-bar-exp reveal-exp">
+            <div>
+                <h1 class="gradient-text-exp" style="font-size: 24px; margin: 0; font-weight: 800;">Dashboard</h1>
+                <p style="margin: 0; color: var(--md-sys-color-on-surface-variant); font-size: 14px;">Welcome back,
+                    Admin</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <span class="trust-chip-exp">Super Admin</span>
+                <div
+                    style="width: 40px; height: 40px; border-radius: 20px; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                    A</div>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+            <div class="card-exp glass-exp kpi-card reveal-exp-scale" style="transition-delay: 0.1s;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 32px;">👥</div>
+                    <span class="trust-chip-exp"
+                        style="background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">+12%</span>
+                </div>
+                <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant);">Leads Mới</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--md-sys-color-on-surface);">1,248</div>
             </div>
 
-            <ul class="sidebar__menu">
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link active" data-tab="dashboard">
-                        <span class="sidebar__icon">📊</span>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link" data-tab="crm">
-                        <span class="sidebar__icon">👥</span>
-                        Khách Hàng (CRM)
-                    </a>
-                </li>
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link" data-tab="scheduler">
-                        <span class="sidebar__icon">📅</span>
-                        Lịch Đăng Bài
-                    </a>
-                </li>
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link" data-tab="kpi">
-                        <span class="sidebar__icon">📈</span>
-                        KPI & Báo Cáo
-                    </a>
-                </li>
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link" data-tab="messages">
-                        <span class="sidebar__icon">💬</span>
-                        Tin Nhắn
-                    </a>
-                </li>
-                <li class="sidebar__item" data-require-role="super_admin">
-                    <a href="#" class="sidebar__link" data-tab="users">
-                        <span class="sidebar__icon">🔐</span>
-                        Quản Lý Users
-                    </a>
-                </li>
-                <li class="sidebar__item">
-                    <a href="#" class="sidebar__link" data-tab="settings">
-                        <span class="sidebar__icon">⚙️</span>
-                        Cài Đặt
-                    </a>
-                </li>
-            </ul>
-
-            <div class="demo-mode">
-                <button class="demo-mode__btn active" id="demoModeBtn">
-                    <span>🎭 Demo Mode</span>
-                    <span class="demo-mode__status">ON</span>
-                </button>
+            <div class="card-exp glass-exp kpi-card reveal-exp-scale" style="transition-delay: 0.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 32px;">💰</div>
+                    <span class="trust-chip-exp"
+                        style="background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container);">+8%</span>
+                </div>
+                <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant);">Doanh thu</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--md-sys-color-on-surface);">$48.2k</div>
             </div>
-        </aside>
 
-        <!-- ========== MAIN CONTENT ========== -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="admin-header">
-                <h1 class="admin-header__title">📊 Dashboard Tổng Quan</h1>
-                <div class="admin-header__user" id="userInfo">
-                    <!-- Will be populated by JS -->
-                    <span class="user-role">👤 Loading...</span>
+            <div class="card-exp glass-exp kpi-card reveal-exp-scale" style="transition-delay: 0.3s;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 32px;">🔥</div>
+                    <span class="trust-chip-exp"
+                        style="background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container);">+24%</span>
                 </div>
-            </header>
+                <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant);">Tương tác</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--md-sys-color-on-surface);">85%</div>
+            </div>
 
-            <!-- KPI Stats Cards -->
-            <section class="kpi-grid">
-                <div class="kpi-card kpi-card--leads">
-                    <div class="kpi-card__icon">🎯</div>
-                    <div class="kpi-card__value" data-counter="127">0</div>
-                    <div class="kpi-card__label">Leads Tháng Này</div>
-                    <div class="kpi-card__progress">
-                        <div class="kpi-card__progress-bar"></div>
-                    </div>
-                    <span class="kpi-card__change kpi-card__change--up">↑ 23%</span>
+            <div class="card-exp glass-exp kpi-card reveal-exp-scale" style="transition-delay: 0.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 32px;">⭐</div>
+                    <span class="trust-chip-exp"
+                        style="background: var(--md-sys-color-error-container); color: var (--md-sys-color-on-error-container);">4.9</span>
                 </div>
+                <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant);">Đánh giá</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--md-sys-color-on-surface);">342</div>
+            </div>
+        </div>
 
-                <div class="kpi-card kpi-card--revenue">
-                    <div class="kpi-card__icon">💰</div>
-                    <div class="kpi-card__value">45.8M</div>
-                    <div class="kpi-card__label">Doanh Thu (VNĐ)</div>
-                    <div class="kpi-card__progress">
-                        <div class="kpi-card__progress-bar"></div>
-                    </div>
-                    <span class="kpi-card__change kpi-card__change--up">↑ 12%</span>
-                </div>
+        <!-- Dashboard Grid -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
 
-                <div class="kpi-card kpi-card--engagement">
-                    <div class="kpi-card__icon">❤️</div>
-                    <div class="kpi-card__value" data-counter="8200">0</div>
-                    <div class="kpi-card__label">Tương Tác</div>
-                    <div class="kpi-card__progress">
-                        <div class="kpi-card__progress-bar"></div>
+            <!-- CRM Section -->
+            <div class="card-exp glass-exp reveal-exp" style="transition-delay: 0.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <div>
+                        <h2
+                            style="font-size: 20px; font-weight: 700; margin: 0; color: var(--md-sys-color-on-surface);">
+                            👥 Khách Hàng Gần Đây</h2>
+                        <p style="font-size: 14px; color: var(--md-sys-color-on-surface-variant); margin: 4px 0 0 0;">
+                            Quản lý danh sách khách hàng tiềm năng</p>
                     </div>
-                    <span class="kpi-card__change kpi-card__change--up">↑ 45%</span>
+                    <button class="btn-exp btn-exp-filled" onclick="CustomerManager.openAddModal()"
+                        style="padding: 10px 20px; font-size: 14px;">
+                        + Thêm mới
+                    </button>
                 </div>
 
-                <div class="kpi-card kpi-card--customers">
-                    <div class="kpi-card__icon">👥</div>
-                    <div class="kpi-card__value" data-counter="34">0</div>
-                    <div class="kpi-card__label">Khách Hàng Mới</div>
-                    <div class="kpi-card__progress">
-                        <div class="kpi-card__progress-bar"></div>
-                    </div>
-                    <span class="kpi-card__change kpi-card__change--down">↓ 5%</span>
-                </div>
-            </section>
-
-            <!-- Dashboard Panels -->
-            <section class="dashboard-grid">
-                <!-- CRM Panel -->
-                <div class="panel">
-                    <div class="panel__header">
-                        <h2 class="panel__title">👥 Khách Hàng Gần Đây</h2>
-                        <button class="panel__action" onclick="CustomerManager.openAddModal()">+ Thêm mới</button>
-                    </div>
-
-                    <table class="crm-table">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
                         <thead>
-                            <tr>
-                                <th>Khách Hàng</th>
-                                <th>Trạng Thái</th>
-                                <th>Nguồn</th>
-                                <th>Ngày</th>
-                                <th>Thao Tác</th>
+                            <tr style="border-bottom: 1px solid var(--md-sys-color-outline-variant);">
+                                <th
+                                    style="text-align: left; padding: 16px; color: var(--md-sys-color-on-surface-variant); font-weight: 500; font-size: 13px;">
+                                    KHÁCH HÀNG</th>
+                                <th
+                                    style="text-align: left; padding: 16px; color: var(--md-sys-color-on-surface-variant); font-weight: 500; font-size: 13px;">
+                                    TRẠNG THÁI</th>
+                                <th
+                                    style="text-align: left; padding: 16px; color: var(--md-sys-color-on-surface-variant); font-weight: 500; font-size: 13px;">
+                                    NGUỒN</th>
+                                <th
+                                    style="text-align: right; padding: 16px; color: var(--md-sys-color-on-surface-variant); font-weight: 500; font-size: 13px;">
+                                    THAO TÁC</th>
                             </tr>
                         </thead>
                         <tbody id="customerTableBody">
-                            <!-- Rendered by JS -->
+                            <!-- JS Rendered -->
                         </tbody>
                     </table>
                 </div>
-
-                <!-- Content Scheduler Panel -->
-                <div class="panel">
-                    <div class="panel__header">
-                        <h2 class="panel__title">📅 Lịch Đăng Bài</h2>
-                        <button class="panel__action" onclick="ContentScheduler.openAddModal()">+ Tạo mới</button>
-                    </div>
-
-                    <div class="scheduler" id="schedulerContainer">
-                        <!-- Rendered by JS -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Users Management Panel (Phase 4) -->
-            <section class="panel users-panel" id="usersPanel" data-require-role="super_admin" style="display: none;">
-                <div class="panel__header">
-                    <h2 class="panel__title">🔐 Quản Lý Users</h2>
-                    <span class="panel__info">Chỉ Super Admin mới xem được</span>
-                </div>
-
-                <table class="crm-table users-table">
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Role</th>
-                            <th>Ngày Tạo</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTableBody">
-                        <!-- Rendered by UserManager.renderUsersList() -->
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- Chart Panel -->
-            <section class="panel chart-container">
-                <div class="panel__header">
-                    <h2 class="panel__title">📈 Biểu Đồ Leads Theo Tuần</h2>
-                    <button class="panel__action">Xuất báo cáo</button>
-                </div>
-
-                <div class="chart-bars">
-                    <div class="chart-bar"><span class="chart-bar__label">T2</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">T3</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">T4</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">T5</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">T6</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">T7</span></div>
-                    <div class="chart-bar"><span class="chart-bar__label">CN</span></div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- ========== MODALS ========== -->
-
-    <!-- Customer Modal -->
-    <div class="modal" id="customerModal">
-        <div class="modal__content">
-            <div class="modal__header">
-                <h3 class="modal__title" id="customerModalTitle">➕ Thêm Khách Hàng Mới</h3>
-                <button class="modal__close" onclick="UIManager.closeModal('customerModal')">✕</button>
             </div>
-            <form id="customerForm" onsubmit="event.preventDefault(); CustomerManager.save();">
-                <div class="form-group">
-                    <label class="form-label">Tên Khách Hàng *</label>
-                    <input type="text" class="form-input" id="customerName" name="name" placeholder="VD: Chú Ba Bonsai"
-                        required>
+
+            <!-- Scheduler Section -->
+            <div class="card-exp glass-exp reveal-exp" style="transition-delay: 0.3s; height: fit-content;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2 style="font-size: 18px; font-weight: 700; margin: 0; color: var(--md-sys-color-on-surface);">📅
+                        Lịch Đăng Bài</h2>
+                    <button class="btn-exp btn-exp-outlined" onclick="ContentScheduler.openAddModal()"
+                        style="padding: 8px 16px; font-size: 13px;">
+                        + Tạo bài
+                    </button>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Số Điện Thoại</label>
-                        <input type="tel" class="form-input" id="customerPhone" name="phone" placeholder="0909 xxx xxx">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Emoji Avatar</label>
-                        <div class="emoji-dropdown" id="emojiDropdown">
-                            <button type="button" class="emoji-dropdown__trigger" onclick="toggleEmojiPicker()">
-                                <span class="emoji-dropdown__selected" id="selectedEmoji">👤</span>
-                                <span class="emoji-dropdown__label">Chọn emoji</span>
-                                <span class="emoji-dropdown__arrow">▼</span>
-                            </button>
-                            <div class="emoji-dropdown__menu" id="emojiMenu">
-                                <div class="emoji-dropdown__category">
-                                    <div class="emoji-dropdown__category-title">👥 Người</div>
-                                    <div class="emoji-dropdown__grid">
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('👤')">👤</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('👨')">👨</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('👩')">👩</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('👴')">👴</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('👵')">👵</button>
-                                    </div>
-                                </div>
-                                <div class="emoji-dropdown__category">
-                                    <div class="emoji-dropdown__category-title">🏪 Ngành nghề</div>
-                                    <div class="emoji-dropdown__grid">
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🌸')">🌸</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🌳')">🌳</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🍜')">🍜</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('☕')">☕</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🏪')">🏪</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('💼')">💼</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🎂')">🎂</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('💇')">💇</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🔧')">🔧</button>
-                                        <button type="button" class="emoji-btn" onclick="selectEmoji('🚗')">🚗</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" id="customerEmoji" name="emoji" value="👤">
-                        </div>
-                    </div>
+
+                <div id="schedulerContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- JS Rendered -->
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Tên Doanh Nghiệp</label>
-                    <input type="text" class="form-input" id="customerBusiness" name="business"
-                        placeholder="VD: Bonsai Chú Ba">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Nguồn</label>
-                        <select class="form-select" id="customerSource" name="source">
-                            <option value="facebook">Facebook</option>
-                            <option value="zalo">Zalo</option>
-                            <option value="website">Website</option>
-                            <option value="google_maps">Google Maps</option>
-                            <option value="referral">Giới thiệu</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Trạng Thái</label>
-                        <select class="form-select" id="customerStatus" name="status">
-                            <option value="new">🆕 Mới</option>
-                            <option value="hot">🔥 Hot Lead</option>
-                            <option value="warm">⏳ Đang theo</option>
-                            <option value="closed">✅ Đã chốt</option>
-                            <option value="lost">❌ Mất</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn--secondary"
-                        onclick="UIManager.closeModal('customerModal')">Hủy</button>
-                    <button type="submit" class="btn btn--primary">💾 Lưu</button>
-                </div>
-            </form>
+            </div>
+
         </div>
-    </div>
 
-    <!-- Post Modal -->
-    <div class="modal" id="postModal">
-        <div class="modal__content">
-            <div class="modal__header">
-                <h3 class="modal__title" id="postModalTitle">➕ Tạo Bài Đăng Mới</h3>
-                <button class="modal__close" onclick="UIManager.closeModal('postModal')">✕</button>
-            </div>
-            <form id="postForm" onsubmit="event.preventDefault(); ContentScheduler.save();">
-                <div class="form-group">
-                    <label class="form-label">Tiêu Đề *</label>
-                    <input type="text" class="form-input" id="postTitle" name="title"
-                        placeholder="VD: 🌸 Chào mùa xuân Sa Đéc!" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Nền Tảng</label>
-                        <select class="form-select" id="postPlatform" name="platform">
-                            <option value="facebook">Facebook</option>
-                            <option value="zalo">Zalo OA</option>
-                            <option value="tiktok">TikTok</option>
-                            <option value="instagram">Instagram</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Trạng Thái</label>
-                        <select class="form-select" id="postStatus" name="status">
-                            <option value="draft">📝 Bản nháp</option>
-                            <option value="scheduled">⏰ Đã lên lịch</option>
-                            <option value="published">✓ Đã đăng</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Nội Dung</label>
-                    <textarea class="form-textarea" id="postContent" name="content"
-                        placeholder="Nhập nội dung bài đăng..."></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn--secondary"
-                        onclick="UIManager.closeModal('postModal')">Hủy</button>
-                    <button type="submit" class="btn btn--primary">💾 Lưu</button>
-                </div>
-            </form>
-        </div>
-    </div>
+        <!-- Modals Container (Placeholder) -->
+        <div id="modalContainer"></div>
 
-    <!-- Delete Confirm Modal -->
-    <div class="modal" id="deleteConfirmModal">
-        <div class="modal__content" style="max-width: 400px;">
-            <div class="modal__header">
-                <h3 class="modal__title">⚠️ Xác Nhận Xóa</h3>
-                <button class="modal__close" onclick="UIManager.closeModal('deleteConfirmModal')">✕</button>
-            </div>
-            <p id="deleteConfirmMessage" style="color: var(--text-secondary); margin-bottom: 24px;">
-                Bạn có chắc muốn xóa?
-            </p>
-            <div class="form-actions">
-                <button type="button" class="btn btn--secondary"
-                    onclick="UIManager.closeModal('deleteConfirmModal')">Hủy</button>
-                <button type="button" class="btn btn--danger" onclick="executeDelete()">🗑️ Xóa</button>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    <!-- ========== TOAST CONTAINER ========== -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <!-- ========== SCRIPTS ========== -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
-    <script src="admin-dashboard.js"></script>
+    <script src="auth.js"></script>
+    <script src="material-interactions.js"></script>
     <script>
-        // Emoji Dropdown Picker Functions
-        function toggleEmojiPicker() {
-            const dropdown = document.getElementById('emojiDropdown');
-            dropdown.classList.toggle('open');
+
+        // Check Auth
+        Auth.Guards.requireAuth(['admin', 'manager']);
+
+        // Logout Logic
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async () => {
+                if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                    await Auth.Actions.signOut();
+                }
+            });
         }
 
-        function selectEmoji(emoji) {
-            // Update hidden input
-            document.getElementById('customerEmoji').value = emoji;
-            // Update visible selected emoji
-            document.getElementById('selectedEmoji').textContent = emoji;
-            // Update label
-            document.querySelector('.emoji-dropdown__label').textContent = 'Đã chọn';
-            // Close dropdown
-            document.getElementById('emojiDropdown').classList.remove('open');
+        // Animation Entrance
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
 
-            // Visual feedback - glow effect
-            const trigger = document.querySelector('.emoji-dropdown__trigger');
-            trigger.style.borderColor = 'var(--neon-green)';
-            trigger.style.boxShadow = '0 0 20px var(--neon-green-glow)';
-            setTimeout(() => {
-                trigger.style.borderColor = '';
-                trigger.style.boxShadow = '';
-            }, 500);
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function (e) {
-            const dropdown = document.getElementById('emojiDropdown');
-            if (dropdown && !dropdown.contains(e.target)) {
-                dropdown.classList.remove('open');
-            }
+            document.querySelectorAll('.reveal-exp, .reveal-exp-scale').forEach(el => observer.observe(el));
         });
     </script>
 </body>

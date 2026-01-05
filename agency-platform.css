@@ -164,217 +164,33 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   4. APP LAYOUT
+   4. LAYOUT DELEGATION
    ═══════════════════════════════════════════════════════════════ */
-.app {
-    display: flex;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-}
+/* Layout is now handled by m3-expressive.css body flex and nav-rail-exp */
+
 
 /* ═══════════════════════════════════════════════════════════════
-   5. SIDEBAR
+   7. TOP BAR (Refactored)
    ═══════════════════════════════════════════════════════════════ */
-.sidebar {
-    width: var(--sidebar-width);
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 24px 16px;
-    background: var(--glass-light);
-    backdrop-filter: blur(var(--blur-glass)) saturate(180%);
-    -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(180%);
-    border-right: 1px solid var(--glass-border);
-    z-index: 100;
+.topbar-legacy {
+    display: none;
 }
 
-.sidebar__logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-    margin-bottom: 32px;
-}
-
-.logo-orb {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent-lime), var(--accent-cyan));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: logoGlow 3s ease-in-out infinite;
-}
-
-.logo-orb__inner {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--bg-void);
-}
-
-@keyframes logoGlow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(203, 253, 69, 0.4);
-    }
-
-    50% {
-        box-shadow: 0 0 40px rgba(203, 253, 69, 0.6), 0 0 60px rgba(0, 212, 255, 0.3);
-    }
-}
-
-.logo-text {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-}
-
-.logo-text--accent {
-    color: var(--accent-lime);
-}
-
-/* Navigation */
-.sidebar__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 500;
-    transition: var(--transition-smooth);
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--accent-lime);
-    transform: scaleY(0);
-    transition: var(--transition-spring);
-}
-
-.nav-item:hover {
-    background: var(--glass-medium);
-    color: white;
-}
-
-.nav-item--active {
-    background: var(--glass-strong);
-    color: white;
-}
-
-.nav-item--active::before {
-    transform: scaleY(1);
-}
-
-.nav-icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-}
-
-/* Sidebar Bottom */
-.sidebar__bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-top: 16px;
-    border-top: 1px solid var(--glass-border);
-}
-
-.user-avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    position: relative;
-}
-
-.user-avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 2px solid var(--accent-lime);
-}
-
-.user-status {
-    position: absolute;
-    bottom: 10px;
-    right: 50%;
-    transform: translateX(20px);
-    width: 12px;
-    height: 12px;
-    background: var(--success);
-    border-radius: 50%;
-    border: 2px solid var(--bg-deep);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   6. MAIN CONTENT
-   ═══════════════════════════════════════════════════════════════ */
-.main {
-    flex: 1;
-    margin-left: var(--sidebar-width);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   7. TOP BAR
-   ═══════════════════════════════════════════════════════════════ */
-.topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 0 8px;
-}
-
-.topbar__left {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Page Title & Subtitle - Adapted */
 .page-title {
     font-family: var(--font-display);
     font-size: 28px;
     font-weight: 700;
-    color: white;
+    color: var(--md-sys-color-on-surface);
     letter-spacing: -0.02em;
 }
 
 .page-subtitle {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--md-sys-color-on-surface-variant);
 }
 
-/* Focus Bar (AI Command) */
+/* Focus Bar (AI Command) - Preserved */
 .focus-bar {
     flex: 1;
     max-width: 500px;

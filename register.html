@@ -11,220 +11,76 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
 
+
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
     <style>
-        /* ========== CSS RESET & VARIABLES ========== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --neon-pink: #ff0080;
-            --neon-cyan: #00ffff;
-            --neon-purple: #bf00ff;
-            --neon-green: #00ff88;
-            --neon-gold: #ffc107;
-
-            --bg-dark: #0a0a0f;
-            --bg-card: rgba(20, 20, 30, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.08);
-
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.4);
-
-            --radius-md: 12px;
-            --radius-lg: 20px;
-            --transition-normal: 0.3s ease;
-        }
-
+        /* M3 Expressive Override */
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            padding: 20px;
-        }
-
-        /* ========== BACKGROUND ========== */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-        }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.3;
-            pointer-events: none;
-            animation: floatGlow 20s infinite;
-        }
-
-        .bg-glow--pink {
-            background: var(--neon-pink);
-            top: -200px;
-            right: -200px;
-        }
-
-        .bg-glow--cyan {
-            background: var(--neon-cyan);
-            bottom: -200px;
-            left: -200px;
-            animation-delay: -10s;
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-50px, 50px) scale(1.2);
-            }
-        }
-
-        /* ========== REGISTER CARD ========== */
-        .register-container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .register-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            position: relative;
+            min-height: 100vh;
+            background: var(--md-sys-color-surface);
             overflow: hidden;
+            font-family: var(--font-brand);
         }
 
-        .register-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan), var(--neon-gold));
-            background-size: 200% 100%;
-            animation: gradientBorder 3s linear infinite;
-        }
-
-        @keyframes gradientBorder {
-            0% {
-                background-position: 0% 0%;
-            }
-
-            100% {
-                background-position: 200% 0%;
-            }
-        }
-
-        /* ========== LOGO ========== */
-        .register-logo {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .register-logo__icon {
-            font-size: 48px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .register-logo__title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
-
-        .register-logo__subtitle {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* ========== FORM ========== */
-        .register-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .form-input {
+        .auth-container {
             width: 100%;
-            padding: 14px 16px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 15px;
-            font-family: inherit;
-            transition: all var(--transition-normal);
+            max-width: 520px;
+            padding: 20px;
+            z-index: 10;
         }
 
-        .form-input::placeholder {
-            color: var(--text-muted);
+        .md-field-wrapper {
+            margin-bottom: 20px;
         }
 
-        .form-input:focus {
+        .md-field-wrapper label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .md-field-wrapper input {
+            width: 100%;
+            padding: 16px;
+            border-radius: var(--shape-small);
+            border: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface-container-highest);
+            color: var(--md-sys-color-on-surface);
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .md-field-wrapper input:focus {
+            border-color: var(--md-exp-primary);
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
             outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 16px;
         }
 
-        /* ========== ROLE SELECTOR ========== */
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Role Selector Cards */
         .role-selector {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-        }
-
-        .role-option {
-            position: relative;
+            margin-bottom: 24px;
         }
 
         .role-option input {
@@ -238,180 +94,112 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            padding: 20px 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-md);
+            padding: 20px 12px;
+            background: var(--md-sys-color-surface-container-high);
+            border: 2px solid transparent;
+            border-radius: var(--shape-medium);
             cursor: pointer;
-            transition: all var(--transition-normal);
+            transition: all 0.2s var(--motion-spring-out);
             text-align: center;
         }
 
         .role-option label:hover {
-            border-color: var(--neon-cyan);
+            background: var(--md-sys-color-surface-container-highest);
+            transform: translateY(-2px);
         }
 
         .role-option input:checked+label {
-            border-color: var(--neon-green);
-            background: rgba(0, 255, 136, 0.1);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            border-color: var(--md-exp-primary);
+            background: var(--md-exp-primary-container);
+            color: var(--md-exp-on-primary-container);
         }
 
         .role-icon {
-            font-size: 32px;
+            font-size: 28px;
         }
 
         .role-name {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .role-desc {
             font-size: 11px;
-            color: var(--text-muted);
+            opacity: 0.8;
         }
 
-        /* ========== BUTTON ========== */
-        .btn-register {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
-            border: none;
-            border-radius: var(--radius-md);
-            color: #000;
-            font-size: 15px;
-            font-weight: 700;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            margin-top: 10px;
-        }
-
-        .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
-        }
-
-        .btn-register:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-register.loading {
-            background: rgba(0, 255, 136, 0.3);
-        }
-
-        /* ========== MESSAGES ========== */
+        /* Dialogs */
         .message {
-            padding: 12px 16px;
-            border-radius: var(--radius-md);
-            font-size: 13px;
+            padding: 12px;
+            border-radius: var(--shape-small);
+            font-size: 14px;
+            margin-bottom: 20px;
             display: none;
         }
 
         .message.visible {
             display: block;
+            animation: shake 0.4s ease;
         }
 
         .message--error {
-            background: rgba(255, 0, 80, 0.1);
-            border: 1px solid rgba(255, 0, 80, 0.3);
-            color: var(--neon-pink);
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-on-error-container);
         }
 
         .message--success {
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            color: var(--neon-green);
-        }
-
-        /* ========== LINKS ========== */
-        .register-links {
-            text-align: center;
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .register-link {
-            font-size: 14px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color var(--transition-normal);
-        }
-
-        .register-link:hover {
-            color: var(--neon-cyan);
-        }
-
-        .register-link strong {
-            color: var(--neon-cyan);
-        }
-
-        /* ========== FOOTER ========== */
-        .register-footer {
-            text-align: center;
-            margin-top: 24px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* ========== MOBILE ========== */
-        @media (max-width: 500px) {
-            .register-card {
-                padding: 30px 20px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .role-selector {
-                grid-template-columns: 1fr;
-            }
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
         }
     </style>
 </head>
 
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow--pink"></div>
-    <div class="bg-glow bg-glow--cyan"></div>
+    <div class="gradient-mesh-exp"></div>
+    <div class="hero-particles"></div>
 
-    <div class="register-container">
-        <div class="register-card">
-            <div class="register-logo">
-                <span class="register-logo__icon">🚀</span>
-                <h1 class="register-logo__title">MEKONG MARKETING</h1>
-                <p class="register-logo__subtitle">TẠO TÀI KHOẢN MỚI</p>
+    <div class="auth-container">
+        <div class="card-exp glass-exp reveal-exp-scale visible">
+
+            <div style="text-align: center; margin-bottom: 24px;">
+                <div class="card-exp__icon" style="margin: 0 auto 12px; width: 56px; height: 56px; font-size: 28px;">
+                    🚀
+                </div>
+                <h1 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;" class="gradient-text-exp">
+                    TẠO TÀI KHOẢN
+                </h1>
+                <p style="color: var(--md-sys-color-on-surface-variant); font-size: 14px;">
+                    Tham gia cộng đồng Mekong Marketing
+                </p>
             </div>
 
-            <form class="register-form" id="registerForm">
+            <form id="registerForm">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">👤 Họ và Tên</label>
-                        <input type="text" class="form-input" id="fullName" placeholder="Nguyễn Văn A" required>
+                    <div class="md-field-wrapper">
+                        <label>Họ và Tên</label>
+                        <input type="text" id="fullName" placeholder="Nguyễn Văn A" required>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">📱 Số điện thoại</label>
-                        <input type="tel" class="form-input" id="phone" placeholder="0909 888 168">
+                    <div class="md-field-wrapper">
+                        <label>Số điện thoại</label>
+                        <input type="tel" id="phone" placeholder="0909 888 168">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">📧 Email</label>
-                    <input type="email" class="form-input" id="email" placeholder="email@example.com" required>
+                <div class="md-field-wrapper">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="email@example.com" required>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">🔐 Mật khẩu</label>
-                    <input type="password" class="form-input" id="password" placeholder="Tối thiểu 6 ký tự" required
-                        minlength="6">
+                <div class="md-field-wrapper">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Tối thiểu 6 ký tự" required minlength="6">
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">🎯 Bạn muốn đăng ký với vai trò:</label>
+                <div style="margin-bottom: 8px;">
+                    <label
+                        style="font-size: 14px; font-weight: 500; color: var(--md-sys-color-on-surface-variant); display: block; margin-bottom: 8px;">
+                        Bạn muốn đăng ký với vai trò:
+                    </label>
                     <div class="role-selector">
                         <div class="role-option">
                             <input type="radio" name="role" value="affiliate" id="roleAffiliate" checked>
@@ -435,71 +223,41 @@
                 <div class="message message--error" id="errorMessage"></div>
                 <div class="message message--success" id="successMessage"></div>
 
-                <button type="submit" class="btn-register" id="registerBtn">
-                    🚀 Đăng Ký Ngay
+                <button type="submit" class="btn-exp btn-exp-filled" id="registerBtn"
+                    style="width: 100%; justify-content: center;">
+                    <span class="btn-text">🚀 Đăng Ký Ngay</span>
+                    <span class="btn-loader" style="display: none;">⏳ Đang xử lý...</span>
                 </button>
 
-                <!-- Divider -->
-                <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
-                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
-                    <span style="color: var(--text-muted); font-size: 12px;">hoặc</span>
-                    <div style="flex: 1; height: 1px; background: var(--glass-border);"></div>
+                <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0;">
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                    <span style="color: var(--md-sys-color-on-surface-variant); font-size: 12px;">hoặc</span>
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
                 </div>
 
-                <!-- Zalo Button (Placeholder) -->
-                <button type="button" class="btn-zalo" id="zaloBtn" style="
-                    width: 100%;
-                    padding: 14px;
-                    margin-top: 12px;
-                    background: linear-gradient(135deg, #0068ff, #0091ff);
-                    border: none;
-                    border-radius: 12px;
-                    color: white;
-                    font-size: 14px;
-                    font-weight: 600;
-                    font-family: inherit;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                    position: relative;
-                ">
-                    <svg width="20" height="20" viewBox="0 0 48 48" fill="currentColor">
-                        <path
-                            d="M24 4C12.95 4 4 12.95 4 24c0 6.07 2.72 11.51 7 15.17V44l4.69-2.58C18.38 42.44 21.12 43 24 43c11.05 0 20-8.95 20-20S35.05 4 24 4z" />
-                    </svg>
-                    Đăng ký bằng Zalo
-                    <span style="
-                        position: absolute;
-                        top: -8px;
-                        right: -8px;
-                        background: linear-gradient(135deg, #ffc107, #ff9800);
-                        color: #000;
-                        font-size: 9px;
-                        padding: 3px 8px;
-                        border-radius: 10px;
-                        font-weight: 700;
-                    ">SẮP RA MẮT</span>
+                <button type="button" class="btn-exp btn-exp-outlined" id="zaloBtn"
+                    style="width: 100%; justify-content: center;">
+                    💬 Đăng ký bằng Zalo
                 </button>
             </form>
 
-            <div class="register-links">
-                <a href="login.html" class="register-link" id="loginLink">Đã có tài khoản? <strong>Đăng
-                        nhập</strong></a>
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="login.html" style="color: var(--md-exp-primary); text-decoration: none; font-size: 14px;">
+                    Đã có tài khoản? <strong>Đăng nhập</strong>
+                </a>
             </div>
         </div>
 
-        <div class="register-footer">
-            © 2025 Mekong Marketing. All rights reserved.
-        </div>
+        <p style="text-align: center; margin-top: 24px; color: rgba(255,255,255,0.6); font-size: 12px;">
+            © 2026 Mekong Marketing.
+        </p>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
     <script src="auth.js"></script>
+    <script src="material-interactions.js"></script>
     <script>
         // ========== REGISTER LOGIC ==========
         const registerForm = document.getElementById('registerForm');
@@ -525,9 +283,12 @@
         }
 
         function setLoading(isLoading) {
-            registerBtn.classList.toggle('loading', isLoading);
             registerBtn.disabled = isLoading;
-            registerBtn.textContent = isLoading ? '⏳ Đang xử lý...' : '🚀 Đăng Ký Ngay';
+            const btnText = registerBtn.querySelector('.btn-text');
+            const btnLoader = registerBtn.querySelector('.btn-loader');
+
+            if (btnText) btnText.style.display = isLoading ? 'none' : 'inline';
+            if (btnLoader) btnLoader.style.display = isLoading ? 'inline-flex' : 'none';
         }
 
         // Phone formatting

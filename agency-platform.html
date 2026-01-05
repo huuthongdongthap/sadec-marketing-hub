@@ -10,7 +10,72 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
     <link rel="stylesheet" href="agency-platform.css">
+
+    <style>
+        /* M3 & Agency Integration Overrides */
+        body {
+            background: var(--bg-void);
+            /* Keep deep background for Aurora */
+            display: flex;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Nav Rail Overrides for Glass effect */
+        .nav-rail-exp {
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+        }
+
+        /* Top Bar Integration */
+        .top-bar-exp {
+            background: rgba(15, 29, 50, 0.6);
+            backdrop-filter: blur(20px);
+            margin-bottom: 24px;
+        }
+
+        /* Bento Grid Compatibility */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 1400px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .bento-card--lg {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+
+        /* M3 Card within Bento */
+        .card-exp {
+            background: var(--glass-medium);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--shape-extra-large);
+            padding: 24px;
+            color: var(--md-sys-color-on-surface);
+        }
+    </style>
 </head>
 
 <body>
@@ -23,9 +88,7 @@
         <div style="margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.5);">Loading Command Center...</div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         AURORA BACKGROUND LAYER
-         ═══════════════════════════════════════════════════════════════ -->
+    <!-- AURORA BACKGROUND -->
     <div class="aurora-bg">
         <div class="aurora-orb aurora-orb--1"></div>
         <div class="aurora-orb aurora-orb--2"></div>
@@ -33,376 +96,297 @@
         <div class="aurora-orb aurora-orb--4"></div>
     </div>
 
-    <!-- MOBILE SIDEBAR OVERLAY (BUG FIX) -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- M3 NAV RAIL -->
+    <nav class="nav-rail-exp">
+        <div style="margin-bottom: 32px; padding-left: 0; width: 100%; display: flex; justify-content: center;">
+            <div class="logo-orb" style="width: 48px; height: 48px;">
+                <span class="logo-orb__inner">A</span>
+            </div>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         MAIN APP CONTAINER
-         ═══════════════════════════════════════════════════════════════ -->
-    <div class="app">
+        <div class="nav-item active">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Dashboard</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">🚀</span>
+            <span class="nav-text">Campaigns</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span class="nav-text">Clients</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">📈</span>
+            <span class="nav-text">Analytics</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">🎨</span>
+            <span class="nav-text">Assets</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-text">AI Studio</span>
+        </div>
 
-        <!-- ═══════════════════════════════════════════════════════════
-             SIDEBAR NAVIGATION
-             ═══════════════════════════════════════════════════════════ -->
-        <aside class="sidebar">
-            <div class="sidebar__logo">
-                <div class="logo-orb">
-                    <span class="logo-orb__inner">A</span>
-                </div>
-                <span class="logo-text">Agency<span class="logo-text--accent">OS</span></span>
+        <div style="flex: 1;"></div>
+
+        <div class="nav-item" style="margin-bottom: 24px;">
+            <div class="user-avatar" style="padding: 0; border: none;">
+                <img src="https://i.pravatar.cc/40?img=12" alt="User">
+                <span class="user-status" style="right: -4px; bottom: -4px;"></span>
+            </div>
+            <span class="nav-text">Profile</span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- TOP BAR -->
+        <header class="top-bar-exp reveal-exp">
+            <div>
+                <h1 class="page-title" style="margin: 0; font-size: 24px;">Command Center</h1>
+                <p class="page-subtitle" style="margin: 0;">Welcome back, Anh Hùng 👋</p>
             </div>
 
-            <nav class="sidebar__nav">
-                <a href="#" class="nav-item nav-item--active" data-tooltip="Dashboard">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7" rx="1" />
-                        <rect x="14" y="3" width="7" height="7" rx="1" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" />
-                        <rect x="14" y="14" width="7" height="7" rx="1" />
-                    </svg>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#" class="nav-item" data-tooltip="Campaigns">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                    </svg>
-                    <span>Campaigns</span>
-                </a>
-                <a href="#" class="nav-item" data-tooltip="Clients">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                    <span>Clients</span>
-                </a>
-                <a href="#" class="nav-item" data-tooltip="Analytics">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="20" x2="18" y2="10" />
-                        <line x1="12" y1="20" x2="12" y2="4" />
-                        <line x1="6" y1="20" x2="6" y2="14" />
-                    </svg>
-                    <span>Analytics</span>
-                </a>
-                <a href="#" class="nav-item" data-tooltip="Assets">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <polyline points="21 15 16 10 5 21" />
-                    </svg>
-                    <span>Assets</span>
-                </a>
-                <a href="#" class="nav-item" data-tooltip="AI Studio">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon
-                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                    </svg>
-                    <span>AI Studio</span>
-                </a>
-            </nav>
-
-            <div class="sidebar__bottom">
-                <a href="#" class="nav-item" data-tooltip="Settings">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3" />
-                        <path
-                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                    </svg>
-                    <span>Settings</span>
-                </a>
-                <div class="user-avatar">
-                    <img src="https://i.pravatar.cc/40?img=12" alt="User">
-                    <span class="user-status"></span>
-                </div>
+            <!-- AI FOCUS BAR -->
+            <div class="focus-bar" style="margin: 0 48px; max-width: 400px;">
+                <svg class="focus-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="focus-bar__input" placeholder="Ask AI anything... (⌘K)">
+                <span class="focus-bar__shortcut">⌘K</span>
             </div>
-        </aside>
 
-        <!-- ═══════════════════════════════════════════════════════════
-             MAIN CONTENT AREA
-             ═══════════════════════════════════════════════════════════ -->
-        <main class="main">
-
-            <!-- TOP BAR WITH FOCUS COMMAND -->
-            <header class="topbar">
-                <!-- MOBILE MENU TOGGLE -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div style="display: flex; gap: 16px;">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
                 </button>
+                <button class="icon-btn">➕</button>
+            </div>
+        </header>
 
-                <div class="topbar__left">
-                    <h1 class="page-title">Command Center</h1>
-                    <span class="page-subtitle">Welcome back, Anh Hùng 👋</span>
+        <!-- LIVE TICKER -->
+        <div class="ticker reveal-exp" style="margin-bottom: 24px; border: 1px solid var(--glass-border);">
+            <div class="ticker__track">
+                <span class="ticker__item ticker__item--success">🎉 Tiệm Bánh Cô Lan vừa chốt gói Premium</span>
+                <span class="ticker__item ticker__item--info">📈 Campaign "Tết 2025" đạt 10K reach</span>
+                <span class="ticker__item ticker__item--warning">⚡ 5 leads mới từ Facebook Ads</span>
+                <span class="ticker__item ticker__item--success">💰 Doanh thu hôm nay: +12.5M VND</span>
+                <span class="ticker__item ticker__item--info">🚀 AI đề xuất: Tăng budget cho Quán Phở Bà Hai</span>
+            </div>
+        </div>
+
+        <!-- BENTO GRID -->
+        <div class="bento-grid">
+            <!-- HEALTH ORB (Large) -->
+            <div class="card-exp glass-exp bento-card bento-card--lg bento-card--health reveal-exp-scale"
+                style="transition-delay: 0.1s; padding: 0;">
+                <div class="health-orb">
+                    <div class="health-orb__glow"></div>
+                    <div class="health-orb__inner">
+                        <span class="health-orb__score">92</span>
+                        <span class="health-orb__label">Health Score</span>
+                    </div>
+                    <div class="health-orb__ring health-orb__ring--1"></div>
+                    <div class="health-orb__ring health-orb__ring--2"></div>
                 </div>
-
-                <!-- AI FOCUS BAR (Command+K Style) -->
-                <div class="focus-bar">
-                    <svg class="focus-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                    <input type="text" class="focus-bar__input" placeholder="Ask AI anything... (⌘K)">
-                    <span class="focus-bar__shortcut">⌘K</span>
-                </div>
-
-                <div class="topbar__right">
-                    <button class="icon-btn" title="Notifications">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                        </svg>
-                        <span class="notification-badge">3</span>
-                    </button>
-                    <button class="icon-btn" title="Quick Add">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </button>
-                </div>
-            </header>
-
-            <!-- LIVE ACTIVITY TICKER -->
-            <div class="ticker">
-                <div class="ticker__track">
-                    <span class="ticker__item ticker__item--success">🎉 Tiệm Bánh Cô Lan vừa chốt gói Premium</span>
-                    <span class="ticker__item ticker__item--info">📈 Campaign "Tết 2025" đạt 10K reach</span>
-                    <span class="ticker__item ticker__item--warning">⚡ 5 leads mới từ Facebook Ads</span>
-                    <span class="ticker__item ticker__item--success">💰 Doanh thu hôm nay: +12.5M VND</span>
-                    <span class="ticker__item ticker__item--info">🚀 AI đề xuất: Tăng budget cho Quán Phở Bà Hai</span>
+                <div class="health-stats">
+                    <div class="health-stat">
+                        <span class="health-stat__value">↑ 23%</span>
+                        <span class="health-stat__label">vs last week</span>
+                    </div>
+                    <div class="health-stat">
+                        <span class="health-stat__value">15</span>
+                        <span class="health-stat__label">Active Clients</span>
+                    </div>
+                    <div class="health-stat">
+                        <span class="health-stat__value">98%</span>
+                        <span class="health-stat__label">Delivery Rate</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- ═══════════════════════════════════════════════════════════
-                 BENTO GRID DASHBOARD
-                 ═══════════════════════════════════════════════════════════ -->
-            <div class="bento-grid">
-
-                <!-- HEALTH ORB (Large) -->
-                <div class="bento-card bento-card--lg bento-card--health">
-                    <div class="health-orb">
-                        <div class="health-orb__glow"></div>
-                        <div class="health-orb__inner">
-                            <span class="health-orb__score">92</span>
-                            <span class="health-orb__label">Health Score</span>
-                        </div>
-                        <div class="health-orb__ring health-orb__ring--1"></div>
-                        <div class="health-orb__ring health-orb__ring--2"></div>
-                    </div>
-                    <div class="health-stats">
-                        <div class="health-stat">
-                            <span class="health-stat__value">↑ 23%</span>
-                            <span class="health-stat__label">vs last week</span>
-                        </div>
-                        <div class="health-stat">
-                            <span class="health-stat__value">15</span>
-                            <span class="health-stat__label">Active Clients</span>
-                        </div>
-                        <div class="health-stat">
-                            <span class="health-stat__value">98%</span>
-                            <span class="health-stat__label">Delivery Rate</span>
-                        </div>
-                    </div>
+            <!-- REVENUE CARD -->
+            <div class="card-exp glass-exp bento-card bento-card--revenue reveal-exp-scale"
+                style="transition-delay: 0.2s;">
+                <div class="card-header">
+                    <span class="card-icon">💰</span>
+                    <h3 class="card-title">Doanh Thu Tháng</h3>
                 </div>
-
-                <!-- REVENUE CARD -->
-                <div class="bento-card bento-card--revenue">
-                    <div class="card-header">
-                        <span class="card-icon">💰</span>
-                        <h3 class="card-title">Doanh Thu Tháng</h3>
-                    </div>
-                    <div class="revenue-display">
-                        <span class="revenue-amount">156.8M</span>
-                        <span class="revenue-currency">VND</span>
-                    </div>
-                    <div class="revenue-chart">
-                        <div class="chart-bar" style="--height: 40%"></div>
-                        <div class="chart-bar" style="--height: 65%"></div>
-                        <div class="chart-bar" style="--height: 45%"></div>
-                        <div class="chart-bar" style="--height: 80%"></div>
-                        <div class="chart-bar" style="--height: 70%"></div>
-                        <div class="chart-bar" style="--height: 90%"></div>
-                        <div class="chart-bar chart-bar--active" style="--height: 85%"></div>
-                    </div>
-                    <div class="revenue-trend">
-                        <span class="trend trend--up">↑ 18.5%</span>
-                        <span class="trend-label">so với tháng trước</span>
-                    </div>
+                <div class="revenue-display">
+                    <span class="revenue-amount">156.8M</span>
+                    <span class="revenue-currency">VND</span>
                 </div>
-
-                <!-- QUICK ACTIONS -->
-                <div class="bento-card bento-card--actions">
-                    <h3 class="card-title">Quick Actions</h3>
-                    <div class="quick-actions">
-                        <button class="action-btn action-btn--primary">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                                <path d="M2 2l7.586 7.586" />
-                                <circle cx="11" cy="11" r="2" />
-                            </svg>
-                            <span>New Campaign</span>
-                        </button>
-                        <button class="action-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                <circle cx="8.5" cy="7" r="4" />
-                                <line x1="20" y1="8" x2="20" y2="14" />
-                                <line x1="23" y1="11" x2="17" y2="11" />
-                            </svg>
-                            <span>Add Client</span>
-                        </button>
-                        <button class="action-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                <polyline points="21 15 16 10 5 21" />
-                            </svg>
-                            <span>Upload Assets</span>
-                        </button>
-                        <button class="action-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="17 8 12 3 7 8" />
-                                <line x1="12" y1="3" x2="12" y2="15" />
-                            </svg>
-                            <span>Export Report</span>
-                        </button>
-                    </div>
+                <div class="revenue-chart">
+                    <div class="chart-bar" style="--height: 40%"></div>
+                    <div class="chart-bar" style="--height: 65%"></div>
+                    <div class="chart-bar" style="--height: 45%"></div>
+                    <div class="chart-bar" style="--height: 80%"></div>
+                    <div class="chart-bar" style="--height: 70%"></div>
+                    <div class="chart-bar" style="--height: 90%"></div>
+                    <div class="chart-bar chart-bar--active" style="--height: 85%"></div>
                 </div>
-
-                <!-- ACTIVE CAMPAIGNS -->
-                <div class="bento-card bento-card--campaigns">
-                    <div class="card-header">
-                        <h3 class="card-title">Chiến Dịch Đang Chạy</h3>
-                        <span class="card-badge">8 active</span>
-                    </div>
-                    <div class="campaign-list">
-                        <div class="campaign-item">
-                            <div class="campaign-avatar" style="--bg: linear-gradient(135deg, #667eea, #764ba2)">T</div>
-                            <div class="campaign-info">
-                                <span class="campaign-name">Tết 2025 - Nem Lai Vung</span>
-                                <div class="campaign-progress">
-                                    <div class="progress-bar" style="--progress: 75%"></div>
-                                </div>
-                            </div>
-                            <span class="campaign-metric">75%</span>
-                        </div>
-                        <div class="campaign-item">
-                            <div class="campaign-avatar" style="--bg: linear-gradient(135deg, #f093fb, #f5576c)">B</div>
-                            <div class="campaign-info">
-                                <span class="campaign-name">Brand Awareness - Bonsai Ba</span>
-                                <div class="campaign-progress">
-                                    <div class="progress-bar" style="--progress: 45%"></div>
-                                </div>
-                            </div>
-                            <span class="campaign-metric">45%</span>
-                        </div>
-                        <div class="campaign-item">
-                            <div class="campaign-avatar" style="--bg: linear-gradient(135deg, #4facfe, #00f2fe)">P</div>
-                            <div class="campaign-info">
-                                <span class="campaign-name">Promo - Quán Phở Bà Hai</span>
-                                <div class="campaign-progress">
-                                    <div class="progress-bar" style="--progress: 90%"></div>
-                                </div>
-                            </div>
-                            <span class="campaign-metric">90%</span>
-                        </div>
-                    </div>
+                <div class="revenue-trend">
+                    <span class="trend trend--up" style="color: var(--success);">↑ 18.5%</span>
+                    <span class="trend-label"
+                        style="font-size: 12px; color: var(--md-sys-color-on-surface-variant); margin-left: 8px;">so với
+                        tháng trước</span>
                 </div>
-
-                <!-- LEADS WIDGET -->
-                <div class="bento-card bento-card--leads">
-                    <div class="card-header">
-                        <span class="card-icon">🎯</span>
-                        <h3 class="card-title">Leads Hôm Nay</h3>
-                    </div>
-                    <div class="leads-counter">
-                        <span class="leads-number">24</span>
-                        <span class="leads-trend trend--up">+8 vs hôm qua</span>
-                    </div>
-                    <div class="leads-sources">
-                        <div class="source-item">
-                            <span class="source-icon">📘</span>
-                            <span class="source-name">Facebook</span>
-                            <span class="source-count">12</span>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-icon">📍</span>
-                            <span class="source-name">Google Maps</span>
-                            <span class="source-count">8</span>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-icon">💬</span>
-                            <span class="source-name">Zalo</span>
-                            <span class="source-count">4</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI INSIGHTS -->
-                <div class="bento-card bento-card--ai">
-                    <div class="card-header">
-                        <span class="card-icon ai-pulse">🤖</span>
-                        <h3 class="card-title">AI Insights</h3>
-                    </div>
-                    <div class="ai-suggestions">
-                        <div class="ai-suggestion">
-                            <span class="ai-tag">💡 Đề Xuất</span>
-                            <p>Tăng 15% budget cho <strong>Nem Lai Vung</strong> - hiệu suất cao hơn trung bình 2x</p>
-                        </div>
-                        <div class="ai-suggestion">
-                            <span class="ai-tag ai-tag--warning">⚠️ Cảnh Báo</span>
-                            <p><strong>Bonsai Ba</strong> cần điều chỉnh target - CPL đang tăng</p>
-                        </div>
-                        <div class="ai-suggestion">
-                            <span class="ai-tag ai-tag--success">🎉 Thành Công</span>
-                            <p>Content "Mẹo chụp ảnh" đạt <strong>50K reach</strong> - nên nhân bản</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CALENDAR WIDGET -->
-                <div class="bento-card bento-card--calendar">
-                    <div class="card-header">
-                        <h3 class="card-title">Lịch Hôm Nay</h3>
-                        <span class="card-date">23 Tháng 12</span>
-                    </div>
-                    <div class="calendar-events">
-                        <div class="event-item event-item--now">
-                            <span class="event-time">14:00</span>
-                            <div class="event-content">
-                                <span class="event-title">Review Campaign Tết</span>
-                                <span class="event-attendees">👥 Team Marketing</span>
-                            </div>
-                        </div>
-                        <div class="event-item">
-                            <span class="event-time">16:30</span>
-                            <div class="event-content">
-                                <span class="event-title">Họp với Chú Ba</span>
-                                <span class="event-attendees">📍 Vườn Bonsai</span>
-                            </div>
-                        </div>
-                        <div class="event-item">
-                            <span class="event-time">18:00</span>
-                            <div class="event-content">
-                                <span class="event-title">Deadline: Bao bì Nem</span>
-                                <span class="event-attendees">🎨 Design Team</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </main>
-    </div>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         JAVASCRIPT
-         ═══════════════════════════════════════════════════════════════ -->
+            <!-- QUICK ACTIONS -->
+            <div class="card-exp glass-exp bento-card bento-card--actions reveal-exp-scale"
+                style="transition-delay: 0.3s;">
+                <h3 class="card-title" style="margin-bottom: 20px;">Quick Actions</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <button class="action-btn action-btn--primary btn-exp btn-exp-filled"
+                        style="width: 100%; justify-content: flex-start; padding: 12px;">
+                        <span>🚀 New Campaign</span>
+                    </button>
+                    <button class="action-btn btn-exp btn-exp-outlined"
+                        style="width: 100%; justify-content: flex-start; padding: 12px; border: 1px solid var(--glass-border);">
+                        <span>👤 Add Client</span>
+                    </button>
+                    <button class="action-btn btn-exp btn-exp-outlined"
+                        style="width: 100%; justify-content: flex-start; padding: 12px; border: 1px solid var(--glass-border);">
+                        <span>🎨 Upload Assets</span>
+                    </button>
+                    <button class="action-btn btn-exp btn-exp-outlined"
+                        style="width: 100%; justify-content: flex-start; padding: 12px; border: 1px solid var(--glass-border);">
+                        <span>📊 Export Report</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ACTIVE CAMPAIGNS -->
+            <div class="card-exp glass-exp bento-card bento-card--campaigns reveal-exp-scale"
+                style="transition-delay: 0.4s;">
+                <div class="card-header">
+                    <h3 class="card-title">Chiến Dịch Đang Chạy</h3>
+                    <span class="card-badge">8 active</span>
+                </div>
+                <div class="campaign-list" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Campaign Item 1 -->
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-weight: 700;">
+                            T</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px; font-weight: 600;">Tết 2025 - Nem Lai Vung</div>
+                            <div
+                                style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 6px;">
+                                <div
+                                    style="width: 75%; height: 100%; background: var(--accent-lime); border-radius: 2px;">
+                                </div>
+                            </div>
+                        </div>
+                        <span style="font-size: 12px; font-weight: 700; color: var(--accent-lime);">75%</span>
+                    </div>
+
+                    <!-- Campaign Item 2 -->
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; font-weight: 700;">
+                            B</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px; font-weight: 600;">Brand Awareness - Bonsai</div>
+                            <div
+                                style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 6px;">
+                                <div
+                                    style="width: 45%; height: 100%; background: var(--accent-pink); border-radius: 2px;">
+                                </div>
+                            </div>
+                        </div>
+                        <span style="font-size: 12px; font-weight: 700; color: var(--accent-pink);">45%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEADS WIDGET -->
+            <div class="card-exp glass-exp bento-card bento-card--leads reveal-exp-scale"
+                style="transition-delay: 0.5s;">
+                <div class="card-header">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Leads Hôm Nay</h3>
+                </div>
+                <div class="leads-counter" style="margin-bottom: 24px;">
+                    <span class="leads-number"
+                        style="font-size: 48px; font-weight: 700; display: block; line-height: 1;">24</span>
+                    <span class="leads-trend trend--up" style="color: var(--success); font-size: 13px;">+8 vs hôm
+                        qua</span>
+                </div>
+                <div class="leads-sources" style="display: flex; justify-content: space-between;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 20px;">📘</div>
+                        <div style="font-size: 11px; opacity: 0.7;">FB</div>
+                        <div style="font-weight: 700;">12</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 20px;">📍</div>
+                        <div style="font-size: 11px; opacity: 0.7;">Map</div>
+                        <div style="font-weight: 700;">8</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 20px;">💬</div>
+                        <div style="font-size: 11px; opacity: 0.7;">Zalo</div>
+                        <div style="font-weight: 700;">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI INSIGHTS -->
+            <div class="card-exp glass-exp bento-card bento-card--ai reveal-exp-scale" style="transition-delay: 0.6s;">
+                <div class="card-header">
+                    <span class="card-icon ai-pulse">🤖</span>
+                    <h3 class="card-title">AI Insights</h3>
+                </div>
+                <div class="ai-suggestions" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="ai-suggestion"
+                        style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; font-size: 13px;">
+                        <span class="ai-tag"
+                            style="background: var(--info); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-right: 8px;">💡
+                            ĐỀ XUẤT</span>
+                        Tăng 15% budget cho <strong>Nem Lai Vung</strong> - hiệu suất cao.
+                    </div>
+                    <div class="ai-suggestion"
+                        style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; font-size: 13px;">
+                        <span class="ai-tag"
+                            style="background: var(--warning); color: black; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-right: 8px;">⚠️
+                            CẢNH BÁO</span>
+                        <strong>Bonsai Ba</strong> cần điều chỉnh target - CPL tăng.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JS -->
     <script src="agency-platform.js"></script>
+    <script src="material-interactions.js"></script>
+    <script>
+        // M3 Navigation Logic
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for Animations (Unified)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-exp, .reveal-exp-scale').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

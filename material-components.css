@@ -1,0 +1,1049 @@
+/* ==========================================================================
+   M3 COMPONENTS OVERRIDE - SA ĐÉC MARKETING HUB
+   Custom styles for Material Web Components integration
+   ========================================================================== */
+
+/* ============================================================================
+   1. BASE RESET & GLOBAL STYLES
+   ============================================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--md-ref-typeface-plain);
+    font-size: var(--md-sys-typescale-body-large-size);
+    line-height: var(--md-sys-typescale-body-large-line-height);
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================================================
+   2. LAYOUT CONTAINERS
+   ============================================================================ */
+.md-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.md-container--narrow {
+    max-width: 800px;
+}
+
+.md-container--wide {
+    max-width: 1400px;
+}
+
+.md-section {
+    padding: 64px 0;
+}
+
+.md-section--compact {
+    padding: 40px 0;
+}
+
+.md-section--spacious {
+    padding: 96px 0;
+}
+
+/* ============================================================================
+   3. M3 HEADER / TOP APP BAR
+   ============================================================================ */
+.md-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: var(--md-sys-elevation-level2);
+    transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+.md-header--hidden {
+    transform: translateY(-100%);
+}
+
+.md-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.md-header__leading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.md-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.md-header__logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.md-header__logo-text {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    color: var(--md-sys-color-primary);
+}
+
+.md-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.md-header__nav-item {
+    position: relative;
+    padding: 12px 16px;
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    color: var(--md-sys-color-on-surface-variant);
+    transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+.md-header__nav-item:hover {
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+}
+
+.md-header__nav-item--active {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.md-header__trailing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.md-header__phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: 700;
+    color: var(--md-sys-color-secondary);
+}
+
+/* Mobile Menu */
+.md-header__menu-toggle {
+    display: none;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .md-header__nav {
+        display: none;
+    }
+
+    .md-header__menu-toggle {
+        display: block;
+    }
+}
+
+/* ============================================================================
+   4. M3 HERO SECTION
+   ============================================================================ */
+.md-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    background: linear-gradient(135deg,
+            var(--md-sys-color-primary) 0%,
+            color-mix(in srgb, var(--md-sys-color-primary) 80%, black) 100%);
+    overflow: hidden;
+}
+
+.md-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('assets/images/hero_garden.png') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.md-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+}
+
+.md-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background-color: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    margin-bottom: 24px;
+    animation: fadeInUp 0.6s var(--md-sys-motion-easing-emphasized-decelerate) forwards;
+}
+
+.md-hero__headline {
+    font-family: var(--md-sys-typescale-display-medium-font);
+    font-size: clamp(32px, 6vw, var(--md-sys-typescale-display-medium-size));
+    line-height: 1.1;
+    font-weight: 700;
+    color: var(--md-sys-color-on-primary);
+    margin-bottom: 24px;
+    animation: fadeInUp 0.6s 0.1s var(--md-sys-motion-easing-emphasized-decelerate) forwards;
+    opacity: 0;
+}
+
+.md-hero__headline span {
+    color: var(--md-sys-color-tertiary);
+}
+
+.md-hero__subheadline {
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    line-height: var(--md-sys-typescale-body-large-line-height);
+    color: color-mix(in srgb, var(--md-sys-color-on-primary) 90%, transparent);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    animation: fadeInUp 0.6s 0.2s var(--md-sys-motion-easing-emphasized-decelerate) forwards;
+    opacity: 0;
+}
+
+.md-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    animation: fadeInUp 0.6s 0.3s var(--md-sys-motion-easing-emphasized-decelerate) forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   5. M3 SECTION HEADERS
+   ============================================================================ */
+.md-section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.md-section-header__title {
+    font-family: var(--md-sys-typescale-headline-large-font);
+    font-size: var(--md-sys-typescale-headline-large-size);
+    line-height: var(--md-sys-typescale-headline-large-line-height);
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+}
+
+.md-section-header__title span {
+    color: var(--md-sys-color-secondary);
+}
+
+.md-section-header__subtitle {
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    color: var(--md-sys-color-on-surface-variant);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+   6. M3 CARDS
+   ============================================================================ */
+.md-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    overflow: hidden;
+    transition:
+        box-shadow var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard);
+}
+
+.md-card--elevated {
+    box-shadow: var(--md-sys-elevation-level1);
+}
+
+.md-card--elevated:hover {
+    box-shadow: var(--md-sys-elevation-level2);
+    transform: translateY(-4px);
+}
+
+.md-card--filled {
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
+.md-card--outlined {
+    border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.md-card__media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.md-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+}
+
+.md-card:hover .md-card__media img {
+    transform: scale(1.05);
+}
+
+.md-card__content {
+    padding: 16px;
+    flex: 1;
+}
+
+.md-card__overline {
+    font-family: var(--md-sys-typescale-label-medium-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+    color: var(--md-sys-color-secondary);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.md-card__headline {
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.md-card__supporting-text {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.md-card__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    padding-top: 0;
+}
+
+/* ============================================================================
+   7. M3 TRUST/FEATURE CARDS
+   ============================================================================ */
+.md-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.md-feature-card {
+    text-align: center;
+    padding: 32px 24px;
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-sys-shape-corner-large);
+    transition:
+        background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard);
+}
+
+.md-feature-card:hover {
+    background-color: var(--md-sys-color-surface-container);
+    transform: translateY(-8px);
+}
+
+.md-feature-card__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-size: 32px;
+}
+
+.md-feature-card__title {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 12px;
+}
+
+.md-feature-card__text {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   8. M3 PRICING CARD
+   ============================================================================ */
+.md-pricing-card {
+    position: relative;
+    background: linear-gradient(135deg,
+            var(--md-sys-color-surface-container-highest) 0%,
+            var(--md-sys-color-surface-container) 100%);
+    border: 2px solid var(--md-sys-color-tertiary);
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: var(--md-sys-elevation-level3);
+    transition:
+        transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+        box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+.md-pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--md-sys-elevation-level5);
+}
+
+.md-pricing-card__badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    padding: 8px 24px;
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md-pricing-card__title {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.md-pricing-card__price {
+    font-family: var(--md-sys-typescale-display-medium-font);
+    font-size: var(--md-sys-typescale-display-medium-size);
+    font-weight: 800;
+    color: var(--md-sys-color-secondary);
+    margin: 16px 0;
+}
+
+.md-pricing-card__price span {
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: 600;
+}
+
+.md-pricing-card__features {
+    list-style: none;
+    text-align: left;
+    margin: 24px 0;
+}
+
+.md-pricing-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--md-sys-color-outline-variant);
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    color: var(--md-sys-color-on-surface);
+}
+
+.md-pricing-card__feature:last-child {
+    border-bottom: none;
+}
+
+.md-pricing-card__feature::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.md-pricing-card__note {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-error);
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+/* ============================================================================
+   9. M3 FORM STYLES
+   ============================================================================ */
+.md-form {
+    background-color: var(--md-sys-color-surface-container-low);
+    padding: 32px;
+    border-radius: var(--md-sys-shape-corner-large);
+    box-shadow: var(--md-sys-elevation-level1);
+}
+
+.md-form__group {
+    margin-bottom: 24px;
+}
+
+.md-form__label {
+    display: block;
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.md-form__hint {
+    display: block;
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+    margin-top: 4px;
+}
+
+/* Full-width Material Web components */
+.md-form md-outlined-text-field,
+.md-form md-filled-text-field,
+.md-form md-outlined-select,
+.md-form md-filled-select {
+    width: 100%;
+    --md-outlined-field-container-shape: var(--md-sys-shape-corner-small);
+}
+
+.md-form__note {
+    text-align: center;
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+    margin-top: 16px;
+}
+
+/* ============================================================================
+   10. M3 WORKFLOW/STEPS
+   ============================================================================ */
+.md-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.md-step {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px 24px;
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-sys-shape-corner-large);
+    transition:
+        background-color var(--md-sys-motion-duration-short4),
+        transform var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard);
+}
+
+.md-step:hover {
+    background-color: var(--md-sys-color-surface-container);
+    transform: translateY(-8px);
+}
+
+.md-step__number {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    border-radius: var(--md-sys-shape-corner-full);
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-weight: 700;
+    box-shadow: var(--md-sys-elevation-level2);
+}
+
+.md-step__icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.md-step__title {
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.md-step__text {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.5;
+}
+
+/* ============================================================================
+   11. M3 TESTIMONIALS
+   ============================================================================ */
+.md-testimonials {
+    background: linear-gradient(135deg,
+            var(--md-sys-color-primary) 0%,
+            color-mix(in srgb, var(--md-sys-color-primary) 85%, var(--md-sys-color-secondary)) 100%);
+    padding: 80px 0;
+}
+
+.md-testimonials .md-section-header__title {
+    color: var(--md-sys-color-on-primary);
+}
+
+.md-testimonials .md-section-header__title span {
+    color: var(--md-sys-color-tertiary);
+}
+
+.md-testimonial-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background-color: var(--md-sys-color-surface);
+    padding: 32px;
+    border-radius: var(--md-sys-shape-corner-large);
+    box-shadow: var(--md-sys-elevation-level3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.md-testimonial-card__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--md-sys-shape-corner-full);
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--md-sys-color-secondary-container);
+}
+
+.md-testimonial-card__content {
+    flex: 1;
+}
+
+.md-testimonial-card__quote {
+    font-family: var(--md-sys-typescale-body-large-font);
+    font-size: var(--md-sys-typescale-body-large-size);
+    font-style: italic;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.md-testimonial-card__quote::before {
+    content: '"';
+    font-size: 48px;
+    color: var(--md-sys-color-secondary);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    opacity: 0.3;
+}
+
+.md-testimonial-card__author {
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    color: var(--md-sys-color-on-surface);
+}
+
+.md-testimonial-card__role {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Carousel Dots */
+.md-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.md-carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--md-sys-shape-corner-full);
+    background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 40%, transparent);
+    border: none;
+    cursor: pointer;
+    transition: all var(--md-sys-motion-duration-short4);
+}
+
+.md-carousel-dot--active,
+.md-carousel-dot:hover {
+    background-color: var(--md-sys-color-tertiary);
+    transform: scale(1.2);
+}
+
+/* ============================================================================
+   12. M3 BLOG CARDS
+   ============================================================================ */
+.md-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.md-blog-card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--md-sys-shape-corner-medium);
+    overflow: hidden;
+    box-shadow: var(--md-sys-elevation-level1);
+    transition:
+        box-shadow var(--md-sys-motion-duration-medium1),
+        transform var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard);
+}
+
+.md-blog-card:hover {
+    box-shadow: var(--md-sys-elevation-level3);
+    transform: translateY(-4px);
+}
+
+.md-blog-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.md-blog-card__content {
+    padding: 20px;
+}
+
+.md-blog-card__category {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    border-radius: var(--md-sys-shape-corner-small);
+    font-family: var(--md-sys-typescale-label-small-font);
+    font-size: var(--md-sys-typescale-label-small-size);
+    font-weight: var(--md-sys-typescale-label-small-weight);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.md-blog-card__title {
+    font-family: var(--md-sys-typescale-title-medium-font);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.md-blog-card__excerpt {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 16px;
+}
+
+.md-blog-card__link {
+    font-family: var(--md-sys-typescale-label-large-font);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    color: var(--md-sys-color-primary);
+    transition: color var(--md-sys-motion-duration-short4);
+}
+
+.md-blog-card__link:hover {
+    color: var(--md-sys-color-secondary);
+}
+
+/* ============================================================================
+   13. M3 FOOTER
+   ============================================================================ */
+.md-footer {
+    background-color: var(--md-sys-color-surface-container);
+    padding: 64px 0 24px;
+}
+
+.md-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.md-footer__brand {
+    max-width: 300px;
+}
+
+.md-footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.md-footer__logo-text {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    color: var(--md-sys-color-primary);
+}
+
+.md-footer__tagline {
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.md-footer__column-title {
+    font-family: var(--md-sys-typescale-title-small-font);
+    font-size: var(--md-sys-typescale-title-small-size);
+    font-weight: var(--md-sys-typescale-title-small-weight);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+}
+
+.md-footer__links {
+    list-style: none;
+}
+
+.md-footer__link {
+    display: block;
+    padding: 8px 0;
+    font-family: var(--md-sys-typescale-body-medium-font);
+    font-size: var(--md-sys-typescale-body-medium-size);
+    color: var(--md-sys-color-on-surface-variant);
+    transition: color var(--md-sys-motion-duration-short4);
+}
+
+.md-footer__link:hover {
+    color: var(--md-sys-color-secondary);
+}
+
+.md-footer__bottom {
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    padding-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.md-footer__copyright {
+    font-family: var(--md-sys-typescale-body-small-font);
+    font-size: var(--md-sys-typescale-body-small-size);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.md-footer__social {
+    display: flex;
+    gap: 12px;
+}
+
+.md-footer__social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+    border-radius: var(--md-sys-shape-corner-full);
+    transition:
+        background-color var(--md-sys-motion-duration-short4),
+        transform var(--md-sys-motion-duration-short4);
+}
+
+.md-footer__social-link:hover {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    transform: translateY(-4px);
+}
+
+/* ============================================================================
+   14. M3 FAB (Floating Action Button)
+   ============================================================================ */
+.md-fab-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ============================================================================
+   15. RESPONSIVE STYLES
+   ============================================================================ */
+@media (max-width: 768px) {
+    .md-hero {
+        padding: 100px 16px 60px;
+        min-height: auto;
+    }
+
+    .md-hero__headline {
+        font-size: 28px;
+    }
+
+    .md-section {
+        padding: 48px 0;
+    }
+
+    .md-testimonial-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .md-testimonial-card__avatar {
+        margin: 0 auto;
+    }
+
+    .md-pricing-card {
+        padding: 32px 20px;
+    }
+
+    .md-footer__grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .md-footer__bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================================================
+   16. UTILITY ANIMATIONS
+   ============================================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-emphasized-decelerate),
+        transform var(--md-sys-motion-duration-long2) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered reveal for children */
+.reveal-stagger>* {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate),
+        transform var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.reveal-stagger.visible>*:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.reveal-stagger.visible>*:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.reveal-stagger.visible>*:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.reveal-stagger.visible>*:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.reveal-stagger.visible>*:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.reveal-stagger.visible>*:nth-child(6) {
+    transition-delay: 500ms;
+}
+
+.reveal-stagger.visible>* {
+    opacity: 1;
+    transform: translateY(0);
+}
