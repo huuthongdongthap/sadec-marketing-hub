@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="dark-theme">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,21 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="layout-safe.css">
-    <link rel="stylesheet" href="material-components.css">
-    <link rel="stylesheet" href="m3-expressive.css">
+    <!-- M3 Design System (Unified) -->
+    <link rel="stylesheet" href="m3-design-system.css">
+
+    <!-- @material/web CDN -->
+    <script type="importmap">
+    {
+        "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+        }
+    }
+    </script>
+    <script type="module">
+        import '@material/web/button/filled-button.js';
+        import '@material/web/button/outlined-button.js';
+    </script>
 
     <style>
         /* Client Portal Theme Overrides - Trustworthy Blue */
