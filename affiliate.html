@@ -4,1433 +4,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chương Trình Đối Tác - Mekong Marketing</title>
+    <title>Chương Trình Đối Tác | Mekong Marketing</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #001F3F;
-            --accent: #E91E63;
-            --gold: #FFC107;
-            --success: #4CAF50;
-            --text: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
-        }
+    <link rel="stylesheet" href="material-theme.css">
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <style>
+        /* Landing Theme */
+        :root {
+            --md-sys-color-surface: #0f0518;
+            --md-exp-primary: #E91E63;
+            --md-exp-secondary: #FFC107;
         }
 
         body {
+            background: var(--md-sys-color-surface);
+            color: white;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a1a 0%, #001F3F 50%, #0a0a1a 100%);
-            min-height: 100vh;
-            color: var(--text);
             overflow-x: hidden;
         }
 
-        /* Aurora Background */
-        .aurora {
+        /* Typography Classes (M3 Expressive) */
+        .display-small {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .display-medium {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .headline-small {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .headline-medium {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .title-large {
+            font-size: 1.375rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .body-large {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .body-medium {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .body-small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Hero Text */
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFC107 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 24px;
+        }
+
+        /* Aurora BG */
+        .aurora-bg {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            pointer-events: none;
-            z-index: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 10% 20%, rgba(233, 30, 99, 0.2), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.15), transparent 40%);
+            filter: blur(80px);
+            animation: auroraPulse 10s ease-in-out infinite alternate;
         }
 
-        .aurora::before,
-        .aurora::after {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(ellipse at 30% 20%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
-            animation: auroraMove 20s ease-in-out infinite alternate;
-        }
-
-        @keyframes auroraMove {
+        @keyframes auroraPulse {
             0% {
-                transform: translate(-10%, -10%) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(10%, 10%) rotate(5deg);
-            }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .header__badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), var(--gold));
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+                opacity: 0.8;
             }
 
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 40px rgba(233, 30, 99, 0.8);
+            100% {
+                transform: scale(1.1);
+                opacity: 1;
             }
         }
 
-        .header__title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, var(--gold) 50%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* CARD FIX: Dark text on glass cards */
+        .card-exp.glass-exp h3,
+        .card-exp.glass-exp .title-large {
+            color: #1C1B1F !important;
         }
 
-        .header__subtitle {
-            font-size: 1.25rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
+        .card-exp.glass-exp p,
+        .card-exp.glass-exp .body-medium {
+            color: #49454F !important;
         }
 
-        /* Stats Grid */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+        .card-exp.glass-exp .headline-small {
+            color: #1C1B1F !important;
         }
 
-        .stat-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
+        .card-exp.glass-exp .display-medium {
+            color: var(--md-exp-primary) !important;
+            -webkit-text-fill-color: var(--md-exp-primary) !important;
+        }
+
+        .card-exp.glass-exp .check-list li {
+            color: #49454F !important;
+        }
+
+        /* Steps */
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(233, 30, 99, 0.3);
-        }
-
-        .stat-card__icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .stat-card__value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-card__label {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 5px;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            margin: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-        }
-
-        .section-title span {
-            color: var(--accent);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .step {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
+            padding: 32px;
+            transition: all 0.3s ease;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
         }
 
-        .step:hover {
+        .step-card:hover {
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-5px);
-            border-color: var(--gold);
+            border-color: var(--md-exp-secondary);
         }
 
-        .step__number {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent), var(--gold));
+        .step-number {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--md-exp-primary), var(--md-exp-secondary));
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 900;
-            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            align-items: center;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: white;
         }
 
-        .step__icon {
-            font-size: 4rem;
-            margin: 20px 0;
-        }
-
-        .step__title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .step__desc {
-            font-size: 0.95rem;
-            opacity: 0.7;
-            line-height: 1.6;
-        }
-
-        /* Commission Tiers */
-        .tiers {
-            margin: 80px 0;
-        }
-
-        .tier-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
+        /* Tiers */
         .tier-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 32px;
             padding: 40px;
             text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tier-card--gold {
-            border-color: var(--gold);
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), var(--glass));
-        }
-
-        .tier-card--gold::before {
-            content: '⭐ PHỔI BIẾN';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--gold);
-            color: var(--primary);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 5px 40px;
-            transform: rotate(45deg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .tier-card:hover {
             transform: scale(1.02);
         }
 
-        .tier-card__name {
-            font-size: 1.5rem;
+        .tier-gold {
+            border: 2px solid var(--md-exp-secondary);
+            background: linear-gradient(180deg, rgba(255, 193, 7, 0.1), transparent);
+            position: relative;
+        }
+
+        .tier-gold::after {
+            content: 'POPULAR';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--md-exp-secondary);
+            color: black;
             font-weight: 800;
-            margin-bottom: 10px;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
         }
 
-        .tier-card__commission {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 20px 0;
-        }
-
-        .tier-card__commission span {
-            font-size: 1rem;
-            opacity: 0.7;
-        }
-
-        .tier-card__features {
+        .check-list {
             list-style: none;
+            padding: 0;
+            margin: 24px 0;
             text-align: left;
-            margin: 30px 0;
         }
 
-        .tier-card__features li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .check-list li {
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .tier-card__features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* Registration Form */
-        .register {
-            margin: 80px 0;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 32px;
-            padding: 60px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .register__form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 18px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
-        }
-
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .form-group select option {
-            background: var(--primary);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--accent), var(--gold));
-            border: none;
-            border-radius: 16px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
-        }
-
-        /* Referral Code Display */
-        .referral-code {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 193, 7, 0.2));
-            border: 2px dashed var(--gold);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            margin: 40px 0;
-            display: none;
-        }
-
-        .referral-code.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .referral-code__label {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 10px;
-        }
-
-        .referral-code__value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            font-family: monospace;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 5px;
-        }
-
-        .referral-code__copy {
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: var(--success);
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .referral-code__copy:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px;
-            opacity: 0.6;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           🔥 URGENCY BANNER (Binh Pháp)
-           ═══════════════════════════════════════════════════════════════ */
-        .urgency-banner {
-            background: linear-gradient(135deg, rgba(233, 30, 99, 0.2), rgba(255, 193, 7, 0.2));
-            border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            animation: urgencyPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes urgencyPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
-            }
-        }
-
-        .urgency__content {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .urgency__icon {
-            font-size: 2rem;
-            animation: shake 0.5s ease-in-out infinite;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: rotate(-5deg);
-            }
-
-            50% {
-                transform: rotate(5deg);
-            }
-        }
-
-        .urgency__text {
-            font-size: 1.1rem;
-        }
-
-        .urgency__text strong {
-            color: var(--accent);
-            font-size: 1.4rem;
-        }
-
-        .urgency__countdown {
-            text-align: right;
-        }
-
-        .countdown__label {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .countdown__timer {
-            display: flex;
             gap: 8px;
+            opacity: 0.8;
         }
 
-        .countdown__unit {
-            background: var(--primary);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
+        .check-list li::before {
+            content: '✓';
+            color: var(--md-exp-secondary);
+            font-weight: 800;
         }
 
-        .countdown__unit span {
-            color: var(--gold);
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           💰 INCOME CALCULATOR
-           ═══════════════════════════════════════════════════════════════ */
-        .calculator {
-            margin: 80px 0;
-        }
-
-        .calc-container {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
+        /* Calculator */
+        .calculator-box {
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 24px;
             padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .calc-slider-group {
-            margin-bottom: 30px;
-        }
-
-        .calc-label {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .calc-slider-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .calc-slider {
-            flex: 1;
-            height: 12px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            -webkit-appearance: none;
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
             appearance: none;
         }
 
-        .calc-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 28px;
-            height: 28px;
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--md-exp-secondary);
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--gold));
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.5);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
         }
 
-        .calc-value-display {
-            background: var(--accent);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            min-width: 100px;
-            text-align: center;
+        /* M3 Chip */
+        .m3-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
-        .calc-result {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 193, 7, 0.2));
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .calc-result__label {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .calc-result__value {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--gold), var(--success));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .calc-result__yearly {
-            font-size: 1.1rem;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        .calc-result__yearly span {
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .calc-note {
-            text-align: center;
-            opacity: 0.5;
-            font-size: 0.85rem;
-            margin-top: 20px;
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           🏆 TOP AFFILIATES
-           ═══════════════════════════════════════════════════════════════ */
-        .top-affiliates {
-            margin: 80px 0;
-        }
-
-        .affiliate-grid {
+        /* Grid Expressive */
+        .grid-exp {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
         }
 
-        .affiliate-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 30px;
-            text-align: center;
-            border: 2px solid transparent;
-            position: relative;
-            transition: all 0.4s ease;
+        /* Container Expressive */
+        .container-exp {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .affiliate-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .affiliate-card--gold {
-            border-color: #FFD700;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
-        }
-
-        .affiliate-card--silver {
-            border-color: #C0C0C0;
-        }
-
-        .affiliate-card--bronze {
-            border-color: #CD7F32;
-        }
-
-        .affiliate-rank {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-        }
-
-        .affiliate-avatar {
-            font-size: 4rem;
-            margin: 20px 0;
-        }
-
-        .affiliate-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .affiliate-role {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 15px;
-        }
-
-        .affiliate-earnings {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--success);
-            margin-bottom: 15px;
-        }
-
-        .affiliate-quote {
-            font-style: italic;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           📢 FOMO LIVE FEED
-           ═══════════════════════════════════════════════════════════════ */
-        .fomo-toast {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            z-index: 1000;
-            animation: slideIn 0.5s ease, fadeOut 0.5s ease 4.5s forwards;
-            max-width: 350px;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-        }
-
-        .fomo-toast__avatar {
-            font-size: 2rem;
-        }
-
-        .fomo-toast__text {
-            font-size: 0.9rem;
-        }
-
-        .fomo-toast__text strong {
-            color: var(--accent);
-        }
-
-        .fomo-toast__time {
-            font-size: 0.75rem;
-            opacity: 0.5;
-            margin-top: 3px;
-        }
-
-        /* ═══════════════════════════════════════════════════════════════
-           🎮 TIER PROGRESS BAR (Binh Pháp: Gamification)
-           ═══════════════════════════════════════════════════════════════ */
-        .tier-progress {
-            margin: 60px 0;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-
-        .tier-progress__header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .tier-progress__current {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tier-progress__badge {
-            font-size: 2rem;
-        }
-
-        .tier-progress__name {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .tier-progress__next {
-            color: var(--gold);
-            font-weight: 600;
-            animation: pulseText 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseText {
-
-            0%,
-            100% {
-                opacity: 0.7;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .tier-progress__bar {
-            height: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .tier-progress__fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--gold));
-            border-radius: 10px;
-            transition: width 1s ease;
-            position: relative;
-        }
-
-        .tier-progress__fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .tier-progress__info {
-            margin-top: 20px;
-            font-size: 1.1rem;
-        }
-
-        .tier-progress__info strong {
-            color: var(--accent);
-            font-size: 1.3rem;
-        }
-
-        .tier-progress__reward {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 193, 7, 0.2));
-            border-radius: 20px;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        /* Mobile */
+        /* Responsive grid */
         @media (max-width: 768px) {
-            .header {
-                padding: 40px 20px;
+            .grid-exp {
+                grid-template-columns: 1fr !important;
             }
 
-            .register {
-                padding: 40px 20px;
-            }
-
-            .urgency-banner {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .urgency__countdown {
-                text-align: center;
-            }
-
-            .calc-slider-wrapper {
-                flex-direction: column;
-            }
-
-            .calc-result__value {
-                font-size: 2rem;
+            .calculator-box .grid-exp {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="aurora"></div>
+    <div class="aurora-bg"></div>
 
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <span class="header__badge">🚀 Mới Ra Mắt</span>
-            <h1 class="header__title">Chương Trình Đối Tác</h1>
-            <p class="header__subtitle">
-                Kiếm thu nhập thụ động bằng cách giới thiệu khách hàng đến Mekong Marketing.
-                Hoa hồng lên đến <strong>20%</strong> trọn đời!
-            </p>
-        </header>
+    <!-- Header -->
+    <header class="container-exp glass-exp"
+        style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 10px; z-index: 1000; border-radius: var(--shape-large); margin-top: 20px;">
+        <div class="title-medium" style="font-weight: 800; letter-spacing: 1px;">MEKONG AFFILIATE</div>
+        <a href="login.html" class="btn-exp btn-exp-outlined"
+            style="border-color: rgba(255,255,255,0.2); color: white;">Đăng Nhập</a>
+    </header>
 
-        <!-- 🔥 URGENCY BANNER (Binh Pháp: Tạo Khan Hiếm) -->
-        <div class="urgency-banner">
-            <div class="urgency__content">
-                <span class="urgency__icon">⏰</span>
-                <span class="urgency__text">Chỉ còn <strong id="slotsRemaining">27</strong> suất Partner trong tháng
-                    12!</span>
-            </div>
-            <div class="urgency__countdown">
-                <span class="countdown__label">Kết thúc sau:</span>
-                <div class="countdown__timer" id="countdown">
-                    <span class="countdown__unit"><span id="hours">23</span>h</span>
-                    <span class="countdown__unit"><span id="minutes">59</span>m</span>
-                    <span class="countdown__unit"><span id="seconds">59</span>s</span>
-                </div>
-            </div>
+    <!-- Hero -->
+    <section class="container-exp" style="text-align: center; padding: 100px 20px;">
+        <div class="m3-chip" style="background: rgba(255,255,255,0.1); margin-bottom: 24px;">🚀 Chương trình đối tác
+            2026</div>
+        <h1 class="hero-title reveal-exp-scale text-liquid">Kiếm tiền thụ động<br>không giới hạn</h1>
+        <p class="headline-small" style="max-width: 600px; margin: 0 auto 48px; opacity: 0.8;">
+            Hợp tác cùng Mekong Marketing. Nhận hoa hồng lên đến <span
+                style="color: var(--md-exp-secondary); font-weight: 700;">20%</span> trọn đời cho mỗi khách hàng bạn
+            giới thiệu.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center;">
+            <a href="register.html" class="btn-exp btn-exp-filled" style="padding: 20px 48px; font-size: 18px;">Đăng Ký
+                Ngay</a>
+
         </div>
+    </section>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-card__icon">💰</div>
-                <div class="stat-card__value">20%</div>
-                <div class="stat-card__label">Hoa hồng tối đa</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card__icon">🔄</div>
-                <div class="stat-card__value">Trọn Đời</div>
-                <div class="stat-card__label">Thanh toán định kỳ</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card__icon">⚡</div>
-                <div class="stat-card__value">24h</div>
-                <div class="stat-card__label">Xác nhận nhanh</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card__icon">🎁</div>
-                <div class="stat-card__value">500K</div>
-                <div class="stat-card__label">Bonus đăng ký</div>
-            </div>
-        </div>
+    <!-- Steps -->
+    <section class="container-exp" style="padding: 80px 20px;">
+        <h2 class="display-small" style="text-align: center; margin-bottom: 60px;">Quy trình 3 bước đơn giản</h2>
+        <div class="grid-exp" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
 
-        <!-- How It Works -->
-        <section class="how-it-works">
-            <h2 class="section-title">Cách Thức <span>Hoạt Động</span></h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step__number">1</div>
-                    <div class="step__icon">📝</div>
-                    <h3 class="step__title">Đăng Ký</h3>
-                    <p class="step__desc">Điền form đăng ký và nhận mã giới thiệu unique của bạn</p>
-                </div>
-                <div class="step">
-                    <div class="step__number">2</div>
-                    <div class="step__icon">📢</div>
-                    <h3 class="step__title">Chia Sẻ</h3>
-                    <p class="step__desc">Giới thiệu Mekong Marketing cho bạn bè, đối tác kinh doanh</p>
-                </div>
-                <div class="step">
-                    <div class="step__number">3</div>
-                    <div class="step__icon">✅</div>
-                    <h3 class="step__title">Khách Đăng Ký</h3>
-                    <p class="step__desc">Người được giới thiệu đăng ký gói dịch vụ với mã của bạn</p>
-                </div>
-                <div class="step">
-                    <div class="step__number">4</div>
-                    <div class="step__icon">💸</div>
-                    <h3 class="step__title">Nhận Tiền</h3>
-                    <p class="step__desc">Nhận hoa hồng vào tài khoản mỗi khi khách thanh toán</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Commission Tiers -->
-        <section class="tiers">
-            <h2 class="section-title">Mức <span>Hoa Hồng</span></h2>
-            <div class="tier-grid">
-                <div class="tier-card">
-                    <h3 class="tier-card__name">🌱 Starter</h3>
-                    <div class="tier-card__commission">10% <span>/ giao dịch</span></div>
-                    <ul class="tier-card__features">
-                        <li>1-5 khách giới thiệu</li>
-                        <li>Bonus 200K khi đạt 3 khách</li>
-                        <li>Báo cáo hàng tuần</li>
-                        <li>Hỗ trợ qua Zalo</li>
-                    </ul>
-                </div>
-                <div class="tier-card tier-card--gold">
-                    <h3 class="tier-card__name">⭐ Partner</h3>
-                    <div class="tier-card__commission">15% <span>/ giao dịch</span></div>
-                    <ul class="tier-card__features">
-                        <li>6-15 khách giới thiệu</li>
-                        <li>Bonus 500K/tháng</li>
-                        <li>Dashboard riêng</li>
-                        <li>Hotline ưu tiên</li>
-                        <li>Co-branding materials</li>
-                    </ul>
-                </div>
-                <div class="tier-card">
-                    <h3 class="tier-card__name">💎 VIP</h3>
-                    <div class="tier-card__commission">20% <span>/ giao dịch</span></div>
-                    <ul class="tier-card__features">
-                        <li>16+ khách giới thiệu</li>
-                        <li>Bonus 1 triệu/tháng</li>
-                        <li>Gặp mặt định kỳ</li>
-                        <li>Priority support 24/7</li>
-                        <li>Revenue share deals</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 💰 INCOME CALCULATOR (Binh Pháp: Vẽ Tranh Tương Lai) -->
-        <section class="calculator">
-            <h2 class="section-title">💰 Tính <span>Thu Nhập</span> Tiềm Năng</h2>
-            <div class="calc-container">
-                <div class="calc-slider-group">
-                    <label class="calc-label">Số khách giới thiệu mỗi tháng:</label>
-                    <div class="calc-slider-wrapper">
-                        <input type="range" id="refSlider" min="1" max="20" value="5" class="calc-slider">
-                        <span class="calc-value-display" id="refCount">5 khách</span>
-                    </div>
-                </div>
-                <div class="calc-result">
-                    <div class="calc-result__label">Thu nhập ước tính/tháng:</div>
-                    <div class="calc-result__value" id="incomeValue">3.750.000đ</div>
-                    <div class="calc-result__yearly">📅 ~<span id="yearlyIncome">45.000.000đ</span>/năm</div>
-                </div>
-                <p class="calc-note">* Dựa trên gói dịch vụ trung bình 5 triệu và hoa hồng 15%</p>
-            </div>
-        </section>
-
-        <!-- 🏆 TOP AFFILIATES (Binh Pháp: Chứng Minh Xã Hội) -->
-        <section class="top-affiliates">
-            <h2 class="section-title">🏆 Top Đối Tác <span>Tháng 12</span></h2>
-            <div class="affiliate-grid" id="leaderboardGrid">
-                <div class="affiliate-card affiliate-card--gold">
-                    <span class="affiliate-rank">🥇</span>
-                    <div class="affiliate-avatar">👨‍💼</div>
-                    <h4 class="affiliate-name">Anh An</h4>
-                    <p class="affiliate-role">Freelancer Marketing</p>
-                    <div class="affiliate-earnings">+12.500.000đ</div>
-                    <p class="affiliate-quote">"Giới thiệu 8 khách trong 3 tuần đầu!"</p>
-                </div>
-                <div class="affiliate-card affiliate-card--silver">
-                    <span class="affiliate-rank">🥈</span>
-                    <div class="affiliate-avatar">👩‍💻</div>
-                    <h4 class="affiliate-name">Chị Hương</h4>
-                    <p class="affiliate-role">Chủ tiệm in Cần Thơ</p>
-                    <div class="affiliate-earnings">+8.200.000đ</div>
-                    <p class="affiliate-quote">"Khách in ấn đều cần marketing!"</p>
-                </div>
-                <div class="affiliate-card affiliate-card--bronze">
-                    <span class="affiliate-rank">🥉</span>
-                    <div class="affiliate-avatar">👨‍🔧</div>
-                    <h4 class="affiliate-name">Anh Tuấn</h4>
-                    <p class="affiliate-role">IT Freelancer</p>
-                    <div class="affiliate-earnings">+5.600.000đ</div>
-                    <p class="affiliate-quote">"Làm web xong giới thiệu marketing!"</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🎮 TIER PROGRESS BAR (Binh Pháp: Gamification) -->
-        <section class="tier-progress" id="tierProgress">
-            <div class="tier-progress__header">
-                <div class="tier-progress__current">
-                    <span class="tier-progress__badge">🌱</span>
-                    <span class="tier-progress__name">Starter (10%)</span>
-                </div>
-                <span class="tier-progress__next">Tiếp theo: ⭐ Partner (15%)</span>
-            </div>
-            <div class="tier-progress__bar">
-                <div class="tier-progress__fill" id="progressFill" style="width: 60%"></div>
-            </div>
-            <p class="tier-progress__info">
-                Còn <strong id="remainingRefs">2</strong> khách nữa để lên hạng ⭐ <strong>Partner</strong>!
-            </p>
-            <div class="tier-progress__reward">
-                🎁 Thưởng: +5% hoa hồng + Dashboard riêng + Hotline VIP
-            </div>
-        </section>
-
-        <!-- Registration Form -->
-        <section class="register" id="register">
-            <h2 class="section-title">Đăng Ký <span>Ngay</span></h2>
-            <form class="register__form" id="affiliateForm">
-                <div class="form-group">
-                    <label>👤 Họ và Tên</label>
-                    <input type="text" id="fullName" placeholder="Nguyễn Văn A" required>
-                </div>
-                <div class="form-group">
-                    <label>📱 Số Điện Thoại</label>
-                    <input type="tel" id="phone" placeholder="0909 888 168" required>
-                </div>
-                <div class="form-group">
-                    <label>📧 Email</label>
-                    <input type="email" id="email" placeholder="email@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>🏢 Ngành Nghề</label>
-                    <select id="industry" required>
-                        <option value="">-- Chọn ngành --</option>
-                        <option value="marketing">Marketing / Agency</option>
-                        <option value="design">Thiết kế / In ấn</option>
-                        <option value="it">IT / Web Developer</option>
-                        <option value="sales">Sales / Kinh doanh</option>
-                        <option value="freelancer">Freelancer</option>
-                        <option value="other">Khác</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>💬 Bạn biết Mekong Marketing qua đâu?</label>
-                    <select id="source">
-                        <option value="">-- Chọn nguồn --</option>
-                        <option value="facebook">Facebook</option>
-                        <option value="zalo">Zalo</option>
-                        <option value="google">Google</option>
-                        <option value="friend">Bạn bè giới thiệu</option>
-                        <option value="other">Khác</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">
-                    🚀 Đăng Ký Ngay - Nhận Mã Giới Thiệu
-                </button>
-            </form>
-
-            <!-- Referral Code Result -->
-            <div class="referral-code" id="referralCode">
-                <div class="referral-code__label">🎉 Mã Giới Thiệu Của Bạn</div>
-                <div class="referral-code__value" id="codeValue">MK-XXXX</div>
-                <button class="referral-code__copy" onclick="copyCode()">📋 Copy Mã</button>
-                <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">
-                    Chia sẻ mã này cho bạn bè. Khi họ đăng ký, cả hai đều được thưởng!
+            <div class="card-exp glass-exp interactive reveal-exp spotlight-card">
+                <div class="step-number">1</div>
+                <h3 class="title-large">Đăng ký tài khoản</h3>
+                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
+                    Điền thông tin vào form đăng ký. Chỉ mất 30 giây để trở thành đối tác chính thức.
                 </p>
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>© 2025 Mekong Marketing | <a href="index.html">Về Trang Chủ</a></p>
-        </footer>
-    </div>
+            <div class="card-exp glass-exp interactive reveal-exp spotlight-card" style="transition-delay: 0.1s;">
+                <div class="step-number">2</div>
+                <h3 class="title-large">Nhận link giới thiệu</h3>
+                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
+                    Lấy mã giới thiệu (Referral Code) riêng của bạn trong Dashboard partner.
+                </p>
+            </div>
+
+            <div class="card-exp glass-exp interactive reveal-exp spotlight-card" style="transition-delay: 0.2s;">
+                <div class="step-number">3</div>
+                <h3 class="title-large">Nhận hoa hồng</h3>
+                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
+                    Nhận tiền ngay khi khách hàng thanh toán thành công. Rút tiền tự động mỗi tháng.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tiers -->
+    <section class="container-exp" style="padding: 80px 20px;">
+        <div class="grid-exp"
+            style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; align-items: center;">
+
+            <div class="card-exp glass-exp interactive reveal-exp-scale spotlight-card">
+                <div class="headline-small">Starter</div>
+                <div class="display-medium" style="color: var(--md-exp-primary); margin: 16px 0;">10%</div>
+                <div class="body-medium" style="opacity: 0.7;">Hoa hồng cơ bản</div>
+                <ul class="check-list">
+                    <li>Dành cho người mới</li>
+                    <li>Thanh toán ngày 15 hàng tháng</li>
+                    <li>Support qua Zalo</li>
+                </ul>
+                <a href="register.html" class="btn-exp btn-exp-outlined"
+                    style="width: 100%; border-color: rgba(255,255,255,0.2); color: white;">Tham gia</a>
+            </div>
+
+            <div class="card-exp glass-exp interactive tier-gold reveal-exp-scale spotlight-card"
+                style="transition-delay: 0.1s;">
+                <div class="headline-small" style="color: var(--md-exp-secondary);">Partner</div>
+                <div class="display-medium" style="color: var(--md-exp-secondary); margin: 16px 0;">15%</div>
+                <div class="body-medium" style="opacity: 0.7;">Khi đạt 5 khách hàng/tháng</div>
+                <ul class="check-list">
+                    <li>Tăng thu nhập thụ động</li>
+                    <li>Thanh toán ưu tiên</li>
+                    <li>Badge "Partner" vinh danh</li>
+                </ul>
+                <a href="register.html" class="btn-exp btn-exp-filled"
+                    style="width: 100%; background: var(--md-exp-secondary); color: black;">Tham gia ngay</a>
+            </div>
+
+            <div class="card-exp glass-exp interactive reveal-exp-scale spotlight-card" style="transition-delay: 0.2s;">
+                <div class="headline-small">VIP</div>
+                <div class="display-medium"
+                    style="background: linear-gradient(135deg, cyan, blue); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 16px 0;">
+                    20%</div>
+                <div class="body-medium" style="opacity: 0.7;">Khi đạt 15 khách hàng/tháng</div>
+                <ul class="check-list">
+                    <li>Max quyền lợi</li>
+                    <li>Support 1:1 riêng biệt</li>
+                    <li>Quà tặng lễ tết</li>
+                </ul>
+                <a href="register.html" class="btn-exp btn-exp-outlined"
+                    style="width: 100%; border-color: rgba(255,255,255,0.2); color: white;">Liên hệ VIP</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Calculator -->
+    <section class="container-exp" style="padding: 80px 20px;">
+        <div class="calculator-box reveal-exp">
+            <div class="grid-exp" style="grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+                <div>
+                    <h2 class="headline-medium" style="margin-bottom: 32px;">Tính thu nhập ước tính</h2>
+
+                    <div style="margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <label>Số khách giới thiệu</label>
+                            <span id="clientCountVal" style="font-weight: 700; color: var(--md-exp-secondary);">5</span>
+                        </div>
+                        <input type="range" id="clientCount" min="1" max="50" value="5">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <label>Giá trị hợp đồng TB</label>
+                            <span id="dealValueVal"
+                                style="font-weight: 700; color: var(--md-exp-secondary);">5,000,000đ</span>
+                        </div>
+                        <input type="range" id="dealValue" min="1000000" max="20000000" step="500000" value="5000000">
+                    </div>
+                </div>
+
+                <div
+                    style="text-align: center; background: rgba(255,193,7,0.05); padding: 40px; border-radius: 24px; border: 1px dashed var(--md-exp-secondary);">
+                    <div class="body-large" style="opacity: 0.8; margin-bottom: 16px;">Thu nhập hàng tháng</div>
+                    <div class="display-medium" id="totalIncome"
+                        style="color: var(--md-exp-secondary); font-weight: 800;">3,750,000đ*</div>
+                    <div class="body-small" style="margin-top: 16px; opacity: 0.5;">*Dựa trên mức hoa hồng 15%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 14px;">
+        © 2026 Mekong Marketing Affiliate Program. All rights reserved.
+    </footer>
 
     <script>
-        // Phone formatting
-        document.getElementById('phone').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 4) {
-                value = value.slice(0, 4) + ' ' + value.slice(4);
-            }
-            if (value.length > 8) {
-                value = value.slice(0, 8) + ' ' + value.slice(8);
-            }
-            e.target.value = value.slice(0, 12);
-        });
-
-        // Form submission
-        document.getElementById('affiliateForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-
-            // Generate unique code
-            const nameCode = name.split(' ').pop().toUpperCase().slice(0, 3);
-            const randomNum = Math.floor(1000 + Math.random() * 9000);
-            const code = `MK-${nameCode}${randomNum}`;
-
-            // Show code
-            document.getElementById('codeValue').textContent = code;
-            document.getElementById('referralCode').classList.add('show');
-
-            // Scroll to code
-            document.getElementById('referralCode').scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Celebrate
-            confetti();
-        });
-
-        // Copy code
-        function copyCode() {
-            const code = document.getElementById('codeValue').textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                const btn = document.querySelector('.referral-code__copy');
-                btn.textContent = '✅ Đã Copy!';
-                setTimeout(() => {
-                    btn.textContent = '📋 Copy Mã';
-                }, 2000);
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-exp, .reveal-exp-scale').forEach(el => observer.observe(el));
+
+        // Calculator Logic
+        const clientRange = document.getElementById('clientCount');
+        const dealRange = document.getElementById('dealValue');
+        const clientVal = document.getElementById('clientCountVal');
+        const dealVal = document.getElementById('dealValueVal');
+        const totalIncome = document.getElementById('totalIncome');
+
+        function formatMoney(num) {
+            return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
         }
 
-        // Simple confetti
-        function confetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.cssText = `
-                    position: fixed;
-                    width: 10px;
-                    height: 10px;
-                    background: ${['#E91E63', '#FFC107', '#4CAF50', '#2196F3'][Math.floor(Math.random() * 4)]};
-                    left: ${Math.random() * 100}vw;
-                    top: -10px;
-                    border-radius: 50%;
-                    z-index: 9999;
-                    animation: confettiFall ${2 + Math.random() * 2}s ease forwards;
-                `;
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 4000);
-            }
-        }
+        // M3 Spring Animation for Numbers
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
-        // Add confetti animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes confettiFall {
-                to {
-                    transform: translateY(100vh) rotate(720deg);
-                    opacity: 0;
+                // Ease out quart
+                const easeProgress = 1 - Math.pow(1 - progress, 4);
+
+                const current = Math.floor(progress * (end - start) + start);
+                obj.textContent = formatMoney(current) + (end > 0 ? '*' : '');
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.textContent = formatMoney(end) + (end > 0 ? '*' : '');
                 }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        let currentIncome = 0;
+
+        function calculate() {
+            const clients = parseInt(clientRange.value);
+            const deal = parseInt(dealRange.value);
+
+            clientVal.textContent = clients;
+            dealVal.textContent = formatMoney(deal);
+
+            // Logic: Base 10%, >5 clients 15%, >15 clients 20%
+            let rate = 0.1;
+            if (clients >= 15) rate = 0.2;
+            else if (clients >= 5) rate = 0.15;
+
+            const newIncome = clients * deal * rate;
+
+            // Trigger animation only if value changed
+            if (currentIncome !== newIncome) {
+                animateValue(totalIncome, currentIncome, newIncome, 1000); // 1s duration
+                currentIncome = newIncome;
             }
-        `;
-        document.head.appendChild(style);
-
-        // ═══════════════════════════════════════════════════════════════
-        // 🔥 COUNTDOWN TIMER (Binh Pháp: Urgency)
-        // ═══════════════════════════════════════════════════════════════
-        function updateCountdown() {
-            const now = new Date();
-            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
-            const diff = endOfMonth - now;
-
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        clientRange.addEventListener('input', calculate);
+        dealRange.addEventListener('input', calculate);
 
-        // ═══════════════════════════════════════════════════════════════
-        // 💰 INCOME CALCULATOR (Binh Pháp: Visualize Future)
-        // ═══════════════════════════════════════════════════════════════
-        const slider = document.getElementById('refSlider');
-        const refCountDisplay = document.getElementById('refCount');
-        const incomeValueDisplay = document.getElementById('incomeValue');
-        const yearlyIncomeDisplay = document.getElementById('yearlyIncome');
-
-        function formatVND(num) {
-            return num.toLocaleString('vi-VN') + 'đ';
-        }
-
-        function calculateIncome(refs) {
-            const avgDealValue = 5000000; // 5 million VND average
-            let commissionRate;
-
-            if (refs <= 5) commissionRate = 0.10;
-            else if (refs <= 15) commissionRate = 0.15;
-            else commissionRate = 0.20;
-
-            const monthlyIncome = refs * avgDealValue * commissionRate;
-            const yearlyIncome = monthlyIncome * 12;
-
-            return { monthly: monthlyIncome, yearly: yearlyIncome };
-        }
-
-        slider.addEventListener('input', function () {
-            const refs = parseInt(this.value);
-            refCountDisplay.textContent = refs + ' khách';
-
-            const income = calculateIncome(refs);
-            incomeValueDisplay.textContent = formatVND(income.monthly);
-            yearlyIncomeDisplay.textContent = formatVND(income.yearly);
-        });
-
-        // ═══════════════════════════════════════════════════════════════
-        // 🏆 LEADERBOARD SERVICE (Supabase Integration)
-        // ═══════════════════════════════════════════════════════════════
-        const LeaderboardService = {
-            getClient() {
-                return window.SupabaseAPI?.getClient();
-            },
-
-            async loadTopAffiliates() {
-                const client = this.getClient();
-                if (!client) return null;
-
-                try {
-                    const { data, error } = await client
-                        .from('affiliates')
-                        .select('id, full_name, total_commission, tier, referral_count')
-                        .order('total_commission', { ascending: false })
-                        .limit(3);
-
-                    if (error) throw error;
-                    return data;
-                } catch (err) {
-                    console.warn('Error loading leaderboard:', err);
-                    return null;
-                }
-            },
-
-            async renderLeaderboard() {
-                const grid = document.getElementById('leaderboardGrid');
-                if (!grid) return;
-
-                const data = await this.loadTopAffiliates();
-                if (!data || data.length === 0) return; // Keep demo data
-
-                const ranks = ['gold', 'silver', 'bronze'];
-                const badges = ['🥇', '🥈', '🥉'];
-                const avatars = ['👨‍💼', '👩‍💻', '👨‍🔧'];
-                const quotes = [
-                    'Top performer tháng này!',
-                    'Đang tăng tốc mạnh mẽ!',
-                    'Thành tích ấn tượng!'
-                ];
-
-                grid.innerHTML = data.map((aff, i) => {
-                    const earnings = aff.total_commission || 0;
-                    return `
-                        <div class="affiliate-card affiliate-card--${ranks[i]}">
-                            <span class="affiliate-rank">${badges[i]}</span>
-                            <div class="affiliate-avatar">${avatars[i]}</div>
-                            <h4 class="affiliate-name">${aff.full_name || 'Top Affiliate'}</h4>
-                            <p class="affiliate-role">${aff.tier || 'Partner'}</p>
-                            <div class="affiliate-earnings">+${new Intl.NumberFormat('vi-VN').format(earnings)}đ</div>
-                            <p class="affiliate-quote">"${quotes[i]}"</p>
-                        </div>
-                    `;
-                }).join('');
-            }
-        };
-
-        // Load leaderboard (attempt Supabase, fallback to static)
-        document.addEventListener('DOMContentLoaded', () => {
-            LeaderboardService.renderLeaderboard();
-        });
-
-        // ═══════════════════════════════════════════════════════════════
-        // 📢 FOMO TOAST NOTIFICATIONS (Binh Pháp: Social Proof)
-        // ═══════════════════════════════════════════════════════════════
-        const fomoData = [
-            { name: 'Chị Hương', location: 'Cần Thơ', avatar: '👩‍💼' },
-            { name: 'Anh Minh', location: 'Vĩnh Long', avatar: '👨‍💻' },
-            { name: 'Cô Năm', location: 'An Giang', avatar: '👩‍🌾' },
-            { name: 'Anh Phúc', location: 'Đồng Tháp', avatar: '👨‍💼' },
-            { name: 'Chị Lan', location: 'Sóc Trăng', avatar: '👩‍🎨' },
-            { name: 'Anh Tuấn', location: 'Bến Tre', avatar: '👨‍🔧' }
-        ];
-
-        function showFomoToast() {
-            const data = fomoData[Math.floor(Math.random() * fomoData.length)];
-            const timeAgo = Math.floor(Math.random() * 10) + 1;
-
-            const toast = document.createElement('div');
-            toast.className = 'fomo-toast';
-            toast.innerHTML = `
-                <span class="fomo-toast__avatar">${data.avatar}</span>
-                <div>
-                    <div class="fomo-toast__text"><strong>${data.name}</strong> từ ${data.location} vừa đăng ký!</div>
-                    <div class="fomo-toast__time">${timeAgo} phút trước</div>
-                </div>
-            `;
-            document.body.appendChild(toast);
-
-            setTimeout(() => toast.remove(), 5000);
-        }
-
-        // Show first toast after 5 seconds, then every 15-30 seconds
-        setTimeout(showFomoToast, 5000);
-        setInterval(() => {
-            if (Math.random() > 0.3) showFomoToast(); // 70% chance
-        }, 20000);
-
+        calculate(); // Init
     </script>
 </body>
 
