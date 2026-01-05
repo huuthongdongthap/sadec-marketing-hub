@@ -12,43 +12,78 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="material-theme.css">
-    <link rel="stylesheet" href="layout-safe.css">
-    <link rel="stylesheet" href="material-components.css">
-    <link rel="stylesheet" href="m3-expressive.css">
-
     <style>
-        /* Landing Theme */
+        /* ========== RESET & BASE ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
-            --md-sys-color-surface: #0f0518;
-            --md-exp-primary: #E91E63;
-            --md-exp-secondary: #FFC107;
+            --primary: #E91E63;
+            --primary-dark: #C2185B;
+            --secondary: #FFC107;
+            --surface: #0f0518;
+            --surface-card: rgba(255, 255, 255, 0.05);
+            --surface-card-hover: rgba(255, 255, 255, 0.1);
+            --on-surface: #FFFFFF;
+            --on-surface-variant: rgba(255, 255, 255, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            background: var(--md-sys-color-surface);
-            color: white;
-            font-family: 'Inter', sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Typography Classes (M3 Expressive) */
-        .display-small {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            line-height: 1.2;
+        /* ========== AURORA BACKGROUND ========== */
+        .aurora-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(233, 30, 99, 0.25), transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.2), transparent 50%);
+            filter: blur(100px);
+            animation: auroraPulse 10s ease-in-out infinite alternate;
         }
 
-        .display-medium {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+        @keyframes auroraPulse {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        .display-large {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
         }
 
-        .headline-small {
-            font-size: 1.25rem;
-            font-weight: 600;
-            line-height: 1.4;
+        .display-medium {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .headline-large {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .headline-medium {
@@ -64,229 +99,386 @@
         }
 
         .body-large {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.6;
+            font-size: 1.125rem;
+            line-height: 1.7;
         }
 
         .body-medium {
-            font-size: 0.875rem;
-            font-weight: 400;
+            font-size: 1rem;
             line-height: 1.6;
         }
 
-        .body-small {
-            font-size: 0.75rem;
-            font-weight: 400;
-            line-height: 1.5;
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        /* Hero Text */
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFC107 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .section {
+            padding: 80px 0;
+        }
 
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: sticky;
+            top: 16px;
+            z-index: 1000;
+            margin: 16px 24px 0;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo {
+            font-weight: 800;
+            font-size: 1.125rem;
+            letter-spacing: 1px;
+            color: var(--on-surface);
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: #1a1a2e;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--on-surface);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 120px 24px 80px;
+            text-align: center;
+        }
+
+        .hero__badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero__title {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFC107 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 24px;
         }
 
-        /* Aurora BG */
-        .aurora-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            background: radial-gradient(circle at 10% 20%, rgba(233, 30, 99, 0.2), transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.15), transparent 40%);
-            filter: blur(80px);
-            animation: auroraPulse 10s ease-in-out infinite alternate;
+        .hero__subtitle {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            color: var(--on-surface-variant);
         }
 
-        @keyframes auroraPulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
+        .hero__highlight {
+            color: var(--secondary);
+            font-weight: 700;
         }
 
-        /* CARD FIX: Dark text on glass cards */
-        .card-exp.glass-exp h3,
-        .card-exp.glass-exp .title-large {
-            color: #1C1B1F !important;
-        }
-
-        .card-exp.glass-exp p,
-        .card-exp.glass-exp .body-medium {
-            color: #49454F !important;
-        }
-
-        .card-exp.glass-exp .headline-small {
-            color: #1C1B1F !important;
-        }
-
-        .card-exp.glass-exp .display-medium {
-            color: var(--md-exp-primary) !important;
-            -webkit-text-fill-color: var(--md-exp-primary) !important;
-        }
-
-        .card-exp.glass-exp .check-list li {
-            color: #49454F !important;
-        }
-
-        /* Steps */
-        .step-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* ========== CARDS (DARK THEME) ========== */
+        .card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 32px;
             transition: all 0.3s ease;
-            position: relative;
         }
 
-        .step-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-5px);
-            border-color: var(--md-exp-secondary);
+        .card:hover {
+            background: var(--surface-card-hover);
+            transform: translateY(-8px);
+            border-color: var(--secondary);
         }
 
-        .step-number {
+        .card__step {
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--md-exp-primary), var(--md-exp-secondary));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             font-weight: 800;
-            font-size: 20px;
-            margin-bottom: 24px;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
             color: white;
         }
 
-        /* Tiers */
-        .tier-card {
-            background: rgba(255, 255, 255, 0.03);
+        .card__title {
+            color: var(--on-surface);
+            margin-bottom: 12px;
+        }
+
+        .card__text {
+            color: var(--on-surface-variant);
+        }
+
+        /* ========== PRICING CARDS ========== */
+        .pricing-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
             border-radius: 32px;
-            padding: 40px;
+            padding: 40px 32px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .tier-card:hover {
-            transform: scale(1.02);
+        .pricing-card:hover {
+            transform: translateY(-8px);
         }
 
-        .tier-gold {
-            border: 2px solid var(--md-exp-secondary);
+        .pricing-card--featured {
+            border: 2px solid var(--secondary);
             background: linear-gradient(180deg, rgba(255, 193, 7, 0.1), transparent);
             position: relative;
         }
 
-        .tier-gold::after {
+        .pricing-card--featured::before {
             content: 'POPULAR';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: var(--md-exp-secondary);
-            color: black;
+            background: var(--secondary);
+            color: #1a1a2e;
             font-weight: 800;
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 12px;
+            font-size: 0.75rem;
+            padding: 6px 16px;
+            border-radius: 100px;
         }
 
+        .pricing-card__tier {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card__rate {
+            font-size: clamp(3rem, 8vw, 4rem);
+            font-weight: 800;
+            margin: 16px 0;
+        }
+
+        .pricing-card__rate--primary {
+            color: var(--primary);
+        }
+
+        .pricing-card__rate--secondary {
+            color: var(--secondary);
+        }
+
+        .pricing-card__rate--gradient {
+            background: linear-gradient(135deg, cyan, #2196F3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pricing-card__desc {
+            color: var(--on-surface-variant);
+            margin-bottom: 24px;
+        }
+
+        /* ========== CHECK LIST ========== */
         .check-list {
             list-style: none;
-            padding: 0;
-            margin: 24px 0;
             text-align: left;
+            margin: 24px 0;
         }
 
         .check-list li {
-            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            opacity: 0.8;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--on-surface-variant);
         }
 
         .check-list li::before {
             content: '✓';
-            color: var(--md-exp-secondary);
+            color: var(--secondary);
+            font-weight: 800;
+            font-size: 1.125rem;
+        }
+
+        /* ========== CALCULATOR ========== */
+        .calculator {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+        }
+
+        .calculator__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .calculator__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calculator__label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .calculator__value {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .calculator__result {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 193, 7, 0.05);
+            border: 1px dashed var(--secondary);
+            border-radius: 24px;
+        }
+
+        .calculator__income {
+            color: var(--secondary);
             font-weight: 800;
         }
 
-        /* Calculator */
-        .calculator-box {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
+        /* Range Slider */
         input[type="range"] {
             width: 100%;
             height: 6px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 3px;
             appearance: none;
+            margin-bottom: 24px;
         }
 
         input[type="range"]::-webkit-slider-thumb {
             appearance: none;
             width: 24px;
             height: 24px;
-            background: var(--md-exp-secondary);
+            background: var(--secondary);
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
         }
 
-        /* M3 Chip */
-        .m3-chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--on-surface-variant);
+            font-size: 0.875rem;
         }
 
-        /* Grid Expressive */
-        .grid-exp {
-            display: grid;
+        /* ========== SECTION HEADER ========== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        /* Container Expressive */
-        .container-exp {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .section-header__title {
+            color: var(--on-surface);
         }
 
-        /* Responsive grid */
-        @media (max-width: 768px) {
-            .grid-exp {
-                grid-template-columns: 1fr !important;
-            }
+        /* ========== ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-            .calculator-box .grid-exp {
-                grid-template-columns: 1fr !important;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
         }
     </style>
 </head>
@@ -295,155 +487,146 @@
     <div class="aurora-bg"></div>
 
     <!-- Header -->
-    <header class="container-exp glass-exp"
-        style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 10px; z-index: 1000; border-radius: var(--shape-large); margin-top: 20px;">
-        <div class="title-medium" style="font-weight: 800; letter-spacing: 1px;">MEKONG AFFILIATE</div>
-        <a href="login.html" class="btn-exp btn-exp-outlined"
-            style="border-color: rgba(255,255,255,0.2); color: white;">Đăng Nhập</a>
+    <header class="header">
+        <div class="header__logo">MEKONG AFFILIATE</div>
+        <a href="login.html" class="btn btn-outline">Đăng Nhập</a>
     </header>
 
     <!-- Hero -->
-    <section class="container-exp" style="text-align: center; padding: 100px 20px;">
-        <div class="m3-chip" style="background: rgba(255,255,255,0.1); margin-bottom: 24px;">🚀 Chương trình đối tác
-            2026</div>
-        <h1 class="hero-title reveal-exp-scale text-liquid">Kiếm tiền thụ động<br>không giới hạn</h1>
-        <p class="headline-small" style="max-width: 600px; margin: 0 auto 48px; opacity: 0.8;">
-            Hợp tác cùng Mekong Marketing. Nhận hoa hồng lên đến <span
-                style="color: var(--md-exp-secondary); font-weight: 700;">20%</span> trọn đời cho mỗi khách hàng bạn
-            giới thiệu.
+    <section class="hero">
+        <div class="hero__badge">🚀 Chương trình đối tác 2026</div>
+        <h1 class="display-large hero__title fade-in">Kiếm tiền thụ động<br>không giới hạn</h1>
+        <p class="body-large hero__subtitle fade-in">
+            Hợp tác cùng Mekong Marketing. Nhận hoa hồng lên đến
+            <span class="hero__highlight">20%</span> trọn đời cho mỗi khách hàng bạn giới thiệu.
         </p>
-        <div style="display: flex; gap: 16px; justify-content: center;">
-            <a href="register.html" class="btn-exp btn-exp-filled" style="padding: 20px 48px; font-size: 18px;">Đăng Ký
-                Ngay</a>
-
-        </div>
+        <a href="register.html" class="btn btn-primary" style="padding: 20px 48px; font-size: 1.125rem;">
+            Đăng Ký Ngay
+        </a>
     </section>
 
     <!-- Steps -->
-    <section class="container-exp" style="padding: 80px 20px;">
-        <h2 class="display-small" style="text-align: center; margin-bottom: 60px;">Quy trình 3 bước đơn giản</h2>
-        <div class="grid-exp" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-
-            <div class="card-exp glass-exp interactive reveal-exp spotlight-card">
-                <div class="step-number">1</div>
-                <h3 class="title-large">Đăng ký tài khoản</h3>
-                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
-                    Điền thông tin vào form đăng ký. Chỉ mất 30 giây để trở thành đối tác chính thức.
-                </p>
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-large section-header__title">Quy trình 3 bước đơn giản</h2>
             </div>
 
-            <div class="card-exp glass-exp interactive reveal-exp spotlight-card" style="transition-delay: 0.1s;">
-                <div class="step-number">2</div>
-                <h3 class="title-large">Nhận link giới thiệu</h3>
-                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
-                    Lấy mã giới thiệu (Referral Code) riêng của bạn trong Dashboard partner.
-                </p>
-            </div>
-
-            <div class="card-exp glass-exp interactive reveal-exp spotlight-card" style="transition-delay: 0.2s;">
-                <div class="step-number">3</div>
-                <h3 class="title-large">Nhận hoa hồng</h3>
-                <p class="body-medium" style="opacity: 0.7; margin-top: 8px;">
-                    Nhận tiền ngay khi khách hàng thanh toán thành công. Rút tiền tự động mỗi tháng.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Tiers -->
-    <section class="container-exp" style="padding: 80px 20px;">
-        <div class="grid-exp"
-            style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; align-items: center;">
-
-            <div class="card-exp glass-exp interactive reveal-exp-scale spotlight-card">
-                <div class="headline-small">Starter</div>
-                <div class="display-medium" style="color: var(--md-exp-primary); margin: 16px 0;">10%</div>
-                <div class="body-medium" style="opacity: 0.7;">Hoa hồng cơ bản</div>
-                <ul class="check-list">
-                    <li>Dành cho người mới</li>
-                    <li>Thanh toán ngày 15 hàng tháng</li>
-                    <li>Support qua Zalo</li>
-                </ul>
-                <a href="register.html" class="btn-exp btn-exp-outlined"
-                    style="width: 100%; border-color: rgba(255,255,255,0.2); color: white;">Tham gia</a>
-            </div>
-
-            <div class="card-exp glass-exp interactive tier-gold reveal-exp-scale spotlight-card"
-                style="transition-delay: 0.1s;">
-                <div class="headline-small" style="color: var(--md-exp-secondary);">Partner</div>
-                <div class="display-medium" style="color: var(--md-exp-secondary); margin: 16px 0;">15%</div>
-                <div class="body-medium" style="opacity: 0.7;">Khi đạt 5 khách hàng/tháng</div>
-                <ul class="check-list">
-                    <li>Tăng thu nhập thụ động</li>
-                    <li>Thanh toán ưu tiên</li>
-                    <li>Badge "Partner" vinh danh</li>
-                </ul>
-                <a href="register.html" class="btn-exp btn-exp-filled"
-                    style="width: 100%; background: var(--md-exp-secondary); color: black;">Tham gia ngay</a>
-            </div>
-
-            <div class="card-exp glass-exp interactive reveal-exp-scale spotlight-card" style="transition-delay: 0.2s;">
-                <div class="headline-small">VIP</div>
-                <div class="display-medium"
-                    style="background: linear-gradient(135deg, cyan, blue); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 16px 0;">
-                    20%</div>
-                <div class="body-medium" style="opacity: 0.7;">Khi đạt 15 khách hàng/tháng</div>
-                <ul class="check-list">
-                    <li>Max quyền lợi</li>
-                    <li>Support 1:1 riêng biệt</li>
-                    <li>Quà tặng lễ tết</li>
-                </ul>
-                <a href="register.html" class="btn-exp btn-exp-outlined"
-                    style="width: 100%; border-color: rgba(255,255,255,0.2); color: white;">Liên hệ VIP</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Interactive Calculator -->
-    <section class="container-exp" style="padding: 80px 20px;">
-        <div class="calculator-box reveal-exp">
-            <div class="grid-exp" style="grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
-                <div>
-                    <h2 class="headline-medium" style="margin-bottom: 32px;">Tính thu nhập ước tính</h2>
-
-                    <div style="margin-bottom: 24px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <label>Số khách giới thiệu</label>
-                            <span id="clientCountVal" style="font-weight: 700; color: var(--md-exp-secondary);">5</span>
-                        </div>
-                        <input type="range" id="clientCount" min="1" max="50" value="5">
-                    </div>
-
-                    <div style="margin-bottom: 24px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <label>Giá trị hợp đồng TB</label>
-                            <span id="dealValueVal"
-                                style="font-weight: 700; color: var(--md-exp-secondary);">5,000,000đ</span>
-                        </div>
-                        <input type="range" id="dealValue" min="1000000" max="20000000" step="500000" value="5000000">
-                    </div>
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <div class="card__step">1</div>
+                    <h3 class="title-large card__title">Đăng ký tài khoản</h3>
+                    <p class="body-medium card__text">
+                        Điền thông tin vào form đăng ký. Chỉ mất 30 giây để trở thành đối tác chính thức.
+                    </p>
                 </div>
 
-                <div
-                    style="text-align: center; background: rgba(255,193,7,0.05); padding: 40px; border-radius: 24px; border: 1px dashed var(--md-exp-secondary);">
-                    <div class="body-large" style="opacity: 0.8; margin-bottom: 16px;">Thu nhập hàng tháng</div>
-                    <div class="display-medium" id="totalIncome"
-                        style="color: var(--md-exp-secondary); font-weight: 800;">3,750,000đ*</div>
-                    <div class="body-small" style="margin-top: 16px; opacity: 0.5;">*Dựa trên mức hoa hồng 15%</div>
+                <div class="card fade-in delay-1">
+                    <div class="card__step">2</div>
+                    <h3 class="title-large card__title">Nhận link giới thiệu</h3>
+                    <p class="body-medium card__text">
+                        Lấy mã giới thiệu (Referral Code) riêng của bạn trong Dashboard partner.
+                    </p>
+                </div>
+
+                <div class="card fade-in delay-2">
+                    <div class="card__step">3</div>
+                    <h3 class="title-large card__title">Nhận hoa hồng</h3>
+                    <p class="body-medium card__text">
+                        Nhận tiền ngay khi khách hàng thanh toán thành công. Rút tiền tự động mỗi tháng.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3">
+                <div class="pricing-card scale-in">
+                    <div class="pricing-card__tier">Starter</div>
+                    <div class="pricing-card__rate pricing-card__rate--primary">10%</div>
+                    <div class="pricing-card__desc body-medium">Hoa hồng cơ bản</div>
+                    <ul class="check-list">
+                        <li>Dành cho người mới</li>
+                        <li>Thanh toán ngày 15 hàng tháng</li>
+                        <li>Support qua Zalo</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-outline" style="width: 100%;">Tham gia</a>
+                </div>
+
+                <div class="pricing-card pricing-card--featured scale-in delay-1">
+                    <div class="pricing-card__tier" style="color: var(--secondary);">Partner</div>
+                    <div class="pricing-card__rate pricing-card__rate--secondary">15%</div>
+                    <div class="pricing-card__desc body-medium">Khi đạt 5 khách hàng/tháng</div>
+                    <ul class="check-list">
+                        <li>Tăng thu nhập thụ động</li>
+                        <li>Thanh toán ưu tiên</li>
+                        <li>Badge "Partner" vinh danh</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-secondary" style="width: 100%;">Tham gia ngay</a>
+                </div>
+
+                <div class="pricing-card scale-in delay-2">
+                    <div class="pricing-card__tier">VIP</div>
+                    <div class="pricing-card__rate pricing-card__rate--gradient">20%</div>
+                    <div class="pricing-card__desc body-medium">Khi đạt 15 khách hàng/tháng</div>
+                    <ul class="check-list">
+                        <li>Max quyền lợi</li>
+                        <li>Support 1:1 riêng biệt</li>
+                        <li>Quà tặng lễ tết</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-outline" style="width: 100%;">Liên hệ VIP</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section">
+        <div class="container">
+            <div class="calculator fade-in">
+                <div class="calculator__grid">
+                    <div>
+                        <h2 class="headline-medium" style="margin-bottom: 32px;">Tính thu nhập ước tính</h2>
+
+                        <div>
+                            <div class="calculator__label">
+                                <label>Số khách giới thiệu</label>
+                                <span class="calculator__value" id="clientCountVal">5</span>
+                            </div>
+                            <input type="range" id="clientCount" min="1" max="50" value="5">
+                        </div>
+
+                        <div>
+                            <div class="calculator__label">
+                                <label>Giá trị hợp đồng TB</label>
+                                <span class="calculator__value" id="dealValueVal">5,000,000đ</span>
+                            </div>
+                            <input type="range" id="dealValue" min="1000000" max="20000000" step="500000"
+                                value="5000000">
+                        </div>
+                    </div>
+
+                    <div class="calculator__result">
+                        <div class="body-large" style="margin-bottom: 16px;">Thu nhập hàng tháng</div>
+                        <div class="display-medium calculator__income" id="totalIncome">3,750,000đ*</div>
+                        <div class="body-medium" style="margin-top: 16px; opacity: 0.6;">*Dựa trên mức hoa hồng 15%
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 14px;">
+    <footer class="footer">
         © 2026 Mekong Marketing Affiliate Program. All rights reserved.
     </footer>
 
     <script>
-        // Reveal Animation
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -452,7 +635,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal-exp, .reveal-exp-scale').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in, .scale-in').forEach(el => observer.observe(el));
 
         // Calculator Logic
         const clientRange = document.getElementById('clientCount');
@@ -465,30 +648,6 @@
             return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
         }
 
-        // M3 Spring Animation for Numbers
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-
-                // Ease out quart
-                const easeProgress = 1 - Math.pow(1 - progress, 4);
-
-                const current = Math.floor(progress * (end - start) + start);
-                obj.textContent = formatMoney(current) + (end > 0 ? '*' : '');
-
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    obj.textContent = formatMoney(end) + (end > 0 ? '*' : '');
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        let currentIncome = 0;
-
         function calculate() {
             const clients = parseInt(clientRange.value);
             const deal = parseInt(dealRange.value);
@@ -496,24 +655,19 @@
             clientVal.textContent = clients;
             dealVal.textContent = formatMoney(deal);
 
-            // Logic: Base 10%, >5 clients 15%, >15 clients 20%
+            // Rate: 10% base, 15% for 5+ clients, 20% for 15+ clients
             let rate = 0.1;
             if (clients >= 15) rate = 0.2;
             else if (clients >= 5) rate = 0.15;
 
-            const newIncome = clients * deal * rate;
-
-            // Trigger animation only if value changed
-            if (currentIncome !== newIncome) {
-                animateValue(totalIncome, currentIncome, newIncome, 1000); // 1s duration
-                currentIncome = newIncome;
-            }
+            const income = clients * deal * rate;
+            totalIncome.textContent = formatMoney(income) + '*';
         }
 
         clientRange.addEventListener('input', calculate);
         dealRange.addEventListener('input', calculate);
 
-        calculate(); // Init
+        calculate(); // Initialize
     </script>
 </body>
 
