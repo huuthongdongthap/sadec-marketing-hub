@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="dark-theme">
 
 <head>
     <meta charset="UTF-8">
@@ -12,196 +12,25 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- M3 Design System (Unified) -->
+    <link rel="stylesheet" href="m3-design-system.css">
+
+    <!-- @material/web CDN -->
+    <script type="importmap">
+    {
+        "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+        }
+    }
+    </script>
+    <script type="module">
+        import '@material/web/button/filled-button.js';
+        import '@material/web/button/outlined-button.js';
+        import '@material/web/slider/slider.js';
+    </script>
+
     <style>
-        /* ========== RESET & BASE ========== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --primary: #E91E63;
-            --primary-dark: #C2185B;
-            --secondary: #FFC107;
-            --surface: #0f0518;
-            --surface-card: rgba(255, 255, 255, 0.05);
-            --surface-card-hover: rgba(255, 255, 255, 0.1);
-            --on-surface: #FFFFFF;
-            --on-surface-variant: rgba(255, 255, 255, 0.7);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        body {
-            background: var(--surface);
-            color: var(--on-surface);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ========== AURORA BACKGROUND ========== */
-        .aurora-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(233, 30, 99, 0.25), transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.2), transparent 50%);
-            filter: blur(100px);
-            animation: auroraPulse 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes auroraPulse {
-            0% {
-                opacity: 0.8;
-                transform: scale(1);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1.1);
-            }
-        }
-
-        /* ========== TYPOGRAPHY ========== */
-        .display-large {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .display-medium {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .headline-large {
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .headline-medium {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .title-large {
-            font-size: 1.375rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .body-large {
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        .body-medium {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* ========== LAYOUT ========== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* ========== HEADER ========== */
-        .header {
-            position: sticky;
-            top: 16px;
-            z-index: 1000;
-            margin: 16px 24px 0;
-            padding: 16px 24px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header__logo {
-            font-weight: 800;
-            font-size: 1.125rem;
-            letter-spacing: 1px;
-            color: var(--on-surface);
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 100px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.5);
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: #1a1a2e;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--on-surface);
-            border: 2px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-        }
-
-        /* ========== HERO ========== */
+        /* Page-specific overrides */
         .hero {
             padding: 120px 24px 80px;
             text-align: center;
@@ -211,77 +40,33 @@
             display: inline-block;
             padding: 10px 20px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 100px;
+            border-radius: var(--md-sys-shape-corner-full);
             font-size: 0.875rem;
             font-weight: 500;
             margin-bottom: 32px;
         }
 
         .hero__title {
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFC107 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--md-sys-color-tertiary) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 24px;
         }
 
-        .hero__subtitle {
-            max-width: 600px;
-            margin: 0 auto 48px;
-            color: var(--on-surface-variant);
-        }
-
         .hero__highlight {
-            color: var(--secondary);
+            color: var(--md-sys-color-tertiary);
             font-weight: 700;
         }
 
-        /* ========== CARDS (DARK THEME) ========== */
-        .card {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            background: var(--surface-card-hover);
-            transform: translateY(-8px);
-            border-color: var(--secondary);
-        }
-
-        .card__step {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .card__title {
-            color: var(--on-surface);
-            margin-bottom: 12px;
-        }
-
-        .card__text {
-            color: var(--on-surface-variant);
-        }
-
-        /* ========== PRICING CARDS ========== */
+        /* Pricing Cards */
         .pricing-card {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 32px;
+            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-extra-large);
             padding: 40px 32px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all var(--md-sys-motion-duration-medium) var(--spring-smooth);
         }
 
         .pricing-card:hover {
@@ -289,7 +74,7 @@
         }
 
         .pricing-card--featured {
-            border: 2px solid var(--secondary);
+            border: 2px solid var(--md-sys-color-tertiary);
             background: linear-gradient(180deg, rgba(255, 193, 7, 0.1), transparent);
             position: relative;
         }
@@ -300,19 +85,12 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: var(--secondary);
-            color: #1a1a2e;
+            background: var(--md-sys-color-tertiary);
+            color: var(--md-sys-color-on-tertiary);
             font-weight: 800;
             font-size: 0.75rem;
             padding: 6px 16px;
-            border-radius: 100px;
-        }
-
-        .pricing-card__tier {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--on-surface);
-            margin-bottom: 8px;
+            border-radius: var(--md-sys-shape-corner-full);
         }
 
         .pricing-card__rate {
@@ -322,11 +100,11 @@
         }
 
         .pricing-card__rate--primary {
-            color: var(--primary);
+            color: var(--md-sys-color-secondary);
         }
 
         .pricing-card__rate--secondary {
-            color: var(--secondary);
+            color: var(--md-sys-color-tertiary);
         }
 
         .pricing-card__rate--gradient {
@@ -336,16 +114,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .pricing-card__desc {
-            color: var(--on-surface-variant);
-            margin-bottom: 24px;
-        }
-
-        /* ========== CHECK LIST ========== */
+        /* Check List */
         .check-list {
             list-style: none;
             text-align: left;
             margin: 24px 0;
+            padding: 0;
         }
 
         .check-list li {
@@ -353,21 +127,20 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 12px;
-            color: var(--on-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
         }
 
         .check-list li::before {
             content: '✓';
-            color: var(--secondary);
+            color: var(--md-sys-color-tertiary);
             font-weight: 800;
-            font-size: 1.125rem;
         }
 
-        /* ========== CALCULATOR ========== */
+        /* Calculator */
         .calculator {
             background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
-            border-radius: 24px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-extra-large);
             padding: 48px;
         }
 
@@ -384,27 +157,16 @@
             }
         }
 
-        .calculator__label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .calculator__value {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-
         .calculator__result {
             text-align: center;
             padding: 40px;
             background: rgba(255, 193, 7, 0.05);
-            border: 1px dashed var(--secondary);
-            border-radius: 24px;
+            border: 1px dashed var(--md-sys-color-tertiary);
+            border-radius: var(--md-sys-shape-corner-extra-large);
         }
 
         .calculator__income {
-            color: var(--secondary);
+            color: var(--md-sys-color-tertiary);
             font-weight: 800;
         }
 
@@ -422,63 +184,69 @@
             appearance: none;
             width: 24px;
             height: 24px;
-            background: var(--secondary);
+            background: var(--md-sys-color-tertiary);
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
         }
 
-        /* ========== FOOTER ========== */
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--md-sys-shape-corner-full);
+            text-decoration: none;
+            transition: all var(--md-sys-motion-duration-medium) var(--spring-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--md-sys-color-secondary), #C2185B);
+            color: white;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--md-sys-color-tertiary);
+            color: var(--md-sys-color-on-tertiary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--md-sys-color-on-surface);
+            border: 2px solid var(--md-sys-color-outline-variant);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--md-sys-color-secondary);
+        }
+
+        /* Header override */
+        .header {
+            position: sticky;
+            top: 16px;
+            z-index: 1000;
+            margin: 16px 24px 0;
+        }
+
+        /* Footer */
         .footer {
             text-align: center;
             padding: 40px 24px;
-            color: var(--on-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
             font-size: 0.875rem;
-        }
-
-        /* ========== SECTION HEADER ========== */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header__title {
-            color: var(--on-surface);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
         }
     </style>
 </head>
