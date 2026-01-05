@@ -1,0 +1,345 @@
+/* ==========================================================================
+   M3 EXPRESSIVE 2026 - UNIFIED DESIGN SYSTEM
+   Sa Đéc Marketing Hub
+   Combines Material Web Components theming + Expressive Custom CSS
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CORE TOKENS (Light/Dark Theme)
+   ========================================================================== */
+:root {
+    /* === PRIMARY PALETTE (Energetic Pink) === */
+    --md-sys-color-primary: #E91E63;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #FFD8E4;
+    --md-sys-color-on-primary-container: #31111D;
+
+    /* === SECONDARY PALETTE (Optimistic Gold) === */
+    --md-sys-color-secondary: #FFC107;
+    --md-sys-color-on-secondary: #000000;
+    --md-sys-color-secondary-container: #FFECB3;
+    --md-sys-color-on-secondary-container: #261900;
+
+    /* === TERTIARY PALETTE (Creative Purple) === */
+    --md-sys-color-tertiary: #9C27B0;
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #F3E5F5;
+    --md-sys-color-on-tertiary-container: #320B3B;
+
+    /* === SURFACE (Modern Dark Default for "Max WOW") === */
+    /* We default to a rich dark theme for that premium feel, but keep light tokens available */
+    --md-sys-color-surface: #0f0518;
+    /* Deep Purple Black */
+    --md-sys-color-on-surface: #E6E1E5;
+    --md-sys-color-surface-variant: #49454F;
+    --md-sys-color-on-surface-variant: #CAC4D0;
+
+    /* Glassmorphism Surface Tokens */
+    --surface-glass: rgba(15, 5, 24, 0.7);
+    --surface-glass-border: rgba(255, 255, 255, 0.08);
+    --surface-highlight: rgba(255, 255, 255, 0.05);
+
+    /* === GRADIENTS === */
+    --gradient-primary: linear-gradient(135deg, #E91E63, #C2185B);
+    --gradient-gold: linear-gradient(135deg, #FFC107, #FF9800);
+    --gradient-aurora: radial-gradient(circle at 50% 0%, rgba(233, 30, 99, 0.15), transparent 70%);
+
+    /* === ANIMATION (Spring Physics) === */
+    --motion-spring-in: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --motion-spring-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-spring-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --motion-duration-short: 200ms;
+    --motion-duration-medium: 400ms;
+    --motion-duration-long: 600ms;
+
+    /* === SHAPES === */
+    --shape-xs: 4px;
+    --shape-sm: 8px;
+    --shape-md: 12px;
+    --shape-lg: 16px;
+    --shape-xl: 24px;
+    --shape-xxl: 32px;
+    --shape-full: 9999px;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--md-sys-color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   3. WEB COMPONENT THEMING (Material Web)
+   ========================================================================== */
+:root {
+    /* Button Theming */
+    --md-filled-button-container-shape: var(--shape-full);
+    --md-outlined-button-container-shape: var(--shape-full);
+    --md-text-button-container-shape: var(--shape-full);
+}
+
+/* Custom variants */
+md-filled-button.tertiary {
+    --md-filled-button-container-color: var(--md-sys-color-tertiary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-tertiary);
+}
+
+md-filled-button.zalo {
+    --md-filled-button-container-color: #0068FF;
+    --md-filled-button-label-text-color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. UTILITY CLASSES (M3 Expressive)
+   ========================================================================== */
+
+/* 4.1 Typography */
+.display-large {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.display-medium {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.headline-large {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+}
+
+.headline-medium {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.title-large {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+.body-large {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.bg-gradient-text {
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--md-sys-color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4.2 Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* ==========================================================================
+   5. M3 EXPRESSIVE COMPONENTS
+   ========================================================================== */
+
+/* 5.1 Glass Card (2.0) */
+.card-glass {
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--shape-xl);
+    padding: 32px;
+    transition: all var(--motion-duration-medium) var(--motion-spring-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-glass:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    background: var(--surface-highlight);
+}
+
+/* 5.2 Spotlight Effect */
+.spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.card-glass:hover .spotlight {
+    opacity: 1;
+}
+
+/* 5.3 Noise Overlay */
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+/* 5.4 Liquid Text Animation */
+.text-liquid {
+    background: linear-gradient(-45deg,
+            var(--md-sys-color-primary),
+            var(--md-sys-color-secondary),
+            var(--md-sys-color-primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquidFlow 4s linear infinite;
+}
+
+@keyframes liquidFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* ==========================================================================
+   6. HEADER & NAV
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 1200px;
+    padding: 12px 24px;
+    background: rgba(15, 5, 24, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--surface-glass-border);
+    border-radius: 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(15, 5, 24, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    color: var(--md-sys-color-on-surface);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   7. ANIMATIONS
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--motion-duration-long) var(--motion-spring-out);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-enter {
+    animation: heroEnter 0.8s var(--motion-spring-out) forwards;
+}
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

@@ -18,28 +18,22 @@
         content="Agency Marketing bản địa phục vụ Lục Tỉnh Nam Kỳ. Đưa sản phẩm Miền Tây ra thế giới.">
     <meta property="og:image" content="https://mekongmarketing.com/assets/images/og-image.png">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mekong Marketing - Đưa Lục Tỉnh Ra Thế Giới">
-    <meta name="twitter:description" content="Agency Marketing bản địa phục vụ Lục Tỉnh Nam Kỳ.">
-
     <title>Mekong Marketing - Đưa Lục Tỉnh Ra Thế Giới | Material Design 3</title>
 
     <!-- Favicon -->
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
-    <!-- Google Fonts (Inter for M3) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <!-- Material Symbols -->
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet">
 
-    <!-- Material Web Components via CDN -->
+    <!-- Material Web Components -->
     <script type="importmap">
     {
         "imports": {
@@ -48,15 +42,13 @@
     }
     </script>
     <script type="module">
-        // Import all Material Web components
         import '@material/web/all.js';
         import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
         document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
 
-    <!-- Custom M3 Theme & Styles -->
-    <link rel="stylesheet" href="material-theme.css">
-    <link rel="stylesheet" href="material-components.css">
+    <!-- Unified Design System 2026 -->
+    <link rel="stylesheet" href="m3-unified.css">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1P1G3TK9JJ"></script>
@@ -66,111 +58,80 @@
         gtag('js', new Date());
         gtag('config', 'G-1P1G3TK9JJ');
     </script>
-
-    <!-- SEO Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Mekong Marketing",
-        "description": "Marketing thực chiến ngay tại Sa Đéc. Thiết kế Logo, Google Maps, Quản trị Fanpage, Quảng cáo đa kênh.",
-        "url": "https://mekongmarketing.com",
-        "telephone": "+84909888168",
-        "email": "hello@mekongmarketing.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "456 Đường Nguyễn Huệ, Phường 1",
-            "addressLocality": "Sa Đéc",
-            "addressRegion": "Đồng Tháp",
-            "postalCode": "870000",
-            "addressCountry": "VN"
-        },
-        "areaServed": ["Đồng Tháp", "Cần Thơ", "Vĩnh Long", "An Giang", "Cà Mau", "Lục Tỉnh Nam Kỳ"]
-    }
-    </script>
-
-    <link rel="stylesheet" href="layout-safe.css">
-    <link rel="stylesheet" href="material-components.css">
-    <link rel="stylesheet" href="m3-expressive.css">
 </head>
 
 <body>
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 1: HEADER (M3 Top App Bar)
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <header class="md-header" id="header">
-        <div class="md-header__container">
-            <div class="md-header__leading">
-                <a href="#" class="md-header__logo">
-                    <svg class="md-header__logo-icon" width="40" height="40" viewBox="0 0 50 50" fill="none">
-                        <circle cx="25" cy="25" r="24" fill="var(--md-sys-color-primary)" />
-                        <path d="M25 8C25 8 20 15 20 22C20 29 25 32 25 32C25 32 30 29 30 22C30 15 25 8 25 8Z"
-                            fill="var(--md-sys-color-secondary)" />
-                        <path d="M15 18C15 18 14 25 18 30C22 35 25 35 25 35C25 35 22 30 22 25C22 20 15 18 15 18Z"
-                            fill="var(--md-sys-color-secondary)" opacity="0.7" />
-                        <path d="M35 18C35 18 36 25 32 30C28 35 25 35 25 35C25 35 28 30 28 25C28 20 35 18 35 18Z"
-                            fill="var(--md-sys-color-secondary)" opacity="0.7" />
-                        <circle cx="25" cy="38" r="4" fill="var(--md-sys-color-tertiary)" />
-                        <path d="M23 36L28 38.5L23 41V36Z" fill="var(--md-sys-color-primary)" />
-                    </svg>
-                    <span class="md-header__logo-text">Mekong Marketing</span>
-                </a>
-            </div>
+    <!-- Global Noise Overlay -->
+    <div class="noise-overlay"></div>
 
-            <nav class="md-header__nav">
-                <a href="#about" class="md-header__nav-item">Về Chúng Tôi</a>
-                <a href="#offer" class="md-header__nav-item">Gói Dịch Vụ</a>
-                <a href="#testimonials" class="md-header__nav-item">Khách Hàng</a>
-                <a href="affiliate.html" class="md-header__nav-item">
-                    🤝 Đối Tác
-                    <md-badge value="Mới"></md-badge>
-                </a>
-            </nav>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="#" style="text-decoration: none; display: flex; align-items: center; gap: 12px; color: white;">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="24" fill="var(--md-sys-color-primary)" />
+                <path d="M25 8C25 8 20 15 20 22C20 29 25 32 25 32C25 32 30 29 30 22C30 15 25 8 25 8Z"
+                    fill="var(--md-sys-color-secondary)" />
+                <path d="M15 18C15 18 14 25 18 30C22 35 25 35 25 35C25 35 22 30 22 25C22 20 15 18 15 18Z"
+                    fill="var(--md-sys-color-secondary)" opacity="0.7" />
+                <path d="M35 18C35 18 36 25 32 30C28 35 25 35 25 35C25 35 28 30 28 25C28 20 35 18 35 18Z"
+                    fill="var(--md-sys-color-secondary)" opacity="0.7" />
+                <circle cx="25" cy="38" r="4" fill="var(--md-sys-color-tertiary)" />
+                <path d="M23 36L28 38.5L23 41V36Z" fill="var(--md-sys-color-primary)" />
+            </svg>
+            <span class="title-large">Mekong Marketing</span>
+        </a>
 
-            <div class="md-header__trailing">
-                <md-text-button href="login.html">
-                    <span class="material-symbols-outlined" slot="icon">login</span>
-                    Đăng Nhập
-                </md-text-button>
-                <span class="md-header__phone">
-                    <span class="material-symbols-outlined">call</span>
-                    0909.888.168
-                </span>
-                <md-filled-button class="zalo" href="https://zalo.me/0909888168" target="_blank">
-                    💬 Chat Zalo
-                </md-filled-button>
-            </div>
+        <nav style="display: none; align-items: center; gap: 8px;" class="desktop-nav">
+            <a href="#about" class="nav-link">Về Chúng Tôi</a>
+            <a href="#offer" class="nav-link">Gói Dịch Vụ</a>
+            <a href="#testimonials" class="nav-link">Khách Hàng</a>
+            <a href="affiliate.html" class="nav-link">
+                🤝 Đối Tác <md-badge value="Mới"></md-badge>
+            </a>
+        </nav>
 
-            <!-- Mobile Menu Toggle -->
-            <md-icon-button class="md-header__menu-toggle" aria-label="Menu">
-                <span class="material-symbols-outlined">menu</span>
-            </md-icon-button>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <md-text-button href="login.html">
+                <span class="material-symbols-outlined" slot="icon">login</span>
+                Đăng Nhập
+            </md-text-button>
+            <md-filled-button class="zalo" href="https://zalo.me/0909888168" target="_blank">
+                💬 Chat Zalo
+            </md-filled-button>
         </div>
+
+        <style>
+            @media (min-width: 900px) {
+                .desktop-nav {
+                    display: flex !important;
+                }
+            }
+        </style>
     </header>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 2: HERO
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-hero" id="hero">
-        <div class="md-hero__content">
-            <md-assist-chip class="md-hero__badge" label="🌾 Khởi đầu từ Sa Đéc" elevated></md-assist-chip>
+    <!-- HERO -->
+    <section class="section"
+        style="padding-top: 160px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+        <div class="container hero-enter">
+            <md-assist-chip label="🌾 Khởi đầu từ Sa Đéc" elevated style="margin-bottom: 32px;"></md-assist-chip>
 
-            <h1 class="md-hero__headline">
-                Đưa <span>Lục Tỉnh</span> Ra Thế Giới<br>
-                Marketing Thực Chiến Cho Miền Tây
+            <h1 class="display-large text-liquid" style="margin-bottom: 24px;">
+                Đưa <span style="font-style: italic;">Lục Tỉnh</span> Ra Thế Giới<br>
+                Marketing Thực Chiến
             </h1>
 
-            <p class="md-hero__subheadline">
-                Agency Marketing bản địa, phục vụ Lục Tỉnh Nam Kỳ (Đồng Tháp, Cần Thơ, An Giang, Vĩnh Long, Cà Mau...).
-                Đội ngũ tại chỗ, sẵn sàng đến tận nơi giúp cô bác bán hàng.
+            <p class="headline-large" style="max-width: 700px; margin: 0 auto 48px; opacity: 0.8; font-weight: 400;">
+                Agency bản địa phục vụ bà con Miền Tây. <br>
+                Đội ngũ tại chỗ, sẵn sàng đến tận nơi tư vấn.
             </p>
 
-            <div class="md-hero__actions">
-                <md-filled-button class="secondary" href="#contact">
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <md-filled-button class="secondary" href="#contact"
+                    style="--md-filled-button-container-height: 56px; font-size: 18px;">
                     <span class="material-symbols-outlined" slot="icon">search</span>
                     Khám Bệnh Fanpage Miễn Phí
                 </md-filled-button>
-                <md-outlined-button href="#offer">
+                <md-outlined-button href="#offer" style="--md-outlined-button-container-height: 56px; font-size: 18px;">
                     <span class="material-symbols-outlined" slot="icon">info</span>
                     Xem Gói Dịch Vụ
                 </md-outlined-button>
@@ -178,525 +139,165 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 3: TRUST (Features)
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-section surface-container-low" id="about">
-        <div class="md-container">
-            <div class="md-section-header reveal">
-                <h2 class="md-section-header__title">Tại Sao Chọn <span>Tụi Con</span>?</h2>
-                <p class="md-section-header__subtitle">Đội ngũ bản địa, am hiểu văn hóa Miền Tây</p>
+    <!-- FEATURES -->
+    <section class="section" id="about">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+                <h2 class="display-medium">Tại Sao Chọn <span class="bg-gradient-text">Tụi Con</span>?</h2>
+                <p class="body-large">Đội ngũ bản địa, am hiểu văn hóa Miền Tây</p>
             </div>
 
-            <div class="md-feature-grid reveal-stagger">
-                <div class="md-feature-card">
-                    <div class="md-feature-card__icon">🤝</div>
-                    <h3 class="md-feature-card__title">Gặp Mặt 24/7</h3>
-                    <p class="md-feature-card__text">
-                        Đội ngũ bản địa, cần là có mặt. Không lo bị "đem con bỏ chợ"
-                        như mấy công ty trên thành phố.
-                    </p>
+            <div class="grid-3 reveal">
+                <div class="card-glass" onmousemove="updateSpotlight(event, this)">
+                    <div class="spotlight"></div>
+                    <div style="font-size: 48px; margin-bottom: 24px;">🤝</div>
+                    <h3 class="headline-medium" style="margin-bottom: 12px; color: var(--md-sys-color-on-surface);">Gặp
+                        Mặt 24/7</h3>
+                    <p class="body-large">Đội ngũ bản địa, cần là có mặt. Không lo bị "đem con bỏ chợ" như mấy công ty
+                        trên thành phố.</p>
                 </div>
 
-                <div class="md-feature-card">
-                    <div class="md-feature-card__icon">🛡️</div>
-                    <h3 class="md-feature-card__title">Cam Kết Hoàn Tiền</h3>
-                    <p class="md-feature-card__text">
-                        Không đạt mục tiêu cam kết, hoàn lại tiền.
-                        Làm ăn uy tín là trên hết, tiền trao cháo múc.
-                    </p>
+                <div class="card-glass" onmousemove="updateSpotlight(event, this)">
+                    <div class="spotlight"></div>
+                    <div style="font-size: 48px; margin-bottom: 24px;">🛡️</div>
+                    <h3 class="headline-medium" style="margin-bottom: 12px; color: var(--md-sys-color-on-surface);">Cam
+                        Kết Hoàn Tiền</h3>
+                    <p class="body-large">Không đạt mục tiêu cam kết, hoàn lại tiền. Làm ăn uy tín là trên hết, tiền
+                        trao cháo múc.</p>
                 </div>
 
-                <div class="md-feature-card">
-                    <div class="md-feature-card__icon">💰</div>
-                    <h3 class="md-feature-card__title">Chi Phí Tình Làng</h3>
-                    <p class="md-feature-card__text">
-                        Giá chỉ bằng 1/2 thuê nhân viên, phù hợp túi tiền bà con
-                        mà vẫn chuyên nghiệp như Agency lớn.
-                    </p>
+                <div class="card-glass" onmousemove="updateSpotlight(event, this)">
+                    <div class="spotlight"></div>
+                    <div style="font-size: 48px; margin-bottom: 24px;">💰</div>
+                    <h3 class="headline-medium" style="margin-bottom: 12px; color: var(--md-sys-color-on-surface);">Chi
+                        Phí Tình Làng</h3>
+                    <p class="body-large">Giá chỉ bằng 1/2 thuê nhân viên, phù hợp túi tiền bà con mà vẫn chuyên nghiệp
+                        như Agency lớn.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 4: PRICING
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-section surface" id="offer">
-        <div class="md-container md-container--narrow">
-            <div class="md-section-header reveal">
-                <h2 class="md-section-header__title">Gói Dịch Vụ <span>Khởi Động Số</span></h2>
-                <p class="md-section-header__subtitle">Trọn gói khởi nghiệp số cho bà con Miền Tây</p>
+    <!-- PRICING -->
+    <section class="section" id="offer">
+        <div class="container" style="max-width: 900px;">
+            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+                <h2 class="display-medium">Gói Dịch Vụ <span class="bg-gradient-text">Khởi Động Số</span></h2>
+                <p class="body-large">Trọn gói khởi nghiệp số cho bà con Miền Tây</p>
             </div>
 
-            <div class="md-pricing-card reveal">
-                <span class="md-pricing-card__badge">🔥 BÁN CHẠY NHẤT</span>
-                <h3 class="md-pricing-card__title">GÓI KHỞI ĐỘNG SỐ</h3>
-                <div class="md-pricing-card__price">1.990<span>K</span></div>
+            <div class="card-glass reveal"
+                style="border-color: var(--md-sys-color-primary); background: rgba(233, 30, 99, 0.05);">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <md-assist-chip label="🔥 BÁN CHẠY NHẤT"
+                        style="--md-assist-chip-container-color: var(--md-sys-color-secondary); color: black; font-weight: bold;"></md-assist-chip>
+                    <h3 class="headline-large" style="margin-top: 16px;">GÓI KHỞI ĐỘNG SỐ</h3>
+                    <div class="display-large text-liquid" style="margin: 16px 0;">1.990K</div>
+                </div>
 
-                <ul class="md-pricing-card__features">
-                    <li class="md-pricing-card__feature">Thiết kế Logo chuyên nghiệp, sang trọng</li>
-                    <li class="md-pricing-card__feature">In tặng 500 Card visit cao cấp</li>
-                    <li class="md-pricing-card__feature">Tạo địa điểm Google Maps để khách du lịch tìm tới tận nhà</li>
-                    <li class="md-pricing-card__feature">Hỗ trợ setup Zalo Official Account</li>
-                    <li class="md-pricing-card__feature">Tư vấn miễn phí 1 buổi tại cơ sở</li>
+                <ul style="list-style: none; margin: 0 auto 32px; max-width: 500px; text-align: left;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: var(--md-sys-color-secondary);">check_circle</span>
+                        <span class="body-large">Thiết kế Logo chuyên nghiệp, sang trọng</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: var(--md-sys-color-secondary);">check_circle</span>
+                        <span class="body-large">In tặng 500 Card visit cao cấp</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: var(--md-sys-color-secondary);">check_circle</span>
+                        <span class="body-large">Tạo địa điểm Google Maps chuẩn SEO</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: var(--md-sys-color-secondary);">check_circle</span>
+                        <span class="body-large">Hỗ trợ setup Zalo Official Account</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: var(--md-sys-color-secondary);">check_circle</span>
+                        <span class="body-large">Tư vấn miễn phí 1 buổi tại cơ sở</span>
+                    </li>
                 </ul>
 
-                <md-filled-button class="tertiary" href="register.html" style="width: 100%;">
-                    <span class="material-symbols-outlined" slot="icon">app_registration</span>
-                    Đăng Ký Gói 1.990K Ngay
-                </md-filled-button>
-
-                <p class="md-pricing-card__note">⚡ Số lượng có hạn trong tháng - Chỉ còn 10 suất!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 5: CONTACT FORM
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-section surface-container" id="contact">
-        <div class="md-container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
-                <!-- Left: Info -->
-                <div class="reveal">
-                    <div class="md-section-header" style="text-align: left; margin-bottom: 24px;">
-                        <h2 class="md-section-header__title">Liên Hệ <span>Tư Vấn Ngay</span></h2>
-                    </div>
-                    <p class="md-typescale-body-large on-surface-variant" style="margin-bottom: 32px;">
-                        Cô bác cứ để lại thông tin, tụi con sẽ gọi lại trong vòng 30 phút!
-                        Hoặc gọi trực tiếp hotline để được tư vấn ngay.
-                    </p>
-
-                    <div style="display: flex; flex-direction: column; gap: 16px;">
-                        <md-filled-button href="tel:0909888168" style="justify-content: flex-start;">
-                            <span class="material-symbols-outlined" slot="icon">call</span>
-                            Gọi ngay: 0909.888.168
-                        </md-filled-button>
-                        <md-filled-button class="zalo" href="https://zalo.me/0909888168" target="_blank"
-                            style="justify-content: flex-start;">
-                            💬 Chat Zalo ngay
-                        </md-filled-button>
-                    </div>
-                </div>
-
-                <!-- Right: Form -->
-                <form class="md-form reveal" id="contactForm">
-                    <div class="md-form__group">
-                        <md-outlined-text-field label="Tên cô/chú/anh/chị *" name="name"
-                            placeholder="Ví dụ: Chú Ba, Chị Lan..." required>
-                        </md-outlined-text-field>
-                    </div>
-
-                    <div class="md-form__group">
-                        <md-outlined-text-field label="Số điện thoại *" name="phone" type="tel"
-                            placeholder="0909 123 456" required
-                            supporting-text="Tụi con sẽ gọi lại số này trong 30 phút">
-                        </md-outlined-text-field>
-                    </div>
-
-                    <div class="md-form__group">
-                        <md-outlined-select label="Cô bác quan tâm dịch vụ gì?" name="service">
-                            <md-select-option value="">
-                                <div slot="headline">-- Chọn dịch vụ --</div>
-                            </md-select-option>
-                            <md-select-option value="logo">
-                                <div slot="headline">🎨 Thiết kế Logo + Card visit</div>
-                            </md-select-option>
-                            <md-select-option value="maps">
-                                <div slot="headline">📍 Lên Google Maps</div>
-                            </md-select-option>
-                            <md-select-option value="fanpage">
-                                <div slot="headline">📱 Quản trị Fanpage</div>
-                            </md-select-option>
-                            <md-select-option value="ads">
-                                <div slot="headline">📢 Chạy quảng cáo Facebook/TikTok</div>
-                            </md-select-option>
-                            <md-select-option value="full">
-                                <div slot="headline">⭐ Gói Khởi Động Số 1.990K</div>
-                            </md-select-option>
-                        </md-outlined-select>
-                    </div>
-
-                    <div class="md-form__group">
-                        <md-outlined-text-field label="Ghi chú thêm" name="note" type="textarea" rows="3"
-                            placeholder="Cô bác có thắc mắc gì cứ ghi vào đây...">
-                        </md-outlined-text-field>
-                    </div>
-
-                    <md-filled-button type="submit" style="width: 100%;">
-                        <span class="material-symbols-outlined" slot="icon">send</span>
-                        Gửi Yêu Cầu Tư Vấn
+                <div style="text-align: center;">
+                    <md-filled-button class="tertiary" href="register.html"
+                        style="width: 100%; max-width: 400px; --md-filled-button-container-height: 56px; font-size: 18px;">
+                        <span class="material-symbols-outlined" slot="icon">app_registration</span>
+                        Đăng Ký Gói 1.990K Ngay
                     </md-filled-button>
-
-                    <p class="md-form__note">
-                        🔒 Thông tin của cô bác được bảo mật tuyệt đối. Chúng tôi không spam!
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 6: WORKFLOW (4 Steps)
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-section surface" id="workflow">
-        <div class="md-container">
-            <div class="md-section-header reveal">
-                <h2 class="md-section-header__title">Quy Trình <span>4 Bước</span> Đơn Giản</h2>
-                <p class="md-section-header__subtitle">Cô bác chỉ cần ngồi yên, tụi con lo hết!</p>
-            </div>
-
-            <div class="md-steps reveal-stagger">
-                <div class="md-step">
-                    <span class="md-step__number">1</span>
-                    <div class="md-step__icon">🔍</div>
-                    <h3 class="md-step__title">Khám Bệnh Fanpage</h3>
-                    <p class="md-step__text">Tụi con đến tận nơi, xem thử cửa hàng cô bác đang "ốm" chỗ nào</p>
-                </div>
-
-                <div class="md-step">
-                    <span class="md-step__number">2</span>
-                    <div class="md-step__icon">📍</div>
-                    <h3 class="md-step__title">Lên Google Maps</h3>
-                    <p class="md-step__text">Đưa cửa hàng lên bản đồ để khách du lịch dễ tìm tới</p>
-                </div>
-
-                <div class="md-step">
-                    <span class="md-step__number">3</span>
-                    <div class="md-step__icon">📢</div>
-                    <h3 class="md-step__title">Chạy Quảng Cáo</h3>
-                    <p class="md-step__text">Đăng bài, chạy ads đa kênh, kéo khách về cho cô bác</p>
-                </div>
-
-                <div class="md-step">
-                    <span class="md-step__number">4</span>
-                    <div class="md-step__icon">📊</div>
-                    <h3 class="md-step__title">Báo Cáo Kết Quả</h3>
-                    <p class="md-step__text">Hàng tuần báo cáo rõ ràng: bao nhiêu người thấy, bao nhiêu người hỏi</p>
-                </div>
-            </div>
-
-            <!-- Customer Journey -->
-            <div class="reveal"
-                style="max-width: 800px; margin: 48px auto 0; background: var(--md-sys-color-primary); border-radius: var(--md-sys-shape-corner-large); padding: 32px; text-align: center;">
-                <p class="md-typescale-title-medium" style="color: var(--md-sys-color-tertiary); margin-bottom: 20px;">
-                    🌾 Hành Trình Khách Hàng</p>
-                <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px;">
-                    <md-filter-chip label="Biết" selected></md-filter-chip>
-                    <span style="color: var(--md-sys-color-on-primary); opacity: 0.7;">→</span>
-                    <md-filter-chip label="Thích"></md-filter-chip>
-                    <span style="color: var(--md-sys-color-on-primary); opacity: 0.7;">→</span>
-                    <md-filter-chip label="Tin"></md-filter-chip>
-                    <span style="color: var(--md-sys-color-on-primary); opacity: 0.7;">→</span>
-                    <md-filter-chip label="Mua"></md-filter-chip>
-                    <span style="color: var(--md-sys-color-on-primary); opacity: 0.7;">→</span>
-                    <md-filter-chip label="🌟 Giới Thiệu" selected></md-filter-chip>
+                    <p class="body-medium" style="margin-top: 16px; opacity: 0.7;">⚡ Số lượng có hạn - Chỉ còn 10 suất
+                        trong tháng!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 7: TESTIMONIALS
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-testimonials md-section" id="testimonials">
-        <div class="md-container">
-            <div class="md-section-header reveal">
-                <h2 class="md-section-header__title">Bà Con Sa Đéc <span>Nói Gì</span> Về Tụi Con?</h2>
-            </div>
-
-            <div class="reveal" id="testimonialSlider">
-                <!-- Testimonial Card -->
-                <div class="md-testimonial-card">
-                    <img src="assets/images/testimonial_lan.png" alt="Chị Lan - Nem Lai Vung"
-                        class="md-testimonial-card__avatar"
-                        onerror="this.src='https://placehold.co/80x80/E91E63/ffffff?text=Chị+Lan'">
-                    <div class="md-testimonial-card__content">
-                        <p class="md-testimonial-card__quote">
-                            Từ ngày có bao bì mới do bên Mekong thiết kế, nem của tui vô được siêu thị rồi.
-                            Khách đặt hàng online cũng nhiều hơn, bà con hàng xóm khen hoài!
-                        </p>
-                        <p class="md-testimonial-card__author">Chị Lan</p>
-                        <p class="md-testimonial-card__role">Chủ xưởng Nem Lai Vung - 5 năm kinh doanh</p>
-                    </div>
+    <!-- CONTACT & FOOTER (Simplified for Modern Layout) -->
+    <section class="section">
+        <div class="container">
+            <div class="card-glass reveal" style="text-align: center;">
+                <h2 class="headline-large" style="margin-bottom: 24px;">Cần Tư Vấn Thêm?</h2>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <md-filled-button href="tel:0909888168">
+                        <span class="material-symbols-outlined" slot="icon">call</span>
+                        Gọi 0909.888.168
+                    </md-filled-button>
+                    <md-outlined-button href="https://zalo.me/0909888168" target="_blank">
+                        <span class="material-symbols-outlined" slot="icon">chat</span>
+                        Chat Zalo
+                    </md-outlined-button>
                 </div>
-            </div>
-
-            <div class="md-carousel-dots">
-                <button class="md-carousel-dot md-carousel-dot--active" data-index="0" aria-label="Slide 1"></button>
-                <button class="md-carousel-dot" data-index="1" aria-label="Slide 2"></button>
-                <button class="md-carousel-dot" data-index="2" aria-label="Slide 3"></button>
-                <button class="md-carousel-dot" data-index="3" aria-label="Slide 4"></button>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 8: BLOG
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="md-section surface" id="blog">
-        <div class="md-container">
-            <div class="md-section-header reveal">
-                <h2 class="md-section-header__title">Góc <span>Chia Sẻ</span> Kiến Thức</h2>
-                <p class="md-section-header__subtitle">Mẹo hay giúp cô bác bán hàng tốt hơn</p>
-            </div>
-
-            <!-- Content Pillars -->
-            <div class="reveal"
-                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px;">
-                <md-filter-chip label="📚 Kiến thức" selected></md-filter-chip>
-                <md-filter-chip label="🤝 Niềm tin"></md-filter-chip>
-                <md-filter-chip label="📰 Tin tức Miền Tây"></md-filter-chip>
-                <md-filter-chip label="🛒 Dịch vụ"></md-filter-chip>
-                <md-filter-chip label="💡 Động lực"></md-filter-chip>
-            </div>
-
-            <div class="md-blog-grid reveal-stagger">
-                <article class="md-blog-card">
-                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=400&h=200&fit=crop"
-                        alt="Hướng dẫn Google Maps" class="md-blog-card__image">
-                    <div class="md-blog-card__content">
-                        <span class="md-blog-card__category">Hướng dẫn</span>
-                        <h3 class="md-blog-card__title">3 bước đưa quán lên Google Maps để khách du lịch tìm thấy</h3>
-                        <p class="md-blog-card__excerpt">
-                            Đơn giản lắm, chỉ cần điện thoại và 10 phút là quán của bạn lên bản đồ ngay...
-                        </p>
-                        <md-text-button class="md-blog-card__link" href="#">
-                            Đọc tiếp
-                            <span class="material-symbols-outlined" slot="icon">arrow_forward</span>
-                        </md-text-button>
-                    </div>
-                </article>
-
-                <article class="md-blog-card">
-                    <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=400&h=200&fit=crop"
-                        alt="Chụp ảnh món ăn" class="md-blog-card__image">
-                    <div class="md-blog-card__content">
-                        <span class="md-blog-card__category">Mẹo hay</span>
-                        <h3 class="md-blog-card__title">Chụp ảnh món ăn bằng điện thoại sao cho đẹp?</h3>
-                        <p class="md-blog-card__excerpt">
-                            Không cần máy ảnh xịn, chỉ cần nắm mấy mẹo này là hình đẹp như quảng cáo...
-                        </p>
-                        <md-text-button class="md-blog-card__link" href="#">
-                            Đọc tiếp
-                            <span class="material-symbols-outlined" slot="icon">arrow_forward</span>
-                        </md-text-button>
-                    </div>
-                </article>
-
-                <article class="md-blog-card">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=200&fit=crop"
-                        alt="Cảnh báo lừa đảo" class="md-blog-card__image">
-                    <div class="md-blog-card__content">
-                        <span class="md-blog-card__category">Cảnh báo</span>
-                        <h3 class="md-blog-card__title">Các chiêu trò lừa đảo chạy quảng cáo cần tránh</h3>
-                        <p class="md-blog-card__excerpt">
-                            Nhiều bà con bị lừa tiền quảng cáo. Đọc bài này để biết cách nhận diện...
-                        </p>
-                        <md-text-button class="md-blog-card__link" href="#">
-                            Đọc tiếp
-                            <span class="material-symbols-outlined" slot="icon">arrow_forward</span>
-                        </md-text-button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 9: FOOTER
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <footer class="md-footer">
-        <div class="md-container">
-            <div class="md-footer__grid">
-                <div class="md-footer__brand">
-                    <div class="md-footer__logo">
-                        <svg width="40" height="40" viewBox="0 0 50 50" fill="none">
-                            <circle cx="25" cy="25" r="24" fill="var(--md-sys-color-primary)" />
-                            <path d="M25 8C25 8 20 15 20 22C20 29 25 32 25 32C25 32 30 29 30 22C30 15 25 8 25 8Z"
-                                fill="var(--md-sys-color-secondary)" />
-                            <circle cx="25" cy="38" r="4" fill="var(--md-sys-color-tertiary)" />
-                        </svg>
-                        <span class="md-footer__logo-text">Mekong Marketing</span>
-                    </div>
-                    <p class="md-footer__tagline">Đưa Lục Tỉnh Ra Thế Giới 🌾</p>
-                </div>
-
-                <div>
-                    <h4 class="md-footer__column-title">Dịch Vụ</h4>
-                    <ul class="md-footer__links">
-                        <li><a href="register.html" class="md-footer__link">Thiết kế Logo</a></li>
-                        <li><a href="register.html" class="md-footer__link">Lên Google Maps</a></li>
-                        <li><a href="register.html" class="md-footer__link">Quản trị Fanpage</a></li>
-                        <li><a href="register.html" class="md-footer__link">Chạy Quảng cáo</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="md-footer__column-title">Liên Hệ</h4>
-                    <ul class="md-footer__links">
-                        <li><a href="tel:0909888168" class="md-footer__link">📞 0909.888.168</a></li>
-                        <li><a href="mailto:hello@mekongmarketing.com" class="md-footer__link">✉️
-                                hello@mekongmarketing.com</a></li>
-                        <li><a href="https://zalo.me/0909888168" class="md-footer__link">💬 Chat Zalo</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="md-footer__column-title">Địa Chỉ</h4>
-                    <ul class="md-footer__links">
-                        <li class="md-footer__link">456 Đường Nguyễn Huệ</li>
-                        <li class="md-footer__link">Phường 1, Sa Đéc</li>
-                        <li class="md-footer__link">Đồng Tháp, Việt Nam</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="md-footer__bottom">
-                <p class="md-footer__copyright">© 2024 Mekong Marketing. All rights reserved.</p>
-                <div class="md-footer__social">
-                    <a href="#" class="md-footer__social-link" aria-label="Facebook">
-                        <span class="material-symbols-outlined">share</span>
-                    </a>
-                    <a href="#" class="md-footer__social-link" aria-label="YouTube">
-                        <span class="material-symbols-outlined">play_circle</span>
-                    </a>
-                    <a href="#" class="md-footer__social-link" aria-label="TikTok">
-                        <span class="material-symbols-outlined">music_note</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px;">
+        <p class="body-medium" style="opacity: 0.5;">© 2026 Mekong Marketing. Đưa Lục Tỉnh Ra Thế Giới.</p>
     </footer>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         FAB (Floating Action Button) - Zalo Quick Contact
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <div class="md-fab-container">
-        <md-fab lowered label="Chat Zalo" onclick="window.open('https://zalo.me/0909888168', '_blank')">
+    <!-- FAB for Zalo -->
+    <div style="position: fixed; bottom: 24px; right: 24px; z-index: 999;">
+        <md-fab label="Chat Zalo" onclick="window.open('https://zalo.me/0909888168', '_blank')">
             <span class="material-symbols-outlined" slot="icon">chat</span>
         </md-fab>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SCRIPTS
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <script type="module">
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+    <!-- SCRIPTS -->
+    <script>
+        // Spotlight Effect Logic
+        function updateSpotlight(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const revealObserver = new IntersectionObserver((entries) => {
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        }
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, { threshold: 0.1 });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Header scroll behavior
-        let lastScroll = 0;
-        const header = document.getElementById('header');
-
+        // Header Scroll
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.classList.add('md-header--hidden');
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.classList.remove('md-header--hidden');
+                header.classList.remove('scrolled');
             }
-
-            lastScroll = currentScroll;
         });
-
-        // Form submission
-        document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-
-            console.log('Form submitted:', data);
-
-            // Show success snackbar (you can implement md-snackbar here)
-            alert('Cảm ơn cô bác! Tụi con sẽ liên hệ trong 30 phút!');
-            e.target.reset();
-        });
-
-        // Testimonial carousel (simple implementation)
-        const testimonials = [
-            {
-                avatar: 'assets/images/testimonial_lan.png',
-                fallback: 'https://placehold.co/80x80/E91E63/ffffff?text=Chị+Lan',
-                quote: 'Từ ngày có bao bì mới do bên Mekong thiết kế, nem của tui vô được siêu thị rồi. Khách đặt hàng online cũng nhiều hơn, bà con hàng xóm khen hoài!',
-                author: 'Chị Lan',
-                role: 'Chủ xưởng Nem Lai Vung - 5 năm kinh doanh'
-            },
-            {
-                avatar: 'assets/images/testimonial_ba.png',
-                fallback: 'https://placehold.co/80x80/001F3F/ffffff?text=Chú+Ba',
-                quote: 'Hồi đó giờ cứ tưởng Facebook khó lắm, nhờ mấy cháu bên Mekong hướng dẫn mà chú bán được cây đi Hà Nội, Hải Phòng. Còn lên cả Google Maps nữa!',
-                author: 'Chú Ba',
-                role: 'Chủ Vườn Bonsai Ba Tư - Tân Quy Đông'
-            },
-            {
-                avatar: 'assets/images/testimonial_3.png',
-                fallback: 'https://placehold.co/80x80/FFC107/001F3F?text=Cô+Bảy',
-                quote: 'Trước cô bán bún bò chỉ bà con quen biết. Giờ khách du lịch tìm trên Google Maps đến ăn hoài. Cuối tuần không có chỗ ngồi luôn!',
-                author: 'Cô Bảy',
-                role: 'Quán Bún Bò Cô Bảy - Chợ Sa Đéc'
-            },
-            {
-                avatar: 'assets/images/testimonial_tuan.png',
-                fallback: 'https://placehold.co/80x80/4CAF50/ffffff?text=Em+Tuấn',
-                quote: 'Mình về Sa Đéc mở quán cà phê, đang lo không ai biết thì bên Mekong giúp làm Logo + chạy Ads. Giờ tuần nào cũng có khách mới check-in Tiktok, xịn lắm!',
-                author: 'Em Tuấn',
-                role: 'Chủ The Coffee Lab - Khởi nghiệp 2024'
-            }
-        ];
-
-        let currentTestimonial = 0;
-        const slider = document.getElementById('testimonialSlider');
-        const dots = document.querySelectorAll('.md-carousel-dot');
-
-        function updateTestimonial(index) {
-            const t = testimonials[index];
-            slider.innerHTML = `
-                <div class="md-testimonial-card">
-                    <img src="${t.avatar}" alt="${t.author}"
-                        class="md-testimonial-card__avatar"
-                        onerror="this.src='${t.fallback}'">
-                    <div class="md-testimonial-card__content">
-                        <p class="md-testimonial-card__quote">${t.quote}</p>
-                        <p class="md-testimonial-card__author">${t.author}</p>
-                        <p class="md-testimonial-card__role">${t.role}</p>
-                    </div>
-                </div>
-            `;
-
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('md-carousel-dot--active', i === index);
-            });
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                updateTestimonial(index);
-            });
-        });
-
-        // Auto-rotate testimonials
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            updateTestimonial(currentTestimonial);
-        }, 5000);
     </script>
 </body>
 
