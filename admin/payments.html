@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Hub - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f3460 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #00D46A;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #00D46A, #00A050);
+            color: #000;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+            border: 1px solid rgba(0, 212, 106, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== REVENUE STATS ===== */
+        .revenue-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .stat-card.mrr::before {
+            background: linear-gradient(90deg, #00D46A, #00FFB3);
+        }
+
+        .stat-card.arr::before {
+            background: linear-gradient(90deg, #635BFF, #A259FF);
+        }
+
+        .stat-card.transactions::before {
+            background: linear-gradient(90deg, #FF6B6B, #FFE66D);
+        }
+
+        .stat-card.customers::before {
+            background: linear-gradient(90deg, #4ECDC4, #44A3FF);
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .stat-trend.up {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+
+        .stat-trend.down {
+            background: rgba(255, 107, 107, 0.2);
+            color: #FF6B6B;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== PAYMENT PROVIDERS ===== */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .provider-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .provider-card:hover {
+            border-color: #00D46A;
+            transform: translateY(-4px);
+        }
+
+        .provider-card.connected {
+            border-color: #00D46A;
+            background: linear-gradient(135deg, rgba(0, 212, 106, 0.05), transparent);
+        }
+
+        .provider-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .provider-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .provider-logo.stripe {
+            background: #635BFF;
+            color: #fff;
+        }
+
+        .provider-logo.momo {
+            background: #A50064;
+            color: #fff;
+        }
+
+        .provider-logo.zalopay {
+            background: #00AAFF;
+            color: #fff;
+        }
+
+        .provider-logo.sepay {
+            background: #FF6600;
+            color: #fff;
+        }
+
+        .provider-logo.polar {
+            background: #0055FF;
+            color: #fff;
+        }
+
+        .provider-info {
+            flex: 1;
+        }
+
+        .provider-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+        }
+
+        .provider-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .provider-status {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .provider-status.connected {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+
+        .provider-status.pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        .provider-status.disconnected {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .provider-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .feature-tag {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== SUBSCRIPTION TIERS ===== */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tier-card.popular {
+            border-color: #635BFF;
+            background: linear-gradient(135deg, rgba(99, 91, 255, 0.1), transparent);
+        }
+
+        .tier-card.popular::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #635BFF, #A259FF);
+            color: #fff;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 600;
+        }
+
+        .tier-name {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tier-price {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            color: #00D46A;
+            margin-bottom: 4px;
+        }
+
+        .tier-period {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 16px;
+        }
+
+        .tier-features {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .tier-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tier-feature::before {
+            content: '✓';
+            color: #00D46A;
+        }
+
+        /* ===== TRANSACTIONS ===== */
+        .transactions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .transaction-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+        }
+
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transaction-icon.success {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+
+        .transaction-icon.pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        .transaction-icon.failed {
+            background: rgba(255, 107, 107, 0.2);
+            color: #FF6B6B;
+        }
+
+        .transaction-info {
+            flex: 1;
+        }
+
+        .transaction-title {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .transaction-meta {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .transaction-amount {
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+        }
+
+        .transaction-amount.positive {
+            color: #00D46A;
+        }
+
+        .transaction-amount.negative {
+            color: #FF6B6B;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00D46A, #00A050);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(0, 212, 106, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00D46A;
+            border: 1px solid #00D46A;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 106, 0.1);
+        }
+
+        .btn-stripe {
+            background: #635BFF;
+            color: #fff;
+        }
+
+        .btn-stripe:hover {
+            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.4);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .provider-card,
+        .tier-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">payments</span>
+                Payments
+            </a>
+            <span class="sidebar-badge">BILLING</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="payments.html" class="nav-item active">
+                    <span class="material-symbols-outlined">payments</span>
+                    Payments
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <span class="material-symbols-outlined">sell</span>
+                    Pricing
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💳 Payment Hub</div>
+                    <div class="page-subtitle">Manage payments, subscriptions & billing</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Opening Stripe Dashboard...', 'info')">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        Stripe
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Creating new invoice...', 'success')">
+                        <span class="material-symbols-outlined">add</span>
+                        New Invoice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Revenue Stats -->
+            <div class="revenue-stats">
+                <div class="stat-card mrr">
+                    <div class="stat-label">Monthly Recurring Revenue</div>
+                    <div class="stat-value">$52,400</div>
+                    <div class="stat-trend up">↑ 12% from last month</div>
+                </div>
+                <div class="stat-card arr">
+                    <div class="stat-label">Annual Run Rate</div>
+                    <div class="stat-value">$628,800</div>
+                    <div class="stat-trend up">↑ 24% YoY</div>
+                </div>
+                <div class="stat-card transactions">
+                    <div class="stat-label">Transactions (30d)</div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-trend up">↑ 8%</div>
+                </div>
+                <div class="stat-card customers">
+                    <div class="stat-label">Paying Customers</div>
+                    <div class="stat-value">892</div>
+                    <div class="stat-trend up">↑ 15 new</div>
+                </div>
+            </div>
+
+            <!-- Payment Providers -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">account_balance</span>
+                        Payment Providers
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="providers-grid">
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo stripe">S</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Stripe</div>
+                                    <div class="provider-desc">Global payments</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Cards</span>
+                                <span class="feature-tag">Subscriptions</span>
+                                <span class="feature-tag">Invoices</span>
+                                <span class="feature-tag">Webhooks</span>
+                            </div>
+                        </div>
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo momo">M</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">MoMo</div>
+                                    <div class="provider-desc">Vietnamese E-Wallet</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">QR Code</span>
+                                <span class="feature-tag">E-Wallet</span>
+                                <span class="feature-tag">VND</span>
+                            </div>
+                        </div>
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo zalopay">Z</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">ZaloPay</div>
+                                    <div class="provider-desc">Vietnamese Payments</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">QR Code</span>
+                                <span class="feature-tag">Bank Transfer</span>
+                                <span class="feature-tag">VND</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <div class="provider-header">
+                                <div class="provider-logo sepay">S</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">SePay</div>
+                                    <div class="provider-desc">Bank Automation</div>
+                                </div>
+                                <span class="provider-status pending">⏳ Pending</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Auto Verify</span>
+                                <span class="feature-tag">Bank Transfer</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <div class="provider-header">
+                                <div class="provider-logo polar">P</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Polar</div>
+                                    <div class="provider-desc">For Creators</div>
+                                </div>
+                                <span class="provider-status disconnected">Not Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Digital Products</span>
+                                <span class="feature-tag">Subscriptions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Tiers -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">subscriptions</span>
+                        Subscription Plans
+                    </div>
+                    <button class="btn btn-stripe" onclick="showToast('Syncing with Stripe...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Sync Stripe
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="tiers-grid">
+                        <div class="tier-card">
+                            <div class="tier-name">Starter</div>
+                            <div class="tier-price">$9</div>
+                            <div class="tier-period">/month or $90/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">5 Projects</div>
+                                <div class="tier-feature">1,000 API calls</div>
+                                <div class="tier-feature">Email support</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">124
+                                subscribers</div>
+                        </div>
+                        <div class="tier-card popular">
+                            <div class="tier-name">Pro</div>
+                            <div class="tier-price">$29</div>
+                            <div class="tier-period">/month or $290/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">Unlimited Projects</div>
+                                <div class="tier-feature">50,000 API calls</div>
+                                <div class="tier-feature">Priority support</div>
+                                <div class="tier-feature">Advanced analytics</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">567
+                                subscribers</div>
+                        </div>
+                        <div class="tier-card">
+                            <div class="tier-name">Enterprise</div>
+                            <div class="tier-price">$99</div>
+                            <div class="tier-period">/month or $990/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">Everything in Pro</div>
+                                <div class="tier-feature">Unlimited API calls</div>
+                                <div class="tier-feature">Dedicated support</div>
+                                <div class="tier-feature">Custom integrations</div>
+                                <div class="tier-feature">SLA guarantee</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">201
+                                subscribers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Recent Transactions
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Exporting transactions...', 'info')">
+                        <span class="material-symbols-outlined">download</span>
+                        Export
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Pro Subscription - ABC Corp</div>
+                                <div class="transaction-meta">Stripe • Just now • Monthly renewal</div>
+                            </div>
+                            <div class="transaction-amount positive">+$29.00</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Enterprise Subscription - XYZ Ltd</div>
+                                <div class="transaction-meta">Stripe • 2 hours ago • Annual</div>
+                            </div>
+                            <div class="transaction-amount positive">+$990.00</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">One-time Purchase - Nguyen Van A</div>
+                                <div class="transaction-meta">MoMo • 5 hours ago • QR Payment</div>
+                            </div>
+                            <div class="transaction-amount positive">+₫2,500,000</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon pending">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Bank Transfer - Startup VN</div>
+                                <div class="transaction-meta">SePay • 1 day ago • Awaiting verification</div>
+                            </div>
+                            <div class="transaction-amount" style="color: #FFC107;">₫15,000,000</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon failed">
+                                <span class="material-symbols-outlined">close</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Failed Payment - Test User</div>
+                                <div class="transaction-meta">Stripe • 2 days ago • Card declined</div>
+                            </div>
+                            <div class="transaction-amount negative">$29.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(0, 212, 106, 0.95)', color: '#000' },
+                error: { bg: 'rgba(255, 107, 107, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(255, 193, 7, 0.95)', color: '#000' },
+                info: { bg: 'rgba(99, 91, 255, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

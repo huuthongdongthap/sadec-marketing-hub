@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Hub - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #00D9FF;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #00D9FF, #0099FF);
+            color: #000;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 153, 255, 0.2));
+            color: #00D9FF;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== AUTH STATS ===== */
+        .auth-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.users {
+            background: rgba(0, 217, 255, 0.2);
+            color: #00D9FF;
+        }
+
+        .stat-icon.sessions {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00FF88;
+        }
+
+        .stat-icon.mfa {
+            background: rgba(168, 85, 247, 0.2);
+            color: #A855F7;
+        }
+
+        .stat-icon.oauth {
+            background: rgba(255, 136, 0, 0.2);
+            color: #FF8800;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== AUTH METHODS ===== */
+        .auth-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .auth-method-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-method-card:hover {
+            border-color: #00D9FF;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1);
+        }
+
+        .auth-method-card.enabled {
+            border-color: #00FF88;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), transparent);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .method-icon.jwt {
+            background: linear-gradient(135deg, #00D9FF, #0099FF);
+        }
+
+        .method-icon.oauth {
+            background: linear-gradient(135deg, #FF8800, #FF5500);
+        }
+
+        .method-icon.mfa {
+            background: linear-gradient(135deg, #A855F7, #7C3AED);
+        }
+
+        .method-icon.magic {
+            background: linear-gradient(135deg, #00FF88, #00CC66);
+        }
+
+        .method-icon.sso {
+            background: linear-gradient(135deg, #FF4D4D, #CC3333);
+        }
+
+        .method-status {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .method-status.enabled {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00FF88;
+        }
+
+        .method-status.disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .method-name {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .method-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .method-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .feature-tag {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== RBAC ===== */
+        .rbac-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .role-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .role-icon.admin {
+            background: linear-gradient(135deg, #FF4D4D, #CC3333);
+            color: #fff;
+        }
+
+        .role-icon.manager {
+            background: linear-gradient(135deg, #FF8800, #FF5500);
+            color: #fff;
+        }
+
+        .role-icon.user {
+            background: linear-gradient(135deg, #00D9FF, #0099FF);
+            color: #fff;
+        }
+
+        .role-icon.guest {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .role-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .role-count {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 12px;
+        }
+
+        .role-permissions {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .permission-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .permission-item .check {
+            color: #00FF88;
+        }
+
+        .permission-item .cross {
+            color: #FF4D4D;
+        }
+
+        /* ===== SECURITY CHECKLIST ===== */
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+        }
+
+        .check-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-icon.pass {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00FF88;
+        }
+
+        .check-icon.fail {
+            background: rgba(255, 77, 77, 0.2);
+            color: #FF4D4D;
+        }
+
+        .check-text {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== OAUTH PROVIDERS ===== */
+        .oauth-providers {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .oauth-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .oauth-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .oauth-btn.google {
+            border-color: #4285F4;
+        }
+
+        .oauth-btn.google:hover {
+            background: rgba(66, 133, 244, 0.2);
+        }
+
+        .oauth-btn.github {
+            border-color: #6E5494;
+        }
+
+        .oauth-btn.github:hover {
+            background: rgba(110, 84, 148, 0.2);
+        }
+
+        .oauth-btn.facebook {
+            border-color: #1877F2;
+        }
+
+        .oauth-btn.facebook:hover {
+            background: rgba(24, 119, 242, 0.2);
+        }
+
+        .oauth-btn.apple {
+            border-color: #A2AAAD;
+        }
+
+        .oauth-btn.apple:hover {
+            background: rgba(162, 170, 173, 0.2);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00D9FF, #0099FF);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(0, 217, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== TOGGLE ===== */
+        .toggle {
+            width: 48px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle.active {
+            background: linear-gradient(135deg, #00FF88, #00CC66);
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle.active::after {
+            left: 26px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 217, 255, 0.4);
+            }
+        }
+
+        .auth-method-card,
+        .role-card,
+        .stat-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">shield</span>
+                Auth Hub
+            </a>
+            <span class="sidebar-badge">SECURE</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="auth.html" class="nav-item active">
+                    <span class="material-symbols-outlined">shield</span>
+                    Authentication
+                </a>
+                <a href="api-builder.html" class="nav-item">
+                    <span class="material-symbols-outlined">api</span>
+                    API Builder
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🔐 Authentication Hub</div>
+                    <div class="page-subtitle">Secure your application with multi-layered auth</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="runSecurityAudit()">
+                        <span class="material-symbols-outlined">verified_user</span>
+                        Security Audit
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Generating JWT keys...', 'info')">
+                        <span class="material-symbols-outlined">key</span>
+                        Rotate Keys
+                    </button>
+                </div>
+            </div>
+
+            <!-- Auth Stats -->
+            <div class="auth-stats">
+                <div class="stat-card">
+                    <div class="stat-icon users">
+                        <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <div class="stat-value">2,847</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon sessions">
+                        <span class="material-symbols-outlined">devices</span>
+                    </div>
+                    <div class="stat-value">1,234</div>
+                    <div class="stat-label">Active Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon mfa">
+                        <span class="material-symbols-outlined">security</span>
+                    </div>
+                    <div class="stat-value">68%</div>
+                    <div class="stat-label">2FA Adoption</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon oauth">
+                        <span class="material-symbols-outlined">login</span>
+                    </div>
+                    <div class="stat-value">892</div>
+                    <div class="stat-label">OAuth Logins</div>
+                </div>
+            </div>
+
+            <!-- Authentication Methods -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">passkey</span>
+                        Authentication Methods
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="auth-methods">
+                        <div class="auth-method-card enabled">
+                            <div class="method-header">
+                                <div class="method-icon jwt">🔑</div>
+                                <span class="method-status enabled">Enabled</span>
+                            </div>
+                            <div class="method-name">JWT Authentication</div>
+                            <div class="method-desc">Access & refresh tokens with secure rotation</div>
+                            <div class="method-features">
+                                <span class="feature-tag">Access Token</span>
+                                <span class="feature-tag">Refresh Token</span>
+                                <span class="feature-tag">bcrypt</span>
+                            </div>
+                        </div>
+                        <div class="auth-method-card enabled">
+                            <div class="method-header">
+                                <div class="method-icon oauth">🌐</div>
+                                <span class="method-status enabled">Enabled</span>
+                            </div>
+                            <div class="method-name">OAuth 2.0 / Social</div>
+                            <div class="method-desc">Google, GitHub, Facebook, Apple sign-in</div>
+                            <div class="method-features">
+                                <span class="feature-tag">Google</span>
+                                <span class="feature-tag">GitHub</span>
+                                <span class="feature-tag">Facebook</span>
+                            </div>
+                        </div>
+                        <div class="auth-method-card enabled">
+                            <div class="method-header">
+                                <div class="method-icon mfa">🛡️</div>
+                                <span class="method-status enabled">Enabled</span>
+                            </div>
+                            <div class="method-name">Two-Factor (2FA)</div>
+                            <div class="method-desc">TOTP-based authentication with backup codes</div>
+                            <div class="method-features">
+                                <span class="feature-tag">TOTP</span>
+                                <span class="feature-tag">QR Code</span>
+                                <span class="feature-tag">Backup</span>
+                            </div>
+                        </div>
+                        <div class="auth-method-card">
+                            <div class="method-header">
+                                <div class="method-icon magic">✨</div>
+                                <span class="method-status disabled">Disabled</span>
+                            </div>
+                            <div class="method-name">Magic Links</div>
+                            <div class="method-desc">Passwordless login via email</div>
+                            <div class="method-features">
+                                <span class="feature-tag">Passwordless</span>
+                                <span class="feature-tag">Email</span>
+                            </div>
+                        </div>
+                        <div class="auth-method-card">
+                            <div class="method-header">
+                                <div class="method-icon sso">🏢</div>
+                                <span class="method-status disabled">Disabled</span>
+                            </div>
+                            <div class="method-name">Enterprise SSO</div>
+                            <div class="method-desc">SAML integration for enterprise clients</div>
+                            <div class="method-features">
+                                <span class="feature-tag">SAML</span>
+                                <span class="feature-tag">Okta</span>
+                                <span class="feature-tag">Azure AD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OAuth Providers -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">cloud</span>
+                        OAuth Providers
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="oauth-providers">
+                        <button class="oauth-btn google" onclick="showToast('Google OAuth configured ✓', 'success')">
+                            <svg width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="#4285F4"
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                <path fill="#34A853"
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                <path fill="#FBBC05"
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                <path fill="#EA4335"
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                            </svg>
+                            Google
+                        </button>
+                        <button class="oauth-btn github" onclick="showToast('GitHub OAuth configured ✓', 'success')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </button>
+                        <button class="oauth-btn facebook"
+                            onclick="showToast('Facebook OAuth configured ✓', 'success')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                            Facebook
+                        </button>
+                        <button class="oauth-btn apple" onclick="showToast('Apple OAuth configured ✓', 'success')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                                <path
+                                    d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42zm2.52 7.44a4.51 4.51 0 0 1 2.16-3.81 4.66 4.66 0 0 0-3.66-2c-1.56-.16-3 .91-3.83.91-.83 0-2-.89-3.3-.87a4.92 4.92 0 0 0-4.14 2.53C2.93 12.45 4.24 17 6 19.47c.8 1.21 1.8 2.58 3.12 2.53 1.23-.05 1.71-.82 3.22-.82s1.93.82 3.24.79c1.35-.02 2.21-1.24 3.06-2.45a10.79 10.79 0 0 0 1.4-2.89 4.4 4.4 0 0 1-2.58-4z" />
+                            </svg>
+                            Apple
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role-Based Access Control -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">admin_panel_settings</span>
+                        Role-Based Access Control (RBAC)
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="rbac-grid">
+                        <div class="role-card">
+                            <div class="role-icon admin">👑</div>
+                            <div class="role-name">Admin</div>
+                            <div class="role-count">3 users</div>
+                            <div class="role-permissions">
+                                <div class="permission-item"><span class="check">✓</span> Full access</div>
+                                <div class="permission-item"><span class="check">✓</span> User management</div>
+                                <div class="permission-item"><span class="check">✓</span> System settings</div>
+                            </div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-icon manager">⚔️</div>
+                            <div class="role-name">Manager</div>
+                            <div class="role-count">12 users</div>
+                            <div class="role-permissions">
+                                <div class="permission-item"><span class="check">✓</span> Team management</div>
+                                <div class="permission-item"><span class="check">✓</span> Reports access</div>
+                                <div class="permission-item"><span class="cross">✗</span> System settings</div>
+                            </div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-icon user">👤</div>
+                            <div class="role-name">User</div>
+                            <div class="role-count">2,832 users</div>
+                            <div class="role-permissions">
+                                <div class="permission-item"><span class="check">✓</span> Own data access</div>
+                                <div class="permission-item"><span class="cross">✗</span> Team management</div>
+                                <div class="permission-item"><span class="cross">✗</span> System settings</div>
+                            </div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-icon guest">👁️</div>
+                            <div class="role-name">Guest</div>
+                            <div class="role-count">Read-only</div>
+                            <div class="role-permissions">
+                                <div class="permission-item"><span class="check">✓</span> View public data</div>
+                                <div class="permission-item"><span class="cross">✗</span> Create/Edit</div>
+                                <div class="permission-item"><span class="cross">✗</span> Delete</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Checklist -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">checklist</span>
+                        Security Checklist
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="checklist">
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Password hashing (bcrypt)</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">JWT token expiry (15min)</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Refresh token rotation</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Rate limiting enabled</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">SQL injection prevention</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">XSS protection</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">CORS configured</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Audit logging active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function runSecurityAudit() {
+            showToast('🔍 Running security audit...', 'info');
+            setTimeout(() => {
+                showToast('✅ Security Audit: 8/8 checks passed!', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(0, 255, 136, 0.9)', color: '#000' },
+                error: { bg: 'rgba(255, 77, 77, 0.9)', color: '#fff' },
+                warning: { bg: 'rgba(255, 136, 0, 0.9)', color: '#000' },
+                info: { bg: 'rgba(0, 217, 255, 0.9)', color: '#000' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

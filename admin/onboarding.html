@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Onboarding - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: #1A1A2E;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary);
+            color: #fff;
+        }
+
+        .main-content {
+            background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #212121;
+        }
+
+        /* ===== ONBOARDING WIZARD ===== */
+        .onboarding-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .progress-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .progress-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #212121;
+        }
+
+        .progress-percentage {
+            font: var(--md-sys-typescale-headline-small);
+            color: var(--md-sys-color-primary);
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--md-sys-color-primary);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #E0E0E0;
+            color: #9E9E9E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-medium);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step-dot.active {
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .step-dot.completed {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        .step-dot.completed::before {
+            content: '✓';
+        }
+
+        /* ===== STEP CARDS ===== */
+        .step-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            border-color: var(--md-sys-color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card.active {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .step-card.completed {
+            opacity: 0.7;
+        }
+
+        .step-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--md-sys-color-surface-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+        }
+
+        .step-card.completed .step-number {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        .step-card.completed .step-number::before {
+            content: '✓';
+        }
+
+        .step-info {
+            flex: 1;
+        }
+
+        .step-title {
+            font: var(--md-sys-typescale-title-small);
+            color: #212121;
+            margin-bottom: 4px;
+        }
+
+        .step-duration {
+            font: var(--md-sys-typescale-label-small);
+            color: #9E9E9E;
+        }
+
+        .step-status {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 500;
+        }
+
+        .step-status.pending {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .step-status.in-progress {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .step-status.completed {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .step-content {
+            padding: 16px;
+            background: #FAFAFA;
+            border-radius: 12px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .step-card.active .step-content {
+            display: block;
+        }
+
+        .step-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        /* ===== CLIENT INFO FORM ===== */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font: var(--md-sys-typescale-label-medium);
+            color: #616161;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-medium);
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-medium);
+            background: #fff;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--md-sys-color-primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 12px rgba(0, 106, 96, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #F5F5F5;
+            color: #616161;
+        }
+
+        .btn-secondary:hover {
+            background: #EEEEEE;
+        }
+
+        /* ===== 90-DAY CHECKLIST ===== */
+        .checklist-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .checklist-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #212121;
+            margin-bottom: 16px;
+        }
+
+        .checklist-week {
+            margin-bottom: 24px;
+        }
+
+        .checklist-week-title {
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #FAFAFA;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: #F5F5F5;
+        }
+
+        .checklist-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #BDBDBD;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item.checked .checklist-checkbox {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: #fff;
+        }
+
+        .checklist-text {
+            flex: 1;
+            font: var(--md-sys-typescale-body-medium);
+            color: #424242;
+        }
+
+        .checklist-item.checked .checklist-text {
+            text-decoration: line-through;
+            color: #9E9E9E;
+        }
+
+        .checklist-day {
+            font: var(--md-sys-typescale-label-small);
+            color: #9E9E9E;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+
+        .step-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .step-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .step-card:nth-child(4) {
+            animation-delay: 0.25s;
+        }
+
+        .step-card:nth-child(5) {
+            animation-delay: 0.3s;
+        }
+
+        .step-card:nth-child(6) {
+            animation-delay: 0.35s;
+        }
+
+        .step-card:nth-child(7) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <span class="sidebar-badge">CRM</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="leads.html" class="nav-item">
+                    <span class="material-symbols-outlined">person_search</span>
+                    Leads
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+                <a href="onboarding.html" class="nav-item active">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Client Onboarding
+                </a>
+                <a href="campaigns.html" class="nav-item">
+                    <span class="material-symbols-outlined">campaign</span>
+                    Campaigns
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🚀 Client Onboarding</div>
+                    <div class="body-medium text-muted">Quy trình onboarding khách hàng mới trong 7 bước</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Đặt lại
+                    </button>
+                    <button class="btn btn-primary" id="newClientBtn">
+                        <span class="material-symbols-outlined">add</span>
+                        Thêm Client Mới
+                    </button>
+                </div>
+            </div>
+
+            <div class="onboarding-container">
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <div class="progress-title">Tiến độ Onboarding</div>
+                        <div class="progress-percentage" id="progressPercent">0%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-steps" id="progressSteps">
+                        <div class="step-dot" data-step="1">1</div>
+                        <div class="step-dot" data-step="2">2</div>
+                        <div class="step-dot" data-step="3">3</div>
+                        <div class="step-dot" data-step="4">4</div>
+                        <div class="step-dot" data-step="5">5</div>
+                        <div class="step-dot" data-step="6">6</div>
+                        <div class="step-dot" data-step="7">7</div>
+                    </div>
+                </div>
+
+                <!-- Step Cards -->
+                <div id="stepCards">
+                    <!-- Step 1 -->
+                    <div class="step-card" data-step="1">
+                        <div class="step-card-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <div class="step-title">Tạo Workspace cho Client</div>
+                                <div class="step-duration">⏱️ 3 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="form-group">
+                                <label class="form-label">Tên công ty *</label>
+                                <input type="text" class="form-input" id="clientName" placeholder="VD: ABC Corp">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Gói dịch vụ *</label>
+                                <select class="form-select" id="clientTier">
+                                    <option value="warrior">🥋 Warrior - $2K/tháng</option>
+                                    <option value="general">⚔️ General - $5K/tháng</option>
+                                    <option value="tuong-quan">🏯 Tướng Quân - Equity</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email liên hệ *</label>
+                                <input type="email" class="form-input" id="clientEmail"
+                                    placeholder="contact@company.com">
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(1)">
+                                    <span class="material-symbols-outlined">check</span>
+                                    Tạo Workspace
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card" data-step="2">
+                        <div class="step-card-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <div class="step-title">Gửi Email Chào Mừng</div>
+                                <div class="step-duration">⏱️ 2 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <p style="color: #616161; margin-bottom: 16px;">
+                                Template email chào mừng sẽ được gửi tự động với thông tin gói dịch vụ và hướng dẫn tiếp
+                                theo.
+                            </p>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(2)">
+                                    <span class="material-symbols-outlined">send</span>
+                                    Gửi Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card" data-step="3">
+                        <div class="step-card-header">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <div class="step-title">Tạo Tài Khoản Portal</div>
+                                <div class="step-duration">⏱️ 3 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <p style="color: #616161; margin-bottom: 16px;">
+                                Client sẽ nhận được link đăng nhập portal với vai trò Owner để quản lý projects và
+                                invoices.
+                            </p>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(3)">
+                                    <span class="material-symbols-outlined">vpn_key</span>
+                                    Tạo Tài Khoản
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card" data-step="4">
+                        <div class="step-card-header">
+                            <div class="step-number">4</div>
+                            <div class="step-info">
+                                <div class="step-title">Setup Workflow Đầu Tiên</div>
+                                <div class="step-duration">⏱️ 5 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="form-group">
+                                <label class="form-label">Chọn Workflow</label>
+                                <select class="form-select" id="firstWorkflow">
+                                    <option value="sales-pipeline">🎯 Sales Pipeline</option>
+                                    <option value="content-calendar">📅 Content Calendar</option>
+                                    <option value="ad-campaigns">📢 Ad Campaigns</option>
+                                    <option value="seo-audit">🔍 SEO Audit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Deadline</label>
+                                <select class="form-select" id="workflowDeadline">
+                                    <option value="7">7 ngày</option>
+                                    <option value="14">14 ngày</option>
+                                    <option value="30">30 ngày</option>
+                                </select>
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(4)">
+                                    <span class="material-symbols-outlined">play_arrow</span>
+                                    Assign Workflow
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-card" data-step="5">
+                        <div class="step-card-header">
+                            <div class="step-number">5</div>
+                            <div class="step-info">
+                                <div class="step-title">Lên Lịch Kickoff Call</div>
+                                <div class="step-duration">⏱️ 2 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <div class="form-group">
+                                <label class="form-label">Thời lượng cuộc họp</label>
+                                <select class="form-select" id="meetingDuration">
+                                    <option value="30">30 phút</option>
+                                    <option value="45" selected>45 phút</option>
+                                    <option value="60">60 phút</option>
+                                </select>
+                            </div>
+                            <p style="color: #616161; margin-bottom: 16px;">
+                                Zoom link sẽ được tạo tự động và gửi cho client.
+                            </p>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(5)">
+                                    <span class="material-symbols-outlined">calendar_today</span>
+                                    Tạo Meeting
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="step-card" data-step="6">
+                        <div class="step-card-header">
+                            <div class="step-number">6</div>
+                            <div class="step-info">
+                                <div class="step-title">Thiết Lập Success Metrics</div>
+                                <div class="step-duration">⏱️ 3 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <div style="display: grid; gap: 12px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; padding: 12px; background: #fff; border-radius: 8px;">
+                                    <span>Time to Value</span>
+                                    <strong style="color: var(--md-sys-color-primary);">7 ngày</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; padding: 12px; background: #fff; border-radius: 8px;">
+                                    <span>First Win</span>
+                                    <strong style="color: var(--md-sys-color-primary);">30 ngày</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; padding: 12px; background: #fff; border-radius: 8px;">
+                                    <span>NPS Score Target</span>
+                                    <strong style="color: var(--md-sys-color-primary);">50+</strong>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn btn-primary" onclick="completeStep(6)">
+                                    <span class="material-symbols-outlined">flag</span>
+                                    Xác Nhận Metrics
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="step-card" data-step="7">
+                        <div class="step-card-header">
+                            <div class="step-number">7</div>
+                            <div class="step-info">
+                                <div class="step-title">Xác Nhận Onboarding Hoàn Tất</div>
+                                <div class="step-duration">⏱️ 2 phút</div>
+                            </div>
+                            <span class="step-status pending">Chờ xử lý</span>
+                        </div>
+                        <div class="step-content">
+                            <div style="text-align: center; padding: 24px;">
+                                <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+                                <h3 style="margin-bottom: 8px;">Chúc mừng!</h3>
+                                <p style="color: #616161;">Tất cả các bước onboarding đã hoàn tất. Client đã sẵn sàng
+                                    bắt đầu!</p>
+                            </div>
+                            <div class="step-actions" style="justify-content: center;">
+                                <button class="btn btn-primary" onclick="completeStep(7)">
+                                    <span class="material-symbols-outlined">verified</span>
+                                    Hoàn Tất Onboarding
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 90-Day Checklist -->
+                <div class="checklist-section">
+                    <div class="checklist-title">📋 90-Day Checklist</div>
+
+                    <div class="checklist-week">
+                        <div class="checklist-week-title">Week 1</div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Welcome email sent</div>
+                            <div class="checklist-day">Day 1</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Portal access granted</div>
+                            <div class="checklist-day">Day 1</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Kickoff call completed</div>
+                            <div class="checklist-day">Day 2-3</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Goals documented</div>
+                            <div class="checklist-day">Day 3</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">First deliverable shipped</div>
+                            <div class="checklist-day">Day 5</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-week">
+                        <div class="checklist-week-title">Week 2-4</div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">3+ workflows active</div>
+                            <div class="checklist-day">Week 2</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Weekly check-in scheduled</div>
+                            <div class="checklist-day">Week 2</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">First success metric hit</div>
+                            <div class="checklist-day">Week 4</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-week">
+                        <div class="checklist-week-title">Month 2</div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Referral ask made</div>
+                            <div class="checklist-day">Week 5</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Case study draft started</div>
+                            <div class="checklist-day">Week 6</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Upsell conversation</div>
+                            <div class="checklist-day">Week 8</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-week">
+                        <div class="checklist-week-title">Month 3</div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Annual contract discussion</div>
+                            <div class="checklist-day">Week 10</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">NPS survey sent (target: 50+)</div>
+                            <div class="checklist-day">Week 11</div>
+                        </div>
+                        <div class="checklist-item" onclick="toggleChecklist(this)">
+                            <div class="checklist-checkbox">✓</div>
+                            <div class="checklist-text">Expansion proposal</div>
+                            <div class="checklist-day">Week 12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // State
+        let currentStep = 1;
+        let completedSteps = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+
+            // Click on step cards to expand
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('button') && !e.target.closest('input') && !e.target.closest('select')) {
+                        const step = parseInt(card.dataset.step);
+                        setActiveStep(step);
+                    }
+                });
+            });
+
+            // New Client button
+            document.getElementById('newClientBtn').addEventListener('click', () => {
+                resetOnboarding();
+                setActiveStep(1);
+            });
+
+            // Reset button
+            document.getElementById('resetBtn').addEventListener('click', resetOnboarding);
+        });
+
+        function setActiveStep(step) {
+            currentStep = step;
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.classList.remove('active');
+                if (parseInt(card.dataset.step) === step) {
+                    card.classList.add('active');
+                }
+            });
+        }
+
+        function completeStep(step) {
+            if (!completedSteps.includes(step)) {
+                completedSteps.push(step);
+            }
+
+            // Move to next step
+            if (step < 7) {
+                setActiveStep(step + 1);
+            }
+
+            updateUI();
+            showToast(`Bước ${step} hoàn tất!`, 'success');
+
+            // Celebration on complete
+            if (completedSteps.length === 7) {
+                setTimeout(() => {
+                    showToast('🎉 Onboarding hoàn tất! Client đã sẵn sàng!', 'success');
+                }, 500);
+            }
+        }
+
+        function updateUI() {
+            const progress = (completedSteps.length / 7) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+
+            // Update step dots
+            document.querySelectorAll('.step-dot').forEach(dot => {
+                const step = parseInt(dot.dataset.step);
+                dot.classList.remove('active', 'completed');
+                if (completedSteps.includes(step)) {
+                    dot.classList.add('completed');
+                    dot.textContent = '';
+                } else if (step === currentStep) {
+                    dot.classList.add('active');
+                    dot.textContent = step;
+                } else {
+                    dot.textContent = step;
+                }
+            });
+
+            // Update step cards
+            document.querySelectorAll('.step-card').forEach(card => {
+                const step = parseInt(card.dataset.step);
+                const status = card.querySelector('.step-status');
+                const number = card.querySelector('.step-number');
+
+                card.classList.remove('completed');
+
+                if (completedSteps.includes(step)) {
+                    card.classList.add('completed');
+                    status.className = 'step-status completed';
+                    status.textContent = 'Hoàn tất';
+                    number.textContent = '';
+                } else if (step === currentStep) {
+                    status.className = 'step-status in-progress';
+                    status.textContent = 'Đang xử lý';
+                    number.textContent = step;
+                } else {
+                    status.className = 'step-status pending';
+                    status.textContent = 'Chờ xử lý';
+                    number.textContent = step;
+                }
+            });
+        }
+
+        function resetOnboarding() {
+            completedSteps = [];
+            currentStep = 1;
+            updateUI();
+            setActiveStep(1);
+            showToast('Đã đặt lại quy trình', 'info');
+        }
+
+        function toggleChecklist(item) {
+            item.classList.toggle('checked');
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#E8F5E9', color: '#2E7D32' },
+                error: { bg: '#FFEBEE', color: '#C62828' },
+                warning: { bg: '#FFF3E0', color: '#E65100' },
+                info: { bg: '#E3F2FD', color: '#1565C0' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Manager - Mekong Agency Admin</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-inverse-surface);
+            color: var(--md-sys-color-inverse-on-surface);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-inverse-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-inverse-on-surface);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            opacity: 1;
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1200px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mini-stat {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mini-stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+
+        .mini-stat-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .campaigns-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .campaigns-table th {
+            text-align: left;
+            padding: 16px;
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .campaigns-table td {
+            padding: 16px;
+            font: var(--md-sys-typescale-body-medium);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .campaigns-table tr:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .campaign-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .campaign-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .campaign-icon.facebook {
+            background: #E3F2FD;
+            color: #1877F2;
+        }
+
+        .campaign-icon.google {
+            background: #E8F5E9;
+            color: #34A853;
+        }
+
+        .campaign-icon.zalo {
+            background: #E3F2FD;
+            color: #0068FF;
+        }
+
+        .campaign-icon.tiktok {
+            background: #FCE4EC;
+            color: #000;
+        }
+
+        .campaign-title {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .campaign-client {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .status-badge.active {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .status-badge.paused {
+            background: #FFF3CD;
+            color: #856404;
+        }
+
+        .status-badge.completed {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .status-badge.draft {
+            background: #E2E3E5;
+            color: #383D41;
+        }
+
+        .metric-cell {
+            text-align: right;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .roi-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-large);
+        }
+
+        .roi-badge.excellent {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .roi-badge.good {
+            background: #FFF3CD;
+            color: #856404;
+        }
+
+        .roi-badge.average {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .action-btn:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <span class="sidebar-badge">ADMIN</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="leads.html" class="nav-item">
+                    <span class="material-symbols-outlined">person_search</span>
+                    Leads
+                </a>
+                <a href="campaigns.html" class="nav-item active">
+                    <span class="material-symbols-outlined">campaign</span>
+                    Campaigns
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">Campaign Manager</div>
+                    <div class="body-medium text-muted">Quản lý và theo dõi chiến dịch marketing</div>
+                </div>
+                <button class="btn btn-filled">
+                    <span class="material-symbols-outlined">add</span>
+                    Tạo chiến dịch
+                </button>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="card card-elevated mini-stat">
+                    <div class="mini-stat-value text-primary">18</div>
+                    <div class="mini-stat-label">Đang chạy</div>
+                </div>
+                <div class="card card-elevated mini-stat">
+                    <div class="mini-stat-value" style="color: #155724;">8.5x</div>
+                    <div class="mini-stat-label">ROI trung bình</div>
+                </div>
+                <div class="card card-elevated mini-stat">
+                    <div class="mini-stat-value">125M</div>
+                    <div class="mini-stat-label">Chi tiêu tháng này</div>
+                </div>
+                <div class="card card-elevated mini-stat">
+                    <div class="mini-stat-value" style="color: #155724;">1,062M</div>
+                    <div class="mini-stat-label">Doanh thu từ ads</div>
+                </div>
+            </div>
+
+            <!-- Campaigns Table -->
+            <div class="card card-outlined" style="padding: 0; overflow: hidden;">
+                <table class="campaigns-table">
+                    <thead>
+                        <tr>
+                            <th>Chiến dịch</th>
+                            <th>Nền tảng</th>
+                            <th>Thời gian</th>
+                            <th>Ngân sách</th>
+                            <th>Trạng thái</th>
+                            <th class="metric-cell">Leads</th>
+                            <th class="metric-cell">ROI</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon facebook">
+                                        <span class="material-symbols-outlined">thumb_up</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">Chiến dịch Q1 2026</div>
+                                        <div class="campaign-client">Sa Đéc Flower Shop</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Facebook</td>
+                            <td>01/01 - 31/03</td>
+                            <td>15.000.000đ</td>
+                            <td><span class="status-badge active">Đang chạy</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">234</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge excellent">12.5x</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon google">
+                                        <span class="material-symbols-outlined">search</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">Google Ads - Search</div>
+                                        <div class="campaign-client">Mekong Travel</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Google</td>
+                            <td>01/01 - 28/02</td>
+                            <td>20.000.000đ</td>
+                            <td><span class="status-badge active">Đang chạy</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">156</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge excellent">8.2x</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon zalo">
+                                        <span class="material-symbols-outlined">chat</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">Zalo OA Marketing</div>
+                                        <div class="campaign-client">Cần Thơ Foods</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Zalo</td>
+                            <td>01/01 - 31/01</td>
+                            <td>8.000.000đ</td>
+                            <td><span class="status-badge active">Đang chạy</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">89</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge good">6.8x</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon tiktok">
+                                        <span class="material-symbols-outlined">videocam</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">TikTok Awareness</div>
+                                        <div class="campaign-client">Long Xuyên Boutique</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>TikTok</td>
+                            <td>05/01 - 05/02</td>
+                            <td>12.000.000đ</td>
+                            <td><span class="status-badge active">Đang chạy</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">67</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge average">5.4x</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon facebook">
+                                        <span class="material-symbols-outlined">thumb_up</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">Tết 2026 - Combo hoa</div>
+                                        <div class="campaign-client">Sa Đéc Flower Shop</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Facebook</td>
+                            <td>15/01 - 15/02</td>
+                            <td>25.000.000đ</td>
+                            <td><span class="status-badge draft">Nháp</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">--</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge" style="background: #E2E3E5; color: #383D41;">--</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="campaign-name-cell">
+                                    <div class="campaign-icon google">
+                                        <span class="material-symbols-outlined">search</span>
+                                    </div>
+                                    <div>
+                                        <div class="campaign-title">Google Ads - Retargeting</div>
+                                        <div class="campaign-client">Khách sạn Riverside</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Google</td>
+                            <td>01/12 - 31/12</td>
+                            <td>10.000.000đ</td>
+                            <td><span class="status-badge completed">Hoàn thành</span></td>
+                            <td class="metric-cell">
+                                <div class="metric-value">123</div>
+                            </td>
+                            <td class="metric-cell">
+                                <span class="roi-badge excellent">9.1x</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                                <button class="action-btn" title="Báo cáo">
+                                    <span class="material-symbols-outlined">download</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Client Script -->
+    <script type="module" src="../assets/js/admin-client.js"></script>
+</body>
+
+</html>

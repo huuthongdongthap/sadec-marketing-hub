@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binh Pháp Analysis - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1A1A2E 0%, #16213E 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #FFD700;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            color: #FFD700;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            color: #FFD700;
+        }
+
+        .main-content {
+            background: linear-gradient(180deg, #1A1A2E 0%, #0F0F23 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #FFD700;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== TOTAL SCORE ===== */
+        .total-score-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(220, 20, 60, 0.2));
+            border: 2px solid #8B0000;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .total-score-value {
+            font-size: 72px;
+            font-weight: 700;
+            color: #FFD700;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .total-score-max {
+            font: var(--md-sys-typescale-title-large);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .total-score-interpretation {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-title-small);
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #FFD700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== NGŨ SỰ GRID ===== */
+        .ngu-su-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .ngu-su-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ngu-su-card:hover {
+            transform: translateY(-4px);
+            border-color: #FFD700;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+
+        .ngu-su-emoji {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .ngu-su-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #FFD700;
+            margin-bottom: 4px;
+        }
+
+        .ngu-su-meaning {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .ngu-su-score {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .ngu-su-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .ngu-su-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .ngu-su-fill.high {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+        }
+
+        .ngu-su-fill.medium {
+            background: linear-gradient(90deg, #FFC107, #FF9800);
+        }
+
+        .ngu-su-fill.low {
+            background: linear-gradient(90deg, #F44336, #E91E63);
+        }
+
+        /* ===== 13 CHAPTERS ===== */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .chapter-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chapter-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .chapter-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            color: #FFD700;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-medium);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .chapter-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .chapter-english {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .chapter-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+            margin-top: 12px;
+        }
+
+        .chapter-status.analyzed {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .chapter-status.pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        /* ===== INTERPRETATION ===== */
+        .interpretation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .interpretation-card {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .interpretation-card.victory {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.1));
+            border-color: #4CAF50;
+        }
+
+        .interpretation-card.favorable {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(3, 169, 244, 0.1));
+            border-color: #2196F3;
+        }
+
+        .interpretation-card.uncertain {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.1));
+            border-color: #FFC107;
+        }
+
+        .interpretation-card.avoid {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(233, 30, 99, 0.1));
+            border-color: #F44336;
+        }
+
+        .interpretation-range {
+            font: var(--md-sys-typescale-headline-small);
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .interpretation-text {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== CLIENT SELECT ===== */
+        .client-select {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .client-chip {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            color: #fff;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .client-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .client-chip.active {
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            border-color: #DC143C;
+            color: #FFD700;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            color: #FFD700;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(220, 20, 60, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        .ngu-su-card,
+        .chapter-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+
+        .total-score-card {
+            animation: glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span>🏯</span>
+                Binh Pháp
+            </a>
+            <span class="sidebar-badge">STRATEGY</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="binh-phap.html" class="nav-item active">
+                    <span class="material-symbols-outlined">psychology</span>
+                    Binh Pháp Analysis
+                </a>
+                <a href="retention.html" class="nav-item">
+                    <span class="material-symbols-outlined">loyalty</span>
+                    Retention Plays
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🏯 Binh Pháp Analysis</div>
+                    <div class="page-subtitle">"Tri bỉ tri kỉ, bách chiến bách thắng"</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="runAllChapters()">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        Phân tích 13 Chương
+                    </button>
+                    <button class="btn btn-primary" onclick="generateReport()">
+                        <span class="material-symbols-outlined">picture_as_pdf</span>
+                        Xuất Báo Cáo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Client Selection -->
+            <div class="client-select">
+                <div class="client-chip active" onclick="selectClient(this)">🏢 ABC Corp</div>
+                <div class="client-chip" onclick="selectClient(this)">🌾 Mekong Travel</div>
+                <div class="client-chip" onclick="selectClient(this)">🌸 Sa Đéc Flowers</div>
+                <div class="client-chip" onclick="selectClient(this)">+ Thêm Client</div>
+            </div>
+
+            <!-- Total Score -->
+            <div class="total-score-card">
+                <div class="total-score-value">420</div>
+                <div class="total-score-max">/ 500</div>
+                <div class="total-score-interpretation">✅ Victory Assured</div>
+            </div>
+
+            <!-- Ngũ Sự Assessment -->
+            <div class="section-container">
+                <div class="section-title">
+                    <span>⚖️</span>
+                    Ngũ Sự - 5 Fundamental Factors
+                </div>
+                <div class="ngu-su-grid">
+                    <div class="ngu-su-card">
+                        <div class="ngu-su-emoji">🧭</div>
+                        <div class="ngu-su-name">ĐẠO</div>
+                        <div class="ngu-su-meaning">Stakeholder Alignment</div>
+                        <div class="ngu-su-score">85/100</div>
+                        <div class="ngu-su-bar">
+                            <div class="ngu-su-fill high" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="ngu-su-card">
+                        <div class="ngu-su-emoji">☀️</div>
+                        <div class="ngu-su-name">THIÊN</div>
+                        <div class="ngu-su-meaning">Timing & Market</div>
+                        <div class="ngu-su-score">90/100</div>
+                        <div class="ngu-su-bar">
+                            <div class="ngu-su-fill high" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="ngu-su-card">
+                        <div class="ngu-su-emoji">🗺️</div>
+                        <div class="ngu-su-name">ĐỊA</div>
+                        <div class="ngu-su-meaning">Competitive Position</div>
+                        <div class="ngu-su-score">80/100</div>
+                        <div class="ngu-su-bar">
+                            <div class="ngu-su-fill high" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="ngu-su-card">
+                        <div class="ngu-su-emoji">👑</div>
+                        <div class="ngu-su-name">TƯỚNG</div>
+                        <div class="ngu-su-meaning">Leadership</div>
+                        <div class="ngu-su-score">88/100</div>
+                        <div class="ngu-su-bar">
+                            <div class="ngu-su-fill high" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="ngu-su-card">
+                        <div class="ngu-su-emoji">⚙️</div>
+                        <div class="ngu-su-name">PHÁP</div>
+                        <div class="ngu-su-meaning">Systems & Processes</div>
+                        <div class="ngu-su-score">77/100</div>
+                        <div class="ngu-su-bar">
+                            <div class="ngu-su-fill medium" style="width: 77%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interpretation -->
+            <div class="section-container">
+                <div class="section-title">
+                    <span>📊</span>
+                    Score Interpretation
+                </div>
+                <div class="interpretation-grid">
+                    <div class="interpretation-card victory">
+                        <div class="interpretation-range">400-500</div>
+                        <div class="interpretation-text">Victory Assured</div>
+                    </div>
+                    <div class="interpretation-card favorable">
+                        <div class="interpretation-range">300-399</div>
+                        <div class="interpretation-text">Favorable Odds</div>
+                    </div>
+                    <div class="interpretation-card uncertain">
+                        <div class="interpretation-range">200-299</div>
+                        <div class="interpretation-text">Uncertain</div>
+                    </div>
+                    <div class="interpretation-card avoid">
+                        <div class="interpretation-range">0-199</div>
+                        <div class="interpretation-text">Do Not Engage</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13 Chapters -->
+            <div class="section-container">
+                <div class="section-title">
+                    <span>📜</span>
+                    13 Chapters Analysis
+                </div>
+                <div class="chapters-grid">
+                    <div class="chapter-card" onclick="analyzeChapter(1)">
+                        <div class="chapter-number">1</div>
+                        <div class="chapter-name">Kế Hoạch</div>
+                        <div class="chapter-english">Planning</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(2)">
+                        <div class="chapter-number">2</div>
+                        <div class="chapter-name">Tác Chiến</div>
+                        <div class="chapter-english">Resources</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(3)">
+                        <div class="chapter-number">3</div>
+                        <div class="chapter-name">Mưu Công</div>
+                        <div class="chapter-english">Strategy</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(4)">
+                        <div class="chapter-number">4</div>
+                        <div class="chapter-name">Hình Thế</div>
+                        <div class="chapter-english">Positioning</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(5)">
+                        <div class="chapter-number">5</div>
+                        <div class="chapter-name">Thế Trận</div>
+                        <div class="chapter-english">Momentum</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(6)">
+                        <div class="chapter-number">6</div>
+                        <div class="chapter-name">Hư Thực</div>
+                        <div class="chapter-english">Weakness/Strength</div>
+                        <span class="chapter-status analyzed">✓ Analyzed</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(7)">
+                        <div class="chapter-number">7</div>
+                        <div class="chapter-name">Quân Tranh</div>
+                        <div class="chapter-english">Speed</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(8)">
+                        <div class="chapter-number">8</div>
+                        <div class="chapter-name">Cửu Biến</div>
+                        <div class="chapter-english">Adaptation</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(9)">
+                        <div class="chapter-number">9</div>
+                        <div class="chapter-name">Hành Quân</div>
+                        <div class="chapter-english">Execution</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(10)">
+                        <div class="chapter-number">10</div>
+                        <div class="chapter-name">Địa Hình</div>
+                        <div class="chapter-english">Terrain</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(11)">
+                        <div class="chapter-number">11</div>
+                        <div class="chapter-name">Cửu Địa</div>
+                        <div class="chapter-english">Situations</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(12)">
+                        <div class="chapter-number">12</div>
+                        <div class="chapter-name">Hỏa Công</div>
+                        <div class="chapter-english">Disruption</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                    <div class="chapter-card" onclick="analyzeChapter(13)">
+                        <div class="chapter-number">13</div>
+                        <div class="chapter-name">Dụng Gián</div>
+                        <div class="chapter-english">Intelligence</div>
+                        <span class="chapter-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function selectClient(chip) {
+            document.querySelectorAll('.client-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            showToast(`Đang phân tích: ${chip.textContent}`, 'info');
+        }
+
+        function analyzeChapter(num) {
+            const chapters = [
+                '', 'Kế Hoạch', 'Tác Chiến', 'Mưu Công', 'Hình Thế', 'Thế Trận',
+                'Hư Thực', 'Quân Tranh', 'Cửu Biến', 'Hành Quân', 'Địa Hình',
+                'Cửu Địa', 'Hỏa Công', 'Dụng Gián'
+            ];
+            showToast(`📜 Đang phân tích Chương ${num}: ${chapters[num]}...`, 'info');
+        }
+
+        function runAllChapters() {
+            showToast('🏯 Đang chạy phân tích 13 chương...', 'info');
+            setTimeout(() => {
+                showToast('✅ Hoàn tất phân tích 13 chương!', 'success');
+            }, 2000);
+        }
+
+        function generateReport() {
+            showToast('📄 Đang tạo báo cáo PDF...', 'info');
+            setTimeout(() => {
+                showToast('✅ Báo cáo đã được tạo: abc-corp-strategy.pdf', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#1B4D3E', color: '#4CAF50' },
+                error: { bg: '#4A1515', color: '#F44336' },
+                warning: { bg: '#4A3A15', color: '#FFC107' },
+                info: { bg: '#15304A', color: '#2196F3' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                border: 1px solid ${style.color}33;
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

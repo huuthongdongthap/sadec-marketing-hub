@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự án - Mekong Agency Portal</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            transition: all var(--md-sys-motion-duration-short);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            border-radius: var(--md-sys-shape-corner-full);
+            border: 1px solid var(--md-sys-color-outline);
+            background: white;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all var(--md-sys-motion-duration-short);
+        }
+
+        .filter-chip:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .filter-chip.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            padding: 24px;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .project-type {
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .project-type.ads {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .project-type.seo {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .project-type.design {
+            background: #F3E5F5;
+            color: #7B1FA2;
+        }
+
+        .project-type.social {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .project-title {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 8px;
+        }
+
+        .project-description {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 16px;
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .project-meta-item .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        .progress-section {
+            margin-top: 16px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--md-sys-color-surface-container-highest);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--md-sys-color-primary);
+            border-radius: 4px;
+            transition: width var(--md-sys-motion-duration-medium);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .status-badge.active {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .status-badge.completed {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .status-badge.paused {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="projects.html" class="nav-item active">
+                    <span class="material-symbols-outlined">folder_open</span>
+                    Dự án
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    Hóa đơn
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <div class="page-title">Dự án của bạn</div>
+                    <div class="body-medium text-muted">Quản lý và theo dõi tiến độ các dự án</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-bar">
+                <button class="filter-chip active">Tất cả</button>
+                <button class="filter-chip">Đang chạy</button>
+                <button class="filter-chip">Hoàn thành</button>
+                <button class="filter-chip">Tạm dừng</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Project 1 -->
+                <div class="card card-elevated project-card">
+                    <div class="project-header">
+                        <span class="project-type ads">Quảng cáo</span>
+                        <span class="status-badge active">
+                            <span class="material-symbols-outlined" style="font-size: 12px;">circle</span>
+                            Đang chạy
+                        </span>
+                    </div>
+                    <h3 class="project-title">Chiến dịch Facebook Ads Q1</h3>
+                    <p class="project-description">Quảng cáo Facebook cho sản phẩm hoa tươi, target khách hàng 25-45
+                        tuổi tại Đồng Tháp</p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            01/01 - 31/03/2026
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">payments</span>
+                            15.000.000đ
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="label-medium">Tiến độ</span>
+                            <span class="label-medium">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card card-elevated project-card">
+                    <div class="project-header">
+                        <span class="project-type seo">SEO</span>
+                        <span class="status-badge active">
+                            <span class="material-symbols-outlined" style="font-size: 12px;">circle</span>
+                            Đang chạy
+                        </span>
+                    </div>
+                    <h3 class="project-title">SEO Website tháng 1</h3>
+                    <p class="project-description">Tối ưu SEO local cho website, target keywords "hoa tươi sa đéc",
+                        "shop hoa đồng tháp"</p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            01/01 - 31/01/2026
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">payments</span>
+                            5.000.000đ
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="label-medium">Tiến độ</span>
+                            <span class="label-medium">40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card card-elevated project-card">
+                    <div class="project-header">
+                        <span class="project-type design">Thiết kế</span>
+                        <span class="status-badge completed">
+                            <span class="material-symbols-outlined" style="font-size: 12px;">check_circle</span>
+                            Hoàn thành
+                        </span>
+                    </div>
+                    <h3 class="project-title">Thiết kế logo mới</h3>
+                    <p class="project-description">Thiết kế logo và bộ nhận diện thương hiệu cho Sa Đéc Flower Shop</p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            01/12 - 20/12/2025
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">payments</span>
+                            8.000.000đ
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="label-medium">Tiến độ</span>
+                            <span class="label-medium">100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card card-elevated project-card">
+                    <div class="project-header">
+                        <span class="project-type social">Social Media</span>
+                        <span class="status-badge active">
+                            <span class="material-symbols-outlined" style="font-size: 12px;">circle</span>
+                            Đang chạy
+                        </span>
+                    </div>
+                    <h3 class="project-title">Quản lý Fanpage tháng 1</h3>
+                    <p class="project-description">Lên lịch và đăng 20 bài/tháng, tương tác với khách hàng, xử lý inbox
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            01/01 - 31/01/2026
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">payments</span>
+                            3.000.000đ
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="label-medium">Tiến độ</span>
+                            <span class="label-medium">25%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card card-elevated project-card">
+                    <div class="project-header">
+                        <span class="project-type ads">Quảng cáo</span>
+                        <span class="status-badge paused">
+                            <span class="material-symbols-outlined" style="font-size: 12px;">pause_circle</span>
+                            Tạm dừng
+                        </span>
+                    </div>
+                    <h3 class="project-title">Google Ads - Tết 2026</h3>
+                    <p class="project-description">Chiến dịch Google Ads cho mùa Tết, target "mua hoa tết", "hoa chúc
+                        mừng năm mới"</p>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            15/01 - 15/02/2026
+                        </div>
+                        <div class="project-meta-item">
+                            <span class="material-symbols-outlined">payments</span>
+                            20.000.000đ
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="label-medium">Tiến độ</span>
+                            <span class="label-medium">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Portal Client Script -->
+    <script type="module" src="../assets/js/portal-client.js"></script>
+</body>
+
+</html>

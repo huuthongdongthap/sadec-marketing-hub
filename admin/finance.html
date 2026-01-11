@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #0a1628 0%, #1a2a4a 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #10B981;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: #94A3B8;
+        }
+
+        /* ===== OVERVIEW STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: #94A3B8;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.revenue {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .stat-icon.expense {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .stat-icon.profit {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+
+        .stat-icon.runway {
+            background: rgba(168, 85, 247, 0.2);
+            color: #A855F7;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .stat-trend.up {
+            color: #10B981;
+        }
+
+        .stat-trend.down {
+            color: #EF4444;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== P&L TABLE ===== */
+        .pnl-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pnl-table th,
+        .pnl-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .pnl-table th {
+            font: var(--md-sys-typescale-label-medium);
+            color: #94A3B8;
+            font-weight: 500;
+        }
+
+        .pnl-table td {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .pnl-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pnl-category {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .amount-positive {
+            color: #10B981;
+        }
+
+        .amount-negative {
+            color: #EF4444;
+        }
+
+        .amount-neutral {
+            color: #94A3B8;
+        }
+
+        .pnl-total {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .pnl-total td {
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        /* ===== CHART OF ACCOUNTS ===== */
+        .accounts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .account-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .account-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .account-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .account-icon.revenue {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .account-icon.cogs {
+            background: rgba(245, 158, 11, 0.2);
+            color: #F59E0B;
+        }
+
+        .account-icon.opex {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .account-icon.payroll {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+
+        .account-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+        }
+
+        .account-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font: var(--md-sys-typescale-body-small);
+            color: #94A3B8;
+        }
+
+        .account-total {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        /* ===== CASH FLOW ALERTS ===== */
+        .alerts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .alert-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .alert-item.healthy {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .alert-item.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .alert-item.danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-icon.healthy {
+            background: #10B981;
+            color: #fff;
+        }
+
+        .alert-icon.warning {
+            background: #F59E0B;
+            color: #fff;
+        }
+
+        .alert-icon.danger {
+            background: #EF4444;
+            color: #fff;
+        }
+
+        .alert-info {
+            flex: 1;
+        }
+
+        .alert-title {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .alert-desc {
+            font: var(--md-sys-typescale-label-small);
+            color: #94A3B8;
+        }
+
+        .alert-value {
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+        }
+
+        .alert-value.healthy {
+            color: #10B981;
+        }
+
+        .alert-value.warning {
+            color: #F59E0B;
+        }
+
+        .alert-value.danger {
+            color: #EF4444;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #10B981;
+            border: 1px solid #10B981;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        /* ===== MARGIN BAR ===== */
+        .margin-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .margin-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #10B981, #059669);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .account-card,
+        .alert-item {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">account_balance</span>
+                Finance
+            </a>
+            <span class="sidebar-badge">REPORTING</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="finance.html" class="nav-item active">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    Finance
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <span class="material-symbols-outlined">payments</span>
+                    Payments
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💵 Finance Dashboard</div>
+                    <div class="page-subtitle">January 2026 • Real-time financial overview</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Syncing with accounting...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Sync
+                    </button>
+                    <button class="btn btn-primary" onclick="exportReport()">
+                        <span class="material-symbols-outlined">download</span>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Revenue</span>
+                        <div class="stat-icon revenue">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$50,000</div>
+                    <span class="stat-trend up">↑ 12% from last month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Expenses</span>
+                        <div class="stat-icon expense">
+                            <span class="material-symbols-outlined">trending_down</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$35,000</div>
+                    <span class="stat-trend down">↑ 5% from last month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Net Profit</span>
+                        <div class="stat-icon profit">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$15,000</div>
+                    <span class="stat-trend up">30% margin</span>
+                    <div class="margin-bar">
+                        <div class="margin-fill" style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Runway</span>
+                        <div class="stat-icon runway">
+                            <span class="material-symbols-outlined">hourglass_top</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">8 months</div>
+                    <span class="stat-trend up">✓ Above 6-month target</span>
+                </div>
+            </div>
+
+            <!-- P&L Statement -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Profit & Loss Statement
+                    </div>
+                    <span style="color: #94A3B8; font: var(--md-sys-typescale-label-medium);">January 2026</span>
+                </div>
+                <div class="section-body">
+                    <table class="pnl-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>% of Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(16, 185, 129, 0.2);">💰</div>
+                                        <span>Revenue</span>
+                                    </div>
+                                </td>
+                                <td class="amount-positive">$50,000</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(245, 158, 11, 0.2);">📦</div>
+                                        <span>Cost of Goods Sold (COGS)</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$15,000</td>
+                                <td class="amount-neutral">30%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(239, 68, 68, 0.2);">🏢</div>
+                                        <span>Operating Expenses (OpEx)</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$12,000</td>
+                                <td class="amount-neutral">24%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(59, 130, 246, 0.2);">👥</div>
+                                        <span>Payroll</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$8,000</td>
+                                <td class="amount-neutral">16%</td>
+                            </tr>
+                            <tr class="pnl-total">
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(16, 185, 129, 0.3);">✨</div>
+                                        <strong>Net Profit</strong>
+                                    </div>
+                                </td>
+                                <td>$15,000</td>
+                                <td>30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chart of Accounts -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">account_tree</span>
+                        Chart of Accounts
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="accounts-grid">
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon revenue">
+                                    <span class="material-symbols-outlined">trending_up</span>
+                                </div>
+                                <div class="account-name">Revenue</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Consulting</span>
+                                    <span>$28,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Subscriptions</span>
+                                    <span>$18,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>One-time</span>
+                                    <span>$4,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #10B981;">$50,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon cogs">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div class="account-name">COGS</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Contractors</span>
+                                    <span>$10,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Software</span>
+                                    <span>$3,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Hosting</span>
+                                    <span>$2,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #F59E0B;">$15,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon opex">
+                                    <span class="material-symbols-outlined">business</span>
+                                </div>
+                                <div class="account-name">OpEx</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Marketing</span>
+                                    <span>$5,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Office</span>
+                                    <span>$4,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Tools</span>
+                                    <span>$3,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #EF4444;">$12,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon payroll">
+                                    <span class="material-symbols-outlined">groups</span>
+                                </div>
+                                <div class="account-name">Payroll</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Salaries</span>
+                                    <span>$6,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Benefits</span>
+                                    <span>$1,500</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Taxes</span>
+                                    <span>$500</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #3B82F6;">$8,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cash Flow Alerts -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">notifications</span>
+                        Cash Flow Alerts
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="alerts-list">
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Runway Status</div>
+                                <div class="alert-desc">Current runway exceeds 6-month minimum</div>
+                            </div>
+                            <div class="alert-value healthy">8 months</div>
+                        </div>
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Cash Buffer</div>
+                                <div class="alert-desc">Emergency fund above $50K threshold</div>
+                            </div>
+                            <div class="alert-value healthy">$72,000</div>
+                        </div>
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Profit Margin</div>
+                                <div class="alert-desc">Net margin above 20% target</div>
+                            </div>
+                            <div class="alert-value healthy">30%</div>
+                        </div>
+                        <div class="alert-item warning">
+                            <div class="alert-icon warning">
+                                <span class="material-symbols-outlined">warning</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Accounts Receivable</div>
+                                <div class="alert-desc">3 invoices overdue by 30+ days</div>
+                            </div>
+                            <div class="alert-value warning">$8,500</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function exportReport() {
+            showToast('📊 Generating finance report...', 'info');
+            setTimeout(() => {
+                showToast('✅ Report exported: finance-jan-2026.pdf', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(16, 185, 129, 0.95)', color: '#fff' },
+                error: { bg: 'rgba(239, 68, 68, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(245, 158, 11, 0.95)', color: '#000' },
+                info: { bg: 'rgba(59, 130, 246, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

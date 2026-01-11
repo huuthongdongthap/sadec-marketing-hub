@@ -1,0 +1,349 @@
+/* ================================================
+   MEKONG AGENCY - PIPELINE PROFESSIONAL
+   Clean, Simple, Material Design 3 Style
+   ================================================ */
+
+/* ================================================
+   LIGHT PROFESSIONAL BACKGROUND
+   ================================================ */
+
+.main-content {
+    background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+}
+
+/* ================================================
+   CLEAN STAGE STYLING
+   ================================================ */
+
+.pipeline-stage {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.stage-header {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.stage-title {
+    color: #212121;
+}
+
+/* Stage Icons - Subtle Colors */
+.stage-icon {
+    transition: transform 0.2s ease;
+}
+
+.stage-icon:hover {
+    transform: scale(1.1);
+}
+
+.pipeline-stage[data-stage="lead"] .stage-icon {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.pipeline-stage[data-stage="qualified"] .stage-icon {
+    background: #FFF3E0;
+    color: #F57C00;
+}
+
+.pipeline-stage[data-stage="proposal"] .stage-icon {
+    background: #F3E5F5;
+    color: #7B1FA2;
+}
+
+.pipeline-stage[data-stage="negotiation"] .stage-icon {
+    background: #E0F7FA;
+    color: #0097A7;
+}
+
+.pipeline-stage[data-stage="closed"] .stage-icon {
+    background: #E8F5E9;
+    color: #388E3C;
+}
+
+.stage-count {
+    background: #F5F5F5;
+    color: #616161;
+}
+
+.stage-value {
+    color: #9E9E9E;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+/* ================================================
+   CLEAN DEAL CARDS
+   ================================================ */
+
+.deal-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.deal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--md-sys-color-primary);
+}
+
+.deal-card-header {
+    margin-bottom: 12px;
+}
+
+.deal-company {
+    color: #212121;
+    font-weight: 500;
+}
+
+.deal-value {
+    color: var(--md-sys-color-primary);
+    font-weight: 600;
+}
+
+.deal-avatar {
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+.deal-name {
+    color: #757575;
+}
+
+.deal-tag {
+    background: #F5F5F5;
+    color: #616161;
+}
+
+/* Score Badges - Clean Look */
+.deal-score {
+    font-weight: 600;
+    border: none;
+}
+
+.deal-score.hot {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.deal-score.warm {
+    background: #FFF3E0;
+    color: #EF6C00;
+}
+
+.deal-score.cold {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+/* ================================================
+   CLEAN PROGRESS BARS
+   ================================================ */
+
+.deal-progress-bar {
+    background: #EEEEEE;
+}
+
+.deal-progress-fill {
+    background: var(--md-sys-color-primary);
+    box-shadow: none;
+}
+
+/* ================================================
+   STAT PILLS - PROFESSIONAL
+   ================================================ */
+
+.stat-pill {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-pill-value {
+    color: var(--md-sys-color-primary);
+}
+
+.stat-pill-label {
+    color: #757575;
+}
+
+/* ================================================
+   BUTTONS - CLEAN
+   ================================================ */
+
+.btn-filled {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.btn-filled:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.btn-outlined {
+    border-color: var(--md-sys-color-outline);
+    color: var(--md-sys-color-primary);
+}
+
+.btn-outlined:hover {
+    background: var(--md-sys-color-primary-container);
+}
+
+/* ================================================
+   ADD DEAL BUTTON
+   ================================================ */
+
+.add-deal-btn {
+    border: 1px dashed #BDBDBD;
+    color: #9E9E9E;
+    background: transparent;
+}
+
+.add-deal-btn:hover {
+    border-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-primary);
+    background: var(--md-sys-color-primary-container);
+}
+
+/* ================================================
+   SIDEBAR - PROFESSIONAL DARK
+   ================================================ */
+
+.sidebar {
+    background: #1A1A2E;
+}
+
+.sidebar-logo {
+    color: var(--md-sys-color-primary);
+}
+
+.sidebar-badge {
+    background: var(--md-sys-color-primary);
+    color: #fff;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.nav-item.active {
+    background: var(--md-sys-color-primary);
+    color: #fff;
+}
+
+/* ================================================
+   LIVE INDICATOR - SUBTLE
+   ================================================ */
+
+.live-indicator {
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    color: #616161;
+}
+
+.live-dot {
+    background: #4CAF50;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ================================================
+   FORECAST CHART - CLEAN
+   ================================================ */
+
+.forecast-chart {
+    background: #FFFFFF !important;
+    border: 1px solid #E0E0E0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.forecast-chart>div:first-child>div:first-child {
+    color: #212121 !important;
+}
+
+.forecast-chart>div:first-child>div:last-child {
+    color: var(--md-sys-color-primary) !important;
+}
+
+/* ================================================
+   PAGE TITLE - SIMPLE
+   ================================================ */
+
+.page-title {
+    color: #212121;
+    background: none;
+    -webkit-text-fill-color: inherit;
+}
+
+.top-bar .body-medium {
+    color: #757575;
+}
+
+/* ================================================
+   DRAG OVER - SUBTLE
+   ================================================ */
+
+.stage-cards.drag-over {
+    background: rgba(0, 106, 96, 0.05);
+    border: 1px dashed var(--md-sys-color-primary);
+    border-radius: 8px;
+}
+
+/* ================================================
+   SCROLLBAR - MINIMAL
+   ================================================ */
+
+.stage-cards::-webkit-scrollbar {
+    width: 4px;
+}
+
+.stage-cards::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.stage-cards::-webkit-scrollbar-thumb {
+    background: #BDBDBD;
+    border-radius: 2px;
+}
+
+/* ================================================
+   HIDE PARTICLES
+   ================================================ */
+
+.particles {
+    display: none;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+    .deal-card:hover {
+        transform: none;
+    }
+}

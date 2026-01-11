@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Hub - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: #1A1A2E;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary);
+            color: #fff;
+        }
+
+        .main-content {
+            background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #212121;
+        }
+
+        /* ===== DOC TYPES GRID ===== */
+        .doc-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .doc-type-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .doc-type-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .doc-type-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .doc-type-icon .material-symbols-outlined {
+            font-size: 28px;
+        }
+
+        .doc-type-icon.api {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .doc-type-icon.user {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .doc-type-icon.dev {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .doc-type-icon.arch {
+            background: #F3E5F5;
+            color: #7B1FA2;
+        }
+
+        .doc-type-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #212121;
+            margin-bottom: 8px;
+        }
+
+        .doc-type-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: #757575;
+            margin-bottom: 16px;
+        }
+
+        .doc-type-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .doc-item-tag {
+            padding: 4px 10px;
+            background: #F5F5F5;
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+            color: #616161;
+        }
+
+        /* ===== WORKFLOW STEPS ===== */
+        .workflow-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #212121;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .workflow-step {
+            padding: 20px;
+            background: #FAFAFA;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .workflow-step:hover {
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .step-title {
+            font: var(--md-sys-typescale-label-large);
+            color: #212121;
+            margin-bottom: 4px;
+        }
+
+        .step-command {
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--md-sys-color-primary);
+            background: #E8F5E9;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* ===== RECENT DOCS ===== */
+        .docs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #FAFAFA;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .doc-item:hover {
+            background: #F0F0F0;
+        }
+
+        .doc-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .doc-item-icon.md {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .doc-item-icon.api {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .doc-item-icon.guide {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .doc-item-info {
+            flex: 1;
+        }
+
+        .doc-item-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #212121;
+            margin-bottom: 2px;
+        }
+
+        .doc-item-path {
+            font: var(--md-sys-typescale-label-small);
+            color: #9E9E9E;
+        }
+
+        .doc-item-updated {
+            font: var(--md-sys-typescale-label-small);
+            color: #9E9E9E;
+        }
+
+        /* ===== STATS ===== */
+        .stats-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 150px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-small);
+            color: var(--md-sys-color-primary);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: #757575;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--md-sys-color-primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 12px rgba(0, 106, 96, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #F5F5F5;
+            color: #616161;
+        }
+
+        .btn-secondary:hover {
+            background: #EEEEEE;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .doc-type-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+
+        .doc-type-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .doc-type-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .doc-type-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .doc-type-card:nth-child(4) {
+            animation-delay: 0.25s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <span class="sidebar-badge">DOCS</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="docs.html" class="nav-item active">
+                    <span class="material-symbols-outlined">description</span>
+                    Documentation
+                </a>
+                <a href="onboarding.html" class="nav-item">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Client Onboarding
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">📚 Documentation Hub</div>
+                    <div class="body-medium text-muted">Quản lý và duy trì tài liệu dự án</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" id="syncBtn">
+                        <span class="material-symbols-outlined">sync</span>
+                        Đồng bộ
+                    </button>
+                    <button class="btn btn-primary" id="generateBtn">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        Tạo Docs
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Tổng tài liệu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">API Endpoints</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">User Guides</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Độ phủ docs</div>
+                </div>
+            </div>
+
+            <!-- Documentation Types -->
+            <div class="doc-types-grid">
+                <!-- API Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('api')">
+                    <div class="doc-type-icon api">
+                        <span class="material-symbols-outlined">api</span>
+                    </div>
+                    <div class="doc-type-title">API Documentation</div>
+                    <div class="doc-type-desc">REST endpoints, request/response specs, error handling</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">REST API</span>
+                        <span class="doc-item-tag">WebSocket</span>
+                        <span class="doc-item-tag">Error Codes</span>
+                    </div>
+                </div>
+
+                <!-- User Guides -->
+                <div class="doc-type-card" onclick="navigateToSection('user')">
+                    <div class="doc-type-icon user">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <div class="doc-type-title">User Guides</div>
+                    <div class="doc-type-desc">Hướng dẫn sử dụng, tutorials, best practices</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Tutorials</span>
+                        <span class="doc-item-tag">FAQ</span>
+                        <span class="doc-item-tag">Troubleshooting</span>
+                    </div>
+                </div>
+
+                <!-- Developer Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('dev')">
+                    <div class="doc-type-icon dev">
+                        <span class="material-symbols-outlined">code</span>
+                    </div>
+                    <div class="doc-type-title">Developer Docs</div>
+                    <div class="doc-type-desc">Setup, contribution guidelines, testing</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Setup</span>
+                        <span class="doc-item-tag">Contributing</span>
+                        <span class="doc-item-tag">Testing</span>
+                    </div>
+                </div>
+
+                <!-- Architecture Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('arch')">
+                    <div class="doc-type-icon arch">
+                        <span class="material-symbols-outlined">architecture</span>
+                    </div>
+                    <div class="doc-type-title">Architecture</div>
+                    <div class="doc-type-desc">System design, data flow, security</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Diagrams</span>
+                        <span class="doc-item-tag">Database</span>
+                        <span class="doc-item-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workflow Steps -->
+            <div class="workflow-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">construction</span>
+                    Quy trình Documentation
+                </div>
+                <div class="workflow-steps">
+                    <div class="workflow-step" onclick="runCommand('init')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                        </div>
+                        <div class="step-title">1. Khởi tạo</div>
+                        <div class="step-command">/docs:init</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('generate')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">auto_awesome</span>
+                        </div>
+                        <div class="step-title">2. Tạo Docs</div>
+                        <div class="step-command">/docs:generate</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('update')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">edit_document</span>
+                        </div>
+                        <div class="step-title">3. Cập nhật</div>
+                        <div class="step-command">/docs:update</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('review')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">checklist</span>
+                        </div>
+                        <div class="step-title">4. Review</div>
+                        <div class="step-command">/docs:summarize</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Documents -->
+            <div class="workflow-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">schedule</span>
+                    Tài liệu gần đây
+                </div>
+                <div class="docs-list" id="docsList">
+                    <div class="doc-item">
+                        <div class="doc-item-icon md">
+                            <span class="material-symbols-outlined">description</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">README.md</div>
+                            <div class="doc-item-path">/README.md</div>
+                        </div>
+                        <div class="doc-item-updated">Hôm nay</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon api">
+                            <span class="material-symbols-outlined">api</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">API Reference</div>
+                            <div class="doc-item-path">/docs/api/reference.md</div>
+                        </div>
+                        <div class="doc-item-updated">Hôm qua</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon guide">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Getting Started</div>
+                            <div class="doc-item-path">/docs/guides/getting-started.md</div>
+                        </div>
+                        <div class="doc-item-updated">2 ngày trước</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon md">
+                            <span class="material-symbols-outlined">folder</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Architecture Overview</div>
+                            <div class="doc-item-path">/docs/architecture/overview.md</div>
+                        </div>
+                        <div class="doc-item-updated">3 ngày trước</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon guide">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Contributing Guide</div>
+                            <div class="doc-item-path">/docs/CONTRIBUTING.md</div>
+                        </div>
+                        <div class="doc-item-updated">1 tuần trước</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function navigateToSection(section) {
+            const sectionNames = {
+                api: 'API Documentation',
+                user: 'User Guides',
+                dev: 'Developer Docs',
+                arch: 'Architecture'
+            };
+            showToast(`Đang mở ${sectionNames[section]}...`, 'info');
+        }
+
+        function runCommand(command) {
+            const commands = {
+                init: '/docs:init',
+                generate: '/docs:generate',
+                update: '/docs:update',
+                review: '/docs:summarize'
+            };
+            showToast(`Chạy lệnh: ${commands[command]}`, 'success');
+        }
+
+        // Button handlers
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            showToast('Đang tạo documentation từ codebase...', 'success');
+        });
+
+        document.getElementById('syncBtn').addEventListener('click', () => {
+            showToast('Đang đồng bộ documentation...', 'info');
+        });
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#E8F5E9', color: '#2E7D32' },
+                error: { bg: '#FFEBEE', color: '#C62828' },
+                warning: { bg: '#FFF3E0', color: '#E65100' },
+                info: { bg: '#E3F2FD', color: '#1565C0' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

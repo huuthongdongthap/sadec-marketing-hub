@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Success - Mekong Agency</title>
+    <meta name="description" content="Customer Success Dashboard - Mekong Agency">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--md-sys-color-surface);
+            padding: 8px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .tab.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .health-report {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--md-sys-elevation-2);
+            margin-bottom: 32px;
+        }
+
+        .health-title {
+            font: var(--md-sys-typescale-headline-small);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .health-bars {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .health-bar-item {
+            text-align: center;
+        }
+
+        .health-bar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .health-bar.green {
+            background: #10b981;
+        }
+
+        .health-bar.yellow {
+            background: #f59e0b;
+        }
+
+        .health-bar.red {
+            background: #ef4444;
+        }
+
+        .health-bar-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .health-metrics {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .health-metric {
+            text-align: center;
+        }
+
+        .health-metric-value {
+            font: var(--md-sys-typescale-display-small);
+            color: var(--md-sys-color-primary);
+        }
+
+        .health-metric-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-icon.customers {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .metric-icon.nrr {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .metric-icon.mrr {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .metric-icon.actions {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .customer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .customer-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+            border-left: 4px solid;
+        }
+
+        .customer-card.green {
+            border-color: #10b981;
+        }
+
+        .customer-card.yellow {
+            border-color: #f59e0b;
+        }
+
+        .customer-card.red {
+            border-color: #ef4444;
+        }
+
+        .customer-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .customer-name {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 4px;
+        }
+
+        .customer-company {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .customer-body {
+            padding: 20px;
+        }
+
+        .customer-scores {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-value {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .score-label {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .customer-health {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .health-score {
+            font: var(--md-sys-typescale-headline-small);
+        }
+
+        .health-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small);
+            color: white;
+        }
+
+        .health-status.green {
+            background: #10b981;
+        }
+
+        .health-status.yellow {
+            background: #f59e0b;
+        }
+
+        .health-status.red {
+            background: #ef4444;
+        }
+
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-left: 4px solid;
+        }
+
+        .action-card.high {
+            border-color: #ef4444;
+        }
+
+        .action-card.medium {
+            border-color: #f59e0b;
+        }
+
+        .action-card.low {
+            border-color: #10b981;
+        }
+
+        .action-priority {
+            padding: 4px 10px;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-small);
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .action-priority.high {
+            background: #ef4444;
+        }
+
+        .action-priority.medium {
+            background: #f59e0b;
+        }
+
+        .action-priority.low {
+            background: #10b981;
+        }
+
+        .action-info {
+            flex: 1;
+        }
+
+        .action-task {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .action-customer {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-medium);
+            cursor: pointer;
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .playbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .playbook-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+            border-top: 4px solid;
+        }
+
+        .playbook-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .playbook-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .playbook-name {
+            font: var(--md-sys-typescale-title-large);
+        }
+
+        .playbook-range {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .playbook-tasks {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .playbook-tasks li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .playbook-tasks li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="community.html" class="btn btn-text">Community</a>
+                <a href="events.html" class="btn btn-text">Events</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">🏆 Customer Success</h1>
+            <p class="body-large" style="opacity: 0.9;">Health Scoring & Retention Management</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('health')">
+                <span class="material-symbols-outlined">monitoring</span> Health Report
+            </button>
+            <button class="tab" onclick="switchTab('customers')">
+                <span class="material-symbols-outlined">people</span> Customers
+            </button>
+            <button class="tab" onclick="switchTab('actions')">
+                <span class="material-symbols-outlined">task_alt</span> Actions
+            </button>
+            <button class="tab" onclick="switchTab('playbooks')">
+                <span class="material-symbols-outlined">menu_book</span> Playbooks
+            </button>
+        </div>
+
+        <!-- Health Report Tab -->
+        <div class="tab-content active" id="tab-health">
+            <div class="health-report">
+                <div class="health-title">📊 Customer Health Distribution</div>
+                <div class="health-bars">
+                    <div class="health-bar-item">
+                        <div class="health-bar green" id="healthGreen">0%</div>
+                        <div class="health-bar-label">🟢 Green</div>
+                    </div>
+                    <div class="health-bar-item">
+                        <div class="health-bar yellow" id="healthYellow">0%</div>
+                        <div class="health-bar-label">🟡 Yellow</div>
+                    </div>
+                    <div class="health-bar-item">
+                        <div class="health-bar red" id="healthRed">0%</div>
+                        <div class="health-bar-label">🔴 Red</div>
+                    </div>
+                </div>
+                <div class="health-metrics">
+                    <div class="health-metric">
+                        <div class="health-metric-value" id="metricNRR">0%</div>
+                        <div class="health-metric-label">Net Revenue Retention</div>
+                    </div>
+                    <div class="health-metric">
+                        <div class="health-metric-value" id="metricAvgHealth">0</div>
+                        <div class="health-metric-label">Avg Health Score</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon customers"><span class="material-symbols-outlined">groups</span></div>
+                    <div class="metric-value" id="metricTotal">0</div>
+                    <div class="metric-label">Total Customers</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon nrr"><span class="material-symbols-outlined">trending_up</span></div>
+                    <div class="metric-value" id="metricGrossRetention">0%</div>
+                    <div class="metric-label">Gross Retention</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon mrr"><span class="material-symbols-outlined">payments</span></div>
+                    <div class="metric-value" id="metricMRR">0</div>
+                    <div class="metric-label">Total MRR</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon actions"><span class="material-symbols-outlined">warning</span></div>
+                    <div class="metric-value" id="metricHighPriority">0</div>
+                    <div class="metric-label">High Priority Actions</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customers Tab -->
+        <div class="tab-content" id="tab-customers">
+            <h3 style="margin-bottom: 16px;">👥 Customer Health Scores</h3>
+            <div class="customer-grid" id="customerGrid"></div>
+        </div>
+
+        <!-- Actions Tab -->
+        <div class="tab-content" id="tab-actions">
+            <h3 style="margin-bottom: 16px;">📋 Action Queue</h3>
+            <div class="action-list" id="actionList"></div>
+        </div>
+
+        <!-- Playbooks Tab -->
+        <div class="tab-content" id="tab-playbooks">
+            <h3 style="margin-bottom: 16px;">📖 CS Playbooks</h3>
+            <div class="playbook-grid" id="playbookGrid"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/customer-success.js"></script>
+    <script>
+        createDemoCustomers(csManager);
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        function updateHealthReport() {
+            const report = csManager.runHealthCheck();
+            document.getElementById('healthGreen').textContent = report.green + '%';
+            document.getElementById('healthYellow').textContent = report.yellow + '%';
+            document.getElementById('healthRed').textContent = report.red + '%';
+            document.getElementById('metricNRR').textContent = report.nrr + '%';
+            document.getElementById('metricAvgHealth').textContent = report.avgHealth;
+            document.getElementById('metricTotal').textContent = report.total;
+            document.getElementById('metricGrossRetention').textContent = Math.round(report.grossRetention) + '%';
+            document.getElementById('metricMRR').textContent = formatCurrency(report.totalMRR);
+            document.getElementById('metricHighPriority').textContent = csManager.getPendingActions().filter(a => a.priority === 'high').length;
+        }
+
+        function renderCustomers() {
+            const customers = csManager.getAllCustomers().sort((a, b) => a.healthScore - b.healthScore);
+            document.getElementById('customerGrid').innerHTML = customers.map(c => `
+        <div class="customer-card ${c.status}">
+          <div class="customer-header">
+            <div class="customer-name">${c.name}</div>
+            <div class="customer-company">${c.company} • ${c.plan}</div>
+          </div>
+          <div class="customer-body">
+            <div class="customer-scores">
+              ${Object.entries(HealthFactors).map(([key, factor]) => `
+                <div class="score-item">
+                  <div class="score-value">${c.scores[key]}</div>
+                  <div class="score-label">${key.charAt(0).toUpperCase()}</div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="customer-health">
+              <div>
+                <div class="health-score">${c.healthScore}</div>
+                <div style="font-size:12px;color:#666">Health Score</div>
+              </div>
+              <span class="health-status ${c.status}">${c.status.toUpperCase()}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function renderActions() {
+            const actions = csManager.getPendingActions();
+            document.getElementById('actionList').innerHTML = actions.length > 0 ? actions.map(a => `
+        <div class="action-card ${a.priority}">
+          <span class="action-priority ${a.priority}">${a.priority}</span>
+          <div class="action-info">
+            <div class="action-task">${a.task}</div>
+            <div class="action-customer">${a.customerName}</div>
+          </div>
+          <button class="action-btn" onclick="completeAction('${a.id}')">Done</button>
+        </div>
+      `).join('') : '<div style="text-align:center;padding:40px;color:#666">All actions completed!</div>';
+        }
+
+        function renderPlaybooks() {
+            document.getElementById('playbookGrid').innerHTML = Object.values(Playbooks).map(p => `
+        <div class="playbook-card" style="border-color:${p.color}">
+          <div class="playbook-header">
+            <div class="playbook-dot" style="background:${p.color}"></div>
+            <div class="playbook-name">${p.name}</div>
+          </div>
+          <div class="playbook-range">Score: ${p.minScore} - ${p.maxScore}</div>
+          <ul class="playbook-tasks">
+            ${p.tasks.map(t => `<li>✓ ${t}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+        }
+
+        function completeAction(id) {
+            csManager.completeAction(id);
+            renderActions();
+        }
+
+        function refresh() {
+            updateHealthReport();
+            renderCustomers();
+            renderActions();
+        }
+
+        renderPlaybooks();
+        refresh();
+    </script>
+</body>
+
+</html>

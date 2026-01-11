@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Pipeline - Mekong Agency CRM</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+    <link rel="stylesheet" href="../assets/css/pipeline-pro.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-inverse-surface);
+            color: var(--md-sys-color-inverse-on-surface);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-inverse-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-inverse-on-surface);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            opacity: 1;
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-x: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .pipeline-stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-full);
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+
+        .stat-pill:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .stat-pill:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-pill:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .stat-pill:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-pill-value {
+            font: var(--md-sys-typescale-title-large);
+            font-weight: 700;
+        }
+
+        .stat-pill-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* ===== KANBAN PIPELINE ===== */
+        .pipeline-board {
+            display: grid;
+            grid-template-columns: repeat(5, 280px);
+            gap: 16px;
+            min-height: 600px;
+            padding-bottom: 24px;
+        }
+
+        .pipeline-stage {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            animation: slideInLeft 0.5s ease-out backwards;
+        }
+
+        .pipeline-stage:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .pipeline-stage:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .pipeline-stage:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .pipeline-stage:nth-child(4) {
+            animation-delay: 0.25s;
+        }
+
+        .pipeline-stage:nth-child(5) {
+            animation-delay: 0.3s;
+        }
+
+        .stage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .stage-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .stage-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .stage-icon.lead {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .stage-icon.qualified {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .stage-icon.proposal {
+            background: #F3E5F5;
+            color: #7B1FA2;
+        }
+
+        .stage-icon.negotiation {
+            background: #E0F7FA;
+            color: #00838F;
+        }
+
+        .stage-icon.closed {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .stage-count {
+            padding: 4px 10px;
+            background: var(--md-sys-color-surface);
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .stage-value {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            padding: 8px 20px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .stage-cards {
+            flex: 1;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        .stage-cards::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .stage-cards::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .stage-cards::-webkit-scrollbar-thumb {
+            background: var(--md-sys-color-outline);
+            border-radius: 2px;
+        }
+
+        /* ===== DEAL CARD ===== */
+        .deal-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            cursor: grab;
+            transition:
+                transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow:
+                0 12px 24px rgba(0, 106, 96, 0.12),
+                0 4px 8px rgba(0, 0, 0, 0.08);
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .deal-card.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .deal-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .deal-company {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .deal-value {
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-primary);
+            font-weight: 600;
+        }
+
+        .deal-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .deal-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .deal-name {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .deal-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .deal-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .deal-tag .material-symbols-outlined {
+            font-size: 14px;
+        }
+
+        .deal-score {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .deal-score.hot {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .deal-score.warm {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .deal-score.cold {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .deal-progress {
+            margin-top: 12px;
+        }
+
+        .deal-progress-bar {
+            height: 4px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .deal-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #006A60, #00897B, #26A69A);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== ADD DEAL BUTTON ===== */
+        .add-deal-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: transparent;
+            border: 2px dashed var(--md-sys-color-outline);
+            border-radius: 12px;
+            color: var(--md-sys-color-on-surface-variant);
+            font: var(--md-sys-typescale-label-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-deal-btn:hover {
+            border-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+
+        /* ===== TOOLBAR ===== */
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-filled {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .btn-filled:hover {
+            box-shadow: 0 4px 12px rgba(0, 106, 96, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            border: 2px solid var(--md-sys-color-primary);
+            color: var(--md-sys-color-primary);
+        }
+
+        .btn-outlined:hover {
+            background: var(--md-sys-color-primary-container);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1400px) {
+            .pipeline-board {
+                grid-template-columns: repeat(5, 260px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <span class="sidebar-badge">CRM</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="leads.html" class="nav-item">
+                    <span class="material-symbols-outlined">person_search</span>
+                    Leads
+                </a>
+                <a href="pipeline.html" class="nav-item active">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+                <a href="campaigns.html" class="nav-item">
+                    <span class="material-symbols-outlined">campaign</span>
+                    Campaigns
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🎯 Sales Pipeline</div>
+                    <div class="body-medium text-muted">Quản lý deals qua các giai đoạn bán hàng</div>
+                </div>
+                <div class="toolbar">
+                    <div class="live-indicator">
+                        <span class="live-dot"></span>
+                        <span>LIVE</span>
+                    </div>
+                    <button class="btn btn-outlined" id="exportBtn">
+                        <span class="material-symbols-outlined">download</span>
+                        Xuất báo cáo
+                    </button>
+                    <button class="btn btn-filled" id="addDealBtn">
+                        <span class="material-symbols-outlined">add</span>
+                        Thêm Deal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pipeline Stats -->
+            <div class="pipeline-stats">
+                <div class="stat-pill">
+                    <div class="stat-pill-value" id="totalDeals">0</div>
+                    <div class="stat-pill-label">Tổng deals</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="stat-pill-value" id="totalValue">0đ</div>
+                    <div class="stat-pill-label">Giá trị pipeline</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="stat-pill-value" id="avgScore">0</div>
+                    <div class="stat-pill-label">Score TB</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="stat-pill-value" id="winRate">0%</div>
+                    <div class="stat-pill-label">Tỷ lệ chốt</div>
+                </div>
+            </div>
+
+            <!-- Revenue Forecast Mini Chart -->
+            <div class="forecast-chart"
+                style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 16px; padding: 20px; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <div style="color: #fff; font-size: 14px;">📈 Dự báo doanh thu Q1/2026</div>
+                    <div style="color: #00E676; font-size: 20px; font-weight: 700;">750Mđ</div>
+                </div>
+                <div style="display: flex; align-items: flex-end; gap: 8px; height: 60px;">
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 40%; opacity: 0.6;">
+                    </div>
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 55%; opacity: 0.7;">
+                    </div>
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 70%; opacity: 0.8;">
+                    </div>
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 60%; opacity: 0.75;">
+                    </div>
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 85%; opacity: 0.85;">
+                    </div>
+                    <div
+                        style="flex: 1; background: linear-gradient(180deg, #00E676, #00BFA5); border-radius: 4px; height: 100%; box-shadow: 0 0 20px rgba(0,230,118,0.5);">
+                    </div>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; color: rgba(255,255,255,0.5); font-size: 10px; margin-top: 8px;">
+                    <span>T8</span><span>T9</span><span>T10</span><span>T11</span><span>T12</span><span>T1</span>
+                </div>
+            </div>
+
+            <!-- Kanban Board -->
+            <div class="pipeline-board" id="pipelineBoard">
+                <!-- Lead Stage -->
+                <div class="pipeline-stage" data-stage="lead">
+                    <div class="stage-header">
+                        <div class="stage-title">
+                            <div class="stage-icon lead">
+                                <span class="material-symbols-outlined">person_add</span>
+                            </div>
+                            Lead
+                        </div>
+                        <span class="stage-count" data-count>0</span>
+                    </div>
+                    <div class="stage-value" data-value>0đ</div>
+                    <div class="stage-cards" data-cards></div>
+                </div>
+
+                <!-- Qualified Stage -->
+                <div class="pipeline-stage" data-stage="qualified">
+                    <div class="stage-header">
+                        <div class="stage-title">
+                            <div class="stage-icon qualified">
+                                <span class="material-symbols-outlined">verified</span>
+                            </div>
+                            Qualified
+                        </div>
+                        <span class="stage-count" data-count>0</span>
+                    </div>
+                    <div class="stage-value" data-value>0đ</div>
+                    <div class="stage-cards" data-cards></div>
+                </div>
+
+                <!-- Proposal Stage -->
+                <div class="pipeline-stage" data-stage="proposal">
+                    <div class="stage-header">
+                        <div class="stage-title">
+                            <div class="stage-icon proposal">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            Proposal
+                        </div>
+                        <span class="stage-count" data-count>0</span>
+                    </div>
+                    <div class="stage-value" data-value>0đ</div>
+                    <div class="stage-cards" data-cards></div>
+                </div>
+
+                <!-- Negotiation Stage -->
+                <div class="pipeline-stage" data-stage="negotiation">
+                    <div class="stage-header">
+                        <div class="stage-title">
+                            <div class="stage-icon negotiation">
+                                <span class="material-symbols-outlined">handshake</span>
+                            </div>
+                            Negotiation
+                        </div>
+                        <span class="stage-count" data-count>0</span>
+                    </div>
+                    <div class="stage-value" data-value>0đ</div>
+                    <div class="stage-cards" data-cards></div>
+                </div>
+
+                <!-- Closed Stage -->
+                <div class="pipeline-stage" data-stage="closed">
+                    <div class="stage-header">
+                        <div class="stage-title">
+                            <div class="stage-icon closed">
+                                <span class="material-symbols-outlined">emoji_events</span>
+                            </div>
+                            Closed Won
+                        </div>
+                        <span class="stage-count" data-count>0</span>
+                    </div>
+                    <div class="stage-value" data-value>0đ</div>
+                    <div class="stage-cards" data-cards></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Particles Container -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Pipeline Script -->
+    <script type="module" src="../assets/js/pipeline-client.js"></script>
+
+    <!-- Particles Generator -->
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+
+</html>

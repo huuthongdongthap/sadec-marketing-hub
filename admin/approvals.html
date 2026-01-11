@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals Dashboard - Mekong Agency</title>
+    <meta name="description" content="Human-in-Loop Approval Dashboard - Mekong Agency">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+            text-align: center;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-display-small);
+            margin-bottom: 4px;
+        }
+
+        .metric-value.pending {
+            color: #f59e0b;
+        }
+
+        .metric-value.approved {
+            color: #10b981;
+        }
+
+        .metric-value.rejected {
+            color: #ef4444;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Rules section */
+        .rules-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .rule-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .rule-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .rule-icon.proposal {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .rule-icon.contract {
+            background: #fce7f3;
+            color: #ec4899;
+        }
+
+        .rule-icon.expense {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .rule-icon.content {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .rule-info h4 {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 4px;
+        }
+
+        .rule-info p {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 0;
+        }
+
+        .rule-threshold {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-primary);
+            margin-top: 8px;
+        }
+
+        /* Pending approvals */
+        .pending-section {
+            margin-bottom: 32px;
+        }
+
+        .approval-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .approval-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .approval-card:hover {
+            box-shadow: var(--md-sys-elevation-3);
+        }
+
+        .approval-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .approval-title {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 4px;
+        }
+
+        .approval-meta {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .approval-badge {
+            padding: 4px 12px;
+            border-radius: 16px;
+            font: var(--md-sys-typescale-label-small);
+            text-transform: uppercase;
+        }
+
+        .approval-badge.pending {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .approval-badge.approved {
+            background: #dcfce7;
+            color: #059669;
+        }
+
+        .approval-badge.rejected {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .approval-body {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .approval-amount {
+            font: var(--md-sys-typescale-headline-small);
+            color: var(--md-sys-color-primary);
+        }
+
+        .approval-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            padding: 10px 24px;
+            border-radius: 20px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn.approve {
+            background: #10b981;
+            color: white;
+            border: none;
+        }
+
+        .action-btn.approve:hover {
+            background: #059669;
+        }
+
+        .action-btn.reject {
+            background: transparent;
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .action-btn.reject:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 64px 24px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .empty-state .material-symbols-outlined {
+            font-size: 64px;
+            opacity: 0.5;
+            margin-bottom: 16px;
+        }
+
+        /* History */
+        .history-section {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+        }
+
+        .history-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            font: var(--md-sys-typescale-title-large);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .history-icon.approved {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .history-icon.rejected {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .history-content {
+            flex: 1;
+        }
+
+        .history-title {
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .history-meta {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Demo section */
+        .demo-section {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .demo-title {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-end;
+        }
+
+        .demo-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .demo-field label {
+            display: block;
+            font: var(--md-sys-typescale-label-medium);
+            margin-bottom: 8px;
+        }
+
+        .demo-field select,
+        .demo-field input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-large);
+            background: var(--md-sys-color-surface);
+        }
+
+        .demo-btn {
+            padding: 12px 24px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            border-radius: 24px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-btn:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="workflows.html" class="btn btn-text">Workflows</a>
+                <a href="agents.html" class="btn btn-text">Agents</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">👤 Approvals Dashboard</h1>
+            <p class="body-large" style="opacity: 0.9;">Human-in-Loop - Kiểm soát và phê duyệt quy trình</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+
+        <!-- Metrics -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value pending" id="metricPending">0</div>
+                <div class="metric-label">Pending</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value approved" id="metricApproved">0</div>
+                <div class="metric-label">Approved</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value rejected" id="metricRejected">0</div>
+                <div class="metric-label">Rejected</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="metricRate" style="color: var(--md-sys-color-primary);">0%</div>
+                <div class="metric-label">Approval Rate</div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section">
+            <div class="demo-title">
+                <span class="material-symbols-outlined">science</span>
+                Test Approval Request
+            </div>
+            <form class="demo-form" id="demoForm">
+                <div class="demo-field">
+                    <label>Type</label>
+                    <select id="demoType">
+                        <option value="proposal">Proposal</option>
+                        <option value="expense">Expense</option>
+                        <option value="contract">Contract</option>
+                        <option value="content">Content</option>
+                    </select>
+                </div>
+                <div class="demo-field">
+                    <label>Title</label>
+                    <input type="text" id="demoTitle" placeholder="VD: Proposal ABC Corp" value="Test Request">
+                </div>
+                <div class="demo-field">
+                    <label>Amount (VND)</label>
+                    <input type="number" id="demoAmount" placeholder="15000000" value="15000000">
+                </div>
+                <button type="submit" class="demo-btn">
+                    <span class="material-symbols-outlined">add</span>
+                    Create Request
+                </button>
+            </form>
+        </section>
+
+        <!-- Approval Rules -->
+        <section class="rules-section">
+            <h2 class="section-title">
+                <span class="material-symbols-outlined">rule</span>
+                Approval Rules
+            </h2>
+            <div class="rules-grid" id="rulesGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Pending Approvals -->
+        <section class="pending-section">
+            <h2 class="section-title">
+                <span class="material-symbols-outlined">pending_actions</span>
+                Pending Approvals
+            </h2>
+            <div class="approval-list" id="pendingList">
+                <div class="empty-state" id="emptyPending">
+                    <span class="material-symbols-outlined">inbox</span>
+                    <p>No pending approvals</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="history-section">
+            <div class="history-header">
+                <span class="material-symbols-outlined">history</span>
+                Approval History
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="empty-state" id="emptyHistory">
+                    <span class="material-symbols-outlined">folder_off</span>
+                    <p>No approval history yet</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/approvals.js"></script>
+    <script>
+        // Render rules
+        function renderRules() {
+            const rulesGrid = document.getElementById('rulesGrid');
+            rulesGrid.innerHTML = approvalRules.map(rule => `
+        <div class="rule-card">
+          <div class="rule-icon ${rule.type}">
+            <span class="material-symbols-outlined">${getRuleIcon(rule.type)}</span>
+          </div>
+          <div class="rule-info">
+            <h4>${rule.name}</h4>
+            <p>${rule.description}</p>
+            <div class="rule-threshold">
+              ${rule.threshold > 0 ? `Threshold: ${formatCurrency(rule.threshold)}` : 'Always requires approval'}
+              → ${rule.approverName}
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function getRuleIcon(type) {
+            const icons = {
+                proposal: 'description',
+                contract: 'handshake',
+                expense: 'payments',
+                content: 'article'
+            };
+            return icons[type] || 'rule';
+        }
+
+        // Render pending approvals
+        function renderPending() {
+            const pendingList = document.getElementById('pendingList');
+            const pending = approvalManager.getPendingApprovals();
+
+            if (pending.length === 0) {
+                pendingList.innerHTML = `
+          <div class="empty-state" id="emptyPending">
+            <span class="material-symbols-outlined">inbox</span>
+            <p>No pending approvals</p>
+          </div>
+        `;
+                return;
+            }
+
+            pendingList.innerHTML = pending.map(req => `
+        <div class="approval-card" id="approval-${req.id}">
+          <div class="approval-header">
+            <div>
+              <div class="approval-title">${req.title}</div>
+              <div class="approval-meta">
+                ${req.type} • Requested by ${req.requestedBy} • ${formatTime(req.requestedAt)}
+              </div>
+            </div>
+            <span class="approval-badge pending">Pending</span>
+          </div>
+          <div class="approval-body">
+            <div class="approval-amount">
+              ${req.amount > 0 ? formatCurrency(req.amount) : req.description}
+            </div>
+            <div class="approval-actions">
+              <button class="action-btn reject" onclick="rejectApproval('${req.id}')">
+                <span class="material-symbols-outlined">close</span>
+                Reject
+              </button>
+              <button class="action-btn approve" onclick="approveRequest('${req.id}')">
+                <span class="material-symbols-outlined">check</span>
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Render history
+        function renderHistory() {
+            const historyList = document.getElementById('historyList');
+            const history = approvalManager.getHistory();
+
+            if (history.length === 0) {
+                historyList.innerHTML = `
+          <div class="empty-state" id="emptyHistory">
+            <span class="material-symbols-outlined">folder_off</span>
+            <p>No approval history yet</p>
+          </div>
+        `;
+                return;
+            }
+
+            historyList.innerHTML = history.map(req => `
+        <div class="history-item">
+          <div class="history-icon ${req.status}">
+            <span class="material-symbols-outlined">
+              ${req.status === 'approved' ? 'check' : 'close'}
+            </span>
+          </div>
+          <div class="history-content">
+            <div class="history-title">${req.title}</div>
+            <div class="history-meta">
+              ${req.status === 'approved' ? 'Approved' : 'Rejected'} by ${req.decidedBy} • ${formatTime(req.decidedAt)}
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Update metrics
+        function updateMetrics() {
+            const metrics = approvalManager.getMetrics();
+            document.getElementById('metricPending').textContent = metrics.pending;
+            document.getElementById('metricApproved').textContent = metrics.approved;
+            document.getElementById('metricRejected').textContent = metrics.rejected;
+            document.getElementById('metricRate').textContent = metrics.approvalRate + '%';
+        }
+
+        // Actions
+        async function approveRequest(id) {
+            await approvalManager.approve(id, 'Current User', 'Approved via dashboard');
+            refresh();
+        }
+
+        async function rejectApproval(id) {
+            const reason = prompt('Reason for rejection:');
+            if (reason !== null) {
+                await approvalManager.reject(id, 'Current User', reason);
+                refresh();
+            }
+        }
+
+        // Demo form
+        document.getElementById('demoForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const type = document.getElementById('demoType').value;
+            const title = document.getElementById('demoTitle').value;
+            const amount = parseInt(document.getElementById('demoAmount').value) || 0;
+
+            approvalManager.createRequest({
+                type,
+                title,
+                amount,
+                requestedBy: 'Demo User'
+            });
+
+            refresh();
+        });
+
+        // Helpers
+        function formatTime(isoString) {
+            return new Date(isoString).toLocaleString('vi-VN');
+        }
+
+        function refresh() {
+            renderPending();
+            renderHistory();
+            updateMetrics();
+        }
+
+        // Event listeners
+        approvalBus.on('approval:requested', () => refresh());
+        approvalBus.on('approval:approved', () => refresh());
+        approvalBus.on('approval:rejected', () => refresh());
+
+        // Init
+        renderRules();
+        refresh();
+    </script>
+</body>
+
+</html>

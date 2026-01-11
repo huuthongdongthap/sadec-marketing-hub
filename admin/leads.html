@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management - Mekong Agency Admin</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-inverse-surface);
+            color: var(--md-sys-color-inverse-on-surface);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-inverse-primary);
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-inverse-on-surface);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            opacity: 1;
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-full);
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            font: var(--md-sys-typescale-body-medium);
+            width: 100%;
+            outline: none;
+        }
+
+        .filter-dropdown {
+            padding: 10px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: var(--md-sys-shape-corner-medium);
+            background: white;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+        }
+
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .lead-card {
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .lead-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .lead-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .lead-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-title-medium);
+        }
+
+        .lead-info {
+            flex: 1;
+        }
+
+        .lead-name {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 4px;
+        }
+
+        .lead-company {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .lead-score-badge {
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .lead-score-badge.hot {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .lead-score-badge.warm {
+            background: #FFF3E0;
+            color: #EF6C00;
+        }
+
+        .lead-score-badge.cold {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .lead-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .lead-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .lead-detail .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        .lead-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .lead-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .lead-action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 8px;
+            border: none;
+            background: transparent;
+            border-radius: var(--md-sys-shape-corner-small);
+            cursor: pointer;
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-primary);
+        }
+
+        .lead-action-btn:hover {
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .lead-action-btn .material-symbols-outlined {
+            font-size: 18px;
+        }
+
+        .pipeline-view {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 1200px) {
+            .pipeline-view {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pipeline-view {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pipeline-column {
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-large);
+            padding: 16px;
+        }
+
+        .pipeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .pipeline-title {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .pipeline-count {
+            padding: 4px 8px;
+            background: var(--md-sys-color-surface);
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .pipeline-leads {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pipeline-lead {
+            padding: 12px;
+            background: var(--md-sys-color-surface);
+            border-radius: var(--md-sys-shape-corner-medium);
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .pipeline-lead-name {
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .pipeline-lead-company {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <span class="sidebar-badge">ADMIN</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="leads.html" class="nav-item active">
+                    <span class="material-symbols-outlined">person_search</span>
+                    Leads
+                </a>
+                <a href="campaigns.html" class="nav-item">
+                    <span class="material-symbols-outlined">campaign</span>
+                    Campaigns
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">Lead Management</div>
+                    <div class="body-medium text-muted">Quản lý và chuyển đổi leads</div>
+                </div>
+                <button class="btn btn-filled">
+                    <span class="material-symbols-outlined">add</span>
+                    Thêm Lead
+                </button>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="search-box">
+                    <span class="material-symbols-outlined text-muted">search</span>
+                    <input type="text" placeholder="Tìm kiếm leads...">
+                </div>
+                <select class="filter-dropdown">
+                    <option>Tất cả trạng thái</option>
+                    <option>Hot</option>
+                    <option>Warm</option>
+                    <option>Cold</option>
+                </select>
+                <select class="filter-dropdown">
+                    <option>Tất cả nguồn</option>
+                    <option>Facebook</option>
+                    <option>Website</option>
+                    <option>Zalo</option>
+                    <option>Referral</option>
+                </select>
+            </div>
+
+            <!-- Pipeline View -->
+            <div class="pipeline-view">
+                <div class="pipeline-column" data-stage="new">
+                    <div class="pipeline-header">
+                        <span class="pipeline-title">Mới</span>
+                        <span class="pipeline-count">12</span>
+                    </div>
+                    <div class="pipeline-leads">
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Trần Thanh Lan</div>
+                            <div class="pipeline-lead-company">Cửa hàng hoa Hương Sen</div>
+                        </div>
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Nguyễn Văn Minh</div>
+                            <div class="pipeline-lead-company">Nhà hàng Mekong</div>
+                        </div>
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Phạm Hoàng</div>
+                            <div class="pipeline-lead-company">Gym Fitness Pro</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-column" data-stage="contacted">
+                    <div class="pipeline-header">
+                        <span class="pipeline-title">Đang liên hệ</span>
+                        <span class="pipeline-count">8</span>
+                    </div>
+                    <div class="pipeline-leads">
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Lê Thị Hoa</div>
+                            <div class="pipeline-lead-company">Spa & Beauty Center</div>
+                        </div>
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Võ Minh Tuấn</div>
+                            <div class="pipeline-lead-company">Tiệm bánh Hạnh Phúc</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-column" data-stage="qualified">
+                    <div class="pipeline-header">
+                        <span class="pipeline-title">Đã gửi báo giá</span>
+                        <span class="pipeline-count">5</span>
+                    </div>
+                    <div class="pipeline-leads">
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Đặng Văn Long</div>
+                            <div class="pipeline-lead-company">Khách sạn Riverside</div>
+                        </div>
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Huỳnh Thanh Mai</div>
+                            <div class="pipeline-lead-company">Thời trang XYZ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-column" data-stage="won">
+                    <div class="pipeline-header">
+                        <span class="pipeline-title">Chốt đơn</span>
+                        <span class="pipeline-count">3</span>
+                    </div>
+                    <div class="pipeline-leads">
+                        <div class="pipeline-lead">
+                            <div class="pipeline-lead-name">Trương Công Danh</div>
+                            <div class="pipeline-lead-company">Công ty TNHH ABC</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leads Grid -->
+            <div style="margin-top: 32px;">
+                <h3 class="title-large mb-24">Tất cả Leads</h3>
+                <div class="leads-grid">
+                    <!-- Lead 1 -->
+                    <div class="card card-elevated lead-card">
+                        <div class="lead-header">
+                            <div class="lead-avatar"
+                                style="background: var(--md-sys-color-primary-container); color: var(--md-sys-color-primary);">
+                                TL</div>
+                            <div class="lead-info">
+                                <div class="lead-name">Trần Thanh Lan</div>
+                                <div class="lead-company">Cửa hàng hoa Hương Sen</div>
+                            </div>
+                            <span class="lead-score-badge hot">Hot</span>
+                        </div>
+                        <div class="lead-details">
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">phone</span>
+                                0909 123 456
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">mail</span>
+                                lan@huongsen.vn
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Sa Đéc, Đồng Tháp
+                            </div>
+                        </div>
+                        <div class="lead-source">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">thumb_up</span>
+                            Facebook
+                        </div>
+                        <div class="lead-actions">
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">call</span>
+                                Gọi
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">mail</span>
+                                Email
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">edit</span>
+                                Sửa
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lead 2 -->
+                    <div class="card card-elevated lead-card">
+                        <div class="lead-header">
+                            <div class="lead-avatar"
+                                style="background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary);">
+                                NM</div>
+                            <div class="lead-info">
+                                <div class="lead-name">Nguyễn Văn Minh</div>
+                                <div class="lead-company">Nhà hàng Mekong</div>
+                            </div>
+                            <span class="lead-score-badge warm">Warm</span>
+                        </div>
+                        <div class="lead-details">
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">phone</span>
+                                0918 765 432
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">mail</span>
+                                minh@mekongrest.vn
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Cần Thơ
+                            </div>
+                        </div>
+                        <div class="lead-source">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">language</span>
+                            Website
+                        </div>
+                        <div class="lead-actions">
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">call</span>
+                                Gọi
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">mail</span>
+                                Email
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">edit</span>
+                                Sửa
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lead 3 -->
+                    <div class="card card-elevated lead-card">
+                        <div class="lead-header">
+                            <div class="lead-avatar"
+                                style="background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary);">
+                                PH</div>
+                            <div class="lead-info">
+                                <div class="lead-name">Phạm Hoàng</div>
+                                <div class="lead-company">Gym Fitness Pro</div>
+                            </div>
+                            <span class="lead-score-badge cold">Cold</span>
+                        </div>
+                        <div class="lead-details">
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">phone</span>
+                                0977 111 222
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">mail</span>
+                                hoang@fitnesspro.vn
+                            </div>
+                            <div class="lead-detail">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Long Xuyên, An Giang
+                            </div>
+                        </div>
+                        <div class="lead-source">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">chat</span>
+                            Zalo
+                        </div>
+                        <div class="lead-actions">
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">call</span>
+                                Gọi
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">mail</span>
+                                Email
+                            </button>
+                            <button class="lead-action-btn">
+                                <span class="material-symbols-outlined">edit</span>
+                                Sửa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Client Script -->
+    <script type="module" src="../assets/js/admin-client.js"></script>
+</body>
+
+</html>

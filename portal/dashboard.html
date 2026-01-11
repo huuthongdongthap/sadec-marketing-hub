@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mekong Agency Portal</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            padding: 0 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            transition: all var(--md-sys-motion-duration-short);
+        }
+
+        .nav-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .nav-item .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--md-sys-color-primary);
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-card {
+            padding: 24px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .stat-icon.primary {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+
+        .stat-icon.secondary {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-secondary);
+        }
+
+        .stat-icon.tertiary {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+
+        .stat-icon.success {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-display-small);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font: var(--md-sys-typescale-label-small);
+            padding: 4px 8px;
+            border-radius: var(--md-sys-shape-corner-full);
+        }
+
+        .stat-trend.up {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .stat-trend.down {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 16px;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-medium);
+            transition: all var(--md-sys-motion-duration-short);
+        }
+
+        .project-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+            border-radius: 12px;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-name {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 4px;
+        }
+
+        .project-status {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .project-progress {
+            width: 120px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--md-sys-color-surface-container-highest);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--md-sys-color-primary);
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-align: right;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 6px;
+        }
+
+        .activity-dot.green {
+            background: #34C759;
+        }
+
+        .activity-dot.blue {
+            background: var(--md-sys-color-primary);
+        }
+
+        .activity-dot.orange {
+            background: #FF9500;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font: var(--md-sys-typescale-body-medium);
+            margin-bottom: 4px;
+        }
+
+        .activity-time {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menu chính</div>
+                    <a href="dashboard.html" class="nav-item active">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <span class="material-symbols-outlined">folder_open</span>
+                        Dự án
+                    </a>
+                    <a href="invoices.html" class="nav-item">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Hóa đơn
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Báo cáo</div>
+                    <a href="#" class="nav-item">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Phân tích
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="material-symbols-outlined">description</span>
+                        Báo cáo
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Hỗ trợ</div>
+                    <a href="#" class="nav-item">
+                        <span class="material-symbols-outlined">support_agent</span>
+                        Liên hệ hỗ trợ
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="material-symbols-outlined">settings</span>
+                        Cài đặt
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="user-avatar">NT</div>
+                <div>
+                    <div class="title-small">Nguyễn Tùng</div>
+                    <div class="body-small text-muted">Sa Đéc Flower</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <div class="page-title">Dashboard</div>
+                    <div class="body-medium text-muted">Chào mừng trở lại, Nguyễn Tùng!</div>
+                </div>
+                <a href="#" class="btn btn-filled">
+                    <span class="material-symbols-outlined">add</span>
+                    Yêu cầu mới
+                </a>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon primary">
+                            <span class="material-symbols-outlined">folder_open</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+                            +2
+                        </div>
+                    </div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Dự án đang chạy</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon secondary">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+                            +45%
+                        </div>
+                    </div>
+                    <div class="stat-value">12.5K</div>
+                    <div class="stat-label">Lượt tiếp cận</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon success">
+                            <span class="material-symbols-outlined">person_add</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+                            +28%
+                        </div>
+                    </div>
+                    <div class="stat-value">234</div>
+                    <div class="stat-label">Leads mới</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon tertiary">
+                            <span class="material-symbols-outlined">receipt_long</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Hóa đơn chờ thanh toán</div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Projects -->
+                <div class="card card-outlined" style="padding: 24px;">
+                    <div class="flex-between mb-24">
+                        <div class="section-title">Dự án gần đây</div>
+                        <a href="projects.html" class="btn btn-text">Xem tất cả</a>
+                    </div>
+
+                    <div class="project-list">
+                        <div class="project-item">
+                            <div class="project-icon">
+                                <span class="material-symbols-outlined">campaign</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-name">Chiến dịch Facebook Q1</div>
+                                <div class="project-status">Đang chạy • Cập nhật 2h trước</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%;"></div>
+                                </div>
+                                <div class="progress-text">75%</div>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-icon"
+                                style="background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary);">
+                                <span class="material-symbols-outlined">travel_explore</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-name">SEO Website tháng 1</div>
+                                <div class="project-status">Đang chạy • Cập nhật hôm qua</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%;"></div>
+                                </div>
+                                <div class="progress-text">40%</div>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-icon"
+                                style="background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary);">
+                                <span class="material-symbols-outlined">palette</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-name">Thiết kế logo mới</div>
+                                <div class="project-status">Hoàn thành • 3 ngày trước</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%;"></div>
+                                </div>
+                                <div class="progress-text">100%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity -->
+                <div class="card card-outlined" style="padding: 24px;">
+                    <div class="section-title">Hoạt động gần đây</div>
+
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-dot green"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">Chiến dịch Facebook đạt 1000 leads</div>
+                                <div class="activity-time">2 giờ trước</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-dot blue"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">Báo cáo SEO tháng 12 đã sẵn sàng</div>
+                                <div class="activity-time">Hôm qua</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-dot orange"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">Hóa đơn #INV-2024-056 đã gửi</div>
+                                <div class="activity-time">2 ngày trước</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-dot green"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">Logo mới đã được phê duyệt</div>
+                                <div class="activity-time">3 ngày trước</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Portal Client Script -->
+    <script type="module" src="../assets/js/portal-client.js"></script>
+</body>
+
+</html>

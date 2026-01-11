@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Dashboard - Mekong Agency</title>
+    <meta name="description" content="Multi-Agent Supervisor Pattern Dashboard - Mekong Agency">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        /* Agent Dashboard Specific Styles */
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, #1a1a2e 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        /* Agent Cards */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .agent-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--agent-color, var(--md-sys-color-primary));
+        }
+
+        .agent-card.supervisor {
+            --agent-color: #6750A4;
+        }
+
+        .agent-card.scout {
+            --agent-color: #006A60;
+        }
+
+        .agent-card.editor {
+            --agent-color: #9C6800;
+        }
+
+        .agent-card.director {
+            --agent-color: #BA1A1A;
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .agent-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--agent-color);
+            color: white;
+        }
+
+        .agent-info h3 {
+            font: var(--md-sys-typescale-title-large);
+            margin: 0;
+        }
+
+        .agent-info p {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 4px 0 0;
+        }
+
+        .agent-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.idle {
+            background: #6b7280;
+            animation: none;
+        }
+
+        .status-dot.working {
+            background: #10b981;
+        }
+
+        .status-dot.completed {
+            background: #3b82f6;
+            animation: none;
+        }
+
+        .status-dot.error {
+            background: #ef4444;
+            animation: none;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        .status-text {
+            font: var(--md-sys-typescale-label-medium);
+            text-transform: capitalize;
+        }
+
+        .agent-capabilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .capability-tag {
+            padding: 4px 12px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Task Input */
+        .task-input-section {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .task-input-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .task-input-header h2 {
+            font: var(--md-sys-typescale-headline-small);
+            margin: 0;
+        }
+
+        .task-form {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .task-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 16px 20px;
+            border: 2px solid var(--md-sys-color-outline-variant);
+            border-radius: 12px;
+            font: var(--md-sys-typescale-body-large);
+            background: var(--md-sys-color-surface);
+            transition: border-color 0.2s ease;
+        }
+
+        .task-input:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .task-input::placeholder {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .submit-btn {
+            padding: 16px 32px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Activity Log */
+        .activity-section {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .activity-header h2 {
+            font: var(--md-sys-typescale-title-large);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .clear-btn {
+            padding: 8px 16px;
+            background: transparent;
+            color: var(--md-sys-color-error);
+            border: 1px solid var(--md-sys-color-error);
+            border-radius: 20px;
+            font: var(--md-sys-typescale-label-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .clear-btn:hover {
+            background: var(--md-sys-color-error);
+            color: white;
+        }
+
+        .activity-log {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 16px 24px;
+        }
+
+        .log-entry {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            animation: slideIn 0.3s ease;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .log-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .log-icon.info {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .log-icon.task {
+            background: #f3e8ff;
+            color: #8b5cf6;
+        }
+
+        .log-icon.working {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .log-icon.success {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .log-icon.error {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .log-icon.routing {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .log-icon.system {
+            background: #e0e7ff;
+            color: #6366f1;
+        }
+
+        .log-content {
+            flex: 1;
+        }
+
+        .log-message {
+            font: var(--md-sys-typescale-body-medium);
+            margin-bottom: 4px;
+        }
+
+        .log-meta {
+            display: flex;
+            gap: 16px;
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .log-agent {
+            color: var(--md-sys-color-primary);
+            font-weight: 500;
+        }
+
+        .empty-log {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .empty-log .material-symbols-outlined {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Task Suggestions */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .suggestion-chip {
+            padding: 8px 16px;
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 20px;
+            font: var(--md-sys-typescale-label-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .suggestion-chip:hover {
+            background: var(--md-sys-color-primary-container);
+            border-color: var(--md-sys-color-primary);
+        }
+
+        /* Flow Diagram */
+        .flow-section {
+            margin-bottom: 32px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 24px;
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            flex-wrap: wrap;
+        }
+
+        .flow-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flow-node-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .flow-node-icon.user {
+            background: #e0e7ff;
+            color: #6366f1;
+        }
+
+        .flow-node-icon.supervisor {
+            background: #f3e8ff;
+            color: #8b5cf6;
+        }
+
+        .flow-node-icon.agent {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .flow-node-icon.active {
+            animation: flowPulse 1s infinite;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        @keyframes flowPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .flow-node-label {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .flow-arrow {
+            font-size: 24px;
+            color: var(--md-sys-color-outline);
+        }
+
+        .flow-arrow.active {
+            color: var(--md-sys-color-primary);
+            animation: arrowPulse 0.5s infinite;
+        }
+
+        @keyframes arrowPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="btn btn-text">Dashboard</a>
+                <a href="brand-guide.html" class="btn btn-outlined">Brand Guide</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">🤖 Multi-Agent Dashboard</h1>
+            <p class="body-large" style="opacity: 0.9;">Supervisor Pattern - Điều phối tác vụ thông minh</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+
+        <!-- Flow Diagram -->
+        <section class="flow-section">
+            <div class="flow-diagram" id="flowDiagram">
+                <div class="flow-node">
+                    <div class="flow-node-icon user" id="flowUser">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <span class="flow-node-label">User</span>
+                </div>
+
+                <span class="flow-arrow" id="arrow1">→</span>
+
+                <div class="flow-node">
+                    <div class="flow-node-icon supervisor" id="flowSupervisor">
+                        <span class="material-symbols-outlined">hub</span>
+                    </div>
+                    <span class="flow-node-label">Supervisor</span>
+                </div>
+
+                <span class="flow-arrow" id="arrow2">→</span>
+
+                <div class="flow-node">
+                    <div class="flow-node-icon agent" id="flowAgent">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                    </div>
+                    <span class="flow-node-label" id="flowAgentLabel">Agent</span>
+                </div>
+
+                <span class="flow-arrow" id="arrow3">→</span>
+
+                <div class="flow-node">
+                    <div class="flow-node-icon user" id="flowResult">
+                        <span class="material-symbols-outlined">task_alt</span>
+                    </div>
+                    <span class="flow-node-label">Result</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Input -->
+        <section class="task-input-section">
+            <div class="task-input-header">
+                <span class="material-symbols-outlined" style="color: var(--md-sys-color-primary);">send</span>
+                <h2>Gửi tác vụ mới</h2>
+            </div>
+
+            <form class="task-form" id="taskForm">
+                <input type="text" class="task-input" id="taskInput"
+                    placeholder="Nhập mô tả tác vụ... (VD: Nghiên cứu đối thủ, Viết bài blog, Lên kịch bản video)"
+                    autocomplete="off">
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Gửi tác vụ
+                </button>
+            </form>
+
+            <div class="suggestions">
+                <span class="suggestion-chip" onclick="setTask('Nghiên cứu đối thủ cạnh tranh marketing')">🔍 Nghiên cứu
+                    đối thủ</span>
+                <span class="suggestion-chip" onclick="setTask('Viết bài blog về SEO local')">✍️ Viết blog SEO</span>
+                <span class="suggestion-chip" onclick="setTask('Lên kịch bản video giới thiệu dịch vụ')">🎬 Kịch bản
+                    video</span>
+                <span class="suggestion-chip" onclick="setTask('Phân tích thị trường nông sản Mekong')">📊 Phân tích thị
+                    trường</span>
+                <span class="suggestion-chip" onclick="setTask('Tạo content social media cho tuần tới')">📱 Content
+                    social</span>
+            </div>
+        </section>
+
+        <!-- Agent Cards -->
+        <section class="agent-grid" id="agentGrid">
+            <!-- Agent cards will be rendered here -->
+        </section>
+
+        <!-- Activity Log -->
+        <section class="activity-section">
+            <div class="activity-header">
+                <h2>
+                    <span class="material-symbols-outlined">history</span>
+                    Activity Log
+                </h2>
+                <button class="clear-btn" onclick="clearLogs()">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                    Xóa log
+                </button>
+            </div>
+
+            <div class="activity-log" id="activityLog">
+                <div class="empty-log" id="emptyLog">
+                    <span class="material-symbols-outlined">inbox</span>
+                    <p>Chưa có hoạt động nào. Gửi tác vụ để bắt đầu!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Agent System Script -->
+    <script src="../assets/js/agents.js"></script>
+
+    <script>
+        // Initialize the agent system
+        mekongAgents.initialize();
+
+        // DOM Elements
+        const taskForm = document.getElementById('taskForm');
+        const taskInput = document.getElementById('taskInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const agentGrid = document.getElementById('agentGrid');
+        const activityLog = document.getElementById('activityLog');
+        const emptyLog = document.getElementById('emptyLog');
+
+        // Render agent cards
+        function renderAgentCards() {
+            const agents = mekongAgents.getAllAgents();
+
+            agentGrid.innerHTML = agents.map(agent => `
+        <div class="agent-card ${agent.name.toLowerCase()}" id="card-${agent.name.toLowerCase()}">
+          <div class="agent-header">
+            <div class="agent-icon">
+              <span class="material-symbols-outlined">${getAgentIcon(agent.name)}</span>
+            </div>
+            <div class="agent-info">
+              <h3>${agent.name}</h3>
+              <p>${agent.purpose}</p>
+            </div>
+          </div>
+          
+          <div class="agent-status">
+            <span class="status-dot ${agent.state}" id="status-${agent.name.toLowerCase()}"></span>
+            <span class="status-text" id="status-text-${agent.name.toLowerCase()}">${agent.state}</span>
+          </div>
+          
+          <div class="agent-capabilities">
+            ${agent.capabilities.slice(0, 3).map(cap => `
+              <span class="capability-tag">${cap}</span>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function getAgentIcon(name) {
+            const icons = {
+                'Supervisor': 'hub',
+                'Scout': 'search',
+                'Editor': 'edit_note',
+                'Director': 'videocam'
+            };
+            return icons[name] || 'smart_toy';
+        }
+
+        // Update agent status display
+        function updateAgentStatus(agentName, state) {
+            const dot = document.getElementById(`status-${agentName.toLowerCase()}`);
+            const text = document.getElementById(`status-text-${agentName.toLowerCase()}`);
+
+            if (dot && text) {
+                dot.className = `status-dot ${state}`;
+                text.textContent = state;
+            }
+        }
+
+        // Add log entry
+        function addLogEntry(entry) {
+            emptyLog.style.display = 'none';
+
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+
+            const iconClass = entry.type || 'info';
+            const icon = getLogIcon(entry.type);
+            const time = new Date(entry.timestamp).toLocaleTimeString('vi-VN');
+
+            logEntry.innerHTML = `
+        <div class="log-icon ${iconClass}">
+          <span class="material-symbols-outlined">${icon}</span>
+        </div>
+        <div class="log-content">
+          <div class="log-message">${entry.message}</div>
+          <div class="log-meta">
+            <span class="log-agent">${entry.agent}</span>
+            <span>${time}</span>
+          </div>
+        </div>
+      `;
+
+            activityLog.insertBefore(logEntry, activityLog.firstChild);
+
+            // Keep only last 50 entries
+            while (activityLog.children.length > 51) {
+                activityLog.removeChild(activityLog.lastChild);
+            }
+        }
+
+        function getLogIcon(type) {
+            const icons = {
+                'info': 'info',
+                'task': 'assignment',
+                'working': 'sync',
+                'success': 'check_circle',
+                'error': 'error',
+                'routing': 'alt_route',
+                'system': 'settings'
+            };
+            return icons[type] || 'circle';
+        }
+
+        // Clear logs
+        function clearLogs() {
+            activityLog.innerHTML = `
+        <div class="empty-log" id="emptyLog">
+          <span class="material-symbols-outlined">inbox</span>
+          <p>Chưa có hoạt động nào. Gửi tác vụ để bắt đầu!</p>
+        </div>
+      `;
+        }
+
+        // Set task from suggestion
+        function setTask(task) {
+            taskInput.value = task;
+            taskInput.focus();
+        }
+
+        // Flow animation
+        function animateFlow(step, agentName = '') {
+            const flowUser = document.getElementById('flowUser');
+            const flowSupervisor = document.getElementById('flowSupervisor');
+            const flowAgent = document.getElementById('flowAgent');
+            const flowResult = document.getElementById('flowResult');
+            const flowAgentLabel = document.getElementById('flowAgentLabel');
+            const arrow1 = document.getElementById('arrow1');
+            const arrow2 = document.getElementById('arrow2');
+            const arrow3 = document.getElementById('arrow3');
+
+            // Reset all
+            [flowUser, flowSupervisor, flowAgent, flowResult].forEach(el => el.classList.remove('active'));
+            [arrow1, arrow2, arrow3].forEach(el => el.classList.remove('active'));
+
+            switch (step) {
+                case 1: // User to Supervisor
+                    flowUser.classList.add('active');
+                    arrow1.classList.add('active');
+                    break;
+                case 2: // Supervisor routing
+                    flowSupervisor.classList.add('active');
+                    arrow2.classList.add('active');
+                    if (agentName) flowAgentLabel.textContent = agentName;
+                    break;
+                case 3: // Agent working
+                    flowAgent.classList.add('active');
+                    arrow3.classList.add('active');
+                    break;
+                case 4: // Result
+                    flowResult.classList.add('active');
+                    break;
+                default:
+                    flowAgentLabel.textContent = 'Agent';
+            }
+        }
+
+        // Handle task submission
+        taskForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const task = taskInput.value.trim();
+            if (!task) return;
+
+            submitBtn.disabled = true;
+            taskInput.value = '';
+
+            // Animate flow
+            animateFlow(1);
+
+            try {
+                await mekongAgents.submitTask(task);
+            } catch (error) {
+                console.error('Task submission error:', error);
+                addLogEntry({
+                    agent: 'System',
+                    type: 'error',
+                    message: `Failed to submit task: ${error.message}`,
+                    timestamp: new Date().toISOString()
+                });
+            }
+
+            submitBtn.disabled = false;
+        });
+
+        // Listen to agent events
+        agentBus.on('agent:log', (entry) => {
+            addLogEntry(entry);
+        });
+
+        agentBus.on('agent:state-change', (data) => {
+            updateAgentStatus(data.agent, data.newState);
+
+            if (data.newState === 'working') {
+                animateFlow(3, data.agent);
+            } else if (data.newState === 'completed') {
+                animateFlow(4);
+                setTimeout(() => animateFlow(0), 2000);
+            }
+        });
+
+        agentBus.on('task:routed', (data) => {
+            animateFlow(2, data.targetAgent);
+        });
+
+        agentBus.on('system:initialized', (data) => {
+            addLogEntry({
+                agent: 'System',
+                type: 'system',
+                message: `Agent system initialized with ${data.agents.length} agents`,
+                timestamp: data.timestamp
+            });
+        });
+
+        // Initial render
+        renderAgentCards();
+
+        // Periodic status update
+        setInterval(() => {
+            const status = mekongAgents.getSystemStatus();
+            if (status.subAgents) {
+                Object.entries(status.subAgents).forEach(([name, agentStatus]) => {
+                    updateAgentStatus(name, agentStatus.state);
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

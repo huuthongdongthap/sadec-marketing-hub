@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Guild - Mekong Agency</title>
+    <meta name="description" content="Community Guild Dashboard - Mekong Agency">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--md-sys-color-surface);
+            padding: 8px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .tab.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-icon.members {
+            background: #cffafe;
+            color: #06b6d4;
+        }
+
+        .metric-icon.active {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .metric-icon.posts {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .metric-icon.points {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .leaderboard {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+        }
+
+        .leaderboard-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            font: var(--md-sys-typescale-title-large);
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .leaderboard-rank {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-title-medium);
+            flex-shrink: 0;
+        }
+
+        .leaderboard-rank.gold {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .leaderboard-rank.silver {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .leaderboard-rank.bronze {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .leaderboard-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-title-medium);
+            flex-shrink: 0;
+        }
+
+        .leaderboard-info {
+            flex: 1;
+        }
+
+        .leaderboard-name {
+            font: var(--md-sys-typescale-title-small);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .leaderboard-meta {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .leaderboard-points {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-primary);
+        }
+
+        .tier-badge {
+            padding: 2px 8px;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-small);
+            color: white;
+        }
+
+        .channel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .channel-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+        }
+
+        .channel-card:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .channel-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #cffafe;
+            color: #06b6d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .channel-name {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .channel-type {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tier-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+            text-align: center;
+            border-top: 4px solid;
+        }
+
+        .tier-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .tier-name {
+            font: var(--md-sys-typescale-headline-small);
+            margin-bottom: 8px;
+        }
+
+        .tier-requirement {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .tier-count {
+            font: var(--md-sys-typescale-display-small);
+            color: var(--md-sys-color-primary);
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .badge-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            text-align: center;
+        }
+
+        .badge-icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .badge-name {
+            font: var(--md-sys-typescale-label-large);
+        }
+
+        .activity-form {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .activity-form h3 {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-field label {
+            display: block;
+            font: var(--md-sys-typescale-label-medium);
+            margin-bottom: 8px;
+        }
+
+        .form-field select,
+        .form-field input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-large);
+            box-sizing: border-box;
+        }
+
+        .action-btn {
+            padding: 12px 24px;
+            background: var(--md-sys-color-primary);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .levels-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .level-chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font: var(--md-sys-typescale-label-medium);
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .level-chip.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="events.html" class="btn btn-text">Events</a>
+                <a href="lms.html" class="btn btn-text">LMS</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">🤝 Community Guild</h1>
+            <p class="body-large" style="opacity: 0.9;">Xây dựng cộng đồng thành viên gắn kết</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('overview')">
+                <span class="material-symbols-outlined">dashboard</span> Overview
+            </button>
+            <button class="tab" onclick="switchTab('members')">
+                <span class="material-symbols-outlined">people</span> Members
+            </button>
+            <button class="tab" onclick="switchTab('channels')">
+                <span class="material-symbols-outlined">forum</span> Channels
+            </button>
+            <button class="tab" onclick="switchTab('gamification')">
+                <span class="material-symbols-outlined">emoji_events</span> Gamification
+            </button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="tab-overview">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon members"><span class="material-symbols-outlined">groups</span></div>
+                    <div class="metric-value" id="metricMembers">0</div>
+                    <div class="metric-label">Total Members</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon active"><span class="material-symbols-outlined">trending_up</span></div>
+                    <div class="metric-value" id="metricActive">0%</div>
+                    <div class="metric-label">Monthly Active</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon posts"><span class="material-symbols-outlined">forum</span></div>
+                    <div class="metric-value" id="metricPosts">0</div>
+                    <div class="metric-label">Total Posts</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon points"><span class="material-symbols-outlined">stars</span></div>
+                    <div class="metric-value" id="metricPoints">0</div>
+                    <div class="metric-label">Total Points</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">🏆 Leaderboard</h3>
+            <div class="leaderboard" id="leaderboard"></div>
+        </div>
+
+        <!-- Members Tab -->
+        <div class="tab-content" id="tab-members">
+            <div class="activity-form">
+                <h3>➕ Add Member</h3>
+                <form id="addMemberForm">
+                    <div class="form-row" style="margin-bottom: 16px;">
+                        <div class="form-field">
+                            <label>Name</label>
+                            <input type="text" id="memberName" value="Thành viên mới">
+                        </div>
+                        <div class="form-field">
+                            <label>Email</label>
+                            <input type="email" id="memberEmail" value="new@email.com">
+                        </div>
+                    </div>
+                    <button type="submit" class="action-btn">
+                        <span class="material-symbols-outlined">person_add</span> Add Member
+                    </button>
+                </form>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">👥 Members by Tier</h3>
+            <div class="tiers-grid" id="tiersGrid"></div>
+        </div>
+
+        <!-- Channels Tab -->
+        <div class="tab-content" id="tab-channels">
+            <h3 style="margin-bottom: 16px;">📢 Community Channels</h3>
+            <div class="channel-list" id="channelList"></div>
+        </div>
+
+        <!-- Gamification Tab -->
+        <div class="tab-content" id="tab-gamification">
+            <div class="activity-form">
+                <h3>⚡ Award Points</h3>
+                <form id="awardForm">
+                    <div class="form-row" style="margin-bottom: 16px;">
+                        <div class="form-field">
+                            <label>Member</label>
+                            <select id="awardMember"></select>
+                        </div>
+                        <div class="form-field">
+                            <label>Action</label>
+                            <select id="awardAction">
+                                <option value="post">Đăng bài (+1)</option>
+                                <option value="reply">Trả lời (+2)</option>
+                                <option value="help">Giúp đỡ (+5)</option>
+                                <option value="win">Thành tích (+10)</option>
+                                <option value="referral">Giới thiệu (+20)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="action-btn">
+                        <span class="material-symbols-outlined">add</span> Award Points
+                    </button>
+                </form>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">📊 Levels</h3>
+            <div class="levels-bar" id="levelsBar"></div>
+
+            <h3 style="margin-bottom: 16px;">🎖️ Badges</h3>
+            <div class="badges-grid" id="badgesGrid"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/community.js"></script>
+    <script>
+        createDemoCommunity(communityManager);
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        function updateMetrics() {
+            const m = communityManager.getMetrics();
+            document.getElementById('metricMembers').textContent = m.totalMembers;
+            document.getElementById('metricActive').textContent = m.activeRate + '%';
+            document.getElementById('metricPosts').textContent = m.totalPosts;
+            document.getElementById('metricPoints').textContent = m.totalPoints;
+        }
+
+        function renderLeaderboard() {
+            const leaders = communityManager.getLeaderboard(5);
+            document.getElementById('leaderboard').innerHTML = `
+        <div class="leaderboard-header">Top Members</div>
+        ${leaders.map((m, i) => {
+                const tier = MemberTiers[m.tier];
+                const level = m.getLevelInfo();
+                const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+                return `
+            <div class="leaderboard-item">
+              <div class="leaderboard-rank ${rankClass}">${i + 1}</div>
+              <div class="leaderboard-avatar" style="background:${tier.color};color:white">${m.name.charAt(0)}</div>
+              <div class="leaderboard-info">
+                <div class="leaderboard-name">
+                  ${m.name}
+                  <span class="tier-badge" style="background:${tier.color}">${tier.name}</span>
+                </div>
+                <div class="leaderboard-meta">Level ${m.level} • ${level.name} • ${m.badges.length} badges</div>
+              </div>
+              <div class="leaderboard-points">${m.points} pts</div>
+            </div>
+          `;
+            }).join('')}
+      `;
+        }
+
+        function renderTiers() {
+            const metrics = communityManager.getMetrics();
+            document.getElementById('tiersGrid').innerHTML = Object.values(MemberTiers).map(t => `
+        <div class="tier-card" style="border-color:${t.color}">
+          <div class="tier-icon"><span class="material-symbols-outlined" style="font-size:48px;color:${t.color}">${t.icon}</span></div>
+          <div class="tier-name" style="color:${t.color}">${t.name}</div>
+          <div class="tier-requirement">${t.pointsRequired}+ points</div>
+          <div class="tier-count">${metrics.tierDistribution[t.id] || 0}</div>
+        </div>
+      `).join('');
+        }
+
+        function renderChannels() {
+            document.getElementById('channelList').innerHTML = Object.values(Channels).map(c => `
+        <div class="channel-card">
+          <div class="channel-icon"><span class="material-symbols-outlined">${c.icon}</span></div>
+          <div>
+            <div class="channel-name">${c.name}</div>
+            <div class="channel-type">${c.type}</div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function renderLevels() {
+            document.getElementById('levelsBar').innerHTML = Levels.map(l => `
+        <div class="level-chip">
+          Lv.${l.level} ${l.name} (${l.minPoints}+ pts)
+        </div>
+      `).join('');
+        }
+
+        function renderBadges() {
+            document.getElementById('badgesGrid').innerHTML = Badges.map(b => `
+        <div class="badge-card">
+          <div class="badge-icon">${b.icon}</div>
+          <div class="badge-name">${b.name}</div>
+        </div>
+      `).join('');
+        }
+
+        function populateMemberSelect() {
+            const members = communityManager.getAllMembers();
+            document.getElementById('awardMember').innerHTML = members.map(m =>
+                `<option value="${m.id}">${m.name}</option>`
+            ).join('');
+        }
+
+        document.getElementById('addMemberForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            communityManager.registerMember({
+                name: document.getElementById('memberName').value,
+                email: document.getElementById('memberEmail').value
+            });
+            refresh();
+            alert('Member added!');
+        });
+
+        document.getElementById('awardForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const member = communityManager.getMember(document.getElementById('awardMember').value);
+            if (member) {
+                member.addPoints(document.getElementById('awardAction').value);
+                refresh();
+                alert(`Points awarded to ${member.name}!`);
+            }
+        });
+
+        function refresh() {
+            updateMetrics();
+            renderLeaderboard();
+            renderTiers();
+            populateMemberSelect();
+        }
+
+        renderChannels();
+        renderLevels();
+        renderBadges();
+        refresh();
+    </script>
+</body>
+
+</html>

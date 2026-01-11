@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgencyOS 2026 - Dashboard</title>
+
+    <!-- FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <style>
+        .layout-2026 {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .search-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 10px 20px;
+            color: white;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-glass input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            outline: none;
+            font-family: var(--font-body);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card-inner {
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            margin: 10px 0;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .stat-icon-glow {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* Chart Section */
+        .chart-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <aside class="sidebar-glass animate-entry delay-1">
+            <div style="padding-bottom: 40px; text-align: center;">
+                <h2 class="neon-cyan" style="font-size: 24px; letter-spacing: 1px;">MEKONG<br>AGENCY</h2>
+                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 5px;">EST. 2026</div>
+            </div>
+
+            <nav>
+                <div style="color: var(--text-tertiary); font-size: 12px; margin-bottom: 10px; padding-left: 10px;">MENU
+                </div>
+                <a href="#" class="nav-item-cyber active">
+                    <span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+                <a href="campaigns.html" class="nav-item-cyber">
+                    <span class="material-symbols-outlined">campaign</span> Campaigns
+                </a>
+                <a href="leads.html" class="nav-item-cyber">
+                    <span class="material-symbols-outlined">group</span> Leads CRM
+                </a>
+                <a href="finance.html" class="nav-item-cyber">
+                    <span class="material-symbols-outlined">payments</span> Finance
+                </a>
+
+                <div style="color: var(--text-tertiary); font-size: 12px; margin: 30px 0 10px; padding-left: 10px;">
+                    MODULES</div>
+                <a href="lms.html" class="nav-item-cyber">
+                    <span class="material-symbols-outlined">school</span> Academy LMS
+                </a>
+                <a href="content-calendar.html" class="nav-item-cyber">
+                    <span class="material-symbols-outlined">calendar_month</span> Content AI
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="cyber-text">Dashboard Overview</h1>
+                    <p style="color: var(--text-secondary);">Welcome back, Commander.</p>
+                </div>
+
+                <div style="display: flex; gap: 20px;">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Search system...">
+                    </div>
+                    <a href="#" class="btn-cyber">
+                        <span class="material-symbols-outlined">add</span> NEW PROJECT
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid animate-entry delay-2">
+                <!-- Stat 1 -->
+                <div class="glass-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-icon-glow"
+                            style="background: rgba(0, 240, 255, 0.1); color: var(--primary-cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-value">2.4B VND</div>
+                        <div style="color: var(--accent-lime); font-size: 12px;">▲ 12.5% increase</div>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="glass-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-icon-glow"
+                            style="background: rgba(188, 19, 254, 0.1); color: var(--secondary-purple); box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);">
+                            <span class="material-symbols-outlined">group_add</span>
+                        </div>
+                        <div class="stat-label">Active Clients</div>
+                        <div class="stat-value">142</div>
+                        <div style="color: var(--accent-lime); font-size: 12px;">▲ 8 new this week</div>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="glass-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-icon-glow" style="background: rgba(255, 255, 255, 0.1); color: white;">
+                            <span class="material-symbols-outlined">ads_click</span>
+                        </div>
+                        <div class="stat-label">Ad Impressions</div>
+                        <div class="stat-value">8.5M</div>
+                        <div style="color: var(--text-tertiary); font-size: 12px;">─ Stable performance</div>
+                    </div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="glass-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-icon-glow"
+                            style="background: rgba(204, 255, 0, 0.1); color: var(--accent-lime);">
+                            <span class="material-symbols-outlined">bolt</span>
+                        </div>
+                        <div class="stat-label">System Health</div>
+                        <div class="stat-value">99.9%</div>
+                        <div style="color: var(--primary-cyan); font-size: 12px;">● All systems operational</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="chart-section animate-entry delay-3">
+                <!-- Main Chart -->
+                <div class="glass-card" style="height: 400px; padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <h3 style="font-size: 18px;">Revenue Trajectory</h3>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn-cyber" style="padding: 5px 15px; font-size: 12px;">Weekly</button>
+                            <button class="btn-secondary"
+                                style="padding: 5px 15px; font-size: 12px; border-radius: 12px;">Monthly</button>
+                        </div>
+                    </div>
+                    <!-- Placeholder for Chart -->
+                    <div style="height: 300px; display: flex; items-align: flex-end; gap: 20px; padding-top: 20px;">
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 40%;">
+                        </div>
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--secondary-purple), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 60%;">
+                        </div>
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 50%;">
+                        </div>
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--secondary-purple), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 80%;">
+                        </div>
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 65%;">
+                        </div>
+                        <div
+                            style="flex: 1; background: linear-gradient(to top, var(--accent-lime), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 90%;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Panel -->
+                <div class="glass-card" style="padding: 24px;">
+                    <h3 style="font-size: 18px; margin-bottom: 20px;">Live Activity</h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div
+                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                            <div
+                                style="width: 8px; height: 8px; background: var(--accent-lime); border-radius: 50%; box-shadow: 0 0 10px var(--accent-lime);">
+                            </div>
+                            <div>
+                                <div style="font-size: 14px; font-weight: 600;">New Lead Generated</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary);">2 mins ago via Facebook Ads
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                            <div
+                                style="width: 8px; height: 8px; background: var(--primary-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--primary-cyan);">
+                            </div>
+                            <div>
+                                <div style="font-size: 14px; font-weight: 600;">Campaign Optimized</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary);">AI adjusted bids for 'Summer
+                                    Sale'</div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                            <div
+                                style="width: 8px; height: 8px; background: var(--secondary-purple); border-radius: 50%; box-shadow: 0 0 10px var(--secondary-purple);">
+                            </div>
+                            <div>
+                                <div style="font-size: 14px; font-weight: 600;">Payment Received</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary);">Client X paid invoice #9921
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../assets/js/agency-2026.js"></script>
+</body>
+
+</html>

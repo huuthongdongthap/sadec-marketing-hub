@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Dashboard - Mekong Agency</title>
+    <meta name="description" content="Retail E-commerce Optimization Dashboard - Mekong Agency">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--md-sys-color-surface);
+            padding: 8px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .tab.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-icon.conversion {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .metric-icon.revenue {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .metric-icon.cart {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .metric-icon.traffic {
+            background: #f3e8ff;
+            color: #8b5cf6;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Audit Section */
+        .audit-form {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .audit-form h3 {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .form-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 14px 18px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-large);
+        }
+
+        .audit-btn {
+            padding: 14px 28px;
+            background: var(--md-sys-color-primary);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .audit-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Issues List */
+        .issues-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .issue-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .issue-severity {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .issue-severity.high {
+            background: #ef4444;
+        }
+
+        .issue-severity.medium {
+            background: #f59e0b;
+        }
+
+        .issue-severity.low {
+            background: #10b981;
+        }
+
+        .issue-content {
+            flex: 1;
+        }
+
+        .issue-title {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 4px;
+        }
+
+        .issue-description {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Email Sequence */
+        .email-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .email-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            position: relative;
+        }
+
+        .email-number {
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            background: var(--md-sys-color-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-medium);
+        }
+
+        .email-timing {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        .email-subject {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 8px;
+        }
+
+        .email-type {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small);
+            text-transform: capitalize;
+        }
+
+        /* Audiences Grid */
+        .audiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .audience-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .audience-card:hover {
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .audience-card.selected {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .audience-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .audience-name {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 4px;
+        }
+
+        .audience-description {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Campaign Form */
+        .campaign-form {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .campaign-form h3 {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 8px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-large);
+        }
+
+        .launch-btn {
+            width: 100%;
+            padding: 14px;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .launch-btn:hover {
+            background: #059669;
+        }
+
+        /* Score Card */
+        .score-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--md-sys-elevation-1);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .score-value {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .score-value.good {
+            color: #10b981;
+        }
+
+        .score-value.warning {
+            color: #f59e0b;
+        }
+
+        .score-value.bad {
+            color: #ef4444;
+        }
+
+        .score-label {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 48px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="workflows.html" class="btn btn-text">Workflows</a>
+                <a href="approvals.html" class="btn btn-text">Approvals</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">🛒 E-commerce Dashboard</h1>
+            <p class="body-large" style="opacity: 0.9;">Retail Optimization - Tăng doanh số cho nhà bán lẻ</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('audit')">
+                <span class="material-symbols-outlined">search</span>
+                Store Audit
+            </button>
+            <button class="tab" onclick="switchTab('analytics')">
+                <span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </button>
+            <button class="tab" onclick="switchTab('cart')">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Abandoned Cart
+            </button>
+            <button class="tab" onclick="switchTab('retarget')">
+                <span class="material-symbols-outlined">ads_click</span>
+                Retargeting
+            </button>
+        </div>
+
+        <!-- Tab: Store Audit -->
+        <div class="tab-content active" id="tab-audit">
+            <div class="audit-form">
+                <h3>🔍 Audit Store</h3>
+                <form class="form-row" id="auditForm">
+                    <input type="url" class="form-input" id="storeUrl" placeholder="https://store.example.com"
+                        value="https://demo-store.vn">
+                    <button type="submit" class="audit-btn">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                        Run Audit
+                    </button>
+                </form>
+            </div>
+
+            <div id="auditResults" style="display: none;">
+                <div class="score-card">
+                    <div class="score-value" id="auditScore">--</div>
+                    <div class="score-label">Store Health Score</div>
+                </div>
+
+                <div class="metrics-grid" id="auditMetrics"></div>
+
+                <h3 style="margin-bottom: 16px;">⚠️ Issues Found</h3>
+                <div class="issues-list" id="issuesList"></div>
+
+                <h3 style="margin-bottom: 16px;">💡 Recommendations</h3>
+                <div class="issues-list" id="recommendationsList"></div>
+            </div>
+        </div>
+
+        <!-- Tab: Analytics -->
+        <div class="tab-content" id="tab-analytics">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon revenue">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <div class="metric-value" id="totalRevenue">0₫</div>
+                    <div class="metric-label">Total Revenue</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon conversion">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                    </div>
+                    <div class="metric-value" id="totalOrders">0</div>
+                    <div class="metric-label">Total Orders</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon traffic">
+                        <span class="material-symbols-outlined">attach_money</span>
+                    </div>
+                    <div class="metric-value" id="aov">0₫</div>
+                    <div class="metric-label">Average Order Value</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon cart">
+                        <span class="material-symbols-outlined">remove_shopping_cart</span>
+                    </div>
+                    <div class="metric-value" id="cartAbandonment">0%</div>
+                    <div class="metric-label">Cart Abandonment</div>
+                </div>
+            </div>
+
+            <div class="audit-form">
+                <h3>📊 Simulate E-commerce Events</h3>
+                <div class="form-row">
+                    <button type="button" class="audit-btn" onclick="simulatePurchase()">
+                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                        Simulate Purchase
+                    </button>
+                    <button type="button" class="audit-btn" style="background: #f59e0b;" onclick="simulateAbandon()">
+                        <span class="material-symbols-outlined">remove_shopping_cart</span>
+                        Simulate Cart Abandon
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Abandoned Cart Flow -->
+        <div class="tab-content" id="tab-cart">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon cart">
+                        <span class="material-symbols-outlined">production_quantity_limits</span>
+                    </div>
+                    <div class="metric-value" id="abandonedCount">0</div>
+                    <div class="metric-label">Abandoned Carts</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon conversion">
+                        <span class="material-symbols-outlined">redo</span>
+                    </div>
+                    <div class="metric-value" id="recoveredCount">0</div>
+                    <div class="metric-label">Recovered</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon revenue">
+                        <span class="material-symbols-outlined">trending_up</span>
+                    </div>
+                    <div class="metric-value" id="recoveryRate">0%</div>
+                    <div class="metric-label">Recovery Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon traffic">
+                        <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div class="metric-value" id="emailsSent">0</div>
+                    <div class="metric-label">Emails Sent</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">📧 Recovery Email Sequence</h3>
+            <div class="email-sequence" id="emailSequence"></div>
+        </div>
+
+        <!-- Tab: Retargeting -->
+        <div class="tab-content" id="tab-retarget">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon traffic">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </div>
+                    <div class="metric-value" id="impressions">0</div>
+                    <div class="metric-label">Impressions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon conversion">
+                        <span class="material-symbols-outlined">ads_click</span>
+                    </div>
+                    <div class="metric-value" id="clicks">0</div>
+                    <div class="metric-label">Clicks</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon revenue">
+                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                    </div>
+                    <div class="metric-value" id="conversions">0</div>
+                    <div class="metric-label">Conversions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon cart">
+                        <span class="material-symbols-outlined">show_chart</span>
+                    </div>
+                    <div class="metric-value" id="roas">0x</div>
+                    <div class="metric-label">ROAS</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">🎯 Select Audience</h3>
+            <div class="audiences-grid" id="audiencesGrid"></div>
+
+            <div class="campaign-form">
+                <h3>🚀 Create Campaign</h3>
+                <form id="campaignForm">
+                    <div class="form-group">
+                        <label>Platform</label>
+                        <select id="platform">
+                            <option value="meta">Meta (Facebook/Instagram)</option>
+                            <option value="google">Google Ads</option>
+                            <option value="tiktok">TikTok Ads</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Daily Budget (VND)</label>
+                        <input type="number" id="budget" value="500000" placeholder="500000">
+                    </div>
+                    <button type="submit" class="launch-btn">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        Launch Campaign
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/ecommerce.js"></script>
+    <script>
+        // Tab switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        // Audit Form
+        document.getElementById('auditForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('storeUrl').value;
+
+            const audit = new StoreAudit(url);
+            const report = await audit.run();
+
+            displayAuditResults(report);
+        });
+
+        function displayAuditResults(report) {
+            document.getElementById('auditResults').style.display = 'block';
+
+            // Score
+            const scoreEl = document.getElementById('auditScore');
+            scoreEl.textContent = report.overallScore;
+            scoreEl.className = 'score-value ' +
+                (report.overallScore >= 70 ? 'good' : report.overallScore >= 50 ? 'warning' : 'bad');
+
+            // Metrics
+            const m = report.metrics;
+            document.getElementById('auditMetrics').innerHTML = `
+        <div class="metric-card">
+          <div class="metric-icon conversion"><span class="material-symbols-outlined">percent</span></div>
+          <div class="metric-value">${m.conversionRate}%</div>
+          <div class="metric-label">Conversion Rate</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon revenue"><span class="material-symbols-outlined">payments</span></div>
+          <div class="metric-value">${formatCurrency(m.averageOrderValue)}</div>
+          <div class="metric-label">Average Order Value</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon cart"><span class="material-symbols-outlined">remove_shopping_cart</span></div>
+          <div class="metric-value">${m.cartAbandonmentRate}%</div>
+          <div class="metric-label">Cart Abandonment</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon traffic"><span class="material-symbols-outlined">devices</span></div>
+          <div class="metric-value">${m.mobileTrafficShare}%</div>
+          <div class="metric-label">Mobile Traffic</div>
+        </div>
+      `;
+
+            // Issues
+            document.getElementById('issuesList').innerHTML = report.issues.map(issue => `
+        <div class="issue-card">
+          <div class="issue-severity ${issue.severity}"></div>
+          <div class="issue-content">
+            <div class="issue-title">${issue.title}</div>
+            <div class="issue-description">${issue.description}</div>
+          </div>
+        </div>
+      `).join('');
+
+            // Recommendations
+            document.getElementById('recommendationsList').innerHTML = report.recommendations.map(rec => `
+        <div class="issue-card">
+          <div class="issue-severity low"></div>
+          <div class="issue-content">
+            <div class="issue-title">${rec.action}</div>
+            <div class="issue-description">${rec.description} • Expected: ${rec.expectedImpact}</div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Analytics
+        function updateAnalytics() {
+            const m = ecommerceAnalytics.getMetrics();
+            document.getElementById('totalRevenue').textContent = formatCurrency(m.totalRevenue);
+            document.getElementById('totalOrders').textContent = m.totalOrders;
+            document.getElementById('aov').textContent = formatCurrency(m.averageOrderValue);
+            document.getElementById('cartAbandonment').textContent = m.cartAbandonmentRate + '%';
+        }
+
+        function simulatePurchase() {
+            ecommerceAnalytics.purchase({
+                id: `order-${Date.now()}`,
+                total: Math.floor(Math.random() * 1000000 + 200000),
+                items: [{}, {}]
+            });
+            updateAnalytics();
+        }
+
+        function simulateAbandon() {
+            const cart = {
+                id: `cart-${Date.now()}`,
+                total: Math.floor(Math.random() * 500000 + 100000),
+                items: [{}]
+            };
+            ecommerceAnalytics.cartAbandoned(cart);
+            abandonedCartFlow.registerAbandonedCart(cart, 'customer@example.com');
+            updateAnalytics();
+            updateCartMetrics();
+        }
+
+        // Abandoned Cart
+        function renderEmailSequence() {
+            const sequence = abandonedCartFlow.getEmailSequence();
+            document.getElementById('emailSequence').innerHTML = sequence.map((email, i) => `
+        <div class="email-card">
+          <div class="email-number">${i + 1}</div>
+          <div class="email-timing">⏱️ ${email.delay}</div>
+          <div class="email-subject">${email.subject}</div>
+          <span class="email-type">${email.type}</span>
+        </div>
+      `).join('');
+        }
+
+        function updateCartMetrics() {
+            const m = abandonedCartFlow.getMetrics();
+            document.getElementById('abandonedCount').textContent = m.totalAbandoned;
+            document.getElementById('recoveredCount').textContent = m.recovered;
+            document.getElementById('recoveryRate').textContent = m.recoveryRate + '%';
+            document.getElementById('emailsSent').textContent = m.emailsSent;
+        }
+
+        // Retargeting
+        let selectedAudience = null;
+
+        function renderAudiences() {
+            const audiences = retargetingManager.getDefaultAudiences();
+            document.getElementById('audiencesGrid').innerHTML = audiences.map(aud => `
+        <div class="audience-card" onclick="selectAudience('${aud.id}')" id="aud-${aud.id}">
+          <div class="audience-icon">
+            <span class="material-symbols-outlined">${getAudienceIcon(aud.type)}</span>
+          </div>
+          <div class="audience-name">${aud.name}</div>
+          <div class="audience-description">${aud.description}</div>
+        </div>
+      `).join('');
+        }
+
+        function getAudienceIcon(type) {
+            const icons = {
+                'cart_abandoners': 'shopping_cart_off',
+                'product_viewers': 'visibility',
+                'past_customers': 'people',
+                'high_intent': 'stars'
+            };
+            return icons[type] || 'group';
+        }
+
+        function selectAudience(id) {
+            selectedAudience = id;
+            document.querySelectorAll('.audience-card').forEach(c => c.classList.remove('selected'));
+            document.getElementById(`aud-${id}`).classList.add('selected');
+        }
+
+        function updateRetargetingMetrics() {
+            const m = retargetingManager.getMetrics();
+            document.getElementById('impressions').textContent = formatNumber(m.impressions);
+            document.getElementById('clicks').textContent = formatNumber(m.clicks);
+            document.getElementById('conversions').textContent = m.conversions;
+            document.getElementById('roas').textContent = m.avgRoas + 'x';
+        }
+
+        document.getElementById('campaignForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!selectedAudience) {
+                alert('Please select an audience first');
+                return;
+            }
+
+            const audience = retargetingManager.createAudience({
+                id: selectedAudience,
+                name: selectedAudience.replace('_', ' '),
+                type: selectedAudience
+            });
+
+            const campaign = retargetingManager.createCampaign({
+                name: `${selectedAudience} Campaign`,
+                audienceId: audience.id,
+                platform: document.getElementById('platform').value,
+                budget: parseInt(document.getElementById('budget').value)
+            });
+
+            retargetingManager.activateCampaign(campaign.id);
+
+            alert('Campaign launched! Metrics will update shortly.');
+        });
+
+        // Event listeners
+        ecommerceBus.on('campaign:metrics-updated', updateRetargetingMetrics);
+        ecommerceBus.on('email:sent', updateCartMetrics);
+
+        // Init
+        renderEmailSequence();
+        renderAudiences();
+        updateAnalytics();
+        updateCartMetrics();
+        updateRetargetingMetrics();
+    </script>
+</body>
+
+</html>

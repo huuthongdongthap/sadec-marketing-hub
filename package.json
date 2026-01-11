@@ -1,0 +1,35 @@
+{
+  "name": "mekong-marketing",
+  "version": "1.0.0",
+  "description": "Sa Đéc Marketing Hub - AgencyOS Integration",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mekong dev",
+    "build": "mekong build",
+    "test": "mekong test --suite all",
+    "deploy": "mekong deploy --env production",
+    "binh-phap": "mekong binh-phap --analyze",
+    "marketing": "mekong ke-hoach-tiep-thi",
+    "seo": "mekong seo --audit",
+    "leadgen": "mekong leadgen --source facebook,zalo",
+    "crm": "mekong crm --sync",
+    "intel": "mekong intel --report",
+    "win3": "mekong win3:dashboard",
+    "all-phases": "bash run-all-phases.sh"
+  },
+  "dependencies": {
+    "@material/web": "^2.0.0"
+  },
+  "devDependencies": {
+    "@agencyos/mekong-cli": "^1.0.0"
+  },
+  "keywords": [
+    "agencyos",
+    "mekong",
+    "binh-phap",
+    "marketing",
+    "material-design-3"
+  ],
+  "author": "Sa Đéc Marketing Hub",
+  "license": "MIT"
+}

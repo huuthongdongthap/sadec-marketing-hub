@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Workflow - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a0a2e 0%, #0f0a1a 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #FF0050;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #FF0050, #00F2EA);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(255, 0, 80, 0.2);
+            color: #FF0050;
+            border: 1px solid rgba(255, 0, 80, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0f0a1a 0%, #1a0a2e 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.videos {
+            background: rgba(255, 0, 80, 0.2);
+            color: #FF0050;
+        }
+
+        .stat-icon.views {
+            background: rgba(0, 242, 234, 0.2);
+            color: #00F2EA;
+        }
+
+        .stat-icon.duration {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        .stat-icon.engagement {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== WORKFLOW PIPELINE ===== */
+        .workflow-pipeline {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-step.active {
+            border-color: #FF0050;
+            background: rgba(255, 0, 80, 0.1);
+        }
+
+        .workflow-step.completed {
+            border-color: #10B981;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .workflow-step.completed .step-number {
+            background: #10B981;
+            color: #fff;
+        }
+
+        .workflow-step.active .step-number {
+            background: #FF0050;
+            color: #fff;
+        }
+
+        .step-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .step-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .step-duration {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .step-status {
+            margin-top: 12px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+            display: inline-block;
+        }
+
+        .step-status.completed {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .step-status.active {
+            background: rgba(255, 0, 80, 0.2);
+            color: #FF0050;
+        }
+
+        .step-status.pending {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== VIDEO PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .video-card:hover {
+            border-color: #FF0050;
+            transform: translateY(-4px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #FF0050, #00F2EA);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            padding: 2px 8px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            color: #fff;
+        }
+
+        .video-info {
+            padding: 16px;
+        }
+
+        .video-title {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-status {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .video-status.published {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .video-status.rendering {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+
+        .video-status.draft {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .video-views {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== PLATFORM PUBLISH ===== */
+        .platforms-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .platform-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .platform-pill:hover {
+            border-color: #FF0050;
+        }
+
+        .platform-pill.selected {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .platform-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .platform-icon.youtube {
+            background: #FF0000;
+            color: #fff;
+        }
+
+        .platform-icon.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        .platform-icon.reels {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            color: #fff;
+        }
+
+        .platform-icon.shorts {
+            background: #FF0000;
+            color: #fff;
+        }
+
+        .platform-icon.linkedin {
+            background: #0077B5;
+            color: #fff;
+        }
+
+        .platform-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .platform-status {
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .platform-status.connected {
+            color: #10B981;
+        }
+
+        .platform-status.disconnected {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== VOICE OPTIONS ===== */
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .voice-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .voice-card:hover {
+            border-color: #00F2EA;
+        }
+
+        .voice-card.selected {
+            border-color: #00F2EA;
+            background: rgba(0, 242, 234, 0.1);
+        }
+
+        .voice-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF0050, #00F2EA);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .voice-info {
+            flex: 1;
+        }
+
+        .voice-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .voice-desc {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF0050, #00F2EA);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(255, 0, 80, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF0050;
+            border: 1px solid #FF0050;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 0, 80, 0.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .workflow-step,
+        .video-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">videocam</span>
+                Video
+            </a>
+            <span class="sidebar-badge">CREATOR</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="video-workflow.html" class="nav-item active">
+                    <span class="material-symbols-outlined">videocam</span>
+                    Video Workflow
+                </a>
+                <a href="content-calendar.html" class="nav-item">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    Content Calendar
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🎬 Video Workflow</div>
+                    <div class="page-subtitle">AI-powered video creation pipeline</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Opening templates...', 'info')">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Templates
+                    </button>
+                    <button class="btn btn-primary" onclick="createVideo()">
+                        <span class="material-symbols-outlined">add</span>
+                        New Video
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon videos">
+                        <span class="material-symbols-outlined">movie</span>
+                    </div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Videos Created</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon views">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </div>
+                    <div class="stat-value">156K</div>
+                    <div class="stat-label">Total Views</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon duration">
+                        <span class="material-symbols-outlined">timer</span>
+                    </div>
+                    <div class="stat-value">2.3h</div>
+                    <div class="stat-label">Total Duration</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon engagement">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </div>
+                    <div class="stat-value">8.5%</div>
+                    <div class="stat-label">Avg Engagement</div>
+                </div>
+            </div>
+
+            <!-- Workflow Pipeline -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">linear_scale</span>
+                        Production Pipeline
+                    </div>
+                    <span style="color: rgba(255,255,255,0.4); font: var(--md-sys-typescale-label-medium);">Current:
+                        Sales Pipeline Tutorial</span>
+                </div>
+                <div class="section-body">
+                    <div class="workflow-pipeline">
+                        <div class="workflow-step completed">
+                            <div class="step-number">✓</div>
+                            <div class="step-icon">📝</div>
+                            <div class="step-name">Script</div>
+                            <div class="step-duration">5 min</div>
+                            <span class="step-status completed">✓ Done</span>
+                        </div>
+                        <div class="workflow-step completed">
+                            <div class="step-number">✓</div>
+                            <div class="step-icon">🎙️</div>
+                            <div class="step-name">Voiceover</div>
+                            <div class="step-duration">3 min</div>
+                            <span class="step-status completed">✓ Done</span>
+                        </div>
+                        <div class="workflow-step active">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">🎬</div>
+                            <div class="step-name">Render</div>
+                            <div class="step-duration">5 min</div>
+                            <span class="step-status active">▸ Rendering 78%</span>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-icon">🚀</div>
+                            <div class="step-name">Publish</div>
+                            <div class="step-duration">2 min</div>
+                            <span class="step-status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Options -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">record_voice_over</span>
+                        AI Voiceover (ElevenLabs)
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="voices-grid">
+                        <div class="voice-card selected">
+                            <div class="voice-avatar">J</div>
+                            <div class="voice-info">
+                                <div class="voice-name">Josh</div>
+                                <div class="voice-desc">Professional, Male</div>
+                            </div>
+                            <span class="material-symbols-outlined" style="color: #00F2EA;">check_circle</span>
+                        </div>
+                        <div class="voice-card">
+                            <div class="voice-avatar">R</div>
+                            <div class="voice-info">
+                                <div class="voice-name">Rachel</div>
+                                <div class="voice-desc">Warm, Female</div>
+                            </div>
+                        </div>
+                        <div class="voice-card">
+                            <div class="voice-avatar">A</div>
+                            <div class="voice-info">
+                                <div class="voice-name">Adam</div>
+                                <div class="voice-desc">Deep, Male</div>
+                            </div>
+                        </div>
+                        <div class="voice-card">
+                            <div class="voice-avatar">B</div>
+                            <div class="voice-info">
+                                <div class="voice-name">Bella</div>
+                                <div class="voice-desc">Energetic, Female</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publish Platforms -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">share</span>
+                        Publish Platforms
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="platforms-row">
+                        <div class="platform-pill selected">
+                            <div class="platform-icon youtube">▶</div>
+                            <div>
+                                <div class="platform-name">YouTube</div>
+                                <div class="platform-status connected">✓ Selected</div>
+                            </div>
+                        </div>
+                        <div class="platform-pill selected">
+                            <div class="platform-icon tiktok">♪</div>
+                            <div>
+                                <div class="platform-name">TikTok</div>
+                                <div class="platform-status connected">✓ Selected</div>
+                            </div>
+                        </div>
+                        <div class="platform-pill selected">
+                            <div class="platform-icon reels">📷</div>
+                            <div>
+                                <div class="platform-name">Reels</div>
+                                <div class="platform-status connected">✓ Selected</div>
+                            </div>
+                        </div>
+                        <div class="platform-pill">
+                            <div class="platform-icon shorts">▶</div>
+                            <div>
+                                <div class="platform-name">Shorts</div>
+                                <div class="platform-status disconnected">Select</div>
+                            </div>
+                        </div>
+                        <div class="platform-pill">
+                            <div class="platform-icon linkedin">in</div>
+                            <div>
+                                <div class="platform-name">LinkedIn</div>
+                                <div class="platform-status disconnected">Select</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Videos -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">movie</span>
+                        Recent Videos
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="projects-grid">
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <div class="play-icon">
+                                    <span class="material-symbols-outlined">play_arrow</span>
+                                </div>
+                                <div class="video-duration">4:32</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">How to Set Up a Sales Pipeline</div>
+                                <div class="video-meta">
+                                    <span class="video-status rendering">⏳ Rendering</span>
+                                    <span class="video-views">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background: linear-gradient(135deg, #00F2EA, #FF0050);">
+                                <div class="play-icon">
+                                    <span class="material-symbols-outlined">play_arrow</span>
+                                </div>
+                                <div class="video-duration">3:15</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">Binh Pháp Framework Explained</div>
+                                <div class="video-meta">
+                                    <span class="video-status published">✓ Published</span>
+                                    <span class="video-views">12.5K views</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background: linear-gradient(135deg, #8134AF, #DD2A7B);">
+                                <div class="play-icon">
+                                    <span class="material-symbols-outlined">play_arrow</span>
+                                </div>
+                                <div class="video-duration">5:00</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">Agency Automation 101</div>
+                                <div class="video-meta">
+                                    <span class="video-status published">✓ Published</span>
+                                    <span class="video-views">8.2K views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function createVideo() {
+            showToast('🎬 Opening video creator...', 'info');
+            setTimeout(() => {
+                showToast('✅ Ready! Enter your topic to generate script.', 'success');
+            }, 1500);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(16, 185, 129, 0.95)', color: '#fff' },
+                error: { bg: 'rgba(239, 68, 68, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(245, 158, 11, 0.95)', color: '#000' },
+                info: { bg: 'rgba(255, 0, 80, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

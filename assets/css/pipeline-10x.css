@@ -1,0 +1,639 @@
+/* ================================================
+   MEKONG AGENCY - PIPELINE 10X ULTRA PREMIUM
+   Stunning Effects: Neon, 3D, Particles, Gradients
+   ================================================ */
+
+/* ================================================
+   ANIMATED GRADIENT BACKGROUND
+   ================================================ */
+
+.main-content {
+    background: linear-gradient(135deg,
+            #0a0a0f 0%,
+            #1a1a2e 25%,
+            #16213e 50%,
+            #1a1a2e 75%,
+            #0a0a0f 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(0, 106, 96, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0, 137, 123, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(38, 166, 154, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.main-content>* {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ================================================
+   FLOATING PARTICLES
+   ================================================ */
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 137, 123, 0.6);
+    border-radius: 50%;
+    animation: floatUp 15s linear infinite;
+    box-shadow: 0 0 10px rgba(0, 137, 123, 0.8);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ================================================
+   NEON GLOW STAGE HEADERS
+   ================================================ */
+
+.pipeline-stage {
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stage-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stage-title {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Lead - Blue Neon */
+.pipeline-stage[data-stage="lead"] .stage-icon {
+    background: rgba(21, 101, 192, 0.2);
+    color: #42A5F5;
+    box-shadow:
+        0 0 15px rgba(66, 165, 245, 0.5),
+        0 0 30px rgba(66, 165, 245, 0.3),
+        inset 0 0 10px rgba(66, 165, 245, 0.2);
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* Qualified - Orange Neon */
+.pipeline-stage[data-stage="qualified"] .stage-icon {
+    background: rgba(239, 108, 0, 0.2);
+    color: #FF9800;
+    box-shadow:
+        0 0 15px rgba(255, 152, 0, 0.5),
+        0 0 30px rgba(255, 152, 0, 0.3),
+        inset 0 0 10px rgba(255, 152, 0, 0.2);
+    animation: neonPulse 2s ease-in-out infinite 0.2s;
+}
+
+/* Proposal - Purple Neon */
+.pipeline-stage[data-stage="proposal"] .stage-icon {
+    background: rgba(123, 31, 162, 0.2);
+    color: #AB47BC;
+    box-shadow:
+        0 0 15px rgba(171, 71, 188, 0.5),
+        0 0 30px rgba(171, 71, 188, 0.3),
+        inset 0 0 10px rgba(171, 71, 188, 0.2);
+    animation: neonPulse 2s ease-in-out infinite 0.4s;
+}
+
+/* Negotiation - Cyan Neon */
+.pipeline-stage[data-stage="negotiation"] .stage-icon {
+    background: rgba(0, 131, 143, 0.2);
+    color: #26C6DA;
+    box-shadow:
+        0 0 15px rgba(38, 198, 218, 0.5),
+        0 0 30px rgba(38, 198, 218, 0.3),
+        inset 0 0 10px rgba(38, 198, 218, 0.2);
+    animation: neonPulse 2s ease-in-out infinite 0.6s;
+}
+
+/* Closed - Green Neon */
+.pipeline-stage[data-stage="closed"] .stage-icon {
+    background: rgba(46, 125, 50, 0.2);
+    color: #66BB6A;
+    box-shadow:
+        0 0 15px rgba(102, 187, 106, 0.5),
+        0 0 30px rgba(102, 187, 106, 0.3),
+        inset 0 0 10px rgba(102, 187, 106, 0.2);
+    animation: neonPulse 2s ease-in-out infinite 0.8s;
+}
+
+@keyframes neonPulse {
+
+    0%,
+    100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+        transform: scale(1.05);
+    }
+}
+
+/* ================================================
+   3D CARD PERSPECTIVE
+   ================================================ */
+
+.deal-card {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform-style: preserve-3d;
+    transition:
+        transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.5s ease;
+}
+
+.deal-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateY(-10px) scale(1.02);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 137, 123, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 137, 123, 0.5);
+}
+
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 100%);
+    border-radius: 16px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.deal-card:hover::before {
+    opacity: 1;
+}
+
+/* ================================================
+   GLOWING SCORE BADGES
+   ================================================ */
+
+.deal-score {
+    font-weight: 700;
+    animation: scorePulse 2s ease-in-out infinite;
+}
+
+.deal-score.hot {
+    background: linear-gradient(135deg, #FF5252, #FF1744);
+    color: #fff;
+    box-shadow:
+        0 0 20px rgba(255, 23, 68, 0.6),
+        0 0 40px rgba(255, 23, 68, 0.3);
+}
+
+.deal-score.warm {
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+    color: #fff;
+    box-shadow:
+        0 0 15px rgba(255, 152, 0, 0.5),
+        0 0 30px rgba(255, 152, 0, 0.2);
+}
+
+.deal-score.cold {
+    background: linear-gradient(135deg, #64B5F6, #2196F3);
+    color: #fff;
+    box-shadow:
+        0 0 15px rgba(33, 150, 243, 0.5),
+        0 0 30px rgba(33, 150, 243, 0.2);
+}
+
+@keyframes scorePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ================================================
+   PREMIUM STAT PILLS
+   ================================================ */
+
+.stat-pill {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.stat-pill-value {
+    background: linear-gradient(135deg, #00E676, #00BFA5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 230, 118, 0.5);
+}
+
+.stat-pill-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ================================================
+   STAGE VALUE GLOW
+   ================================================ */
+
+.stage-value {
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stage-count {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ================================================
+   GLOWING PROGRESS BARS
+   ================================================ */
+
+.deal-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.deal-progress-fill {
+    background: linear-gradient(90deg, #00E676, #00BFA5, #26C6DA);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.6);
+    position: relative;
+}
+
+.deal-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ================================================
+   DEAL CARD TEXT
+   ================================================ */
+
+.deal-company {
+    color: #fff;
+}
+
+.deal-value {
+    background: linear-gradient(135deg, #00E676, #00BFA5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.deal-name {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.deal-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.deal-avatar {
+    background: linear-gradient(135deg, #7C4DFF, #536DFE);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(124, 77, 255, 0.5);
+}
+
+/* ================================================
+   ADD DEAL BUTTON GLOW
+   ================================================ */
+
+.add-deal-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.add-deal-btn:hover {
+    border-color: #00E676;
+    color: #00E676;
+    background: rgba(0, 230, 118, 0.1);
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+}
+
+/* ================================================
+   PREMIUM BUTTONS
+   ================================================ */
+
+.btn-filled {
+    background: linear-gradient(135deg, #00E676, #00BFA5);
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-filled::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 70%);
+    transform: rotate(45deg);
+    animation: btnShine 3s infinite;
+}
+
+@keyframes btnShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.btn-filled:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 30px rgba(0, 230, 118, 0.5),
+        0 0 40px rgba(0, 230, 118, 0.3);
+}
+
+.btn-outlined {
+    border-color: rgba(0, 230, 118, 0.5);
+    color: #00E676;
+}
+
+.btn-outlined:hover {
+    background: rgba(0, 230, 118, 0.1);
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+}
+
+/* ================================================
+   PAGE TITLE ULTRA GLOW
+   ================================================ */
+
+.page-title {
+    font-size: 2rem;
+    background: linear-gradient(135deg,
+            #00E676 0%,
+            #00BFA5 25%,
+            #26C6DA 50%,
+            #00BFA5 75%,
+            #00E676 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: liquidGradient 3s ease infinite;
+    text-shadow: 0 0 40px rgba(0, 230, 118, 0.5);
+}
+
+@keyframes liquidGradient {
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+.top-bar .body-medium {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================================================
+   CONFETTI ANIMATION
+   ================================================ */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #FF5252, #FFD740, #00E676, #2196F3, #E040FB);
+    animation: confettiFall 3s ease-out forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ================================================
+   SIDEBAR DARK THEME
+   ================================================ */
+
+.sidebar {
+    background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logo {
+    color: #00E676;
+    text-shadow: 0 0 20px rgba(0, 230, 118, 0.5);
+}
+
+.sidebar-badge {
+    background: linear-gradient(135deg, #00E676, #00BFA5);
+    color: #000;
+    font-weight: 600;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-item:hover {
+    background: rgba(0, 230, 118, 0.1);
+    color: #00E676;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(0, 230, 118, 0.2), rgba(0, 191, 165, 0.2));
+    color: #00E676;
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+}
+
+/* ================================================
+   DRAG OVER EFFECT
+   ================================================ */
+
+.stage-cards.drag-over {
+    background: rgba(0, 230, 118, 0.1);
+    border: 2px dashed rgba(0, 230, 118, 0.5);
+    border-radius: 12px;
+}
+
+/* ================================================
+   SCROLLBAR STYLING
+   ================================================ */
+
+.stage-cards::-webkit-scrollbar {
+    width: 6px;
+}
+
+.stage-cards::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.stage-cards::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00E676, #00BFA5);
+    border-radius: 3px;
+}
+
+/* ================================================
+   LIVE INDICATOR
+   ================================================ */
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #00E676;
+    border-radius: 50%;
+    animation: livePulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.8);
+}
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+    .deal-card:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Builder - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: #0D1117;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #58A6FF;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #238636, #2EA043);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(88, 166, 255, 0.2);
+            color: #58A6FF;
+        }
+
+        .main-content {
+            background: #161B22;
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: #8B949E;
+        }
+
+        /* ===== API STATS ===== */
+        .api-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #21262D;
+            border: 1px solid #30363D;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-value.green {
+            color: #3FB950;
+        }
+
+        .stat-value.blue {
+            color: #58A6FF;
+        }
+
+        .stat-value.purple {
+            color: #A371F7;
+        }
+
+        .stat-value.orange {
+            color: #D29922;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: #8B949E;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: #21262D;
+            border: 1px solid #30363D;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #30363D;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== ENDPOINTS TABLE ===== */
+        .endpoints-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .endpoint-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .endpoint-item:hover {
+            border-color: #58A6FF;
+            background: #1C2128;
+        }
+
+        .method-badge {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .method-badge.get {
+            background: #238636;
+            color: #fff;
+        }
+
+        .method-badge.post {
+            background: #58A6FF;
+            color: #fff;
+        }
+
+        .method-badge.put {
+            background: #D29922;
+            color: #fff;
+        }
+
+        .method-badge.delete {
+            background: #F85149;
+            color: #fff;
+        }
+
+        .endpoint-path {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: #fff;
+            flex: 1;
+        }
+
+        .endpoint-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: #8B949E;
+            max-width: 250px;
+        }
+
+        .endpoint-status {
+            padding: 4px 10px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .endpoint-status.active {
+            background: rgba(63, 185, 80, 0.2);
+            color: #3FB950;
+        }
+
+        .endpoint-status.pending {
+            background: rgba(210, 153, 34, 0.2);
+            color: #D29922;
+        }
+
+        /* ===== DATA MODELS ===== */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .model-card {
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .model-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .model-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(88, 166, 255, 0.2);
+            color: #58A6FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .model-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+        }
+
+        .model-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #21262D;
+            border-radius: 6px;
+        }
+
+        .field-name {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: #E3B341;
+        }
+
+        .field-type {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: #A371F7;
+        }
+
+        /* ===== API TESTER ===== */
+        .api-tester {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .api-tester {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tester-panel {
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 12px 16px;
+            background: #21262D;
+            border-bottom: 1px solid #30363D;
+            font: var(--md-sys-typescale-label-large);
+            color: #8B949E;
+        }
+
+        .panel-body {
+            padding: 16px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .method-select {
+            padding: 12px 16px;
+            background: #21262D;
+            border: 1px solid #30363D;
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Fira Code', monospace;
+            cursor: pointer;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: #21262D;
+            border: 1px solid #30363D;
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #58A6FF;
+        }
+
+        .code-block {
+            background: #0D1117;
+            border: 1px solid #30363D;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: #C9D1D9;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.6;
+        }
+
+        .code-block .key {
+            color: #7EE787;
+        }
+
+        .code-block .string {
+            color: #A5D6FF;
+        }
+
+        .code-block .number {
+            color: #79C0FF;
+        }
+
+        /* ===== ADVANCED FEATURES ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #58A6FF;
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon.versioning {
+            background: rgba(88, 166, 255, 0.2);
+            color: #58A6FF;
+        }
+
+        .feature-icon.webhooks {
+            background: rgba(163, 113, 247, 0.2);
+            color: #A371F7;
+        }
+
+        .feature-icon.analytics {
+            background: rgba(63, 185, 80, 0.2);
+            color: #3FB950;
+        }
+
+        .feature-icon.caching {
+            background: rgba(210, 153, 34, 0.2);
+            color: #D29922;
+        }
+
+        .feature-icon.graphql {
+            background: rgba(255, 123, 114, 0.2);
+            color: #FF7B72;
+        }
+
+        .feature-info {
+            flex: 1;
+        }
+
+        .feature-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .feature-status {
+            font: var(--md-sys-typescale-label-small);
+            color: #8B949E;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #238636;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #2EA043;
+        }
+
+        .btn-secondary {
+            background: #21262D;
+            color: #C9D1D9;
+            border: 1px solid #30363D;
+        }
+
+        .btn-secondary:hover {
+            background: #30363D;
+        }
+
+        .btn-send {
+            background: #58A6FF;
+            color: #fff;
+        }
+
+        .btn-send:hover {
+            background: #79B8FF;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .endpoint-item,
+        .model-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">api</span>
+                API Builder
+            </a>
+            <span class="sidebar-badge">REST API</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="api-builder.html" class="nav-item active">
+                    <span class="material-symbols-outlined">api</span>
+                    API Builder
+                </a>
+                <a href="docs.html" class="nav-item">
+                    <span class="material-symbols-outlined">description</span>
+                    Documentation
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">🔧 API Builder</div>
+                    <div class="page-subtitle">Build REST APIs in minutes with AgencyOS</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Opening Swagger docs...', 'info')">
+                        <span class="material-symbols-outlined">description</span>
+                        Swagger
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Creating new endpoint...', 'success')">
+                        <span class="material-symbols-outlined">add</span>
+                        New Endpoint
+                    </button>
+                </div>
+            </div>
+
+            <!-- API Stats -->
+            <div class="api-stats">
+                <div class="stat-card">
+                    <div class="stat-value green">24</div>
+                    <div class="stat-label">Endpoints</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value blue">3</div>
+                    <div class="stat-label">Data Models</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value purple">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value orange">45ms</div>
+                    <div class="stat-label">Avg Latency</div>
+                </div>
+            </div>
+
+            <!-- Data Models -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">database</span>
+                        Data Models
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="models-grid">
+                        <div class="model-card">
+                            <div class="model-header">
+                                <div class="model-icon">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div class="model-name">User</div>
+                            </div>
+                            <div class="model-fields">
+                                <div class="field-item">
+                                    <span class="field-name">id</span>
+                                    <span class="field-type">UUID</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">email</span>
+                                    <span class="field-type">String</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">name</span>
+                                    <span class="field-type">String</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">createdAt</span>
+                                    <span class="field-type">Timestamp</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-header">
+                                <div class="model-icon">
+                                    <span class="material-symbols-outlined">folder</span>
+                                </div>
+                                <div class="model-name">Project</div>
+                            </div>
+                            <div class="model-fields">
+                                <div class="field-item">
+                                    <span class="field-name">id</span>
+                                    <span class="field-type">UUID</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">name</span>
+                                    <span class="field-type">String</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">ownerId</span>
+                                    <span class="field-type">FK → User</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">status</span>
+                                    <span class="field-type">Enum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-header">
+                                <div class="model-icon">
+                                    <span class="material-symbols-outlined">task_alt</span>
+                                </div>
+                                <div class="model-name">Task</div>
+                            </div>
+                            <div class="model-fields">
+                                <div class="field-item">
+                                    <span class="field-name">id</span>
+                                    <span class="field-type">UUID</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">title</span>
+                                    <span class="field-type">String</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">projectId</span>
+                                    <span class="field-type">FK → Project</span>
+                                </div>
+                                <div class="field-item">
+                                    <span class="field-name">priority</span>
+                                    <span class="field-type">Enum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Endpoints -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">route</span>
+                        API Endpoints
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="endpoints-list">
+                        <div class="endpoint-item" onclick="testEndpoint('POST', '/api/auth/login')">
+                            <span class="method-badge post">POST</span>
+                            <span class="endpoint-path">/api/auth/login</span>
+                            <span class="endpoint-desc">Login user</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('GET', '/api/users')">
+                            <span class="method-badge get">GET</span>
+                            <span class="endpoint-path">/api/users</span>
+                            <span class="endpoint-desc">List all users</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('GET', '/api/projects')">
+                            <span class="method-badge get">GET</span>
+                            <span class="endpoint-path">/api/projects</span>
+                            <span class="endpoint-desc">List user projects</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('POST', '/api/projects')">
+                            <span class="method-badge post">POST</span>
+                            <span class="endpoint-path">/api/projects</span>
+                            <span class="endpoint-desc">Create project</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('GET', '/api/tasks')">
+                            <span class="method-badge get">GET</span>
+                            <span class="endpoint-path">/api/tasks</span>
+                            <span class="endpoint-desc">List tasks with filters</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('PUT', '/api/tasks/:id')">
+                            <span class="method-badge put">PUT</span>
+                            <span class="endpoint-path">/api/tasks/:id</span>
+                            <span class="endpoint-desc">Update task</span>
+                            <span class="endpoint-status active">Active</span>
+                        </div>
+                        <div class="endpoint-item" onclick="testEndpoint('DELETE', '/api/tasks/:id')">
+                            <span class="method-badge delete">DELETE</span>
+                            <span class="endpoint-path">/api/tasks/:id</span>
+                            <span class="endpoint-desc">Delete task</span>
+                            <span class="endpoint-status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Tester -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">science</span>
+                        API Tester
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="api-tester">
+                        <div class="tester-panel">
+                            <div class="panel-header">Request</div>
+                            <div class="panel-body">
+                                <div class="input-row">
+                                    <select class="method-select" id="methodSelect">
+                                        <option value="GET">GET</option>
+                                        <option value="POST">POST</option>
+                                        <option value="PUT">PUT</option>
+                                        <option value="DELETE">DELETE</option>
+                                    </select>
+                                    <input type="text" class="url-input" id="urlInput" value="/api/users"
+                                        placeholder="/api/endpoint">
+                                    <button class="btn btn-send" onclick="sendRequest()">
+                                        <span class="material-symbols-outlined">send</span>
+                                        Send
+                                    </button>
+                                </div>
+                                <div class="code-block" id="requestBody">{
+                                    <span class="key">"email"</span>: <span class="string">"user@example.com"</span>,
+                                    <span class="key">"password"</span>: <span class="string">"********"</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tester-panel">
+                            <div class="panel-header">Response <span style="color: #3FB950;">200 OK</span></div>
+                            <div class="panel-body">
+                                <div class="code-block" id="responseBody">{
+                                    <span class="key">"success"</span>: <span class="number">true</span>,
+                                    <span class="key">"data"</span>: [
+                                    {
+                                    <span class="key">"id"</span>: <span class="string">"uuid-1234"</span>,
+                                    <span class="key">"email"</span>: <span class="string">"john@example.com"</span>,
+                                    <span class="key">"name"</span>: <span class="string">"John Doe"</span>
+                                    }
+                                    ],
+                                    <span class="key">"meta"</span>: {
+                                    <span class="key">"total"</span>: <span class="number">1</span>,
+                                    <span class="key">"page"</span>: <span class="number">1</span>
+                                    }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Features -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">settings_suggest</span>
+                        Advanced Features
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="features-grid">
+                        <div class="feature-card"
+                            onclick="showToast('Versioning enabled: /api/v1, /api/v2', 'success')">
+                            <div class="feature-icon versioning">
+                                <span class="material-symbols-outlined">layers</span>
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-name">API Versioning</div>
+                                <div class="feature-status">v1, v2 routes</div>
+                            </div>
+                        </div>
+                        <div class="feature-card"
+                            onclick="showToast('Webhooks active: task.created, task.updated', 'success')">
+                            <div class="feature-icon webhooks">
+                                <span class="material-symbols-outlined">webhook</span>
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-name">Webhooks</div>
+                                <div class="feature-status">Real-time events</div>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="showToast('Analytics dashboard: 1.2M requests/day', 'info')">
+                            <div class="feature-icon analytics">
+                                <span class="material-symbols-outlined">analytics</span>
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-name">API Analytics</div>
+                                <div class="feature-status">Usage metrics</div>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="showToast('Redis cache: 95% hit rate', 'success')">
+                            <div class="feature-icon caching">
+                                <span class="material-symbols-outlined">speed</span>
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-name">Redis Caching</div>
+                                <div class="feature-status">95% hit rate</div>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="showToast('GraphQL endpoint: /graphql', 'info')">
+                            <div class="feature-icon graphql">
+                                <span class="material-symbols-outlined">hub</span>
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-name">GraphQL</div>
+                                <div class="feature-status">Alternative endpoint</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function testEndpoint(method, path) {
+            document.getElementById('methodSelect').value = method;
+            document.getElementById('urlInput').value = path;
+            showToast(`Testing: ${method} ${path}`, 'info');
+        }
+
+        function sendRequest() {
+            const method = document.getElementById('methodSelect').value;
+            const url = document.getElementById('urlInput').value;
+            showToast(`${method} ${url} → 200 OK (45ms)`, 'success');
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#238636', color: '#fff' },
+                error: { bg: '#F85149', color: '#fff' },
+                warning: { bg: '#D29922', color: '#fff' },
+                info: { bg: '#58A6FF', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 8px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

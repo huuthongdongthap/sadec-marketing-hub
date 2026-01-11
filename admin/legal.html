@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Contracts - Mekong Agency</title>
+    <script type="importmap">{"imports":{"@material/web/":"https://esm.run/@material/web/"}}</script>
+    <script type="module">import '@material/web/all.js';</script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            color: white;
+            padding: 100px 24px 40px
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1)
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant)
+        }
+
+        .contract-list {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .contract-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant)
+        }
+
+        .contract-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #e2e8f0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .contract-info {
+            flex: 1
+        }
+
+        .contract-title {
+            font: var(--md-sys-typescale-title-small)
+        }
+
+        .contract-meta {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant)
+        }
+
+        .contract-value {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-primary)
+        }
+
+        .contract-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small)
+        }
+
+        .status-draft {
+            background: #e5e7eb;
+            color: #374151
+        }
+
+        .status-review {
+            background: #fef3c7;
+            color: #b45309
+        }
+
+        .status-pending {
+            background: #dbeafe;
+            color: #1d4ed8
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #059669
+        }
+
+        .status-expired,
+        .status-terminated {
+            background: #fee2e2;
+            color: #dc2626
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container"><a href="../index.html" class="nav-logo"><span
+                    class="material-symbols-outlined">water_drop</span>Mekong Agency</a></div>
+    </nav>
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small">📜 Legal Contracts</h1>
+            <p class="body-large" style="opacity:0.9">Contract Management & Tracking</p>
+        </div>
+    </header>
+    <div class="container" style="padding:32px 0">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value" id="mTotal">0</div>
+                <div class="metric-label">Total Contracts</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="mActive">0</div>
+                <div class="metric-label">Active</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="mPending">0</div>
+                <div class="metric-label">Pending Signature</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="mExpiring">0</div>
+                <div class="metric-label">Expiring Soon</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="mValue">0</div>
+                <div class="metric-label">Total Value</div>
+            </div>
+        </div>
+        <h3 style="margin-bottom:16px">📋 Contracts</h3>
+        <div class="contract-list" id="contractList"></div>
+    </div>
+    <script src="../assets/js/legal.js"></script>
+    <script>
+        createDemoLegal(legalManager);
+        function render() {
+            const m = legalManager.getMetrics();
+            document.getElementById('mTotal').textContent = m.total;
+            document.getElementById('mActive').textContent = m.active;
+            document.getElementById('mPending').textContent = m.pending;
+            document.getElementById('mExpiring').textContent = m.expiringSoon;
+            document.getElementById('mValue').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', notation: 'compact' }).format(m.totalValue);
+            document.getElementById('contractList').innerHTML = legalManager.getAllContracts().map(c => { const type = ContractTypes[c.type]; return `<div class="contract-item"><div class="contract-icon"><span class="material-symbols-outlined">description</span></div><div class="contract-info"><div class="contract-title">${c.title}</div><div class="contract-meta">${type?.name || c.type} • ${c.party}</div></div><div class="contract-value">${c.value > 0 ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.value) : '-'}</div><span class="contract-status status-${c.status}">${ContractStatus[c.status]?.name || c.status}</span></div>` }).join('');
+        }
+        render();
+    </script>
+</body>
+
+</html>

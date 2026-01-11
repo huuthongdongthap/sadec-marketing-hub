@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Events - Mekong Agency</title>
+    <meta name="description" content="Virtual Events Dashboard - Mekong Agency">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+            padding: 100px 24px 40px;
+        }
+
+        .dashboard-content {
+            padding: 32px 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--md-sys-color-surface);
+            padding: 8px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .tab.active {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-icon.events {
+            background: #fce7f3;
+            color: #ec4899;
+        }
+
+        .metric-icon.registrations {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .metric-icon.live {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .metric-icon.rate {
+            background: #dcfce7;
+            color: #10b981;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .event-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+        }
+
+        .event-thumbnail {
+            height: 140px;
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .event-thumbnail .material-symbols-outlined {
+            font-size: 48px;
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small);
+            text-transform: uppercase;
+        }
+
+        .event-badge.draft {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .event-badge.scheduled {
+            background: #3b82f6;
+        }
+
+        .event-badge.live {
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        .event-badge.ended {
+            background: #6b7280;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .event-body {
+            padding: 20px;
+        }
+
+        .event-type {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 8px;
+        }
+
+        .event-datetime {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .event-stats {
+            display: flex;
+            gap: 20px;
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .event-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .event-btn.primary {
+            background: var(--md-sys-color-primary);
+            color: white;
+        }
+
+        .event-btn.secondary {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .event-btn.live {
+            background: #ef4444;
+            color: white;
+        }
+
+        .registration-list {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            box-shadow: var(--md-sys-elevation-1);
+            overflow: hidden;
+        }
+
+        .registration-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            font: var(--md-sys-typescale-title-large);
+        }
+
+        .registration-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .registration-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-title-medium);
+        }
+
+        .registration-info {
+            flex: 1;
+        }
+
+        .registration-name {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .registration-email {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .registration-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .registration-status.attended {
+            background: #dcfce7;
+            color: #059669;
+        }
+
+        .registration-status.registered {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .email-sequence {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .email-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--md-sys-elevation-1);
+            position: relative;
+        }
+
+        .email-number {
+            position: absolute;
+            top: -8px;
+            left: 16px;
+            width: 28px;
+            height: 28px;
+            background: var(--md-sys-color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-medium);
+        }
+
+        .email-timing {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 8px 0;
+        }
+
+        .email-subject {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .create-form {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .create-form h3 {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-field label {
+            display: block;
+            font: var(--md-sys-typescale-label-medium);
+            margin-bottom: 8px;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-body-large);
+            box-sizing: border-box;
+        }
+
+        .create-btn {
+            padding: 14px 28px;
+            background: var(--md-sys-color-primary);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 64px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="government.html" class="btn btn-text">Government</a>
+                <a href="lms.html" class="btn btn-text">LMS</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">🎤 Virtual Events</h1>
+            <p class="body-large" style="opacity: 0.9;">Webinars, Workshops & Conferences</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('events')">
+                <span class="material-symbols-outlined">event</span> Events
+            </button>
+            <button class="tab" onclick="switchTab('registrations')">
+                <span class="material-symbols-outlined">people</span> Registrations
+            </button>
+            <button class="tab" onclick="switchTab('emails')">
+                <span class="material-symbols-outlined">mail</span> Emails
+            </button>
+            <button class="tab" onclick="switchTab('create')">
+                <span class="material-symbols-outlined">add</span> Create
+            </button>
+        </div>
+
+        <!-- Events Tab -->
+        <div class="tab-content active" id="tab-events">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon events"><span class="material-symbols-outlined">event</span></div>
+                    <div class="metric-value" id="metricEvents">0</div>
+                    <div class="metric-label">Total Events</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon live"><span class="material-symbols-outlined">stream</span></div>
+                    <div class="metric-value" id="metricLive">0</div>
+                    <div class="metric-label">Live Now</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
+                    </div>
+                    <div class="metric-value" id="metricRegistrations">0</div>
+                    <div class="metric-label">Registrations</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span></div>
+                    <div class="metric-value" id="metricRate">0%</div>
+                    <div class="metric-label">Attendance Rate</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 16px;">📅 Upcoming & Recent Events</h3>
+            <div class="event-grid" id="eventGrid"></div>
+        </div>
+
+        <!-- Registrations Tab -->
+        <div class="tab-content" id="tab-registrations">
+            <h3 style="margin-bottom: 16px;">👥 Event Registrations</h3>
+            <select id="eventSelect"
+                style="padding: 12px; border-radius: 8px; margin-bottom: 20px; font: var(--md-sys-typescale-body-large);">
+            </select>
+            <div class="registration-list" id="registrationList"></div>
+        </div>
+
+        <!-- Emails Tab -->
+        <div class="tab-content" id="tab-emails">
+            <h3 style="margin-bottom: 16px;">📧 Email Sequence</h3>
+            <div class="email-sequence" id="emailSequence"></div>
+        </div>
+
+        <!-- Create Tab -->
+        <div class="tab-content" id="tab-create">
+            <div class="create-form">
+                <h3>➕ Create New Event</h3>
+                <form id="createForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Event Title</label>
+                            <input type="text" id="eventTitle" value="Digital Marketing Workshop">
+                        </div>
+                        <div class="form-field" style="max-width: 200px;">
+                            <label>Type</label>
+                            <select id="eventType">
+                                <option value="webinar">Webinar</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="conference">Conference</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Date</label>
+                            <input type="date" id="eventDate" value="2026-03-01">
+                        </div>
+                        <div class="form-field">
+                            <label>Time</label>
+                            <input type="time" id="eventTime" value="14:00">
+                        </div>
+                        <div class="form-field">
+                            <label>Duration (minutes)</label>
+                            <input type="number" id="eventDuration" value="60">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Description</label>
+                            <textarea id="eventDesc" rows="3">Mô tả sự kiện...</textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="create-btn">
+                        <span class="material-symbols-outlined">add</span>
+                        Create Event
+                    </button>
+                </form>
+            </div>
+
+            <div class="create-form">
+                <h3>📝 Register Attendee (Demo)</h3>
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Event</label>
+                            <select id="regEvent"></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Name</label>
+                            <input type="text" id="regName" value="Nguyễn Văn Test">
+                        </div>
+                        <div class="form-field">
+                            <label>Email</label>
+                            <input type="email" id="regEmail" value="test@email.com">
+                        </div>
+                    </div>
+                    <button type="submit" class="create-btn" style="background: #10b981;">
+                        <span class="material-symbols-outlined">person_add</span>
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/events.js"></script>
+    <script>
+        createDemoEvents(eventsManager);
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        function updateMetrics() {
+            const m = eventsManager.getMetrics();
+            document.getElementById('metricEvents').textContent = m.totalEvents;
+            document.getElementById('metricLive').textContent = m.liveEvents;
+            document.getElementById('metricRegistrations').textContent = m.totalRegistrations;
+            document.getElementById('metricRate').textContent = m.avgAttendanceRate + '%';
+        }
+
+        function renderEvents() {
+            const events = eventsManager.getAllEvents();
+            document.getElementById('eventGrid').innerHTML = events.map(e => {
+                const type = EventTypes[e.type] || EventTypes.webinar;
+                const metrics = e.getMetrics();
+                return `
+          <div class="event-card">
+            <div class="event-thumbnail">
+              <span class="material-symbols-outlined">${type.icon}</span>
+              <span class="event-badge ${e.status}">${e.status}</span>
+            </div>
+            <div class="event-body">
+              <div class="event-type">${type.name}</div>
+              <div class="event-title">${e.title}</div>
+              <div class="event-datetime">
+                <span class="material-symbols-outlined" style="font-size:18px">calendar_today</span>
+                ${formatEventDate(e.date, e.time)}
+              </div>
+              <div class="event-stats">
+                <span>👥 ${metrics.registered} registered</span>
+                <span>✅ ${metrics.attended} attended</span>
+              </div>
+              <div class="event-actions">
+                ${e.status === 'scheduled' ? `
+                  <button class="event-btn live" onclick="startEvent('${e.id}')">
+                    <span class="material-symbols-outlined">stream</span> Go Live
+                  </button>
+                ` : e.status === 'live' ? `
+                  <button class="event-btn secondary" onclick="endEvent('${e.id}')">
+                    <span class="material-symbols-outlined">stop</span> End
+                  </button>
+                ` : e.status === 'draft' ? `
+                  <button class="event-btn primary" onclick="publishEvent('${e.id}')">
+                    <span class="material-symbols-outlined">publish</span> Publish
+                  </button>
+                ` : ''}
+                <button class="event-btn secondary" onclick="viewRegistrations('${e.id}')">
+                  <span class="material-symbols-outlined">people</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+            }).join('');
+        }
+
+        function renderEmailSequence() {
+            document.getElementById('emailSequence').innerHTML = Object.values(EmailTemplates).map((t, i) => `
+        <div class="email-card">
+          <div class="email-number">${i + 1}</div>
+          <div class="email-timing">⏱️ ${t.timing}</div>
+          <div class="email-subject">${t.subject.replace('{eventTitle}', 'Event Name')}</div>
+        </div>
+      `).join('');
+        }
+
+        function populateEventSelects() {
+            const events = eventsManager.getAllEvents();
+            const options = events.map(e => `<option value="${e.id}">${e.title}</option>`).join('');
+            document.getElementById('eventSelect').innerHTML = options;
+            document.getElementById('regEvent').innerHTML = options;
+        }
+
+        function renderRegistrations() {
+            const eventId = document.getElementById('eventSelect').value;
+            const regs = eventsManager.getEventRegistrations(eventId);
+
+            document.getElementById('registrationList').innerHTML = regs.length > 0 ? `
+        <div class="registration-header">Registrations (${regs.length})</div>
+        ${regs.map(r => `
+          <div class="registration-item">
+            <div class="registration-avatar">${r.name.charAt(0)}</div>
+            <div class="registration-info">
+              <div class="registration-name">${r.name}</div>
+              <div class="registration-email">${r.email}</div>
+            </div>
+            <span class="registration-status ${r.attended ? 'attended' : 'registered'}">
+              ${r.attended ? '✓ Attended' : 'Registered'}
+            </span>
+          </div>
+        `).join('')}
+      ` : '<div class="empty-state">No registrations yet</div>';
+        }
+
+        function publishEvent(id) { eventsManager.publishEvent(id); refresh(); }
+        function startEvent(id) { eventsManager.startEvent(id); refresh(); alert('Event is LIVE!'); }
+        function endEvent(id) { eventsManager.endEvent(id); refresh(); }
+        function viewRegistrations(id) {
+            document.getElementById('eventSelect').value = id;
+            switchTab('registrations');
+            renderRegistrations();
+        }
+
+        document.getElementById('eventSelect').addEventListener('change', renderRegistrations);
+
+        document.getElementById('createForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            eventsManager.createEvent({
+                title: document.getElementById('eventTitle').value,
+                type: document.getElementById('eventType').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                duration: parseInt(document.getElementById('eventDuration').value),
+                description: document.getElementById('eventDesc').value
+            });
+            refresh();
+            alert('Event created!');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            eventsManager.register(
+                document.getElementById('regEvent').value,
+                { name: document.getElementById('regName').value, email: document.getElementById('regEmail').value }
+            );
+            refresh();
+            alert('Registered!');
+        });
+
+        function refresh() {
+            updateMetrics();
+            renderEvents();
+            populateEventSelects();
+            renderRegistrations();
+        }
+
+        renderEmailSequence();
+        refresh();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Hiring - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #2d1b4e 0%, #1a0a2e 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #E879F9;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #E879F9, #A855F7);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(232, 121, 249, 0.2);
+            color: #E879F9;
+            border: 1px solid rgba(232, 121, 249, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0f0a1a 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.roles {
+            background: rgba(232, 121, 249, 0.2);
+            color: #E879F9;
+        }
+
+        .stat-icon.applicants {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+
+        .stat-icon.interviews {
+            background: rgba(245, 158, 11, 0.2);
+            color: #F59E0B;
+        }
+
+        .stat-icon.hires {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== PIPELINE ===== */
+        .pipeline-container {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .pipeline-stage {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .stage-header {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stage-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stage-count {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(232, 121, 249, 0.2);
+            color: #E879F9;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stage-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 120px;
+        }
+
+        .candidate-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .candidate-card:hover {
+            border-color: #E879F9;
+            transform: translateY(-2px);
+        }
+
+        .candidate-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .candidate-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E879F9, #A855F7);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-medium);
+            font-weight: 600;
+        }
+
+        .candidate-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .candidate-role {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .candidate-score {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .score-fill.high {
+            background: #10B981;
+        }
+
+        .score-fill.medium {
+            background: #F59E0B;
+        }
+
+        .score-fill.low {
+            background: #EF4444;
+        }
+
+        /* ===== JOB BOARDS ===== */
+        .boards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .board-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .board-card:hover {
+            border-color: #E879F9;
+            transform: translateY(-2px);
+        }
+
+        .board-card.active {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .board-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .board-logo.linkedin {
+            background: #0A66C2;
+            color: #fff;
+        }
+
+        .board-logo.indeed {
+            background: #2164F3;
+            color: #fff;
+        }
+
+        .board-logo.wellfound {
+            background: #000;
+            color: #fff;
+        }
+
+        .board-logo.topcv {
+            background: #00B14F;
+            color: #fff;
+        }
+
+        .board-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .board-status {
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .board-status.active {
+            color: #10B981;
+        }
+
+        .board-status.inactive {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== OPEN ROLES ===== */
+        .roles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .role-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .role-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .role-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(232, 121, 249, 0.2);
+            color: #E879F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-info {
+            flex: 1;
+        }
+
+        .role-title {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+        }
+
+        .role-meta {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .role-tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .role-tag {
+            padding: 4px 10px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .role-tag.remote {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+
+        .role-tag.fulltime {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .role-tag.urgent {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .role-applicants {
+            text-align: center;
+        }
+
+        .applicant-count {
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+            color: #E879F9;
+        }
+
+        .applicant-label {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #E879F9, #A855F7);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(232, 121, 249, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #E879F9;
+            border: 1px solid #E879F9;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(232, 121, 249, 0.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .pipeline-stage,
+        .board-card,
+        .role-item {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">groups</span>
+                HR Hub
+            </a>
+            <span class="sidebar-badge">HIRING</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="hr-hiring.html" class="nav-item active">
+                    <span class="material-symbols-outlined">groups</span>
+                    HR Hiring
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    Finance
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">👥 HR Hiring Dashboard</div>
+                    <div class="page-subtitle">Streamline your recruitment process</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Syncing with job boards...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Sync
+                    </button>
+                    <button class="btn btn-primary" onclick="createRole()">
+                        <span class="material-symbols-outlined">add</span>
+                        New Role
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon roles">
+                        <span class="material-symbols-outlined">work</span>
+                    </div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Open Roles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon applicants">
+                        <span class="material-symbols-outlined">person_add</span>
+                    </div>
+                    <div class="stat-value">47</div>
+                    <div class="stat-label">Total Applicants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon interviews">
+                        <span class="material-symbols-outlined">event</span>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">This Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon hires">
+                        <span class="material-symbols-outlined">how_to_reg</span>
+                    </div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Offers Made</div>
+                </div>
+            </div>
+
+            <!-- Interview Pipeline -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">linear_scale</span>
+                        Interview Pipeline
+                    </div>
+                    <span style="color: rgba(255,255,255,0.4); font: var(--md-sys-typescale-label-medium);">Account
+                        Manager</span>
+                </div>
+                <div class="section-body">
+                    <div class="pipeline-container">
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <div class="stage-name">📄 Resume</div>
+                                <div class="stage-count">15</div>
+                            </div>
+                            <div class="stage-body">
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">NA</div>
+                                        <div>
+                                            <div class="candidate-name">Nguyen An</div>
+                                            <div class="candidate-role">5 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill high" style="width: 85%;"></div>
+                                        </div>
+                                        <span style="color: #10B981;">85%</span>
+                                    </div>
+                                </div>
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">TL</div>
+                                        <div>
+                                            <div class="candidate-name">Tran Linh</div>
+                                            <div class="candidate-role">3 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill medium" style="width: 72%;"></div>
+                                        </div>
+                                        <span style="color: #F59E0B;">72%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <div class="stage-name">📞 Phone Screen</div>
+                                <div class="stage-count">8</div>
+                            </div>
+                            <div class="stage-body">
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">LH</div>
+                                        <div>
+                                            <div class="candidate-name">Le Huong</div>
+                                            <div class="candidate-role">4 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill high" style="width: 90%;"></div>
+                                        </div>
+                                        <span style="color: #10B981;">90%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <div class="stage-name">📝 Skills Test</div>
+                                <div class="stage-count">5</div>
+                            </div>
+                            <div class="stage-body">
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">PM</div>
+                                        <div>
+                                            <div class="candidate-name">Pham Minh</div>
+                                            <div class="candidate-role">6 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill high" style="width: 88%;"></div>
+                                        </div>
+                                        <span style="color: #10B981;">88%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <div class="stage-name">🎤 Final Interview</div>
+                                <div class="stage-count">3</div>
+                            </div>
+                            <div class="stage-body">
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">VT</div>
+                                        <div>
+                                            <div class="candidate-name">Vu Trang</div>
+                                            <div class="candidate-role">7 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill high" style="width: 95%;"></div>
+                                        </div>
+                                        <span style="color: #10B981;">95%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stage">
+                            <div class="stage-header">
+                                <div class="stage-name">🎉 Offer</div>
+                                <div class="stage-count">2</div>
+                            </div>
+                            <div class="stage-body">
+                                <div class="candidate-card">
+                                    <div class="candidate-header">
+                                        <div class="candidate-avatar">HD</div>
+                                        <div>
+                                            <div class="candidate-name">Hoang Duc</div>
+                                            <div class="candidate-role">8 years exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="candidate-score">
+                                        <div class="score-bar">
+                                            <div class="score-fill high" style="width: 98%;"></div>
+                                        </div>
+                                        <span style="color: #10B981;">98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Boards -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">public</span>
+                        Job Boards
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="boards-grid">
+                        <div class="board-card active">
+                            <div class="board-logo linkedin">in</div>
+                            <div class="board-name">LinkedIn</div>
+                            <div class="board-status active">✓ Posted (24 views)</div>
+                        </div>
+                        <div class="board-card active">
+                            <div class="board-logo indeed">I</div>
+                            <div class="board-name">Indeed</div>
+                            <div class="board-status active">✓ Posted (18 views)</div>
+                        </div>
+                        <div class="board-card active">
+                            <div class="board-logo wellfound">W</div>
+                            <div class="board-name">Wellfound</div>
+                            <div class="board-status active">✓ Posted (12 views)</div>
+                        </div>
+                        <div class="board-card">
+                            <div class="board-logo topcv">T</div>
+                            <div class="board-name">TopCV</div>
+                            <div class="board-status inactive">Not posted</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Roles -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">work</span>
+                        Open Roles
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="roles-list">
+                        <div class="role-item">
+                            <div class="role-icon">
+                                <span class="material-symbols-outlined">support_agent</span>
+                            </div>
+                            <div class="role-info">
+                                <div class="role-title">Account Manager</div>
+                                <div class="role-meta">$50,000 - $70,000 • Posted 2 weeks ago</div>
+                            </div>
+                            <div class="role-tags">
+                                <span class="role-tag remote">🌐 Remote</span>
+                                <span class="role-tag fulltime">Full-time</span>
+                            </div>
+                            <div class="role-applicants">
+                                <div class="applicant-count">23</div>
+                                <div class="applicant-label">applicants</div>
+                            </div>
+                        </div>
+                        <div class="role-item">
+                            <div class="role-icon">
+                                <span class="material-symbols-outlined">code</span>
+                            </div>
+                            <div class="role-info">
+                                <div class="role-title">Frontend Developer</div>
+                                <div class="role-meta">$60,000 - $80,000 • Posted 1 week ago</div>
+                            </div>
+                            <div class="role-tags">
+                                <span class="role-tag remote">🌐 Remote</span>
+                                <span class="role-tag fulltime">Full-time</span>
+                                <span class="role-tag urgent">🔥 Urgent</span>
+                            </div>
+                            <div class="role-applicants">
+                                <div class="applicant-count">15</div>
+                                <div class="applicant-label">applicants</div>
+                            </div>
+                        </div>
+                        <div class="role-item">
+                            <div class="role-icon">
+                                <span class="material-symbols-outlined">campaign</span>
+                            </div>
+                            <div class="role-info">
+                                <div class="role-title">Marketing Specialist</div>
+                                <div class="role-meta">$40,000 - $55,000 • Posted 3 days ago</div>
+                            </div>
+                            <div class="role-tags">
+                                <span class="role-tag fulltime">Full-time</span>
+                            </div>
+                            <div class="role-applicants">
+                                <div class="applicant-count">9</div>
+                                <div class="applicant-label">applicants</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function createRole() {
+            showToast('🆕 Opening role creator...', 'info');
+            setTimeout(() => {
+                showToast('✅ Role template ready!', 'success');
+            }, 1500);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(16, 185, 129, 0.95)', color: '#fff' },
+                error: { bg: 'rgba(239, 68, 68, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(245, 158, 11, 0.95)', color: '#000' },
+                info: { bg: 'rgba(232, 121, 249, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

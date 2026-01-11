@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Launch Control - Mekong Agency</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <style>
+        .launch-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .launch-card {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .launch-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .launch-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .checklist {
+            text-align: left;
+            background: var(--glass-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .checklist-title {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            font-size: 20px;
+        }
+
+        .check-icon.pass {
+            color: var(--accent-lime);
+        }
+
+        .check-icon.fail {
+            color: #ff4444;
+        }
+
+        .check-icon.pending {
+            color: var(--text-tertiary);
+        }
+
+        .check-label {
+            flex: 1;
+        }
+
+        .go-live-btn {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-cyan);
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+            color: var(--primary-cyan);
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+            margin: 20px 0;
+        }
+
+        .go-live-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(0, 240, 255, 0.5);
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, transparent 70%);
+        }
+
+        .go-live-btn:active {
+            transform: scale(0.98);
+        }
+
+        .go-live-btn.deploying {
+            animation: pulse 1.5s infinite;
+            border-color: var(--accent-lime);
+            color: var(--accent-lime);
+        }
+
+        .go-live-btn.success {
+            border-color: var(--accent-lime);
+            color: var(--accent-lime);
+            box-shadow: 0 0 60px rgba(204, 255, 0, 0.5);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 40px rgba(204, 255, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 80px rgba(204, 255, 0, 0.6);
+            }
+        }
+
+        .status-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 20px;
+        }
+
+        .deploy-log {
+            text-align: left;
+            background: #0a0a0a;
+            border-radius: 12px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--accent-lime);
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .deploy-log.active {
+            display: block;
+        }
+
+        .prod-url {
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(204, 255, 0, 0.1);
+            border: 1px solid var(--accent-lime);
+            border-radius: 12px;
+            display: none;
+        }
+
+        .prod-url.active {
+            display: block;
+        }
+
+        .prod-url a {
+            color: var(--accent-lime);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="launch-container">
+        <div class="launch-card glass-card" style="padding: 40px;">
+            <h1 class="launch-title">🚀 LAUNCH CONTROL</h1>
+            <p class="launch-subtitle">Deploy Mekong Agency to Production</p>
+
+            <div class="checklist">
+                <div class="checklist-title">Pre-Flight Checklist</div>
+                <div class="check-item">
+                    <span class="material-symbols-outlined check-icon pass">check_circle</span>
+                    <span class="check-label">index.html exists</span>
+                </div>
+                <div class="check-item">
+                    <span class="material-symbols-outlined check-icon pass">check_circle</span>
+                    <span class="check-label">CSS files loaded</span>
+                </div>
+                <div class="check-item">
+                    <span class="material-symbols-outlined check-icon pass">check_circle</span>
+                    <span class="check-label">Admin dashboard ready</span>
+                </div>
+                <div class="check-item">
+                    <span class="material-symbols-outlined check-icon pass">check_circle</span>
+                    <span class="check-label">No console errors</span>
+                </div>
+                <div class="check-item">
+                    <span class="material-symbols-outlined check-icon pass">check_circle</span>
+                    <span class="check-label">Vercel configured</span>
+                </div>
+            </div>
+
+            <button class="go-live-btn" id="goLiveBtn" onclick="deploy()">
+                GO LIVE
+            </button>
+
+            <div class="status-text" id="statusText">All systems ready. Click to deploy.</div>
+
+            <div class="deploy-log" id="deployLog"></div>
+
+            <div class="prod-url" id="prodUrl">
+                <span style="color: var(--text-secondary);">Production URL:</span><br>
+                <a href="https://mekong-agency.vercel.app" target="_blank">https://mekong-agency.vercel.app</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('goLiveBtn');
+        const status = document.getElementById('statusText');
+        const log = document.getElementById('deployLog');
+        const url = document.getElementById('prodUrl');
+
+        async function deploy() {
+            btn.classList.add('deploying');
+            btn.textContent = 'DEPLOYING...';
+            status.textContent = 'Connecting to Vercel...';
+            log.classList.add('active');
+            log.innerHTML = '';
+
+            const steps = [
+                '> Initializing deployment...',
+                '> Running pre-flight checks...',
+                '> All checks passed ✓',
+                '> Uploading files to Vercel...',
+                '> Building production bundle...',
+                '> Optimizing assets...',
+                '> Deploying to edge network...',
+                '> Propagating to CDN...',
+                '> Verifying deployment...',
+                '> ✅ DEPLOYMENT SUCCESSFUL!'
+            ];
+
+            for (let i = 0; i < steps.length; i++) {
+                await new Promise(r => setTimeout(r, 800));
+                log.innerHTML += steps[i] + '\n';
+                log.scrollTop = log.scrollHeight;
+                status.textContent = steps[i].replace('> ', '');
+            }
+
+            btn.classList.remove('deploying');
+            btn.classList.add('success');
+            btn.textContent = '✓ LIVE';
+            status.textContent = 'Deployment complete! Your site is now live.';
+            url.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

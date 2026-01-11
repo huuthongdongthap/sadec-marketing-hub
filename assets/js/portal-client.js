@@ -1,0 +1,906 @@
+// ================================================
+// MEKONG AGENCY - CLIENT PORTAL
+// Live Data Binding & UI Interactions
+// ================================================
+
+import { auth, projects, invoices, activities, utils } from './supabase.js';
+
+// ================================================
+// DEMO MODE DATA (Used when not authenticated)
+// ================================================
+
+const DEMO_PROJECTS = [
+    {
+        id: 'demo-1',
+        name: 'Chiến dịch Facebook Ads Q1',
+        description: 'Quảng cáo Facebook cho sản phẩm hoa tươi, target khách hàng 25-45 tuổi tại Đồng Tháp',
+        type: 'ads',
+        status: 'active',
+        progress: 75,
+        budget: 15000000,
+        spent: 11250000,
+        start_date: '2026-01-01',
+        end_date: '2026-03-31',
+        milestones: [
+            { name: 'Setup & Strategy', completed: true },
+            { name: 'Creative Development', completed: true },
+            { name: 'Campaign Launch', completed: true },
+            { name: 'Optimization Phase', completed: false },
+            { name: 'Final Report', completed: false }
+        ]
+    },
+    {
+        id: 'demo-2',
+        name: 'SEO Website tháng 1',
+        description: 'Tối ưu SEO local cho website, target keywords "hoa tươi sa đéc", "shop hoa đồng tháp"',
+        type: 'seo',
+        status: 'active',
+        progress: 40,
+        budget: 5000000,
+        spent: 2000000,
+        start_date: '2026-01-01',
+        end_date: '2026-01-31',
+        milestones: [
+            { name: 'Technical Audit', completed: true },
+            { name: 'On-page Optimization', completed: true },
+            { name: 'Content Strategy', completed: false },
+            { name: 'Link Building', completed: false },
+            { name: 'Monthly Report', completed: false }
+        ]
+    },
+    {
+        id: 'demo-3',
+        name: 'Thiết kế logo mới',
+        description: 'Thiết kế logo và bộ nhận diện thương hiệu cho Sa Đéc Flower Shop',
+        type: 'design',
+        status: 'completed',
+        progress: 100,
+        budget: 8000000,
+        spent: 8000000,
+        start_date: '2025-12-01',
+        end_date: '2025-12-20',
+        milestones: [
+            { name: 'Discovery', completed: true },
+            { name: 'Concept Design', completed: true },
+            { name: 'Revisions', completed: true },
+            { name: 'Final Delivery', completed: true }
+        ]
+    },
+    {
+        id: 'demo-4',
+        name: 'Quản lý Fanpage tháng 1',
+        description: 'Lên lịch và đăng 20 bài/tháng, tương tác với khách hàng, xử lý inbox',
+        type: 'social',
+        status: 'active',
+        progress: 25,
+        budget: 3000000,
+        spent: 750000,
+        start_date: '2026-01-01',
+        end_date: '2026-01-31',
+        milestones: [
+            { name: 'Content Calendar', completed: true },
+            { name: 'Week 1 Posts', completed: true },
+            { name: 'Week 2-4 Posts', completed: false },
+            { name: 'Engagement Report', completed: false }
+        ]
+    },
+    {
+        id: 'demo-5',
+        name: 'Google Ads - Tết 2026',
+        description: 'Chiến dịch Google Ads cho mùa Tết, target "mua hoa tết", "hoa chúc mừng năm mới"',
+        type: 'ads',
+        status: 'paused',
+        progress: 0,
+        budget: 20000000,
+        spent: 0,
+        start_date: '2026-01-15',
+        end_date: '2026-02-15',
+        milestones: [
+            { name: 'Campaign Planning', completed: false },
+            { name: 'Ad Creation', completed: false },
+            { name: 'Launch', completed: false },
+            { name: 'Performance Report', completed: false }
+        ]
+    }
+];
+
+const DEMO_INVOICES = [
+    {
+        id: 'inv-1',
+        invoice_number: 'INV-2026-001',
+        project: { name: 'Chiến dịch Facebook Ads Q1' },
+        amount: 15000000,
+        tax: 0,
+        total: 15000000,
+        status: 'sent',
+        issue_date: '2026-01-01',
+        due_date: '2026-01-15',
+        items: [
+            { description: 'Quảng cáo Facebook Q1 2026', quantity: 1, price: 15000000 }
+        ]
+    },
+    {
+        id: 'inv-2',
+        invoice_number: 'INV-2025-056',
+        project: { name: 'Thiết kế logo mới' },
+        amount: 8000000,
+        tax: 0,
+        total: 8000000,
+        status: 'paid',
+        issue_date: '2025-12-01',
+        due_date: '2025-12-15',
+        paid_at: '2025-12-14T10:30:00Z',
+        items: [
+            { description: 'Thiết kế logo', quantity: 1, price: 5000000 },
+            { description: 'Bộ nhận diện thương hiệu', quantity: 1, price: 3000000 }
+        ]
+    },
+    {
+        id: 'inv-3',
+        invoice_number: 'INV-2025-055',
+        project: { name: 'SEO Website tháng 12' },
+        amount: 5000000,
+        tax: 0,
+        total: 5000000,
+        status: 'paid',
+        issue_date: '2025-12-01',
+        due_date: '2025-12-15',
+        paid_at: '2025-12-10T14:00:00Z',
+        items: [
+            { description: 'SEO Website tháng 12/2025', quantity: 1, price: 5000000 }
+        ]
+    },
+    {
+        id: 'inv-4',
+        invoice_number: 'INV-2026-002',
+        project: { name: 'SEO Website tháng 1' },
+        amount: 5000000,
+        tax: 0,
+        total: 5000000,
+        status: 'sent',
+        issue_date: '2026-01-01',
+        due_date: '2026-01-15',
+        items: [
+            { description: 'SEO Website tháng 01/2026', quantity: 1, price: 5000000 }
+        ]
+    },
+    {
+        id: 'inv-5',
+        invoice_number: 'INV-2025-054',
+        project: { name: 'Quản lý Fanpage tháng 11' },
+        amount: 3000000,
+        tax: 0,
+        total: 3000000,
+        status: 'paid',
+        issue_date: '2025-11-01',
+        due_date: '2025-11-15',
+        paid_at: '2025-11-12T09:00:00Z',
+        items: [
+            { description: 'Quản lý Fanpage tháng 11/2025', quantity: 1, price: 3000000 }
+        ]
+    },
+    {
+        id: 'inv-6',
+        invoice_number: 'INV-2026-003',
+        project: { name: 'Google Ads - Tết 2026' },
+        amount: 20000000,
+        tax: 0,
+        total: 20000000,
+        status: 'draft',
+        issue_date: null,
+        due_date: null,
+        items: [
+            { description: 'Chiến dịch Google Ads Tết 2026', quantity: 1, price: 20000000 }
+        ]
+    }
+];
+
+// ================================================
+// TOAST NOTIFICATION SYSTEM
+// ================================================
+
+class ToastManager {
+    constructor() {
+        this.container = null;
+        this.init();
+    }
+
+    init() {
+        if (!document.getElementById('toast-container')) {
+            this.container = document.createElement('div');
+            this.container.id = 'toast-container';
+            this.container.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            `;
+            document.body.appendChild(this.container);
+        } else {
+            this.container = document.getElementById('toast-container');
+        }
+    }
+
+    show(message, type = 'info', duration = 4000) {
+        const toast = document.createElement('div');
+        const colors = {
+            success: { bg: '#D4EDDA', color: '#155724', icon: 'check_circle' },
+            error: { bg: '#F8D7DA', color: '#721C24', icon: 'error' },
+            warning: { bg: '#FFF3CD', color: '#856404', icon: 'warning' },
+            info: { bg: '#CCE5FF', color: '#004085', icon: 'info' }
+        };
+        const style = colors[type] || colors.info;
+
+        toast.innerHTML = `
+            <span class="material-symbols-outlined" style="font-size: 20px;">${style.icon}</span>
+            <span>${message}</span>
+        `;
+        toast.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: ${style.bg};
+            color: ${style.color};
+            border-radius: 8px;
+            font-family: 'Google Sans', sans-serif;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: slideUp 0.3s ease-out;
+        `;
+
+        this.container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideDown 0.3s ease-in';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    }
+}
+
+// Add animation styles
+const toastStyles = document.createElement('style');
+toastStyles.textContent = `
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(20px); }
+    }
+`;
+document.head.appendChild(toastStyles);
+
+const toast = new ToastManager();
+
+// ================================================
+// MODAL SYSTEM
+// ================================================
+
+class ModalManager {
+    constructor() {
+        this.overlay = null;
+        this.init();
+    }
+
+    init() {
+        if (!document.getElementById('modal-overlay')) {
+            this.overlay = document.createElement('div');
+            this.overlay.id = 'modal-overlay';
+            this.overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9998;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                padding: 24px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            this.overlay.addEventListener('click', (e) => {
+                if (e.target === this.overlay) this.close();
+            });
+            document.body.appendChild(this.overlay);
+        } else {
+            this.overlay = document.getElementById('modal-overlay');
+        }
+    }
+
+    open(content) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-content';
+        modal.style.cssText = `
+            background: var(--md-sys-color-surface, #fff);
+            border-radius: 28px;
+            max-width: 560px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        `;
+        modal.innerHTML = content;
+
+        this.overlay.innerHTML = '';
+        this.overlay.appendChild(modal);
+        this.overlay.style.display = 'flex';
+
+        requestAnimationFrame(() => {
+            this.overlay.style.opacity = '1';
+            modal.style.transform = 'scale(1)';
+        });
+
+        // Handle close button
+        modal.querySelector('.modal-close')?.addEventListener('click', () => this.close());
+    }
+
+    close() {
+        if (!this.overlay) return;
+        const modal = this.overlay.querySelector('.modal-content');
+        this.overlay.style.opacity = '0';
+        if (modal) modal.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.overlay.style.display = 'none';
+            this.overlay.innerHTML = '';
+        }, 300);
+    }
+}
+
+const modal = new ModalManager();
+
+// ================================================
+// PROJECT DETAIL MODAL
+// ================================================
+
+function showProjectDetail(project) {
+    const typeLabels = {
+        ads: 'Quảng cáo',
+        seo: 'SEO',
+        design: 'Thiết kế',
+        social: 'Social Media',
+        web: 'Website',
+        consulting: 'Tư vấn',
+        other: 'Khác'
+    };
+
+    const statusLabels = {
+        planning: 'Chuẩn bị',
+        active: 'Đang chạy',
+        paused: 'Tạm dừng',
+        completed: 'Hoàn thành',
+        cancelled: 'Đã hủy'
+    };
+
+    const milestonesHTML = project.milestones ? project.milestones.map((m, i) => `
+        <div style="display: flex; align-items: center; gap: 12px; padding: 8px 0;">
+            <span class="material-symbols-outlined" style="color: ${m.completed ? '#2E7D32' : '#9E9E9E'}; font-size: 20px;">
+                ${m.completed ? 'check_circle' : 'radio_button_unchecked'}
+            </span>
+            <span style="flex: 1; ${m.completed ? 'text-decoration: line-through; color: #9E9E9E;' : ''}">${m.name}</span>
+        </div>
+    `).join('') : '<p style="color: #9E9E9E;">Không có milestones</p>';
+
+    modal.open(`
+        <div style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <span class="project-type ${project.type}" style="padding: 4px 12px; border-radius: 999px; font-size: 12px;">
+                            ${typeLabels[project.type] || project.type}
+                        </span>
+                        <span class="status-badge ${project.status}" style="padding: 4px 12px; border-radius: 999px; font-size: 12px;">
+                            ${statusLabels[project.status] || project.status}
+                        </span>
+                    </div>
+                    <h2 style="margin: 0; font-size: 24px;">${project.name}</h2>
+                </div>
+                <button class="modal-close" style="background: none; border: none; cursor: pointer; padding: 8px;">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <p style="color: var(--md-sys-color-on-surface-variant, #666); margin-bottom: 24px;">
+                ${project.description || 'Không có mô tả'}
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+                <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Ngân sách</div>
+                    <div style="font-size: 18px; font-weight: 500;">${formatCurrency(project.budget)}</div>
+                </div>
+                <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Đã chi tiêu</div>
+                    <div style="font-size: 18px; font-weight: 500;">${formatCurrency(project.spent)}</div>
+                </div>
+                <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Bắt đầu</div>
+                    <div style="font-size: 16px;">${project.start_date ? formatDate(project.start_date) : '--'}</div>
+                </div>
+                <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Kết thúc</div>
+                    <div style="font-size: 16px;">${project.end_date ? formatDate(project.end_date) : '--'}</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-weight: 500;">Tiến độ</span>
+                    <span style="font-weight: 500;">${project.progress}%</span>
+                </div>
+                <div style="height: 12px; background: #E0E0E0; border-radius: 6px; overflow: hidden;">
+                    <div style="height: 100%; width: ${project.progress}%; background: linear-gradient(90deg, #006A60, #00897B); border-radius: 6px; transition: width 0.5s ease;"></div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-size: 16px; margin-bottom: 12px;">📌 Milestones</h3>
+                ${milestonesHTML}
+            </div>
+        </div>
+    `);
+}
+
+// ================================================
+// INVOICE DETAIL MODAL
+// ================================================
+
+function showInvoiceDetail(invoice) {
+    const statusLabels = {
+        draft: { text: 'Nháp', class: 'draft' },
+        sent: { text: 'Chờ thanh toán', class: 'pending' },
+        paid: { text: 'Đã thanh toán', class: 'paid' },
+        overdue: { text: 'Quá hạn', class: 'overdue' },
+        cancelled: { text: 'Đã hủy', class: 'draft' }
+    };
+    const status = statusLabels[invoice.status] || statusLabels.draft;
+
+    const itemsHTML = invoice.items ? invoice.items.map(item => `
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">${item.description}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: center;">${item.quantity}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: right;">${formatCurrency(item.price)}</td>
+        </tr>
+    `).join('') : '';
+
+    modal.open(`
+        <div style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
+                <div>
+                    <span class="status-pill ${status.class}" style="margin-bottom: 8px; display: inline-block;">
+                        ${status.text}
+                    </span>
+                    <h2 style="margin: 0; font-size: 24px;">${invoice.invoice_number}</h2>
+                    <p style="color: #666; margin: 8px 0 0 0;">${invoice.project?.name || 'Dự án không xác định'}</p>
+                </div>
+                <button class="modal-close" style="background: none; border: none; cursor: pointer; padding: 8px;">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+                <div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Ngày tạo</div>
+                    <div style="font-size: 16px;">${invoice.issue_date ? formatDate(invoice.issue_date) : '--'}</div>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Hạn thanh toán</div>
+                    <div style="font-size: 16px;">${invoice.due_date ? formatDate(invoice.due_date) : '--'}</div>
+                </div>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+                <thead>
+                    <tr style="background: #f5f5f5;">
+                        <th style="padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase;">Mô tả</th>
+                        <th style="padding: 12px; text-align: center; font-size: 12px; text-transform: uppercase;">SL</th>
+                        <th style="padding: 12px; text-align: right; font-size: 12px; text-transform: uppercase;">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${itemsHTML}
+                </tbody>
+            </table>
+
+            <div style="background: #f5f5f5; padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span>Tạm tính</span>
+                    <span>${formatCurrency(invoice.amount)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span>Thuế VAT</span>
+                    <span>${formatCurrency(invoice.tax || 0)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; padding-top: 8px; border-top: 1px solid #ddd;">
+                    <span>Tổng cộng</span>
+                    <span style="color: var(--md-sys-color-primary, #006A60);">${formatCurrency(invoice.total)}</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+                <button id="downloadInvoice" class="btn btn-outlined" style="flex: 1; padding: 12px; border: 2px solid #006A60; background: transparent; color: #006A60; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span class="material-symbols-outlined">download</span>
+                    Tải PDF
+                </button>
+                ${invoice.status === 'sent' || invoice.status === 'overdue' ? `
+                <button id="markAsPaid" data-invoice-id="${invoice.id}" class="btn btn-filled" style="flex: 1; padding: 12px; background: #006A60; color: white; border: none; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Đã thanh toán
+                </button>
+                ` : ''}
+            </div>
+        </div>
+    `);
+
+    // Bind button actions
+    document.getElementById('downloadInvoice')?.addEventListener('click', () => downloadInvoicePDF(invoice));
+    document.getElementById('markAsPaid')?.addEventListener('click', () => markInvoiceAsPaid(invoice.id));
+}
+
+// ================================================
+// INVOICE ACTIONS
+// ================================================
+
+async function downloadInvoicePDF(invoice) {
+    toast.show('Đang tạo file PDF...', 'info');
+
+    // Simulate PDF generation delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // In production, this would call an API to generate PDF
+    // For demo, show success message
+    toast.show(`Đã tải xuống ${invoice.invoice_number}.pdf`, 'success');
+
+    // Close modal if needed
+    modal.close();
+}
+
+async function markInvoiceAsPaid(invoiceId) {
+    const confirmed = confirm('Xác nhận đã thanh toán hóa đơn này?');
+    if (!confirmed) return;
+
+    toast.show('Đang cập nhật...', 'info');
+
+    try {
+        // Check if demo mode
+        const user = await auth.getUser();
+
+        if (!user) {
+            // Demo mode - update local data
+            const invoice = DEMO_INVOICES.find(i => i.id === invoiceId);
+            if (invoice) {
+                invoice.status = 'paid';
+                invoice.paid_at = new Date().toISOString();
+            }
+        } else {
+            // Live mode - update Supabase
+            await invoices.markAsPaid(invoiceId);
+        }
+
+        toast.show('Đã cập nhật trạng thái hóa đơn!', 'success');
+        modal.close();
+
+        // Refresh the invoice list
+        if (typeof loadInvoices === 'function') {
+            loadInvoices();
+        } else {
+            // Reload page if function not available
+            setTimeout(() => window.location.reload(), 1000);
+        }
+    } catch (error) {
+        console.error('Error marking invoice as paid:', error);
+        toast.show('Có lỗi xảy ra. Vui lòng thử lại!', 'error');
+    }
+}
+
+// ================================================
+// UTILITY FUNCTIONS
+// ================================================
+
+function formatCurrency(amount) {
+    if (!amount && amount !== 0) return '--';
+    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+}
+
+function formatDate(dateStr) {
+    if (!dateStr) return '--';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+// ================================================
+// DATA LOADING FUNCTIONS
+// ================================================
+
+async function loadProjects(gridElement, filterStatus = 'all') {
+    try {
+        const user = await auth.getUser();
+        let projectData;
+
+        if (!user) {
+            // Demo mode
+            projectData = DEMO_PROJECTS;
+        } else {
+            // Live mode
+            const { data, error } = await projects.getAll();
+            if (error) throw error;
+            projectData = data || [];
+        }
+
+        // Apply filter
+        if (filterStatus !== 'all') {
+            const statusMap = {
+                'active': 'active',
+                'completed': 'completed',
+                'paused': 'paused'
+            };
+            projectData = projectData.filter(p => p.status === statusMap[filterStatus]);
+        }
+
+        renderProjects(gridElement, projectData);
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        toast.show('Không thể tải danh sách dự án', 'error');
+    }
+}
+
+async function loadInvoices(tableElement) {
+    try {
+        const user = await auth.getUser();
+        let invoiceData;
+
+        if (!user) {
+            // Demo mode
+            invoiceData = DEMO_INVOICES;
+        } else {
+            // Live mode
+            const { data, error } = await invoices.getAll();
+            if (error) throw error;
+            invoiceData = data || [];
+        }
+
+        renderInvoices(tableElement, invoiceData);
+        updateInvoiceStats(invoiceData);
+    } catch (error) {
+        console.error('Error loading invoices:', error);
+        toast.show('Không thể tải danh sách hóa đơn', 'error');
+    }
+}
+
+async function loadDashboard() {
+    try {
+        const user = await auth.getUser();
+
+        if (!user) {
+            // Demo mode - use static data already in HTML
+            toast.show('Đang xem ở chế độ Demo', 'info');
+        } else {
+            // Live mode - fetch real stats
+            const [projectStats, invoiceStats] = await Promise.all([
+                projects.getAll(),
+                invoices.getStats()
+            ]);
+
+            // Update stats cards
+            // (Implementation would update DOM elements with real data)
+        }
+    } catch (error) {
+        console.error('Error loading dashboard:', error);
+    }
+}
+
+// ================================================
+// RENDER FUNCTIONS
+// ================================================
+
+function renderProjects(container, projectList) {
+    if (!container) return;
+
+    const typeLabels = {
+        ads: 'Quảng cáo',
+        seo: 'SEO',
+        design: 'Thiết kế',
+        social: 'Social Media'
+    };
+
+    const statusLabels = {
+        active: { text: 'Đang chạy', class: 'active', icon: 'circle' },
+        completed: { text: 'Hoàn thành', class: 'completed', icon: 'check_circle' },
+        paused: { text: 'Tạm dừng', class: 'paused', icon: 'pause_circle' }
+    };
+
+    container.innerHTML = projectList.map(project => {
+        const status = statusLabels[project.status] || statusLabels.active;
+        return `
+            <div class="card card-elevated project-card" data-project-id="${project.id}">
+                <div class="project-header">
+                    <span class="project-type ${project.type}">${typeLabels[project.type] || project.type}</span>
+                    <span class="status-badge ${status.class}">
+                        <span class="material-symbols-outlined" style="font-size: 12px;">${status.icon}</span>
+                        ${status.text}
+                    </span>
+                </div>
+                <h3 class="project-title">${project.name}</h3>
+                <p class="project-description">${project.description || ''}</p>
+                <div class="project-meta">
+                    <div class="project-meta-item">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        ${project.start_date ? formatDate(project.start_date) : '--'} - ${project.end_date ? formatDate(project.end_date) : '--'}
+                    </div>
+                    <div class="project-meta-item">
+                        <span class="material-symbols-outlined">payments</span>
+                        ${formatCurrency(project.budget)}
+                    </div>
+                </div>
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span class="label-medium">Tiến độ</span>
+                        <span class="label-medium">${project.progress}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${project.progress}%;"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Bind click events
+    container.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.dataset.projectId;
+            const project = projectList.find(p => p.id === projectId);
+            if (project) showProjectDetail(project);
+        });
+    });
+}
+
+function renderInvoices(tableBody, invoiceList) {
+    if (!tableBody) return;
+
+    const statusLabels = {
+        draft: { text: 'Nháp', class: 'draft' },
+        sent: { text: 'Chờ thanh toán', class: 'pending' },
+        paid: { text: 'Đã thanh toán', class: 'paid' },
+        overdue: { text: 'Quá hạn', class: 'overdue' }
+    };
+
+    tableBody.innerHTML = invoiceList.map(invoice => {
+        const status = statusLabels[invoice.status] || statusLabels.draft;
+        return `
+            <tr data-invoice-id="${invoice.id}">
+                <td><span class="invoice-id">${invoice.invoice_number}</span></td>
+                <td>${invoice.project?.name || '--'}</td>
+                <td>${invoice.issue_date ? formatDate(invoice.issue_date) : '--'}</td>
+                <td>${invoice.due_date ? formatDate(invoice.due_date) : '--'}</td>
+                <td><span class="amount">${formatCurrency(invoice.total)}</span></td>
+                <td><span class="status-pill ${status.class}">${status.text}</span></td>
+                <td>
+                    <div class="invoice-actions">
+                        <button class="action-btn view-btn" title="Xem chi tiết">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                        <button class="action-btn download-btn" title="Tải PDF">
+                            <span class="material-symbols-outlined">download</span>
+                        </button>
+                        ${invoice.status === 'sent' || invoice.status === 'overdue' ? `
+                        <button class="action-btn pay-btn" title="Đánh dấu đã thanh toán">
+                            <span class="material-symbols-outlined">check_circle</span>
+                        </button>
+                        ` : ''}
+                    </div>
+                </td>
+            </tr>
+        `;
+    }).join('');
+
+    // Bind action buttons
+    tableBody.querySelectorAll('tr').forEach(row => {
+        const invoiceId = row.dataset.invoiceId;
+        const invoice = invoiceList.find(i => i.id === invoiceId);
+
+        row.querySelector('.view-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (invoice) showInvoiceDetail(invoice);
+        });
+
+        row.querySelector('.download-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (invoice) downloadInvoicePDF(invoice);
+        });
+
+        row.querySelector('.pay-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (invoice) markInvoiceAsPaid(invoice.id);
+        });
+    });
+}
+
+function updateInvoiceStats(invoiceList) {
+    const stats = {
+        total: invoiceList.reduce((sum, i) => sum + (i.total || 0), 0),
+        paid: invoiceList.filter(i => i.status === 'paid').reduce((sum, i) => sum + (i.total || 0), 0),
+        pending: invoiceList.filter(i => i.status === 'sent' || i.status === 'overdue').reduce((sum, i) => sum + (i.total || 0), 0)
+    };
+
+    // Update stat cards if they exist
+    const statCards = document.querySelectorAll('.invoice-stat-value');
+    if (statCards.length >= 3) {
+        statCards[0].textContent = formatCurrency(stats.total);
+        statCards[1].textContent = formatCurrency(stats.paid);
+        statCards[2].textContent = formatCurrency(stats.pending);
+    }
+}
+
+// ================================================
+// AUTO-INITIALIZATION
+// ================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Detect which page we're on and initialize accordingly
+    const path = window.location.pathname;
+
+    if (path.includes('projects.html')) {
+        const grid = document.getElementById('projectsGrid');
+        if (grid) {
+            loadProjects(grid);
+
+            // Bind filter buttons
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+
+                    const filterText = chip.textContent.trim();
+                    const filterMap = {
+                        'Tất cả': 'all',
+                        'Đang chạy': 'active',
+                        'Hoàn thành': 'completed',
+                        'Tạm dừng': 'paused'
+                    };
+                    loadProjects(grid, filterMap[filterText] || 'all');
+                });
+            });
+        }
+    }
+
+    if (path.includes('invoices.html')) {
+        const table = document.querySelector('.invoice-table tbody');
+        if (table) {
+            loadInvoices(table);
+        }
+    }
+
+    if (path.includes('dashboard.html')) {
+        loadDashboard();
+    }
+});
+
+// ================================================
+// EXPORTS
+// ================================================
+
+export {
+    toast,
+    modal,
+    showProjectDetail,
+    showInvoiceDetail,
+    downloadInvoicePDF,
+    markInvoiceAsPaid,
+    loadProjects,
+    loadInvoices,
+    loadDashboard,
+    formatCurrency,
+    formatDate,
+    DEMO_PROJECTS,
+    DEMO_INVOICES
+};

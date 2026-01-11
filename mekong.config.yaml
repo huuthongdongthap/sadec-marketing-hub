@@ -1,0 +1,134 @@
+# AgencyOS Mekong CLI Configuration
+# Sa Đéc Marketing Hub
+
+project:
+  name: sadec-marketing-hub
+  version: 1.0.0
+  description: "Sa Đéc Marketing Hub - Digital Marketing Agency"
+
+# Agent Configuration
+agents:
+  planner:
+    enabled: true
+    auto_execute: true
+  fullstack_developer:
+    enabled: true
+    stack:
+      - html
+      - css
+      - javascript
+      - supabase
+  researcher:
+    enabled: true
+    sources:
+      - academic
+      - industry
+      - local-market
+  scout:
+    enabled: true
+    codebase_path: ./
+  tester:
+    enabled: true
+    coverage_threshold: 80
+  debugger:
+    enabled: true
+  git_manager:
+    enabled: true
+    commit_style: conventional
+
+# Business Suites Configuration
+suites:
+  marketing:
+    ke_hoach_tiep_thi:
+      default_budget: "10M VND"
+      default_duration: "Q1-2026"
+    seo:
+      domain: "sadecmarketinghub.com"
+      keywords:
+        - "marketing sa đéc"
+        - "quảng cáo đồng tháp"
+        - "digital marketing mekong"
+    pr:
+      platforms:
+        - facebook
+        - zalo
+        - tiktok
+      
+  sales:
+    leadgen:
+      sources:
+        - facebook
+        - zalo
+        - website
+      segments:
+        - local-sme
+        - retailers
+        - restaurants
+    crm:
+      platform: supabase
+      tables:
+        - contacts
+        - leads
+        - deals
+        - activities
+      
+  finance:
+    budget:
+      tracking: true
+      currency: VND
+    reports:
+      frequency: monthly
+      
+  strategic:
+    binh_phap:
+      enabled: true
+      region: dong-thap
+      competitors:
+        - local-agencies
+    intel:
+      depth: comprehensive
+      industry: sme-services
+    crisis:
+      scenarios:
+        - market-downturn
+        - competitor-attack
+        - reputation-risk
+
+# WIN³ Framework
+win3:
+  owner:
+    metrics:
+      - time-saved
+      - roi
+      - efficiency
+  agency:
+    metrics:
+      - consistency
+      - quality
+      - delivery-speed
+  client:
+    metrics:
+      - satisfaction
+      - conversion
+      - retention
+  dashboard:
+    enabled: true
+    output: reports/win3-dashboard.html
+
+# Material Design 3 Configuration
+design:
+  system: material-design-3
+  cdn: "https://esm.run/@material/web/"
+  typography:
+    font_family: "Roboto, sans-serif"
+  theme:
+    primary: "#6442d6"
+    on_primary: "#ffffff"
+    secondary: "#5d5d74"
+    surface: "#fefbff"
+
+# Deployment
+deploy:
+  platform: vercel
+  domain: sadecmarketinghub.com
+  environment: production

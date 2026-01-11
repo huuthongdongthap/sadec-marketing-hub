@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Readiness - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #64FFDA;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #64FFDA, #00BFA5);
+            color: #0a192f;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64FFDA;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #CCD6F6;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: #8892B0;
+        }
+
+        /* ===== READINESS SCORE ===== */
+        .readiness-card {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 191, 165, 0.05));
+            border: 2px solid #64FFDA;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .readiness-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .readiness-score {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid rgba(100, 255, 218, 0.2);
+            margin: 0 auto 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            border: 8px solid transparent;
+            border-top-color: #64FFDA;
+            border-right-color: #64FFDA;
+            border-bottom-color: #64FFDA;
+            transform: rotate(-36deg);
+        }
+
+        .score-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #64FFDA;
+            line-height: 1;
+        }
+
+        .score-max {
+            font: var(--md-sys-typescale-title-medium);
+            color: #8892B0;
+        }
+
+        .score-status {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(100, 255, 218, 0.2);
+            color: #64FFDA;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-title-small);
+            font-weight: 600;
+        }
+
+        .score-status.ready {
+            background: rgba(100, 255, 218, 0.2);
+            color: #64FFDA;
+        }
+
+        .score-status.almost {
+            background: rgba(255, 184, 108, 0.2);
+            color: #FFB86C;
+        }
+
+        .score-status.not-ready {
+            background: rgba(255, 85, 85, 0.2);
+            color: #FF5555;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(17, 34, 64, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #CCD6F6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== METRICS GRID ===== */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .metric-icon.mrr {
+            background: rgba(100, 255, 218, 0.2);
+            color: #64FFDA;
+        }
+
+        .metric-icon.growth {
+            background: rgba(189, 147, 249, 0.2);
+            color: #BD93F9;
+        }
+
+        .metric-icon.ltv {
+            background: rgba(139, 233, 253, 0.2);
+            color: #8BE9FD;
+        }
+
+        .metric-icon.cac {
+            background: rgba(255, 184, 108, 0.2);
+            color: #FFB86C;
+        }
+
+        .metric-icon.churn {
+            background: rgba(255, 85, 85, 0.2);
+            color: #FF5555;
+        }
+
+        .metric-value {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #CCD6F6;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: #8892B0;
+        }
+
+        .metric-change {
+            font: var(--md-sys-typescale-label-small);
+            margin-top: 8px;
+        }
+
+        .metric-change.up {
+            color: #64FFDA;
+        }
+
+        .metric-change.down {
+            color: #FF5555;
+        }
+
+        /* ===== DATA ROOM ===== */
+        .data-room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .data-room-folder {
+            background: rgba(100, 255, 218, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .data-room-folder:hover {
+            border-color: #64FFDA;
+            transform: translateY(-4px);
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .folder-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(100, 255, 218, 0.1);
+            color: #64FFDA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .folder-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #CCD6F6;
+        }
+
+        .folder-files {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .folder-file {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-label-small);
+            color: #8892B0;
+        }
+
+        .folder-file::before {
+            content: '📄';
+            font-size: 12px;
+        }
+
+        .folder-status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            margin-top: 8px;
+        }
+
+        .folder-status.complete {
+            background: rgba(100, 255, 218, 0.2);
+            color: #64FFDA;
+        }
+
+        .folder-status.pending {
+            background: rgba(255, 184, 108, 0.2);
+            color: #FFB86C;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(100, 255, 218, 0.03);
+            border-radius: 12px;
+        }
+
+        .check-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .check-icon.pass {
+            background: rgba(100, 255, 218, 0.2);
+            color: #64FFDA;
+        }
+
+        .check-icon.warn {
+            background: rgba(255, 184, 108, 0.2);
+            color: #FFB86C;
+        }
+
+        .check-icon.fail {
+            background: rgba(255, 85, 85, 0.2);
+            color: #FF5555;
+        }
+
+        .check-text {
+            flex: 1;
+            font: var(--md-sys-typescale-body-medium);
+            color: #CCD6F6;
+        }
+
+        /* ===== PITCH DECK SLIDES ===== */
+        .slides-row {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+        }
+
+        .slide-card {
+            flex-shrink: 0;
+            width: 160px;
+            height: 100px;
+            background: linear-gradient(135deg, #1a365d, #0a192f);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slide-card:hover {
+            border-color: #64FFDA;
+            transform: scale(1.05);
+        }
+
+        .slide-number {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #64FFDA;
+        }
+
+        .slide-title {
+            font: var(--md-sys-typescale-label-small);
+            color: #8892B0;
+            text-align: center;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #64FFDA, #00BFA5);
+            color: #0a192f;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(100, 255, 218, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #64FFDA;
+            border: 1px solid #64FFDA;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .metric-card,
+        .data-room-folder,
+        .checklist-item {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                VC Ready
+            </a>
+            <span class="sidebar-badge">FUNDRAISE</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="vc-readiness.html" class="nav-item active">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    VC Readiness
+                </a>
+                <a href="binh-phap.html" class="nav-item">
+                    <span class="material-symbols-outlined">psychology</span>
+                    Binh Pháp
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💸 VC Readiness Dashboard</div>
+                    <div class="page-subtitle">Prepare for your next funding round</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="runAssessment()">
+                        <span class="material-symbols-outlined">assessment</span>
+                        Re-assess
+                    </button>
+                    <button class="btn btn-primary" onclick="generatePitch()">
+                        <span class="material-symbols-outlined">slideshow</span>
+                        Generate Pitch
+                    </button>
+                </div>
+            </div>
+
+            <!-- Readiness Score -->
+            <div class="readiness-card">
+                <div class="readiness-score">
+                    <div class="score-circle">
+                        <div class="score-value">82</div>
+                        <div class="score-max">/ 100</div>
+                    </div>
+                    <div class="score-status ready">✅ READY FOR SEED</div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Investor Metrics
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Updating metrics...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Refresh
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon mrr">💰</div>
+                            <div class="metric-value">$50K</div>
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-change up">↑ 15% MoM</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon growth">📈</div>
+                            <div class="metric-value">15%</div>
+                            <div class="metric-label">Growth Rate</div>
+                            <div class="metric-change up">↑ 3% vs last</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon ltv">👤</div>
+                            <div class="metric-value">$2,400</div>
+                            <div class="metric-label">LTV</div>
+                            <div class="metric-change up">↑ 12x CAC</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon cac">🎯</div>
+                            <div class="metric-value">$200</div>
+                            <div class="metric-label">CAC</div>
+                            <div class="metric-change up">↓ 8% improved</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon churn">📉</div>
+                            <div class="metric-value">3%</div>
+                            <div class="metric-label">Monthly Churn</div>
+                            <div class="metric-change up">↓ below target</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Room -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">folder</span>
+                        Data Room
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Opening data room...', 'info')">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        Open
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="data-room-grid">
+                        <div class="data-room-folder" onclick="showToast('Opening Executive Summary...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="folder-name">01 Executive Summary</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">one-pager.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Financials...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">attach_money</span>
+                                </div>
+                                <div class="folder-name">02 Financials</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">p&l-12mo.xlsx</div>
+                                <div class="folder-file">projections-3yr.xlsx</div>
+                                <div class="folder-file">cap-table.xlsx</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Metrics...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">bar_chart</span>
+                                </div>
+                                <div class="folder-name">03 Metrics</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">kpi-dashboard.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Team...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">groups</span>
+                                </div>
+                                <div class="folder-name">04 Team</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">org-chart.pdf</div>
+                            </div>
+                            <span class="folder-status pending">⏳ Pending</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Product...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div class="folder-name">05 Product</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">roadmap.pdf</div>
+                                <div class="folder-file">demo-video.mp4</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Legal...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">gavel</span>
+                                </div>
+                                <div class="folder-name">06 Legal</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">incorporation.pdf</div>
+                                <div class="folder-file">ip-assignments.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pitch Deck -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">slideshow</span>
+                        Pitch Deck (12 Slides)
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Downloading pitch deck...', 'success')">
+                        <span class="material-symbols-outlined">download</span>
+                        Export PDF
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="slides-row">
+                        <div class="slide-card">
+                            <div class="slide-number">1</div>
+                            <div class="slide-title">Title</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">2</div>
+                            <div class="slide-title">Problem</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">3</div>
+                            <div class="slide-title">Solution</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">4</div>
+                            <div class="slide-title">Market Size</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">5</div>
+                            <div class="slide-title">Product</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">6</div>
+                            <div class="slide-title">Traction</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">7</div>
+                            <div class="slide-title">Business Model</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">8</div>
+                            <div class="slide-title">Competition</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">9</div>
+                            <div class="slide-title">Team</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">10</div>
+                            <div class="slide-title">Financials</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">11</div>
+                            <div class="slide-title">The Ask</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">12</div>
+                            <div class="slide-title">Contact</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anti-Dilution Checklist -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">verified_user</span>
+                        Anti-Dilution Checklist
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="checklist-grid">
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">1x Liquidation Preference</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Broad-based Weighted Average</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Founder-friendly Vesting</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon warn">⚠</div>
+                            <span class="check-text">Investor Board Seat (Review)</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">No Full Ratchet</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Pro-rata Rights OK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function runAssessment() {
+            showToast('🔍 Running VC readiness assessment...', 'info');
+            setTimeout(() => {
+                showToast('✅ Score: 82/100 - Ready for Seed Round!', 'success');
+            }, 2000);
+        }
+
+        function generatePitch() {
+            showToast('📊 Generating 12-slide pitch deck...', 'info');
+            setTimeout(() => {
+                showToast('✅ Pitch deck generated: seed-pitch.pdf', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(100, 255, 218, 0.95)', color: '#0a192f' },
+                error: { bg: 'rgba(255, 85, 85, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(255, 184, 108, 0.95)', color: '#0a192f' },
+                info: { bg: 'rgba(139, 233, 253, 0.95)', color: '#0a192f' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

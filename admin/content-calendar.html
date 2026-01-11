@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Calendar - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1e3a5f 0%, #0d1b2a 100%);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 24px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: #FF7F50;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #FF7F50, #FF6347);
+            color: #fff;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(255, 127, 80, 0.2);
+            color: #FF7F50;
+            border: 1px solid rgba(255, 127, 80, 0.3);
+        }
+
+        .main-content {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e3a5f 100%);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon.scheduled {
+            background: rgba(255, 127, 80, 0.2);
+            color: #FF7F50;
+        }
+
+        .stat-icon.published {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .stat-icon.drafts {
+            background: rgba(245, 158, 11, 0.2);
+            color: #F59E0B;
+        }
+
+        .stat-icon.engagement {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3B82F6;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-body {
+            padding: 24px;
+        }
+
+        /* ===== CONTENT PILLARS ===== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .pillar-card.educational::before {
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+        }
+
+        .pillar-card.casestudies::before {
+            background: linear-gradient(90deg, #10B981, #34D399);
+        }
+
+        .pillar-card.behindscenes::before {
+            background: linear-gradient(90deg, #F59E0B, #FBBF24);
+        }
+
+        .pillar-card.promotional::before {
+            background: linear-gradient(90deg, #EF4444, #F87171);
+        }
+
+        .pillar-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .pillar-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .pillar-percent {
+            font: var(--md-sys-typescale-headline-small);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pillar-percent.educational {
+            color: #3B82F6;
+        }
+
+        .pillar-percent.casestudies {
+            color: #10B981;
+        }
+
+        .pillar-percent.behindscenes {
+            color: #F59E0B;
+        }
+
+        .pillar-percent.promotional {
+            color: #EF4444;
+        }
+
+        .pillar-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .pillar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .pillar-fill.educational {
+            background: #3B82F6;
+        }
+
+        .pillar-fill.casestudies {
+            background: #10B981;
+        }
+
+        .pillar-fill.behindscenes {
+            background: #F59E0B;
+        }
+
+        .pillar-fill.promotional {
+            background: #EF4444;
+        }
+
+        /* ===== WEEKLY CALENDAR ===== */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .day-column {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .day-name {
+            font: var(--md-sys-typescale-title-small);
+            color: #fff;
+        }
+
+        .day-date {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .day-body {
+            padding: 12px;
+            min-height: 200px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .content-type {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .type-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 500;
+        }
+
+        .type-badge.blog {
+            background: rgba(255, 127, 80, 0.2);
+            color: #FF7F50;
+        }
+
+        .type-badge.twitter {
+            background: rgba(29, 155, 240, 0.2);
+            color: #1DA1F2;
+        }
+
+        .type-badge.linkedin {
+            background: rgba(0, 119, 181, 0.2);
+            color: #0077B5;
+        }
+
+        .type-badge.youtube {
+            background: rgba(255, 0, 0, 0.2);
+            color: #FF0000;
+        }
+
+        .type-badge.newsletter {
+            background: rgba(168, 85, 247, 0.2);
+            color: #A855F7;
+        }
+
+        .content-title {
+            font: var(--md-sys-typescale-body-small);
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .content-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status-dot.scheduled {
+            background: #F59E0B;
+        }
+
+        .status-dot.published {
+            background: #10B981;
+        }
+
+        .status-dot.draft {
+            background: #6B7280;
+        }
+
+        /* ===== PLATFORM INTEGRATION ===== */
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .platform-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .platform-card:hover {
+            border-color: #FF7F50;
+        }
+
+        .platform-card.connected {
+            border-color: #10B981;
+        }
+
+        .platform-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .platform-logo.notion {
+            background: #000;
+            color: #fff;
+        }
+
+        .platform-logo.twitter {
+            background: #1DA1F2;
+            color: #fff;
+        }
+
+        .platform-logo.linkedin {
+            background: #0077B5;
+            color: #fff;
+        }
+
+        .platform-logo.youtube {
+            background: #FF0000;
+            color: #fff;
+        }
+
+        .platform-logo.substack {
+            background: #FF6719;
+            color: #fff;
+        }
+
+        .platform-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .platform-status {
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .platform-status.connected {
+            color: #10B981;
+        }
+
+        .platform-status.disconnected {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF7F50, #FF6347);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(255, 127, 80, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF7F50;
+            border: 1px solid #FF7F50;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 127, 80, 0.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .pillar-card,
+        .day-column,
+        .platform-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">calendar_month</span>
+                Content
+            </a>
+            <span class="sidebar-badge">CALENDAR</span>
+
+            <nav>
+                <a href="dashboard.html" class="nav-item">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="content-calendar.html" class="nav-item active">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    Content Calendar
+                </a>
+                <a href="campaigns.html" class="nav-item">
+                    <span class="material-symbols-outlined">campaign</span>
+                    Campaigns
+                </a>
+                <a href="pipeline.html" class="nav-item">
+                    <span class="material-symbols-outlined">conversion_path</span>
+                    Sales Pipeline
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">📅 Content Calendar</div>
+                    <div class="page-subtitle">January 2026 • Week 2</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="generateContent()">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        AI Generate
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Creating new content...', 'info')">
+                        <span class="material-symbols-outlined">add</span>
+                        New Content
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon scheduled">
+                        <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                    <div class="stat-value">32</div>
+                    <div class="stat-label">Scheduled</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon published">
+                        <span class="material-symbols-outlined">check_circle</span>
+                    </div>
+                    <div class="stat-value">48</div>
+                    <div class="stat-label">Published</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon drafts">
+                        <span class="material-symbols-outlined">edit_note</span>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Drafts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon engagement">
+                        <span class="material-symbols-outlined">trending_up</span>
+                    </div>
+                    <div class="stat-value">23K</div>
+                    <div class="stat-label">Engagement</div>
+                </div>
+            </div>
+
+            <!-- Content Pillars -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">category</span>
+                        Content Pillars
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="pillars-grid">
+                        <div class="pillar-card educational">
+                            <div class="pillar-icon">📚</div>
+                            <div class="pillar-name">Educational</div>
+                            <div class="pillar-percent educational">40%</div>
+                            <div class="pillar-bar">
+                                <div class="pillar-fill educational" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        <div class="pillar-card casestudies">
+                            <div class="pillar-icon">🏆</div>
+                            <div class="pillar-name">Case Studies</div>
+                            <div class="pillar-percent casestudies">25%</div>
+                            <div class="pillar-bar">
+                                <div class="pillar-fill casestudies" style="width: 25%;"></div>
+                            </div>
+                        </div>
+                        <div class="pillar-card behindscenes">
+                            <div class="pillar-icon">🎬</div>
+                            <div class="pillar-name">Behind Scenes</div>
+                            <div class="pillar-percent behindscenes">20%</div>
+                            <div class="pillar-bar">
+                                <div class="pillar-fill behindscenes" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                        <div class="pillar-card promotional">
+                            <div class="pillar-icon">📢</div>
+                            <div class="pillar-name">Promotional</div>
+                            <div class="pillar-percent promotional">15%</div>
+                            <div class="pillar-bar">
+                                <div class="pillar-fill promotional" style="width: 15%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Calendar -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">view_week</span>
+                        Weekly Schedule
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button onclick="showToast('Previous week', 'info')"
+                            style="background: none; border: none; color: #fff; cursor: pointer;">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <span style="color: rgba(255,255,255,0.6); font: var(--md-sys-typescale-label-medium);">Jan 6 -
+                            10</span>
+                        <button onclick="showToast('Next week', 'info')"
+                            style="background: none; border: none; color: #fff; cursor: pointer;">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="calendar-grid">
+                        <div class="day-column">
+                            <div class="day-header">
+                                <div class="day-name">Monday</div>
+                                <div class="day-date">Jan 6</div>
+                            </div>
+                            <div class="day-body">
+                                <div class="content-card">
+                                    <div class="content-type">
+                                        <span class="type-badge blog">📝 Blog</span>
+                                    </div>
+                                    <div class="content-title">10 Agency Automation Tips for 2026</div>
+                                    <div class="content-status">
+                                        <span class="status-dot published"></span>
+                                        <span style="color: #10B981;">Published</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-header">
+                                <div class="day-name">Tuesday</div>
+                                <div class="day-date">Jan 7</div>
+                            </div>
+                            <div class="day-body">
+                                <div class="content-card">
+                                    <div class="content-type">
+                                        <span class="type-badge twitter">🐦 Twitter</span>
+                                    </div>
+                                    <div class="content-title">Thread: How we scaled to $50K MRR</div>
+                                    <div class="content-status">
+                                        <span class="status-dot scheduled"></span>
+                                        <span style="color: #F59E0B;">Scheduled 10:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-header">
+                                <div class="day-name">Wednesday</div>
+                                <div class="day-date">Jan 8</div>
+                            </div>
+                            <div class="day-body">
+                                <div class="content-card">
+                                    <div class="content-type">
+                                        <span class="type-badge linkedin">💼 LinkedIn</span>
+                                    </div>
+                                    <div class="content-title">Carousel: Binh Pháp Strategy Framework</div>
+                                    <div class="content-status">
+                                        <span class="status-dot scheduled"></span>
+                                        <span style="color: #F59E0B;">Scheduled 14:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-header">
+                                <div class="day-name">Thursday</div>
+                                <div class="day-date">Jan 9</div>
+                            </div>
+                            <div class="day-body">
+                                <div class="content-card">
+                                    <div class="content-type">
+                                        <span class="type-badge youtube">🎬 YouTube</span>
+                                    </div>
+                                    <div class="content-title">AgencyOS Demo: Full Workflow</div>
+                                    <div class="content-status">
+                                        <span class="status-dot draft"></span>
+                                        <span style="color: #6B7280;">Draft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-header">
+                                <div class="day-name">Friday</div>
+                                <div class="day-date">Jan 10</div>
+                            </div>
+                            <div class="day-body">
+                                <div class="content-card">
+                                    <div class="content-type">
+                                        <span class="type-badge newsletter">📧 Newsletter</span>
+                                    </div>
+                                    <div class="content-title">Weekly Digest: Top Automation Wins</div>
+                                    <div class="content-status">
+                                        <span class="status-dot scheduled"></span>
+                                        <span style="color: #F59E0B;">Scheduled 09:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Integrations -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">hub</span>
+                        Platform Integrations
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="platforms-grid">
+                        <div class="platform-card connected">
+                            <div class="platform-logo notion">N</div>
+                            <div class="platform-name">Notion</div>
+                            <div class="platform-status connected">✓ Connected</div>
+                        </div>
+                        <div class="platform-card connected">
+                            <div class="platform-logo twitter">𝕏</div>
+                            <div class="platform-name">Twitter/X</div>
+                            <div class="platform-status connected">✓ Connected</div>
+                        </div>
+                        <div class="platform-card connected">
+                            <div class="platform-logo linkedin">in</div>
+                            <div class="platform-name">LinkedIn</div>
+                            <div class="platform-status connected">✓ Connected</div>
+                        </div>
+                        <div class="platform-card">
+                            <div class="platform-logo youtube">▶</div>
+                            <div class="platform-name">YouTube</div>
+                            <div class="platform-status disconnected">Connect</div>
+                        </div>
+                        <div class="platform-card connected">
+                            <div class="platform-logo substack">S</div>
+                            <div class="platform-name">Substack</div>
+                            <div class="platform-status connected">✓ Connected</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function generateContent() {
+            showToast('🤖 AI generating content for Week 2...', 'info');
+            setTimeout(() => {
+                showToast('✅ 5 content pieces drafted!', 'success');
+            }, 2500);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(16, 185, 129, 0.95)', color: '#fff' },
+                error: { bg: 'rgba(239, 68, 68, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(245, 158, 11, 0.95)', color: '#000' },
+                info: { bg: 'rgba(255, 127, 80, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

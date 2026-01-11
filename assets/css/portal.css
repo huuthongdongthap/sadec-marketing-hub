@@ -1,0 +1,194 @@
+/* ================================================
+   MEKONG AGENCY - CLIENT PORTAL STYLES
+   Additional styles for portal interactions
+   ================================================ */
+
+/* Project Type Colors (for modal) */
+.project-type.ads {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+.project-type.seo {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.project-type.design {
+    background: #F3E5F5;
+    color: #7B1FA2;
+}
+
+.project-type.social {
+    background: #FFF3E0;
+    color: #EF6C00;
+}
+
+.project-type.web {
+    background: #E0F7FA;
+    color: #00838F;
+}
+
+.project-type.consulting {
+    background: #FFF8E1;
+    color: #FF8F00;
+}
+
+/* Status Badge Colors (for modal) */
+.status-badge.active,
+.status-badge.planning {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status-badge.completed {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+.status-badge.paused {
+    background: #FFF3E0;
+    color: #EF6C00;
+}
+
+.status-badge.cancelled {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--md-sys-shape-corner-medium, 12px);
+    font-family: 'Google Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--md-sys-motion-duration-short, 0.2s) ease;
+    border: none;
+}
+
+.btn-filled {
+    background: var(--md-sys-color-primary, #006A60);
+    color: var(--md-sys-color-on-primary, #fff);
+}
+
+.btn-filled:hover {
+    background: var(--md-sys-color-primary-dark, #004D40);
+    box-shadow: 0 2px 8px rgba(0, 106, 96, 0.3);
+}
+
+.btn-outlined {
+    background: transparent;
+    color: var(--md-sys-color-primary, #006A60);
+    border: 2px solid var(--md-sys-color-primary, #006A60);
+}
+
+.btn-outlined:hover {
+    background: var(--md-sys-color-primary-container, #E0F2F1);
+}
+
+.btn-text {
+    background: transparent;
+    color: var(--md-sys-color-primary, #006A60);
+    padding: 8px 16px;
+}
+
+.btn-text:hover {
+    background: var(--md-sys-color-surface-container, rgba(0, 106, 96, 0.08));
+}
+
+/* Card hover improvement */
+.project-card {
+    cursor: pointer;
+    transition: transform var(--md-sys-motion-duration-short, 0.2s) ease,
+        box-shadow var(--md-sys-motion-duration-short, 0.2s) ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Invoice row hover */
+.invoice-table tbody tr {
+    cursor: pointer;
+    transition: background var(--md-sys-motion-duration-short, 0.15s) ease;
+}
+
+/* Text utilities */
+.text-muted {
+    color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.text-primary {
+    color: var(--md-sys-color-primary, #006A60);
+}
+
+/* Flex utilities */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+/* Loading state */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty state */
+.empty-state {
+    padding: 48px;
+    text-align: center;
+    color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.empty-state .material-symbols-outlined {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .modal-content {
+        margin: 16px;
+        max-height: calc(100vh - 32px);
+    }
+}
