@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Thực Email | Mekong Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="layout-safe.css">
+    <link rel="stylesheet" href="material-components.css">
+    <link rel="stylesheet" href="m3-expressive.css">
+<style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --neon-pink: #ff0080;
+            --neon-cyan: #00ffff;
+            --neon-green: #00ff88;
+            --neon-gold: #ffc107;
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --radius-lg: 20px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .bg-glow--green {
+            background: var(--neon-green);
+            top: -200px;
+            right: -200px;
+        }
+
+        .bg-glow--cyan {
+            background: var(--neon-cyan);
+            bottom: -200px;
+            left: -200px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 72px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .icon--loading {
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .icon--success {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title--error {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .message {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            margin-left: 12px;
+        }
+
+        .btn--secondary:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: none;
+        }
+
+        .countdown {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* States */
+        .state {
+            display: none;
+        }
+
+        .state.active {
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--green"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+
+    <div class="container">
+        <div class="card">
+            <!-- Loading State -->
+            <div class="state active" id="stateLoading">
+                <span class="icon icon--loading">⏳</span>
+                <h1 class="title">Đang Xác Thực...</h1>
+                <p class="message">Vui lòng đợi trong giây lát</p>
+            </div>
+
+            <!-- Success State -->
+            <div class="state" id="stateSuccess">
+                <span class="icon icon--success">✅</span>
+                <h1 class="title">Xác Thực Thành Công!</h1>
+                <p class="message">
+                    Email của bạn đã được xác thực.<br>
+                    Bạn có thể đăng nhập ngay bây giờ.
+                </p>
+                <a href="login.html" class="btn">🔐 Đăng Nhập</a>
+                <p class="countdown" id="countdown">Tự động chuyển hướng sau <span id="seconds">5</span>s...</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="state" id="stateError">
+                <span class="icon">❌</span>
+                <h1 class="title title--error">Xác Thực Thất Bại</h1>
+                <p class="message" id="errorMessage">
+                    Link xác thực không hợp lệ hoặc đã hết hạn.
+                </p>
+                <a href="register.html" class="btn">📝 Đăng Ký Lại</a>
+                <a href="login.html" class="btn btn--secondary">Đăng Nhập</a>
+            </div>
+
+            <!-- Already Verified State -->
+            <div class="state" id="stateAlready">
+                <span class="icon">ℹ️</span>
+                <h1 class="title">Đã Xác Thực Trước Đó</h1>
+                <p class="message">
+                    Email này đã được xác thực rồi.<br>
+                    Bạn có thể đăng nhập ngay.
+                </p>
+                <a href="login.html" class="btn">🔐 Đăng Nhập</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 Mekong Marketing. All rights reserved.
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Show/hide states
+        function showState(stateId) {
+            document.querySelectorAll('.state').forEach(el => el.classList.remove('active'));
+            document.getElementById(stateId).classList.add('active');
+        }
+
+        // Countdown redirect
+        function startCountdown() {
+            let seconds = 5;
+            const el = document.getElementById('seconds');
+            const timer = setInterval(() => {
+                seconds--;
+                el.textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    window.location.href = 'login.html';
+                }
+            }, 1000);
+        }
+
+        // Handle verification
+        async function handleVerification() {
+            try {
+                // Check URL for Supabase auth callback
+                const hashParams = new URLSearchParams(window.location.hash.substring(1));
+                const queryParams = new URLSearchParams(window.location.search);
+
+                const accessToken = hashParams.get('access_token') || queryParams.get('access_token');
+                const type = hashParams.get('type') || queryParams.get('type');
+                const error = hashParams.get('error') || queryParams.get('error');
+                const errorDescription = hashParams.get('error_description') || queryParams.get('error_description');
+
+                // Check for errors
+                if (error) {
+                    document.getElementById('errorMessage').textContent =
+                        errorDescription || 'Link xác thực không hợp lệ hoặc đã hết hạn.';
+                    showState('stateError');
+                    return;
+                }
+
+                // If we have Supabase and there's a session
+                if (window.SupabaseAPI) {
+                    const client = window.SupabaseAPI.getClient();
+
+                    if (client) {
+                        // Let Supabase handle the callback automatically
+                        const { data: { session }, error: sessionError } = await client.auth.getSession();
+
+                        if (sessionError) {
+                            console.error('Session error:', sessionError);
+                            showState('stateError');
+                            return;
+                        }
+
+                        if (session) {
+                            // Check if email is confirmed
+                            if (session.user.email_confirmed_at) {
+                                showState('stateSuccess');
+                                startCountdown();
+                            } else {
+                                showState('stateAlready');
+                            }
+                            return;
+                        }
+                    }
+                }
+
+                // If type is signup/recovery, it's a verification attempt
+                if (type === 'signup' || type === 'email_change' || type === 'recovery') {
+                    // Wait a moment for Supabase to process
+                    setTimeout(() => {
+                        showState('stateSuccess');
+                        startCountdown();
+                    }, 1000);
+                    return;
+                }
+
+                // No valid verification found
+                if (!accessToken && !type) {
+                    // Maybe user directly navigated here
+                    showState('stateError');
+                    document.getElementById('errorMessage').textContent =
+                        'Không tìm thấy thông tin xác thực. Vui lòng click link trong email.';
+                }
+
+            } catch (err) {
+                console.error('Verification error:', err);
+                showState('stateError');
+            }
+        }
+
+        // Run on page load
+        handleVerification();
+    </script>
+</body>
+
+</html>

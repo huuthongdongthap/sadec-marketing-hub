@@ -1,0 +1,10 @@
+# Mekong Marketing - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mekongmarketing.com/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin-dashboard.html
+Disallow: /agency-platform.html

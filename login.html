@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark-theme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập | Mekong Marketing Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- M3 Design System (Unified) -->
+    <link rel="stylesheet" href="m3-design-system.css">
+
+    <!-- @material/web CDN -->
+    <script type="importmap">
+    {
+        "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+        }
+    }
+    </script>
+    <script type="module">
+        import '@material/web/button/filled-button.js';
+        import '@material/web/button/outlined-button.js';
+        import '@material/web/textfield/outlined-text-field.js';
+        import '@material/web/progress/circular-progress.js';
+    </script>
+    <style>
+        /* M3 Expressive Override for Auth Pages */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--md-sys-color-surface);
+            overflow: hidden;
+            font-family: var(--font-brand);
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 440px;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        /* Input Field Styling Wrapper */
+        .md-field-wrapper {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .md-field-wrapper label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .md-field-wrapper input {
+            width: 100%;
+            padding: 16px;
+            border-radius: var(--shape-small);
+            border: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface-container-highest);
+            color: var(--md-sys-color-on-surface);
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .md-field-wrapper input:focus {
+            border-color: var(--md-exp-primary);
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+            outline: none;
+        }
+
+        /* Error Message Animation */
+        .error-message {
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-on-error-container);
+            padding: 12px;
+            border-radius: var(--shape-small);
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: none;
+            animation: shake 0.4s ease;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- M3 Expressive Backgrounds -->
+    <div class="gradient-mesh-exp"></div>
+    <div class="hero-particles"></div>
+
+    <div class="auth-container">
+        <div class="card-exp glass-exp reveal-exp-scale visible">
+            <span class="trust-chip-exp"
+                style="position: absolute; top: 20px; right: 20px; padding: 6px 12px; font-size: 10px;">
+                🎭 Demo Mode
+            </span>
+
+            <div style="text-align: center; margin-bottom: 32px;">
+                <div class="card-exp__icon" style="margin: 0 auto 16px; width: 64px; height: 64px; font-size: 32px;">
+                    🚀
+                </div>
+                <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 8px;" class="gradient-text-exp">
+                    MEKONG MARKETING
+                </h1>
+                <p style="color: var(--md-sys-color-on-surface-variant); font-size: 14px;">
+                    Đăng nhập hệ thống quản trị
+                </p>
+            </div>
+
+            <form id="loginForm">
+                <div class="md-field-wrapper">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="admin@mekongmarketing.com" required>
+                </div>
+
+                <div class="md-field-wrapper">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="error-message" id="errorMessage"></div>
+
+                <button type="submit" class="btn-exp btn-exp-filled" id="loginBtn"
+                    style="width: 100%; justify-content: center;">
+                    <span class="btn-text">🔐 Đăng Nhập</span>
+                    <span class="btn-loader" style="display: none;">⏳ Đang xử lý...</span>
+                </button>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin: 24px 0;">
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                    <span style="color: var(--md-sys-color-on-surface-variant); font-size: 12px;">hoặc</span>
+                    <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                </div>
+
+                <button type="button" class="btn-exp btn-exp-outlined" id="zaloBtn"
+                    style="width: 100%; justify-content: center;">
+                    💬 Đăng nhập bằng Zalo
+                </button>
+            </form>
+
+            <div
+                style="text-align: center; margin-top: 24px; display: flex; justify-content: space-between; font-size: 14px;">
+                <a href="forgot-password.html" id="forgotPassword"
+                    style="color: var(--md-exp-primary); text-decoration: none;">Quên mật
+                    khẩu?</a>
+                <a href="register.html" id="registerLink"
+                    style="color: var(--md-exp-primary); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="index.html"
+                    style="color: var(--md-sys-color-on-surface-variant); text-decoration: none; font-size: 13px;">
+                    ← Về trang chủ
+                </a>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 24px; color: rgba(255,255,255,0.6); font-size: 12px;">
+            © 2026 Mekong Marketing. M3 Expressive Edition.
+        </p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="material-interactions.js"></script>
+    <script>
+        // ========== LOGIN LOGIC ==========
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('loginBtn');
+        const errorMessage = document.getElementById('errorMessage');
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('visible');
+        }
+
+        function hideError() {
+            errorMessage.classList.remove('visible');
+        }
+
+        function setLoading(isLoading) {
+            loginBtn.disabled = isLoading;
+            const btnText = loginBtn.querySelector('.btn-text');
+            const btnLoader = loginBtn.querySelector('.btn-loader');
+
+            if (btnText) btnText.style.display = isLoading ? 'none' : 'inline';
+            if (btnLoader) btnLoader.style.display = isLoading ? 'inline-flex' : 'none';
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+
+            const email = emailInput.value.trim().toLowerCase();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                showError('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                // Use centralized Auth action
+                const result = await Auth.Actions.signIn(email, password);
+
+                if (result.success) {
+                    // Check for redirect param
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirectParam = urlParams.get('redirect');
+
+                    if (redirectParam) {
+                        window.location.href = decodeURIComponent(redirectParam);
+                    } else {
+                        // Default role-based redirect
+                        window.location.href = Auth.Guards.getRedirectUrl();
+                    }
+                } else {
+                    showError(result.error || 'Email hoặc mật khẩu không đúng');
+                }
+
+            } catch (err) {
+                console.error('Login error:', err);
+                showError('Có lỗi xảy ra, vui lòng thử lại');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Forgot password
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Demo Mode: Liên hệ admin để reset mật khẩu.\n\nDemo accounts:\n• admin@mekongmarketing.com / admin123\n• manager@mekongmarketing.com / manager123\n• creator@mekongmarketing.com / creator123\n• client@mekongmarketing.com / client123\n• affiliate@mekongmarketing.com / affiliate123');
+        });
+
+        // Check if already logged in
+        Auth.Guards.redirectIfAuthenticated();
+
+        // Update register link with current query params
+        const registerLink = document.getElementById('registerLink');
+        if (window.location.search) {
+            registerLink.href += window.location.search;
+        }
+
+        // Prefill demo email for convenience
+        // emailInput.value = 'admin@mekongmarketing.com';
+
+        // Zalo button (Coming Soon)
+        document.getElementById('zaloBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const result = await Auth.Actions.signInWithZalo();
+            if (result.isPlaceholder) {
+                alert('🚀 ' + result.error + '\n\nTính năng đăng nhập bằng Zalo sẽ được cập nhật sớm!\nHiện tại bạn có thể đăng nhập bằng email.');
+            }
+        });
+    </script>
+</body>
+
+</html>

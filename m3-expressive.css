@@ -1,0 +1,705 @@
+/* ============================================================================
+   M3 EXPRESSIVE - 2026 UI/UX Trends
+   Sa Đéc Marketing Hub
+   Based on Material Design 3 Expressive (May 2025)
+   ============================================================================ */
+
+/* ============================================================================
+   1. M3 EXPRESSIVE COLOR SYSTEM
+   Emotion-Driven Palette with Vibrant Gradients
+   ============================================================================ */
+:root {
+    /* Primary - Energetic Pink */
+    --md-exp-primary: #E91E63;
+    --md-exp-primary-light: #FF4081;
+    --md-exp-primary-dark: #C2185B;
+    --md-exp-on-primary: #FFFFFF;
+
+    /* Secondary - Optimistic Gold */
+    --md-exp-secondary: #FFC107;
+    --md-exp-secondary-light: #FFD54F;
+    --md-exp-secondary-dark: #FF8F00;
+    --md-exp-on-secondary: #1A1A2E;
+
+    /* Tertiary - Creative Purple */
+    --md-exp-tertiary: #9C27B0;
+    --md-exp-tertiary-light: #BA68C8;
+    --md-exp-tertiary-dark: #7B1FA2;
+    --md-exp-on-tertiary: #FFFFFF;
+
+    /* Surface - Soft & Welcoming */
+    --md-exp-surface: #FFFBFE;
+    --md-exp-surface-dim: #F8F4F7;
+    --md-exp-surface-bright: #FFFFFF;
+    --md-exp-on-surface: #1C1B1F;
+    --md-exp-on-surface-variant: #49454F;
+
+    /* Gradient Mesh Colors */
+    --md-exp-gradient-1: #E91E63;
+    --md-exp-gradient-2: #FF5722;
+    --md-exp-gradient-3: #FFC107;
+    --md-exp-gradient-4: #9C27B0;
+    --md-exp-gradient-5: #2196F3;
+}
+
+/* Dark Mode Colors */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --md-exp-primary: #FFB4AB;
+        --md-exp-primary-dark: #FF8A80;
+        --md-exp-on-primary: #690005;
+
+        --md-exp-secondary: #FFE082;
+        --md-exp-on-secondary: #3E2723;
+
+        --md-exp-surface: #1C1B1F;
+        --md-exp-surface-dim: #141316;
+        --md-exp-surface-bright: #2B292D;
+        --md-exp-on-surface: #E6E1E5;
+        --md-exp-on-surface-variant: #CAC4D0;
+    }
+}
+
+/* ============================================================================
+   2. M3 EXPRESSIVE MOTION PHYSICS
+   Spring-based Natural Animations
+   ============================================================================ */
+:root {
+    /* Spring Physics Curves */
+    --motion-spring-in: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --motion-spring-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --motion-spring-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Expressive Curves - Hyper Bounce */
+    --motion-expressive-in: cubic-bezier(0.4, 0, 0, 1);
+    --motion-expressive-out: cubic-bezier(0, 0, 0.2, 1);
+    --motion-spring-hyper: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    /* New Hyper Bounce */
+
+    /* Duration Tokens */
+    --motion-duration-instant: 100ms;
+    --motion-duration-short: 200ms;
+    --motion-duration-medium: 400ms;
+    --motion-duration-long: 600ms;
+    --motion-duration-extra-long: 1000ms;
+}
+
+/* ============================================================================
+   3. M3 EXPRESSIVE SHAPE SYSTEM
+   35 Shape Options with Morphing
+   ============================================================================ */
+:root {
+    /* Corner Radius */
+    --shape-none: 0;
+    --shape-extra-small: 4px;
+    --shape-small: 8px;
+    --shape-medium: 12px;
+    --shape-large: 16px;
+    --shape-extra-large: 28px;
+    --shape-full: 9999px;
+
+    /* Squircle shapes (iOS-like) */
+    --shape-squircle-sm: 20% / 20%;
+    --shape-squircle-md: 25% / 25%;
+    --shape-squircle-lg: 30% / 30%;
+}
+
+/* ============================================================================
+   4. GLASSMORPHISM 2.0
+   Refined Frosted Glass Effect
+   ============================================================================ */
+.glass-exp {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-exp-dark {
+    background: rgba(28, 27, 31, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Liquid glass - responds to interaction */
+.glass-liquid {
+    transition: all var(--motion-duration-medium) var(--motion-spring-smooth);
+}
+
+.glass-liquid:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================================
+   5. GRADIENT MESH BACKGROUND
+   Vibrant Multi-layer Gradients
+   ============================================================================ */
+.gradient-mesh-exp {
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-mesh-exp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 0%, var(--md-exp-gradient-1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 0%, var(--md-exp-gradient-3) 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 50%, var(--md-exp-gradient-4) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 50%, var(--md-exp-gradient-2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, var(--md-exp-gradient-5) 0%, transparent 50%);
+    opacity: 0.15;
+    animation: meshPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes meshPulse {
+    0% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.2;
+        transform: scale(1.05);
+    }
+}
+
+/* Animated gradient text */
+.gradient-text-exp {
+    background: linear-gradient(90deg,
+            var(--md-exp-primary),
+            var(--md-exp-secondary),
+            var(--md-exp-tertiary),
+            var(--md-exp-primary));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 6s ease infinite;
+}
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ============================================================================
+   8. HYPER-WOW EFFECTS (2026 EDITION)
+   Cinematic Noise, Spotlights, & Liquid Text
+   ============================================================================ */
+
+/* 8.1 Global Noise Overlay */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwIi8+PC9zdmc+');
+    background-size: 200px 200px;
+    /* Reduced for performance */
+    mix-blend-mode: overlay;
+}
+
+/* 8.2 Spotlight Effect */
+/* Cards must have .spotlight-card class */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%);
+    z-index: 3;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+/* 8.3 Liquid Gradient Text */
+.text-liquid {
+    background: linear-gradient(-45deg,
+            var(--md-exp-primary),
+            var(--md-exp-secondary),
+            var(--md-exp-tertiary),
+            var(--md-exp-primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquidFlow 6s ease infinite;
+}
+
+@keyframes liquidFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ============================================================================
+   6. M3 EXPRESSIVE BUTTON SYSTEM
+   Button Groups + Spring Hover
+   ============================================================================ */
+
+/* Base button */
+.btn-exp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--shape-full);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--motion-duration-short) var(--motion-spring-out);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Filled button */
+.btn-exp-filled {
+    background: linear-gradient(135deg, var(--md-exp-primary), var(--md-exp-primary-dark));
+    color: var(--md-exp-on-primary);
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
+}
+
+.btn-exp-filled:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.5);
+}
+
+.btn-exp-filled:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* Tonal button */
+.btn-exp-tonal {
+    background: rgba(233, 30, 99, 0.12);
+    color: var(--md-exp-primary);
+}
+
+.btn-exp-tonal:hover {
+    background: rgba(233, 30, 99, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Outlined button */
+.btn-exp-outlined {
+    background: transparent;
+    color: var(--md-exp-on-surface);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-exp-outlined:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--md-exp-primary);
+    color: var(--md-exp-primary);
+    transform: translateY(-2px);
+}
+
+/* Button Group */
+.btn-group-exp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .btn-group-exp {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-group-exp .btn-exp {
+        width: 100%;
+    }
+}
+
+/* ============================================================================
+   7. M3 EXPRESSIVE CARDS
+   Emotion-Driven with Glassmorphism
+   ============================================================================ */
+.card-exp {
+    position: relative;
+    background: var(--md-exp-surface-bright);
+    border-radius: var(--shape-extra-large);
+    padding: 32px;
+    overflow: hidden;
+    transition: all var(--motion-duration-medium) var(--motion-spring-smooth);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient border on hover */
+.card-exp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--shape-extra-large);
+    padding: 2px;
+    background: linear-gradient(135deg, transparent, transparent);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: background var(--motion-duration-medium);
+    pointer-events: none;
+}
+
+.card-exp:hover::before {
+    background: linear-gradient(135deg,
+            var(--md-exp-primary),
+            var(--md-exp-secondary),
+            var(--md-exp-tertiary));
+}
+
+.card-exp:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(233, 30, 99, 0.1);
+}
+
+/* Card icon with emotional animation */
+.card-exp__icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    background: linear-gradient(135deg,
+            rgba(233, 30, 99, 0.1),
+            rgba(156, 39, 176, 0.1));
+    border-radius: var(--shape-large);
+    margin-bottom: 20px;
+    transition: all var(--motion-duration-medium) var(--motion-spring-in);
+}
+
+.card-exp:hover .card-exp__icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--md-exp-primary), var(--md-exp-tertiary));
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+}
+
+.card-exp__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--md-exp-on-surface);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.card-exp__text {
+    font-size: 15px;
+    color: var(--md-exp-on-surface-variant);
+    line-height: 1.7;
+}
+
+/* ============================================================================
+   8. M3 EXPRESSIVE FAB MENU
+   Floating Action Button with Expansion
+   ============================================================================ */
+.fab-exp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.fab-exp__button {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--shape-large);
+    border: none;
+    background: linear-gradient(135deg, #0068FF, #0052CC);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 8px 30px rgba(0, 104, 255, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all var(--motion-duration-short) var(--motion-spring-out);
+    animation: fabPulseExp 2s ease-in-out infinite;
+}
+
+@keyframes fabPulseExp {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 30px rgba(0, 104, 255, 0.4),
+            0 0 0 0 rgba(0, 104, 255, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 30px rgba(0, 104, 255, 0.4),
+            0 0 0 15px rgba(0, 104, 255, 0);
+    }
+}
+
+.fab-exp__button:hover {
+    transform: scale(1.1) rotate(8deg);
+    box-shadow:
+        0 12px 40px rgba(0, 104, 255, 0.5),
+        0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================================
+   9. M3 EXPRESSIVE SCROLL ANIMATIONS
+   Physics-based Reveal
+   ============================================================================ */
+.reveal-exp {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity var(--motion-duration-long) var(--motion-expressive-out),
+        transform var(--motion-duration-long) var(--motion-spring-out);
+}
+
+.reveal-exp.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.reveal-exp.delay-1 {
+    transition-delay: 100ms;
+}
+
+.reveal-exp.delay-2 {
+    transition-delay: 200ms;
+}
+
+.reveal-exp.delay-3 {
+    transition-delay: 300ms;
+}
+
+.reveal-exp.delay-4 {
+    transition-delay: 400ms;
+}
+
+/* Scale reveal */
+.reveal-exp-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+        opacity var(--motion-duration-long) var(--motion-expressive-out),
+        transform var(--motion-duration-long) var(--motion-spring-in);
+}
+
+.reveal-exp-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================================================
+   10. M3 EXPRESSIVE HERO SECTION
+   Emotional First Impression
+   ============================================================================ */
+.hero-exp {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-exp__headline {
+    font-size: clamp(40px, 10vw, 80px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    animation: heroEnter var(--motion-duration-long) var(--motion-spring-in);
+}
+
+@keyframes heroEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-exp__subheadline {
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.6;
+    max-width: 700px;
+    opacity: 0.85;
+    margin-bottom: 40px;
+    animation: heroEnter var(--motion-duration-long) var(--motion-spring-in) 0.1s backwards;
+}
+
+/* Trust chips */
+.trust-chips-exp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 48px;
+    animation: heroEnter var(--motion-duration-long) var(--motion-spring-in) 0.3s backwards;
+}
+
+.trust-chip-exp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--shape-full);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all var(--motion-duration-short) var(--motion-spring-out);
+}
+
+.trust-chip-exp:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.trust-chip-exp__number {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--md-exp-secondary);
+}
+
+/* ============================================================================
+   11. M3 EXPRESSIVE LOADING INDICATOR
+   ============================================================================ */
+.loading-exp {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.loading-exp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 4px solid rgba(233, 30, 99, 0.2);
+    border-top-color: var(--md-exp-primary);
+    animation: loadingSpin 1s var(--motion-expressive-out) infinite;
+}
+
+@keyframes loadingSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================================
+   12. RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+@media (max-width: 768px) {
+    .hero-exp {
+        padding: 100px 20px 60px;
+    }
+
+    .card-exp {
+        padding: 24px;
+    }
+
+    .trust-chips-exp {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fab-exp {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .fab-exp__button {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+}
+
+/* ============================================================================
+   13. SMOOTH COLOR TRANSITIONS FOR DARK MODE
+   ============================================================================ */
+* {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Exclude animations from the transition */
+*[class*="animate"],
+*[class*="reveal"] {
+    transition: none;
+}

@@ -1,0 +1,547 @@
+/* ============================================================================
+   M3 UNIFIED - Material Design 3 Expressive 2026
+   Sa Đéc Marketing Hub - Max Level UI/UX
+   ============================================================================ */
+
+/* ============================================================================
+   1. CSS RESET & BASE
+   ============================================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   2. M3 COLOR TOKENS
+   ============================================================================ */
+:root {
+    /* Primary - Energetic Pink */
+    --md-sys-color-primary: #E91E63;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #FFD9E2;
+    --md-sys-color-on-primary-container: #3E001D;
+
+    /* Secondary - Optimistic Gold */
+    --md-sys-color-secondary: #FFC107;
+    --md-sys-color-on-secondary: #1A1A2E;
+    --md-sys-color-secondary-container: #FFF0C7;
+    --md-sys-color-on-secondary-container: #241A00;
+
+    /* Tertiary - Deep Navy */
+    --md-sys-color-tertiary: #001F3F;
+    --md-sys-color-on-tertiary: #FFFFFF;
+
+    /* Surface - Dark Theme */
+    --md-sys-color-surface: #0f0518;
+    --md-sys-color-on-surface: #FFFFFF;
+    --md-sys-color-on-surface-variant: rgba(255, 255, 255, 0.7);
+    --md-sys-color-surface-container: rgba(255, 255, 255, 0.05);
+    --md-sys-color-surface-container-high: rgba(255, 255, 255, 0.1);
+
+    /* Outline */
+    --md-sys-color-outline: rgba(255, 255, 255, 0.2);
+    --md-sys-color-outline-variant: rgba(255, 255, 255, 0.1);
+
+    /* Zalo Brand */
+    --md-sys-color-zalo: #0068FF;
+}
+
+/* ============================================================================
+   3. M3 TYPOGRAPHY SCALE
+   ============================================================================ */
+:root {
+    --font-brand: 'Space Grotesk', 'Inter', sans-serif;
+    --font-plain: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-family: var(--font-plain);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.display-large {
+    font-family: var(--font-brand);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.display-medium {
+    font-family: var(--font-brand);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.headline-large {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.headline-medium {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.title-large {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.body-large {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.body-medium {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   4. M3 SHAPE SYSTEM (35 Options)
+   ============================================================================ */
+:root {
+    --shape-none: 0;
+    --shape-extra-small: 4px;
+    --shape-small: 8px;
+    --shape-medium: 12px;
+    --shape-large: 16px;
+    --shape-extra-large: 28px;
+    --shape-full: 9999px;
+}
+
+/* ============================================================================
+   5. M3 MOTION PHYSICS (Spring Animations)
+   ============================================================================ */
+:root {
+    --spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --spring-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --spring-in: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --spring-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --duration-short: 200ms;
+    --duration-medium: 400ms;
+    --duration-long: 600ms;
+}
+
+/* ============================================================================
+   6. AURORA BACKGROUND
+   ============================================================================ */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse 80% 50% at 10% 20%, rgba(233, 30, 99, 0.3), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(255, 193, 7, 0.25), transparent 50%),
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(156, 39, 176, 0.15), transparent 70%);
+    filter: blur(100px);
+    animation: auroraPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes auroraPulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.15) rotate(3deg);
+    }
+}
+
+/* ============================================================================
+   7. NOISE OVERLAY (Cinematic Effect)
+   ============================================================================ */
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
+
+/* ============================================================================
+   8. LAYOUT SYSTEM
+   ============================================================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* ============================================================================
+   9. HEADER (Glassmorphism)
+   ============================================================================ */
+.header {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    max-width: 1200px;
+    z-index: 1000;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--shape-extra-large);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--duration-medium) var(--spring-smooth);
+}
+
+.header.scrolled {
+    background: rgba(15, 5, 24, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    color: var(--md-sys-color-on-surface);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: var(--shape-full);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: all var(--duration-short) var(--spring-smooth);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================================
+   10. GLASSMORPHISM CARDS
+   ============================================================================ */
+.card-glass {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--shape-extra-large);
+    padding: 40px;
+    overflow: hidden;
+    transition: all var(--duration-medium) var(--spring-smooth);
+}
+
+.card-glass:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--md-sys-color-primary);
+    transform: translateY(-12px);
+    box-shadow:
+        0 24px 48px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(233, 30, 99, 0.2);
+}
+
+/* Spotlight Effect */
+.card-glass .spotlight {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(233, 30, 99, 0.15),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity var(--duration-medium);
+    pointer-events: none;
+}
+
+.card-glass:hover .spotlight {
+    opacity: 1;
+}
+
+/* Gradient Border on Hover */
+.card-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg,
+            var(--md-sys-color-primary),
+            var(--md-sys-color-secondary),
+            var(--md-sys-color-primary));
+    background-size: 200% 200%;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--duration-medium);
+    animation: borderGradient 3s linear infinite;
+}
+
+.card-glass:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ============================================================================
+   11. LIQUID GRADIENT TEXT
+   ============================================================================ */
+.text-liquid {
+    background: linear-gradient(-45deg,
+            #FFFFFF,
+            var(--md-sys-color-secondary),
+            var(--md-sys-color-primary),
+            #FFFFFF);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquidFlow 8s ease infinite;
+}
+
+@keyframes liquidFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-text {
+    background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================================
+   12. REVEAL ANIMATIONS
+   ============================================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity var(--duration-long) var(--spring-out),
+        transform var(--duration-long) var(--spring-in);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-enter {
+    animation: heroEnter 1s var(--spring-in) forwards;
+}
+
+@keyframes heroEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Stagger children animation */
+.reveal .card-glass:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.reveal .card-glass:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.reveal .card-glass:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+/* ============================================================================
+   13. MATERIAL WEB COMPONENT OVERRIDES
+   ============================================================================ */
+md-filled-button {
+    --md-filled-button-container-color: var(--md-sys-color-primary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
+    --md-filled-button-container-shape: var(--shape-full);
+}
+
+md-filled-button.secondary {
+    --md-filled-button-container-color: var(--md-sys-color-secondary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-secondary);
+}
+
+md-filled-button.tertiary {
+    --md-filled-button-container-color: var(--md-sys-color-tertiary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-tertiary);
+}
+
+md-filled-button.zalo {
+    --md-filled-button-container-color: var(--md-sys-color-zalo);
+    --md-filled-button-label-text-color: #FFFFFF;
+}
+
+md-outlined-button {
+    --md-outlined-button-outline-color: var(--md-sys-color-outline);
+    --md-outlined-button-label-text-color: var(--md-sys-color-on-surface);
+    --md-outlined-button-container-shape: var(--shape-full);
+}
+
+md-outlined-button:hover {
+    --md-outlined-button-outline-color: var(--md-sys-color-primary);
+}
+
+md-text-button {
+    --md-text-button-label-text-color: var(--md-sys-color-on-surface);
+}
+
+md-fab {
+    --md-fab-container-color: var(--md-sys-color-zalo);
+    --md-fab-icon-color: #FFFFFF;
+    --md-fab-container-shape: var(--shape-large);
+    animation: fabPulse 2s ease-in-out infinite;
+}
+
+@keyframes fabPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 6px 24px rgba(0, 104, 255, 0.4),
+            0 0 0 0 rgba(0, 104, 255, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 6px 24px rgba(0, 104, 255, 0.4),
+            0 0 0 12px rgba(0, 104, 255, 0);
+    }
+}
+
+md-assist-chip {
+    --md-assist-chip-container-shape: var(--shape-full);
+    --md-assist-chip-elevated-container-color: rgba(255, 255, 255, 0.1);
+    --md-assist-chip-label-text-color: var(--md-sys-color-on-surface);
+}
+
+/* ============================================================================
+   14. RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .header {
+        top: 8px;
+        width: calc(100% - 16px);
+        padding: 12px 16px;
+    }
+
+    .card-glass {
+        padding: 28px;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* ============================================================================
+   15. SELECTION STYLE
+   ============================================================================ */
+::selection {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+/* ============================================================================
+   16. SCROLLBAR STYLING
+   ============================================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--md-sys-color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-sys-color-primary);
+}
+
+/* ============================================================================
+   17. FOCUS STATES (Accessibility)
+   ============================================================================ */
+:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--md-sys-color-secondary);
+    outline-offset: 2px;
+}
