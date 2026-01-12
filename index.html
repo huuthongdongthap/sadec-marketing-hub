@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mekong Agency - Digital Marketing cho Doanh Nghiệp Địa Phương</title>
-  <meta name="description" content="Mekong Agency - Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.">
-  
+  <meta name="description"
+    content="Mekong Agency - Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Mekong Agency - Digital Marketing cho Doanh Nghiệp Địa Phương">
+  <meta property="og:description"
+    content="Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng bền vững với công nghệ AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#006A60">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "Mekong Agency",
+    "description": "Digital Marketing Agency for Mekong Delta SMEs",
+    "url": "https://sadecmarketinghub.com",
+    "logo": "https://sadecmarketinghub.com/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
+
   <!-- Material Web Components -->
   <script type="importmap">
     {
@@ -17,15 +55,18 @@
   <script type="module">
     import '@material/web/all.js';
   </script>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
-  
+
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/m3-agency.css">
 </head>
+
 <body>
   <!-- Navigation -->
   <nav class="nav">
@@ -34,11 +75,11 @@
         <span class="material-symbols-outlined">water_drop</span>
         Mekong Agency
       </a>
-      
+
       <button class="nav-toggle" onclick="toggleMenu()">
         <span class="material-symbols-outlined">menu</span>
       </button>
-      
+
       <ul class="nav-links" id="navLinks">
         <li><a href="#services" class="nav-link">Dịch vụ</a></li>
         <li><a href="#case-study" class="nav-link">Case Study</a></li>
@@ -46,7 +87,7 @@
         <li><a href="#testimonials" class="nav-link">Đánh giá</a></li>
         <li><a href="#contact" class="nav-link">Liên hệ</a></li>
       </ul>
-      
+
       <div class="nav-actions">
         <a href="portal/login.html" class="btn btn-text">Đăng nhập</a>
         <a href="#contact" class="btn btn-filled">Tư vấn miễn phí</a>
@@ -62,16 +103,16 @@
           <span class="material-symbols-outlined">verified</span>
           #1 Marketing Agency vùng Mekong
         </div>
-        
+
         <h1 class="hero-title">
           Tăng trưởng <span>doanh thu</span> cho doanh nghiệp địa phương
         </h1>
-        
+
         <p class="hero-description">
-          Giải pháp marketing số toàn diện, được thiết kế riêng cho SME vùng ĐBSCL. 
+          Giải pháp marketing số toàn diện, được thiết kế riêng cho SME vùng ĐBSCL.
           Tối ưu chi phí, tối đa hiệu quả với công nghệ AI tiên tiến.
         </p>
-        
+
         <div class="hero-actions">
           <a href="#contact" class="btn btn-filled btn-large">
             <span class="material-symbols-outlined">rocket_launch</span>
@@ -81,7 +122,7 @@
             Xem case study
           </a>
         </div>
-        
+
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-value">150+</div>
@@ -110,7 +151,7 @@
           Từ xây dựng thương hiệu đến tối ưu chuyển đổi, chúng tôi đồng hành cùng bạn
         </p>
       </div>
-      
+
       <div class="grid grid-4">
         <div class="card card-elevated service-card">
           <div class="service-icon">
@@ -121,7 +162,7 @@
             Facebook, Google, Zalo Ads với tối ưu ROI cao nhất cho thị trường địa phương
           </p>
         </div>
-        
+
         <div class="card card-elevated service-card">
           <div class="service-icon">
             <span class="material-symbols-outlined">travel_explore</span>
@@ -131,7 +172,7 @@
             Tối ưu tìm kiếm địa phương, Google Maps, đưa doanh nghiệp lên top kết quả
           </p>
         </div>
-        
+
         <div class="card card-elevated service-card">
           <div class="service-icon">
             <span class="material-symbols-outlined">palette</span>
@@ -141,7 +182,7 @@
             Logo, bộ nhận diện, website chuyên nghiệp phản ánh giá trị doanh nghiệp
           </p>
         </div>
-        
+
         <div class="card card-elevated service-card">
           <div class="service-icon">
             <span class="material-symbols-outlined">smart_toy</span>
@@ -165,12 +206,12 @@
           Câu chuyện thành công đầu tiên tại vùng Mekong
         </p>
       </div>
-      
+
       <div class="grid grid-2" style="align-items: center;">
         <div>
           <div class="card card-elevated" style="padding: 40px;">
             <div class="headline-medium mb-24">Kết quả sau 3 tháng</div>
-            
+
             <div class="flex" style="gap: 32px; flex-wrap: wrap;">
               <div>
                 <div class="display-small text-primary">+450%</div>
@@ -185,7 +226,7 @@
                 <div class="body-medium text-muted">ROI đạt được</div>
               </div>
             </div>
-            
+
             <div class="mb-32" style="margin-top: 32px;">
               <div class="title-medium mb-16">Giải pháp triển khai:</div>
               <ul style="list-style: none; padding: 0;">
@@ -195,21 +236,22 @@
                 <li class="body-large">✓ Website M3 responsive</li>
               </ul>
             </div>
-            
+
             <a href="#contact" class="btn btn-filled">
               Nhận kết quả tương tự
             </a>
           </div>
         </div>
-        
+
         <div>
           <div class="card card-outlined testimonial-card">
             <p class="testimonial-text">
-              "Mekong Agency đã thay đổi hoàn toàn cách chúng tôi tiếp cận khách hàng. 
+              "Mekong Agency đã thay đổi hoàn toàn cách chúng tôi tiếp cận khách hàng.
               Doanh thu tăng 300% chỉ trong 3 tháng, vượt xa kỳ vọng ban đầu."
             </p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: var(--md-sys-color-primary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
+              <div class="testimonial-avatar"
+                style="background: var(--md-sys-color-primary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
                 NT
               </div>
               <div class="testimonial-info">
@@ -233,33 +275,33 @@
           Phù hợp với mọi quy mô doanh nghiệp, từ startup đến SME
         </p>
       </div>
-      
+
       <div class="grid grid-3">
         <!-- Starter -->
         <div class="card card-outlined pricing-card">
           <div class="pricing-name">Khởi nghiệp</div>
           <div class="pricing-price">5.000.000đ</div>
           <div class="pricing-period">/tháng</div>
-          
+
           <ul class="pricing-features">
             <li class="pricing-feature">Quản lý 2 kênh social</li>
             <li class="pricing-feature">10 bài đăng/tháng</li>
             <li class="pricing-feature">Báo cáo hàng tuần</li>
             <li class="pricing-feature">Tư vấn chiến lược cơ bản</li>
           </ul>
-          
+
           <a href="#contact" class="btn btn-outlined" style="width: 100%;">
             Bắt đầu ngay
           </a>
         </div>
-        
+
         <!-- Growth - Featured -->
         <div class="card card-elevated pricing-card featured">
           <div class="pricing-badge">Phổ biến nhất</div>
           <div class="pricing-name">Tăng trưởng</div>
           <div class="pricing-price">12.000.000đ</div>
           <div class="pricing-period">/tháng</div>
-          
+
           <ul class="pricing-features">
             <li class="pricing-feature">Quản lý 4 kênh social</li>
             <li class="pricing-feature">20 bài đăng/tháng</li>
@@ -268,18 +310,19 @@
             <li class="pricing-feature">Chatbot Zalo</li>
             <li class="pricing-feature">Báo cáo hàng ngày</li>
           </ul>
-          
-          <a href="#contact" class="btn btn-filled" style="width: 100%; background: white; color: var(--md-sys-color-primary);">
+
+          <a href="#contact" class="btn btn-filled"
+            style="width: 100%; background: white; color: var(--md-sys-color-primary);">
             Đăng ký ngay
           </a>
         </div>
-        
+
         <!-- Enterprise -->
         <div class="card card-outlined pricing-card">
           <div class="pricing-name">Doanh nghiệp</div>
           <div class="pricing-price">Liên hệ</div>
           <div class="pricing-period">Tùy chỉnh</div>
-          
+
           <ul class="pricing-features">
             <li class="pricing-feature">Không giới hạn kênh</li>
             <li class="pricing-feature">Nội dung không giới hạn</li>
@@ -288,7 +331,7 @@
             <li class="pricing-feature">AI Marketing suite</li>
             <li class="pricing-feature">Account Manager riêng</li>
           </ul>
-          
+
           <a href="#contact" class="btn btn-outlined" style="width: 100%;">
             Liên hệ tư vấn
           </a>
@@ -304,15 +347,16 @@
         <div class="section-badge">Đánh giá</div>
         <h2 class="section-title">Khách hàng nói về chúng tôi</h2>
       </div>
-      
+
       <div class="grid grid-3">
         <div class="card card-elevated testimonial-card">
           <p class="testimonial-text">
-            "Đội ngũ rất chuyên nghiệp, hiểu rõ thị trường địa phương. 
+            "Đội ngũ rất chuyên nghiệp, hiểu rõ thị trường địa phương.
             Leads chất lượng, tỷ lệ chuyển đổi cao."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: var(--md-sys-color-secondary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-secondary);">
+            <div class="testimonial-avatar"
+              style="background: var(--md-sys-color-secondary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-secondary);">
               LH
             </div>
             <div class="testimonial-info">
@@ -321,14 +365,15 @@
             </div>
           </div>
         </div>
-        
+
         <div class="card card-elevated testimonial-card">
           <p class="testimonial-text">
-            "ROI vượt xa kỳ vọng. Chi phí marketing giảm 60% 
+            "ROI vượt xa kỳ vọng. Chi phí marketing giảm 60%
             mà hiệu quả tăng gấp 3 lần."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: var(--md-sys-color-tertiary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-tertiary);">
+            <div class="testimonial-avatar"
+              style="background: var(--md-sys-color-tertiary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-tertiary);">
               TM
             </div>
             <div class="testimonial-info">
@@ -337,14 +382,15 @@
             </div>
           </div>
         </div>
-        
+
         <div class="card card-elevated testimonial-card">
           <p class="testimonial-text">
-            "Website mới giúp shop online của tôi chuyên nghiệp hóa. 
+            "Website mới giúp shop online của tôi chuyên nghiệp hóa.
             Đơn hàng tăng đều mỗi tháng."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background: var(--md-sys-color-primary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
+            <div class="testimonial-avatar"
+              style="background: var(--md-sys-color-primary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
               PA
             </div>
             <div class="testimonial-info">
@@ -362,11 +408,12 @@
     <div class="container">
       <h2 class="cta-title">Sẵn sàng tăng trưởng doanh nghiệp?</h2>
       <p class="cta-description">
-        Đặt lịch tư vấn miễn phí ngay hôm nay. 
+        Đặt lịch tư vấn miễn phí ngay hôm nay.
         Chúng tôi sẽ phân tích và đề xuất giải pháp phù hợp nhất cho bạn.
       </p>
-      
-      <div class="card card-elevated" style="max-width: 600px; margin: 0 auto; padding: 40px; background: white; color: var(--md-sys-color-on-surface);">
+
+      <div class="card card-elevated"
+        style="max-width: 600px; margin: 0 auto; padding: 40px; background: white; color: var(--md-sys-color-on-surface);">
         <form id="contactForm">
           <div class="grid grid-2">
             <div class="form-group">
@@ -378,22 +425,22 @@
               <input type="tel" class="form-input" placeholder="0909 xxx xxx" required>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label class="form-label">Email</label>
             <input type="email" class="form-input" placeholder="email@company.com">
           </div>
-          
+
           <div class="form-group">
             <label class="form-label">Doanh nghiệp của bạn</label>
             <input type="text" class="form-input" placeholder="Tên công ty / cửa hàng">
           </div>
-          
+
           <div class="form-group">
             <label class="form-label">Bạn cần hỗ trợ gì?</label>
             <textarea class="form-input" placeholder="Mô tả ngắn gọn nhu cầu của bạn..."></textarea>
           </div>
-          
+
           <button type="submit" class="btn btn-filled btn-large" style="width: 100%;">
             <span class="material-symbols-outlined">send</span>
             Gửi yêu cầu tư vấn
@@ -413,11 +460,11 @@
             Mekong Agency
           </div>
           <p class="footer-description">
-            Đối tác marketing số tin cậy cho doanh nghiệp vùng ĐBSCL. 
+            Đối tác marketing số tin cậy cho doanh nghiệp vùng ĐBSCL.
             Tăng trưởng bền vững với công nghệ tiên tiến.
           </p>
         </div>
-        
+
         <div>
           <div class="footer-title">Dịch vụ</div>
           <ul class="footer-links">
@@ -427,7 +474,7 @@
             <li><a href="#" class="footer-link">AI Marketing</a></li>
           </ul>
         </div>
-        
+
         <div>
           <div class="footer-title">Công ty</div>
           <ul class="footer-links">
@@ -437,7 +484,7 @@
             <li><a href="#" class="footer-link">Tuyển dụng</a></li>
           </ul>
         </div>
-        
+
         <div>
           <div class="footer-title">Liên hệ</div>
           <ul class="footer-links">
@@ -447,7 +494,7 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
         <div class="footer-copyright">
           © 2026 Mekong Agency. Tất cả quyền được bảo lưu.
@@ -465,7 +512,7 @@
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
-    
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -476,13 +523,14 @@
         }
       });
     });
-    
+
     // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong 24 giờ.');
       this.reset();
     });
   </script>
 </body>
+
 </html>

@@ -12,6 +12,9 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
     <!-- STYLES -->
     <link rel="stylesheet" href="../assets/css/agency-2026.css">
 
@@ -158,6 +161,9 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search system...">
                     </div>
+                    <button class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                    </button>
                     <a href="#" class="btn-cyber">
                         <span class="material-symbols-outlined">add</span> NEW PROJECT
                     </a>
@@ -230,26 +236,9 @@
                                 style="padding: 5px 15px; font-size: 12px; border-radius: 12px;">Monthly</button>
                         </div>
                     </div>
-                    <!-- Placeholder for Chart -->
-                    <div style="height: 300px; display: flex; items-align: flex-end; gap: 20px; padding-top: 20px;">
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 40%;">
-                        </div>
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--secondary-purple), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 60%;">
-                        </div>
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 50%;">
-                        </div>
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--secondary-purple), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 80%;">
-                        </div>
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--primary-cyan), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 65%;">
-                        </div>
-                        <div
-                            style="flex: 1; background: linear-gradient(to top, var(--accent-lime), transparent); opacity: 0.2; border-radius: 8px 8px 0 0; height: 90%;">
-                        </div>
+                    <!-- Chart.js Canvas -->
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
 
@@ -300,7 +289,16 @@
     </div>
 
     <!-- SCRIPTS -->
+    <script src="../assets/js/admin-shared.js"></script>
     <script src="../assets/js/agency-2026.js"></script>
+    <script>
+        // Initialize Chart.js after DOM load
+        document.addEventListener('DOMContentLoaded', async () => {
+            await MekongAdmin.DashboardCharts.init();
+            MekongAdmin.DashboardCharts.createRevenueChart('revenueChart');
+            MekongAdmin.Toast.success('Dashboard loaded successfully!');
+        });
+    </script>
 </body>
 
 </html>
