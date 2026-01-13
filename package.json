@@ -13,5 +13,8 @@
     "sadec"
   ],
   "author": "Sa Đéc Marketing Hub",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "pg": "^8.16.3"
+  }
 }

@@ -258,23 +258,31 @@ FROM leads l
 JOIN tenants t ON l.tenant_id = t.id
 LIMIT 5;
 
-INSERT INTO activities (tenant_id, entity_type, action, description, created_at)
+INSERT INTO activities (tenant_id, entity_type, entity_id, action, description, created_at)
 SELECT 
   t.id,
   'campaign',
+  c.id,
   'updated',
   'Chiến dịch Facebook đạt 1000 leads',
   now() - interval '2 hours'
-FROM tenants t WHERE t.slug = 'sadec-hub';
+FROM tenants t 
+JOIN campaigns c ON c.tenant_id = t.id
+WHERE t.slug = 'sadec-hub'
+LIMIT 1;
 
-INSERT INTO activities (tenant_id, entity_type, action, description, created_at)
+INSERT INTO activities (tenant_id, entity_type, entity_id, action, description, created_at)
 SELECT 
   t.id,
   'invoice',
+  i.id,
   'paid',
   'Hóa đơn INV-2025-056 đã thanh toán',
   now() - interval '1 day'
-FROM tenants t WHERE t.slug = 'sadec-hub';
+FROM tenants t 
+JOIN invoices i ON i.tenant_id = t.id
+WHERE t.slug = 'sadec-hub'
+LIMIT 1;
 
 -- ================================================
 -- SUMMARY
