@@ -6,9 +6,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 // Supabase Configuration
-// Replace with your actual Supabase project credentials
-const SUPABASE_URL = 'https://your-project.supabase.co';
-const SUPABASE_ANON_KEY = 'your-anon-key';
+const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MzE3ODYsImV4cCI6MjA4MjMwNzc4Nn0.xE_iEkIYaY0ql0Br_B64o1JKLuiAeAPg8GydLm71DLs';
 
 // Create Supabase client
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
