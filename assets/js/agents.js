@@ -72,7 +72,7 @@ class Agent {
         };
         this.logs.push(entry);
         agentBus.emit('agent:log', entry);
-        console.log(`[${this.name}] ${message}`);
+
     }
 
     setState(newState) {
@@ -446,8 +446,6 @@ class AgentSystem {
             timestamp: new Date().toISOString(),
             agents: Array.from(this.agents.keys())
         });
-
-        console.log('🤖 Agent System initialized with Supervisor Pattern');
 
         return this;
     }

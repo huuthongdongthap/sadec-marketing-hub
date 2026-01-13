@@ -298,7 +298,7 @@ class LiveData {
                 campaigns: campaigns.count || 0
             };
         } catch (err) {
-            console.error('Error fetching stats:', err);
+
             return this.getMockStats();
         }
     }

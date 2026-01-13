@@ -17,14 +17,14 @@ function initSupabase() {
     try {
         if (typeof window.supabase !== 'undefined' && typeof window.supabase.createClient === 'function') {
             supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            console.log('✅ Supabase initialized successfully');
+
             return true;
         } else {
-            console.error('❌ Supabase CDN not loaded properly');
+
             return false;
         }
     } catch (err) {
-        console.error('❌ Supabase init error:', err);
+
         return false;
     }
 }
@@ -55,11 +55,10 @@ async function saveContact(contactData) {
         .select();
 
     if (error) {
-        console.error('Error saving contact:', error);
+
         return { error };
     }
 
-    console.log('✅ Contact saved:', data);
     return { data };
 }
 
@@ -121,7 +120,7 @@ async function trackEvent(eventName, eventData = {}) {
                 page_url: window.location.href
             }]);
     } catch (err) {
-        console.warn('Analytics failed:', err);
+
     }
 }
 
@@ -140,11 +139,10 @@ const AuthAPI = {
         });
 
         if (error) {
-            console.error('Sign in error:', error);
+
             return { error };
         }
 
-        console.log('✅ Signed in:', data.user?.email);
         return { data };
     },
 
@@ -162,7 +160,7 @@ const AuthAPI = {
         });
 
         if (error) {
-            console.error('Sign up error:', error);
+
             return { error };
         }
 
@@ -176,11 +174,10 @@ const AuthAPI = {
 
         const { error } = await client.auth.signOut();
         if (error) {
-            console.error('Sign out error:', error);
+
             return { error };
         }
 
-        console.log('✅ Signed out');
         return { success: true };
     },
 
