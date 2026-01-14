@@ -285,20 +285,38 @@ class LiveData {
         if (!this.supabase) return this.getMockStats();
 
         try {
-            const [leads, clients, campaigns] = await Promise.all([
-                this.supabase.from('leads').select('id', { count: 'exact' }),
+            const [leads, clients, campaigns, invoices, deals] = await Promise.all([
+                this.supabase.from('leads').select('id, status', { count: 'exact' }),
                 this.supabase.from('clients').select('id', { count: 'exact' }),
-                this.supabase.from('campaigns').select('id, spent', { count: 'exact' })
+                this.supabase.from('campaigns').select('id, status, budget', { count: 'exact' }),
+                this.supabase.from('invoices').select('id, amount, status'),
+                this.supabase.from('deals').select('id, value, stage, probability')
             ]);
 
+            // Calculate revenue from paid invoices
+            const paidInvoices = invoices.data?.filter(i => i.status === 'paid') || [];
+            const totalRevenue = paidInvoices.reduce((sum, i) => sum + (i.amount || 0), 0);
+
+            // Calculate pipeline value
+            const pipelineDeals = deals.data?.filter(d => d.stage !== 'lost') || [];
+            const pipelineValue = pipelineDeals.reduce((sum, d) => sum + (d.value || 0) * (d.probability || 50) / 100, 0);
+
+            // Active campaigns
+            const activeCampaigns = campaigns.data?.filter(c => c.status === 'active') || [];
+
             return {
-                totalRevenue: campaigns.data?.reduce((sum, c) => sum + (c.spent || 0), 0) || 0,
+                totalRevenue: totalRevenue,
+                pipelineValue: pipelineValue,
                 activeClients: clients.count || 0,
                 totalLeads: leads.count || 0,
-                campaigns: campaigns.count || 0
+                hotLeads: leads.data?.filter(l => l.status === 'hot').length || 0,
+                campaigns: campaigns.count || 0,
+                activeCampaigns: activeCampaigns.length,
+                totalDeals: deals.data?.length || 0,
+                wonDeals: deals.data?.filter(d => d.stage === 'won').length || 0
             };
         } catch (err) {
-
+            console.error('LiveData error:', err);
             return this.getMockStats();
         }
     }
@@ -306,19 +324,47 @@ class LiveData {
     static getMockStats() {
         return {
             totalRevenue: 2400000000,
+            pipelineValue: 450000000,
             activeClients: 142,
             totalLeads: 856,
-            campaigns: 45
+            hotLeads: 24,
+            campaigns: 45,
+            activeCampaigns: 12,
+            totalDeals: 28,
+            wonDeals: 8
         };
     }
 
     static formatCurrency(amount) {
         if (amount >= 1000000000) {
-            return (amount / 1000000000).toFixed(1) + 'B VND';
+            return (amount / 1000000000).toFixed(1) + 'B VNĐ';
         } else if (amount >= 1000000) {
-            return (amount / 1000000).toFixed(0) + 'M VND';
+            return (amount / 1000000).toFixed(0) + 'M VNĐ';
         }
-        return amount.toLocaleString('vi-VN') + ' VND';
+        return amount.toLocaleString('vi-VN') + ' VNĐ';
+    }
+
+    static async bindDashboard() {
+        const stats = await this.getStats();
+
+        // Bind to dashboard elements
+        const bindings = {
+            'stat-revenue': this.formatCurrency(stats.totalRevenue),
+            'stat-pipeline': this.formatCurrency(stats.pipelineValue),
+            'stat-clients': stats.activeClients,
+            'stat-leads': stats.totalLeads,
+            'stat-hot-leads': stats.hotLeads,
+            'stat-campaigns': stats.campaigns,
+            'stat-deals': stats.totalDeals,
+            'stat-won': stats.wonDeals
+        };
+
+        Object.entries(bindings).forEach(([id, value]) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        });
+
+        return stats;
     }
 }
 

@@ -3,7 +3,7 @@
 // Max Level Kanban Pipeline with Drag & Drop
 // ================================================
 
-import { auth, leads, clients, utils } from './supabase.js';
+import { auth, leads, clients, deals, utils } from './supabase.js';
 
 // ================================================
 // DEMO DEALS DATA
@@ -719,8 +719,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             toast.show('🎯 Sales Pipeline - Demo Mode', 'info');
         } else {
             // Live mode - fetch from Supabase
-            // For now, use demo data
-            renderPipeline(DEMO_DEALS);
+            toast.show('🔄 Đang tải dữ liệu...', 'info');
+            const { data: liveDeals, error } = await deals.getAll();
+
+            if (error || !liveDeals || liveDeals.length === 0) {
+                // Fallback to demo if no data
+                renderPipeline(DEMO_DEALS);
+                toast.show('📊 Sử dụng dữ liệu demo', 'info');
+            } else {
+                // Transform data to match expected format
+                const transformedDeals = liveDeals.map(deal => ({
+                    id: deal.id,
+                    company: deal.name,
+                    contact_name: deal.client?.contact_name || deal.lead?.name || 'N/A',
+                    contact_email: deal.client?.email || deal.lead?.email || '',
+                    value: deal.value || 0,
+                    stage: mapStage(deal.stage),
+                    score: deal.probability || 50,
+                    source: deal.lead?.source || 'website',
+                    created_at: deal.created_at,
+                    last_activity: deal.updated_at,
+                    probability: deal.probability || 50,
+                    notes: deal.notes || ''
+                }));
+
+                renderPipeline(transformedDeals);
+                toast.show(`✅ Đã tải ${transformedDeals.length} deals`, 'success');
+            }
         }
 
         // Bind export button
@@ -728,14 +753,103 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Bind add deal button
         document.getElementById('addDealBtn')?.addEventListener('click', () => {
-            toast.show('Tính năng thêm deal đang phát triển...', 'info');
+            showAddDealModal();
         });
 
     } catch (error) {
         console.error('Error loading pipeline:', error);
-        toast.show('Không thể tải pipeline', 'error');
+        renderPipeline(DEMO_DEALS);
+        toast.show('Đang hiển thị demo mode', 'warning');
     }
 });
+
+// Map Supabase stage to UI stage
+function mapStage(stage) {
+    const stageMap = {
+        'discovery': 'lead',
+        'proposal': 'proposal',
+        'negotiation': 'negotiation',
+        'won': 'closed',
+        'lost': 'lead'
+    };
+    return stageMap[stage] || 'lead';
+}
+
+// Show Add Deal Modal
+function showAddDealModal() {
+    modal.open(`
+        <div style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="margin: 0;">➕ Thêm Deal Mới</h2>
+                <button class="modal-close" style="background: none; border: none; cursor: pointer;">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <form id="addDealForm">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Tên Deal *</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" placeholder="VD: Website redesign cho XYZ">
+                </div>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Giá trị (VNĐ)</label>
+                    <input type="number" name="value" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" placeholder="50000000">
+                </div>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Giai đoạn</label>
+                    <select name="stage" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="discovery">Discovery</option>
+                        <option value="proposal">Proposal</option>
+                        <option value="negotiation">Negotiation</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 24px;">
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Ghi chú</label>
+                    <textarea name="notes" rows="3" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: none;" placeholder="Ghi chú về deal..."></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 14px; background: #006A60; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 500; cursor: pointer;">
+                    Tạo Deal
+                </button>
+            </form>
+        </div>
+    `);
+
+    // Handle form submit
+    document.getElementById('addDealForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const newDeal = {
+            name: formData.get('name'),
+            value: parseFloat(formData.get('value')) || 0,
+            stage: formData.get('stage'),
+            notes: formData.get('notes'),
+            probability: formData.get('stage') === 'discovery' ? 20 : formData.get('stage') === 'proposal' ? 50 : 70
+        };
+
+        const user = await auth.getUser();
+        if (user) {
+            // Save to Supabase
+            const { data, error } = await deals.create(newDeal);
+            if (!error) {
+                toast.show('✅ Đã tạo deal mới!', 'success');
+                modal.close();
+                location.reload();
+            } else {
+                toast.show('❌ Lỗi: ' + error.message, 'error');
+            }
+        } else {
+            // Demo mode - just show confirmation
+            toast.show('📝 Deal đã được tạo (demo mode)', 'info');
+            modal.close();
+        }
+    });
+}
 
 // ================================================
 // EXPORTS
