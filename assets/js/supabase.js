@@ -610,6 +610,123 @@ export const realtime = {
 };
 
 // ================================================
+// STRATEGIC INTELLIGENCE API
+// ================================================
+
+export const strategic = {
+    // Competitors
+    async getCompetitors() {
+        const { data, error } = await supabase
+            .from('competitors')
+            .select('*')
+            .order('name');
+        return { data, error };
+    },
+
+    async addCompetitor(competitor) {
+        const { data, error } = await supabase
+            .from('competitors')
+            .insert(competitor)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    // Strategic Notes
+    async getNotes(category = null) {
+        let query = supabase.from('strategic_notes').select('*');
+        if (category) query = query.eq('category', category);
+        const { data, error } = await query.order('created_at', { ascending: false });
+        return { data, error };
+    },
+
+    async addNote(note) {
+        const { data, error } = await supabase
+            .from('strategic_notes')
+            .insert(note)
+            .select()
+            .single();
+        return { data, error };
+    }
+};
+
+// ================================================
+// SEO API
+// ================================================
+
+export const seo = {
+    async getKeywords() {
+        const { data, error } = await supabase
+            .from('seo_keywords')
+            .select('*')
+            .order('search_volume', { ascending: false });
+        return { data, error };
+    },
+
+    async addKeyword(keyword) {
+        const { data, error } = await supabase
+            .from('seo_keywords')
+            .insert(keyword)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async updateRank(id, currentRank) {
+        const { data, error } = await supabase
+            .from('seo_keywords')
+            .update({ current_rank: currentRank, last_checked_at: new Date().toISOString() })
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    }
+};
+
+// ================================================
+// WORKFLOWS API
+// ================================================
+
+export const workflows = {
+    async getAll() {
+        const { data, error } = await supabase
+            .from('workflows')
+            .select('*')
+            .order('name');
+        return { data, error };
+    },
+
+    async create(workflow) {
+        const { data, error } = await supabase
+            .from('workflows')
+            .insert(workflow)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async toggle(id, isActive) {
+        const { data, error } = await supabase
+            .from('workflows')
+            .update({ is_active: isActive })
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async run(id) {
+        const { data, error } = await supabase
+            .from('workflows')
+            .update({ last_run_at: new Date().toISOString() })
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    }
+};
+
+// ================================================
 // UTILITY FUNCTIONS
 // ================================================
 
