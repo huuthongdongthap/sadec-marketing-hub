@@ -166,6 +166,77 @@ CREATE TABLE activities (
 );
 
 -- ================================================
+-- DEALS (Sales Pipeline)
+-- ================================================
+CREATE TABLE deals (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tenant_id UUID REFERENCES tenants(id) NOT NULL,
+  lead_id UUID REFERENCES leads(id),
+  client_id UUID REFERENCES clients(id),
+  name TEXT NOT NULL,
+  value DECIMAL(15,2) DEFAULT 0,
+  stage TEXT CHECK (stage IN ('discovery', 'proposal', 'negotiation', 'won', 'lost')) DEFAULT 'discovery',
+  probability INTEGER DEFAULT 20 CHECK (probability >= 0 AND probability <= 100),
+  expected_close DATE,
+  assigned_to UUID REFERENCES users(id),
+  notes TEXT,
+  won_at TIMESTAMPTZ,
+  lost_reason TEXT,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- ================================================
+-- CONTENT CALENDAR (Marketing)
+-- ================================================
+CREATE TABLE content_calendar (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tenant_id UUID REFERENCES tenants(id) NOT NULL,
+  title TEXT NOT NULL,
+  content TEXT,
+  platform TEXT CHECK (platform IN ('facebook', 'zalo', 'tiktok', 'instagram', 'website', 'youtube')),
+  status TEXT CHECK (status IN ('draft', 'scheduled', 'published', 'archived')) DEFAULT 'draft',
+  scheduled_at TIMESTAMPTZ,
+  published_at TIMESTAMPTZ,
+  media_urls JSONB,
+  hashtags TEXT[],
+  metrics JSONB DEFAULT '{"likes": 0, "comments": 0, "shares": 0, "views": 0}',
+  created_by UUID REFERENCES users(id),
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- ================================================
+-- BUDGET TRACKING (Finance)
+-- ================================================
+CREATE TABLE budget_tracking (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tenant_id UUID REFERENCES tenants(id) NOT NULL,
+  category TEXT NOT NULL,
+  period TEXT NOT NULL,
+  allocated DECIMAL(15,2) DEFAULT 0,
+  spent DECIMAL(15,2) DEFAULT 0,
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- ================================================
+-- NOTIFICATIONS
+-- ================================================
+CREATE TABLE notifications (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  tenant_id UUID REFERENCES tenants(id) NOT NULL,
+  user_id UUID REFERENCES users(id),
+  type TEXT CHECK (type IN ('info', 'warning', 'success', 'error')) DEFAULT 'info',
+  title TEXT NOT NULL,
+  message TEXT,
+  is_read BOOLEAN DEFAULT false,
+  action_url TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- ================================================
 -- ROW LEVEL SECURITY (RLS)
 -- ================================================
 
@@ -177,6 +248,10 @@ ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE campaigns ENABLE ROW LEVEL SECURITY;
 ALTER TABLE invoices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE activities ENABLE ROW LEVEL SECURITY;
+ALTER TABLE deals ENABLE ROW LEVEL SECURITY;
+ALTER TABLE content_calendar ENABLE ROW LEVEL SECURITY;
+ALTER TABLE budget_tracking ENABLE ROW LEVEL SECURITY;
+ALTER TABLE notifications ENABLE ROW LEVEL SECURITY;
 
 -- Users can only see their own tenant's data
 CREATE POLICY "Users can view own tenant data" ON users

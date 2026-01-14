@@ -395,6 +395,164 @@ export const invoices = {
 };
 
 // ================================================
+// DEALS API (Sales Pipeline)
+// ================================================
+
+export const deals = {
+    async getAll(filters = {}) {
+        let query = supabase
+            .from('deals')
+            .select('*, lead:leads(*), client:clients(*), assigned:users(*)');
+
+        if (filters.stage) query = query.eq('stage', filters.stage);
+        if (filters.assigned_to) query = query.eq('assigned_to', filters.assigned_to);
+
+        const { data, error } = await query.order('created_at', { ascending: false });
+        return { data, error };
+    },
+
+    async getById(id) {
+        const { data, error } = await supabase
+            .from('deals')
+            .select('*, lead:leads(*), client:clients(*), assigned:users(*)')
+            .eq('id', id)
+            .single();
+        return { data, error };
+    },
+
+    async create(deal) {
+        const { data, error } = await supabase
+            .from('deals')
+            .insert(deal)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async update(id, updates) {
+        const { data, error } = await supabase
+            .from('deals')
+            .update(updates)
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async updateStage(id, stage) {
+        const updates = { stage };
+        if (stage === 'won') {
+            updates.won_at = new Date().toISOString();
+            updates.probability = 100;
+        }
+        return this.update(id, updates);
+    },
+
+    async getPipelineStats() {
+        const { data, error } = await supabase
+            .from('deals')
+            .select('stage, value, probability');
+
+        if (error) return { data: null, error };
+
+        const stages = ['discovery', 'proposal', 'negotiation', 'won', 'lost'];
+        const stats = stages.map(stage => ({
+            stage,
+            count: data.filter(d => d.stage === stage).length,
+            value: data.filter(d => d.stage === stage).reduce((sum, d) => sum + (d.value || 0), 0),
+            weighted: data.filter(d => d.stage === stage).reduce((sum, d) => sum + (d.value || 0) * (d.probability || 0) / 100, 0)
+        }));
+
+        return { data: stats, error: null };
+    }
+};
+
+// ================================================
+// CONTENT CALENDAR API
+// ================================================
+
+export const content = {
+    async getAll(filters = {}) {
+        let query = supabase
+            .from('content_calendar')
+            .select('*, creator:users(*)');
+
+        if (filters.status) query = query.eq('status', filters.status);
+        if (filters.platform) query = query.eq('platform', filters.platform);
+
+        const { data, error } = await query.order('scheduled_at', { ascending: true });
+        return { data, error };
+    },
+
+    async create(post) {
+        const { data, error } = await supabase
+            .from('content_calendar')
+            .insert(post)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async update(id, updates) {
+        const { data, error } = await supabase
+            .from('content_calendar')
+            .update(updates)
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async publish(id) {
+        return this.update(id, {
+            status: 'published',
+            published_at: new Date().toISOString()
+        });
+    }
+};
+
+// ================================================
+// BUDGET API
+// ================================================
+
+export const budget = {
+    async getAll(period = null) {
+        let query = supabase.from('budget_tracking').select('*');
+        if (period) query = query.eq('period', period);
+        const { data, error } = await query.order('category');
+        return { data, error };
+    },
+
+    async upsert(category, period, allocated) {
+        const { data, error } = await supabase
+            .from('budget_tracking')
+            .upsert({ category, period, allocated }, { onConflict: 'category,period' })
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async addSpending(category, period, amount) {
+        const { data: current } = await supabase
+            .from('budget_tracking')
+            .select('spent')
+            .eq('category', category)
+            .eq('period', period)
+            .single();
+
+        const newSpent = (current?.spent || 0) + amount;
+        const { data, error } = await supabase
+            .from('budget_tracking')
+            .update({ spent: newSpent })
+            .eq('category', category)
+            .eq('period', period)
+            .select()
+            .single();
+        return { data, error };
+    }
+};
+
+// ================================================
 // ACTIVITIES API
 // ================================================
 
