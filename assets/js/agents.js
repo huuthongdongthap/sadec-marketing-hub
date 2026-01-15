@@ -60,6 +60,9 @@ class Agent {
     }
 
     generateId() {
+        if (typeof MekongUtils !== 'undefined' && MekongUtils.generateId) {
+            return MekongUtils.generateId('agent');
+        }
         return `agent-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     }
 
@@ -483,7 +486,20 @@ class AgentSystem {
 // ===== GLOBAL INSTANCE =====
 const mekongAgents = new AgentSystem();
 
-// Export for module systems
+// Export for ES modules
+export {
+    AgentSystem,
+    SupervisorAgent,
+    ScoutAgent,
+    EditorAgent,
+    DirectorAgent,
+    Agent,
+    AgentState,
+    agentBus,
+    mekongAgents
+};
+
+// Export for CommonJS
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         AgentSystem,

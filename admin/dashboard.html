@@ -16,6 +16,7 @@
     <link rel="icon" type="image/png" href="../favicon.png">
 
     <!-- STYLES -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/agency-2026.css">
 
     <script type="importmap">
@@ -108,6 +109,38 @@
             grid-template-columns: 2fr 1fr;
             gap: 24px;
         }
+
+        .nav-header {
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .nav-header h2 {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .nav-version {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 5px;
+        }
+
+        .nav-section-label {
+            color: var(--text-tertiary);
+            font-size: 12px;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .live-activity-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            padding: 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 
@@ -115,14 +148,13 @@
     <div class="layout-2026">
         <!-- Sidebar -->
         <aside class="sidebar-glass animate-entry delay-1">
-            <div style="padding-bottom: 40px; text-align: center;">
-                <h2 class="neon-cyan" style="font-size: 24px; letter-spacing: 1px;">MEKONG<br>AGENCY</h2>
-                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 5px;">EST. 2026</div>
+            <div class="nav-header">
+                <h2 class="neon-cyan">MEKONG<br>AGENCY</h2>
+                <div class="nav-version">EST. 2026</div>
             </div>
 
             <nav>
-                <div style="color: var(--text-tertiary); font-size: 12px; margin-bottom: 10px; padding-left: 10px;">MENU
-                </div>
+                <div class="nav-section-label">MENU</div>
                 <a href="#" class="nav-item-cyber active">
                     <span class="material-symbols-outlined">dashboard</span> Dashboard
                 </a>
@@ -136,8 +168,7 @@
                     <span class="material-symbols-outlined">payments</span> Finance
                 </a>
 
-                <div style="color: var(--text-tertiary); font-size: 12px; margin: 30px 0 10px; padding-left: 10px;">
-                    MODULES</div>
+                <div class="nav-section-label" style="margin-top: 30px;">MODULES</div>
                 <a href="lms.html" class="nav-item-cyber">
                     <span class="material-symbols-outlined">school</span> Academy LMS
                 </a>
@@ -153,10 +184,10 @@
             <div class="header-section animate-entry delay-1">
                 <div>
                     <h1 class="cyber-text">Dashboard Overview</h1>
-                    <p style="color: var(--text-secondary);">Welcome back, Commander.</p>
+                    <p class="text-secondary">Welcome back, Commander.</p>
                 </div>
 
-                <div style="display: flex; gap: 20px;">
+                <div class="flex">
                     <div class="search-glass">
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search system...">
@@ -180,7 +211,7 @@
                             <span class="material-symbols-outlined">trending_up</span>
                         </div>
                         <div class="stat-label">Total Revenue</div>
-                        <div class="stat-value">2.4B VND</div>
+                        <div class="stat-value" id="stat-revenue">2.4B VND</div>
                         <div style="color: var(--accent-lime); font-size: 12px;">▲ 12.5% increase</div>
                     </div>
                 </div>
@@ -193,7 +224,7 @@
                             <span class="material-symbols-outlined">group_add</span>
                         </div>
                         <div class="stat-label">Active Clients</div>
-                        <div class="stat-value">142</div>
+                        <div class="stat-value" id="stat-clients">142</div>
                         <div style="color: var(--accent-lime); font-size: 12px;">▲ 8 new this week</div>
                     </div>
                 </div>
@@ -205,7 +236,7 @@
                             <span class="material-symbols-outlined">ads_click</span>
                         </div>
                         <div class="stat-label">Ad Impressions</div>
-                        <div class="stat-value">8.5M</div>
+                        <div class="stat-value" id="stat-impressions">8.5M</div>
                         <div style="color: var(--text-tertiary); font-size: 12px;">─ Stable performance</div>
                     </div>
                 </div>
@@ -218,7 +249,7 @@
                             <span class="material-symbols-outlined">bolt</span>
                         </div>
                         <div class="stat-label">System Health</div>
-                        <div class="stat-value">99.9%</div>
+                        <div class="stat-value" id="stat-health">99.9%</div>
                         <div style="color: var(--primary-cyan); font-size: 12px;">● All systems operational</div>
                     </div>
                 </div>
@@ -228,9 +259,9 @@
             <div class="chart-section animate-entry delay-3">
                 <!-- Main Chart -->
                 <div class="glass-card" style="height: 400px; padding: 24px;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <h3 style="font-size: 18px;">Revenue Trajectory</h3>
-                        <div style="display: flex; gap: 10px;">
+                    <div class="flex-between mb-24">
+                        <h3 class="title-large">Revenue Trajectory</h3>
+                        <div class="flex" style="gap: 10px;">
                             <button class="btn-cyber" style="padding: 5px 15px; font-size: 12px;">Weekly</button>
                             <button class="btn-secondary"
                                 style="padding: 5px 15px; font-size: 12px; border-radius: 12px;">Monthly</button>
@@ -244,42 +275,36 @@
 
                 <!-- Side Panel -->
                 <div class="glass-card" style="padding: 24px;">
-                    <h3 style="font-size: 18px; margin-bottom: 20px;">Live Activity</h3>
+                    <h3 class="title-large mb-24">Live Activity</h3>
 
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <div
-                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                    <div style="display: flex; flex-direction: column; gap: 15px;" id="live-activity-list">
+                        <div class="live-activity-item">
                             <div
                                 style="width: 8px; height: 8px; background: var(--accent-lime); border-radius: 50%; box-shadow: 0 0 10px var(--accent-lime);">
                             </div>
                             <div>
-                                <div style="font-size: 14px; font-weight: 600;">New Lead Generated</div>
-                                <div style="font-size: 12px; color: var(--text-tertiary);">2 mins ago via Facebook Ads
-                                </div>
+                                <div class="title-small" style="font-weight: 600;">New Lead Generated</div>
+                                <div class="body-small text-muted">2 mins ago via Facebook Ads</div>
                             </div>
                         </div>
 
-                        <div
-                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                        <div class="live-activity-item">
                             <div
                                 style="width: 8px; height: 8px; background: var(--primary-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--primary-cyan);">
                             </div>
                             <div>
-                                <div style="font-size: 14px; font-weight: 600;">Campaign Optimized</div>
-                                <div style="font-size: 12px; color: var(--text-tertiary);">AI adjusted bids for 'Summer
-                                    Sale'</div>
+                                <div class="title-small" style="font-weight: 600;">Campaign Optimized</div>
+                                <div class="body-small text-muted">AI adjusted bids for 'Summer Sale'</div>
                             </div>
                         </div>
 
-                        <div
-                            style="display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03);">
+                        <div class="live-activity-item">
                             <div
                                 style="width: 8px; height: 8px; background: var(--secondary-purple); border-radius: 50%; box-shadow: 0 0 10px var(--secondary-purple);">
                             </div>
                             <div>
-                                <div style="font-size: 14px; font-weight: 600;">Payment Received</div>
-                                <div style="font-size: 12px; color: var(--text-tertiary);">Client X paid invoice #9921
-                                </div>
+                                <div class="title-small" style="font-weight: 600;">Payment Received</div>
+                                <div class="body-small text-muted">Client X paid invoice #9921</div>
                             </div>
                         </div>
                     </div>
@@ -289,14 +314,34 @@
     </div>
 
     <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/dashboard-client.js"></script>
     <script src="../assets/js/agency-2026.js"></script>
     <script>
         // Initialize Chart.js after DOM load
         document.addEventListener('DOMContentLoaded', async () => {
-            await MekongAdmin.DashboardCharts.init();
-            MekongAdmin.DashboardCharts.createRevenueChart('revenueChart');
-            MekongAdmin.Toast.success('Dashboard loaded successfully!');
+            // Check Auth
+            if (window.Auth && window.Auth.Guards) {
+                // await Auth.Guards.requireAuth(); // Uncomment to enforce auth
+            }
+
+            // Initialize Live Data
+            if (window.MekongAdmin && window.SupabaseAPI) {
+                MekongAdmin.LiveData.init(SupabaseAPI.getClient());
+            }
+
+            if (window.MekongAdmin && MekongAdmin.DashboardCharts) {
+                await MekongAdmin.DashboardCharts.init();
+                MekongAdmin.DashboardCharts.createRevenueChart('revenueChart');
+                if (MekongAdmin.Toast) {
+                    MekongAdmin.Toast.success('Dashboard loaded successfully!');
+                }
+            } else {
+                console.error('MekongAdmin or DashboardCharts not found.');
+            }
         });
     </script>
 </body>

@@ -158,15 +158,28 @@ const M3 = {
             document.body.prepend(noise);
         }
 
-        // 5.2 Spotlight Tracking
+        // 5.2 Spotlight Tracking (Optimized with rAF)
+        let ticking = false;
+        
         document.addEventListener('mousemove', (e) => {
-            document.querySelectorAll('.spotlight-card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    this.updateSpotlights(e.clientX, e.clientY);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    },
+
+    updateSpotlights(clientX, clientY) {
+        const cards = document.querySelectorAll('.spotlight-card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
     }
 };

@@ -4,11 +4,18 @@
 // ================================================
 
 import { auth, leads, campaigns, clients, activities, utils } from './supabase.js';
+import { 
+    formatCurrency, 
+    formatNumber, 
+    formatDate, 
+    formatRelativeTime, 
+    debounce 
+} from './utils.js';
 
 // ================================================
 // DEMO MODE DATA
 // ================================================
-
+// ... (keep DEMO_CAMPAIGNS and DEMO_LEADS as is, truncated in this view but preserved in file)
 const DEMO_CAMPAIGNS = [
     {
         id: 'camp-1',
@@ -376,44 +383,6 @@ class ModalManager {
 const modal = new ModalManager();
 
 // ================================================
-// UTILITY FUNCTIONS
-// ================================================
-
-function formatCurrency(amount) {
-    if (!amount && amount !== 0) return '--';
-    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
-}
-
-function formatNumber(num) {
-    if (!num && num !== 0) return '--';
-    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-    return num.toString();
-}
-
-function formatDate(dateStr, format = 'short') {
-    if (!dateStr) return '--';
-    const date = new Date(dateStr);
-    if (format === 'short') {
-        return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
-    }
-    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-}
-
-function timeAgo(dateStr) {
-    if (!dateStr) return 'Chưa liên hệ';
-    const date = new Date(dateStr);
-    const now = new Date();
-    const diff = Math.floor((now - date) / 1000);
-
-    if (diff < 60) return 'Vừa xong';
-    if (diff < 3600) return `${Math.floor(diff / 60)} phút trước`;
-    if (diff < 86400) return `${Math.floor(diff / 3600)} giờ trước`;
-    if (diff < 604800) return `${Math.floor(diff / 86400)} ngày trước`;
-    return formatDate(dateStr, 'full');
-}
-
-// ================================================
 // CAMPAIGN DETAIL MODAL
 // ================================================
 
@@ -460,7 +429,7 @@ function showCampaignDetail(campaign) {
                     ${campaign.platform?.charAt(0).toUpperCase() + campaign.platform?.slice(1)}
                 </span>
                 <span style="padding: 4px 12px; background: #f5f5f5; border-radius: 999px; font-size: 12px;">
-                    ${formatDate(campaign.start_date)} - ${formatDate(campaign.end_date)}
+                    ${formatDate(campaign.start_date, 'short-yearless')} - ${formatDate(campaign.end_date, 'short-yearless')}
                 </span>
             </div>
 
@@ -597,7 +566,7 @@ function showLeadDetail(lead) {
                 </div>
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <span class="material-symbols-outlined" style="color: #666;">schedule</span>
-                    <span style="color: #666;">Liên hệ lần cuối: ${timeAgo(lead.last_contacted_at)}</span>
+                    <span style="color: #666;">Liên hệ lần cuối: ${formatRelativeTime(lead.last_contacted_at)}</span>
                 </div>
             </div>
 
@@ -615,13 +584,13 @@ function showLeadDetail(lead) {
                 <div style="border-left: 2px solid #E0E0E0; padding-left: 16px;">
                     <div style="position: relative; padding-bottom: 16px;">
                         <div style="position: absolute; left: -22px; top: 0; width: 12px; height: 12px; background: #006A60; border-radius: 50%;"></div>
-                        <div style="font-size: 12px; color: #666;">${timeAgo(lead.created_at)}</div>
+                        <div style="font-size: 12px; color: #666;">${formatRelativeTime(lead.created_at)}</div>
                         <div style="font-size: 14px;">Lead được tạo từ ${source.text}</div>
                     </div>
                     ${lead.last_contacted_at ? `
                     <div style="position: relative;">
                         <div style="position: absolute; left: -22px; top: 0; width: 12px; height: 12px; background: #4CAF50; border-radius: 50%;"></div>
-                        <div style="font-size: 12px; color: #666;">${timeAgo(lead.last_contacted_at)}</div>
+                        <div style="font-size: 12px; color: #666;">${formatRelativeTime(lead.last_contacted_at)}</div>
                         <div style="font-size: 14px;">Đã liên hệ</div>
                     </div>
                     ` : ''}
@@ -739,7 +708,7 @@ function renderCampaigns(tableBody, campaignList) {
                     </div>
                 </td>
                 <td>${campaign.platform?.charAt(0).toUpperCase() + campaign.platform?.slice(1)}</td>
-                <td>${formatDate(campaign.start_date)} - ${formatDate(campaign.end_date)}</td>
+                <td>${formatDate(campaign.start_date, 'short-yearless')} - ${formatDate(campaign.end_date, 'short-yearless')}</td>
                 <td>${formatCurrency(campaign.budget)}</td>
                 <td><span class="status-badge ${status.class}">${status.text}</span></td>
                 <td class="metric-cell">
@@ -1003,18 +972,6 @@ function createSparkline(data, trend = 'up') {
 // SEARCH FILTER WITH DEBOUNCE
 // ================================================
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
 function setupSearchFilter(inputElement, items, renderFn, searchFields = ['name']) {
     if (!inputElement) return;
 
@@ -1039,6 +996,9 @@ function setupSearchFilter(inputElement, items, renderFn, searchFields = ['name'
 
     inputElement.addEventListener('input', (e) => filterItems(e.target.value));
 }
+
+// ... (Rest of the file remains similar)
+
 
 // ================================================
 // KEYBOARD SHORTCUTS

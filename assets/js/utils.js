@@ -6,19 +6,20 @@
  */
 
 // ===== ID GENERATION =====
-function generateId(prefix = 'id') {
+export function generateId(prefix = 'id') {
     return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
 // ===== CURRENCY FORMATTING =====
-function formatCurrency(amount, currency = 'VND') {
+export function formatCurrency(amount, currency = 'VND') {
+    if (amount === null || amount === undefined) return '--'; // Handle null/undefined like admin client
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
         currency: currency
     }).format(amount);
 }
 
-function formatCurrencyCompact(amount, currency = 'VND') {
+export function formatCurrencyCompact(amount, currency = 'VND') {
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
         currency: currency,
@@ -27,10 +28,14 @@ function formatCurrencyCompact(amount, currency = 'VND') {
 }
 
 // ===== DATE FORMATTING =====
-function formatDate(date, style = 'medium') {
+export function formatDate(date, style = 'medium') {
+    if (!date) return '--'; // Handle null/undefined
     const d = new Date(date);
     if (style === 'short') {
         return d.toLocaleDateString('vi-VN');
+    }
+    if (style === 'short-yearless') {
+        return d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
     }
     if (style === 'long') {
         return d.toLocaleDateString('vi-VN', {
@@ -42,56 +47,69 @@ function formatDate(date, style = 'medium') {
     });
 }
 
-function formatDateTime(date) {
+export function formatDateTime(date) {
     const d = new Date(date);
     return d.toLocaleString('vi-VN');
 }
 
-function formatRelativeTime(date) {
+export function formatRelativeTime(date) {
     const d = new Date(date);
     const now = new Date();
-    const diff = now - d;
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
+    const diffInSeconds = (d - now) / 1000;
+    
+    // Use Intl.RelativeTimeFormat for better localization
+    const rtf = new Intl.RelativeTimeFormat('vi-VN', { numeric: 'auto' });
 
-    if (days > 0) return `${days} ngày trước`;
-    if (hours > 0) return `${hours} giờ trước`;
-    if (minutes > 0) return `${minutes} phút trước`;
-    return 'vừa xong';
+    if (Math.abs(diffInSeconds) < 60) return rtf.format(Math.round(diffInSeconds), 'second');
+    if (Math.abs(diffInSeconds) < 3600) return rtf.format(Math.round(diffInSeconds / 60), 'minute');
+    if (Math.abs(diffInSeconds) < 86400) return rtf.format(Math.round(diffInSeconds / 3600), 'hour');
+    if (Math.abs(diffInSeconds) < 2592000) return rtf.format(Math.round(diffInSeconds / 86400), 'day');
+    if (Math.abs(diffInSeconds) < 31536000) return rtf.format(Math.round(diffInSeconds / 2592000), 'month');
+    return rtf.format(Math.round(diffInSeconds / 31536000), 'year');
 }
 
 // ===== NUMBER FORMATTING =====
-function formatNumber(num) {
+export function formatNumber(num) {
+    if (num === null || num === undefined) return '--';
     return new Intl.NumberFormat('vi-VN').format(num);
 }
 
-function formatPercent(value, decimals = 0) {
+export function formatPercent(value, decimals = 0) {
     return `${value.toFixed(decimals)}%`;
 }
 
 // ===== STRING UTILITIES =====
-function truncate(str, length = 50) {
+export function truncate(str, length = 50) {
     if (str.length <= length) return str;
     return str.slice(0, length) + '...';
 }
 
-function capitalize(str) {
+export function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function slugify(str) {
+export function getInitials(name) {
+    if (!name) return '';
+    return name
+        .split(' ')
+        .map(n => n[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+}
+
+export function slugify(str) {
     return str
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[đĐ]/g, 'd')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-|-$/g, '');
 }
 
 // ===== ARRAY UTILITIES =====
-function groupBy(array, key) {
+export function groupBy(array, key) {
     return array.reduce((groups, item) => {
         const group = item[key];
         if (!groups[group]) groups[group] = [];
@@ -100,24 +118,34 @@ function groupBy(array, key) {
     }, {});
 }
 
-function sortBy(array, key, order = 'asc') {
+export function sortBy(array, key, order = 'asc') {
     return [...array].sort((a, b) => {
-        if (order === 'desc') return b[key] > a[key] ? 1 : -1;
-        return a[key] > b[key] ? 1 : -1;
+        const valA = a[key];
+        const valB = b[key];
+        
+        let comparison = 0;
+        if (typeof valA === 'string' && typeof valB === 'string') {
+             comparison = valA.localeCompare(valB, 'vi-VN');
+        } else {
+             if (valA > valB) comparison = 1;
+             else if (valA < valB) comparison = -1;
+        }
+
+        return order === 'desc' ? comparison * -1 : comparison;
     });
 }
 
-function sum(array, key) {
+export function sum(array, key) {
     return array.reduce((total, item) => total + (item[key] || 0), 0);
 }
 
-function average(array, key) {
+export function average(array, key) {
     if (array.length === 0) return 0;
     return sum(array, key) / array.length;
 }
 
 // ===== DEBOUNCE/THROTTLE =====
-function debounce(fn, delay = 300) {
+export function debounce(fn, delay = 300) {
     let timeout;
     return (...args) => {
         clearTimeout(timeout);
@@ -125,7 +153,7 @@ function debounce(fn, delay = 300) {
     };
 }
 
-function throttle(fn, limit = 300) {
+export function throttle(fn, limit = 300) {
     let inThrottle;
     return (...args) => {
         if (!inThrottle) {
@@ -148,6 +176,7 @@ const MekongUtils = {
     formatPercent,
     truncate,
     capitalize,
+    getInitials,
     slugify,
     groupBy,
     sortBy,
@@ -156,6 +185,8 @@ const MekongUtils = {
     debounce,
     throttle
 };
+export default MekongUtils;
+
 
 // Export for browser
 if (typeof window !== 'undefined') {

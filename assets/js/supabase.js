@@ -4,6 +4,7 @@
 // ================================================
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import MekongUtils from './utils.js';
 
 // Supabase Configuration
 const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
@@ -730,36 +731,7 @@ export const workflows = {
 // UTILITY FUNCTIONS
 // ================================================
 
-export const utils = {
-    formatCurrency(amount, currency = 'VND') {
-        return new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency
-        }).format(amount);
-    },
-
-    formatDate(date, format = 'short') {
-        const d = new Date(date);
-        if (format === 'short') {
-            return d.toLocaleDateString('vi-VN');
-        }
-        return d.toLocaleDateString('vi-VN', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-    },
-
-    getInitials(name) {
-        return name
-            .split(' ')
-            .map(n => n[0])
-            .join('')
-            .toUpperCase()
-            .slice(0, 2);
-    }
-};
+export const utils = MekongUtils;
 
 // Export default client
 export default supabase;
