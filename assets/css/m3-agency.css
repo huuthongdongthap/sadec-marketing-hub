@@ -701,6 +701,10 @@ textarea.form-input {
   padding: 32px;
   text-align: center;
   position: relative;
+  overflow: visible !important;
+  /* MUST be visible for badge */
+  margin-top: 16px;
+  /* Space for the badget */
 }
 
 .pricing-card.featured {
@@ -723,6 +727,8 @@ textarea.form-input {
   letter-spacing: 0.5px;
   white-space: nowrap;
   z-index: 10;
+  line-height: 1.2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-name {
