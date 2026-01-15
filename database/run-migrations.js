@@ -42,7 +42,7 @@ const MIGRATION_FILES = [
     'rls_policies_v4.sql',
     'jwt_role_trigger.sql',
     'rls_policies_v5.sql',
-    'constraints.sql'
+    'clean_and_constrain.sql'
 ];
 
 async function runMigrations() {
