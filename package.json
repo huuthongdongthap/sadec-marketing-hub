@@ -4,6 +4,8 @@
   "description": "Sa Đéc Marketing Hub - Digital Marketing Agency",
   "scripts": {
     "dev": "npx http-server -p 8080 -o",
+    "prebuild": "node inject-env.js",
+    "build": "node inject-env.js",
     "all-phases": "bash run-all-phases.sh"
   },
   "keywords": [
