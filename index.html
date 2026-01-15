@@ -101,16 +101,17 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
+  <section class="hero cyber-hero">
+    <div class="hero-overlay"></div>
+    <div class="container relative-z">
       <div class="hero-content animate-fade-in">
-        <div class="hero-badge">
+        <div class="hero-badge glass-badge">
           <span class="material-symbols-outlined">verified</span>
           #1 Marketing Agency vùng Mekong
         </div>
 
         <h1 class="hero-title">
-          Tăng trưởng <span>doanh thu</span> cho doanh nghiệp địa phương
+          Tăng trưởng <span class="text-gradient">doanh thu</span> cho doanh nghiệp địa phương
         </h1>
 
         <p class="hero-description">
@@ -119,25 +120,25 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-filled btn-large">
+          <a href="#contact" class="btn btn-filled btn-large glow-effect">
             <span class="material-symbols-outlined">rocket_launch</span>
             Bắt đầu ngay
           </a>
-          <a href="#case-study" class="btn btn-outlined btn-large">
+          <a href="#case-study" class="btn btn-outlined btn-large glass-btn">
             Xem case study
           </a>
         </div>
 
         <div class="hero-stats">
-          <div class="hero-stat">
+          <div class="hero-stat glass-card-mini">
             <div class="hero-stat-value">150+</div>
             <div class="hero-stat-label">Khách hàng</div>
           </div>
-          <div class="hero-stat">
+          <div class="hero-stat glass-card-mini">
             <div class="hero-stat-value">300%</div>
             <div class="hero-stat-label">Tăng trưởng TB</div>
           </div>
-          <div class="hero-stat">
+          <div class="hero-stat glass-card-mini">
             <div class="hero-stat-value">13</div>
             <div class="hero-stat-label">Tỉnh ĐBSCL</div>
           </div>
@@ -158,9 +159,9 @@
       </div>
 
       <div class="grid grid-4">
-        <div class="card card-elevated service-card">
-          <div class="service-icon">
-            <span class="material-symbols-outlined">campaign</span>
+        <div class="card card-elevated service-card hover-lift">
+          <div class="service-img-wrapper">
+            <img src="assets/images/icon-ads.png" alt="Digital Ads" class="service-3d-icon">
           </div>
           <h3 class="service-title">Quảng cáo số</h3>
           <p class="service-description">
@@ -168,9 +169,9 @@
           </p>
         </div>
 
-        <div class="card card-elevated service-card">
-          <div class="service-icon">
-            <span class="material-symbols-outlined">travel_explore</span>
+        <div class="card card-elevated service-card hover-lift">
+          <div class="service-img-wrapper">
+            <img src="assets/images/icon-seo.png" alt="Local SEO" class="service-3d-icon">
           </div>
           <h3 class="service-title">SEO Local</h3>
           <p class="service-description">
@@ -178,9 +179,9 @@
           </p>
         </div>
 
-        <div class="card card-elevated service-card">
-          <div class="service-icon">
-            <span class="material-symbols-outlined">palette</span>
+        <div class="card card-elevated service-card hover-lift">
+          <div class="service-img-wrapper">
+            <img src="assets/images/icon-brand.png" alt="Branding" class="service-3d-icon">
           </div>
           <h3 class="service-title">Thiết kế thương hiệu</h3>
           <p class="service-description">
@@ -188,9 +189,9 @@
           </p>
         </div>
 
-        <div class="card card-elevated service-card">
-          <div class="service-icon">
-            <span class="material-symbols-outlined">smart_toy</span>
+        <div class="card card-elevated service-card hover-lift">
+          <div class="service-img-wrapper">
+            <img src="assets/images/icon-ai.png" alt="AI Marketing" class="service-3d-icon">
           </div>
           <h3 class="service-title">AI Marketing</h3>
           <p class="service-description">
@@ -202,7 +203,7 @@
   </section>
 
   <!-- Case Study: Sa Đéc -->
-  <section class="section bg-container" id="case-study">
+  <section class="section bg-container relative-z" id="case-study">
     <div class="container">
       <div class="section-header">
         <div class="section-badge">Case Study</div>
@@ -213,21 +214,27 @@
       </div>
 
       <div class="grid grid-2" style="align-items: center;">
+        <div class="case-study-visual">
+          <div class="visual-card glass-card">
+            <img src="assets/images/case-study-growth.png" alt="Growth Chart" class="floating-img">
+          </div>
+        </div>
+
         <div>
-          <div class="card card-elevated" style="padding: 40px;">
+          <div class="card card-elevated glasmorphism-panel" style="padding: 40px;">
             <div class="headline-medium mb-24">Kết quả sau 3 tháng</div>
 
             <div class="flex" style="gap: 32px; flex-wrap: wrap;">
               <div>
-                <div class="display-small text-primary">+450%</div>
+                <div class="display-small text-gradient">+450%</div>
                 <div class="body-medium text-muted">Leads tăng</div>
               </div>
               <div>
-                <div class="display-small text-primary">68%</div>
+                <div class="display-small text-gradient">68%</div>
                 <div class="body-medium text-muted">Chi phí giảm</div>
               </div>
               <div>
-                <div class="display-small text-primary">12x</div>
+                <div class="display-small text-gradient">12x</div>
                 <div class="body-medium text-muted">ROI đạt được</div>
               </div>
             </div>
@@ -235,33 +242,31 @@
             <div class="mb-32" style="margin-top: 32px;">
               <div class="title-medium mb-16">Giải pháp triển khai:</div>
               <ul style="list-style: none; padding: 0;">
-                <li class="body-large mb-16">✓ SEO Local + Google Business Profile</li>
-                <li class="body-large mb-16">✓ Facebook Ads tối ưu địa phương</li>
-                <li class="body-large mb-16">✓ Chatbot Zalo tự động</li>
-                <li class="body-large">✓ Website M3 responsive</li>
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> SEO Local + Google Business
+                  Profile</li>
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Facebook Ads tối ưu địa
+                  phương</li>
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Chatbot Zalo tự động</li>
+                <li class="body-large flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Website M3 responsive</li>
               </ul>
             </div>
 
-            <a href="#contact" class="btn btn-filled">
-              Nhận kết quả tương tự
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div class="card card-outlined testimonial-card">
-            <p class="testimonial-text">
-              "Mekong Agency đã thay đổi hoàn toàn cách chúng tôi tiếp cận khách hàng.
-              Doanh thu tăng 300% chỉ trong 3 tháng, vượt xa kỳ vọng ban đầu."
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar"
-                style="background: var(--md-sys-color-primary-container); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
-                NT
-              </div>
-              <div class="testimonial-info">
-                <div class="testimonial-name">Nguyễn Văn Tùng</div>
-                <div class="testimonial-role">Giám đốc, Sa Đéc Flower Shop</div>
+            <div class="flex gap-16">
+              <a href="#contact" class="btn btn-filled glow-effect">
+                Nhận kết quả tương tự
+              </a>
+              <div class="testimonial-mini">
+                <img src="assets/images/testimonial_tuan.png" alt="Client"
+                  style="width:40px;height:40px;border-radius:50%;margin-right:12px;">
+                <div>
+                  <div style="font-size:12px;font-weight:bold;">Nguyễn Văn Tùng</div>
+                  <div style="font-size:10px;color:var(--md-sys-color-on-surface-variant);">Giám đốc, Sa Đéc Flower
+                  </div>
+                </div>
               </div>
             </div>
           </div>

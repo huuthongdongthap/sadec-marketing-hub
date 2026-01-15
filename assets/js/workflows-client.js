@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderWorkflowsList(data.workflows);
     await bindWorkflowStats();
 
-    console.log('✅ Workflows dashboard loaded');
+    console.debug('✅ Workflows dashboard loaded');
 });
 
 export { loadWorkflowsData, renderWorkflowsList, bindWorkflowStats };

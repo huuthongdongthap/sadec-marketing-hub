@@ -25,7 +25,7 @@ function formatNumber(num) {
 // Load aggregated dashboard data
 async function loadDashboardData() {
     try {
-        console.log('🚀 Loading dashboard data...');
+        console.debug('🚀 Loading dashboard data...');
 
         // Parallel fetch for valid non-blocking load
         const [

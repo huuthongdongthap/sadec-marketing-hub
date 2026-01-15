@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderBudgetBreakdown(data.budgets);
     }
 
-    console.log('✅ Finance dashboard loaded');
+    console.debug('✅ Finance dashboard loaded');
 });
 
 export { loadFinanceData, bindFinanceDashboard, renderInvoiceTable, renderBudgetBreakdown, formatCurrency };

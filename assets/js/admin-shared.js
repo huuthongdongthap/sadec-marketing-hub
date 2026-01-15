@@ -267,7 +267,7 @@ class GlobalSearch {
 
     static handleSearch(query) {
         // Could show dropdown results here
-        console.log('Search:', query, this.search(query));
+        // console.debug('Search:', query, this.search(query));
     }
 }
 

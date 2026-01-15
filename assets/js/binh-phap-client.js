@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderStrategicNotes(data.notes);
     await bindStrategicStats();
 
-    console.log('✅ Binh Phap dashboard loaded');
+    console.debug('✅ Binh Phap dashboard loaded');
 });
 
 export { loadStrategicData, renderCompetitorTable, renderKeywordsTable, renderStrategicNotes, bindStrategicStats };
