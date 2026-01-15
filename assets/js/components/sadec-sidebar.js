@@ -12,6 +12,14 @@
  */
 
 class SadecSidebar extends HTMLElement {
+    // MVP mode - show only core items
+    static MVP_ITEMS = [
+        'dashboard', 'pipeline', 'leads', 'proposals',
+        'campaigns', 'content-calendar', 'finance',
+        'onboarding', 'workflows', 'binh-phap',
+        'lms', 'docs', 'auth'
+    ];
+
     // Navigation items configuration - ALL 31 ADMIN PAGES
     static MENU_SECTIONS = {
         dashboard: {
@@ -100,8 +108,9 @@ class SadecSidebar extends HTMLElement {
     connectedCallback() {
         const activePage = this.getAttribute('active') || this.detectActivePage();
         const collapsed = this.hasAttribute('collapsed');
+        const mode = this.getAttribute('mode') || 'mvp'; // 'mvp' or 'full'
 
-        this.shadowRoot.innerHTML = this.getTemplate(activePage, collapsed);
+        this.shadowRoot.innerHTML = this.getTemplate(activePage, collapsed, mode);
         this.setupEventListeners();
     }
 
@@ -112,7 +121,7 @@ class SadecSidebar extends HTMLElement {
         return filename || 'dashboard';
     }
 
-    getTemplate(activePage, collapsed) {
+    getTemplate(activePage, collapsed, mode) {
         return `
             <style>
                 ${this.getStyles()}
@@ -124,7 +133,7 @@ class SadecSidebar extends HTMLElement {
                 </div>
                 
                 <nav>
-                    ${this.renderAllSections(activePage)}
+                    ${this.renderAllSections(activePage, mode)}
                 </nav>
                 
                 <div class="sidebar-footer">
@@ -136,29 +145,56 @@ class SadecSidebar extends HTMLElement {
         `;
     }
 
-    renderAllSections(activePage) {
-        return Object.values(SadecSidebar.MENU_SECTIONS).map(section => `
-            <div class="nav-section">
-                <div class="nav-section-label">${section.label}</div>
-                ${section.items.map(item => `
-                    <a href="${item.href}" 
-                       class="nav-item ${activePage === item.id ? 'active' : ''}"
-                       data-page="${item.id}">
-                        <span class="material-symbols-outlined">${item.icon}</span>
-                        <span class="nav-label">${item.label}</span>
-                    </a>
-                `).join('')}
-            </div>
-        `).join('');
+    renderAllSections(activePage, mode) {
+        return Object.values(SadecSidebar.MENU_SECTIONS).map(section => {
+            // Filter items based on mode
+            const visibleItems = mode === 'mvp'
+                ? section.items.filter(item => SadecSidebar.MVP_ITEMS.includes(item.id))
+                : section.items;
+
+            // Skip empty sections
+            if (visibleItems.length === 0) return '';
+
+            return `
+                <div class="nav-section">
+                    <div class="nav-section-label">${section.label}</div>
+                    ${visibleItems.map(item => `
+                        <a href="${item.href}" 
+                           class="nav-item ${activePage === item.id ? 'active' : ''}"
+                           data-page="${item.id}">
+                            <span class="material-symbols-outlined">${item.icon}</span>
+                            <span class="nav-label">${item.label}</span>
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+        }).join('');
     }
 
     getStyles() {
         return `
+            /* Import Material Symbols font for Shadow DOM */
+            @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+            
             :host {
                 display: block;
                 height: 100vh;
                 position: sticky;
                 top: 0;
+            }
+            
+            .material-symbols-outlined {
+                font-family: 'Material Symbols Outlined';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 20px;
+                display: inline-block;
+                line-height: 1;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: nowrap;
+                direction: ltr;
             }
             
             .sidebar-glass {
