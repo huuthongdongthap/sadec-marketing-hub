@@ -40,7 +40,9 @@ const DATABASE_URL = process.env.DATABASE_URL || process.env.SUPABASE_DB_URL;
 
 const MIGRATION_FILES = [
     'rls_policies_v4.sql',
-    'jwt_role_trigger.sql'
+    'jwt_role_trigger.sql',
+    'rls_policies_v5.sql',
+    'constraints.sql'
 ];
 
 async function runMigrations() {
