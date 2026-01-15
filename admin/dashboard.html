@@ -24,6 +24,9 @@
     </script>
     <script type="module">import '@material/web/all.js';</script>
 
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
     <style>
         .layout-2026 {
             display: grid;
@@ -146,37 +149,8 @@
 
 <body>
     <div class="layout-2026">
-        <!-- Sidebar -->
-        <aside class="sidebar-glass animate-entry delay-1">
-            <div class="nav-header">
-                <h2 class="neon-cyan">MEKONG<br>AGENCY</h2>
-                <div class="nav-version">EST. 2026</div>
-            </div>
-
-            <nav>
-                <div class="nav-section-label">MENU</div>
-                <a href="#" class="nav-item-cyber active">
-                    <span class="material-symbols-outlined">dashboard</span> Dashboard
-                </a>
-                <a href="campaigns.html" class="nav-item-cyber">
-                    <span class="material-symbols-outlined">campaign</span> Campaigns
-                </a>
-                <a href="leads.html" class="nav-item-cyber">
-                    <span class="material-symbols-outlined">group</span> Leads CRM
-                </a>
-                <a href="finance.html" class="nav-item-cyber">
-                    <span class="material-symbols-outlined">payments</span> Finance
-                </a>
-
-                <div class="nav-section-label" style="margin-top: 30px;">MODULES</div>
-                <a href="lms.html" class="nav-item-cyber">
-                    <span class="material-symbols-outlined">school</span> Academy LMS
-                </a>
-                <a href="content-calendar.html" class="nav-item-cyber">
-                    <span class="material-symbols-outlined">calendar_month</span> Content AI
-                </a>
-            </nav>
-        </aside>
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="dashboard"></sadec-sidebar>
 
         <!-- Main Content -->
         <main class="main-content">

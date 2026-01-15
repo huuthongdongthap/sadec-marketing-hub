@@ -12,26 +12,85 @@
  */
 
 class SadecSidebar extends HTMLElement {
-    // Navigation items configuration
-    static MENU_ITEMS = [
-        { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: 'dashboard.html' },
-        { id: 'campaigns', label: 'Campaigns', icon: 'campaign', href: 'campaigns.html' },
-        { id: 'leads', label: 'Leads CRM', icon: 'group', href: 'leads.html' },
-        { id: 'pipeline', label: 'Pipeline', icon: 'filter_alt', href: 'pipeline.html' },
-        { id: 'finance', label: 'Finance', icon: 'payments', href: 'finance.html' }
-    ];
-
-    static MODULE_ITEMS = [
-        { id: 'lms', label: 'Academy LMS', icon: 'school', href: 'lms.html' },
-        { id: 'content', label: 'Content AI', icon: 'calendar_month', href: 'content-calendar.html' },
-        { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: 'binh-phap.html' },
-        { id: 'workflows', label: 'Workflows', icon: 'alt_route', href: 'workflows.html' }
-    ];
-
-    static EXTRA_ITEMS = [
-        { id: 'community', label: 'Community', icon: 'groups', href: 'community.html' },
-        { id: 'auth', label: 'Auth & Users', icon: 'admin_panel_settings', href: 'auth.html' }
-    ];
+    // Navigation items configuration - ALL 31 ADMIN PAGES
+    static MENU_SECTIONS = {
+        dashboard: {
+            label: '📊 DASHBOARD',
+            items: [
+                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: 'dashboard.html' }
+            ]
+        },
+        sales: {
+            label: '💼 SALES & CRM',
+            items: [
+                { id: 'pipeline', label: 'Pipeline', icon: 'filter_alt', href: 'pipeline.html' },
+                { id: 'leads', label: 'Leads CRM', icon: 'group', href: 'leads.html' },
+                { id: 'proposals', label: 'Proposals', icon: 'description', href: 'proposals.html' },
+                { id: 'pricing', label: 'Pricing', icon: 'sell', href: 'pricing.html' },
+                { id: 'ecommerce', label: 'E-commerce', icon: 'shopping_cart', href: 'ecommerce.html' }
+            ]
+        },
+        marketing: {
+            label: '📣 MARKETING',
+            items: [
+                { id: 'campaigns', label: 'Campaigns', icon: 'campaign', href: 'campaigns.html' },
+                { id: 'content-calendar', label: 'Content AI', icon: 'calendar_month', href: 'content-calendar.html' },
+                { id: 'community', label: 'Community', icon: 'groups', href: 'community.html' },
+                { id: 'events', label: 'Events', icon: 'event', href: 'events.html' }
+            ]
+        },
+        finance: {
+            label: '💰 FINANCE',
+            items: [
+                { id: 'finance', label: 'Finance', icon: 'payments', href: 'finance.html' },
+                { id: 'payments', label: 'Payments', icon: 'credit_card', href: 'payments.html' }
+            ]
+        },
+        customers: {
+            label: '👥 CUSTOMERS',
+            items: [
+                { id: 'onboarding', label: 'Onboarding', icon: 'start', href: 'onboarding.html' },
+                { id: 'customer-success', label: 'Success', icon: 'thumb_up', href: 'customer-success.html' },
+                { id: 'retention', label: 'Retention', icon: 'loyalty', href: 'retention.html' }
+            ]
+        },
+        automation: {
+            label: '🤖 AUTOMATION',
+            items: [
+                { id: 'workflows', label: 'Workflows', icon: 'alt_route', href: 'workflows.html' },
+                { id: 'agents', label: 'AI Agents', icon: 'smart_toy', href: 'agents.html' },
+                { id: 'approvals', label: 'Approvals', icon: 'approval', href: 'approvals.html' }
+            ]
+        },
+        strategy: {
+            label: '🎯 STRATEGY',
+            items: [
+                { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: 'binh-phap.html' },
+                { id: 'ai-analysis', label: 'AI Analysis', icon: 'insights', href: 'ai-analysis.html' },
+                { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: 'vc-readiness.html' }
+            ]
+        },
+        content: {
+            label: '📚 CONTENT',
+            items: [
+                { id: 'lms', label: 'Academy LMS', icon: 'school', href: 'lms.html' },
+                { id: 'brand-guide', label: 'Brand Guide', icon: 'palette', href: 'brand-guide.html' },
+                { id: 'video-workflow', label: 'Video', icon: 'videocam', href: 'video-workflow.html' },
+                { id: 'docs', label: 'Docs', icon: 'article', href: 'docs.html' }
+            ]
+        },
+        system: {
+            label: '⚙️ SYSTEM',
+            items: [
+                { id: 'auth', label: 'Auth & Users', icon: 'admin_panel_settings', href: 'auth.html' },
+                { id: 'hr-hiring', label: 'HR & Hiring', icon: 'badge', href: 'hr-hiring.html' },
+                { id: 'legal', label: 'Legal', icon: 'gavel', href: 'legal.html' },
+                { id: 'api-builder', label: 'API Builder', icon: 'api', href: 'api-builder.html' },
+                { id: 'deploy', label: 'Deploy', icon: 'rocket_launch', href: 'deploy.html' },
+                { id: 'mvp-launch', label: 'MVP Launch', icon: 'flag', href: 'mvp-launch.html' }
+            ]
+        }
+    };
 
     constructor() {
         super();
@@ -61,18 +120,11 @@ class SadecSidebar extends HTMLElement {
             <aside class="sidebar-glass ${collapsed ? 'collapsed' : ''}">
                 <div class="nav-header">
                     <h2 class="logo">MEKONG<br>AGENCY</h2>
-                    <div class="nav-version">EST. 2026</div>
+                    <div class="nav-version">AgencyOS 2026</div>
                 </div>
                 
                 <nav>
-                    <div class="nav-section-label">MENU</div>
-                    ${this.renderNavItems(SadecSidebar.MENU_ITEMS, activePage)}
-                    
-                    <div class="nav-section-label" style="margin-top: 24px;">MODULES</div>
-                    ${this.renderNavItems(SadecSidebar.MODULE_ITEMS, activePage)}
-                    
-                    <div class="nav-section-label" style="margin-top: 24px;">SYSTEM</div>
-                    ${this.renderNavItems(SadecSidebar.EXTRA_ITEMS, activePage)}
+                    ${this.renderAllSections(activePage)}
                 </nav>
                 
                 <div class="sidebar-footer">
@@ -84,14 +136,19 @@ class SadecSidebar extends HTMLElement {
         `;
     }
 
-    renderNavItems(items, activePage) {
-        return items.map(item => `
-            <a href="${item.href}" 
-               class="nav-item ${activePage === item.id ? 'active' : ''}"
-               data-page="${item.id}">
-                <span class="material-symbols-outlined">${item.icon}</span>
-                <span class="nav-label">${item.label}</span>
-            </a>
+    renderAllSections(activePage) {
+        return Object.values(SadecSidebar.MENU_SECTIONS).map(section => `
+            <div class="nav-section">
+                <div class="nav-section-label">${section.label}</div>
+                ${section.items.map(item => `
+                    <a href="${item.href}" 
+                       class="nav-item ${activePage === item.id ? 'active' : ''}"
+                       data-page="${item.id}">
+                        <span class="material-symbols-outlined">${item.icon}</span>
+                        <span class="nav-label">${item.label}</span>
+                    </a>
+                `).join('')}
+            </div>
         `).join('');
     }
 
