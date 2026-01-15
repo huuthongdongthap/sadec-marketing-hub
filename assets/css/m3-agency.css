@@ -781,6 +781,34 @@ textarea.form-input {
   }
 }
 
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-sys-shape-corner-full);
+  font: var(--md-sys-typescale-label-medium);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font: var(--md-sys-typescale-display-small);
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 16px;
+}
+
+.section-description {
+  font: var(--md-sys-typescale-body-large);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
 /* ===== CYBER-GLASS VISUALS ===== */
 
 /* Section Relatives */
