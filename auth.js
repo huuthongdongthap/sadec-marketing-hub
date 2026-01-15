@@ -28,11 +28,11 @@ const ROLE_LEVELS = {
 };
 
 const ROLE_REDIRECTS = {
-    super_admin: '/admin-dashboard.html',
-    manager: '/admin-dashboard.html',
-    content_creator: '/admin-dashboard.html',
-    client: '/client-portal.html',
-    affiliate: '/affiliate-dashboard.html'
+    super_admin: '/admin/dashboard.html',
+    manager: '/admin/dashboard.html',
+    content_creator: '/admin/dashboard.html',
+    client: '/portal/client-portal.html',
+    affiliate: '/admin/dashboard.html'
 };
 
 const ROLE_LABELS = {
