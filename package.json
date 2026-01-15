@@ -6,6 +6,8 @@
     "dev": "npx http-server -p 8080 -o",
     "prebuild": "node inject-env.js",
     "build": "node inject-env.js",
+    "migrate": "node database/migrate.js",
+    "migrate:print": "node database/migrate.js --print",
     "all-phases": "bash run-all-phases.sh"
   },
   "keywords": [
