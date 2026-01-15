@@ -702,9 +702,11 @@ textarea.form-input {
   text-align: center;
   position: relative;
   overflow: visible !important;
-  /* MUST be visible for badge */
   margin-top: 16px;
-  /* Space for the badget */
+  /* Flexbox for button alignment */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pricing-card.featured {
@@ -774,6 +776,10 @@ textarea.form-input {
 
 .pricing-card.featured .pricing-feature::before {
   color: var(--md-sys-color-on-primary);
+}
+
+.pricing-card .btn {
+  margin-top: auto;
 }
 
 /* Footer */
