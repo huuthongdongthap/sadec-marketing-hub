@@ -1143,3 +1143,96 @@ textarea.form-input {
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ===== PHASE 3: MOBILE RESPONSIVE TABLES ===== */
+
+/* Responsive table wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 16px;
+}
+
+/* Data table base styles */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  /* Ensures horizontal scroll on mobile */
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.data-table th {
+  font: var(--md-sys-typescale-label-medium);
+  color: var(--md-sys-color-on-surface-variant);
+  background: var(--md-sys-color-surface-container);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.data-table tr:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+
+  /* Stack cards vertically */
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure stat cards don't overflow */
+  .stat-card,
+  .pricing-card {
+    min-width: unset;
+  }
+
+  /* Compact padding */
+  .section {
+    padding: 40px 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Mobile sidebar trigger */
+  .mobile-menu-btn {
+    display: flex !important;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    box-shadow: var(--md-sys-elevation-3);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+  }
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ===== END PHASE 3 ===== */
