@@ -184,6 +184,17 @@
             font: var(--md-sys-typescale-body-small);
             color: var(--md-sys-color-on-surface-variant)
         }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            overflow-y: auto;
+        }
     </style>
 
     <!-- Web Components -->
@@ -191,53 +202,57 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="nav-container"><a href="../index.html" class="nav-logo"><span
-                    class="material-symbols-outlined">water_drop</span>Mekong Agency</a></div>
-    </nav>
-    <header class="dashboard-header">
-        <div class="container">
-            <h1 class="display-small">🎓 LMS Training</h1>
-            <p class="body-large" style="opacity:0.9">Client & Staff Training Platform</p>
-        </div>
-    </header>
-    <div class="container" style="padding:32px 0">
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('courses')"><span
-                    class="material-symbols-outlined">school</span>Courses</button>
-            <button class="tab" onclick="switchTab('students')"><span
-                    class="material-symbols-outlined">people</span>Students</button>
-        </div>
-        <div class="tab-content active" id="tab-courses">
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value" id="mCourses">0</div>
-                    <div class="metric-label">Total Courses</div>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <sadec-sidebar active="lms"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="container">
+                    <h1 class="display-small">🎓 LMS Training</h1>
+                    <p class="body-large" style="opacity:0.9">Client & Staff Training Platform</p>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value" id="mPublished">0</div>
-                    <div class="metric-label">Published</div>
+            </header>
+            <div class="container" style="padding:32px 24px">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('courses')"><span
+                            class="material-symbols-outlined">school</span>Courses</button>
+                    <button class="tab" onclick="switchTab('students')"><span
+                            class="material-symbols-outlined">people</span>Students</button>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value" id="mStudents">0</div>
-                    <div class="metric-label">Students</div>
+                <div class="tab-content active" id="tab-courses">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value" id="mCourses">0</div>
+                            <div class="metric-label">Total Courses</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="mPublished">0</div>
+                            <div class="metric-label">Published</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="mStudents">0</div>
+                            <div class="metric-label">Students</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="mEnrollments">0</div>
+                            <div class="metric-label">Enrollments</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="mRating">0</div>
+                            <div class="metric-label">Avg Rating</div>
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom:16px">📚 Courses</h3>
+                    <div class="course-grid" id="courseGrid"></div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value" id="mEnrollments">0</div>
-                    <div class="metric-label">Enrollments</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value" id="mRating">0</div>
-                    <div class="metric-label">Avg Rating</div>
+                <div class="tab-content" id="tab-students">
+                    <h3 style="margin-bottom:16px">👥 Students</h3>
+                    <div class="student-list" id="studentList"></div>
                 </div>
             </div>
-            <h3 style="margin-bottom:16px">📚 Courses</h3>
-            <div class="course-grid" id="courseGrid"></div>
-        </div>
-        <div class="tab-content" id="tab-students">
-            <h3 style="margin-bottom:16px">👥 Students</h3>
-            <div class="student-list" id="studentList"></div>
-        </div>
+        </main>
     </div>
     <script src="../assets/js/lms.js"></script>
     <script>
@@ -255,7 +270,7 @@
         }
         render();
     </script>
-<script src="../assets/js/admin-shared.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
 </body>
 
 </html>
