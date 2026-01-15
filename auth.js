@@ -54,6 +54,7 @@ const AuthState = {
     isAuthenticated: false,
 
     // Get current session from Supabase or localStorage (demo mode)
+    // ENHANCED: Now reads role from JWT app_metadata first (more secure)
     async init() {
         this.isLoading = true;
 
@@ -64,14 +65,34 @@ const AuthState = {
 
                 if (session?.user) {
                     this.user = session.user;
-                    // Load profile using AuthAPI
-                    const profile = await window.AuthAPI.getProfile();
 
-                    if (profile) {
-                        this.profile = profile;
-                        // Cache in localStorage for quick access
-                        localStorage.setItem('userRole', profile.role);
-                        localStorage.setItem('userName', profile.full_name);
+                    // PHASE 2 ENHANCEMENT: Try to get role from JWT claims first
+                    // This is more secure as it's set by the database trigger
+                    const jwtRole = session.user.app_metadata?.role;
+
+                    if (jwtRole && ROLE_LEVELS[jwtRole]) {
+                        // Role found in JWT - use it directly (most secure)
+                        this.profile = {
+                            id: session.user.id,
+                            email: session.user.email,
+                            full_name: session.user.user_metadata?.full_name || session.user.email.split('@')[0],
+                            role: jwtRole,
+                            avatar_url: session.user.user_metadata?.avatar_url
+                        };
+                        console.debug('Auth: Role from JWT claims:', jwtRole);
+                    } else {
+                        // Fallback: Load profile from database (for users before trigger)
+                        const profile = await window.AuthAPI.getProfile();
+                        if (profile) {
+                            this.profile = profile;
+                        }
+                        console.debug('Auth: Role from user_profiles:', this.profile?.role);
+                    }
+
+                    // Cache in localStorage for quick access
+                    if (this.profile) {
+                        localStorage.setItem('userRole', this.profile.role);
+                        localStorage.setItem('userName', this.profile.full_name);
                     }
 
                     this.isAuthenticated = true;
