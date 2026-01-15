@@ -8,6 +8,7 @@
     "build": "node inject-env.js",
     "migrate": "node database/migrate.js",
     "migrate:print": "node database/migrate.js --print",
+    "migrate:run": "node database/run-migrations.js",
     "all-phases": "bash run-all-phases.sh"
   },
   "keywords": [
