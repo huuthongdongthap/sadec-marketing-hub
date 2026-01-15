@@ -535,37 +535,16 @@
             animation: fadeInUp 0.4s ease-out backwards;
         }
     </style>
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
 </head>
 
 <body>
     <div class="admin-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <a href="/" class="sidebar-logo">
-                <span class="material-symbols-outlined">payments</span>
-                Payments
-            </a>
-            <span class="sidebar-badge">BILLING</span>
-
-            <nav>
-                <a href="dashboard.html" class="nav-item">
-                    <span class="material-symbols-outlined">dashboard</span>
-                    Dashboard
-                </a>
-                <a href="payments.html" class="nav-item active">
-                    <span class="material-symbols-outlined">payments</span>
-                    Payments
-                </a>
-                <a href="pricing.html" class="nav-item">
-                    <span class="material-symbols-outlined">sell</span>
-                    Pricing
-                </a>
-                <a href="pipeline.html" class="nav-item">
-                    <span class="material-symbols-outlined">conversion_path</span>
-                    Sales Pipeline
-                </a>
-            </nav>
-        </aside>
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="payments"></sadec-sidebar>
 
         <!-- Main Content -->
         <main class="main-content">

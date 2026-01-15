@@ -557,37 +557,16 @@
             animation: fadeInUp 0.4s ease-out backwards;
         }
     </style>
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
 </head>
 
 <body>
     <div class="admin-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <a href="/" class="sidebar-logo">
-                <span class="material-symbols-outlined">calendar_month</span>
-                Content
-            </a>
-            <span class="sidebar-badge">CALENDAR</span>
-
-            <nav>
-                <a href="dashboard.html" class="nav-item">
-                    <span class="material-symbols-outlined">dashboard</span>
-                    Dashboard
-                </a>
-                <a href="content-calendar.html" class="nav-item active">
-                    <span class="material-symbols-outlined">calendar_month</span>
-                    Content Calendar
-                </a>
-                <a href="campaigns.html" class="nav-item">
-                    <span class="material-symbols-outlined">campaign</span>
-                    Campaigns
-                </a>
-                <a href="pipeline.html" class="nav-item">
-                    <span class="material-symbols-outlined">conversion_path</span>
-                    Sales Pipeline
-                </a>
-            </nav>
-        </aside>
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="content-calendar"></sadec-sidebar>
 
         <!-- Main Content -->
         <main class="main-content">
