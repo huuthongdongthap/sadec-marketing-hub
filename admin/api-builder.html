@@ -18,98 +18,23 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/admin-premium.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
 
     <style>
-        .admin-layout {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            min-height: 100vh;
-        }
-
-        @media (max-width: 1024px) {
-            .admin-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-        }
-
-        .sidebar {
-            background: #0D1117;
-            color: rgba(255, 255, 255, 0.9);
-            padding: 24px;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font: var(--md-sys-typescale-title-large);
-            color: #58A6FF;
-            text-decoration: none;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            background: linear-gradient(135deg, #238636, #2EA043);
-            color: #fff;
-            border-radius: 4px;
-            font: var(--md-sys-typescale-label-small);
-            margin-bottom: 32px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font: var(--md-sys-typescale-label-large);
-            margin-bottom: 4px;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-
-        .nav-item.active {
-            background: rgba(88, 166, 255, 0.2);
-            color: #58A6FF;
-        }
-
+        /* Page-specific: API Builder (GitHub Dark Theme) */
         .main-content {
             background: #161B22;
-            padding: 32px;
-            overflow-y: auto;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 16px;
         }
 
         .page-title {
-            font: var(--md-sys-typescale-headline-medium);
             color: #fff;
         }
 
         .page-subtitle {
-            font: var(--md-sys-typescale-body-medium);
             color: #8B949E;
         }
 
-        /* ===== API STATS ===== */
+        /* API Stats */
         .api-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -117,71 +42,27 @@
             margin-bottom: 32px;
         }
 
-        .stat-card {
+        .api-stats .stat-card {
             background: #21262D;
             border: 1px solid #30363D;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
         }
 
-        .stat-value {
-            font: var(--md-sys-typescale-headline-medium);
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .stat-value.green {
-            color: #3FB950;
-        }
-
-        .stat-value.blue {
-            color: #58A6FF;
-        }
-
-        .stat-value.purple {
-            color: #A371F7;
-        }
-
-        .stat-value.orange {
-            color: #D29922;
-        }
-
-        .stat-label {
-            font: var(--md-sys-typescale-label-medium);
-            color: #8B949E;
-        }
-
-        /* ===== SECTION CONTAINER ===== */
+        /* Section Container (Dark) */
         .section-container {
             background: #21262D;
             border: 1px solid #30363D;
             border-radius: 16px;
-            margin-bottom: 24px;
-            overflow: hidden;
         }
 
         .section-header {
-            padding: 20px 24px;
             border-bottom: 1px solid #30363D;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .section-title {
-            font: var(--md-sys-typescale-title-medium);
             color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .section-body {
-            padding: 24px;
-        }
-
-        /* ===== ENDPOINTS TABLE ===== */
+        /* Endpoints */
         .endpoints-list {
             display: flex;
             flex-direction: column;
@@ -264,7 +145,7 @@
             color: #D29922;
         }
 
-        /* ===== DATA MODELS ===== */
+        /* Data Models */
         .models-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -328,7 +209,7 @@
             color: #A371F7;
         }
 
-        /* ===== API TESTER ===== */
+        /* API Tester */
         .api-tester {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -417,7 +298,7 @@
             color: #79C0FF;
         }
 
-        /* ===== ADVANCED FEATURES ===== */
+        /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -489,22 +370,9 @@
             color: #8B949E;
         }
 
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font: var(--md-sys-typescale-label-large);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: none;
-        }
-
+        /* Button overrides for dark theme */
         .btn-primary {
             background: #238636;
-            color: #fff;
         }
 
         .btn-primary:hover {
@@ -528,25 +396,6 @@
 
         .btn-send:hover {
             background: #79B8FF;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stat-card,
-        .endpoint-item,
-        .model-card {
-            animation: fadeInUp 0.4s ease-out backwards;
         }
     </style>
 
@@ -930,15 +779,17 @@
         `;
         document.head.appendChild(style);
     </script>
-<script src="../assets/js/admin-shared.js"></script>
-
+    <script src="../assets/js/admin-shared.js"></script>
+<!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
     <!-- Realtime Updates -->
     <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
     <!-- Mobile Menu -->
     <script src="../assets/js/mobile-menu.js"></script>
-
-    <!-- Content AI -->
-    <script src="../assets/js/content-ai.js"></script>
 </body>
 
 </html>

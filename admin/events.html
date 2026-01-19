@@ -17,26 +17,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
 
     <style>
-        .dashboard-header {
-            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
-            color: white;
-            padding: 100px 24px 40px;
-        }
+        /* .dashboard-header removed */
 
         .dashboard-content {
             padding: 32px 0;
         }
-
+        /* ... keep other styles ... */
         .tabs {
             display: flex;
             gap: 8px;
-            background: var(--md-sys-color-surface);
+            background: rgba(255, 255, 255, 0.05);
             padding: 8px;
             border-radius: 12px;
             margin-bottom: 24px;
             overflow-x: auto;
+            border: 1px solid var(--glass-border);
         }
 
         .tab {
@@ -44,20 +43,25 @@
             border: none;
             background: transparent;
             border-radius: 8px;
-            font: var(--md-sys-typescale-label-large);
+            font-family: var(--font-body);
+            font-weight: 500;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
         }
 
         .tab:hover {
-            background: var(--md-sys-color-surface-container);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
         .tab.active {
-            background: var(--md-sys-color-primary);
-            color: white;
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.2);
         }
 
         .tab-content {
@@ -76,10 +80,10 @@
         }
 
         .metric-card {
-            background: var(--md-sys-color-surface);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: var(--md-sys-elevation-1);
         }
 
         .metric-icon {
@@ -92,34 +96,23 @@
             margin-bottom: 16px;
         }
 
-        .metric-icon.events {
-            background: #fce7f3;
-            color: #ec4899;
-        }
-
-        .metric-icon.registrations {
-            background: #dbeafe;
-            color: #3b82f6;
-        }
-
-        .metric-icon.live {
-            background: #fee2e2;
-            color: #ef4444;
-        }
-
-        .metric-icon.rate {
-            background: #dcfce7;
-            color: #10b981;
-        }
+        .metric-icon.events { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
+        .metric-icon.registrations { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .metric-icon.live { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .metric-icon.rate { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
         .metric-value {
-            font: var(--md-sys-typescale-headline-medium);
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
             margin-bottom: 4px;
+            color: white;
         }
 
         .metric-label {
-            font: var(--md-sys-typescale-body-small);
-            color: var(--md-sys-color-on-surface-variant);
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--text-secondary);
         }
 
         .event-grid {
@@ -129,15 +122,21 @@
         }
 
         .event-card {
-            background: var(--md-sys-color-surface);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
             border-radius: 16px;
-            box-shadow: var(--md-sys-elevation-1);
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .event-thumbnail {
             height: 140px;
-            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -155,58 +154,41 @@
             right: 12px;
             padding: 4px 12px;
             border-radius: 12px;
-            font: var(--md-sys-typescale-label-small);
+            font-size: 12px;
             text-transform: uppercase;
+            font-weight: 600;
+            color: white;
         }
 
-        .event-badge.draft {
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .event-badge.scheduled {
-            background: #3b82f6;
-        }
-
-        .event-badge.live {
-            background: #ef4444;
-            animation: pulse 2s infinite;
-        }
-
-        .event-badge.ended {
-            background: #6b7280;
-        }
+        .event-badge.draft { background: rgba(0, 0, 0, 0.6); }
+        .event-badge.scheduled { background: #3b82f6; }
+        .event-badge.live { background: #ef4444; animation: pulse 2s infinite; }
+        .event-badge.ended { background: #6b7280; }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
-        .event-body {
-            padding: 20px;
-        }
+        .event-body { padding: 20px; color: white; }
 
         .event-type {
-            font: var(--md-sys-typescale-label-small);
-            color: var(--md-sys-color-on-surface-variant);
+            font-size: 12px;
+            color: var(--text-secondary);
             text-transform: uppercase;
             margin-bottom: 8px;
         }
 
         .event-title {
-            font: var(--md-sys-typescale-title-large);
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
         .event-datetime {
-            font: var(--md-sys-typescale-body-medium);
-            color: var(--md-sys-color-on-surface-variant);
+            font-size: 14px;
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -216,54 +198,44 @@
         .event-stats {
             display: flex;
             gap: 20px;
-            font: var(--md-sys-typescale-label-medium);
-            color: var(--md-sys-color-on-surface-variant);
+            font-size: 14px;
+            color: var(--text-secondary);
             margin-bottom: 16px;
         }
 
-        .event-actions {
-            display: flex;
-            gap: 12px;
-        }
+        .event-actions { display: flex; gap: 12px; }
 
         .event-btn {
             flex: 1;
             padding: 10px;
             border: none;
             border-radius: 8px;
-            font: var(--md-sys-typescale-label-large);
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            font-family: var(--font-body);
         }
 
-        .event-btn.primary {
-            background: var(--md-sys-color-primary);
-            color: white;
-        }
-
-        .event-btn.secondary {
-            background: var(--md-sys-color-surface-container);
-        }
-
-        .event-btn.live {
-            background: #ef4444;
-            color: white;
-        }
+        .event-btn.primary { background: var(--primary-cyan); color: #000; }
+        .event-btn.secondary { background: rgba(255, 255, 255, 0.1); color: white; }
+        .event-btn.live { background: #ef4444; color: white; }
 
         .registration-list {
-            background: var(--md-sys-color-surface);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
             border-radius: 16px;
-            box-shadow: var(--md-sys-elevation-1);
             overflow: hidden;
+            color: white;
         }
 
         .registration-header {
             padding: 20px 24px;
-            border-bottom: 1px solid var(--md-sys-color-outline-variant);
-            font: var(--md-sys-typescale-title-large);
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .registration-item {
@@ -271,49 +243,33 @@
             align-items: center;
             gap: 16px;
             padding: 16px 24px;
-            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .registration-avatar {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: var(--md-sys-color-primary);
+            background: var(--secondary-purple);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
         }
 
-        .registration-info {
-            flex: 1;
-        }
-
-        .registration-name {
-            font: var(--md-sys-typescale-title-small);
-        }
-
-        .registration-email {
-            font: var(--md-sys-typescale-body-small);
-            color: var(--md-sys-color-on-surface-variant);
-        }
+        .registration-info { flex: 1; }
+        .registration-name { font-weight: 600; }
+        .registration-email { font-size: 14px; color: var(--text-secondary); }
 
         .registration-status {
             padding: 4px 12px;
             border-radius: 12px;
-            font: var(--md-sys-typescale-label-small);
+            font-size: 12px;
         }
 
-        .registration-status.attended {
-            background: #dcfce7;
-            color: #059669;
-        }
-
-        .registration-status.registered {
-            background: #dbeafe;
-            color: #3b82f6;
-        }
+        .registration-status.attended { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .registration-status.registered { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
 
         .email-sequence {
             display: grid;
@@ -323,11 +279,12 @@
         }
 
         .email-card {
-            background: var(--md-sys-color-surface);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: var(--md-sys-elevation-1);
             position: relative;
+            color: white;
         }
 
         .email-number {
@@ -336,36 +293,34 @@
             left: 16px;
             width: 28px;
             height: 28px;
-            background: var(--md-sys-color-primary);
-            color: white;
+            background: var(--primary-cyan);
+            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font: var(--md-sys-typescale-label-medium);
+            font-weight: bold;
+            font-size: 12px;
         }
 
         .email-timing {
-            font: var(--md-sys-typescale-label-small);
-            color: var(--md-sys-color-on-surface-variant);
+            font-size: 12px;
+            color: var(--text-secondary);
             margin: 8px 0;
         }
 
-        .email-subject {
-            font: var(--md-sys-typescale-title-small);
-        }
+        .email-subject { font-weight: 600; }
 
         .create-form {
-            background: var(--md-sys-color-surface-container);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 24px;
+            color: white;
         }
 
-        .create-form h3 {
-            font: var(--md-sys-typescale-title-medium);
-            margin-bottom: 20px;
-        }
+        .create-form h3 { margin-bottom: 20px; }
 
         .form-row {
             display: flex;
@@ -374,15 +329,13 @@
             flex-wrap: wrap;
         }
 
-        .form-field {
-            flex: 1;
-            min-width: 200px;
-        }
+        .form-field { flex: 1; min-width: 200px; }
 
         .form-field label {
             display: block;
-            font: var(--md-sys-typescale-label-medium);
+            font-size: 14px;
             margin-bottom: 8px;
+            color: var(--text-secondary);
         }
 
         .form-field input,
@@ -390,19 +343,26 @@
         .form-field textarea {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--md-sys-color-outline);
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
             border-radius: 8px;
-            font: var(--md-sys-typescale-body-large);
+            color: white;
+            font-family: var(--font-body);
             box-sizing: border-box;
+        }
+        
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+            border-color: var(--primary-cyan);
+            outline: none;
         }
 
         .create-btn {
             padding: 14px 28px;
-            background: var(--md-sys-color-primary);
-            color: white;
+            background: var(--primary-cyan);
+            color: #000;
             border: none;
-            border-radius: 24px;
-            font: var(--md-sys-typescale-label-large);
+            border-radius: 12px;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -412,7 +372,7 @@
         .empty-state {
             text-align: center;
             padding: 64px;
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
         }
     </style>
 
@@ -421,160 +381,152 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">
-                <span class="material-symbols-outlined">water_drop</span>
-                Mekong Agency
-            </a>
-            <div class="nav-actions">
-                <a href="government.html" class="btn btn-text">Government</a>
-                <a href="lms.html" class="btn btn-text">LMS</a>
-                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="dashboard-header">
-        <div class="container">
-            <h1 class="display-small" style="margin-bottom: 8px;">🎤 Virtual Events</h1>
-            <p class="body-large" style="opacity: 0.9;">Webinars, Workshops & Conferences</p>
-        </div>
-    </header>
-
-    <div class="container dashboard-content">
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('events')">
-                <span class="material-symbols-outlined">event</span> Events
-            </button>
-            <button class="tab" onclick="switchTab('registrations')">
-                <span class="material-symbols-outlined">people</span> Registrations
-            </button>
-            <button class="tab" onclick="switchTab('emails')">
-                <span class="material-symbols-outlined">mail</span> Emails
-            </button>
-            <button class="tab" onclick="switchTab('create')">
-                <span class="material-symbols-outlined">add</span> Create
-            </button>
-        </div>
-
-        <!-- Events Tab -->
-        <div class="tab-content active" id="tab-events">
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-icon events"><span class="material-symbols-outlined">event</span></div>
-                    <div class="metric-value" id="metricEvents">0</div>
-                    <div class="metric-label">Total Events</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-icon live"><span class="material-symbols-outlined">stream</span></div>
-                    <div class="metric-value" id="metricLive">0</div>
-                    <div class="metric-label">Live Now</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
-                    </div>
-                    <div class="metric-value" id="metricRegistrations">0</div>
-                    <div class="metric-label">Registrations</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span></div>
-                    <div class="metric-value" id="metricRate">0%</div>
-                    <div class="metric-label">Attendance Rate</div>
+    <div class="layout-2026">
+        <sadec-sidebar active="events"></sadec-sidebar>
+        
+        <main class="main-content">
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="cyber-text">Virtual Events</h1>
+                    <p class="text-secondary">Webinars, Workshops & Conferences</p>
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 16px;">📅 Upcoming & Recent Events</h3>
-            <div class="event-grid" id="eventGrid"></div>
-        </div>
-
-        <!-- Registrations Tab -->
-        <div class="tab-content" id="tab-registrations">
-            <h3 style="margin-bottom: 16px;">👥 Event Registrations</h3>
-            <select id="eventSelect"
-                style="padding: 12px; border-radius: 8px; margin-bottom: 20px; font: var(--md-sys-typescale-body-large);">
-            </select>
-            <div class="registration-list" id="registrationList"></div>
-        </div>
-
-        <!-- Emails Tab -->
-        <div class="tab-content" id="tab-emails">
-            <h3 style="margin-bottom: 16px;">📧 Email Sequence</h3>
-            <div class="email-sequence" id="emailSequence"></div>
-        </div>
-
-        <!-- Create Tab -->
-        <div class="tab-content" id="tab-create">
-            <div class="create-form">
-                <h3>➕ Create New Event</h3>
-                <form id="createForm">
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Event Title</label>
-                            <input type="text" id="eventTitle" value="Digital Marketing Workshop">
-                        </div>
-                        <div class="form-field" style="max-width: 200px;">
-                            <label>Type</label>
-                            <select id="eventType">
-                                <option value="webinar">Webinar</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="conference">Conference</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Date</label>
-                            <input type="date" id="eventDate" value="2026-03-01">
-                        </div>
-                        <div class="form-field">
-                            <label>Time</label>
-                            <input type="time" id="eventTime" value="14:00">
-                        </div>
-                        <div class="form-field">
-                            <label>Duration (minutes)</label>
-                            <input type="number" id="eventDuration" value="60">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Description</label>
-                            <textarea id="eventDesc" rows="3">Mô tả sự kiện...</textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="create-btn">
-                        <span class="material-symbols-outlined">add</span>
-                        Create Event
+            <div class="animate-entry delay-2">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('events')">
+                        <span class="material-symbols-outlined">event</span> Events
                     </button>
-                </form>
-            </div>
-
-            <div class="create-form">
-                <h3>📝 Register Attendee (Demo)</h3>
-                <form id="registerForm">
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Event</label>
-                            <select id="regEvent"></select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Name</label>
-                            <input type="text" id="regName" value="Nguyễn Văn Test">
-                        </div>
-                        <div class="form-field">
-                            <label>Email</label>
-                            <input type="email" id="regEmail" value="test@email.com">
-                        </div>
-                    </div>
-                    <button type="submit" class="create-btn" style="background: #10b981;">
-                        <span class="material-symbols-outlined">person_add</span>
-                        Register
+                    <button class="tab" onclick="switchTab('registrations')">
+                        <span class="material-symbols-outlined">people</span> Registrations
                     </button>
-                </form>
+                    <button class="tab" onclick="switchTab('emails')">
+                        <span class="material-symbols-outlined">mail</span> Emails
+                    </button>
+                    <button class="tab" onclick="switchTab('create')">
+                        <span class="material-symbols-outlined">add</span> Create
+                    </button>
+                </div>
+
+                <!-- Events Tab -->
+                <div class="tab-content active" id="tab-events">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon events"><span class="material-symbols-outlined">event</span></div>
+                            <div class="metric-value" id="metricEvents">0</div>
+                            <div class="metric-label">Total Events</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon live"><span class="material-symbols-outlined">stream</span></div>
+                            <div class="metric-value" id="metricLive">0</div>
+                            <div class="metric-label">Live Now</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
+                            </div>
+                            <div class="metric-value" id="metricRegistrations">0</div>
+                            <div class="metric-label">Registrations</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span></div>
+                            <div class="metric-value" id="metricRate">0%</div>
+                            <div class="metric-label">Attendance Rate</div>
+                        </div>
+                    </div>
+
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">📅 Upcoming & Recent Events</h3>
+                    <div class="event-grid" id="eventGrid"></div>
+                </div>
+
+                <!-- Registrations Tab -->
+                <div class="tab-content" id="tab-registrations">
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">👥 Event Registrations</h3>
+                    <select id="eventSelect"
+                        style="padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); color: white; border: 1px solid var(--glass-border); width: 100%;">
+                    </select>
+                    <div class="registration-list" id="registrationList"></div>
+                </div>
+
+                <!-- Emails Tab -->
+                <div class="tab-content" id="tab-emails">
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">📧 Email Sequence</h3>
+                    <div class="email-sequence" id="emailSequence"></div>
+                </div>
+
+                <!-- Create Tab -->
+                <div class="tab-content" id="tab-create">
+                    <div class="create-form">
+                        <h3 class="cyber-text">➕ Create New Event</h3>
+                        <form id="createForm">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Event Title</label>
+                                    <input type="text" id="eventTitle" value="Digital Marketing Workshop">
+                                </div>
+                                <div class="form-field" style="max-width: 200px;">
+                                    <label>Type</label>
+                                    <select id="eventType">
+                                        <option value="webinar">Webinar</option>
+                                        <option value="workshop">Workshop</option>
+                                        <option value="conference">Conference</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Date</label>
+                                    <input type="date" id="eventDate" value="2026-03-01">
+                                </div>
+                                <div class="form-field">
+                                    <label>Time</label>
+                                    <input type="time" id="eventTime" value="14:00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Duration (minutes)</label>
+                                    <input type="number" id="eventDuration" value="60">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Description</label>
+                                    <textarea id="eventDesc" rows="3">Mô tả sự kiện...</textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="create-btn">
+                                <span class="material-symbols-outlined">add</span>
+                                Create Event
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="create-form">
+                        <h3 class="cyber-text">📝 Register Attendee (Demo)</h3>
+                        <form id="registerForm">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Event</label>
+                                    <select id="regEvent"></select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Name</label>
+                                    <input type="text" id="regName" value="Nguyễn Văn Test">
+                                </div>
+                                <div class="form-field">
+                                    <label>Email</label>
+                                    <input type="email" id="regEmail" value="test@email.com">
+                                </div>
+                            </div>
+                            <button type="submit" class="create-btn" style="background: #10b981;">
+                                <span class="material-symbols-outlined">person_add</span>
+                                Register
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <script src="../assets/js/events.js"></script>
@@ -726,14 +678,16 @@
         refresh();
     </script>
 <script src="../assets/js/admin-shared.js"></script>
-
+<!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
     <!-- Realtime Updates -->
     <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
     <!-- Mobile Menu -->
     <script src="../assets/js/mobile-menu.js"></script>
-
-    <!-- Content AI -->
-    <script src="../assets/js/content-ai.js"></script>
 </body>
 
 </html>

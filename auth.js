@@ -126,9 +126,24 @@ const AuthState = {
         return this.isAuthenticated;
     },
 
-    // Get current role
+    // Get current role - STANDARDIZED: JWT → Profile → Demo fallback
+    // Priority order: 1) Profile (contains JWT role), 2) Demo localStorage, 3) Default
     getRole() {
-        return this.profile?.role || localStorage.getItem('userRole') || 'affiliate';
+        // Primary source: profile (populated from JWT or database in init())
+        if (this.profile?.role && ROLE_LEVELS[this.profile.role]) {
+            return this.profile.role;
+        }
+
+        // Demo mode fallback only
+        const isDemoMode = localStorage.getItem('isDemoMode') === 'true';
+        if (isDemoMode) {
+            const cachedRole = localStorage.getItem('userRole');
+            if (cachedRole && ROLE_LEVELS[cachedRole]) {
+                return cachedRole;
+            }
+        }
+
+        return 'affiliate'; // Default role
     },
 
     // Get role level (for permission comparison)
@@ -151,14 +166,21 @@ const AuthState = {
     // Get user display name
     getDisplayName() {
         return this.profile?.full_name ||
-            localStorage.getItem('userName') ||
             this.user?.email?.split('@')[0] ||
+            localStorage.getItem('userName') ||
             'User';
     },
 
     // Get role label with emoji
     getRoleLabel() {
         return ROLE_LABELS[this.getRole()] || '👤 User';
+    },
+
+    // Dispatch role change event (for cross-component sync)
+    _dispatchRoleChange() {
+        window.dispatchEvent(new CustomEvent('auth:role:changed', {
+            detail: { role: this.getRole(), profile: this.profile }
+        }));
     }
 };
 

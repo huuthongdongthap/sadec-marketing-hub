@@ -281,6 +281,16 @@ h6 {
     border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+
+/* ===== LAYOUT ===== */
+.layout-2026 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 30px;
+    overflow-y: auto;
+    width: 100%;
 }

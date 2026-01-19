@@ -6,10 +6,11 @@
 
 const https = require('https');
 const { Client } = require('pg');
+const config = require('./mekong-env');
 
-const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-const SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NjczMTc4NiwiZXhwIjoyMDgyMzA3Nzg2fQ.hFwiEW_U7Tr5hXyvw04aS_CzS2OXK7VHQ0Y0SG_jJDc';
-const connectionString = 'postgresql://postgres:TtmData2026%40@db.pzcgvfhppglzfjavxuid.supabase.co:5432/postgres';
+const SUPABASE_URL = config.SUPABASE_URL;
+const SERVICE_ROLE_KEY = config.SUPABASE_SERVICE_KEY;
+const connectionString = config.DB_CONNECTION_STRING;
 
 const DEMO_USERS = [
     { email: 'admin@mekongmarketing.com', password: 'Admin@2026', role: 'super_admin', full_name: 'Admin Mekong', phone: '0909 000 001' },
@@ -97,4 +98,7 @@ async function main() {
     console.log('\n🔗 Login at: /login.html');
 }
 
-main().catch(console.error);
+main().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

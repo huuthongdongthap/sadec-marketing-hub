@@ -2,12 +2,16 @@
  * Realtime Dashboard Client
  * Supabase Realtime subscriptions for live data updates
  * Sa Đéc Marketing Hub
+ * 
+ * ENHANCED: Integrates with MekongStore for centralized data sync
  */
 
 const RealtimeDashboard = {
     channel: null,
     callbacks: {},
     isConnected: false,
+    reconnectAttempts: 0,
+    maxReconnectAttempts: 5,
 
     /**
      * Initialize Realtime subscriptions
@@ -41,10 +45,13 @@ const RealtimeDashboard = {
                 { event: '*', schema: 'public', table: 'invoices' },
                 (payload) => this.handleChange('invoices', payload)
             )
+            // Listen to deals
+            .on('postgres_changes',
+                { event: '*', schema: 'public', table: 'deals' },
+                (payload) => this.handleChange('deals', payload)
+            )
             .subscribe((status) => {
-                this.isConnected = status === 'SUBSCRIBED';
-                console.log(`📡 Realtime: ${status}`);
-                this.updateConnectionIndicator();
+                this.handleConnectionStatus(status);
             });
 
         console.log('🔌 Realtime Dashboard initialized');
@@ -52,10 +59,50 @@ const RealtimeDashboard = {
     },
 
     /**
-     * Handle database changes
+     * Handle connection status changes
+     */
+    handleConnectionStatus(status) {
+        this.isConnected = status === 'SUBSCRIBED';
+        console.log(`📡 Realtime: ${status}`);
+        this.updateConnectionIndicator();
+
+        if (status === 'SUBSCRIBED') {
+            this.reconnectAttempts = 0;
+        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
+            this.attemptReconnect();
+        }
+    },
+
+    /**
+     * Attempt to reconnect on connection loss
+     */
+    attemptReconnect() {
+        if (this.reconnectAttempts >= this.maxReconnectAttempts) {
+            console.error('📡 Realtime: Max reconnect attempts reached');
+            return;
+        }
+
+        this.reconnectAttempts++;
+        const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 30000);
+
+        console.log(`📡 Realtime: Reconnecting in ${delay / 1000}s... (attempt ${this.reconnectAttempts})`);
+
+        setTimeout(() => {
+            this.disconnect();
+            this.init();
+        }, delay);
+    },
+
+    /**
+     * Handle database changes - ENHANCED with MekongStore integration
      */
     handleChange(table, payload) {
         console.log(`🔄 ${table}: ${payload.eventType}`, payload.new || payload.old);
+
+        // Sync with MekongStore (if available)
+        if (window.DataSync) {
+            window.DataSync.handleRealtimeUpdate(table, payload);
+        }
 
         // Show toast notification
         this.showUpdateToast(table, payload.eventType);
@@ -75,12 +122,18 @@ const RealtimeDashboard = {
      * Register callback for table changes
      * @param {string} table - Table name or '*' for all
      * @param {Function} callback - Function to call on change
+     * @returns {Function} Unsubscribe function
      */
     onTableChange(table, callback) {
         if (!this.callbacks[table]) {
             this.callbacks[table] = [];
         }
         this.callbacks[table].push(callback);
+
+        // Return unsubscribe function
+        return () => {
+            this.callbacks[table] = this.callbacks[table].filter(cb => cb !== callback);
+        };
     },
 
     /**
@@ -91,7 +144,8 @@ const RealtimeDashboard = {
             customers: 'Khách hàng',
             contacts: 'Lead',
             posts: 'Bài viết',
-            invoices: 'Hóa đơn'
+            invoices: 'Hóa đơn',
+            deals: 'Deals'
         };
 
         const eventNames = {
@@ -119,6 +173,13 @@ const RealtimeDashboard = {
             indicator.classList.toggle('connected', this.isConnected);
             indicator.title = this.isConnected ? 'Realtime: Connected' : 'Realtime: Disconnected';
         }
+
+        // Also update any status badge
+        const statusBadge = document.querySelector('[data-realtime-status]');
+        if (statusBadge) {
+            statusBadge.textContent = this.isConnected ? '🟢 Live' : '🔴 Offline';
+            statusBadge.className = this.isConnected ? 'badge badge-success' : 'badge badge-error';
+        }
     },
 
     /**
@@ -129,6 +190,20 @@ const RealtimeDashboard = {
             this.channel.unsubscribe();
             this.channel = null;
             this.isConnected = false;
+        }
+    },
+
+    /**
+     * Force refresh all data
+     */
+    async refreshAll() {
+        if (window.DataSync) {
+            await Promise.all([
+                window.DataSync.fetch('customers', {}),
+                window.DataSync.fetch('leads', {}),
+                window.DataSync.fetch('posts', {})
+            ]);
+            console.log('📡 All data refreshed');
         }
     }
 };
@@ -143,3 +218,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export
 window.RealtimeDashboard = RealtimeDashboard;
+

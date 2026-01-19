@@ -609,6 +609,228 @@ const KPIAPI = {
 };
 
 // ============================================================================
+// BINH PHÁP API - Strategic Data & WIN³ Metrics
+// ============================================================================
+const BinhPhapAPI = {
+    // Get dashboard stats from materialized view (fast)
+    async getDashboardStats() {
+        const client = getClient();
+        if (!client) return null;
+
+        const { data, error } = await client
+            .from('mv_dashboard_stats')
+            .select('*')
+            .single();
+
+        if (error) {
+            console.warn('mv_dashboard_stats not available, falling back to live query');
+            return await this.getDashboardStatsLive();
+        }
+        return data;
+    },
+
+    // Fallback live query if materialized view doesn't exist
+    async getDashboardStatsLive() {
+        const client = getClient();
+        if (!client) return null;
+
+        const [customers, projects, invoices, campaigns, deals, contacts] = await Promise.all([
+            client.from('customers').select('*', { count: 'exact', head: true }).is('deleted_at', null),
+            client.from('projects').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+            client.from('invoices').select('total, status').in('status', ['sent', 'overdue']),
+            client.from('campaigns').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+            client.from('deals').select('value, stage').is('deleted_at', null),
+            client.from('contacts').select('*', { count: 'exact', head: true }).eq('status', 'new')
+        ]);
+
+        const pipelineDeals = deals.data?.filter(d => !['won', 'lost'].includes(d.stage)) || [];
+        const pipelineValue = pipelineDeals.reduce((sum, d) => sum + (d.value || 0), 0);
+        const pendingRevenue = invoices.data?.reduce((sum, i) => sum + (i.total || 0), 0) || 0;
+
+        return {
+            total_customers: customers.count || 0,
+            active_projects: projects.count || 0,
+            pending_invoices: invoices.data?.length || 0,
+            pending_revenue: pendingRevenue,
+            active_campaigns: campaigns.count || 0,
+            pipeline_value: pipelineValue,
+            new_contacts: contacts.count || 0,
+            last_refreshed: new Date().toISOString()
+        };
+    },
+
+    // Get pipeline data for visualization
+    async getPipelineData() {
+        const client = getClient();
+        if (!client) return [];
+
+        const { data, error } = await client
+            .from('deals')
+            .select('*')
+            .is('deleted_at', null)
+            .order('value', { ascending: false });
+
+        if (error) return [];
+
+        // Group by stage
+        const stages = ['discovery', 'proposal', 'negotiation', 'won', 'lost'];
+        return stages.map(stage => ({
+            stage,
+            deals: data.filter(d => d.stage === stage),
+            count: data.filter(d => d.stage === stage).length,
+            value: data.filter(d => d.stage === stage).reduce((sum, d) => sum + (d.value || 0), 0)
+        }));
+    },
+
+    // Get WIN³ metrics snapshot
+    async getWin3Metrics() {
+        const client = getClient();
+        if (!client) return null;
+
+        // Try to get from snapshots table first
+        const { data: snapshot, error } = await client
+            .from('win3_snapshots')
+            .select('*')
+            .order('snapshot_date', { ascending: false })
+            .limit(1)
+            .single();
+
+        if (!error && snapshot) {
+            return snapshot;
+        }
+
+        // Fallback: calculate live
+        const stats = await this.getDashboardStats();
+        return {
+            pipeline_value: stats?.pipeline_value || 0,
+            total_customers: stats?.total_customers || 0,
+            active_campaigns: stats?.active_campaigns || 0,
+            pending_revenue: stats?.pending_revenue || 0,
+            new_contacts: stats?.new_contacts || 0,
+            snapshot_date: new Date().toISOString().split('T')[0]
+        };
+    },
+
+    // Get campaign performance by platform
+    async getCampaignPerformance() {
+        const client = getClient();
+        if (!client) return [];
+
+        const { data, error } = await client
+            .from('campaigns')
+            .select('platform, budget, spent, metrics, status')
+            .is('deleted_at', null);
+
+        if (error || !data) return [];
+
+        // Aggregate by platform
+        const byPlatform = {};
+        data.forEach(c => {
+            if (!byPlatform[c.platform]) {
+                byPlatform[c.platform] = {
+                    platform: c.platform,
+                    count: 0,
+                    budget: 0,
+                    spent: 0,
+                    impressions: 0,
+                    clicks: 0,
+                    leads: 0,
+                    conversions: 0
+                };
+            }
+            byPlatform[c.platform].count++;
+            byPlatform[c.platform].budget += c.budget || 0;
+            byPlatform[c.platform].spent += c.spent || 0;
+            if (c.metrics) {
+                byPlatform[c.platform].impressions += c.metrics.impressions || 0;
+                byPlatform[c.platform].clicks += c.metrics.clicks || 0;
+                byPlatform[c.platform].leads += c.metrics.leads || 0;
+                byPlatform[c.platform].conversions += c.metrics.conversions || 0;
+            }
+        });
+
+        return Object.values(byPlatform).sort((a, b) => b.spent - a.spent);
+    },
+
+    // Get monthly revenue from invoices
+    async getMonthlyRevenue() {
+        const client = getClient();
+        if (!client) return [];
+
+        // Try materialized view first
+        const { data: mvData, error: mvError } = await client
+            .from('mv_monthly_revenue')
+            .select('*')
+            .order('month', { ascending: false })
+            .limit(12);
+
+        if (!mvError && mvData) {
+            return mvData;
+        }
+
+        // Fallback: live query
+        const { data, error } = await client
+            .from('invoices')
+            .select('total, paid_at')
+            .eq('status', 'paid')
+            .not('paid_at', 'is', null);
+
+        if (error || !data) return [];
+
+        // Group by month
+        const byMonth = {};
+        data.forEach(inv => {
+            const month = inv.paid_at.substring(0, 7); // YYYY-MM
+            if (!byMonth[month]) {
+                byMonth[month] = { month, total_revenue: 0, invoice_count: 0 };
+            }
+            byMonth[month].total_revenue += inv.total || 0;
+            byMonth[month].invoice_count++;
+        });
+
+        return Object.values(byMonth).sort((a, b) => b.month.localeCompare(a.month));
+    },
+
+    // Refresh materialized views (requires admin)
+    async refreshAnalytics() {
+        const client = getClient();
+        if (!client) return { error: 'Not initialized' };
+
+        const { data, error } = await client.rpc('refresh_dashboard_stats');
+        return error ? { error } : { success: true, refreshed_at: new Date() };
+    },
+
+    // Get content calendar overview
+    async getContentCalendar(limit = 10) {
+        const client = getClient();
+        if (!client) return [];
+
+        const { data, error } = await client
+            .from('content_calendar')
+            .select('*')
+            .in('status', ['scheduled', 'published'])
+            .order('scheduled_at', { ascending: true })
+            .limit(limit);
+
+        return error ? [] : data;
+    },
+
+    // Get audit log (admin only)
+    async getAuditLog(limit = 20) {
+        const client = getClient();
+        if (!client) return [];
+
+        const { data, error } = await client
+            .from('audit_log')
+            .select('*')
+            .order('created_at', { ascending: false })
+            .limit(limit);
+
+        return error ? [] : data;
+    }
+};
+
+// ============================================================================
 // EXPORTS
 // ============================================================================
 
@@ -631,6 +853,9 @@ window.AdminAPI = AdminAPI;
 
 // KPI API (for dashboard stats)
 window.KPIAPI = KPIAPI;
+
+// Binh Pháp API (for strategic data & WIN³)
+window.BinhPhapAPI = BinhPhapAPI;
 
 // Auto-init when DOM ready
 document.addEventListener('DOMContentLoaded', () => {

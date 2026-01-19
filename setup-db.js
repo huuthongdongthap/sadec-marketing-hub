@@ -6,8 +6,9 @@
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
+const config = require('./mekong-env');
 
-const connectionString = 'postgresql://postgres:TtmData2026%40@db.pzcgvfhppglzfjavxuid.supabase.co:5432/postgres';
+const connectionString = config.DB_CONNECTION_STRING;
 
 async function main() {
     console.log('🚀 Supabase Database Reset & Setup');
@@ -82,6 +83,7 @@ async function main() {
     } catch (err) {
         console.error('❌ Error:', err.message);
         console.error(err.stack);
+        process.exit(1);
     } finally {
         await client.end();
     }

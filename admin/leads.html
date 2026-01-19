@@ -16,125 +16,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/admin-premium.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
 
     <style>
-        .admin-layout {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            min-height: 100vh;
-        }
-
-        @media (max-width: 1024px) {
-            .admin-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-        }
-
-        .sidebar {
-            background: var(--md-sys-color-inverse-surface);
-            color: var(--md-sys-color-inverse-on-surface);
-            padding: 24px;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font: var(--md-sys-typescale-title-large);
-            color: var(--md-sys-color-inverse-primary);
-            text-decoration: none;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            background: var(--md-sys-color-inverse-primary);
-            color: var(--md-sys-color-inverse-surface);
-            border-radius: 4px;
-            font: var(--md-sys-typescale-label-small);
-            margin-bottom: 32px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            color: var(--md-sys-color-inverse-on-surface);
-            text-decoration: none;
-            font: var(--md-sys-typescale-label-large);
-            opacity: 0.8;
-            margin-bottom: 4px;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            opacity: 1;
-        }
-
-        .nav-item.active {
-            background: var(--md-sys-color-inverse-primary);
-            color: var(--md-sys-color-inverse-surface);
-            opacity: 1;
-        }
-
-        .main-content {
-            background: var(--md-sys-color-surface);
-            padding: 32px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .page-title {
-            font: var(--md-sys-typescale-headline-medium);
-        }
-
-        .toolbar {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--md-sys-shape-corner-full);
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .search-box input {
-            border: none;
-            background: none;
-            font: var(--md-sys-typescale-body-medium);
-            width: 100%;
-            outline: none;
-        }
-
-        .filter-dropdown {
-            padding: 10px 16px;
-            border: 1px solid var(--md-sys-color-outline);
-            border-radius: var(--md-sys-shape-corner-medium);
-            background: white;
-            font: var(--md-sys-typescale-label-large);
-            cursor: pointer;
-        }
-
+        /* Page-specific: Leads */
         .leads-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -183,7 +68,7 @@
 
         .lead-score-badge {
             padding: 4px 12px;
-            border-radius: var(--md-sys-shape-corner-full);
+            border-radius: 999px;
             font: var(--md-sys-typescale-label-small);
         }
 
@@ -248,7 +133,7 @@
             padding: 8px;
             border: none;
             background: transparent;
-            border-radius: var(--md-sys-shape-corner-small);
+            border-radius: 8px;
             cursor: pointer;
             font: var(--md-sys-typescale-label-medium);
             color: var(--md-sys-color-primary);
@@ -262,6 +147,7 @@
             font-size: 18px;
         }
 
+        /* Pipeline View */
         .pipeline-view {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -283,7 +169,7 @@
 
         .pipeline-column {
             background: var(--md-sys-color-surface-container);
-            border-radius: var(--md-sys-shape-corner-large);
+            border-radius: 16px;
             padding: 16px;
         }
 
@@ -301,7 +187,7 @@
         .pipeline-count {
             padding: 4px 8px;
             background: var(--md-sys-color-surface);
-            border-radius: var(--md-sys-shape-corner-full);
+            border-radius: 999px;
             font: var(--md-sys-typescale-label-small);
         }
 
@@ -314,7 +200,7 @@
         .pipeline-lead {
             padding: 12px;
             background: var(--md-sys-color-surface);
-            border-radius: var(--md-sys-shape-corner-medium);
+            border-radius: 8px;
             box-shadow: var(--md-sys-elevation-1);
         }
 
@@ -326,6 +212,13 @@
         .pipeline-lead-company {
             font: var(--md-sys-typescale-body-small);
             color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
         }
     </style>
 
@@ -592,15 +485,17 @@
 
     <!-- Admin Client Script -->
     <script type="module" src="../assets/js/admin-client.js"></script>
-<script src="../assets/js/admin-shared.js"></script>
-
+    <script src="../assets/js/admin-shared.js"></script>
+<!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
     <!-- Realtime Updates -->
     <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
     <!-- Mobile Menu -->
     <script src="../assets/js/mobile-menu.js"></script>
-
-    <!-- Content AI -->
-    <script src="../assets/js/content-ai.js"></script>
 </body>
 
 </html>

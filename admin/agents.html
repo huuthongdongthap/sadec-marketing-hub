@@ -29,9 +29,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
 
     <style>
-        /* Agent Dashboard Specific Styles */
+        /* Page-specific: Agents Dashboard */
         .dashboard-header {
             background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, #1a1a2e 100%);
             color: white;
@@ -122,6 +123,7 @@
             margin-bottom: 12px;
         }
 
+        /* Status Dots */
         .status-dot {
             width: 10px;
             height: 10px;
@@ -146,20 +148,6 @@
         .status-dot.error {
             background: #ef4444;
             animation: none;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.7;
-                transform: scale(1.1);
-            }
         }
 
         .status-text {
@@ -308,18 +296,6 @@
 
         .log-entry:last-child {
             border-bottom: none;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         .log-icon {
@@ -878,15 +854,17 @@
             }
         }, 1000);
     </script>
-<script src="../assets/js/admin-shared.js"></script>
-
+    <script src="../assets/js/admin-shared.js"></script>
+<!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
     <!-- Realtime Updates -->
     <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
     <!-- Mobile Menu -->
     <script src="../assets/js/mobile-menu.js"></script>
-
-    <!-- Content AI -->
-    <script src="../assets/js/content-ai.js"></script>
 </body>
 
 </html>
