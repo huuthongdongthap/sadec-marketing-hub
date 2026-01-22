@@ -222,6 +222,7 @@ body {
 .grid {
   display: grid;
   gap: 24px;
+  overflow: hidden;
 }
 
 .grid-2 {
@@ -1142,6 +1143,16 @@ textarea.form-input {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.visual-card img,
+.floating-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 /* ===== PHASE 3: MOBILE RESPONSIVE TABLES ===== */
