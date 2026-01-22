@@ -1,16 +1,22 @@
 #!/usr/bin/env node
 /**
- * Auto-create Demo Users via Supabase Admin API
- * Roles: super_admin, manager, content_creator, client, affiliate
+ * ═══════════════════════════════════════════════════════════════════════════
+ * AUTO-CREATE DEMO USERS
+ * Sa Đéc Marketing Hub
+ *
+ * Creates standard roles: super_admin, manager, content_creator, client, affiliate
+ * Uses Supabase Admin API via direct HTTP requests.
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 const https = require('https');
 const { Client } = require('pg');
 const config = require('./mekong-env');
 
-const SUPABASE_URL = config.SUPABASE_URL;
-const SERVICE_ROLE_KEY = config.SUPABASE_SERVICE_KEY;
-const connectionString = config.DB_CONNECTION_STRING;
+const { SUPABASE_URL, SUPABASE_SERVICE_KEY: SERVICE_ROLE_KEY, DB_CONNECTION_STRING } = config;
+
+// Extract hostname from URL for https request
+const SUPABASE_HOSTNAME = SUPABASE_URL.replace(/^https?:\/\//, '');
 
 const DEMO_USERS = [
     { email: 'admin@mekongmarketing.com', password: 'Admin@2026', role: 'super_admin', full_name: 'Admin Mekong', phone: '0909 000 001' },
@@ -20,27 +26,11 @@ const DEMO_USERS = [
     { email: 'affiliate@mekongmarketing.com', password: 'Affiliate@2026', role: 'affiliate', full_name: 'Affiliate Partner', phone: '0909 000 005' }
 ];
 
-function createAuthUser(user) {
+/**
+ * Helper: Make HTTPS Request
+ */
+function makeRequest(options, data = null) {
     return new Promise((resolve, reject) => {
-        const data = JSON.stringify({
-            email: user.email,
-            password: user.password,
-            email_confirm: true,
-            user_metadata: { full_name: user.full_name, role: user.role }
-        });
-
-        const options = {
-            hostname: 'pzcgvfhppglzfjavxuid.supabase.co',
-            path: '/auth/v1/admin/users',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apikey': SERVICE_ROLE_KEY,
-                'Authorization': `Bearer ${SERVICE_ROLE_KEY}`,
-                'Content-Length': Buffer.byteLength(data)
-            }
-        };
-
         const req = https.request(options, (res) => {
             let body = '';
             res.on('data', chunk => body += chunk);
@@ -59,17 +49,58 @@ function createAuthUser(user) {
         });
 
         req.on('error', reject);
-        req.write(data);
+        if (data) req.write(data);
         req.end();
     });
+}
+
+/**
+ * Create user via Supabase Admin API
+ */
+function createAuthUser(user) {
+    const data = JSON.stringify({
+        email: user.email,
+        password: user.password,
+        email_confirm: true,
+        user_metadata: { full_name: user.full_name, role: user.role }
+    });
+
+    const options = {
+        hostname: SUPABASE_HOSTNAME,
+        path: '/auth/v1/admin/users',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'apikey': SERVICE_ROLE_KEY,
+            'Authorization': `Bearer ${SERVICE_ROLE_KEY}`,
+            'Content-Length': Buffer.byteLength(data)
+        }
+    };
+
+    return makeRequest(options, data);
+}
+
+/**
+ * Verify Database Connection
+ */
+async function checkDbConnection() {
+    const dbClient = new Client({ connectionString: DB_CONNECTION_STRING });
+    try {
+        await dbClient.connect();
+        await dbClient.end();
+        return true;
+    } catch (e) {
+        console.warn('⚠️  Database connection warning:', e.message);
+        console.warn('   Continuing with Auth API only...\n');
+        return false;
+    }
 }
 
 async function main() {
     console.log('🔐 Auto-Creating Demo Users for Mekong Marketing');
     console.log('=================================================\n');
 
-    const dbClient = new Client({ connectionString });
-    await dbClient.connect();
+    await checkDbConnection();
 
     for (const user of DEMO_USERS) {
         try {
@@ -77,24 +108,17 @@ async function main() {
             const authUser = await createAuthUser(user);
             console.log(`   ✅ Created! ID: ${authUser.id}`);
         } catch (err) {
-            if (err.message.includes('already been registered')) {
+            const msg = err.message;
+            if (msg.includes('already been registered') || msg.includes('unique constraint')) {
                 console.log(`   ⚠️  Already exists`);
             } else {
-                console.log(`   ❌ Error: ${err.message}`);
+                console.log(`   ❌ Error: ${msg}`);
             }
         }
     }
 
-    await dbClient.end();
-
     console.log('\n✨ Done! Login credentials:\n');
-    console.log('┌────────────────┬──────────────────────────────────┬────────────────┐');
-    console.log('│ Role           │ Email                            │ Password       │');
-    console.log('├────────────────┼──────────────────────────────────┼────────────────┤');
-    for (const user of DEMO_USERS) {
-        console.log(`│ ${user.role.padEnd(14)} │ ${user.email.padEnd(32)} │ ${user.password.padEnd(14)} │`);
-    }
-    console.log('└────────────────┴──────────────────────────────────┴────────────────┘');
+    console.table(DEMO_USERS.map(({role, email, password}) => ({role, email, password})));
     console.log('\n🔗 Login at: /login.html');
 }
 

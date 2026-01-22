@@ -3,8 +3,9 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://mekongmarketing.com/sitemap.xml
+Sitemap: https://sadec-marketing-hub.vercel.app/sitemap.xml
 
 # Disallow admin pages
-Disallow: /admin-dashboard.html
-Disallow: /agency-platform.html
+Disallow: /admin/
+Disallow: /portal/
+

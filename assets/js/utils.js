@@ -164,6 +164,14 @@ export function throttle(fn, limit = 300) {
     };
 }
 
+// ===== SECURITY UTILITIES =====
+export function escapeHTML(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
 // ===== EXPORTS =====
 const MekongUtils = {
     generateId,
@@ -183,7 +191,8 @@ const MekongUtils = {
     sum,
     average,
     debounce,
-    throttle
+    throttle,
+    escapeHTML
 };
 export default MekongUtils;
 

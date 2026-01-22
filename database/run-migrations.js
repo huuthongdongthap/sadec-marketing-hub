@@ -3,14 +3,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * SUPABASE DIRECT MIGRATION RUNNER
  * Sa Đéc Marketing Hub
- * 
+ *
  * Executes SQL directly against Supabase PostgreSQL using pg library.
- * 
- * Usage:
- *   node database/run-migrations.js
- * 
- * Required: Set DATABASE_URL in .env.local or as environment variable
- * Get it from: Supabase Dashboard → Settings → Database → Connection string
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -18,98 +12,127 @@ const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
-// Try to load .env.local
-try {
-    const envPath = path.join(__dirname, '..', '.env.local');
-    if (fs.existsSync(envPath)) {
-        const envContent = fs.readFileSync(envPath, 'utf8');
+// Configuration
+const CONFIG = {
+    envFile: path.join(__dirname, '..', '.env.local'),
+    // Default fallback credentials (cleared for security)
+    db: {
+        host: '',
+        port: 6543,
+        user: '',
+        password: '',
+        database: 'postgres',
+    },
+    migrations: [
+        'phase8_ultimate.sql',
+        'rls_unified.sql',
+        'binh-phap-sync.sql',
+        'seed_v2.sql',
+        'verification.sql'
+    ]
+};
+
+/**
+ * Load environment variables from local file
+ */
+function loadEnvironment() {
+    try {
+        if (!fs.existsSync(CONFIG.envFile)) return;
+
+        const envContent = fs.readFileSync(CONFIG.envFile, 'utf8');
         envContent.split('\n').forEach(line => {
-            const [key, ...valueParts] = line.split('=');
-            if (key && !key.startsWith('#')) {
-                const value = valueParts.join('=').replace(/^["']|["']$/g, '');
-                if (value) process.env[key.trim()] = value.trim();
+            const match = line.match(/^([^#=]+)=(.*)$/);
+            if (match) {
+                const key = match[1].trim();
+                const value = match[2].trim().replace(/^["']|["']$/g, '');
+                if (key && value) process.env[key] = value;
             }
         });
+    } catch (e) {
+        console.warn('⚠️  Could not load .env.local:', e.message);
     }
-} catch (e) {
-    console.log('Note: Could not load .env.local');
 }
 
-// Database URL from Supabase Dashboard → Settings → Database → Connection string
-const DATABASE_URL = process.env.DATABASE_URL || process.env.SUPABASE_DB_URL;
+/**
+ * Get Database Configuration
+ */
+function getDbConfig() {
+    return {
+        host: process.env.DB_HOST || CONFIG.db.host,
+        port: parseInt(process.env.DB_PORT || CONFIG.db.port),
+        user: process.env.DB_USER || CONFIG.db.user,
+        password: process.env.DB_PASSWORD || CONFIG.db.password,
+        database: process.env.DB_NAME || CONFIG.db.database,
+        ssl: { rejectUnauthorized: false }
+    };
+}
 
-const MIGRATION_FILES = [
-    'rls_policies_v4.sql',
-    'jwt_role_trigger.sql',
-    'rls_policies_v5.sql',
-    'clean_and_constrain.sql'
-];
+/**
+ * Execute a single migration file
+ */
+async function runMigrationFile(client, filename) {
+    const filePath = path.join(__dirname, filename);
 
-async function runMigrations() {
-    console.log('🚀 Supabase Direct Migration Runner\n');
-    console.log('═'.repeat(60));
-
-    if (!DATABASE_URL) {
-        console.error('❌ DATABASE_URL not set!\n');
-        console.log('To get your database URL:');
-        console.log('1. Go to: https://supabase.com/dashboard/project/pzcgvfhppglzfjavxuid/settings/database');
-        console.log('2. Copy "Connection string" (URI format)');
-        console.log('3. Add to .env.local: DATABASE_URL=postgresql://...\n');
-        console.log('Or run: export DATABASE_URL="postgresql://..."');
-        process.exit(1);
+    if (!fs.existsSync(filePath)) {
+        console.log(`⏭️  Skipping ${filename} (not found)`);
+        return;
     }
 
-    console.log(`Database: ${DATABASE_URL.replace(/:[^:@]+@/, ':***@')}\n`);
+    console.log(`📄 Running ${filename}...`);
+    try {
+        const sql = fs.readFileSync(filePath, 'utf8');
+        await client.query(sql);
+        console.log(`   ✅ Success\n`);
+    } catch (err) {
+        if (err.message.includes('already exists')) {
+            console.log(`   ⚠️  Already applied (safe to ignore)\n`);
+        } else {
+            console.error(`   ❌ Failed: ${err.message}\n`);
+            // We don't throw here to allow other migrations to try running
+            // or you can throw to stop execution on first error
+        }
+    }
+}
 
-    const client = new Client({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: false }
-    });
+/**
+ * Main Runner
+ */
+async function runMigrations() {
+    console.log('\n🚀 Supabase Direct Migration Runner');
+    console.log('═'.repeat(60));
+
+    loadEnvironment();
+    const dbConfig = getDbConfig();
+
+    console.log(`Database: ${dbConfig.host}:${dbConfig.port}`);
+    console.log(`User: ${dbConfig.user}\n`);
+
+    const client = new Client(dbConfig);
 
     try {
         console.log('📡 Connecting to Supabase...');
         await client.connect();
         console.log('✅ Connected!\n');
 
-        for (const filename of MIGRATION_FILES) {
-            const filePath = path.join(__dirname, filename);
-
-            if (!fs.existsSync(filePath)) {
-                console.log(`⏭️  Skipping ${filename} (not found)`);
-                continue;
-            }
-
-            console.log(`📄 Running ${filename}...`);
-
-            try {
-                const sql = fs.readFileSync(filePath, 'utf8');
-
-                // Split by statement (handling multi-statement SQL)
-                // Note: This is a simple split, may need adjustment for complex SQL
-                await client.query(sql);
-
-                console.log(`   ✅ Success\n`);
-            } catch (err) {
-                // Check if it's a "already exists" error (safe to ignore)
-                if (err.message.includes('already exists')) {
-                    console.log(`   ⚠️  Already applied (safe to ignore)\n`);
-                } else {
-                    console.error(`   ❌ Error: ${err.message}\n`);
-                }
-            }
+        for (const filename of CONFIG.migrations) {
+            await runMigrationFile(client, filename);
         }
 
         console.log('═'.repeat(60));
-        console.log('🎉 Migration complete!');
+        console.log('🎉 Migration execution finished!');
 
     } catch (err) {
         console.error('❌ Connection failed:', err.message);
         console.log('\nTroubleshooting:');
-        console.log('1. Check DATABASE_URL format: postgresql://user:pass@host:port/db');
-        console.log('2. Ensure your IP is allowed in Supabase Dashboard → Settings → Database');
+        console.log('1. Check DATABASE_URL and credentials');
+        console.log('2. Ensure your IP is allowed in Supabase Dashboard');
+        process.exit(1);
     } finally {
         await client.end();
     }
 }
 
-runMigrations().catch(console.error);
+// Execute if run directly
+if (require.main === module) {
+    runMigrations().catch(console.error);
+}

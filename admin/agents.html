@@ -800,7 +800,7 @@
             try {
                 await mekongAgents.submitTask(task);
             } catch (error) {
-                console.error('Task submission error:', error);
+                // console.error('Task submission error:', error);
                 addLogEntry({
                     agent: 'System',
                     type: 'error',

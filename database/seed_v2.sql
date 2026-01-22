@@ -9,7 +9,7 @@
 -- DEMO LEADS (8 leads with various statuses)
 -- ============================================================================
 INSERT INTO leads (tenant_id, name, email, phone, company, position, source, status, score, temperature, notes, created_at, last_contacted_at)
-SELECT 
+SELECT
   t.id,
   l.name,
   l.email,
@@ -57,7 +57,7 @@ ON CONFLICT DO NOTHING;
 -- DEMO DEALS (Sales Pipeline - Binh Pháp WIN³ Data)
 -- ============================================================================
 INSERT INTO deals (tenant_id, name, value, stage, probability, expected_close, notes, created_at)
-SELECT 
+SELECT
   t.id,
   d.name,
   d.value,
@@ -84,7 +84,7 @@ ON CONFLICT DO NOTHING;
 -- DEMO CONTENT CALENDAR (Social Media Schedule)
 -- ============================================================================
 INSERT INTO content_calendar (tenant_id, title, content, platform, status, scheduled_at, hashtags, metrics, created_at)
-SELECT 
+SELECT
   t.id,
   c.title,
   c.content,
@@ -110,7 +110,7 @@ ON CONFLICT DO NOTHING;
 -- DEMO PROJECTS (Linked to customers)
 -- ============================================================================
 INSERT INTO projects (tenant_id, client_id, name, description, type, status, progress, budget, spent, start_date, end_date, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   p.name,
@@ -129,12 +129,12 @@ CROSS JOIN LATERAL (VALUES
   ('Chiến dịch Facebook Ads Q1', 'Quảng cáo Facebook cho sản phẩm hoa tươi, target 25-45 tuổi', 'ads', 'active', 75, 15000000, 11250000, '2026-01-01', '2026-03-31'),
   ('SEO Website 2026', 'Tối ưu SEO local cho website shop hoa', 'seo', 'active', 40, 5000000, 2000000, '2026-01-01', '2026-12-31')
 ) AS p(name, description, type, status, progress, budget, spent, start_date, end_date)
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Sa Đéc Flower Shop'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO projects (tenant_id, client_id, name, description, type, status, progress, budget, spent, start_date, end_date, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'Google Ads - Travel Campaign',
@@ -149,12 +149,12 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Mekong Travel'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO projects (tenant_id, client_id, name, description, type, status, progress, budget, spent, start_date, end_date, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'Social Media Management',
@@ -169,7 +169,7 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Cần Thơ Foods'
 ON CONFLICT DO NOTHING;
 
@@ -177,7 +177,7 @@ ON CONFLICT DO NOTHING;
 -- DEMO CAMPAIGNS (Marketing Campaigns)
 -- ============================================================================
 INSERT INTO campaigns (tenant_id, client_id, name, platform, type, status, budget, spent, start_date, end_date, metrics, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   cm.name,
@@ -196,12 +196,12 @@ CROSS JOIN LATERAL (VALUES
   ('Facebook Ads - Q1 2026', 'facebook', 'conversions', 'active', 15000000, 11250000, '2026-01-01', '2026-03-31', '{"impressions": 125000, "clicks": 4500, "leads": 234, "conversions": 89, "roi": 12.5}'),
   ('Zalo OA Marketing', 'zalo', 'engagement', 'active', 8000000, 5440000, '2026-01-01', '2026-01-31', '{"impressions": 45000, "clicks": 2100, "leads": 89, "conversions": 34, "roi": 6.8}')
 ) AS cm(name, platform, type, status, budget, spent, start_date, end_date, metrics)
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Sa Đéc Flower Shop'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO campaigns (tenant_id, client_id, name, platform, type, status, budget, spent, start_date, end_date, metrics, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'Google Ads - Search',
@@ -216,12 +216,12 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Mekong Travel'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO campaigns (tenant_id, client_id, name, platform, type, status, budget, spent, start_date, end_date, metrics, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'TikTok Awareness Campaign',
@@ -236,7 +236,7 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Long Xuyên Boutique'
 ON CONFLICT DO NOTHING;
 
@@ -244,7 +244,7 @@ ON CONFLICT DO NOTHING;
 -- DEMO INVOICES
 -- ============================================================================
 INSERT INTO invoices (tenant_id, client_id, invoice_number, amount, tax, total, status, issue_date, due_date, items, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'INV-2026-001',
@@ -258,12 +258,12 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Sa Đéc Flower Shop'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO invoices (tenant_id, client_id, invoice_number, amount, tax, total, status, issue_date, due_date, paid_at, items, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'INV-2025-056',
@@ -278,12 +278,12 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Sa Đéc Flower Shop'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO invoices (tenant_id, client_id, invoice_number, amount, tax, total, status, issue_date, due_date, paid_at, items, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'INV-2026-002',
@@ -298,12 +298,12 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Khách sạn Riverside'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO invoices (tenant_id, client_id, invoice_number, amount, tax, total, status, issue_date, due_date, paid_at, items, created_at)
-SELECT 
+SELECT
   t.id,
   c.id,
   'INV-2026-003',
@@ -318,7 +318,7 @@ SELECT
   NOW()
 FROM tenants t
 CROSS JOIN customers c
-WHERE t.slug = 'sadec-hub' 
+WHERE t.slug = 'sadec-hub'
   AND c.business_name = 'Đồng Tháp Rice Export'
 ON CONFLICT DO NOTHING;
 

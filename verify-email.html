@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xác Thực Email | Mekong Marketing</title>
+    <meta name="description" content="Xác thực địa chỉ email cho tài khoản Mekong Marketing.">
+    <meta property="og:title" content="Xác Thực Email | Mekong Marketing">
+    <meta property="og:description" content="Xác thực địa chỉ email cho tài khoản Mekong Marketing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sadecmarketinghub.com/verify-email.html">
+    <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+    <link rel="canonical" href="https://sadecmarketinghub.com/verify-email.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -47,6 +54,18 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .bg-grid {
@@ -215,18 +234,19 @@
     <div class="bg-glow bg-glow--cyan"></div>
 
     <div class="container">
+        <h1 class="visually-hidden">Xác Thực Email</h1>
         <div class="card">
             <!-- Loading State -->
             <div class="state active" id="stateLoading">
                 <span class="icon icon--loading">⏳</span>
-                <h1 class="title">Đang Xác Thực...</h1>
+                <h2 class="title">Đang Xác Thực...</h2>
                 <p class="message">Vui lòng đợi trong giây lát</p>
             </div>
 
             <!-- Success State -->
             <div class="state" id="stateSuccess">
                 <span class="icon icon--success">✅</span>
-                <h1 class="title">Xác Thực Thành Công!</h1>
+                <h2 class="title">Xác Thực Thành Công!</h2>
                 <p class="message">
                     Email của bạn đã được xác thực.<br>
                     Bạn có thể đăng nhập ngay bây giờ.
@@ -238,7 +258,7 @@
             <!-- Error State -->
             <div class="state" id="stateError">
                 <span class="icon">❌</span>
-                <h1 class="title title--error">Xác Thực Thất Bại</h1>
+                <h2 class="title title--error">Xác Thực Thất Bại</h2>
                 <p class="message" id="errorMessage">
                     Link xác thực không hợp lệ hoặc đã hết hạn.
                 </p>
@@ -249,7 +269,7 @@
             <!-- Already Verified State -->
             <div class="state" id="stateAlready">
                 <span class="icon">ℹ️</span>
-                <h1 class="title">Đã Xác Thực Trước Đó</h1>
+                <h2 class="title">Đã Xác Thực Trước Đó</h2>
                 <p class="message">
                     Email này đã được xác thực rồi.<br>
                     Bạn có thể đăng nhập ngay.
@@ -316,7 +336,7 @@
                         const { data: { session }, error: sessionError } = await client.auth.getSession();
 
                         if (sessionError) {
-                            console.error('Session error:', sessionError);
+                            // console.error('Session error:', sessionError);
                             showState('stateError');
                             return;
                         }
@@ -353,7 +373,7 @@
                 }
 
             } catch (err) {
-                console.error('Verification error:', err);
+                // console.error('Verification error:', err);
                 showState('stateError');
             }
         }

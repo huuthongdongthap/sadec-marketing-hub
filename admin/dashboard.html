@@ -165,7 +165,7 @@
                 <div class="flex">
                     <div class="search-glass">
                         <span class="material-symbols-outlined">search</span>
-                        <input type="text" placeholder="Search system...">
+                        <input type="text" placeholder="Search system..." aria-label="Search system">
                     </div>
                     <button class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
                         <span class="material-symbols-outlined">dark_mode</span>
@@ -235,7 +235,7 @@
                 <!-- Main Chart -->
                 <div class="glass-card" style="height: 400px; padding: 24px;">
                     <div class="flex-between mb-24">
-                        <h3 class="title-large">Revenue Trajectory</h3>
+                        <h2 class="title-large" style="font-size: 20px;">Revenue Trajectory</h2>
                         <div class="flex" style="gap: 10px;">
                             <button class="btn-cyber" style="padding: 5px 15px; font-size: 12px;">Weekly</button>
                             <button class="btn-secondary"
@@ -250,7 +250,7 @@
 
                 <!-- Side Panel -->
                 <div class="glass-card" style="padding: 24px;">
-                    <h3 class="title-large mb-24">Live Activity</h3>
+                    <h2 class="title-large mb-24" style="font-size: 20px;">Live Activity</h2>
 
                     <div style="display: flex; flex-direction: column; gap: 15px;" id="live-activity-list">
                         <div class="live-activity-item">
@@ -315,7 +315,7 @@
                     MekongAdmin.Toast.success('Dashboard loaded successfully!');
                 }
             } else {
-                console.error('MekongAdmin or DashboardCharts not found.');
+                // console.error('MekongAdmin or DashboardCharts not found.');
             }
         });
     </script>

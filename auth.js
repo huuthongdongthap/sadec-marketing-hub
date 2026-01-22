@@ -31,7 +31,7 @@ const ROLE_REDIRECTS = {
     super_admin: '/admin/dashboard.html',
     manager: '/admin/dashboard.html',
     content_creator: '/admin/dashboard.html',
-    client: '/portal/client-portal.html',
+    client: '/portal/dashboard.html',
     affiliate: '/admin/dashboard.html'
 };
 
@@ -79,14 +79,14 @@ const AuthState = {
                             role: jwtRole,
                             avatar_url: session.user.user_metadata?.avatar_url
                         };
-                        console.debug('Auth: Role from JWT claims:', jwtRole);
+                        // console.debug('Auth: Role from JWT claims:', jwtRole);
                     } else {
                         // Fallback: Load profile from database (for users before trigger)
                         const profile = await window.AuthAPI.getProfile();
                         if (profile) {
                             this.profile = profile;
                         }
-                        console.debug('Auth: Role from user_profiles:', this.profile?.role);
+                        // console.debug('Auth: Role from user_profiles:', this.profile?.role);
                     }
 
                     // Cache in localStorage for quick access
@@ -439,6 +439,41 @@ const AuthGuards = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
+// AUTH SECURITY (Idle Timeout)
+// ═══════════════════════════════════════════════════════════════════════════
+
+const AuthSecurity = {
+    IDLE_TIMEOUT: 30 * 60 * 1000, // 30 minutes
+    timeoutId: null,
+
+    init() {
+        if (!AuthState.isAuthenticated) return;
+
+        this.resetTimer = this.resetTimer.bind(this);
+        this.setupListeners();
+        this.resetTimer();
+        console.log('🛡️ AuthSecurity: Idle monitor active');
+    },
+
+    setupListeners() {
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
+            document.addEventListener(evt, this.resetTimer, true);
+        });
+    },
+
+    resetTimer() {
+        if (this.timeoutId) clearTimeout(this.timeoutId);
+        this.timeoutId = setTimeout(() => this.handleTimeout(), this.IDLE_TIMEOUT);
+    },
+
+    handleTimeout() {
+        console.warn('🛡️ AuthSecurity: Session expired due to inactivity');
+        AuthActions.signOut();
+        alert('Phiên làm việc hết hạn. Vui lòng đăng nhập lại.');
+    }
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
 // UI HELPERS
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -499,6 +534,11 @@ const AuthUI = {
         this.applyRoleVisibility();
         this.populateUserInfo();
         this.setupLogoutButtons();
+
+        // Initialize Security Monitor
+        if (AuthState.isAuthenticated) {
+            AuthSecurity.init();
+        }
     }
 };
 

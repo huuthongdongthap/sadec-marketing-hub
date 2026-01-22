@@ -233,18 +233,18 @@
 
                 <form id="loginForm">
                     <div class="form-group">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-input" placeholder="email@company.com" required>
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="email@company.com" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-input" placeholder="••••••••" required>
+                        <label class="form-label" for="password">Mật khẩu</label>
+                        <input type="password" id="password" class="form-input" placeholder="••••••••" required>
                     </div>
 
                     <div class="flex-between mb-24">
                         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="checkbox"> Ghi nhớ đăng nhập
+                            <input type="checkbox" aria-label="Ghi nhớ đăng nhập"> Ghi nhớ đăng nhập
                         </label>
                         <a href="#" style="color: var(--md-sys-color-primary); text-decoration: none;">Quên mật
                             khẩu?</a>
@@ -262,21 +262,59 @@
         </div>
     </div>
 
-    <script type="module">
-        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    <!-- Supabase & Auth Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        // Portal Login - Integrated with auth.js
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = loginForm.querySelector('input[type="email"]');
+        const passwordInput = loginForm.querySelector('input[type="password"]');
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
 
-        // Supabase config - replace with actual values
-        const SUPABASE_URL = 'https://your-project.supabase.co';
-        const SUPABASE_ANON_KEY = 'your-anon-key';
+        // Check if already logged in
+        Auth.Guards.redirectIfAuthenticated();
 
-        // const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Demo login - replace with actual Supabase auth
-            alert('Demo: Đăng nhập thành công!');
-            window.location.href = 'dashboard.html';
+            const email = emailInput.value.trim().toLowerCase();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                alert('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Đang đăng nhập...';
+
+            try {
+                const result = await Auth.Actions.signIn(email, password);
+
+                if (result.success) {
+                    // Redirect based on role
+                    const redirectUrl = Auth.Guards.getRedirectUrl();
+                    window.location.href = redirectUrl;
+                } else {
+                    alert(result.error || 'Email hoặc mật khẩu không đúng');
+                }
+            } catch (err) {
+                // console.error('Login error:', err);
+                alert('Có lỗi xảy ra, vui lòng thử lại');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Đăng nhập';
+            }
+        });
+
+        // Social login buttons (placeholder)
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('🚀 Đăng nhập bằng mạng xã hội sẽ sớm ra mắt!\n\nHiện tại bạn có thể đăng nhập bằng email:\n• admin@mekongmarketing.com / admin123\n• client@mekongmarketing.com / client123');
+            });
         });
     </script>
     <script src="../assets/js/admin-shared.js"></script>

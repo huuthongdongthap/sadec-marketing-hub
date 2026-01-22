@@ -19,6 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sadecmarketinghub.com">
   <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <link rel="canonical" href="https://sadecmarketinghub.com/">
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -57,9 +58,9 @@
   </script>
 
   <!-- Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
-  <script src="material-interactions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="material-interactions.js" defer></script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,6 +71,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/m3-agency.css">
+  <script src="assets/js/unified-login.js" defer></script>
 </head>
 
 <body>
@@ -94,7 +96,36 @@
       </ul>
 
       <div class="nav-actions">
-        <a href="portal/login.html" class="btn btn-text">Đăng nhập</a>
+        <div class="unified-login-dropdown">
+          <button class="btn btn-text" id="loginToggle">
+            <span class="material-symbols-outlined">login</span>
+            Đăng nhập
+            <span class="material-symbols-outlined dropdown-arrow">expand_more</span>
+          </button>
+          <div class="login-options" id="loginOptions">
+            <a href="login.html" class="login-option admin">
+              <span class="material-symbols-outlined">admin_panel_settings</span>
+              <div class="option-content">
+                <span class="option-title">Admin / Nhân viên</span>
+                <span class="option-desc">Quản lý hệ thống</span>
+              </div>
+            </a>
+            <a href="portal/login.html" class="login-option client">
+              <span class="material-symbols-outlined">business</span>
+              <div class="option-content">
+                <span class="option-title">Client Portal</span>
+                <span class="option-desc">Theo dõi dự án</span>
+              </div>
+            </a>
+            <a href="register.html?type=affiliate" class="login-option affiliate">
+              <span class="material-symbols-outlined">handshake</span>
+              <div class="option-content">
+                <span class="option-title">Affiliate Partner</span>
+                <span class="option-desc">Đăng ký CTV</span>
+              </div>
+            </a>
+          </div>
+        </div>
         <a href="#contact" class="btn btn-filled">Tư vấn miễn phí</a>
       </div>
     </div>
@@ -161,7 +192,7 @@
       <div class="grid grid-4">
         <div class="card card-elevated service-card hover-lift">
           <div class="service-img-wrapper">
-            <img src="assets/images/icon-ads.png" alt="Digital Ads" class="service-3d-icon">
+            <img src="assets/images/icon-ads.png" alt="Digital Ads" class="service-3d-icon" width="1024" height="1024">
           </div>
           <h3 class="service-title">Quảng cáo số</h3>
           <p class="service-description">
@@ -171,7 +202,7 @@
 
         <div class="card card-elevated service-card hover-lift">
           <div class="service-img-wrapper">
-            <img src="assets/images/icon-seo.png" alt="Local SEO" class="service-3d-icon">
+            <img src="assets/images/icon-seo.png" alt="Local SEO" class="service-3d-icon" width="1024" height="1024">
           </div>
           <h3 class="service-title">SEO Local</h3>
           <p class="service-description">
@@ -181,7 +212,7 @@
 
         <div class="card card-elevated service-card hover-lift">
           <div class="service-img-wrapper">
-            <img src="assets/images/icon-brand.png" alt="Branding" class="service-3d-icon">
+            <img src="assets/images/icon-brand.png" alt="Branding" class="service-3d-icon" width="1024" height="1024">
           </div>
           <h3 class="service-title">Thiết kế thương hiệu</h3>
           <p class="service-description">
@@ -191,7 +222,7 @@
 
         <div class="card card-elevated service-card hover-lift">
           <div class="service-img-wrapper">
-            <img src="assets/images/icon-ai.png" alt="AI Marketing" class="service-3d-icon">
+            <img src="assets/images/icon-ai.png" alt="AI Marketing" class="service-3d-icon" width="1024" height="1024">
           </div>
           <h3 class="service-title">AI Marketing</h3>
           <p class="service-description">
@@ -216,7 +247,7 @@
       <div class="grid grid-2" style="align-items: center;">
         <div class="case-study-visual">
           <div class="visual-card glass-card">
-            <img src="assets/images/case-study-growth.png" alt="Growth Chart" class="floating-img">
+            <img src="assets/images/case-study-growth.png" alt="Growth Chart" class="floating-img" width="1024" height="1024">
           </div>
         </div>
 
@@ -261,7 +292,7 @@
               </a>
               <div class="testimonial-mini">
                 <img src="assets/images/testimonial_tuan.png" alt="Client"
-                  style="width:40px;height:40px;border-radius:50%;margin-right:12px;">
+                  style="width:40px;height:40px;border-radius:50%;margin-right:12px;" width="1024" height="1024">
                 <div>
                   <div style="font-size:12px;font-weight:bold;">Nguyễn Văn Tùng</div>
                   <div style="font-size:10px;color:var(--md-sys-color-on-surface-variant);">Giám đốc, Sa Đéc Flower
@@ -427,28 +458,28 @@
         <form id="contactForm">
           <div class="grid grid-2">
             <div class="form-group">
-              <label class="form-label">Họ tên *</label>
-              <input type="text" class="form-input" placeholder="Nguyễn Văn A" required>
+              <label class="form-label" for="contact-name">Họ tên *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Nguyễn Văn A" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Số điện thoại *</label>
-              <input type="tel" class="form-input" placeholder="0909 xxx xxx" required>
+              <label class="form-label" for="contact-phone">Số điện thoại *</label>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="0909 xxx xxx" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" placeholder="email@company.com">
+            <label class="form-label" for="contact-email">Email</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="email@company.com">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Doanh nghiệp của bạn</label>
-            <input type="text" class="form-input" placeholder="Tên công ty / cửa hàng">
+            <label class="form-label" for="contact-company">Doanh nghiệp của bạn</label>
+            <input type="text" id="contact-company" class="form-input" placeholder="Tên công ty / cửa hàng">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Bạn cần hỗ trợ gì?</label>
-            <textarea class="form-input" placeholder="Mô tả ngắn gọn nhu cầu của bạn..."></textarea>
+            <label class="form-label" for="contact-message">Bạn cần hỗ trợ gì?</label>
+            <textarea id="contact-message" class="form-input" placeholder="Mô tả ngắn gọn nhu cầu của bạn..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-filled btn-large" style="width: 100%;">

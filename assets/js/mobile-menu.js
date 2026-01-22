@@ -15,7 +15,7 @@ const MobileMenu = {
         this.createHamburgerButton();
         this.createOverlay();
         this.setupEventListeners();
-        console.log('📱 Mobile Menu initialized');
+        // console.log('📱 Mobile Menu initialized');
     },
 
     createHamburgerButton() {

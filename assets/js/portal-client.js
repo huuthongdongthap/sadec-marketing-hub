@@ -416,19 +416,19 @@ function showProjectDetail(project) {
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
                 <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Ngân sách</div>
-                    <div style="font-size: 18px; font-weight: 500;">${formatCurrency(project.budget)}</div>
+                    <div style="font-size: 18px; font-weight: 500;">${utils.formatCurrency(project.budget)}</div>
                 </div>
                 <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Đã chi tiêu</div>
-                    <div style="font-size: 18px; font-weight: 500;">${formatCurrency(project.spent)}</div>
+                    <div style="font-size: 18px; font-weight: 500;">${utils.formatCurrency(project.spent)}</div>
                 </div>
                 <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Bắt đầu</div>
-                    <div style="font-size: 16px;">${project.start_date ? formatDate(project.start_date) : '--'}</div>
+                    <div style="font-size: 16px;">${project.start_date ? utils.formatDate(project.start_date) : '--'}</div>
                 </div>
                 <div style="padding: 16px; background: var(--md-sys-color-surface-container, #f5f5f5); border-radius: 12px;">
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Kết thúc</div>
-                    <div style="font-size: 16px;">${project.end_date ? formatDate(project.end_date) : '--'}</div>
+                    <div style="font-size: 16px;">${project.end_date ? utils.formatDate(project.end_date) : '--'}</div>
                 </div>
             </div>
 
@@ -468,7 +468,7 @@ function showInvoiceDetail(invoice) {
         <tr>
             <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">${item.description}</td>
             <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: center;">${item.quantity}</td>
-            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: right;">${formatCurrency(item.price)}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: right;">${utils.formatCurrency(item.price)}</td>
         </tr>
     `).join('') : '';
 
@@ -490,11 +490,11 @@ function showInvoiceDetail(invoice) {
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
                 <div>
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Ngày tạo</div>
-                    <div style="font-size: 16px;">${invoice.issue_date ? formatDate(invoice.issue_date) : '--'}</div>
+                    <div style="font-size: 16px;">${invoice.issue_date ? utils.formatDate(invoice.issue_date) : '--'}</div>
                 </div>
                 <div>
                     <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Hạn thanh toán</div>
-                    <div style="font-size: 16px;">${invoice.due_date ? formatDate(invoice.due_date) : '--'}</div>
+                    <div style="font-size: 16px;">${invoice.due_date ? utils.formatDate(invoice.due_date) : '--'}</div>
                 </div>
             </div>
 
@@ -514,15 +514,15 @@ function showInvoiceDetail(invoice) {
             <div style="background: #f5f5f5; padding: 16px; border-radius: 12px; margin-bottom: 24px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                     <span>Tạm tính</span>
-                    <span>${formatCurrency(invoice.amount)}</span>
+                    <span>${utils.formatCurrency(invoice.amount)}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                     <span>Thuế VAT</span>
-                    <span>${formatCurrency(invoice.tax || 0)}</span>
+                    <span>${utils.formatCurrency(invoice.tax || 0)}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; padding-top: 8px; border-top: 1px solid #ddd;">
                     <span>Tổng cộng</span>
-                    <span style="color: var(--md-sys-color-primary, #006A60);">${formatCurrency(invoice.total)}</span>
+                    <span style="color: var(--md-sys-color-primary, #006A60);">${utils.formatCurrency(invoice.total)}</span>
                 </div>
             </div>
 
@@ -606,16 +606,8 @@ async function markInvoiceAsPaid(invoiceId) {
 // UTILITY FUNCTIONS
 // ================================================
 
-function formatCurrency(amount) {
-    if (!amount && amount !== 0) return '--';
-    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
-}
-
-function formatDate(dateStr) {
-    if (!dateStr) return '--';
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-}
+// Using shared utils from supabase.js -> utils.js
+// formatCurrency and formatDate are now provided by MekongUtils
 
 // ================================================
 // DATA LOADING FUNCTIONS
@@ -734,11 +726,11 @@ function renderProjects(container, projectList) {
                 <div class="project-meta">
                     <div class="project-meta-item">
                         <span class="material-symbols-outlined">calendar_month</span>
-                        ${project.start_date ? formatDate(project.start_date) : '--'} - ${project.end_date ? formatDate(project.end_date) : '--'}
+                        ${project.start_date ? utils.formatDate(project.start_date) : '--'} - ${project.end_date ? utils.formatDate(project.end_date) : '--'}
                     </div>
                     <div class="project-meta-item">
                         <span class="material-symbols-outlined">payments</span>
-                        ${formatCurrency(project.budget)}
+                        ${utils.formatCurrency(project.budget)}
                     </div>
                 </div>
                 <div class="progress-section">
@@ -780,9 +772,9 @@ function renderInvoices(tableBody, invoiceList) {
             <tr data-invoice-id="${invoice.id}">
                 <td><span class="invoice-id">${invoice.invoice_number}</span></td>
                 <td>${invoice.project?.name || '--'}</td>
-                <td>${invoice.issue_date ? formatDate(invoice.issue_date) : '--'}</td>
-                <td>${invoice.due_date ? formatDate(invoice.due_date) : '--'}</td>
-                <td><span class="amount">${formatCurrency(invoice.total)}</span></td>
+                <td>${invoice.issue_date ? utils.formatDate(invoice.issue_date) : '--'}</td>
+                <td>${invoice.due_date ? utils.formatDate(invoice.due_date) : '--'}</td>
+                <td><span class="amount">${utils.formatCurrency(invoice.total)}</span></td>
                 <td><span class="status-pill ${status.class}">${status.text}</span></td>
                 <td>
                     <div class="invoice-actions">
@@ -835,9 +827,9 @@ function updateInvoiceStats(invoiceList) {
     // Update stat cards if they exist
     const statCards = document.querySelectorAll('.invoice-stat-value');
     if (statCards.length >= 3) {
-        statCards[0].textContent = formatCurrency(stats.total);
-        statCards[1].textContent = formatCurrency(stats.paid);
-        statCards[2].textContent = formatCurrency(stats.pending);
+        statCards[0].textContent = utils.formatCurrency(stats.total);
+        statCards[1].textContent = utils.formatCurrency(stats.paid);
+        statCards[2].textContent = utils.formatCurrency(stats.pending);
     }
 }
 
@@ -899,8 +891,6 @@ export {
     loadProjects,
     loadInvoices,
     loadDashboard,
-    formatCurrency,
-    formatDate,
     DEMO_PROJECTS,
     DEMO_INVOICES
 };

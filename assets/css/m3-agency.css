@@ -1236,3 +1236,134 @@ textarea.form-input {
 }
 
 /* ===== END PHASE 3 ===== */
+
+/* ===== UNIFIED LOGIN DROPDOWN ===== */
+.unified-login-dropdown {
+  position: relative;
+}
+
+.unified-login-dropdown #loginToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.unified-login-dropdown .dropdown-arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.unified-login-dropdown #loginToggle.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.login-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-3);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.login-options.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.login-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--md-sys-shape-corner-medium);
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface);
+  transition: all 0.2s ease;
+}
+
+.login-option:hover {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.login-option .material-symbols-outlined {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--md-sys-shape-corner-medium);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.login-option.admin .material-symbols-outlined {
+  background: linear-gradient(135deg, #E8DEF8, #D0BCFF);
+  color: #6750A4;
+}
+
+.login-option.client .material-symbols-outlined {
+  background: linear-gradient(135deg, #74F8E5, #A7F3D0);
+  color: #006A60;
+}
+
+.login-option.affiliate .material-symbols-outlined {
+  background: linear-gradient(135deg, #FFDEA6, #FDE68A);
+  color: #9C6800;
+}
+
+.login-option .option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.login-option .option-title {
+  font: var(--md-sys-typescale-title-medium);
+  font-weight: 600;
+}
+
+.login-option .option-desc {
+  font: var(--md-sys-typescale-body-small);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.login-option.current {
+  background: var(--md-sys-color-primary-container);
+}
+
+/* Mobile: stack login options */
+@media (max-width: 768px) {
+  .login-options {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0;
+    min-width: 100%;
+    padding: 16px;
+    transform: translateY(100%);
+  }
+
+  .login-options.active {
+    transform: translateY(0);
+  }
+
+  .unified-login-dropdown #loginToggle {
+    padding: 8px 12px;
+  }
+}
+
+/* ===== END UNIFIED LOGIN ===== */

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
-    <link rel="stylesheet" href="../assets/css/admin-premium.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
     <link rel="stylesheet" href="../assets/css/admin-unified.css">
 
     <style>
@@ -236,7 +236,7 @@
         <main class="main-content">
             <div class="top-bar">
                 <div>
-                    <div class="page-title">Lead Management</div>
+                    <h1 class="page-title" style="font-size: 24px; margin: 0;">Lead Management</h1>
                     <div class="body-medium text-muted">Quản lý và chuyển đổi leads</div>
                 </div>
                 <button class="btn btn-filled">
@@ -249,15 +249,15 @@
             <div class="toolbar">
                 <div class="search-box">
                     <span class="material-symbols-outlined text-muted">search</span>
-                    <input type="text" placeholder="Tìm kiếm leads...">
+                    <input type="text" placeholder="Tìm kiếm leads..." aria-label="Tìm kiếm leads">
                 </div>
-                <select class="filter-dropdown">
+                <select class="filter-dropdown" aria-label="Lọc theo trạng thái">
                     <option>Tất cả trạng thái</option>
                     <option>Hot</option>
                     <option>Warm</option>
                     <option>Cold</option>
                 </select>
-                <select class="filter-dropdown">
+                <select class="filter-dropdown" aria-label="Lọc theo nguồn">
                     <option>Tất cả nguồn</option>
                     <option>Facebook</option>
                     <option>Website</option>
@@ -339,7 +339,7 @@
 
             <!-- Leads Grid -->
             <div style="margin-top: 32px;">
-                <h3 class="title-large mb-24">Tất cả Leads</h3>
+                <h2 class="title-large mb-24">Tất cả Leads</h2>
                 <div class="leads-grid">
                     <!-- Lead 1 -->
                     <div class="card card-elevated lead-card">

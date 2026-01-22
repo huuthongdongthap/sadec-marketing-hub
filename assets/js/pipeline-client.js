@@ -323,10 +323,7 @@ const modal = new ModalManager();
 // UTILITY FUNCTIONS
 // ================================================
 
-function formatCurrency(amount) {
-    if (!amount && amount !== 0) return '0đ';
-    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
-}
+// Using shared utils from supabase.js -> utils.js
 
 function formatCurrencyShort(amount) {
     if (!amount) return '0';
@@ -353,10 +350,6 @@ function getScoreClass(score) {
     if (score >= 80) return 'hot';
     if (score >= 60) return 'warm';
     return 'cold';
-}
-
-function getInitials(name) {
-    return name?.split(' ').map(n => n[0]).join('').slice(-2).toUpperCase() || '??';
 }
 
 // ================================================
@@ -398,7 +391,7 @@ function showDealDetail(deal) {
             <!-- Value & Stage -->
             <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
                 <span style="padding: 8px 16px; background: linear-gradient(135deg, #006A60, #00897B); color: white; border-radius: 999px; font-size: 14px; font-weight: 600;">
-                    ${formatCurrency(deal.value)}
+                    ${utils.formatCurrency(deal.value)}
                 </span>
                 <span style="padding: 8px 16px; background: #f5f5f5; border-radius: 999px; font-size: 14px;">
                     📍 ${stageLabels[deal.stage] || deal.stage}
@@ -413,7 +406,7 @@ function showDealDetail(deal) {
                 <h4 style="margin: 0 0 12px 0; font-size: 14px; color: #666;">👤 Liên hệ</h4>
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--md-sys-color-primary-container, #E0F2F1); color: var(--md-sys-color-primary, #006A60); display: flex; align-items: center; justify-content: center; font-weight: 600;">
-                        ${getInitials(deal.contact_name)}
+                        ${utils.getInitials(deal.contact_name)}
                     </div>
                     <div>
                         <div style="font-weight: 500;">${deal.contact_name}</div>
@@ -496,7 +489,7 @@ function renderPipeline(deals) {
                         <div class="deal-value">${formatCurrencyShort(deal.value)}đ</div>
                     </div>
                     <div class="deal-contact">
-                        <div class="deal-avatar">${getInitials(deal.contact_name)}</div>
+                        <div class="deal-avatar">${utils.getInitials(deal.contact_name)}</div>
                         <div class="deal-name">${deal.contact_name}</div>
                     </div>
                     <div class="deal-meta">
@@ -659,7 +652,7 @@ function setupDragAndDrop() {
                 // Trigger confetti for closed deals!
                 if (newStage === 'closed') {
                     triggerConfetti();
-                    toast.show(`🎉 CHỐT ĐƠN! Deal "${deal.company}" - ${formatCurrency(deal.value)}`, 'success', 5000);
+                    toast.show(`🎉 CHỐT ĐƠN! Deal "${deal.company}" - ${utils.formatCurrency(deal.value)}`, 'success', 5000);
                 } else {
                     toast.show(`Deal "${deal.company}" đã chuyển sang ${newStage.toUpperCase()}`, 'success');
                 }

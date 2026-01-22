@@ -12,6 +12,7 @@ node_modules/
 .env
 .env.local
 .env.*.local
+mekong-env.js
 
 # Build outputs
 dist/
@@ -27,3 +28,4 @@ reports/
 *.temp
 .vercel
 .env*.local
+.skills/

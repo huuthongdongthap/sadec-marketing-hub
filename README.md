@@ -1,60 +1,141 @@
-# 🌾 Sa Đéc Marketing Hub - Material Design 3 Expressive
+# 🌾 Mekong Agency - AgencyOS 2026
 
-> **Version 2.0 (2026 Edition)**
-> Built with pure HTML/CSS/JS, powered by Google's Material Design 3 Expressive.
+> **The Ultimate Digital Marketing Platform for Mekong Delta SMEs**
+> Built with Material Design 3 (Expressive), Vanilla JS, and Supabase.
+
+![AgencyOS Banner](assets/images/case-study-growth.png)
 
 ## 🚀 Overview
 
-This repository contains the source code for the Sa Đéc Marketing Hub, a platform connecting local SMEs in the Mekong Delta with digital marketing services. The entire codebase has been upgraded to M3 Expressive, focusing on a "10X" UI/UX improvement with fluid spring animations, glassmorphism, and vibrant "Aurora" themes.
+**Mekong Agency** (formerly Sa Đéc Marketing Hub) is a comprehensive platform designed to connect local businesses in the Mekong Delta (ĐBSCL) with advanced digital marketing services.
+
+**AgencyOS 2026** is the codename for our v2.0 architecture, featuring:
+-   **Unified Admin Portal**: Manage leads, campaigns, finance, and content in one place.
+-   **Client Portal**: Transparent reporting and project tracking for clients.
+-   **AI-Powered Tools**: Gemini-integrated multimodal analysis for marketing assets.
+-   **Performance First**: Zero-framework architecture (Vanilla JS + Web Components) for maximum speed.
 
 **Live URL**: `[Insert Vercel URL Here]`
 
-## 🏗️ Architecture
+---
 
-The project follows a clean, vanilla architecture without heavy frameworks, ensuring maximum performance and ease of deployment.
+## ✨ Key Features
 
-### 1. Key Stylesheets (The "Holy Trinity")
-Every page must include these files in this exact order:
-1.  **`layout-safe.css`**: Defines core tokens (colors, typography, spacing) and resets.
-2.  **`material-components.css`**: Base styles for standard components (buttons, inputs).
-3.  **`m3-expressive.css`**: The magic layer. Adds motion, glassmorphism, and "WOW" factors.
+### 🏢 Agency Management
+-   **Lead Pipeline (CRM)**: Kanban-style lead tracking with "Hot/Warm/Cold" scoring.
+-   **Campaign Manager**: Track Facebook, Google, Zalo, and TikTok campaigns with ROI analysis.
+-   **Finance Dashboard**: Real-time P&L, cash flow forecasting, and invoicing.
+-   **Content Calendar**: Drag-and-drop scheduler for multi-channel content.
 
-### 2. Core JavaScript
--   **`auth.js`**: Centralized authentication logic (Supabase integration + Demo Mode fallback).
--   **`material-interactions.js`**: Global interaction handler (Ripple effects, Scroll Reveals, Toasts).
--   **`supabase-config.js`**: Supabase client configuration.
+### 🤖 AI Capabilities
+-   **Multimodal Analysis**: Analyze screenshots, videos, and documents using Gemini AI.
+-   **Content Generation**: AI-assisted blog posts, social captions, and ad copy.
+-   **Lead Scoring**: Automated lead qualification based on interaction data.
 
-### 3. File Structure
+### 👥 Client & Partner Portals
+-   **Client Dashboard**: Real-time view of campaign performance and project status.
+-   **Affiliate System**: Referral tracking and commission management for partners.
+
+---
+
+## 🛠️ Tech Stack
+
+The project follows a **"No-Build"** philosophy for simplicity and longevity.
+
+-   **Frontend**: HTML5, CSS3 (Variables), Vanilla JavaScript (ES Modules).
+-   **Design System**: Google Material Design 3 (Expressive) with custom "Mekong Aurora" themes.
+-   **Backend / DB**: Supabase (PostgreSQL, Auth, Edge Functions, Realtime).
+-   **AI**: Google Gemini API (via Edge Functions).
+-   **Hosting**: Vercel (recommended) or any static host.
+
+---
+
+## 📂 Project Structure
+
 ```
 /
-├── index.html              # Homepage (M3 Expressive)
-├── login.html              # Login Page
-├── register.html           # Registration Page
-├── admin-dashboard.html    # Super Admin Dashboard
-├── agency-platform.html    # Agency Workflow Platform
-├── client-portal.html      # Client Reporting Portal
-├── affiliate.html          # Affiliate Landing Page
-├── affiliate-dashboard.html# Affiliate Partner Dashboard
-└── assets/                 # Images and Icons
+├── admin/                  # Admin Dashboard Pages (Leads, Finance, etc.)
+├── portal/                 # Client Portal Pages (Dashboard, Projects)
+├── assets/
+│   ├── css/                # M3 Design System & Theme Styles
+│   │   ├── m3-agency.css   # Core Design Tokens & Components
+│   │   └── admin-unified.css # Unified Admin Layout Styles
+│   └── js/                 # Core Logic Modules
+│       ├── auth.js         # Centralized Auth & RBAC
+│       ├── utils.js        # MekongUtils (Formatting, Helpers)
+│       └── components/     # Web Components (sadec-sidebar, etc.)
+├── database/               # SQL Migrations & Seeds
+├── docs/                   # Documentation
+├── supabase/               # Edge Functions & Config
+├── index.html              # Landing Page
+└── login.html              # Unified Login Page
 ```
 
-## 🛠️ Deployment
+---
 
-This project is optimized for Vercel but can be hosted on any static file server.
+## ⚡ Quick Start
 
-1.  **Install Vercel CLI**: `npm i -g vercel`
-2.  **Deploy**: `vercel --prod`
+### Prerequisites
+-   Node.js (for local dev server)
+-   Supabase Account
 
-## 🎨 Design System
+### Installation
 
-**Colors:**
--   Primary: Pink (`#E91E63`) - Passion & Energy
--   Secondary: Gold (`#FFC107`) - Wealth & Prosperity
--   Background: Aurora Gradients
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/your-org/mekong-agency.git
+    cd mekong-agency
+    ```
 
-**Typography:**
--   `Inter` (Google Fonts) for clean, modern readability.
+2.  **Install dependencies** (Only for dev tools, no build step required)
+    ```bash
+    npm install
+    ```
+
+3.  **Setup Environment**
+    Copy `mekong-env.js.example` to `mekong-env.js` and add your Supabase credentials.
+    ```javascript
+    window.MekongEnv = {
+        SUPABASE_URL: "your-project-url",
+        SUPABASE_ANON_KEY: "your-anon-key"
+    };
+    ```
+
+4.  **Run Local Server**
+    ```bash
+    npx serve .
+    ```
+    Open `http://localhost:3000` in your browser.
+
+---
+
+## 🔐 Authentication & Roles
+
+The system uses a Role-Based Access Control (RBAC) model:
+
+-   **Super Admin**: Full access to all modules.
+-   **Manager**: Access to Campaigns, Leads, and Reports.
+-   **Content Creator**: Access to Content Calendar and AI Tools.
+-   **Client**: Read-only access to their specific projects and invoices.
+-   **Affiliate**: Access to referral dashboard.
+
+**Demo Credentials:**
+-   Admin: `admin@mekongmarketing.com` / `admin123`
+-   Client: `client@mekongmarketing.com` / `client123`
+
+---
+
+## 📚 Documentation
+
+-   [**API Reference**](docs/api-reference.md): Auth, Utils, and Edge Functions.
+-   [**Component Guide**](docs/component-guide.md): UI Components and CSS classes.
+-   [**Deployment Guide**](docs/deployment-guide.md): Supabase setup and production checklist.
+
+---
 
 ## 🤝 Contributing
 
-This is a closed-source project for **Mekong Marketing**. Contact the admin for access.
+This is a closed-source project for **Mekong Marketing**.
+Contact the admin for access.
+
+© 2026 Mekong Agency. All rights reserved.

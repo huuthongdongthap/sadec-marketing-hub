@@ -1,7 +1,7 @@
 -- ============================================================================
 -- UNIFIED RLS POLICIES - CONSOLIDATED
 -- Mekong Marketing Hub - All Row Level Security in One Place
--- 
+--
 -- Consolidates rls_policies_v4.sql and rls_policies_v5.sql
 -- Run AFTER phase8_ultimate.sql
 -- ============================================================================
@@ -27,7 +27,7 @@ BEGIN
     IF jwt_role IS NOT NULL THEN
         RETURN jwt_role;
     END IF;
-    
+
     -- Fallback to user_profiles
     SELECT role INTO db_role FROM user_profiles WHERE id = auth.uid();
     RETURN COALESCE(db_role, 'client');
@@ -54,17 +54,19 @@ $$ LANGUAGE plpgsql STABLE SECURITY DEFINER;
 -- ENABLE RLS ON ALL TABLES
 -- ============================================================================
 
-ALTER TABLE IF EXISTS user_profiles ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS customers ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS contacts ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS projects ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS invoices ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS campaigns ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS deals ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS content_calendar ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS scheduled_posts ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS budget_tracking ENABLE ROW LEVEL SECURITY;
-ALTER TABLE IF EXISTS notifications ENABLE ROW LEVEL SECURITY;
+DO $$
+DECLARE
+    tables TEXT[] := ARRAY[
+        'user_profiles', 'customers', 'contacts', 'projects', 'invoices',
+        'campaigns', 'deals', 'content_calendar', 'scheduled_posts',
+        'budget_tracking', 'notifications'
+    ];
+    t TEXT;
+BEGIN
+    FOREACH t IN ARRAY tables LOOP
+        EXECUTE format('ALTER TABLE IF EXISTS %I ENABLE ROW LEVEL SECURITY', t);
+    END LOOP;
+END $$;
 
 -- ============================================================================
 -- USER_PROFILES POLICIES
@@ -260,7 +262,7 @@ DROP POLICY IF EXISTS "deals_delete_admin" ON deals;
 CREATE POLICY "deals_select" ON deals
     FOR SELECT TO authenticated
     USING (
-        (deleted_at IS NULL) AND 
+        (deleted_at IS NULL) AND
         get_user_role() IN ('super_admin', 'manager')
     );
 
