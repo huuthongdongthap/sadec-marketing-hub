@@ -29,3 +29,16 @@ reports/
 .vercel
 .env*.local
 .skills/
+
+# Generated reports
+*-report.md
+credential-audit-report.md
+migration-report.md
+performance-report.md
+security-report.md
+seo-accessibility-report.md
+
+# Test/utility scripts
+test-*.js
+create-users.js
+push-data.js
