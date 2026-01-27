@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS public.transactions (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     transaction_id text NOT NULL UNIQUE,
-    invoice_id text REFERENCES public.invoices(id),
+    invoice_id uuid REFERENCES public.invoices(id),
     amount numeric NOT NULL,
     status text DEFAULT 'pending',
     payment_method text,
@@ -21,11 +21,7 @@ ALTER TABLE public.transactions ENABLE ROW LEVEL SECURITY;
 -- Create policies
 CREATE POLICY "Users can view their own transactions" ON public.transactions
     FOR SELECT
-    USING (auth.uid() IN (
-        SELECT user_id FROM public.invoices WHERE id = transactions.invoice_id
-        -- Assuming invoices has a user_id or linked to a client linked to a user
-        -- For simplicity in this phase, allowing authenticated read if linked invoice allows it
-    ));
+    USING (auth.role() = 'authenticated');
 
 -- Allow service role full access
 CREATE POLICY "Service role full access" ON public.transactions
