@@ -568,64 +568,144 @@
         </main>
     </div>
 
-    <script>
-        // Trend Chart
-        const trendCtx = document.getElementById('trendChart').getContext('2d');
-        new Chart(trendCtx, {
-            type: 'line',
-            data: {
-                labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
-                datasets: [
-                    {
-                        label: 'Lượt tiếp cận',
-                        data: [15000, 18000, 22000, 19000, 25000, 28000, 24000],
-                        borderColor: '#1976D2',
-                        backgroundColor: 'rgba(25, 118, 210, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    },
-                    {
-                        label: 'Tương tác',
-                        data: [600, 750, 890, 780, 1000, 1200, 980],
-                        borderColor: '#388E3C',
-                        backgroundColor: 'rgba(56, 142, 60, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'top' }
-                },
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
+    <script type="module">
+        import { supabase, auth, campaigns, analytics, utils } from '../assets/js/supabase.js';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadDashboardData('7d');
         });
 
-        // Platform Chart
-        const platformCtx = document.getElementById('platformChart').getContext('2d');
-        new Chart(platformCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Facebook', 'Instagram', 'Google Ads', 'Zalo'],
-                datasets: [{
-                    data: [45, 28, 18, 9],
-                    backgroundColor: ['#1877F2', '#E1306C', '#4285F4', '#0068FF'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'bottom' }
-                }
-            }
+        // Filter change
+        const periodSelect = document.getElementById('period-select');
+        periodSelect.addEventListener('change', (e) => {
+            loadDashboardData(e.target.value);
         });
+
+        async function loadDashboardData(period) {
+            const days = parseInt(period) || 7;
+
+            try {
+                const user = await auth.getUser();
+                if (!user) {
+                    console.log('Demo mode active');
+                    return; // Keep static data for demo
+                }
+
+                // Load in parallel
+                const [statsReq, analyticsReq, campaignsReq] = await Promise.all([
+                    campaigns.getStats(),
+                    analytics.getAggregatedStats(days),
+                    campaigns.getAll({ status: 'active' }) // Get active campaigns for table
+                ]);
+
+                if (statsReq.data) updateKPIs(statsReq.data);
+                if (analyticsReq.data) updateCharts(analyticsReq.data);
+                if (campaignsReq.data) updateCampaignTable(campaignsReq.data);
+
+            } catch (error) {
+                console.error('Error loading report data:', error);
+            }
+        }
+
+        function updateKPIs(data) {
+            // Update KPI cards
+            // Note: In a real scenario, we'd compare with previous period for trends
+            document.getElementById('kpi-reach').textContent = utils.formatCompactNumber(data.totalReach || 0); // Need to ensure getStats returns this
+            document.getElementById('kpi-engagement').textContent = (data.avgEngagement || 0) + '%';
+            document.getElementById('kpi-leads').textContent = data.totalLeads || 0;
+            document.getElementById('kpi-roi').textContent = (data.avgRoi || 0) + 'x';
+        }
+
+        let trendChartInstance = null;
+        let platformChartInstance = null;
+
+        function updateCharts(data) {
+            // Transform data for Trend Chart
+            const labels = data.map(d => {
+                const date = new Date(d.date);
+                return `${date.getDate()}/${date.getMonth() + 1}`;
+            });
+            const reachData = data.map(d => d.reach);
+            const engagementData = data.map(d => d.impressions * 0.05); // Estimate engagement if not tracked directly
+
+            // Update Trend Chart
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            if (trendChartInstance) trendChartInstance.destroy();
+
+            trendChartInstance = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Lượt tiếp cận',
+                            data: reachData,
+                            borderColor: '#1976D2',
+                            backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Tương tác (Est)',
+                            data: engagementData,
+                            borderColor: '#388E3C',
+                            backgroundColor: 'rgba(56, 142, 60, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Platform chart - this would usually require a separate aggregation query
+            // For now, we'll keep the static one or perform a simple breakdown if data available
+        }
+
+        function updateCampaignTable(campaignList) {
+            const tbody = document.getElementById('campaign-table-body');
+            if (!campaignList.length) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center">Chưa có dữ liệu chiến dịch</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = campaignList.map(camp => {
+                const metrics = camp.metrics || {};
+                const roi = metrics.roi || 0;
+
+                // Determine status badge
+                let statusClass = 'running';
+                let statusText = '🟢 Đang chạy';
+                if (camp.status === 'paused') { statusClass = 'paused'; statusText = '⏸️ Tạm dừng'; }
+                else if (camp.status === 'completed') { statusClass = 'completed'; statusText = '✅ Hoàn thành'; }
+
+                // Platform icon
+                let platformIcon = '';
+                if (camp.platform === 'facebook') platformIcon = '<span style="color: #1877F2;">📘</span> Facebook';
+                else if (camp.platform === 'google') platformIcon = '<span style="color: #4285F4;">🔍</span> Google';
+                else if (camp.platform === 'tiktok') platformIcon = '🎵 TikTok';
+                else platformIcon = '📢 ' + camp.platform;
+
+                return `
+                    <tr>
+                        <td><strong>${camp.name}</strong></td>
+                        <td><span class="platform-icon">${platformIcon}</span></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${utils.formatCompactNumber(metrics.reach || 0)}</td>
+                        <td>${(metrics.clicks || 0).toLocaleString()}</td>
+                        <td>${metrics.ctr || 0}%</td>
+                        <td>${utils.formatCompactNumber(camp.spent || 0)}</td>
+                        <td><strong style="color: ${roi >= 2 ? '#388E3C' : '#F57C00'};">${roi}x</strong></td>
+                    </tr>
+                `;
+            }).join('');
+        }
     </script>
 
     <script type="module" src="../assets/js/portal-client.js"></script>

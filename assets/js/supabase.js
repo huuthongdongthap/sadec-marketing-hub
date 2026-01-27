@@ -728,6 +728,66 @@ export const workflows = {
 };
 
 // ================================================
+// ANALYTICS API
+// ================================================
+
+export const analytics = {
+    async getCampaignDaily(campaignId, days = 7) {
+        const endDate = new Date();
+        const startDate = new Date();
+        startDate.setDate(startDate.getDate() - days);
+
+        const { data, error } = await supabase
+            .from('campaign_analytics')
+            .select('*')
+            .eq('campaign_id', campaignId)
+            .gte('date', startDate.toISOString().split('T')[0])
+            .lte('date', endDate.toISOString().split('T')[0])
+            .order('date', { ascending: true });
+
+        return { data, error };
+    },
+
+    async getAggregatedStats(days = 7) {
+        const endDate = new Date();
+        const startDate = new Date();
+        startDate.setDate(startDate.getDate() - days);
+
+        // This query aggregates data across all accessible campaigns
+        const { data, error } = await supabase
+            .from('campaign_analytics')
+            .select('date, reach, impressions, clicks, conversions, cost')
+            .gte('date', startDate.toISOString().split('T')[0])
+            .lte('date', endDate.toISOString().split('T')[0])
+            .order('date', { ascending: true });
+
+        if (error) return { data: null, error };
+
+        // Group by date
+        const grouped = {};
+        data.forEach(row => {
+            if (!grouped[row.date]) {
+                grouped[row.date] = {
+                    date: row.date,
+                    reach: 0,
+                    impressions: 0,
+                    clicks: 0,
+                    conversions: 0,
+                    cost: 0
+                };
+            }
+            grouped[row.date].reach += row.reach || 0;
+            grouped[row.date].impressions += row.impressions || 0;
+            grouped[row.date].clicks += row.clicks || 0;
+            grouped[row.date].conversions += row.conversions || 0;
+            grouped[row.date].cost += row.cost || 0;
+        });
+
+        return { data: Object.values(grouped), error: null };
+    }
+};
+
+// ================================================
 // CONTENT APPROVALS API
 // ================================================
 
