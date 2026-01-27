@@ -72,6 +72,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/m3-agency.css">
   <script src="assets/js/unified-login.js" defer></script>
+  <script src="assets/js/pwa-install.js" defer></script>
 </head>
 
 <body>
@@ -96,6 +97,10 @@
       </ul>
 
       <div class="nav-actions">
+        <button class="btn btn-outlined" id="pwa-install-btn" style="display: none; border-color: var(--md-sys-color-primary); color: var(--md-sys-color-primary);">
+            <span class="material-symbols-outlined">download</span>
+            App
+        </button>
         <div class="unified-login-dropdown">
           <button class="btn btn-text" id="loginToggle">
             <span class="material-symbols-outlined">login</span>
