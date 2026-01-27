@@ -61,8 +61,8 @@ class SadecSidebar extends HTMLElement {
         reports: {
             label: 'BÁO CÁO',
             items: [
-                { id: 'analytics', label: 'Phân tích', icon: 'analytics', href: '#' },
-                { id: 'reports', label: 'Báo cáo', icon: 'description', href: '#' }
+                { id: 'analytics', label: 'Phân tích', icon: 'analytics', href: '/portal/reports.html' },
+                { id: 'reports', label: 'Báo cáo', icon: 'description', href: '/portal/reports.html' }
             ]
         },
         support: {
