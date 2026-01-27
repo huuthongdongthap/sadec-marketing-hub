@@ -47,6 +47,33 @@ class SadecSidebar extends HTMLElement {
         }
     };
 
+    // Client Portal menu items
+    static CLIENT_SECTIONS = {
+        main: {
+            label: 'MENU CHÍNH',
+            items: [
+                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: '/portal/dashboard.html' },
+                { id: 'projects', label: 'Dự án', icon: 'folder_open', href: '/portal/projects.html' },
+                { id: 'invoices', label: 'Hóa đơn', icon: 'receipt_long', href: '/portal/invoices.html' },
+                { id: 'subscriptions', label: 'Gói dịch vụ', icon: 'card_membership', href: '/portal/subscriptions.html' }
+            ]
+        },
+        reports: {
+            label: 'BÁO CÁO',
+            items: [
+                { id: 'analytics', label: 'Phân tích', icon: 'analytics', href: '#' },
+                { id: 'reports', label: 'Báo cáo', icon: 'description', href: '#' }
+            ]
+        },
+        support: {
+            label: 'HỖ TRỢ',
+            items: [
+                { id: 'support', label: 'Liên hệ hỗ trợ', icon: 'support_agent', href: '#' },
+                { id: 'settings', label: 'Cài đặt', icon: 'settings', href: '#' }
+            ]
+        }
+    };
+
     // Navigation items configuration - ALL 31 ADMIN PAGES
     static MENU_SECTIONS = {
         dashboard: {
@@ -153,6 +180,7 @@ class SadecSidebar extends HTMLElement {
     // Auto-detect role from URL or Auth
     detectRole() {
         if (window.location.pathname.startsWith('/affiliate')) return 'affiliate';
+        if (window.location.pathname.startsWith('/portal')) return 'client';
         if (window.location.pathname.startsWith('/admin')) return 'admin';
         // Fallback to Auth state if available
         if (window.Auth && window.Auth.State && window.Auth.State.getRole) {
@@ -162,6 +190,12 @@ class SadecSidebar extends HTMLElement {
     }
 
     getTemplate(activePage, collapsed, mode, role) {
+        const titleMap = {
+            affiliate: 'Partner Hub',
+            client: 'Client Portal',
+            admin: 'AgencyOS 2026'
+        };
+
         return `
             <style>
                 ${this.getStyles()}
@@ -169,7 +203,7 @@ class SadecSidebar extends HTMLElement {
             <aside class="sidebar-glass ${collapsed ? 'collapsed' : ''} ${role}">
                 <div class="nav-header">
                     <h2 class="logo">MEKONG<br>AGENCY</h2>
-                    <div class="nav-version">${role === 'affiliate' ? 'Partner Hub' : 'AgencyOS 2026'}</div>
+                    <div class="nav-version">${titleMap[role] || 'AgencyOS 2026'}</div>
                 </div>
 
                 <nav>
@@ -192,7 +226,10 @@ class SadecSidebar extends HTMLElement {
 
     renderAllSections(activePage, mode, role) {
         // Choose sections based on role
-        const sectionsMap = role === 'affiliate' ? SadecSidebar.AFFILIATE_SECTIONS : SadecSidebar.MENU_SECTIONS;
+        let sectionsMap;
+        if (role === 'affiliate') sectionsMap = SadecSidebar.AFFILIATE_SECTIONS;
+        else if (role === 'client') sectionsMap = SadecSidebar.CLIENT_SECTIONS;
+        else sectionsMap = SadecSidebar.MENU_SECTIONS;
 
         return Object.values(sectionsMap).map(section => {
             // Filter items based on mode (only for admin)

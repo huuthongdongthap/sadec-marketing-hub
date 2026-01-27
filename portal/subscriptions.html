@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gói dịch vụ - Mekong Agency Portal</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-display-small);
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font: var(--md-sys-typescale-body-large);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Billing Cycle Toggle */
+        .billing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .toggle-label {
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface-variant);
+            cursor: pointer;
+        }
+
+        .toggle-label.active {
+            color: var(--md-sys-color-on-surface);
+            font-weight: 700;
+        }
+
+        .discount-badge {
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 4px 8px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 1400px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+            position: relative;
+            background: var(--md-sys-color-surface);
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            background: var(--md-sys-color-surface-container-low);
+            border-color: var(--md-sys-color-primary);
+            border-width: 2px;
+        }
+
+        .featured-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 4px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .plan-name {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 8px;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .plan-price {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-value {
+            font: var(--md-sys-typescale-display-medium);
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .price-period {
+            color: var(--md-sys-color-on-surface-variant);
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            flex: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .feature-icon {
+            color: var(--md-sys-color-primary);
+            font-size: 20px;
+        }
+
+        .btn-plan {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-filled {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+        }
+
+        .btn-filled:hover {
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: var(--md-sys-color-primary);
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .btn-outlined:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .btn-plan:disabled {
+            background: var(--md-sys-color-surface-container-highest);
+            color: var(--md-sys-color-on-surface-variant);
+            cursor: not-allowed;
+            border: none;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            margin-top: 64px;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font: var(--md-sys-typescale-headline-small);
+            margin-bottom: 32px;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .comparison-table-container {
+            overflow-x: auto;
+            border-radius: 24px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            background: var(--md-sys-color-surface);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            position: sticky;
+            left: 0;
+            background: var(--md-sys-color-surface);
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        .comparison-table th {
+            background: var(--md-sys-color-surface-container);
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #2E7D32;
+        }
+
+        .close-icon {
+            color: var(--md-sys-color-outline);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--md-sys-color-surface);
+            border-radius: 28px;
+            max-width: 560px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Payment Method Option */
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .payment-option:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .payment-option.selected {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .payment-option input[type="radio"] {
+            accent-color: var(--md-sys-color-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sadec Sidebar Component -->
+        <sadec-sidebar active="subscriptions" role="client"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Gói dịch vụ</h1>
+                <div class="page-subtitle">Nâng cấp để mở khóa thêm tính năng và hỗ trợ tốt hơn</div>
+            </div>
+
+            <!-- Billing Cycle Toggle -->
+            <div class="billing-toggle">
+                <span class="toggle-label active" id="monthly-label">Thanh toán tháng</span>
+                <md-switch id="billing-cycle-switch"></md-switch>
+                <span class="toggle-label" id="yearly-label">
+                    Thanh toán năm
+                    <span class="discount-badge">Tiết kiệm 20%</span>
+                </span>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="pricing-grid" id="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">
+                        <span class="price-value">0₫</span>
+                        <span class="price-period">/tháng</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Quản lý 1 dự án</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Báo cáo cơ bản</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Hỗ trợ qua Email</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outlined btn-plan" disabled>Đang sử dụng</button>
+                </div>
+
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-price">
+                        <span class="price-value" data-monthly="5.000.000" data-yearly="48.000.000">5.000.000₫</span>
+                        <span class="price-period" data-period-monthly="/tháng" data-period-yearly="/năm">/tháng</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Quản lý 3 dự án</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>SEO cơ bản (5 từ khóa)</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Báo cáo hàng tuần</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Hỗ trợ 24/7</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-filled btn-plan" onclick="selectPlan('basic')">Nâng cấp</button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <div class="featured-label">Phổ biến nhất</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">
+                        <span class="price-value" data-monthly="15.000.000" data-yearly="144.000.000">15.000.000₫</span>
+                        <span class="price-period" data-period-monthly="/tháng" data-period-yearly="/năm">/tháng</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Quản lý 10 dự án</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>SEO nâng cao (20 từ khóa)</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Quản lý Fanpage & Content</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Báo cáo thời gian thực</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Ưu tiên hỗ trợ</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-filled btn-plan" onclick="selectPlan('pro')">Nâng cấp</button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">
+                        <span class="price-value">Liên hệ</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Không giới hạn dự án</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Giải pháp Marketing tổng thể</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Content AI Generator</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Dedicated Account Manager</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="material-symbols-outlined feature-icon">check</span>
+                            <span>Tư vấn chiến lược 1:1</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outlined btn-plan" onclick="window.location.href='mailto:contact@mekongagency.com'">Liên hệ ngay</button>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-section">
+                <h2 class="comparison-title">So sánh chi tiết tính năng</h2>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tính năng</th>
+                                <th>Starter</th>
+                                <th>Basic</th>
+                                <th>Pro</th>
+                                <th>Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Số lượng dự án</td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Không giới hạn</td>
+                            </tr>
+                            <tr>
+                                <td>Thành viên</td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Không giới hạn</td>
+                            </tr>
+                            <tr>
+                                <td>Báo cáo</td>
+                                <td>Cơ bản</td>
+                                <td>Hàng tuần</td>
+                                <td>Thời gian thực</td>
+                                <td>Tùy chỉnh</td>
+                            </tr>
+                            <tr>
+                                <td>Hỗ trợ SEO</td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td>5 từ khóa</td>
+                                <td>20 từ khóa</td>
+                                <td>Toàn diện</td>
+                            </tr>
+                            <tr>
+                                <td>Content Marketing</td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td><span class="material-symbols-outlined check-icon">check</span></td>
+                                <td><span class="material-symbols-outlined check-icon">check</span></td>
+                            </tr>
+                            <tr>
+                                <td>AI Content Generator</td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td>Cơ bản</td>
+                                <td>Nâng cao</td>
+                            </tr>
+                            <tr>
+                                <td>API Access</td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td><span class="material-symbols-outlined close-icon">close</span></td>
+                                <td><span class="material-symbols-outlined check-icon">check</span></td>
+                                <td><span class="material-symbols-outlined check-icon">check</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Payment Modal Container -->
+    <div id="modal-container"></div>
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+    <script type="module" src="../assets/js/portal-client.js"></script>
+
+    <script type="module">
+        import { modal, toast } from '../assets/js/portal-client.js';
+
+        // Billing Cycle Logic
+        const cycleSwitch = document.getElementById('billing-cycle-switch');
+        const monthlyLabel = document.getElementById('monthly-label');
+        const yearlyLabel = document.getElementById('yearly-label');
+        const prices = document.querySelectorAll('.price-value[data-monthly]');
+        const periods = document.querySelectorAll('.price-period[data-period-monthly]');
+
+        let isYearly = false;
+
+        // Handle label clicks
+        monthlyLabel.addEventListener('click', () => {
+            cycleSwitch.selected = false;
+            isYearly = false;
+            updatePrices();
+        });
+
+        yearlyLabel.addEventListener('click', () => {
+            cycleSwitch.selected = true;
+            isYearly = true;
+            updatePrices();
+        });
+
+        cycleSwitch.addEventListener('change', (e) => {
+            isYearly = e.target.selected;
+            updatePrices();
+        });
+
+        function updatePrices() {
+            if (isYearly) {
+                monthlyLabel.classList.remove('active');
+                yearlyLabel.classList.add('active');
+            } else {
+                monthlyLabel.classList.add('active');
+                yearlyLabel.classList.remove('active');
+            }
+
+            prices.forEach(price => {
+                const value = isYearly ? price.dataset.yearly : price.dataset.monthly;
+                // Simple formatting assuming values are already formatted in data attributes
+                price.textContent = `${value}₫`;
+            });
+
+            periods.forEach(period => {
+                const text = isYearly ? period.dataset.periodYearly : period.dataset.periodMonthly;
+                period.textContent = text;
+            });
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+        }
+
+        // Plan Selection Logic attached to window for HTML access
+        window.selectPlan = (planId) => {
+            const planNames = {
+                basic: 'Gói Basic',
+                pro: 'Gói Pro'
+            };
+
+            const amount = planId === 'basic' ? (isYearly ? 48000000 : 5000000) : (isYearly ? 144000000 : 15000000);
+            const cycle = isYearly ? 'năm' : 'tháng';
+
+            const modalContent = `
+                <div style="padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                        <h2 style="margin: 0;">Xác nhận đăng ký</h2>
+                        <button class="modal-close" style="background: none; border: none; cursor: pointer; padding: 4px;">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div style="background: var(--md-sys-color-surface-container); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-weight: 500;">Dịch vụ</span>
+                            <span>${planNames[planId]}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-weight: 500;">Chu kỳ</span>
+                            <span>Theo ${cycle}</span>
+                        </div>
+                        <div style="border-top: 1px solid var(--md-sys-color-outline-variant); margin: 12px 0;"></div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 700;">Tổng thanh toán</span>
+                            <span style="font-size: 20px; font-weight: 700; color: var(--md-sys-color-primary);">${formatCurrency(amount)}</span>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 16px; margin-bottom: 16px;">Chọn phương thức thanh toán</h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                        <div class="payment-option selected" onclick="selectPaymentMethod(this, 'vnpay')">
+                            <input type="radio" name="payment_method" value="vnpay" checked>
+                            <span class="material-symbols-outlined" style="color: #0056b3;">account_balance_wallet</span>
+                            <div>
+                                <div style="font-weight: 500;">VNPay QR</div>
+                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Quét mã QR qua ứng dụng ngân hàng</div>
+                            </div>
+                        </div>
+
+                        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
+                            <input type="radio" name="payment_method" value="momo">
+                            <span class="material-symbols-outlined" style="color: #a50064;">qr_code_scanner</span>
+                            <div>
+                                <div style="font-weight: 500;">Ví MoMo</div>
+                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Thanh toán qua ví điện tử MoMo</div>
+                            </div>
+                        </div>
+
+                        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
+                            <input type="radio" name="payment_method" value="bank">
+                            <span class="material-symbols-outlined" style="color: #2E7D32;">account_balance</span>
+                            <div>
+                                <div style="font-weight: 500;">Chuyển khoản ngân hàng</div>
+                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Vietcombank - Mekong Agency</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-filled" style="width: 100%; justify-content: center; padding: 16px; font-size: 16px;" onclick="processPayment('${planId}', ${amount})">
+                        Thanh toán ngay
+                    </button>
+                </div>
+            `;
+
+            modal.open(modalContent);
+
+            // Re-bind modal close button since innerHTML replaces it
+            setTimeout(() => {
+                const closeBtn = document.querySelector('.modal-content .modal-close');
+                if (closeBtn) {
+                    closeBtn.onclick = () => modal.close();
+                }
+            }, 100);
+        };
+
+        window.selectPaymentMethod = (element, method) => {
+            // Update visual selection
+            document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+
+            // Check radio button
+            const radio = element.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        };
+
+        window.processPayment = (planId, amount) => {
+            modal.close();
+            toast.show('Đang xử lý thanh toán...', 'info');
+
+            setTimeout(() => {
+                // Mock redirect to payment gateway or success
+                window.location.href = `payment-result.html?status=success&plan=${planId}&amount=${amount}`;
+            }, 2000);
+        };
+    </script>
+</body>
+
+</html>
