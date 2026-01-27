@@ -4,6 +4,7 @@
 // ================================================
 
 import { auth, projects, invoices, activities, utils } from './supabase.js';
+import { paymentManager } from './payment-gateway.js';
 
 // ================================================
 // DEMO MODE DATA (Used when not authenticated)
@@ -532,9 +533,13 @@ function showInvoiceDetail(invoice) {
                     Tải PDF
                 </button>
                 ${invoice.status === 'sent' || invoice.status === 'overdue' ? `
-                <button id="markAsPaid" data-invoice-id="${invoice.id}" class="btn btn-filled" style="flex: 1; padding: 12px; background: #006A60; color: white; border: none; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <button id="payOnlineBtn" class="btn btn-filled" style="flex: 1; padding: 12px; background: #006A60; color: white; border: none; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span class="material-symbols-outlined">payments</span>
+                    Thanh toán Online
+                </button>
+                <button id="markAsPaid" data-invoice-id="${invoice.id}" class="btn btn-outlined" style="flex: 1; padding: 12px; border: 1px solid #006A60; background: transparent; color: #006A60; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px;">
                     <span class="material-symbols-outlined">check_circle</span>
-                    Đã thanh toán
+                    Đã thanh toán (Demo)
                 </button>
                 ` : ''}
             </div>
@@ -543,12 +548,98 @@ function showInvoiceDetail(invoice) {
 
     // Bind button actions
     document.getElementById('downloadInvoice')?.addEventListener('click', () => downloadInvoicePDF(invoice));
+    document.getElementById('payOnlineBtn')?.addEventListener('click', () => payInvoiceOnline(invoice));
     document.getElementById('markAsPaid')?.addEventListener('click', () => markInvoiceAsPaid(invoice.id));
 }
 
 // ================================================
 // INVOICE ACTIONS
 // ================================================
+
+async function payInvoiceOnline(invoice) {
+    // Show payment method selection modal
+    const modalContent = `
+        <div style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="margin: 0;">Chọn phương thức thanh toán</h2>
+                <button class="modal-close" onclick="modal.close()" style="background: none; border: none; cursor: pointer; padding: 4px;">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div style="background: var(--md-sys-color-surface-container); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-weight: 500;">Hóa đơn</span>
+                    <span>${invoice.invoice_number}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700;">Số tiền</span>
+                    <span style="font-size: 20px; font-weight: 700; color: var(--md-sys-color-primary);">${utils.formatCurrency(invoice.total)}</span>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--md-sys-color-outline); border-radius: 12px; cursor: pointer;">
+                    <input type="radio" name="invoice_payment_method" value="vnpay" checked>
+                    <span class="material-symbols-outlined" style="color: #0056b3;">account_balance_wallet</span>
+                    <div>
+                        <div style="font-weight: 500;">VNPay QR</div>
+                        <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Quét mã QR qua ứng dụng ngân hàng</div>
+                    </div>
+                </label>
+
+                <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--md-sys-color-outline); border-radius: 12px; cursor: pointer;">
+                    <input type="radio" name="invoice_payment_method" value="momo">
+                    <span class="material-symbols-outlined" style="color: #a50064;">qr_code_scanner</span>
+                    <div>
+                        <div style="font-weight: 500;">Ví MoMo</div>
+                        <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Thanh toán qua ví điện tử MoMo</div>
+                    </div>
+                </label>
+            </div>
+
+            <button id="confirmPaymentBtn" class="btn btn-filled" style="width: 100%; justify-content: center; padding: 16px;">
+                Tiến hành thanh toán
+            </button>
+        </div>
+    `;
+
+    modal.open(modalContent);
+
+    // Re-bind close button and confirm button
+    setTimeout(() => {
+        document.querySelector('.modal-content .modal-close').onclick = () => modal.close();
+
+        document.getElementById('confirmPaymentBtn').onclick = async () => {
+            const methodInput = document.querySelector('input[name="invoice_payment_method"]:checked');
+            const method = methodInput ? methodInput.value : 'vnpay';
+
+            modal.close();
+            toast.show('Đang khởi tạo cổng thanh toán...', 'info');
+
+            try {
+                const result = await paymentManager.processPayment(method, {
+                    amount: invoice.total,
+                    description: `Thanh toan hoa don ${invoice.invoice_number}`,
+                    orderId: invoice.invoice_number + '-' + Date.now().toString().slice(-6)
+                });
+
+                if (result && result.data) {
+                    if (typeof result.data === 'string') {
+                        window.location.href = result.data;
+                    } else if (result.data.type === 'qr_display') {
+                         window.location.href = `payment-result.html?status=pending&method=bank&amount=${invoice.total}&qr=${encodeURIComponent(result.data.qrUrl)}`;
+                    }
+                } else {
+                     toast.show('Lỗi khởi tạo thanh toán', 'error');
+                }
+            } catch (error) {
+                console.error('Payment Error:', error);
+                toast.show('Có lỗi xảy ra', 'error');
+            }
+        };
+    }, 100);
+}
 
 async function downloadInvoicePDF(invoice) {
     toast.show('Đang tạo file PDF...', 'info');

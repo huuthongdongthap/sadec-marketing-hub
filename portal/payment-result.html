@@ -279,6 +279,34 @@
             verifyPayment('vnpay');
         } else if (urlParams.has('resultCode') && urlParams.has('partnerCode')) {
             verifyPayment('momo');
+        } else if (urlParams.get('status') === 'pending') {
+            // Handle Pending / QR Display
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+
+            const method = urlParams.get('method');
+            const amount = urlParams.get('amount');
+            const qrUrl = urlParams.get('qr');
+
+            document.getElementById('result-icon').className = 'result-icon pending';
+            document.getElementById('result-icon-symbol').textContent = 'qr_code_scanner';
+
+            if (method === 'bank' && qrUrl) {
+                document.getElementById('result-title').textContent = 'Quét mã để thanh toán';
+                document.getElementById('result-message').innerHTML = `
+                    Vui lòng quét mã VietQR bên dưới để hoàn tất giao dịch.<br>
+                    <img src="${decodeURIComponent(qrUrl)}" alt="VietQR" style="max-width: 300px; margin-top: 16px; border-radius: 12px; border: 1px solid #ddd;">
+                `;
+            } else {
+                document.getElementById('result-title').textContent = '⏳ Đang chờ thanh toán';
+                document.getElementById('result-message').textContent = 'Giao dịch của bạn đang được xử lý.';
+            }
+
+            document.getElementById('txn-id').textContent = 'PENDING-' + Date.now().toString().slice(-6);
+            document.getElementById('txn-amount').textContent = amount ? parseInt(amount).toLocaleString('vi-VN') + ' ₫' : '--';
+            document.getElementById('txn-bank').textContent = method === 'bank' ? 'Vietcombank' : method.toUpperCase();
+            document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
         } else {
             // No params - show demo success
             document.getElementById('loading-state').style.display = 'none';
