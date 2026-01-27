@@ -576,26 +576,31 @@
         </main>
     </div>
 
-    <script>
+    <script type="module">
+        import { supabase, auth, assets, utils } from '../assets/js/supabase.js';
+
+        let currentFolder = 'all';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadAssets(currentFolder);
+        });
+
         // Folder tab switching
         document.querySelectorAll('.folder-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.folder-tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
 
-                const folder = tab.dataset.folder;
-                document.querySelectorAll('.asset-card').forEach(card => {
-                    if (folder === 'all' || card.dataset.type === folder) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                currentFolder = tab.dataset.folder;
+                loadAssets(currentFolder);
             });
         });
 
         // Drag and drop
         const uploadZone = document.querySelector('.upload-zone');
+        const fileInput = document.getElementById('file-input');
+
         uploadZone.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadZone.style.borderColor = 'var(--md-sys-color-primary)';
@@ -606,8 +611,139 @@
         uploadZone.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadZone.style.borderColor = '';
-            alert('Demo: File upload sẽ được xử lý ở đây');
+            handleFiles(e.dataTransfer.files);
         });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        async function handleFiles(files) {
+            if (!files.length) return;
+
+            const user = await auth.getUser();
+            if (!user) {
+                alert('Vui lòng đăng nhập để upload file (Demo mode: không lưu)');
+                return;
+            }
+
+            // Show loading state
+            const originalText = document.querySelector('.upload-label').textContent;
+            document.querySelector('.upload-label').textContent = `Đang upload ${files.length} file...`;
+
+            try {
+                for (const file of files) {
+                    // Determine folder based on type
+                    let folder = 'docs';
+                    if (file.type.startsWith('image/')) folder = file.name.toLowerCase().includes('logo') ? 'logos' : 'banners';
+                    else if (file.type.startsWith('video/')) folder = 'videos';
+
+                    await assets.upload(file, folder);
+                }
+
+                // Refresh list
+                await loadAssets(currentFolder);
+                alert('Upload thành công!');
+
+            } catch (error) {
+                console.error('Upload failed:', error);
+                alert('Có lỗi xảy ra khi upload.');
+            } finally {
+                document.querySelector('.upload-label').textContent = originalText;
+                fileInput.value = '';
+            }
+        }
+
+        async function loadAssets(folder) {
+            const grid = document.querySelector('.asset-grid');
+
+            try {
+                const user = await auth.getUser();
+                if (!user) {
+                    // Filter existing static items for demo
+                    document.querySelectorAll('.asset-card').forEach(card => {
+                        if (folder === 'all' || card.dataset.type === folder) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    return;
+                }
+
+                // Clear grid for real data
+                grid.innerHTML = '<div class="spinner"></div>';
+
+                const { data, error } = await assets.getAll(folder);
+                if (error) throw error;
+
+                if (!data || data.length === 0) {
+                    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--md-sys-color-on-surface-variant);">Chưa có tài liệu nào</div>';
+                    return;
+                }
+
+                grid.innerHTML = data.map(asset => createAssetCard(asset)).join('');
+
+            } catch (error) {
+                console.error('Error loading assets:', error);
+                // Fallback to static for now if error
+            }
+        }
+
+        function createAssetCard(asset) {
+            const isImage = asset.type === 'image';
+            const iconClass = getIconClass(asset.extension);
+
+            let previewHtml = '';
+            if (isImage) {
+                previewHtml = `<img src="${asset.url}" alt="${asset.name}" loading="lazy" onerror="this.outerHTML='<span class=\\'material-symbols-outlined file-icon\\'>image</span>'">`;
+            } else {
+                previewHtml = `<span class="material-symbols-outlined file-icon ${iconClass}">${getIconName(iconClass)}</span>`;
+            }
+
+            return `
+                <div class="asset-card" data-type="${asset.folder}">
+                    <div class="asset-preview">
+                        ${previewHtml}
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name" title="${asset.name}">${asset.name}</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">${asset.extension.toUpperCase()}</span>
+                            <span>${utils.formatFileSize(asset.size)}</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button href="${asset.url}" target="_blank">
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getIconClass(ext) {
+            if (!ext) return 'doc';
+            ext = ext.toLowerCase().replace('.', '');
+            if (['pdf'].includes(ext)) return 'pdf';
+            if (['doc', 'docx'].includes(ext)) return 'doc';
+            if (['xls', 'xlsx', 'csv'].includes(ext)) return 'xls';
+            if (['ppt', 'pptx'].includes(ext)) return 'ppt';
+            if (['mp4', 'mov', 'avi'].includes(ext)) return 'video';
+            return 'doc';
+        }
+
+        function getIconName(cls) {
+            const map = {
+                'pdf': 'picture_as_pdf',
+                'doc': 'description',
+                'xls': 'table_chart',
+                'ppt': 'slideshow',
+                'video': 'play_circle'
+            };
+            return map[cls] || 'description';
+        }
     </script>
 
     <script type="module" src="../assets/js/portal-client.js"></script>

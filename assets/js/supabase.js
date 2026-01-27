@@ -728,6 +728,88 @@ export const workflows = {
 };
 
 // ================================================
+// ASSETS API (DAM)
+// ================================================
+
+export const assets = {
+    async getAll(folder = 'all') {
+        let query = supabase.from('assets').select('*');
+        if (folder !== 'all') {
+            query = query.eq('folder', folder);
+        }
+        const { data, error } = await query.order('created_at', { ascending: false });
+        return { data, error };
+    },
+
+    async upload(file, folder = 'all', metadata = {}) {
+        const user = await auth.getUser();
+        if (!user) return { error: 'Not authenticated' };
+
+        // 1. Upload to Storage
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}_${Math.random().toString(36).substring(2, 8)}.${fileExt}`;
+        const filePath = `${user.id}/${fileName}`;
+
+        const { data: storageData, error: storageError } = await supabase.storage
+            .from('client-assets')
+            .upload(filePath, file);
+
+        if (storageError) return { error: storageError };
+
+        // 2. Get Public URL
+        const { data: { publicUrl } } = supabase.storage
+            .from('client-assets')
+            .getPublicUrl(filePath);
+
+        // 3. Insert into Database
+        // Need to fetch client_id for the user first. For simplicity assuming 1-1 or fetching first.
+        const { data: clientData } = await supabase.from('clients').select('id').eq('user_id', user.id).single();
+        const clientId = clientData?.id;
+
+        const assetRecord = {
+            client_id: clientId,
+            name: file.name,
+            type: getFileType(file.type),
+            extension: fileExt,
+            url: publicUrl,
+            size: file.size,
+            folder: folder,
+            metadata: metadata,
+            uploaded_by: user.id
+        };
+
+        const { data: dbData, error: dbError } = await supabase
+            .from('assets')
+            .insert(assetRecord)
+            .select()
+            .single();
+
+        if (dbError) return { error: dbError };
+
+        return { data: dbData, error: null };
+    },
+
+    async delete(id, url) {
+        // 1. Delete from DB
+        const { error: dbError } = await supabase.from('assets').delete().eq('id', id);
+        if (dbError) return { error: dbError };
+
+        // 2. Delete from Storage (optional, extract path from URL)
+        // const path = url.split('/').pop(); // Simplified
+        // await supabase.storage.from('client-assets').remove([path]);
+
+        return { error: null };
+    }
+};
+
+function getFileType(mimeType) {
+    if (mimeType.startsWith('image/')) return 'image';
+    if (mimeType.startsWith('video/')) return 'video';
+    if (mimeType.includes('pdf') || mimeType.includes('document') || mimeType.includes('sheet')) return 'document';
+    return 'other';
+}
+
+// ================================================
 // ANALYTICS API
 // ================================================
 
