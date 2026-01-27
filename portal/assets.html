@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu - Client Portal</title>
+    <meta name="description"
+        content="Digital asset manager for marketing materials, brand assets, and project deliverables.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            padding: 0 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        /* Folder Tabs */
+        .folder-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .folder-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--md-sys-shape-corner-full);
+            background: var(--md-sys-color-surface-container);
+            color: var(--md-sys-color-on-surface-variant);
+            border: none;
+            cursor: pointer;
+            font: var(--md-sys-typescale-label-large);
+            transition: all 0.2s;
+        }
+
+        .folder-tab:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .folder-tab.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .folder-count {
+            font: var(--md-sys-typescale-label-small);
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Asset Grid */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .asset-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-large);
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .asset-card:hover {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .asset-preview {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-surface-container);
+            position: relative;
+        }
+
+        .asset-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .asset-preview .file-icon {
+            font-size: 64px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .asset-preview .file-icon.pdf {
+            color: #E53935;
+        }
+
+        .asset-preview .file-icon.doc {
+            color: #1976D2;
+        }
+
+        .asset-preview .file-icon.xls {
+            color: #388E3C;
+        }
+
+        .asset-preview .file-icon.ppt {
+            color: #F57C00;
+        }
+
+        .asset-preview .file-icon.video {
+            color: #9C27B0;
+        }
+
+        .asset-info {
+            padding: 16px;
+        }
+
+        .asset-name {
+            font: var(--md-sys-typescale-title-small);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .asset-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .asset-type {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-small);
+            text-transform: uppercase;
+        }
+
+        .asset-actions {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            background: var(--md-sys-color-surface-container-lowest);
+        }
+
+        /* Upload Zone */
+        .upload-zone {
+            border: 2px dashed var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-large);
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 32px;
+            background: var(--md-sys-color-surface-container-lowest);
+            transition: all 0.2s;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .upload-zone .material-symbols-outlined {
+            font-size: 48px;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 16px;
+        }
+
+        .upload-label {
+            font: var(--md-sys-typescale-title-medium);
+        }
+
+        .upload-hint {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menu chính</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <span class="material-symbols-outlined">folder_open</span>
+                        Dự án
+                    </a>
+                    <a href="invoices.html" class="nav-item">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Hóa đơn
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Báo cáo</div>
+                    <a href="reports.html" class="nav-item">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Phân tích Campaign
+                    </a>
+                    <a href="assets.html" class="nav-item active">
+                        <span class="material-symbols-outlined">perm_media</span>
+                        Tài liệu
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Dịch vụ</div>
+                    <a href="approve.html" class="nav-item">
+                        <span class="material-symbols-outlined">task_alt</span>
+                        Duyệt nội dung
+                    </a>
+                    <a href="payments.html" class="nav-item">
+                        <span class="material-symbols-outlined">payments</span>
+                        Thanh toán
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📁 Tài Liệu & Assets</h1>
+                    <div class="body-medium text-muted">Quản lý tài liệu và file marketing của bạn</div>
+                </div>
+                <div class="header-actions" style="display: flex; gap: 12px;">
+                    <md-outlined-text-field placeholder="Tìm kiếm..." style="width: 240px;">
+                        <span class="material-symbols-outlined" slot="leading-icon">search</span>
+                    </md-outlined-text-field>
+                </div>
+            </div>
+
+            <!-- Upload Zone -->
+            <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+                <span class="material-symbols-outlined">cloud_upload</span>
+                <div class="upload-label">Kéo thả file vào đây hoặc click để upload</div>
+                <div class="upload-hint">Hỗ trợ: PNG, JPG, PDF, DOCX, XLSX, MP4 (tối đa 50MB)</div>
+                <input type="file" id="file-input" hidden multiple>
+            </div>
+
+            <!-- Folder Tabs -->
+            <div class="folder-tabs">
+                <button class="folder-tab active" data-folder="all">
+                    <span class="material-symbols-outlined">folder</span>
+                    Tất cả
+                    <span class="folder-count">12</span>
+                </button>
+                <button class="folder-tab" data-folder="logos">
+                    <span class="material-symbols-outlined">star</span>
+                    Logo
+                    <span class="folder-count">3</span>
+                </button>
+                <button class="folder-tab" data-folder="banners">
+                    <span class="material-symbols-outlined">image</span>
+                    Banners
+                    <span class="folder-count">4</span>
+                </button>
+                <button class="folder-tab" data-folder="docs">
+                    <span class="material-symbols-outlined">description</span>
+                    Tài liệu
+                    <span class="folder-count">3</span>
+                </button>
+                <button class="folder-tab" data-folder="videos">
+                    <span class="material-symbols-outlined">videocam</span>
+                    Video
+                    <span class="folder-count">2</span>
+                </button>
+            </div>
+
+            <!-- Asset Grid -->
+            <div class="asset-grid">
+                <!-- Logo Assets -->
+                <div class="asset-card" data-type="logos">
+                    <div class="asset-preview">
+                        <img src="../assets/images/logo-preview.png" alt="Logo"
+                            onerror="this.outerHTML='<span class=\'material-symbols-outlined file-icon\'>star</span>'">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Logo Chính (Dark)</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">PNG</span>
+                            <span>2.4 MB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            Chia sẻ
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <div class="asset-card" data-type="logos">
+                    <div class="asset-preview">
+                        <span class="material-symbols-outlined file-icon">star</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Logo Chính (Light)</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">SVG</span>
+                            <span>156 KB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            Chia sẻ
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <!-- Banner Assets -->
+                <div class="asset-card" data-type="banners">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #006A60, #00897B);">
+                        <span style="color: white; font-size: 14px;">Banner 1200x628</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">FB Ad Banner - Tết Sale</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">JPG</span>
+                            <span>890 KB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            Chia sẻ
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <div class="asset-card" data-type="banners">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #E91E63, #9C27B0);">
+                        <span style="color: white; font-size: 14px;">Story 1080x1920</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">IG Story - Khuyến mãi</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">PNG</span>
+                            <span>1.2 MB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            Chia sẻ
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <!-- Document Assets -->
+                <div class="asset-card" data-type="docs">
+                    <div class="asset-preview">
+                        <span class="material-symbols-outlined file-icon pdf">picture_as_pdf</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Brand Guidelines v2.0</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">PDF</span>
+                            <span>4.5 MB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">visibility</span>
+                            Xem
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <div class="asset-card" data-type="docs">
+                    <div class="asset-preview">
+                        <span class="material-symbols-outlined file-icon xls">table_chart</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Báo cáo Q4 2025</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">XLSX</span>
+                            <span>850 KB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">visibility</span>
+                            Xem
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <!-- Video Assets -->
+                <div class="asset-card" data-type="videos">
+                    <div class="asset-preview" style="background: #000;">
+                        <span class="material-symbols-outlined file-icon video">play_circle</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">Video Giới Thiệu 30s</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">MP4</span>
+                            <span>24 MB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">play_arrow</span>
+                            Xem
+                        </md-text-button>
+                    </div>
+                </div>
+
+                <div class="asset-card" data-type="videos">
+                    <div class="asset-preview" style="background: #000;">
+                        <span class="material-symbols-outlined file-icon video">play_circle</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-name">TVC Tết 2026</div>
+                        <div class="asset-meta">
+                            <span class="asset-type">MP4</span>
+                            <span>156 MB</span>
+                        </div>
+                    </div>
+                    <div class="asset-actions">
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            Tải về
+                        </md-text-button>
+                        <md-text-button>
+                            <span class="material-symbols-outlined" slot="icon">play_arrow</span>
+                            Xem
+                        </md-text-button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Folder tab switching
+        document.querySelectorAll('.folder-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.folder-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const folder = tab.dataset.folder;
+                document.querySelectorAll('.asset-card').forEach(card => {
+                    if (folder === 'all' || card.dataset.type === folder) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Drag and drop
+        const uploadZone = document.querySelector('.upload-zone');
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--md-sys-color-primary)';
+        });
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.style.borderColor = '';
+        });
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '';
+            alert('Demo: File upload sẽ được xử lý ở đây');
+        });
+    </script>
+
+    <script type="module" src="../assets/js/portal-client.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
+</body>
+
+</html>

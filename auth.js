@@ -32,7 +32,7 @@ const ROLE_REDIRECTS = {
     manager: '/admin/dashboard.html',
     content_creator: '/admin/dashboard.html',
     client: '/portal/dashboard.html',
-    affiliate: '/admin/dashboard.html'
+    affiliate: '/affiliate/dashboard.html'
 };
 
 const ROLE_LABELS = {

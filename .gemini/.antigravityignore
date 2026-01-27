@@ -1,0 +1,14 @@
+# Sensitive files - NEVER sync
+google_accounts.json
+oauth_creds.json
+*.pb
+
+# Large binary files
+browser_recordings/
+code_tracker/
+implicit/
+user_settings.pb
+
+# System files
+.DS_Store
+*.log

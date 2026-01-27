@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referrals - Affiliate Portal</title>
+    <meta name="description"
+        content="Track your referrals, monitor conversion rates, and manage your affiliate network.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        /* Table Styles */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .data-table tr:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: #E6F4EA;
+            color: #1E8E3E;
+        }
+
+        .status-pending {
+            background: #FEF7E0;
+            color: #F9AB00;
+        }
+
+        .status-inactive {
+            background: #FCE8E6;
+            color: #D93025;
+        }
+
+        .referral-link-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px dashed var(--md-sys-color-outline);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .referral-input {
+            flex: 1;
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--md-sys-color-on-surface);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="referrals" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Khách hàng giới thiệu</h1>
+                    <div class="body-medium text-muted">Quản lý các khách hàng bạn đã giới thiệu</div>
+                </div>
+                <md-filled-button>
+                    <md-icon slot="icon">add_link</md-icon>
+                    Tạo link mới
+                </md-filled-button>
+            </div>
+
+            <!-- Referral Link Card -->
+            <div class="referral-link-card">
+                <div class="stat-icon primary"
+                    style="width: 40px; height: 40px; display:flex; align-items:center; justify-content:center; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-primary); border-radius: 8px;">
+                    <span class="material-symbols-outlined">link</span>
+                </div>
+                <div style="flex: 1;">
+                    <div class="title-small mb-4">Link giới thiệu mặc định</div>
+                    <div class="flex" style="gap: 8px; display: flex;">
+                        <input type="text" class="referral-input"
+                            value="https://sadecmarketinghub.com/?ref=affiliate123" readonly id="refLink">
+                        <md-outlined-button
+                            onclick="navigator.clipboard.writeText(document.getElementById('refLink').value); alert('Đã sao chép link!')">
+                            Sao chép
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-outlined" style="padding: 0;">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Khách hàng</th>
+                                <th>Gói dịch vụ</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Trạng thái</th>
+                                <th>Hoa hồng dự kiến</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 500;">Nguyễn Văn Phú</div>
+                                    <div class="text-muted" style="font-size: 12px;">phu.nguyen@example.com</div>
+                                </td>
+                                <td>Gói Tăng trưởng</td>
+                                <td>24/05/2026</td>
+                                <td><span class="status-chip status-active">Đã thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">500.000 ₫</td>
+                                <td>
+                                    <md-icon-button><md-icon>visibility</md-icon></md-icon-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 500;">Lê Thị Hoa</div>
+                                    <div class="text-muted" style="font-size: 12px;">hoale.flower@example.com</div>
+                                </td>
+                                <td>Gói Khởi nghiệp</td>
+                                <td>23/05/2026</td>
+                                <td><span class="status-chip status-active">Đã thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">250.000 ₫</td>
+                                <td>
+                                    <md-icon-button><md-icon>visibility</md-icon></md-icon-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 500;">Trần Minh Tuấn</div>
+                                    <div class="text-muted" style="font-size: 12px;">tuan.tran@example.com</div>
+                                </td>
+                                <td>Tư vấn Doanh nghiệp</td>
+                                <td>20/05/2026</td>
+                                <td><span class="status-chip status-pending">Đang tư vấn</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-on-surface-variant);">--</td>
+                                <td>
+                                    <md-icon-button><md-icon>visibility</md-icon></md-icon-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 500;">Phạm Quỳnh Anh</div>
+                                    <div class="text-muted" style="font-size: 12px;">anh.pham@example.com</div>
+                                </td>
+                                <td>Gói Tăng trưởng</td>
+                                <td>15/05/2026</td>
+                                <td><span class="status-chip status-inactive">Hủy bỏ</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-error);">0 ₫</td>
+                                <td>
+                                    <md-icon-button><md-icon>visibility</md-icon></md-icon-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="padding: 16px; display: flex; justify-content: flex-end; gap: 8px;">
+                    <md-text-button disabled>Trước</md-text-button>
+                    <md-filled-tonal-button>1</md-filled-tonal-button>
+                    <md-text-button>2</md-text-button>
+                    <md-text-button>3</md-text-button>
+                    <md-text-button>Sau</md-text-button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Auth.UI.init();
+
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -6,6 +6,8 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Contracts - Mekong Agency</title>
+    <meta name="description"
+        content="Contract management system for legal documents, agreements, and compliance tracking.">
     <script type="importmap">{"imports":{"@material/web/":"https://esm.run/@material/web/"}}</script>
     <script type="module">import '@material/web/all.js';</script>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,16 +17,18 @@
     <link rel="stylesheet" href="../assets/css/admin-unified.css">
     <style>
         /* .dashboard-header removed - replaced by agency-2026 header styles */
-        
+
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
             margin-bottom: 32px
         }
+
         /* ... keep other styles ... */
         .metric-card {
-            background: rgba(255, 255, 255, 0.05); /* Glass effect override */
+            background: rgba(255, 255, 255, 0.05);
+            /* Glass effect override */
             border: 1px solid var(--glass-border);
             border-radius: 16px;
             padding: 24px;
@@ -102,11 +106,31 @@
             font-weight: 500;
         }
 
-        .status-draft { background: rgba(255, 255, 255, 0.1); color: #e5e7eb; }
-        .status-review { background: rgba(255, 136, 0, 0.2); color: #fbbf24; }
-        .status-pending { background: rgba(0, 240, 255, 0.2); color: #00f0ff; }
-        .status-active { background: rgba(0, 255, 136, 0.2); color: #00ff88; }
-        .status-expired, .status-terminated { background: rgba(255, 77, 77, 0.2); color: #ff4d4d; }
+        .status-draft {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
+        }
+
+        .status-review {
+            background: rgba(255, 136, 0, 0.2);
+            color: #fbbf24;
+        }
+
+        .status-pending {
+            background: rgba(0, 240, 255, 0.2);
+            color: #00f0ff;
+        }
+
+        .status-active {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+        }
+
+        .status-expired,
+        .status-terminated {
+            background: rgba(255, 77, 77, 0.2);
+            color: #ff4d4d;
+        }
     </style>
 
     <!-- Web Components -->
@@ -116,7 +140,7 @@
 <body>
     <div class="layout-2026">
         <sadec-sidebar active="legal"></sadec-sidebar>
-        
+
         <main class="main-content">
             <div class="header-section animate-entry delay-1">
                 <div>
@@ -169,8 +193,8 @@
         }
         render();
     </script>
-<script src="../assets/js/admin-shared.js"></script>
-<!-- Content AI -->
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
     <script src="../assets/js/content-ai.js"></script>
     <!-- Central State Management -->
     <script src="../assets/js/mekong-store.js"></script>

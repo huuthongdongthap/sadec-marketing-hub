@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ Partner - Affiliate Portal</title>
+    <meta name="description" content="Manage your partner profile, tier status, and payment information.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .profile-header-card {
+            background: linear-gradient(135deg, rgba(0, 60, 50, 0.9), rgba(0, 100, 80, 0.8));
+            padding: 32px;
+            border-radius: 24px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: white;
+        }
+
+        .avatar-container {
+            position: relative;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD700, #FFA000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-edit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--md-sys-color-primary);
+        }
+
+        .profile-info h2 {
+            font-size: 28px;
+            margin: 0 0 4px 0;
+        }
+
+        .profile-email {
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #FFD700, #FFA000);
+            color: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 900px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-display-small);
+            color: var(--md-sys-color-primary);
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 4px;
+        }
+
+        .info-section {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .info-value {
+            font: var(--md-sys-typescale-body-large);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .tier-progress {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--md-sys-color-surface-container-highest);
+            border-radius: 4px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FFD700, #FFA000);
+            border-radius: 4px;
+            width: 65%;
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="profile" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Hồ sơ Partner</h1>
+                    <div class="body-medium text-muted">Quản lý thông tin cá nhân và tài khoản</div>
+                </div>
+                <md-filled-button>
+                    <md-icon slot="icon">edit</md-icon>
+                    Chỉnh sửa
+                </md-filled-button>
+            </div>
+
+            <!-- Profile Header -->
+            <div class="profile-header-card">
+                <div class="avatar-container">
+                    <div class="avatar">NT</div>
+                    <div class="avatar-edit">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">photo_camera</span>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2>Nguyễn Thành</h2>
+                    <div class="profile-email">thanh.nguyen@example.com</div>
+                    <div class="tier-badge">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">workspace_premium</span>
+                        Gold Partner
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">38</div>
+                    <div class="stat-label">Tổng referrals</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Khách hàng active</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">31.5%</div>
+                    <div class="stat-label">Tỉ lệ chuyển đổi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15.2M ₫</div>
+                    <div class="stat-label">Tổng thu nhập</div>
+                </div>
+            </div>
+
+            <!-- Personal Info -->
+            <div class="info-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">person</span>
+                    Thông tin cá nhân
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Họ và tên</span>
+                        <span class="info-value">Nguyễn Văn Thành</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">thanh.nguyen@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Số điện thoại</span>
+                        <span class="info-value">0909 123 456</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Ngày tham gia</span>
+                        <span class="info-value">15/03/2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Info -->
+            <div class="info-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    Thông tin thanh toán
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Ngân hàng</span>
+                        <span class="info-value">Vietcombank</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Số tài khoản</span>
+                        <span class="info-value">**** **** **** 1234</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Chủ tài khoản</span>
+                        <span class="info-value">NGUYEN VAN THANH</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Chi nhánh</span>
+                        <span class="info-value">Hồ Chí Minh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Tier -->
+            <div class="info-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">emoji_events</span>
+                    Cấp độ Partner
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="title-medium">Gold Partner</div>
+                        <div class="body-small text-muted">Hoa hồng: 12% / giao dịch</div>
+                    </div>
+                    <div class="tier-badge">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">workspace_premium</span>
+                        Gold
+                    </div>
+                </div>
+                <div class="tier-progress">
+                    <div class="body-medium">Tiến độ lên Platinum Partner</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>12 khách hàng active</span>
+                        <span>Cần thêm 8 để lên Platinum</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Auth.UI.init();
+
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+        });
+    </script>
+</body>
+
+</html>

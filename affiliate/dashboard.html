@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Dashboard - Mekong Partner Portal</title>
+    <meta name="description"
+        content="Affiliate partner dashboard with referral tracking, commission earnings, and performance analytics.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-card {
+            padding: 24px;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .stat-icon.primary {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+
+        .stat-icon.secondary {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-secondary);
+        }
+
+        .stat-icon.tertiary {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+
+        .stat-icon.success {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .stat-value {
+            font: var(--md-sys-typescale-display-small);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font: var(--md-sys-typescale-label-small);
+            padding: 4px 8px;
+            border-radius: var(--md-sys-shape-corner-full);
+        }
+
+        .stat-trend.up {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .referral-link-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px dashed var(--md-sys-color-outline);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .referral-input {
+            flex: 1;
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--md-sys-color-on-surface);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="dashboard" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Affiliate Dashboard</h1>
+                    <div class="body-medium text-muted">Chào mừng trở lại, <span data-user-name>Partner</span>!</div>
+                </div>
+                <md-filled-button>
+                    <md-icon slot="icon">share</md-icon>
+                    Chia sẻ ngay
+                </md-filled-button>
+            </div>
+
+            <!-- Referral Link Card -->
+            <div class="referral-link-card">
+                <div class="stat-icon primary" style="width: 40px; height: 40px;">
+                    <span class="material-symbols-outlined">link</span>
+                </div>
+                <div style="flex: 1;">
+                    <div class="title-small mb-4">Link giới thiệu của bạn</div>
+                    <div class="flex" style="gap: 8px;">
+                        <input type="text" class="referral-input"
+                            value="https://sadecmarketinghub.com/?ref=affiliate123" readonly id="refLink">
+                        <md-outlined-button
+                            onclick="navigator.clipboard.writeText(document.getElementById('refLink').value); alert('Đã sao chép link!')">
+                            Sao chép
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon primary">
+                            <span class="material-symbols-outlined">monetization_on</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+                            +12%
+                        </div>
+                    </div>
+                    <div class="stat-value">5.2M ₫</div>
+                    <div class="stat-label">Tổng thu nhập</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon secondary">
+                            <span class="material-symbols-outlined">group</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+                            +3
+                        </div>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Khách hàng giới thiệu</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon success">
+                            <span class="material-symbols-outlined">check_circle</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Đơn hàng thành công</div>
+                </div>
+
+                <div class="card card-elevated stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon tertiary">
+                            <span class="material-symbols-outlined">account_balance_wallet</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">1.5M ₫</div>
+                    <div class="stat-label">Số dư khả dụng</div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Recent Referrals -->
+                <div class="card card-outlined" style="padding: 24px;">
+                    <div class="flex-between mb-24">
+                        <div class="title-large">Giới thiệu gần đây</div>
+                        <a href="referrals.html" class="btn btn-text">Xem tất cả</a>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="flex-between p-12 bg-surface-container rounded">
+                            <div class="flex gap-12 align-center">
+                                <div class="stat-icon secondary" style="width: 40px; height: 40px; font-size: 20px;">NP
+                                </div>
+                                <div>
+                                    <div class="title-small">Nguyễn Phú</div>
+                                    <div class="body-small text-muted">Đăng ký gói Growth</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="title-small text-success">+ 500.000 ₫</div>
+                                <div class="body-small text-muted">Hôm nay</div>
+                            </div>
+                        </div>
+
+                        <div class="flex-between p-12 bg-surface-container rounded">
+                            <div class="flex gap-12 align-center">
+                                <div class="stat-icon primary" style="width: 40px; height: 40px; font-size: 20px;">LH
+                                </div>
+                                <div>
+                                    <div class="title-small">Lê Hoa</div>
+                                    <div class="body-small text-muted">Đăng ký gói Starter</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="title-small text-success">+ 250.000 ₫</div>
+                                <div class="body-small text-muted">Hôm qua</div>
+                            </div>
+                        </div>
+
+                        <div class="flex-between p-12 bg-surface-container rounded">
+                            <div class="flex gap-12 align-center">
+                                <div class="stat-icon tertiary" style="width: 40px; height: 40px; font-size: 20px;">TM
+                                </div>
+                                <div>
+                                    <div class="title-small">Trần Minh</div>
+                                    <div class="body-small text-muted">Đang tư vấn</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="title-small text-muted">Chờ xử lý</div>
+                                <div class="body-small text-muted">3 ngày trước</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications/News -->
+                <div class="card card-outlined" style="padding: 24px;">
+                    <div class="title-large mb-16">Tin tức Partner</div>
+
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div>
+                            <div class="label-small text-primary mb-4">CHƯƠNG TRÌNH MỚI</div>
+                            <div class="title-medium mb-4">Thưởng nóng tháng 6</div>
+                            <div class="body-medium text-muted mb-8">Nhận thêm 1.000.000đ khi đạt mốc 5 khách hàng mới
+                                trong tháng này.</div>
+                            <a href="#" class="text-primary" style="text-decoration: none; font-weight: 500;">Xem chi
+                                tiết →</a>
+                        </div>
+
+                        <div style="height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+
+                        <div>
+                            <div class="label-small text-muted mb-4">CẬP NHẬT</div>
+                            <div class="title-medium mb-4">Bảng giá dịch vụ mới</div>
+                            <div class="body-medium text-muted mb-8">Chúng tôi vừa cập nhật bảng giá gói Enterprise. Hoa
+                                hồng tăng lên 15%.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Initialize Auth
+            await Auth.UI.init();
+
+            // Guard: Require Affiliate Role
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+        });
+    </script>
+</body>
+
+</html>

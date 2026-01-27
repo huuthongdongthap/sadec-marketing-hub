@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Client Portal</title>
+    <meta name="description"
+        content="Online payment portal supporting VNPay, MoMo, and bank transfer for invoices and services.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            padding: 0 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        /* Payment Grid */
+        .payment-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 32px;
+        }
+
+        @media (max-width: 1100px) {
+            .payment-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Outstanding Invoices */
+        .invoices-section {}
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+        }
+
+        .invoice-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-large);
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+        }
+
+        .invoice-card:hover {
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .invoice-card.selected {
+            border-color: var(--md-sys-color-primary);
+            border-width: 2px;
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .invoice-number {
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+        }
+
+        .invoice-date {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .invoice-status {
+            padding: 4px 12px;
+            border-radius: 24px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .invoice-status.pending {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .invoice-status.overdue {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .invoice-status.paid {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .invoice-items {
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            padding-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        .invoice-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .invoice-item-name {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .invoice-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+        }
+
+        .invoice-total .amount {
+            color: var(--md-sys-color-primary);
+        }
+
+        /* Payment Panel */
+        .payment-panel {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: 32px;
+            position: sticky;
+            top: 32px;
+        }
+
+        .panel-title {
+            font: var(--md-sys-typescale-headline-small);
+            margin-bottom: 24px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .summary-row.total {
+            font: var(--md-sys-typescale-title-large);
+            font-weight: 600;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .summary-row.total .amount {
+            color: var(--md-sys-color-primary);
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .method-title {
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+        }
+
+        .method-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .method-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border: 2px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-medium);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .method-option:hover {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .method-option.selected {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .method-logo {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 24px;
+        }
+
+        .method-logo.vnpay {
+            background: #F7F7F7;
+            color: #1A1F71;
+        }
+
+        .method-logo.momo {
+            background: #D82D8B;
+            color: white;
+        }
+
+        .method-logo.bank {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .method-info {
+            flex: 1;
+        }
+
+        .method-name {
+            font: var(--md-sys-typescale-title-small);
+        }
+
+        .method-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Bank Info */
+        .bank-info {
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-medium);
+            padding: 20px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .bank-info.visible {
+            display: block;
+        }
+
+        .bank-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .bank-row .label {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .bank-row .value {
+            font-weight: 500;
+        }
+
+        .copy-btn {
+            cursor: pointer;
+            color: var(--md-sys-color-primary);
+        }
+
+        /* QR Code */
+        .qr-section {
+            text-align: center;
+            margin-top: 24px;
+            padding: 24px;
+            background: white;
+            border-radius: var(--md-sys-shape-corner-medium);
+            display: none;
+        }
+
+        .qr-section.visible {
+            display: block;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            background: #f0f0f0;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 2px solid var(--md-sys-color-outline-variant);
+        }
+
+        .qr-hint {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* History */
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: var(--md-sys-shape-corner-large);
+            overflow: hidden;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .history-table th {
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .history-table td {
+            font: var(--md-sys-typescale-body-medium);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menu chính</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <span class="material-symbols-outlined">folder_open</span>
+                        Dự án
+                    </a>
+                    <a href="invoices.html" class="nav-item">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Hóa đơn
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Báo cáo</div>
+                    <a href="reports.html" class="nav-item">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Phân tích Campaign
+                    </a>
+                    <a href="assets.html" class="nav-item">
+                        <span class="material-symbols-outlined">perm_media</span>
+                        Tài liệu
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Dịch vụ</div>
+                    <a href="approve.html" class="nav-item">
+                        <span class="material-symbols-outlined">task_alt</span>
+                        Duyệt nội dung
+                    </a>
+                    <a href="payments.html" class="nav-item active">
+                        <span class="material-symbols-outlined">payments</span>
+                        Thanh toán
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">💳 Thanh Toán</h1>
+                    <div class="body-medium text-muted">Thanh toán hóa đơn nhanh chóng và an toàn</div>
+                </div>
+            </div>
+
+            <div class="payment-layout">
+                <!-- Invoices List -->
+                <div class="invoices-section">
+                    <div class="section-header">
+                        <div class="section-title">Hóa đơn chờ thanh toán</div>
+                    </div>
+
+                    <!-- Invoice 1 - Overdue -->
+                    <div class="invoice-card selected" data-amount="8500000">
+                        <div class="invoice-header">
+                            <div>
+                                <div class="invoice-number">#INV-2026-001</div>
+                                <div class="invoice-date">Ngày tạo: 01/01/2026</div>
+                            </div>
+                            <span class="invoice-status overdue">⚠️ Quá hạn 10 ngày</span>
+                        </div>
+                        <div class="invoice-items">
+                            <div class="invoice-item">
+                                <span class="invoice-item-name">Gói Social Media Pro - Tháng 1</span>
+                                <span>6,000,000 ₫</span>
+                            </div>
+                            <div class="invoice-item">
+                                <span class="invoice-item-name">Quảng cáo Facebook Ads</span>
+                                <span>2,000,000 ₫</span>
+                            </div>
+                            <div class="invoice-item">
+                                <span class="invoice-item-name">Thiết kế banner (5 mẫu)</span>
+                                <span>500,000 ₫</span>
+                            </div>
+                        </div>
+                        <div class="invoice-total">
+                            <span>Tổng cộng</span>
+                            <span class="amount">8,500,000 ₫</span>
+                        </div>
+                    </div>
+
+                    <!-- Invoice 2 - Pending -->
+                    <div class="invoice-card" data-amount="15000000">
+                        <div class="invoice-header">
+                            <div>
+                                <div class="invoice-number">#INV-2026-002</div>
+                                <div class="invoice-date">Ngày tạo: 15/01/2026</div>
+                            </div>
+                            <span class="invoice-status pending">⏳ Chờ thanh toán</span>
+                        </div>
+                        <div class="invoice-items">
+                            <div class="invoice-item">
+                                <span class="invoice-item-name">Gói Full Agency - Tháng 2</span>
+                                <span>15,000,000 ₫</span>
+                            </div>
+                        </div>
+                        <div class="invoice-total">
+                            <span>Tổng cộng</span>
+                            <span class="amount">15,000,000 ₫</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment History -->
+                    <div class="history-section">
+                        <div class="section-header">
+                            <div class="section-title">Lịch sử thanh toán</div>
+                        </div>
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã HĐ</th>
+                                    <th>Ngày TT</th>
+                                    <th>Số tiền</th>
+                                    <th>Phương thức</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#INV-2025-012</strong></td>
+                                    <td>20/12/2025</td>
+                                    <td>6,000,000 ₫</td>
+                                    <td>🏧 VNPay</td>
+                                    <td><span class="invoice-status paid">✅ Đã thanh toán</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#INV-2025-011</strong></td>
+                                    <td>15/11/2025</td>
+                                    <td>8,500,000 ₫</td>
+                                    <td>📱 MoMo</td>
+                                    <td><span class="invoice-status paid">✅ Đã thanh toán</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#INV-2025-010</strong></td>
+                                    <td>01/11/2025</td>
+                                    <td>6,000,000 ₫</td>
+                                    <td>🏦 Chuyển khoản</td>
+                                    <td><span class="invoice-status paid">✅ Đã thanh toán</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Payment Panel -->
+                <div class="payment-panel">
+                    <div class="panel-title">🛒 Thanh toán</div>
+
+                    <div class="summary-row">
+                        <span>Hóa đơn #INV-2026-001</span>
+                        <span>8,500,000 ₫</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Tổng thanh toán</span>
+                        <span class="amount" id="total-amount">8,500,000 ₫</span>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <div class="method-title">Chọn phương thức thanh toán</div>
+                        <div class="method-options">
+                            <div class="method-option selected" data-method="vnpay">
+                                <div class="method-logo vnpay">💳</div>
+                                <div class="method-info">
+                                    <div class="method-name">VNPay</div>
+                                    <div class="method-desc">Thẻ ATM, Visa, MasterCard</div>
+                                </div>
+                                <span class="material-symbols-outlined"
+                                    style="color: var(--md-sys-color-primary);">check_circle</span>
+                            </div>
+
+                            <div class="method-option" data-method="momo">
+                                <div class="method-logo momo">📱</div>
+                                <div class="method-info">
+                                    <div class="method-name">MoMo</div>
+                                    <div class="method-desc">Ví điện tử MoMo</div>
+                                </div>
+                            </div>
+
+                            <div class="method-option" data-method="bank">
+                                <div class="method-logo bank">🏦</div>
+                                <div class="method-info">
+                                    <div class="method-name">Chuyển khoản</div>
+                                    <div class="method-desc">Chuyển khoản ngân hàng</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Info (for bank transfer) -->
+                    <div class="bank-info" id="bank-info">
+                        <div class="bank-row">
+                            <span class="label">Ngân hàng</span>
+                            <span class="value">Vietcombank</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="label">Số tài khoản</span>
+                            <span class="value">
+                                1234567890
+                                <span class="copy-btn material-symbols-outlined"
+                                    style="font-size: 16px;">content_copy</span>
+                            </span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="label">Chủ tài khoản</span>
+                            <span class="value">MEKONG AGENCY</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="label">Nội dung CK</span>
+                            <span class="value">
+                                INV2026001
+                                <span class="copy-btn material-symbols-outlined"
+                                    style="font-size: 16px;">content_copy</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- QR Section -->
+                    <div class="qr-section" id="qr-section">
+                        <div class="qr-code">
+                            <span style="font-size: 80px;">📱</span>
+                        </div>
+                        <div class="qr-hint">Quét mã QR bằng app VNPay/MoMo để thanh toán</div>
+                    </div>
+
+                    <md-filled-button style="width: 100%; margin-top: 24px;" id="pay-btn">
+                        <span class="material-symbols-outlined" slot="icon">lock</span>
+                        Thanh toán 8,500,000 ₫
+                    </md-filled-button>
+
+                    <div style="text-align: center; margin-top: 16px;">
+                        <span
+                            style="font: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);">
+                            🔒 Thanh toán được bảo mật bởi SSL
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase, auth } from '../assets/js/supabase.js';
+
+        const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+
+        // Select invoice
+        document.querySelectorAll('.invoice-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.invoice-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                const amount = parseInt(card.dataset.amount).toLocaleString('vi-VN');
+                document.getElementById('total-amount').textContent = amount + ' ₫';
+                document.getElementById('pay-btn').textContent = 'Thanh toán ' + amount + ' ₫';
+            });
+        });
+
+        // Payment method selection
+        document.querySelectorAll('.method-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.method-option').forEach(o => {
+                    o.classList.remove('selected');
+                    o.querySelector('.material-symbols-outlined')?.remove();
+                });
+                option.classList.add('selected');
+                option.insertAdjacentHTML('beforeend', '<span class="material-symbols-outlined" style="color: var(--md-sys-color-primary);">check_circle</span>');
+
+                const method = option.dataset.method;
+                const bankInfo = document.getElementById('bank-info');
+                const qrSection = document.getElementById('qr-section');
+
+                if (method === 'bank') {
+                    bankInfo.classList.add('visible');
+                    qrSection.classList.remove('visible');
+                } else if (method === 'vnpay' || method === 'momo') {
+                    bankInfo.classList.remove('visible');
+                    qrSection.classList.add('visible');
+                }
+            });
+        });
+
+        // Copy to clipboard
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const text = btn.previousSibling.textContent.trim();
+                navigator.clipboard.writeText(text);
+                btn.textContent = 'done';
+                setTimeout(() => btn.textContent = 'content_copy', 2000);
+            });
+        });
+
+        // Pay button
+        document.getElementById('pay-btn').addEventListener('click', async () => {
+            const methodOption = document.querySelector('.method-option.selected');
+            if (!methodOption) {
+                alert('Vui lòng chọn phương thức thanh toán');
+                return;
+            }
+
+            const method = methodOption.dataset.method;
+            const invoiceCard = document.querySelector('.invoice-card.selected');
+
+            if (method === 'bank') {
+                alert('Vui lòng chuyển khoản theo thông tin ở trên.\n\nSau khi chuyển khoản, hệ thống sẽ tự động xác nhận trong 5-10 phút.');
+            } else if (method === 'vnpay') {
+                const btn = document.getElementById('pay-btn');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.innerHTML = '<div class="spinner" style="width: 20px; height: 20px; border-width: 2px;"></div> Đang xử lý...';
+
+                try {
+                    // Get invoice details
+                    const amountStr = invoiceCard.dataset.amount; // e.g. "8500000"
+                    const amount = parseInt(amountStr);
+                    const invoiceNumber = invoiceCard.querySelector('.invoice-number').textContent.trim(); // e.g. "#INV-2026-001"
+                    const cleanInvoiceId = invoiceNumber.replace('#', '');
+
+                    // Call Edge Function
+                    const { data: { session } } = await supabase.auth.getSession();
+                    const token = session?.access_token;
+
+                    const response = await fetch(`${SUPABASE_URL}/functions/v1/create-payment`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token || ''}`
+                        },
+                        body: JSON.stringify({
+                            invoiceId: cleanInvoiceId,
+                            amount: amount,
+                            orderInfo: `Thanh toan hoa don ${cleanInvoiceId}`,
+                            paymentMethod: 'vnpay'
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Payment creation failed');
+                    }
+
+                    if (result.success && result.paymentUrl) {
+                        // Redirect to VNPay
+                        window.location.href = result.paymentUrl;
+                    } else {
+                        throw new Error(result.error || 'Invalid response from server');
+                    }
+
+                } catch (error) {
+                    console.error('Payment Error:', error);
+                    alert(`Lỗi thanh toán: ${error.message}`);
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
+            } else {
+                alert('🔄 Đang chuyển hướng đến cổng thanh toán ' + method.toUpperCase() + '...\n\n(Demo mode - Trong thực tế sẽ redirect đến VNPay/MoMo)');
+            }
+        });
+    </script>
+
+    <script type="module" src="../assets/js/portal-client.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
+</body>
+
+</html>

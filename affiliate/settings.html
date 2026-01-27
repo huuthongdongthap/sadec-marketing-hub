@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt - Affiliate Portal</title>
+    <meta name="description" content="Configure notification preferences, security settings, and account options.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .settings-section {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+
+        .setting-item {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info {
+            flex: 1;
+        }
+
+        .setting-label {
+            font: var(--md-sys-typescale-body-large);
+            margin-bottom: 2px;
+        }
+
+        .setting-description {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .danger-zone {
+            background: rgba(220, 53, 69, 0.05);
+            border-color: rgba(220, 53, 69, 0.2);
+        }
+
+        .danger-zone .section-icon {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--md-sys-color-on-surface);
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: var(--md-sys-color-surface-container);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="settings" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Cài đặt</h1>
+                    <div class="body-medium text-muted">Quản lý tùy chọn tài khoản và bảo mật</div>
+                </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </div>
+                    <div class="section-title">Thông báo</div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Thông báo Email</div>
+                        <div class="setting-description">Nhận email khi có referral mới hoặc hoa hồng được ghi nhận
+                        </div>
+                    </div>
+                    <md-switch selected></md-switch>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Báo cáo tuần</div>
+                        <div class="setting-description">Nhận tổng hợp hiệu suất mỗi tuần qua email</div>
+                    </div>
+                    <md-switch selected></md-switch>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Thông báo thanh toán</div>
+                        <div class="setting-description">Nhận thông báo khi hoa hồng được thanh toán</div>
+                    </div>
+                    <md-switch selected></md-switch>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Tin tức và khuyến mãi</div>
+                        <div class="setting-description">Nhận thông tin về chương trình thưởng mới</div>
+                    </div>
+                    <md-switch></md-switch>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">security</span>
+                    </div>
+                    <div class="section-title">Bảo mật</div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Đổi mật khẩu</div>
+                        <div class="setting-description">Cập nhật mật khẩu đăng nhập của bạn</div>
+                    </div>
+                    <md-outlined-button>
+                        <md-icon slot="icon">key</md-icon>
+                        Đổi mật khẩu
+                    </md-outlined-button>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Xác thực 2 bước (2FA)</div>
+                        <div class="setting-description">Thêm lớp bảo mật bằng mã OTP khi đăng nhập</div>
+                    </div>
+                    <md-switch></md-switch>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Phiên đăng nhập</div>
+                        <div class="setting-description">Quản lý các thiết bị đang đăng nhập</div>
+                    </div>
+                    <md-text-button>
+                        <md-icon slot="icon">devices</md-icon>
+                        Quản lý
+                    </md-text-button>
+                </div>
+            </div>
+
+            <!-- Preferences -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">tune</span>
+                    </div>
+                    <div class="section-title">Tùy chọn</div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Ngôn ngữ</div>
+                        <div class="setting-description">Chọn ngôn ngữ hiển thị</div>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">🇻🇳 Tiếng Việt</button>
+                        <button class="lang-btn">🇺🇸 English</button>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Múi giờ</div>
+                        <div class="setting-description">Múi giờ cho báo cáo và thông báo</div>
+                    </div>
+                    <md-outlined-select style="width: 200px;">
+                        <md-select-option value="asia_hcm" selected>
+                            <div slot="headline">UTC+7 (Hồ Chí Minh)</div>
+                        </md-select-option>
+                        <md-select-option value="asia_hanoi">
+                            <div slot="headline">UTC+7 (Hà Nội)</div>
+                        </md-select-option>
+                    </md-outlined-select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Định dạng tiền tệ</div>
+                        <div class="setting-description">Đơn vị tiền hiển thị trong báo cáo</div>
+                    </div>
+                    <md-outlined-select style="width: 150px;">
+                        <md-select-option value="vnd" selected>
+                            <div slot="headline">VND (₫)</div>
+                        </md-select-option>
+                        <md-select-option value="usd">
+                            <div slot="headline">USD ($)</div>
+                        </md-select-option>
+                    </md-outlined-select>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="settings-section danger-zone">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <span class="material-symbols-outlined">warning</span>
+                    </div>
+                    <div class="section-title" style="color: #dc3545;">Vùng nguy hiểm</div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Tạm dừng tài khoản</div>
+                        <div class="setting-description">Tạm ngưng hoạt động partner, có thể kích hoạt lại sau</div>
+                    </div>
+                    <md-outlined-button style="--md-outlined-button-outline-color: #dc3545; color: #dc3545;">
+                        Tạm dừng
+                    </md-outlined-button>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">Xóa tài khoản</div>
+                        <div class="setting-description">Xóa vĩnh viễn tài khoản và toàn bộ dữ liệu. Không thể hoàn tác.
+                        </div>
+                    </div>
+                    <md-filled-button style="--md-filled-button-container-color: #dc3545;">
+                        <md-icon slot="icon">delete_forever</md-icon>
+                        Xóa tài khoản
+                    </md-filled-button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Auth.UI.init();
+
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+
+            // Language selector toggle
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

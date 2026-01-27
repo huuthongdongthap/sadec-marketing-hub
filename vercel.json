@@ -12,5 +12,35 @@
                 }
             ]
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/admin-dashboard.html",
+            "destination": "/admin/dashboard.html"
+        },
+        {
+            "source": "/portal-dashboard.html",
+            "destination": "/portal/dashboard.html"
+        },
+        {
+            "source": "/portal/payments",
+            "destination": "/portal/payments.html"
+        },
+        {
+            "source": "/portal/payment-result",
+            "destination": "/portal/payment-result.html"
+        },
+        {
+            "source": "/portal/approve",
+            "destination": "/portal/approve.html"
+        },
+        {
+            "source": "/portal/reports",
+            "destination": "/portal/reports.html"
+        },
+        {
+            "source": "/portal/assets",
+            "destination": "/portal/assets.html"
+        }
     ]
 }

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả thanh toán - Client Portal</title>
+    <meta name="description" content="Payment result page for VNPay transaction confirmation.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-surface);
+        }
+
+        .result-card {
+            max-width: 480px;
+            width: 90%;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .result-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 48px;
+        }
+
+        .result-icon.success {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .result-icon.failed {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .result-icon.pending {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .result-title {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 8px;
+        }
+
+        .result-message {
+            font: var(--md-sys-typescale-body-large);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 32px;
+        }
+
+        .transaction-details {
+            background: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-medium);
+            padding: 24px;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        .detail-value.amount {
+            color: var(--md-sys-color-primary);
+            font: var(--md-sys-typescale-title-medium);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--md-sys-color-surface-container);
+            border-top-color: var(--md-sys-color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result-card">
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state">
+            <div class="spinner"></div>
+            <div class="result-title">Đang xác nhận thanh toán...</div>
+        </div>
+
+        <!-- Result State (hidden by default) -->
+        <div id="result-state" style="display: none;">
+            <div class="result-icon" id="result-icon">
+                <span class="material-symbols-outlined" id="result-icon-symbol">check_circle</span>
+            </div>
+            <h1 class="result-title" id="result-title">Thanh toán thành công!</h1>
+            <p class="result-message" id="result-message">Cảm ơn bạn đã thanh toán.</p>
+
+            <div class="transaction-details">
+                <div class="detail-row">
+                    <span class="detail-label">Mã giao dịch</span>
+                    <span class="detail-value" id="txn-id">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Số tiền</span>
+                    <span class="detail-value amount" id="txn-amount">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Ngân hàng</span>
+                    <span class="detail-value" id="txn-bank">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Thời gian</span>
+                    <span class="detail-value" id="txn-time">--</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <md-filled-button onclick="window.location.href='dashboard.html'">
+                    <span class="material-symbols-outlined" slot="icon">home</span>
+                    Về Dashboard
+                </md-filled-button>
+                <md-outlined-button onclick="window.location.href='invoices.html'">
+                    <span class="material-symbols-outlined" slot="icon">receipt_long</span>
+                    Xem hóa đơn
+                </md-outlined-button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { supabase } from '../assets/js/supabase.js';
+
+        const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+
+        // Parse VNPay response from URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Verify payment with Edge Function
+        async function verifyPayment() {
+            try {
+                // Call the verify-payment Edge Function
+                // We pass the query string exactly as received from VNPay
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/verify-payment${window.location.search}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+
+                // Wait a bit to show loading state (better UX)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Hide loading, show result
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('result-state').style.display = 'block';
+
+                const resultIcon = document.getElementById('result-icon');
+                const iconSymbol = document.getElementById('result-icon-symbol');
+                const resultTitle = document.getElementById('result-title');
+                const resultMessage = document.getElementById('result-message');
+
+                // Fill transaction details from server response
+                document.getElementById('txn-id').textContent = result.transactionId || urlParams.get('vnp_TxnRef') || 'N/A';
+                document.getElementById('txn-amount').textContent = result.amount ? parseInt(result.amount).toLocaleString('vi-VN') + ' ₫' : 'N/A';
+                document.getElementById('txn-bank').textContent = result.bankCode || 'N/A';
+
+                if (result.payDate) {
+                    // Format date: YYYYMMDDHHmmss -> DD/MM/YYYY HH:mm
+                    const pd = result.payDate;
+                    if (pd.length === 14) {
+                        const year = pd.substring(0, 4);
+                        const month = pd.substring(4, 6);
+                        const day = pd.substring(6, 8);
+                        const hour = pd.substring(8, 10);
+                        const min = pd.substring(10, 12);
+                        document.getElementById('txn-time').textContent = `${day}/${month}/${year} ${hour}:${min}`;
+                    } else {
+                        document.getElementById('txn-time').textContent = result.payDate;
+                    }
+                } else {
+                    document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+                }
+
+                // Determine result based on status from server
+                if (result.status === 'success') {
+                    resultIcon.className = 'result-icon success';
+                    iconSymbol.textContent = 'check_circle';
+                    resultTitle.textContent = '✅ Thanh toán thành công!';
+                    resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
+                } else if (result.status === 'invalid') {
+                    resultIcon.className = 'result-icon failed';
+                    iconSymbol.textContent = 'warning';
+                    resultTitle.textContent = '⚠️ Chữ ký không hợp lệ';
+                    resultMessage.textContent = 'Cảnh báo: Dữ liệu thanh toán có thể đã bị thay đổi.';
+                } else {
+                    // Failed or other status
+                    resultIcon.className = 'result-icon failed';
+                    iconSymbol.textContent = 'error';
+                    resultTitle.textContent = '⚠️ Thanh toán không thành công';
+                    resultMessage.textContent = result.message || 'Đã xảy ra lỗi trong quá trình thanh toán. Vui lòng thử lại.';
+                }
+
+            } catch (error) {
+                console.error('Verification error:', error);
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('result-state').style.display = 'block';
+
+                document.getElementById('result-icon').className = 'result-icon failed';
+                document.getElementById('result-icon-symbol').textContent = 'cloud_off';
+                document.getElementById('result-title').textContent = 'Lỗi kết nối';
+                document.getElementById('result-message').textContent = 'Không thể xác minh thanh toán. Vui lòng liên hệ bộ phận hỗ trợ.';
+            }
+        }
+
+        // Check if we have VNPay params
+        if (urlParams.has('vnp_ResponseCode')) {
+            verifyPayment();
+        } else {
+            // No params - show demo success
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+            document.getElementById('result-icon').className = 'result-icon success';
+            document.getElementById('result-title').textContent = '✅ Demo: Kết quả thanh toán';
+            document.getElementById('result-message').textContent = 'Trang này hiển thị kết quả sau khi thanh toán VNPay hoàn tất.';
+        }
+    </script>
+
+    <script type="module" src="../assets/js/portal-client.js"></script>
+</body>
+
+</html>

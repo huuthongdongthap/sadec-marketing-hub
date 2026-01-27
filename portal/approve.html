@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyệt Nội Dung - Client Portal</title>
+    <meta name="description"
+        content="Content approval workflow for reviewing and approving marketing materials and designs.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar {
+            background: var(--md-sys-color-surface-container);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            padding: 0 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font: var(--md-sys-typescale-label-large);
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }
+
+        .nav-item.active {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        /* Status Tabs */
+        .status-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 4px;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: var(--md-sys-shape-corner-full);
+            width: fit-content;
+        }
+
+        .status-tab {
+            padding: 10px 20px;
+            border-radius: var(--md-sys-shape-corner-full);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .status-tab:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .status-tab.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .status-count {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-label-small);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Approval Cards */
+        .approval-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .approval-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: var(--md-sys-shape-corner-large);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .approval-card:hover {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .approval-card.urgent {
+            border-left: 4px solid #E53935;
+        }
+
+        .approval-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 24px;
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .approval-title {
+            font: var(--md-sys-typescale-title-medium);
+        }
+
+        .approval-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .approval-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .approval-badge {
+            padding: 4px 12px;
+            border-radius: 24px;
+            font: var(--md-sys-typescale-label-small);
+        }
+
+        .approval-badge.pending {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .approval-badge.approved {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .approval-badge.rejected {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        .approval-badge.revision {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .approval-content {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .approval-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .preview-section {}
+
+        .preview-label {
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+        }
+
+        .preview-image {
+            width: 100%;
+            border-radius: 12px;
+            background: var(--md-sys-color-surface-container);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .preview-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .preview-image .placeholder {
+            font-size: 48px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .details-section {}
+
+        .detail-item {
+            margin-bottom: 16px;
+        }
+
+        .detail-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .approval-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px 24px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            background: var(--md-sys-color-surface-container-lowest);
+        }
+
+        .approval-actions md-filled-button {
+            flex: 1;
+        }
+
+        .approval-actions md-outlined-button {
+            flex: 1;
+        }
+
+        .comment-input {
+            flex: 2;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 64px 32px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .empty-state .material-symbols-outlined {
+            font-size: 64px;
+            margin-bottom: 16px;
+            color: var(--md-sys-color-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="sidebar-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menu chính</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="projects.html" class="nav-item">
+                        <span class="material-symbols-outlined">folder_open</span>
+                        Dự án
+                    </a>
+                    <a href="invoices.html" class="nav-item">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Hóa đơn
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Báo cáo</div>
+                    <a href="reports.html" class="nav-item">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Phân tích Campaign
+                    </a>
+                    <a href="assets.html" class="nav-item">
+                        <span class="material-symbols-outlined">perm_media</span>
+                        Tài liệu
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Dịch vụ</div>
+                    <a href="approve.html" class="nav-item active">
+                        <span class="material-symbols-outlined">task_alt</span>
+                        Duyệt nội dung
+                    </a>
+                    <a href="payments.html" class="nav-item">
+                        <span class="material-symbols-outlined">payments</span>
+                        Thanh toán
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">✅ Duyệt Nội Dung</h1>
+                    <div class="body-medium text-muted">Xem xét và phê duyệt các nội dung marketing</div>
+                </div>
+            </div>
+
+            <!-- Status Tabs -->
+            <div class="status-tabs">
+                <button class="status-tab active" data-status="pending">
+                    Chờ duyệt
+                    <span class="status-count">3</span>
+                </button>
+                <button class="status-tab" data-status="approved">
+                    Đã duyệt
+                    <span class="status-count">12</span>
+                </button>
+                <button class="status-tab" data-status="revision">
+                    Yêu cầu sửa
+                    <span class="status-count">2</span>
+                </button>
+            </div>
+
+            <!-- Approval Cards -->
+            <div class="approval-grid" id="approval-list">
+                <!-- Urgent Item -->
+                <div class="approval-card urgent" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">🔥 Banner Tết Sale - Facebook</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                                    Gửi 2h trước</span>
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                                    Designer: Minh Hương</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            <div class="preview-image" style="background: linear-gradient(135deg, #E53935, #FF5722);">
+                                <span style="color: white; font-weight: bold; font-size: 24px;">🎊 TẾT SALE 50%</span>
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Banner quảng cáo Facebook</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Kích thước</div>
+                                <div class="detail-value">1200 x 628 pixels</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Mục đích</div>
+                                <div class="detail-value">Chiến dịch Tết Nguyên Đán 2026 - Khuyến mãi giảm 50%</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline</div>
+                                <div class="detail-value" style="color: #E53935; font-weight: 500;">⚠️ Hôm nay 18:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button style="--md-filled-button-container-color: #2E7D32;">
+                            <span class="material-symbols-outlined" slot="icon">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <!-- Normal Item -->
+                <div class="approval-card" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">Instagram Story - Sản phẩm mới</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                                    Gửi hôm qua</span>
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                                    Designer: An Khang</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            <div class="preview-image"
+                                style="background: linear-gradient(135deg, #E1306C, #833AB4); aspect-ratio: 9/16; max-height: 300px;">
+                                <span style="color: white; font-weight: bold;">📱 Story Preview</span>
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Instagram Story</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Kích thước</div>
+                                <div class="detail-value">1080 x 1920 pixels</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Caption đề xuất</div>
+                                <div class="detail-value">"Sản phẩm mới đã có mặt! Swipe up để xem chi tiết 👆"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button style="--md-filled-button-container-color: #2E7D32;">
+                            <span class="material-symbols-outlined" slot="icon">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="approval-card" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">📝 Caption bài post Facebook</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                                    Gửi 3 ngày trước</span>
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                                    Content: Lan Anh</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Nội dung</div>
+                            <div
+                                style="background: var(--md-sys-color-surface-container); padding: 20px; border-radius: 12px; font: var(--md-sys-typescale-body-medium); line-height: 1.6;">
+                                🌸 <strong>XUÂN VỀ - RỘNG YÊU THƯƠNG</strong> 🌸<br><br>
+                                Tết đến xuân về, Mekong Agency xin gửi lời chúc tốt đẹp nhất đến quý khách hàng!<br><br>
+                                ✨ Ưu đãi đặc biệt: Giảm ngay 30% cho mọi gói dịch vụ<br>
+                                📅 Thời gian: 15/01 - 15/02/2026<br>
+                                📞 Liên hệ: 0947.xxx.xxx<br><br>
+                                #TetSale #MekongAgency #MarketingSaDec
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Caption Facebook Post</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Số ký tự</div>
+                                <div class="detail-value">248 ký tự (Tốt ✓)</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Hashtags</div>
+                                <div class="detail-value">3 hashtags</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button style="--md-filled-button-container-color: #2E7D32;">
+                            <span class="material-symbols-outlined" slot="icon">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Status tab switching
+        document.querySelectorAll('.status-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const status = tab.dataset.status;
+                const cards = document.querySelectorAll('.approval-card');
+
+                if (status === 'pending') {
+                    cards.forEach(c => c.style.display = c.dataset.status === 'pending' ? 'block' : 'none');
+                } else if (status === 'approved') {
+                    // Show empty state for demo
+                    document.getElementById('approval-list').innerHTML = `
+                        <div class="empty-state">
+                            <span class="material-symbols-outlined">verified</span>
+                            <h3>Tất cả đã được duyệt!</h3>
+                            <p>12 nội dung đã được phê duyệt trong tuần này</p>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('approval-list').innerHTML = `
+                        <div class="empty-state">
+                            <span class="material-symbols-outlined">edit_note</span>
+                            <h3>2 nội dung cần chỉnh sửa</h3>
+                            <p>Đang chờ designer cập nhật</p>
+                        </div>
+                    `;
+                }
+            });
+        });
+
+        // Approve button demo
+        document.querySelectorAll('.approval-actions md-filled-button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.approval-card');
+                card.querySelector('.approval-badge').className = 'approval-badge approved';
+                card.querySelector('.approval-badge').textContent = '✅ Đã duyệt';
+                btn.disabled = true;
+                btn.textContent = 'Đã duyệt';
+            });
+        });
+    </script>
+
+    <script type="module" src="../assets/js/portal-client.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
+</body>
+
+</html>

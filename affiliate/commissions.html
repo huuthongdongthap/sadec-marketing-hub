@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoa hồng - Affiliate Portal</title>
+    <meta name="description"
+        content="View commission earnings, payment history, and request payouts from your affiliate account.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        /* Table Styles */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .data-table tr:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-paid {
+            background: #E6F4EA;
+            color: #1E8E3E;
+        }
+
+        .status-pending {
+            background: #FEF7E0;
+            color: #F9AB00;
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-secondary) 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .balance-title {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .balance-amount {
+            font-size: 48px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="commissions" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Lịch sử hoa hồng</h1>
+                    <div class="body-medium text-muted">Theo dõi thu nhập và lịch sử thanh toán</div>
+                </div>
+                <md-outlined-button>
+                    <md-icon slot="icon">file_download</md-icon>
+                    Xuất báo cáo
+                </md-outlined-button>
+            </div>
+
+            <div class="balance-card">
+                <div>
+                    <div class="balance-title">Số dư khả dụng</div>
+                    <div class="balance-amount">1.500.000 ₫</div>
+                    <div style="font-size: 14px; opacity: 0.8; margin-top: 8px;">*Thanh toán tự động vào ngày 15 hàng
+                        tháng</div>
+                </div>
+                <div>
+                    <md-filled-button style="background: white; color: var(--md-sys-color-primary);">
+                        <md-icon slot="icon">account_balance</md-icon>
+                        Rút tiền ngay
+                    </md-filled-button>
+                </div>
+            </div>
+
+            <div class="card card-outlined" style="padding: 0;">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mã giao dịch</th>
+                                <th>Nội dung</th>
+                                <th>Ngày</th>
+                                <th>Trạng thái</th>
+                                <th>Số tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TRX-8823</td>
+                                <td>Hoa hồng từ khách hàng: Nguyễn Văn Phú</td>
+                                <td>24/05/2026</td>
+                                <td><span class="status-chip status-pending">Chờ thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">+500.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-8822</td>
+                                <td>Hoa hồng từ khách hàng: Lê Thị Hoa</td>
+                                <td>23/05/2026</td>
+                                <td><span class="status-chip status-pending">Chờ thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">+250.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td>#PAY-0526</td>
+                                <td>Thanh toán thu nhập tháng 04/2026</td>
+                                <td>15/05/2026</td>
+                                <td><span class="status-chip status-paid">Đã nhận tiền</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-on-surface-variant);">-3.200.000
+                                    ₫</td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-7920</td>
+                                <td>Hoa hồng từ khách hàng: Công ty ABC</td>
+                                <td>20/04/2026</td>
+                                <td><span class="status-chip status-paid">Đã thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">+1.200.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-7915</td>
+                                <td>Hoa hồng từ khách hàng: Shop XYZ</td>
+                                <td>18/04/2026</td>
+                                <td><span class="status-chip status-paid">Đã thanh toán</span></td>
+                                <td style="font-weight: 600; color: var(--md-sys-color-primary);">+2.000.000 ₫</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="padding: 16px; display: flex; justify-content: flex-end; gap: 8px;">
+                    <md-text-button disabled>Trước</md-text-button>
+                    <md-filled-tonal-button>1</md-filled-tonal-button>
+                    <md-text-button>2</md-text-button>
+                    <md-text-button>3</md-text-button>
+                    <md-text-button>Sau</md-text-button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Auth.UI.init();
+
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+        });
+    </script>
+</body>
+
+</html>

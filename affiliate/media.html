@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Kit - Affiliate Portal</title>
+    <meta name="description"
+        content="Download marketing assets including banners, logos, and brand guidelines for your affiliate promotions.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <!-- Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        .portal-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content {
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font: var(--md-sys-typescale-headline-medium);
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .asset-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .asset-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .asset-preview {
+            height: 160px;
+            background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-secondary-container) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-primary);
+        }
+
+        .asset-preview .material-symbols-outlined {
+            font-size: 48px;
+        }
+
+        .asset-info {
+            padding: 16px;
+        }
+
+        .asset-title {
+            font: var(--md-sys-typescale-title-medium);
+            margin-bottom: 4px;
+        }
+
+        .asset-meta {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+        }
+
+        .banner-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            margin-top: 32px;
+        }
+
+        .section-title {
+            font: var(--md-sys-typescale-title-large);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guidelines-card {
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 24px;
+            border-radius: 16px;
+        }
+
+        .guideline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .guideline-item:last-child {
+            border-bottom: none;
+        }
+
+        .guideline-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .guideline-icon.do {
+            background: #E6F4EA;
+            color: #1E8E3E;
+        }
+
+        .guideline-icon.dont {
+            background: #FCE8E6;
+            color: #D93025;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <!-- Unified Sidebar -->
+        <sadec-sidebar active="media" role="affiliate"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Media Kit</h1>
+                    <div class="body-medium text-muted">Tài liệu marketing chính thức cho Partners</div>
+                </div>
+                <md-filled-button>
+                    <md-icon slot="icon">download</md-icon>
+                    Tải tất cả (ZIP)
+                </md-filled-button>
+            </div>
+
+            <!-- Banners Section -->
+            <div class="section-header" style="margin-top: 0;">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">image</span>
+                    Banners quảng cáo
+                </div>
+            </div>
+
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #1a73e8, #4285f4);">
+                        <span class="material-symbols-outlined" style="color: white;">crop_landscape</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Banner Facebook</div>
+                        <div class="asset-meta">1200 × 628px • PNG</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #E1306C, #F77737);">
+                        <span class="material-symbols-outlined" style="color: white;">crop_square</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Story Instagram</div>
+                        <div class="asset-meta">1080 × 1920px • PNG</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #0088cc, #00a2e8);">
+                        <span class="material-symbols-outlined" style="color: white;">crop_7_5</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Banner Zalo</div>
+                        <div class="asset-meta">1080 × 540px • PNG</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #FF0050, #00F2EA);">
+                        <span class="material-symbols-outlined" style="color: white;">phone_iphone</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Video TikTok</div>
+                        <div class="asset-meta">1080 × 1920px • MP4</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo Pack Section -->
+            <div class="section-header">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">branding_watermark</span>
+                    Logo Pack
+                </div>
+            </div>
+
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: #0f172a;">
+                        <span
+                            style="font-size: 28px; font-weight: 700; color: #00f0ff; letter-spacing: 2px;">MEKONG</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Logo trên nền tối</div>
+                        <div class="asset-meta">SVG + PNG (2x, 3x)</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: #ffffff;">
+                        <span
+                            style="font-size: 28px; font-weight: 700; color: #0f172a; letter-spacing: 2px;">MEKONG</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Logo trên nền sáng</div>
+                        <div class="asset-meta">SVG + PNG (2x, 3x)</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #00f0ff, #00a8ff);">
+                        <span style="font-size: 40px; font-weight: 700; color: white;">M</span>
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-title">Icon / Favicon</div>
+                        <div class="asset-meta">ICO + PNG (16-512px)</div>
+                        <md-outlined-button style="width: 100%;">
+                            <md-icon slot="icon">download</md-icon>
+                            Tải xuống
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Guidelines -->
+            <div class="section-header">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">rule</span>
+                    Hướng dẫn sử dụng
+                </div>
+            </div>
+
+            <div class="guidelines-card">
+                <div class="guideline-item">
+                    <div class="guideline-icon do">
+                        <span class="material-symbols-outlined">check</span>
+                    </div>
+                    <div>
+                        <div class="title-small">Sử dụng logo nguyên bản</div>
+                        <div class="body-small text-muted">Luôn sử dụng file logo chính thức từ Media Kit, không chỉnh
+                            sửa màu sắc hay tỷ lệ.</div>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon do">
+                        <span class="material-symbols-outlined">check</span>
+                    </div>
+                    <div>
+                        <div class="title-small">Giữ khoảng trống an toàn</div>
+                        <div class="body-small text-muted">Để khoảng trống tối thiểu bằng chiều cao chữ "M" xung quanh
+                            logo.</div>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
+                    <div>
+                        <div class="title-small">Không kéo giãn logo</div>
+                        <div class="body-small text-muted">Luôn giữ tỷ lệ gốc khi thay đổi kích thước, không bóp méo
+                            hoặc xoay logo.</div>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <div class="guideline-icon dont">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
+                    <div>
+                        <div class="title-small">Không đặt logo trên nền phức tạp</div>
+                        <div class="body-small text-muted">Tránh đặt logo lên hình ảnh có nhiều chi tiết hoặc màu sắc
+                            phức tạp.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Auth.UI.init();
+
+            if (!Auth.State.isAuthenticated) {
+                window.location.href = '/auth/login.html?role=affiliate';
+            }
+        });
+    </script>
+</body>
+
+</html>

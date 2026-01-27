@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập Tập trung - Mekong Marketing Hub</title>
+
+    <!-- Material Web -->
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+
+    <style>
+        .login-page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 900px) {
+            .login-page {
+                grid-template-columns: 1fr;
+            }
+
+            .login-hero {
+                display: none;
+            }
+        }
+
+        .login-hero {
+            background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary-container) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+
+        .login-hero-content {
+            color: white;
+            max-width: 480px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-form-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            background: var(--md-sys-color-surface);
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-primary);
+            margin-bottom: 40px;
+            text-decoration: none;
+        }
+
+        .role-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 32px;
+            background: var(--md-sys-color-surface-container);
+            padding: 4px;
+            border-radius: 12px;
+        }
+
+        .role-tab {
+            padding: 12px 8px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            border: none;
+            background: transparent;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .role-tab.active {
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .role-tab:hover:not(.active) {
+            background: rgba(0,0,0,0.05);
+        }
+
+        .role-icon {
+            font-size: 24px;
+        }
+
+        .role-label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .login-title {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+            font: var(--md-sys-typescale-body-large);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 32px;
+        }
+
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animation for tab switching */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-page">
+        <!-- Hero Side -->
+        <div class="login-hero">
+            <div class="login-hero-content">
+                <div class="display-small mb-32" style="color: white; font-weight: 700;">
+                    Một tài khoản.<br>
+                    Quyền năng vô hạn.
+                </div>
+
+                <div class="hero-feature" id="hero-admin" style="display: none;">
+                    <div class="title-large mb-8" style="color: white;">🛡️ Admin Workspace</div>
+                    <div class="body-large" style="color: rgba(255,255,255,0.9);">
+                        Quản lý toàn bộ hệ thống, theo dõi hiệu suất và điều phối chiến dịch marketing từ trung tâm điều khiển.
+                    </div>
+                </div>
+
+                <div class="hero-feature" id="hero-client" style="display: none;">
+                    <div class="title-large mb-8" style="color: white;">🏢 Client Portal</div>
+                    <div class="body-large" style="color: rgba(255,255,255,0.9);">
+                        Theo dõi tiến độ dự án, xem báo cáo thời gian thực và quản lý tài sản số của doanh nghiệp bạn.
+                    </div>
+                </div>
+
+                <div class="hero-feature" id="hero-affiliate" style="display: none;">
+                    <div class="title-large mb-8" style="color: white;">🤝 Affiliate Partner</div>
+                    <div class="body-large" style="color: rgba(255,255,255,0.9);">
+                        Kiếm thu nhập thụ động bằng cách giới thiệu giải pháp marketing của Mekong Agency đến mạng lưới của bạn.
+                    </div>
+                </div>
+
+                <div style="margin-top: 48px; display: flex; gap: 16px; align-items: center;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">M</div>
+                    <div>
+                        <div style="color: white; font-weight: 600;">Mekong Marketing Hub</div>
+                        <div style="color: rgba(255,255,255,0.7); font-size: 13px;">Unified Access System</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="login-form-container">
+            <div class="login-form">
+                <a href="/" class="login-logo">
+                    <span class="material-symbols-outlined">water_drop</span>
+                    Mekong Agency
+                </a>
+
+                <div class="role-tabs">
+                    <button class="role-tab" onclick="switchRole('admin')" id="tab-admin">
+                        <span class="material-symbols-outlined role-icon">admin_panel_settings</span>
+                        <span class="role-label">Admin</span>
+                    </button>
+                    <button class="role-tab" onclick="switchRole('client')" id="tab-client">
+                        <span class="material-symbols-outlined role-icon">business</span>
+                        <span class="role-label">Client</span>
+                    </button>
+                    <button class="role-tab active" onclick="switchRole('affiliate')" id="tab-affiliate">
+                        <span class="material-symbols-outlined role-icon">handshake</span>
+                        <span class="role-label">Affiliate</span>
+                    </button>
+                </div>
+
+                <div id="login-header">
+                    <h1 class="login-title">Đăng nhập Affiliate</h1>
+                    <p class="login-subtitle">Theo dõi hoa hồng và giới thiệu khách hàng</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group mb-24">
+                        <md-outlined-text-field label="Email" type="email" id="email" required style="width: 100%;">
+                            <md-icon slot="leading-icon">email</md-icon>
+                        </md-outlined-text-field>
+                    </div>
+
+                    <div class="form-group mb-24">
+                        <md-outlined-text-field label="Mật khẩu" type="password" id="password" required style="width: 100%;">
+                            <md-icon slot="leading-icon">lock</md-icon>
+                        </md-outlined-text-field>
+                    </div>
+
+                    <div class="flex-between mb-24">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--md-sys-color-on-surface-variant);">
+                            <md-checkbox touch-target="wrapper" id="rememberMe"></md-checkbox>
+                            <span>Ghi nhớ tôi</span>
+                        </label>
+                        <a href="../forgot-password.html" style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 500;">Quên mật khẩu?</a>
+                    </div>
+
+                    <md-filled-button type="submit" id="loginBtn" style="width: 100%;">
+                        Đăng nhập
+                    </md-filled-button>
+                </form>
+
+                <div style="margin-top: 32px; text-align: center;">
+                    <p style="color: var(--md-sys-color-on-surface-variant); font-size: 14px;">
+                        Chưa có tài khoản?
+                        <a href="../register.html" id="registerLink" style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
+                    </p>
+                </div>
+
+                <!-- Demo Credentials Hint (Optional) -->
+                <div style="margin-top: 40px; padding: 16px; background: var(--md-sys-color-surface-container-high); border-radius: 8px; font-size: 12px;">
+                    <div style="font-weight: 600; margin-bottom: 8px;">🧪 Demo Credentials:</div>
+                    <div id="demo-credentials" style="font-family: monospace; color: var(--md-sys-color-on-surface-variant);">
+                        affiliate@mekongmarketing.com / affiliate123
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../auth.js"></script>
+
+    <script>
+        // Role Configuration
+        const ROLE_CONFIG = {
+            admin: {
+                title: 'Đăng nhập Admin',
+                subtitle: 'Truy cập hệ thống quản trị trung tâm',
+                demo: 'admin@mekongmarketing.com / admin123',
+                registerUrl: '#' // Admin registration is restricted
+            },
+            client: {
+                title: 'Đăng nhập Client',
+                subtitle: 'Xem báo cáo và tiến độ dự án',
+                demo: 'client@mekongmarketing.com / client123',
+                registerUrl: '../register.html?role=client'
+            },
+            affiliate: {
+                title: 'Đăng nhập Affiliate',
+                subtitle: 'Theo dõi hoa hồng và giới thiệu khách hàng',
+                demo: 'affiliate@mekongmarketing.com / affiliate123',
+                registerUrl: '../register.html?role=affiliate'
+            }
+        };
+
+        let currentRole = 'affiliate';
+
+        // Initialize based on URL param
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const roleParam = params.get('role');
+
+            if (roleParam && ROLE_CONFIG[roleParam]) {
+                switchRole(roleParam);
+            } else {
+                switchRole('affiliate'); // Default
+            }
+
+            // Check if already authenticated
+            Auth.Guards.redirectIfAuthenticated();
+        });
+
+        function switchRole(role) {
+            currentRole = role;
+
+            // Update Tabs
+            document.querySelectorAll('.role-tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(`tab-${role}`).classList.add('active');
+
+            // Update Header Text
+            const header = document.getElementById('login-header');
+            header.classList.remove('fade-in');
+            void header.offsetWidth; // Trigger reflow
+            header.classList.add('fade-in');
+
+            header.querySelector('.login-title').textContent = ROLE_CONFIG[role].title;
+            header.querySelector('.login-subtitle').textContent = ROLE_CONFIG[role].subtitle;
+
+            // Update Hero Section
+            document.querySelectorAll('.hero-feature').forEach(el => el.style.display = 'none');
+            const heroEl = document.getElementById(`hero-${role}`);
+            if (heroEl) {
+                heroEl.style.display = 'block';
+                heroEl.classList.remove('fade-in');
+                void heroEl.offsetWidth;
+                heroEl.classList.add('fade-in');
+            }
+
+            // Update Demo Hint
+            document.getElementById('demo-credentials').textContent = ROLE_CONFIG[role].demo;
+
+            // Update Register Link
+            const regLink = document.getElementById('registerLink');
+            if (ROLE_CONFIG[role].registerUrl === '#') {
+                regLink.parentElement.style.display = 'none';
+            } else {
+                regLink.parentElement.style.display = 'block';
+                regLink.href = ROLE_CONFIG[role].registerUrl;
+            }
+
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('role', role);
+            window.history.pushState({}, '', url);
+        }
+
+        // Login Logic
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                alert('Vui lòng nhập đầy đủ thông tin');
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Đang xử lý...';
+
+            try {
+                const result = await Auth.Actions.signIn(email, password);
+
+                if (result.success) {
+                    // Check if role matches context (warning only)
+                    // In a real app, you might strictly enforce this,
+                    // but for a unified login, we just redirect to the correct place
+
+                    const redirectUrl = Auth.Guards.getRedirectUrl();
+                    window.location.href = redirectUrl;
+                } else {
+                    alert(result.error || 'Đăng nhập thất bại');
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Đăng nhập';
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Có lỗi xảy ra');
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Đăng nhập';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Events - Mekong Agency</title>
+    <meta name="description" content="Virtual events management for webinars, workshops, and online marketing events.">
     <meta name="description" content="Virtual Events Dashboard - Mekong Agency">
 
     <script type="importmap">
@@ -26,6 +27,7 @@
         .dashboard-content {
             padding: 32px 0;
         }
+
         /* ... keep other styles ... */
         .tabs {
             display: flex;
@@ -96,10 +98,25 @@
             margin-bottom: 16px;
         }
 
-        .metric-icon.events { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
-        .metric-icon.registrations { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-        .metric-icon.live { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .metric-icon.rate { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .metric-icon.events {
+            background: rgba(236, 72, 153, 0.2);
+            color: #ec4899;
+        }
+
+        .metric-icon.registrations {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .metric-icon.live {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .metric-icon.rate {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
 
         .metric-value {
             font-family: var(--font-display);
@@ -128,7 +145,7 @@
             overflow: hidden;
             transition: transform 0.3s ease;
         }
-        
+
         .event-card:hover {
             transform: translateY(-5px);
             border-color: rgba(255, 255, 255, 0.2);
@@ -160,17 +177,39 @@
             color: white;
         }
 
-        .event-badge.draft { background: rgba(0, 0, 0, 0.6); }
-        .event-badge.scheduled { background: #3b82f6; }
-        .event-badge.live { background: #ef4444; animation: pulse 2s infinite; }
-        .event-badge.ended { background: #6b7280; }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .event-badge.draft {
+            background: rgba(0, 0, 0, 0.6);
         }
 
-        .event-body { padding: 20px; color: white; }
+        .event-badge.scheduled {
+            background: #3b82f6;
+        }
+
+        .event-badge.live {
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        .event-badge.ended {
+            background: #6b7280;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .event-body {
+            padding: 20px;
+            color: white;
+        }
 
         .event-type {
             font-size: 12px;
@@ -203,7 +242,10 @@
             margin-bottom: 16px;
         }
 
-        .event-actions { display: flex; gap: 12px; }
+        .event-actions {
+            display: flex;
+            gap: 12px;
+        }
 
         .event-btn {
             flex: 1;
@@ -219,9 +261,20 @@
             font-family: var(--font-body);
         }
 
-        .event-btn.primary { background: var(--primary-cyan); color: #000; }
-        .event-btn.secondary { background: rgba(255, 255, 255, 0.1); color: white; }
-        .event-btn.live { background: #ef4444; color: white; }
+        .event-btn.primary {
+            background: var(--primary-cyan);
+            color: #000;
+        }
+
+        .event-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .event-btn.live {
+            background: #ef4444;
+            color: white;
+        }
 
         .registration-list {
             background: rgba(255, 255, 255, 0.03);
@@ -258,9 +311,18 @@
             font-weight: 600;
         }
 
-        .registration-info { flex: 1; }
-        .registration-name { font-weight: 600; }
-        .registration-email { font-size: 14px; color: var(--text-secondary); }
+        .registration-info {
+            flex: 1;
+        }
+
+        .registration-name {
+            font-weight: 600;
+        }
+
+        .registration-email {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
 
         .registration-status {
             padding: 4px 12px;
@@ -268,8 +330,15 @@
             font-size: 12px;
         }
 
-        .registration-status.attended { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-        .registration-status.registered { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .registration-status.attended {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .registration-status.registered {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
 
         .email-sequence {
             display: grid;
@@ -309,7 +378,9 @@
             margin: 8px 0;
         }
 
-        .email-subject { font-weight: 600; }
+        .email-subject {
+            font-weight: 600;
+        }
 
         .create-form {
             background: rgba(255, 255, 255, 0.03);
@@ -320,7 +391,9 @@
             color: white;
         }
 
-        .create-form h3 { margin-bottom: 20px; }
+        .create-form h3 {
+            margin-bottom: 20px;
+        }
 
         .form-row {
             display: flex;
@@ -329,7 +402,10 @@
             flex-wrap: wrap;
         }
 
-        .form-field { flex: 1; min-width: 200px; }
+        .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
 
         .form-field label {
             display: block;
@@ -343,15 +419,17 @@
         .form-field textarea {
             width: 100%;
             padding: 12px 16px;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             border: 1px solid var(--glass-border);
             border-radius: 8px;
             color: white;
             font-family: var(--font-body);
             box-sizing: border-box;
         }
-        
-        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
             border-color: var(--primary-cyan);
             outline: none;
         }
@@ -383,7 +461,7 @@
 <body>
     <div class="layout-2026">
         <sadec-sidebar active="events"></sadec-sidebar>
-        
+
         <main class="main-content">
             <div class="header-section animate-entry delay-1">
                 <div>
@@ -422,13 +500,15 @@
                             <div class="metric-label">Live Now</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
+                            <div class="metric-icon registrations"><span
+                                    class="material-symbols-outlined">person_add</span>
                             </div>
                             <div class="metric-value" id="metricRegistrations">0</div>
                             <div class="metric-label">Registrations</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span></div>
+                            <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span>
+                            </div>
                             <div class="metric-value" id="metricRate">0%</div>
                             <div class="metric-label">Attendance Rate</div>
                         </div>
@@ -677,8 +757,8 @@
         renderEmailSequence();
         refresh();
     </script>
-<script src="../assets/js/admin-shared.js"></script>
-<!-- Content AI -->
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
     <script src="../assets/js/content-ai.js"></script>
     <!-- Central State Management -->
     <script src="../assets/js/mekong-store.js"></script>
