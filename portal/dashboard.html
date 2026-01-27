@@ -30,91 +30,6 @@
             .portal-layout {
                 grid-template-columns: 1fr;
             }
-
-            .sidebar {
-                display: none;
-            }
-        }
-
-        .sidebar {
-            background: var(--md-sys-color-surface-container);
-            border-right: 1px solid var(--md-sys-color-outline-variant);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font: var(--md-sys-typescale-title-large);
-            color: var(--md-sys-color-primary);
-            text-decoration: none;
-            margin-bottom: 32px;
-        }
-
-        .sidebar-nav {
-            flex: 1;
-        }
-
-        .nav-section {
-            margin-bottom: 24px;
-        }
-
-        .nav-section-title {
-            font: var(--md-sys-typescale-label-small);
-            color: var(--md-sys-color-on-surface-variant);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            padding: 0 12px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            color: var(--md-sys-color-on-surface-variant);
-            text-decoration: none;
-            font: var(--md-sys-typescale-label-large);
-            transition: all var(--md-sys-motion-duration-short);
-        }
-
-        .nav-item:hover {
-            background: var(--md-sys-color-surface-container-high);
-        }
-
-        .nav-item.active {
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-        }
-
-        .nav-item .material-symbols-outlined {
-            font-size: 20px;
-        }
-
-        .sidebar-user {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            background: var(--md-sys-color-surface-container-high);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--md-sys-color-primary-container);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--md-sys-color-primary);
         }
 
         .main-content {
@@ -362,65 +277,10 @@
 <body>
     <div class="portal-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <a href="/" class="sidebar-logo">
-                <span class="material-symbols-outlined">water_drop</span>
-                Mekong Agency
-            </a>
-
-            <nav class="sidebar-nav">
-                <div class="nav-section">
-                    <div class="nav-section-title">Menu chính</div>
-                    <a href="dashboard.html" class="nav-item active">
-                        <span class="material-symbols-outlined">dashboard</span>
-                        Dashboard
-                    </a>
-                    <a href="projects.html" class="nav-item">
-                        <span class="material-symbols-outlined">folder_open</span>
-                        Dự án
-                    </a>
-                    <a href="invoices.html" class="nav-item">
-                        <span class="material-symbols-outlined">receipt_long</span>
-                        Hóa đơn
-                    </a>
-                </div>
-
-                <div class="nav-section">
-                    <div class="nav-section-title">Báo cáo</div>
-                    <a href="#" class="nav-item">
-                        <span class="material-symbols-outlined">analytics</span>
-                        Phân tích
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="material-symbols-outlined">description</span>
-                        Báo cáo
-                    </a>
-                </div>
-
-                <div class="nav-section">
-                    <div class="nav-section-title">Hỗ trợ</div>
-                    <a href="#" class="nav-item">
-                        <span class="material-symbols-outlined">support_agent</span>
-                        Liên hệ hỗ trợ
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="material-symbols-outlined">settings</span>
-                        Cài đặt
-                    </a>
-                </div>
-            </nav>
-
-            <div class="sidebar-user">
-                <div class="user-avatar">NT</div>
-                <div>
-                    <div class="title-small">Nguyễn Tùng</div>
-                    <div class="body-small text-muted">Sa Đéc Flower</div>
-                </div>
-            </div>
-        </aside>
+        <sadec-sidebar role="client" active="dashboard"></sadec-sidebar>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" role="main">
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Dashboard</h1>
@@ -502,7 +362,7 @@
                                 <span class="material-symbols-outlined">campaign</span>
                             </div>
                             <div class="project-info">
-                                <div class="project-name">Chiến dịch Facebook Q1</div>
+                                <div class="project-name">Chiến dịch Facebook Ads Q1</div>
                                 <div class="project-status">Đang chạy • Cập nhật 2h trước</div>
                             </div>
                             <div class="project-progress">
@@ -592,6 +452,7 @@
     </div>
 
     <!-- Portal Client Script -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <script type="module" src="../assets/js/portal-client.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
 </body>

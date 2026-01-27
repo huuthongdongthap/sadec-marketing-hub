@@ -28,47 +28,6 @@
             .portal-layout {
                 grid-template-columns: 1fr;
             }
-
-            .sidebar {
-                display: none;
-            }
-        }
-
-        .sidebar {
-            background: var(--md-sys-color-surface-container);
-            border-right: 1px solid var(--md-sys-color-outline-variant);
-            padding: 24px;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font: var(--md-sys-typescale-title-large);
-            color: var(--md-sys-color-primary);
-            text-decoration: none;
-            margin-bottom: 32px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            color: var(--md-sys-color-on-surface-variant);
-            text-decoration: none;
-            font: var(--md-sys-typescale-label-large);
-            margin-bottom: 4px;
-        }
-
-        .nav-item:hover {
-            background: var(--md-sys-color-surface-container-high);
-        }
-
-        .nav-item.active {
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
         }
 
         .main-content {
@@ -203,30 +162,10 @@
 <body>
     <div class="portal-layout">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <a href="/" class="sidebar-logo">
-                <span class="material-symbols-outlined">water_drop</span>
-                Mekong Agency
-            </a>
-
-            <nav>
-                <a href="dashboard.html" class="nav-item">
-                    <span class="material-symbols-outlined">dashboard</span>
-                    Dashboard
-                </a>
-                <a href="projects.html" class="nav-item">
-                    <span class="material-symbols-outlined">folder_open</span>
-                    Dự án
-                </a>
-                <a href="invoices.html" class="nav-item active">
-                    <span class="material-symbols-outlined">receipt_long</span>
-                    Hóa đơn
-                </a>
-            </nav>
-        </aside>
+        <sadec-sidebar role="client" active="invoices"></sadec-sidebar>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" role="main">
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Hóa đơn</h1>
@@ -377,6 +316,7 @@
     </div>
 
     <!-- Portal Client Script -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <script type="module" src="../assets/js/portal-client.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
 </body>
