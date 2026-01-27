@@ -10,6 +10,7 @@ const CACHE_NAME = 'mekong-os-v1';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
+    '/offline.html',
     '/favicon.png',
     '/assets/css/m3-agency.css',
     '/assets/css/admin-unified.css',
@@ -62,8 +63,7 @@ self.addEventListener('fetch', (event) => {
                     return caches.match(event.request)
                         .then((response) => {
                             if (response) return response;
-                            // Optionally return an offline.html here if it exists
-                            return caches.match('/');
+                            return caches.match('/offline.html');
                         });
                 })
         );
@@ -93,5 +93,36 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request)
             .catch(() => caches.match(event.request))
+    );
+});
+
+// Push Notification Event
+self.addEventListener('push', (event) => {
+    console.log('[Service Worker] Push Received.');
+    let data = { title: 'Mekong Agency', body: 'New notification', url: '/' };
+
+    if (event.data) {
+        data = JSON.parse(event.data.text());
+    }
+
+    const options = {
+        body: data.body,
+        icon: '/favicon.png',
+        badge: '/favicon.png',
+        data: { url: data.url }
+    };
+
+    event.waitUntil(
+        self.registration.showNotification(data.title, options)
+    );
+});
+
+// Notification Click Event
+self.addEventListener('notificationclick', (event) => {
+    console.log('[Service Worker] Notification click received.');
+    event.notification.close();
+
+    event.waitUntil(
+        clients.openWindow(event.notification.data.url || '/')
     );
 });

@@ -169,6 +169,9 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search system..." aria-label="Search system">
                     </div>
+                    <button class="btn-cyber" id="notify-toggle" onclick="window.Notifications.requestPermission()" title="Enable Notifications">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
                     <button class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
                         <span class="material-symbols-outlined">dark_mode</span>
                     </button>
@@ -297,6 +300,7 @@
     <script src="../assets/js/admin-shared.js"></script>
     <script type="module" src="../assets/js/dashboard-client.js"></script>
     <script src="../assets/js/agency-2026.js"></script>
+    <script src="../assets/js/notifications.js"></script>
     <script>
         // Initialize Chart.js after DOM load
         document.addEventListener('DOMContentLoaded', async () => {
