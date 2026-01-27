@@ -3,7 +3,7 @@
 // Live Data Binding & UI Interactions
 // ================================================
 
-import { auth, projects, invoices, activities, utils } from './supabase.js';
+import { auth, projects, invoices, activities, utils, supabase } from './supabase.js';
 import { paymentManager } from './payment-gateway.js';
 
 // ================================================
@@ -960,6 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const table = document.querySelector('.invoice-table tbody');
         if (table) {
             loadInvoices(table);
+            setupInvoiceRealtime(table);
         }
     }
 
@@ -967,6 +968,74 @@ document.addEventListener('DOMContentLoaded', () => {
         loadDashboard();
     }
 });
+
+// ================================================
+// REALTIME SUBSCRIPTIONS
+// ================================================
+
+function setupInvoiceRealtime(tableElement) {
+    if (!tableElement) return;
+
+    // Listen for changes to invoices table
+    const channel = supabase.channel('invoices-realtime')
+        .on(
+            'postgres_changes',
+            { event: '*', schema: 'public', table: 'invoices' },
+            (payload) => {
+                // console.log('Invoice change received!', payload);
+
+                // If update event and matches a row in the table
+                if (payload.eventType === 'UPDATE') {
+                    const updatedInvoice = payload.new;
+                    const row = tableElement.querySelector(`tr[data-invoice-id="${updatedInvoice.id}"]`);
+
+                    if (row) {
+                        // Update status pill
+                        const statusCell = row.querySelector('.status-pill');
+                        if (statusCell) {
+                            // Update classes
+                            statusCell.className = 'status-pill'; // Reset
+
+                            const statusMap = {
+                                'paid': { class: 'paid', text: 'Đã thanh toán' },
+                                'pending': { class: 'pending', text: 'Chờ thanh toán' },
+                                'sent': { class: 'pending', text: 'Chờ thanh toán' },
+                                'overdue': { class: 'overdue', text: 'Quá hạn' },
+                                'draft': { class: 'draft', text: 'Nháp' }
+                            };
+
+                            const statusInfo = statusMap[updatedInvoice.status] || { class: 'draft', text: updatedInvoice.status };
+                            statusCell.classList.add(statusInfo.class);
+                            statusCell.textContent = statusInfo.text;
+                        }
+
+                        // Update actions if paid
+                        if (updatedInvoice.status === 'paid') {
+                             const actionsCell = row.querySelector('.invoice-actions');
+                             if (actionsCell) {
+                                 // Remove pay button if exists
+                                 const payBtn = actionsCell.querySelector('.pay-btn');
+                                 if (payBtn) payBtn.remove();
+                             }
+
+                             // Show toast notification
+                             toast.show(`Hóa đơn ${updatedInvoice.invoice_number} đã được thanh toán!`, 'success');
+                        }
+                    }
+                } else if (payload.eventType === 'INSERT') {
+                    // Reload table to show new invoice
+                    loadInvoices(tableElement);
+                    toast.show('Có hóa đơn mới!', 'info');
+                }
+            }
+        )
+        .subscribe();
+
+    // Cleanup on unload (optional for single page app, but good practice)
+    window.addEventListener('beforeunload', () => {
+        supabase.removeChannel(channel);
+    });
+}
 
 // ================================================
 // EXPORTS
