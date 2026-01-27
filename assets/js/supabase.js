@@ -728,6 +728,40 @@ export const workflows = {
 };
 
 // ================================================
+// CONTENT APPROVALS API
+// ================================================
+
+export const approvals = {
+    async getAll(status = 'pending') {
+        const { data, error } = await supabase
+            .from('content_approvals')
+            .select('*, designer:users(full_name)')
+            .eq('status', status)
+            .order('created_at', { ascending: false });
+        return { data, error };
+    },
+
+    async getById(id) {
+        const { data, error } = await supabase
+            .from('content_approvals')
+            .select('*, designer:users(full_name)')
+            .eq('id', id)
+            .single();
+        return { data, error };
+    },
+
+    async updateStatus(id, status, feedback) {
+        const { data, error } = await supabase
+            .from('content_approvals')
+            .update({ status, feedback, updated_at: new Date().toISOString() })
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    }
+};
+
+// ================================================
 // UTILITY FUNCTIONS
 // ================================================
 

@@ -561,49 +561,282 @@
         </main>
     </div>
 
-    <script>
+    <script type="module">
+        import { supabase, auth, utils, approvals } from '../assets/js/supabase.js';
+
+        let currentStatus = 'pending';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadApprovals(currentStatus);
+        });
+
         // Status tab switching
         document.querySelectorAll('.status-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
 
-                const status = tab.dataset.status;
-                const cards = document.querySelectorAll('.approval-card');
+                currentStatus = tab.dataset.status;
+                loadApprovals(currentStatus);
+            });
+        });
 
-                if (status === 'pending') {
-                    cards.forEach(c => c.style.display = c.dataset.status === 'pending' ? 'block' : 'none');
-                } else if (status === 'approved') {
-                    // Show empty state for demo
-                    document.getElementById('approval-list').innerHTML = `
-                        <div class="empty-state">
-                            <span class="material-symbols-outlined">verified</span>
-                            <h3>Tất cả đã được duyệt!</h3>
-                            <p>12 nội dung đã được phê duyệt trong tuần này</p>
-                        </div>
-                    `;
-                } else {
-                    document.getElementById('approval-list').innerHTML = `
-                        <div class="empty-state">
-                            <span class="material-symbols-outlined">edit_note</span>
-                            <h3>2 nội dung cần chỉnh sửa</h3>
-                            <p>Đang chờ designer cập nhật</p>
-                        </div>
-                    `;
+        async function loadApprovals(status) {
+            const listContainer = document.getElementById('approval-list');
+            listContainer.innerHTML = '<div class="empty-state"><div class="spinner"></div><p>Đang tải dữ liệu...</p></div>';
+
+            try {
+                // Get current user's client ID (if client)
+                const user = await auth.getUser();
+                if (!user) {
+                    // Demo mode
+                    renderDemoApprovals(status);
+                    return;
                 }
-            });
-        });
 
-        // Approve button demo
-        document.querySelectorAll('.approval-actions md-filled-button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const card = btn.closest('.approval-card');
-                card.querySelector('.approval-badge').className = 'approval-badge approved';
-                card.querySelector('.approval-badge').textContent = '✅ Đã duyệt';
-                btn.disabled = true;
-                btn.textContent = 'Đã duyệt';
+                // Use the approvals API helper
+                const { data: approvalItems, error } = await approvals.getAll(status);
+
+                if (error) throw error;
+
+                updateCounts(); // This would fetch counts for all statuses
+                renderApprovals(approvalItems);
+
+            } catch (error) {
+                console.error('Error loading approvals:', error);
+                // Fallback to demo data if DB is empty or error
+                renderDemoApprovals(status);
+            }
+        }
+
+        function renderApprovals(approvalItems) {
+            const listContainer = document.getElementById('approval-list');
+
+            if (!approvalItems || approvalItems.length === 0) {
+                renderEmptyState(listContainer, currentStatus);
+                return;
+            }
+
+            listContainer.innerHTML = approvalItems.map(item => createApprovalCard(item)).join('');
+            bindApprovalActions();
+        }
+
+        function createApprovalCard(item) {
+            const isUrgent = isDeadlineClose(item.metadata?.deadline);
+            const statusClass = item.status;
+            const statusLabel = getStatusLabel(item.status);
+
+            return `
+                <div class="approval-card ${isUrgent ? 'urgent' : ''}" data-id="${item.id}">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">${item.title}</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                                    ${utils.timeAgo(item.created_at)}</span>
+                                <span><span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                                    Designer: ${item.designer?.full_name || 'Agency Team'}</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge ${statusClass}">${statusLabel}</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            ${renderPreview(item)}
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">${item.type.toUpperCase()}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Mô tả</div>
+                                <div class="detail-value">${item.description || '--'}</div>
+                            </div>
+                            ${item.metadata?.deadline ? `
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline</div>
+                                <div class="detail-value" style="${isUrgent ? 'color: #E53935; font-weight: 500;' : ''}">
+                                    ${isUrgent ? '⚠️ ' : ''}${utils.formatDate(item.metadata.deadline)}
+                                </div>
+                            </div>
+                            ` : ''}
+                            ${item.feedback ? `
+                            <div class="detail-item">
+                                <div class="detail-label">Feedback của bạn</div>
+                                <div class="detail-value" style="color: #F57C00;">"${item.feedback}"</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    ${item.status === 'pending' ? `
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button class="btn-approve" style="--md-filled-button-container-color: #2E7D32;">
+                            <span class="material-symbols-outlined" slot="icon">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button class="btn-reject">
+                            <span class="material-symbols-outlined" slot="icon">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function renderPreview(item) {
+            if (item.type === 'image') {
+                return `
+                    <div class="preview-image">
+                        <img src="${item.preview_url}" alt="${item.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="material-symbols-outlined placeholder" style="display:none">image</span>
+                    </div>
+                `;
+            } else if (item.type === 'text') {
+                return `
+                    <div style="background: var(--md-sys-color-surface-container); padding: 20px; border-radius: 12px; font: var(--md-sys-typescale-body-medium); line-height: 1.6; max-height: 300px; overflow-y: auto;">
+                        ${item.content_body || item.preview_url}
+                    </div>
+                `;
+            } else {
+                 return `
+                    <div class="preview-image">
+                         <span class="material-symbols-outlined placeholder">description</span>
+                         <a href="${item.preview_url}" target="_blank" style="margin-left: 8px;">Xem nội dung</a>
+                    </div>
+                `;
+            }
+        }
+
+        function bindApprovalActions() {
+            document.querySelectorAll('.btn-approve').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const card = btn.closest('.approval-card');
+                    const id = card.dataset.id;
+                    const comment = card.querySelector('.comment-input').value;
+
+                    if(confirm('Xác nhận duyệt nội dung này?')) {
+                        await updateStatus(id, 'approved', comment);
+                    }
+                });
             });
-        });
+
+            document.querySelectorAll('.btn-reject').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const card = btn.closest('.approval-card');
+                    const id = card.dataset.id;
+                    const comment = card.querySelector('.comment-input').value;
+
+                    if (!comment) {
+                        alert('Vui lòng nhập ghi chú yêu cầu chỉnh sửa.');
+                        return;
+                    }
+
+                    await updateStatus(id, 'revision', comment);
+                });
+            });
+        }
+
+        async function updateStatus(id, status, feedback) {
+            try {
+                const { error } = await approvals.updateStatus(id, status, feedback);
+
+                if (error) throw error;
+
+                // Reload list
+                loadApprovals(currentStatus);
+
+                // Show toast (mock)
+                alert(status === 'approved' ? 'Đã duyệt nội dung thành công!' : 'Đã gửi yêu cầu chỉnh sửa.');
+
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            }
+        }
+
+        // Demo Helper Functions
+        function renderDemoApprovals(status) {
+             const listContainer = document.getElementById('approval-list');
+
+             // Reuse existing static HTML logic for demo if no DB connection
+             // For now, we keep the original static content as fallback if we can't connect
+             if (document.querySelectorAll('.approval-card').length === 0) {
+                 // If list is empty (cleared by loadApprovals), restore original static content
+                 // But wait, we overwrote the body. Let's just reload page or show static data.
+                 // This part is tricky without keeping the original HTML.
+                 // We'll regenerate the static demo data using the JS logic.
+
+                 const demoItems = [
+                     {
+                         id: 'demo-1', title: 'Banner Tết Sale - Facebook', status: 'pending', type: 'image',
+                         preview_url: 'https://via.placeholder.com/800x400/E53935/FFFFFF?text=TET+SALE+50%25',
+                         description: 'Chiến dịch Tết Nguyên Đán 2026',
+                         metadata: { deadline: new Date(Date.now() + 3600000).toISOString() }
+                     },
+                     {
+                         id: 'demo-2', title: 'Instagram Story - Sản phẩm mới', status: 'pending', type: 'image',
+                         preview_url: 'https://via.placeholder.com/400x700/E1306C/FFFFFF?text=Story+Preview',
+                         description: 'Story giới thiệu sản phẩm'
+                     },
+                      {
+                         id: 'demo-3', title: 'Caption bài post Facebook', status: 'pending', type: 'text',
+                         content_body: '🌸 <strong>XUÂN VỀ - RỘNG YÊU THƯƠNG</strong> 🌸<br>Tết đến xuân về...',
+                         description: 'Caption cho bài post chính'
+                     }
+                 ];
+
+                 const filtered = demoItems.filter(i => i.status === status);
+                 if (filtered.length === 0) {
+                     renderEmptyState(listContainer, status);
+                 } else {
+                     listContainer.innerHTML = filtered.map(item => createApprovalCard(item)).join('');
+                     bindApprovalActions(); // Binds to alert for demo
+                 }
+             }
+        }
+
+        function renderEmptyState(container, status) {
+            let msg = '';
+            let icon = '';
+            if (status === 'pending') { msg = 'Không có nội dung chờ duyệt'; icon = 'task_alt'; }
+            else if (status === 'approved') { msg = 'Chưa có nội dung nào được duyệt'; icon = 'verified'; }
+            else { msg = 'Không có yêu cầu chỉnh sửa nào'; icon = 'edit_note'; }
+
+            container.innerHTML = `
+                <div class="empty-state">
+                    <span class="material-symbols-outlined">${icon}</span>
+                    <h3>${msg}</h3>
+                </div>
+            `;
+        }
+
+        function updateCounts() {
+            // Mock counts update
+            // In real app, perform count query
+        }
+
+        // Utils
+        function isDeadlineClose(deadline) {
+            if (!deadline) return false;
+            const diff = new Date(deadline) - new Date();
+            return diff > 0 && diff < 86400000; // Less than 24h
+        }
+
+        function getStatusLabel(status) {
+            const map = {
+                'pending': '⏳ Chờ duyệt',
+                'approved': '✅ Đã duyệt',
+                'revision': '📝 Yêu cầu sửa'
+            };
+            return map[status] || status;
+        }
+
     </script>
 
     <script type="module" src="../assets/js/portal-client.js"></script>
