@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page Builder - Mekong Agency</title>
+    <meta name="description" content="Drag-and-drop landing page builder for creating high-converting marketing pages without coding.">
 
     <script type="importmap">
     {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
@@ -24,6 +25,31 @@
             height: calc(100vh - 64px);
             background: #F0F2F5;
         }
+
+        @media (max-width: 1024px) {
+            .builder-layout {
+                grid-template-columns: 200px 1fr 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .builder-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+            }
+
+            .blocks-panel, .properties-panel {
+                display: none; /* In a real app, these would be toggleable drawers */
+            }
+
+            .blocks-panel.active, .properties-panel.active {
+                display: block;
+                position: fixed;
+                inset: 0;
+                z-index: 100;
+            }
+        }
+
 
         /* Blocks Panel (Left) */
         .blocks-panel {

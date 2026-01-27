@@ -5,9 +5,17 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page Renderer - Mekong Agency</title>
+    <meta name="description" content="Mekong Agency Landing Page">
+    <meta property="og:title" content="Mekong Agency Landing Page">
+    <meta property="og:description" content="Giải pháp Marketing tổng thể cho doanh nghiệp miền Tây.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:type" content="website">
 
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/m3-agency.css">
+
+    <!-- Environment Variables -->
+    <script src="env.js"></script>
 
     <style>
         body { margin: 0; padding: 0; font-family: 'Google Sans', sans-serif; }
@@ -37,12 +45,9 @@
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-        // Initialize Supabase - using anon key for public read if allowed
-        // In production, these should be env vars or injected
-        const supabaseUrl = 'YOUR_SUPABASE_URL';
-        const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
-        // Note: Since we don't have real keys here, we will mock the rendering for demo purposes
-        // if the URL search param 'demo' is present.
+        // Initialize Supabase - try to use injected env vars first
+        const supabaseUrl = window.__ENV__?.SUPABASE_URL || 'YOUR_SUPABASE_URL';
+        const supabaseKey = window.__ENV__?.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
 
         const app = document.getElementById('app');
 
