@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalo OA Chat - Mekong Agency Admin</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    <style>
+        .chat-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            height: calc(100vh - 80px); /* Adjust based on top bar */
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        /* Sidebar List */
+        .chat-sidebar {
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            display: flex;
+            flex-direction: column;
+            background: var(--md-sys-color-surface-container-low);
+        }
+
+        .chat-search {
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .user-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .user-item {
+            padding: 12px 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .user-item:hover, .user-item.active {
+            background: var(--md-sys-color-secondary-container);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .user-info {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .user-name {
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .last-msg {
+            font-size: 12px;
+            color: var(--md-sys-color-on-surface-variant);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Chat Area */
+        .chat-main {
+            display: flex;
+            flex-direction: column;
+            background: var(--md-sys-color-surface);
+        }
+
+        .chat-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--md-sys-color-surface);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .message.inbound {
+            align-self: flex-start;
+            background: var(--md-sys-color-surface-container-high);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.outbound {
+            align-self: flex-end;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-top: 4px;
+            display: block;
+            text-align: right;
+        }
+
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 24px;
+            border: 1px solid var(--md-sys-color-outline);
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
+        }
+
+        .mock-badge {
+            background: #FFEBEE;
+            color: #C62828;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+    </style>
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <sadec-sidebar active="zalo"></sadec-sidebar>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div style="display: flex; align-items: center;">
+                        <h1 class="page-title" style="font-size: 24px; margin: 0;">Zalo OA Chat</h1>
+                        <span class="mock-badge">MOCK MODE</span>
+                    </div>
+                    <div class="body-medium text-muted">Tương tác trực tiếp với khách hàng qua Zalo</div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                     <button class="btn btn-outlined">
+                        <span class="material-symbols-outlined">settings</span>
+                        Cấu hình OA
+                    </button>
+                    <button class="btn btn-filled">
+                        <span class="material-symbols-outlined">sync</span>
+                        Đồng bộ
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-layout">
+                <!-- Sidebar -->
+                <div class="chat-sidebar">
+                    <div class="chat-search">
+                        <input type="text" class="chat-input" placeholder="Tìm kiếm hội thoại...">
+                    </div>
+                    <div class="user-list">
+                        <div class="user-item active">
+                            <div class="user-avatar">NA</div>
+                            <div class="user-info">
+                                <div class="user-name">Nguyễn Văn A (Zalo)</div>
+                                <div class="last-msg">Xin chào, tôi muốn tìm hiểu...</div>
+                            </div>
+                            <div style="font-size: 10px; color: var(--md-sys-color-primary);">09:41</div>
+                        </div>
+                        <div class="user-item">
+                            <div class="user-avatar" style="background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary);">TH</div>
+                            <div class="user-info">
+                                <div class="user-name">Trần Thị B</div>
+                                <div class="last-msg">Cảm ơn shop đã tư vấn</div>
+                            </div>
+                            <div style="font-size: 10px;">Hôm qua</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Chat -->
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="user-avatar">NA</div>
+                        <div>
+                            <div class="user-name">Nguyễn Văn A (Zalo)</div>
+                            <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Online 5 phút trước</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="messageList">
+                        <div class="message inbound">
+                            Xin chào, tôi muốn tìm hiểu về dịch vụ marketing trọn gói cho quán cafe.
+                            <span class="message-time">09:41</span>
+                        </div>
+                         <div class="message outbound">
+                            Chào bạn, cảm ơn bạn đã quan tâm. Bạn cho mình xin thêm thông tin về quán nhé?
+                            <span class="message-time">09:42</span>
+                        </div>
+                        <div class="message inbound">
+                            Quán mình ở Sa Đéc, quy mô khoảng 50 bàn.
+                            <span class="message-time">09:45</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <button class="btn-icon">
+                            <span class="material-symbols-outlined">attach_file</span>
+                        </button>
+                        <button class="btn-icon">
+                            <span class="material-symbols-outlined">image</span>
+                        </button>
+                        <input type="text" class="chat-input" placeholder="Nhập tin nhắn..." id="msgInput">
+                        <button class="btn btn-filled icon-only" id="sendBtn">
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mock Send Functionality
+        document.getElementById('sendBtn').addEventListener('click', sendMessage);
+        document.getElementById('msgInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const input = document.getElementById('msgInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // Add Outbound Message
+            addMessage(text, 'outbound');
+            input.value = '';
+
+            // Simulate Reply
+            setTimeout(() => {
+                addMessage('Đây là phản hồi tự động từ hệ thống (Mock Mode)', 'inbound');
+            }, 1000);
+        }
+
+        function addMessage(text, type) {
+            const list = document.getElementById('messageList');
+            const msg = document.createElement('div');
+            msg.className = `message ${type}`;
+            const time = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+            msg.innerHTML = `${text}<span class="message-time">${time}</span>`;
+            list.appendChild(msg);
+            list.scrollTop = list.scrollHeight;
+        }
+    </script>
+</body>
+</html>
