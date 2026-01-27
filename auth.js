@@ -295,7 +295,7 @@ const AuthActions = {
         AuthState.isAuthenticated = false;
 
         // Redirect to login
-        window.location.href = '/login.html';
+        window.location.href = '/auth/login.html';
     },
 
     // Reset password request
@@ -393,7 +393,7 @@ const AuthGuards = {
         await AuthState.init();
 
         if (!AuthState.isAuthenticated) {
-            window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+            window.location.href = '/auth/login.html';
             return false;
         }
 
@@ -405,7 +405,7 @@ const AuthGuards = {
         await AuthState.init();
 
         if (!AuthState.isAuthenticated) {
-            window.location.href = '/login.html';
+            window.location.href = '/auth/login.html';
             return false;
         }
 
