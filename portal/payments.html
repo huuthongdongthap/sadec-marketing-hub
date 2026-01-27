@@ -747,7 +747,7 @@
 
             if (method === 'bank') {
                 alert('Vui lòng chuyển khoản theo thông tin ở trên.\n\nSau khi chuyển khoản, hệ thống sẽ tự động xác nhận trong 5-10 phút.');
-            } else if (method === 'vnpay') {
+            } else if (method === 'vnpay' || method === 'momo') {
                 const btn = document.getElementById('pay-btn');
                 const originalText = btn.textContent;
                 btn.disabled = true;
@@ -760,11 +760,14 @@
                     const invoiceNumber = invoiceCard.querySelector('.invoice-number').textContent.trim(); // e.g. "#INV-2026-001"
                     const cleanInvoiceId = invoiceNumber.replace('#', '');
 
+                    // Determine endpoint based on method
+                    const endpoint = method === 'vnpay' ? 'create-payment' : 'create-momo-payment';
+
                     // Call Edge Function
                     const { data: { session } } = await supabase.auth.getSession();
                     const token = session?.access_token;
 
-                    const response = await fetch(`${SUPABASE_URL}/functions/v1/create-payment`, {
+                    const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -774,7 +777,7 @@
                             invoiceId: cleanInvoiceId,
                             amount: amount,
                             orderInfo: `Thanh toan hoa don ${cleanInvoiceId}`,
-                            paymentMethod: 'vnpay'
+                            paymentMethod: method
                         })
                     });
 
@@ -785,7 +788,7 @@
                     }
 
                     if (result.success && result.paymentUrl) {
-                        // Redirect to VNPay
+                        // Redirect to Payment Gateway
                         window.location.href = result.paymentUrl;
                     } else {
                         throw new Error(result.error || 'Invalid response from server');
@@ -798,7 +801,7 @@
                     btn.textContent = originalText;
                 }
             } else {
-                alert('🔄 Đang chuyển hướng đến cổng thanh toán ' + method.toUpperCase() + '...\n\n(Demo mode - Trong thực tế sẽ redirect đến VNPay/MoMo)');
+                alert('Phương thức thanh toán chưa được hỗ trợ.');
             }
         });
     </script>
