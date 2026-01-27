@@ -390,6 +390,23 @@ class SadecSidebar extends HTMLElement {
                     rgba(0, 168, 255, 0.1));
                 color: #00f0ff;
                 border: 1px solid rgba(0, 240, 255, 0.3);
+                box-shadow: 
+                    inset 4px 0 20px rgba(0, 240, 255, 0.15),
+                    0 0 25px rgba(0, 240, 255, 0.1);
+                animation: sidebarActiveGlow 2s ease-in-out infinite alternate;
+            }
+
+            @keyframes sidebarActiveGlow {
+                from {
+                    box-shadow: 
+                        inset 4px 0 20px rgba(0, 240, 255, 0.15),
+                        0 0 20px rgba(0, 240, 255, 0.1);
+                }
+                to {
+                    box-shadow: 
+                        inset 4px 0 30px rgba(0, 240, 255, 0.25),
+                        0 0 35px rgba(0, 240, 255, 0.2);
+                }
             }
 
             /* Affiliate Active State */
@@ -399,6 +416,23 @@ class SadecSidebar extends HTMLElement {
                     rgba(255, 160, 0, 0.1));
                 color: #FFD700;
                 border: 1px solid rgba(255, 215, 0, 0.3);
+                box-shadow: 
+                    inset 4px 0 20px rgba(255, 215, 0, 0.15),
+                    0 0 25px rgba(255, 215, 0, 0.1);
+                animation: affiliateActiveGlow 2s ease-in-out infinite alternate;
+            }
+
+            @keyframes affiliateActiveGlow {
+                from {
+                    box-shadow: 
+                        inset 4px 0 20px rgba(255, 215, 0, 0.15),
+                        0 0 20px rgba(255, 215, 0, 0.1);
+                }
+                to {
+                    box-shadow: 
+                        inset 4px 0 30px rgba(255, 215, 0, 0.25),
+                        0 0 35px rgba(255, 215, 0, 0.2);
+                }
             }
 
             .nav-item.active::before {

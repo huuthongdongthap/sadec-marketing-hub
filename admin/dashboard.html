@@ -169,7 +169,8 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Search system..." aria-label="Search system">
                     </div>
-                    <button class="btn-cyber" id="notify-toggle" onclick="window.Notifications.requestPermission()" title="Enable Notifications">
+                    <button class="btn-cyber" id="notify-toggle" onclick="window.Notifications.requestPermission()"
+                        title="Enable Notifications">
                         <span class="material-symbols-outlined">notifications</span>
                     </button>
                     <button class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
@@ -182,55 +183,54 @@
             </div>
 
             <!-- Stats -->
-            <div class="stats-grid animate-entry delay-2">
-                <!-- Stat 1 -->
-                <div class="glass-card">
+            <div class="stats-grid animate-entry-premium delay-2">
+                <!-- Stat 1: Revenue -->
+                <div class="glass-card glass-card-premium" data-tilt>
                     <div class="stat-card-inner">
-                        <div class="stat-icon-glow"
-                            style="background: rgba(0, 240, 255, 0.1); color: var(--primary-cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);">
+                        <div class="stat-icon-neon cyan">
                             <span class="material-symbols-outlined">trending_up</span>
                         </div>
                         <div class="stat-label">Total Revenue</div>
-                        <div class="stat-value" id="stat-revenue">2.4B VND</div>
-                        <div style="color: var(--accent-lime); font-size: 12px;">▲ 12.5% increase</div>
+                        <div class="stat-value stat-value-animated" id="stat-revenue" data-target="2400000000"
+                            data-suffix=" VND">0 VND</div>
+                        <div class="stat-trend positive">▲ 12.5% increase</div>
                     </div>
                 </div>
 
-                <!-- Stat 2 -->
-                <div class="glass-card">
+                <!-- Stat 2: Clients -->
+                <div class="glass-card glass-card-premium" data-tilt>
                     <div class="stat-card-inner">
-                        <div class="stat-icon-glow"
-                            style="background: rgba(188, 19, 254, 0.1); color: var(--secondary-purple); box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);">
+                        <div class="stat-icon-neon purple">
                             <span class="material-symbols-outlined">group_add</span>
                         </div>
                         <div class="stat-label">Active Clients</div>
-                        <div class="stat-value" id="stat-clients">142</div>
-                        <div style="color: var(--accent-lime); font-size: 12px;">▲ 8 new this week</div>
+                        <div class="stat-value stat-value-animated" id="stat-clients" data-target="142">0</div>
+                        <div class="stat-trend positive">▲ 8 new this week</div>
                     </div>
                 </div>
 
-                <!-- Stat 3 -->
-                <div class="glass-card">
+                <!-- Stat 3: Leads -->
+                <div class="glass-card glass-card-premium" data-tilt>
                     <div class="stat-card-inner">
-                        <div class="stat-icon-glow" style="background: rgba(255, 255, 255, 0.1); color: white;">
+                        <div class="stat-icon-neon white">
                             <span class="material-symbols-outlined">ads_click</span>
                         </div>
-                        <div class="stat-label">Ad Impressions</div>
-                        <div class="stat-value" id="stat-impressions">8.5M</div>
-                        <div style="color: var(--text-tertiary); font-size: 12px;">─ Stable performance</div>
+                        <div class="stat-label">Total Leads</div>
+                        <div class="stat-value stat-value-animated" id="stat-impressions" data-target="8500000">0</div>
+                        <div class="stat-trend neutral">─ Stable performance</div>
                     </div>
                 </div>
 
-                <!-- Stat 4 -->
-                <div class="glass-card">
+                <!-- Stat 4: Campaign Rate -->
+                <div class="glass-card glass-card-premium" data-tilt>
                     <div class="stat-card-inner">
-                        <div class="stat-icon-glow"
-                            style="background: rgba(204, 255, 0, 0.1); color: var(--accent-lime);">
+                        <div class="stat-icon-neon lime">
                             <span class="material-symbols-outlined">bolt</span>
                         </div>
-                        <div class="stat-label">System Health</div>
-                        <div class="stat-value" id="stat-health">99.9%</div>
-                        <div style="color: var(--primary-cyan); font-size: 12px;">● All systems operational</div>
+                        <div class="stat-label">Active Campaign Rate</div>
+                        <div class="stat-value stat-value-animated" id="stat-health" data-target="99" data-suffix=".9%">
+                            0%</div>
+                        <div class="stat-trend positive">● All systems operational</div>
                     </div>
                 </div>
             </div>
@@ -300,6 +300,7 @@
     <script src="../assets/js/admin-shared.js"></script>
     <script type="module" src="../assets/js/dashboard-client.js"></script>
     <script src="../assets/js/agency-2026.js"></script>
+    <script src="../assets/js/agency-2026-premium.js"></script>
     <script src="../assets/js/notifications.js"></script>
     <script>
         // Initialize Chart.js after DOM load

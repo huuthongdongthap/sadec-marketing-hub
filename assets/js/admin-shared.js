@@ -164,18 +164,29 @@ class DashboardCharts {
         const ctx = document.getElementById(canvasId);
         if (!ctx) return null;
 
+        // Create gradient for 2026 premium look
+        const chartCtx = ctx.getContext('2d');
+        const gradient = chartCtx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(0, 240, 255, 0.4)');
+        gradient.addColorStop(0.5, 'rgba(0, 240, 255, 0.1)');
+        gradient.addColorStop(1, 'rgba(0, 240, 255, 0)');
+
         const defaultData = {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
                 label: 'Revenue (VND)',
                 data: [180, 220, 280, 350, 420, 480],
                 borderColor: this.colors.cyan,
-                backgroundColor: `${this.colors.cyan}20`,
+                backgroundColor: gradient,
                 fill: true,
                 tension: 0.4,
                 pointBackgroundColor: this.colors.cyan,
                 pointBorderColor: '#fff',
-                pointRadius: 6
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 10,
+                pointHoverBorderWidth: 3,
+                borderWidth: 3
             }]
         };
 
@@ -185,12 +196,35 @@ class DashboardCharts {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(9, 9, 11, 0.9)',
+                        borderColor: 'rgba(0, 240, 255, 0.3)',
+                        borderWidth: 1,
+                        titleColor: '#00f0ff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8
+                    }
                 },
                 scales: {
-                    x: { grid: { display: false }, ticks: { color: '#a1a1aa' } },
-                    y: { grid: { color: '#ffffff10' }, ticks: { color: '#a1a1aa' } }
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#a1a1aa', font: { family: 'Plus Jakarta Sans' } }
+                    },
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { color: '#a1a1aa', font: { family: 'Plus Jakarta Sans' } }
+                    }
                 }
             }
         });
