@@ -193,11 +193,14 @@
         const urlParams = new URLSearchParams(window.location.search);
 
         // Verify payment with Edge Function
-        async function verifyPayment() {
+        async function verifyPayment(gateway = 'vnpay') {
             try {
+                // Determine endpoint based on gateway
+                const endpoint = gateway === 'momo' ? 'verify-momo-payment' : 'verify-payment';
+
                 // Call the verify-payment Edge Function
-                // We pass the query string exactly as received from VNPay
-                const response = await fetch(`${SUPABASE_URL}/functions/v1/verify-payment${window.location.search}`, {
+                // We pass the query string exactly as received from VNPay/MoMo
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}${window.location.search}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
@@ -273,14 +276,16 @@
 
         // Check if we have VNPay params
         if (urlParams.has('vnp_ResponseCode')) {
-            verifyPayment();
+            verifyPayment('vnpay');
+        } else if (urlParams.has('resultCode') && urlParams.has('partnerCode')) {
+            verifyPayment('momo');
         } else {
             // No params - show demo success
             document.getElementById('loading-state').style.display = 'none';
             document.getElementById('result-state').style.display = 'block';
             document.getElementById('result-icon').className = 'result-icon success';
             document.getElementById('result-title').textContent = '✅ Demo: Kết quả thanh toán';
-            document.getElementById('result-message').textContent = 'Trang này hiển thị kết quả sau khi thanh toán VNPay hoàn tất.';
+            document.getElementById('result-message').textContent = 'Trang này hiển thị kết quả sau khi thanh toán VNPay/MoMo hoàn tất.';
         }
     </script>
 
