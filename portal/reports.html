@@ -16,6 +16,8 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
@@ -285,7 +287,7 @@
                         <md-select-option value="30d">30 ngày qua</md-select-option>
                         <md-select-option value="90d">3 tháng qua</md-select-option>
                     </md-outlined-select>
-                    <md-filled-button>
+                    <md-filled-button id="export-btn">
                         <span class="material-symbols-outlined" slot="icon">download</span>
                         Xuất báo cáo
                     </md-filled-button>
@@ -399,61 +401,50 @@
                         </tr>
                     </thead>
                     <tbody id="campaign-table-body">
+                        <!-- Content populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Report History Section -->
+            <div class="campaigns-card" style="margin-top: 32px;">
+                <div class="chart-header">
+                    <div class="chart-title">Lịch sử báo cáo</div>
+                </div>
+                <table class="data-table">
+                    <thead>
                         <tr>
-                            <td><strong>Tết Sale 2026</strong></td>
+                            <th>Tên báo cáo</th>
+                            <th>Kỳ báo cáo</th>
+                            <th>Ngày tạo</th>
+                            <th>Người tạo</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Báo cáo hiệu suất Tháng 1/2026</strong></td>
+                            <td>01/01/2026 - 31/01/2026</td>
+                            <td>01/02/2026</td>
+                            <td>Hệ thống</td>
                             <td>
-                                <span class="platform-icon">
-                                    <span style="color: #1877F2;">📘</span> Facebook
-                                </span>
+                                <md-text-button class="download-report-btn" data-period="Jan 2026">
+                                    <span class="material-symbols-outlined" slot="icon">download</span>
+                                    Tải về
+                                </md-text-button>
                             </td>
-                            <td><span class="status-badge running">🟢 Đang chạy</span></td>
-                            <td>45.2K</td>
-                            <td>1,234</td>
-                            <td>2.73%</td>
-                            <td>3.5M</td>
-                            <td><strong style="color: #388E3C;">4.2x</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Brand Awareness Q1</strong></td>
+                            <td><strong>Báo cáo chiến dịch Tết</strong></td>
+                            <td>15/12/2025 - 15/01/2026</td>
+                            <td>16/01/2026</td>
+                            <td>Nguyễn Văn A</td>
                             <td>
-                                <span class="platform-icon">
-                                    <span style="color: #E1306C;">📷</span> Instagram
-                                </span>
+                                <md-text-button class="download-report-btn" data-period="Tet Campaign">
+                                    <span class="material-symbols-outlined" slot="icon">download</span>
+                                    Tải về
+                                </md-text-button>
                             </td>
-                            <td><span class="status-badge running">🟢 Đang chạy</span></td>
-                            <td>32.1K</td>
-                            <td>856</td>
-                            <td>2.67%</td>
-                            <td>2.8M</td>
-                            <td><strong style="color: #388E3C;">3.5x</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lead Gen December</strong></td>
-                            <td>
-                                <span class="platform-icon">
-                                    <span style="color: #4285F4;">🔍</span> Google Ads
-                                </span>
-                            </td>
-                            <td><span class="status-badge completed">✅ Hoàn thành</span></td>
-                            <td>28.5K</td>
-                            <td>2,145</td>
-                            <td>7.53%</td>
-                            <td>4.2M</td>
-                            <td><strong style="color: #388E3C;">5.1x</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Zalo Promotion</strong></td>
-                            <td>
-                                <span class="platform-icon">
-                                    <span style="color: #0068FF;">💬</span> Zalo
-                                </span>
-                            </td>
-                            <td><span class="status-badge paused">⏸️ Tạm dừng</span></td>
-                            <td>20.0K</td>
-                            <td>678</td>
-                            <td>3.39%</td>
-                            <td>1.5M</td>
-                            <td><strong style="color: #F57C00;">2.1x</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -463,11 +454,47 @@
 
     <script type="module">
         import { supabase, auth, campaigns, analytics, utils } from '../assets/js/supabase.js';
+        import { ReportGenerator } from '../assets/js/report-generator.js';
 
         // Initialize
         document.addEventListener('DOMContentLoaded', async () => {
             await loadDashboardData('7d');
+
+            // Bind download buttons
+            document.querySelectorAll('.download-report-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const period = e.currentTarget.dataset.period;
+                    generatePDF(period);
+                });
+            });
+
+            // Bind main export button
+            document.getElementById('export-btn').addEventListener('click', () => {
+                const period = document.getElementById('period-select').value;
+                generatePDF(period);
+            });
         });
+
+        async function generatePDF(period) {
+            const generator = new ReportGenerator();
+
+            // Mock data for report - in real app would come from DB
+            const reportData = {
+                clientName: "Mekong Agency Client",
+                period: period,
+                metrics: {
+                    impressions: document.getElementById('kpi-reach').textContent,
+                    clicks: "1,234",
+                    conversions: document.getElementById('kpi-leads').textContent,
+                    spend: 5000000
+                },
+                insights: "Chiến dịch Tết 2026 đang có hiệu suất tốt với ROAS 4.2x. Tỷ lệ chuyển đổi từ Zalo tăng 20% so với tháng trước.",
+                recommendations: "1. Tăng ngân sách cho nhóm quảng cáo Facebook Reel.\n2. Tối ưu lại landing page để cải thiện tỷ lệ điền form.\n3. Tiếp tục duy trì nội dung trên Zalo OA."
+            };
+
+            await generator.generateReport(reportData);
+        }
+
 
         // Filter change
         const periodSelect = document.getElementById('period-select');
