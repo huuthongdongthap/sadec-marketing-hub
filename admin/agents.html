@@ -622,11 +622,16 @@
     </div>
 
     <!-- Agent System Script -->
-    <script src="../assets/js/agents.js"></script>
+    <script type="module" src="../assets/js/agents.js"></script>
 
-    <script>
+    <script type="module">
+        import { mekongAgents, agentBus } from '../assets/js/agents.js';
+
         // Initialize the agent system
-        mekongAgents.initialize();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await mekongAgents.initialize();
+            renderAgentCards();
+        });
 
         // DOM Elements
         const taskForm = document.getElementById('taskForm');

@@ -810,6 +810,110 @@ function getFileType(mimeType) {
 }
 
 // ================================================
+// AI AGENTS API
+// ================================================
+
+export const agents = {
+    async getAll() {
+        const { data, error } = await supabase
+            .from('agents')
+            .select('*')
+            .order('name');
+        return { data, error };
+    },
+
+    async getById(id) {
+        const { data, error } = await supabase
+            .from('agents')
+            .select('*')
+            .eq('id', id)
+            .single();
+        return { data, error };
+    },
+
+    async updateStatus(id, status) {
+        const { data, error } = await supabase
+            .from('agents')
+            .update({ status, updated_at: new Date().toISOString() })
+            .eq('id', id)
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async createTask(task) {
+        const user = await auth.getUser();
+
+        const { data, error } = await supabase
+            .from('agent_tasks')
+            .insert({
+                ...task,
+                created_by: user?.id,
+                status: 'pending'
+            })
+            .select()
+            .single();
+        return { data, error };
+    },
+
+    async getTasks(agentId = null) {
+        let query = supabase.from('agent_tasks').select('*, agent:agents(name)');
+        if (agentId) query = query.eq('agent_id', agentId);
+
+        const { data, error } = await query.order('created_at', { ascending: false });
+        return { data, error };
+    }
+};
+
+// ================================================
+// WORKFLOW AUTOMATION API
+// ================================================
+
+export const automation = {
+    async getWorkflows() {
+        const { data, error } = await supabase
+            .from('workflows')
+            .select('*')
+            .order('name');
+        return { data, error };
+    },
+
+    async getWorkflowById(id) {
+        const { data, error } = await supabase
+            .from('workflows')
+            .select('*')
+            .eq('id', id)
+            .single();
+        return { data, error };
+    },
+
+    async executeWorkflow(workflowId, context = {}) {
+        const { data, error } = await supabase
+            .from('workflow_executions')
+            .insert({
+                workflow_id: workflowId,
+                status: 'running',
+                context,
+                current_step_index: 0
+            })
+            .select()
+            .single();
+
+        // In a real system, this would trigger an Edge Function or background worker
+        // For now, we just create the execution record
+        return { data, error };
+    },
+
+    async getExecutions(workflowId = null) {
+        let query = supabase.from('workflow_executions').select('*, workflow:workflows(name)');
+        if (workflowId) query = query.eq('workflow_id', workflowId);
+
+        const { data, error } = await query.order('started_at', { ascending: false });
+        return { data, error };
+    }
+};
+
+// ================================================
 // ANALYTICS API
 // ================================================
 
