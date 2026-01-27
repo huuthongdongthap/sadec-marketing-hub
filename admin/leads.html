@@ -253,12 +253,18 @@
                     <span class="material-symbols-outlined text-muted">search</span>
                     <input type="text" placeholder="Tìm kiếm leads..." aria-label="Tìm kiếm leads">
                 </div>
-                <select class="filter-dropdown" aria-label="Lọc theo trạng thái">
-                    <option>Tất cả trạng thái</option>
-                    <option>Hot</option>
-                    <option>Warm</option>
-                    <option>Cold</option>
-                </select>
+                <div class="filter-group">
+                    <select class="filter-dropdown" aria-label="Lọc theo trạng thái">
+                        <option value="all">Tất cả trạng thái</option>
+                        <option value="hot">🔥 Hot Leads (Priority)</option>
+                        <option value="warm">⭐ Warm Leads</option>
+                        <option value="cold">❄️ Cold Leads</option>
+                    </select>
+                    <button class="btn btn-outlined" id="sortBtn">
+                        <span class="material-symbols-outlined">sort</span>
+                        Sắp xếp: Điểm cao nhất
+                    </button>
+                </div>
                 <select class="filter-dropdown" aria-label="Lọc theo nguồn">
                     <option>Tất cả nguồn</option>
                     <option>Facebook</option>
@@ -353,7 +359,7 @@
                                 <div class="lead-name">Trần Thanh Lan</div>
                                 <div class="lead-company">Cửa hàng hoa Hương Sen</div>
                             </div>
-                            <span class="lead-score-badge hot">Hot</span>
+                            <span class="lead-score-badge hot">A - 95</span>
                         </div>
                         <div class="lead-details">
                             <div class="lead-detail">
@@ -399,7 +405,7 @@
                                 <div class="lead-name">Nguyễn Văn Minh</div>
                                 <div class="lead-company">Nhà hàng Mekong</div>
                             </div>
-                            <span class="lead-score-badge warm">Warm</span>
+                            <span class="lead-score-badge warm">B - 75</span>
                         </div>
                         <div class="lead-details">
                             <div class="lead-detail">
@@ -445,7 +451,7 @@
                                 <div class="lead-name">Phạm Hoàng</div>
                                 <div class="lead-company">Gym Fitness Pro</div>
                             </div>
-                            <span class="lead-score-badge cold">Cold</span>
+                            <span class="lead-score-badge cold">D - 30</span>
                         </div>
                         <div class="lead-details">
                             <div class="lead-detail">
