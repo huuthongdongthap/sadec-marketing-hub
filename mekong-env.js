@@ -12,7 +12,8 @@ const DEFAULT_CONFIG = {
     SUPABASE_SERVICE_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NjczMTc4NiwiZXhwIjoyMDgyMzA3Nzg2fQ.hFwiEW_U7Tr5hXyvw04aS_CzS2OXK7VHQ0Y0SG_jJDc',
     // Using Pooler connection (Transaction mode recommended for serverless)
     // Format: postgres://[user].[project]:[password]@[host]:[port]/[db]
-    DB_CONNECTION_STRING: 'postgres://postgres.pzcgvfhppglzfjavxuid:TtmDATA@2026@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres'
+    // Password must be URL encoded (e.g. @ -> %40)
+    DB_CONNECTION_STRING: 'postgres://postgres.pzcgvfhppglzfjavxuid:TtmDATA%402026@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres'
 };
 
 module.exports = {
