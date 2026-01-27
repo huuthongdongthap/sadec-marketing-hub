@@ -567,6 +567,7 @@
 
     <script type="module">
         import { modal, toast } from '../assets/js/portal-client.js';
+        import { paymentManager } from '../assets/js/payment-gateway.js';
 
         // Billing Cycle Logic
         const cycleSwitch = document.getElementById('billing-cycle-switch');
@@ -713,14 +714,38 @@
             if (radio) radio.checked = true;
         };
 
-        window.processPayment = (planId, amount) => {
-            modal.close();
-            toast.show('Đang xử lý thanh toán...', 'info');
+        window.processPayment = async (planId, amount) => {
+            // Get selected payment method
+            const methodInput = document.querySelector('input[name="payment_method"]:checked');
+            const method = methodInput ? methodInput.value : 'vnpay';
 
-            setTimeout(() => {
-                // Mock redirect to payment gateway or success
-                window.location.href = `payment-result.html?status=success&plan=${planId}&amount=${amount}`;
-            }, 2000);
+            modal.close();
+            toast.show('Đang khởi tạo thanh toán...', 'info');
+
+            try {
+                const result = await paymentManager.processPayment(method, {
+                    amount: amount,
+                    description: `Thanh toan goi ${planId.toUpperCase()}`,
+                    orderId: `SUB-${Date.now()}`
+                });
+
+                if (result && result.data) {
+                    if (typeof result.data === 'string') {
+                        // Redirect to gateway (VNPay, MoMo)
+                        window.location.href = result.data;
+                    } else if (result.data.type === 'qr_display') {
+                        // Bank Transfer QR
+                        // In a full implementation, we would show another modal with the QR
+                        // For now, redirect to result page which mimics "pending" state
+                        window.location.href = `payment-result.html?status=pending&method=bank&amount=${amount}&qr=${encodeURIComponent(result.data.qrUrl)}`;
+                    }
+                } else {
+                     toast.show('Không thể khởi tạo cổng thanh toán', 'error');
+                }
+            } catch (error) {
+                console.error('Payment Error:', error);
+                toast.show('Có lỗi xảy ra khi xử lý thanh toán', 'error');
+            }
         };
     </script>
 </body>
