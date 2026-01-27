@@ -1,149 +1,14 @@
 // Supabase Edge Function: Generate Content
-// AI-powered content generation for marketing posts
-// Uses OpenAI GPT-4 for Vietnamese marketing content
+// Uses Google Gemini AI to generate marketing content
 
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.0';
 
-// Get API key from environment
-const OPENAI_API_KEY = Deno.env.get('OPENAI_API_KEY');
+const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
 
-interface ContentRequest {
-    type: 'social_post' | 'caption' | 'hashtags' | 'ad_copy' | 'email';
-    topic: string;
-    platform?: 'facebook' | 'instagram' | 'tiktok' | 'zalo';
-    tone?: 'professional' | 'friendly' | 'urgent' | 'playful';
-    language?: 'vi' | 'en';
-    brandVoice?: string;
-    maxLength?: number;
-}
-
-interface ContentResponse {
-    content: string;
-    hashtags?: string[];
-    imagePrompt?: string;
-    alternatives?: string[];
-    usage?: {
-        promptTokens: number;
-        completionTokens: number;
-    };
-}
-
-// Prompt templates for different content types
-const PROMPTS = {
-    social_post: (req: ContentRequest) => `
-Bạn là chuyên gia marketing cho agency tại Sa Đéc, Việt Nam.
-Viết một bài đăng ${req.platform || 'Facebook'} về: "${req.topic}"
-
-Yêu cầu:
-- Giọng văn: ${req.tone || 'friendly'} 
-- Ngôn ngữ: Tiếng Việt
-- Có emoji phù hợp
-- Có call-to-action
-- Độ dài: ${req.maxLength || 200} từ tối đa
-${req.brandVoice ? `- Phong cách thương hiệu: ${req.brandVoice}` : ''}
-
-Trả về JSON format:
-{
-  "content": "nội dung bài viết",
-  "hashtags": ["hashtag1", "hashtag2"],
-  "imagePrompt": "mô tả hình ảnh phù hợp"
-}`,
-
-    caption: (req: ContentRequest) => `
-Viết caption ngắn gọn cho ảnh về: "${req.topic}"
-- Giọng: ${req.tone || 'playful'}
-- Platform: ${req.platform || 'Instagram'}
-- Tối đa 100 ký tự
-
-Chỉ trả về caption, không giải thích.`,
-
-    hashtags: (req: ContentRequest) => `
-Tạo 10 hashtag phù hợp cho nội dung về: "${req.topic}"
-- Platform: ${req.platform || 'Instagram'}
-- Mix tiếng Việt và tiếng Anh
-
-Trả về dạng JSON array: ["#tag1", "#tag2", ...]`,
-
-    ad_copy: (req: ContentRequest) => `
-Viết quảng cáo cho: "${req.topic}"
-- Platform: ${req.platform || 'Facebook Ads'}
-- Giọng: ${req.tone || 'urgent'}
-- Cần có: Headline, Body, CTA
-
-Trả về JSON:
-{
-  "headline": "...",
-  "body": "...",
-  "cta": "..."
-}`,
-
-    email: (req: ContentRequest) => `
-Viết email marketing về: "${req.topic}"
-- Giọng: ${req.tone || 'professional'}
-- Có subject line và body
-
-Trả về JSON:
-{
-  "subject": "...",
-  "body": "...",
-  "cta": "..."
-}`
-};
-
-async function generateContent(req: ContentRequest): Promise<ContentResponse> {
-    if (!OPENAI_API_KEY) {
-        throw new Error('OPENAI_API_KEY not configured');
-    }
-
-    const promptFn = PROMPTS[req.type] || PROMPTS.social_post;
-    const prompt = promptFn(req);
-
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_API_KEY}`
-        },
-        body: JSON.stringify({
-            model: 'gpt-4o-mini',
-            messages: [
-                { role: 'system', content: 'Bạn là AI marketing assistant cho agency Việt Nam. Trả lời bằng tiếng Việt trừ khi được yêu cầu khác.' },
-                { role: 'user', content: prompt }
-            ],
-            max_tokens: 1000,
-            temperature: 0.7
-        })
-    });
-
-    if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`OpenAI API error: ${error}`);
-    }
-
-    const data = await response.json();
-    const content = data.choices[0]?.message?.content || '';
-
-    // Try to parse JSON response
-    try {
-        const parsed = JSON.parse(content);
-        return {
-            ...parsed,
-            usage: {
-                promptTokens: data.usage?.prompt_tokens || 0,
-                completionTokens: data.usage?.completion_tokens || 0
-            }
-        };
-    } catch {
-        // Return raw content if not JSON
-        return {
-            content,
-            usage: {
-                promptTokens: data.usage?.prompt_tokens || 0,
-                completionTokens: data.usage?.completion_tokens || 0
-            }
-        };
-    }
-}
+const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 serve(async (req: Request) => {
     const headers = {
@@ -158,33 +23,75 @@ serve(async (req: Request) => {
     }
 
     try {
-        if (req.method !== 'POST') {
-            return new Response(
-                JSON.stringify({ error: 'Method not allowed' }),
-                { status: 405, headers }
-            );
+        const { taskId, prompt, context } = await req.json();
+
+        // 1. Generate Content
+        let generatedContent = '';
+
+        if (GEMINI_API_KEY) {
+            // Call Gemini API
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: `You are an expert marketing copywriter for Mekong Agency.
+                            Task: ${prompt}
+                            Context: ${JSON.stringify(context || {})}
+
+                            Please write high-quality, engaging content in Vietnamese.`
+                        }]
+                    }]
+                })
+            });
+            const data = await response.json();
+            generatedContent = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Error generating content.';
+        } else {
+            // Mock content for demo/development without API key
+            console.log('No GEMINI_API_KEY provided. Using mock response.');
+            await new Promise(r => setTimeout(r, 2000)); // Simulate delay
+            generatedContent = `[DEMO CONTENT GENERATED FOR: ${prompt}]\n\n` +
+                `Tiêu đề: Khám phá Vẻ đẹp Đồng Tháp\n\n` +
+                `Chào mừng bạn đến với Sa Đéc, thủ phủ hoa của miền Tây! Chúng tôi tự hào mang đến những sản phẩm hoa tươi chất lượng nhất...\n\n` +
+                `(Lưu ý: Để có nội dung thực, vui lòng cấu hình GEMINI_API_KEY trong Supabase Secrets)`;
         }
 
-        const body: ContentRequest = await req.json();
+        // 2. Update Task in DB (if taskId is provided)
+        if (taskId) {
+            const { error: updateError } = await supabase
+                .from('agent_tasks')
+                .update({
+                    status: 'completed',
+                    output_data: { content: generatedContent },
+                    completed_at: new Date().toISOString()
+                })
+                .eq('id', taskId);
 
-        if (!body.topic) {
-            return new Response(
-                JSON.stringify({ error: 'Topic is required' }),
-                { status: 400, headers }
-            );
+            if (updateError) throw updateError;
         }
-
-        const result = await generateContent(body);
 
         return new Response(
-            JSON.stringify(result),
+            JSON.stringify({ success: true, content: generatedContent }),
             { status: 200, headers }
         );
 
     } catch (error) {
         console.error('Content generation error:', error);
+
+        // Attempt to mark task as failed
+        try {
+            const { taskId } = await req.json().catch(() => ({}));
+            if (taskId) {
+                await supabase.from('agent_tasks').update({
+                    status: 'failed',
+                    error: error.message
+                }).eq('id', taskId);
+            }
+        } catch (e) {}
+
         return new Response(
-            JSON.stringify({ error: error.message || 'Internal server error' }),
+            JSON.stringify({ error: error.message }),
             { status: 500, headers }
         );
     }
