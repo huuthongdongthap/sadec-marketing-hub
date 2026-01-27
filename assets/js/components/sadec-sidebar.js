@@ -96,6 +96,8 @@ class SadecSidebar extends HTMLElement {
             label: '📣 MARKETING',
             items: [
                 { id: 'campaigns', label: 'Campaigns', icon: 'campaign', href: '/admin/campaigns.html' },
+                { id: 'landing-builder', label: 'Landing Pages', icon: 'web', href: '/admin/landing-builder.html' },
+                { id: 'zalo', label: 'Zalo OA', icon: 'chat', href: '/admin/zalo.html' },
                 { id: 'content-calendar', label: 'Content AI', icon: 'calendar_month', href: '/admin/content-calendar.html' },
                 { id: 'community', label: 'Community', icon: 'groups', href: '/admin/community.html' },
                 { id: 'events', label: 'Events', icon: 'event', href: '/admin/events.html' }

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Builder - Mekong Agency</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    <style>
+        .builder-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            height: calc(100vh - 64px);
+            background: #F0F2F5;
+        }
+
+        /* Blocks Panel (Left) */
+        .blocks-panel {
+            background: var(--md-sys-color-surface);
+            border-right: 1px solid var(--md-sys-color-outline-variant);
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .block-category {
+            margin-bottom: 24px;
+        }
+
+        .block-category-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+        }
+
+        .block-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .block-item {
+            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: move;
+            transition: all 0.2s;
+        }
+
+        .block-item:hover {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-secondary-container);
+        }
+
+        .block-icon {
+            font-size: 24px;
+            color: var(--md-sys-color-primary);
+        }
+
+        .block-name {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Canvas (Center) */
+        .canvas-area {
+            padding: 32px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .canvas {
+            width: 100%;
+            max-width: 100%; /* Mobile first default */
+            min-height: 800px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .canvas.desktop { max-width: 100%; }
+        .canvas.tablet { max-width: 768px; }
+        .canvas.mobile { max-width: 375px; }
+
+        /* Properties Panel (Right) */
+        .properties-panel {
+            background: var(--md-sys-color-surface);
+            border-left: 1px solid var(--md-sys-color-outline-variant);
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .prop-group {
+            margin-bottom: 24px;
+        }
+
+        .prop-label {
+            font-size: 12px;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .prop-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        /* Header Toolbar */
+        .builder-header {
+            height: 64px;
+            background: var(--md-sys-color-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .device-toggles {
+            display: flex;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .device-btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .device-btn.active {
+            background: white;
+            color: var(--md-sys-color-primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Preview Blocks in Canvas */
+        .canvas-block {
+            padding: 24px;
+            border: 1px dashed transparent;
+            position: relative;
+        }
+
+        .canvas-block:hover {
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .canvas-block.selected {
+            border: 2px solid var(--md-sys-color-primary);
+        }
+
+        .block-actions {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: none;
+            gap: 4px;
+            background: white;
+            border-radius: 4px;
+            padding: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .canvas-block:hover .block-actions {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="builder-header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="dashboard.html" class="btn-icon">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <div contenteditable="true" style="font-weight: 700; font-size: 18px; padding: 4px 8px; border: 1px dashed transparent; border-radius: 4px;">
+                Untitled Landing Page
+            </div>
+        </div>
+
+        <div class="device-toggles">
+            <button class="device-btn active" onclick="setDevice('desktop')">
+                <span class="material-symbols-outlined">desktop_windows</span>
+            </button>
+            <button class="device-btn" onclick="setDevice('tablet')">
+                <span class="material-symbols-outlined">tablet_mac</span>
+            </button>
+            <button class="device-btn" onclick="setDevice('mobile')">
+                <span class="material-symbols-outlined">smartphone</span>
+            </button>
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outlined">Preview</button>
+            <button class="btn btn-filled">Publish</button>
+        </div>
+    </header>
+
+    <div class="builder-layout">
+        <!-- Left Panel: Blocks -->
+        <div class="blocks-panel">
+            <div class="block-category">
+                <div class="block-category-title">Basic</div>
+                <div class="block-grid">
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="hero">
+                        <span class="material-symbols-outlined block-icon">web_asset</span>
+                        <span class="block-name">Hero Section</span>
+                    </div>
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="features">
+                        <span class="material-symbols-outlined block-icon">grid_view</span>
+                        <span class="block-name">Features</span>
+                    </div>
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="content">
+                        <span class="material-symbols-outlined block-icon">article</span>
+                        <span class="block-name">Content</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-category">
+                <div class="block-category-title">Conversion</div>
+                <div class="block-grid">
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="form">
+                        <span class="material-symbols-outlined block-icon">contact_page</span>
+                        <span class="block-name">Lead Form</span>
+                    </div>
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="cta">
+                        <span class="material-symbols-outlined block-icon">call_to_action</span>
+                        <span class="block-name">Call to Action</span>
+                    </div>
+                    <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="testimonials">
+                        <span class="material-symbols-outlined block-icon">format_quote</span>
+                        <span class="block-name">Testimonials</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Canvas -->
+        <div class="canvas-area">
+            <div id="canvas" class="canvas desktop" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <!-- Blocks will be dropped here -->
+                <div style="padding: 40px; text-align: center; color: #999; border: 2px dashed #ddd; margin: 20px;">
+                    Kéo thả blocks vào đây
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Properties -->
+        <div class="properties-panel">
+            <div class="block-category-title">Settings</div>
+
+            <div class="prop-group">
+                <label class="prop-label">Page Title</label>
+                <input type="text" class="prop-input" value="Khuyến mãi Tết 2026">
+            </div>
+
+            <div class="prop-group">
+                <label class="prop-label">Slug</label>
+                <input type="text" class="prop-input" value="khuyen-mai-tet-2026">
+            </div>
+
+            <div class="prop-group">
+                <label class="prop-label">Theme Color</label>
+                <input type="color" class="prop-input" value="#006A60" style="height: 40px;">
+            </div>
+
+            <div id="block-properties" style="display: none; border-top: 1px solid #ddd; padding-top: 20px;">
+                <div class="block-category-title">Block Properties</div>
+                <div class="prop-group">
+                    <label class="prop-label">Heading</label>
+                    <input type="text" class="prop-input" id="prop-heading">
+                </div>
+                <div class="prop-group">
+                    <label class="prop-label">Subtext</label>
+                    <textarea class="prop-input" rows="3" id="prop-subtext"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Drag and Drop Logic
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("type", ev.target.dataset.type);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const type = ev.dataTransfer.getData("type");
+            addBlock(type);
+        }
+
+        function addBlock(type) {
+            const canvas = document.getElementById('canvas');
+
+            // Remove empty placeholder if exists
+            if (canvas.children[0] && canvas.children[0].textContent.includes('Kéo thả')) {
+                canvas.innerHTML = '';
+            }
+
+            const block = document.createElement('div');
+            block.className = 'canvas-block';
+            block.onclick = (e) => selectBlock(e, block);
+
+            // Generate Block Content based on Type
+            block.innerHTML = getBlockTemplate(type);
+
+            canvas.appendChild(block);
+        }
+
+        function selectBlock(e, block) {
+            e.stopPropagation();
+            document.querySelectorAll('.canvas-block').forEach(b => b.classList.remove('selected'));
+            block.classList.add('selected');
+            document.getElementById('block-properties').style.display = 'block';
+
+            // Bind properties (mock)
+            const heading = block.querySelector('h1, h2, h3');
+            if(heading) document.getElementById('prop-heading').value = heading.innerText;
+        }
+
+        function getBlockTemplate(type) {
+            const actions = `
+                <div class="block-actions">
+                    <button class="btn-icon small"><span class="material-symbols-outlined">arrow_upward</span></button>
+                    <button class="btn-icon small"><span class="material-symbols-outlined">arrow_downward</span></button>
+                    <button class="btn-icon small" onclick="this.closest('.canvas-block').remove()"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+            `;
+
+            switch(type) {
+                case 'hero':
+                    return `
+                        ${actions}
+                        <div style="text-align: center; padding: 40px 20px; background: #f8f9fa;">
+                            <h1 style="font-size: 32px; margin-bottom: 16px; color: #333;">Tiêu đề chính ấn tượng</h1>
+                            <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 24px;">Mô tả ngắn gọn về giá trị sản phẩm/dịch vụ của bạn tại đây.</p>
+                            <button class="btn btn-filled">Đăng ký ngay</button>
+                        </div>
+                    `;
+                case 'features':
+                    return `
+                        ${actions}
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 32px; color: var(--md-sys-color-primary);">★</div>
+                                <h3>Tính năng 1</h3>
+                                <p>Mô tả tính năng</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 32px; color: var(--md-sys-color-primary);">★</div>
+                                <h3>Tính năng 2</h3>
+                                <p>Mô tả tính năng</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 32px; color: var(--md-sys-color-primary);">★</div>
+                                <h3>Tính năng 3</h3>
+                                <p>Mô tả tính năng</p>
+                            </div>
+                        </div>
+                    `;
+                case 'form':
+                    return `
+                        ${actions}
+                        <div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white;">
+                            <h3 style="text-align: center; margin-bottom: 16px;">Đăng ký tư vấn</h3>
+                            <input type="text" placeholder="Họ tên" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            <input type="text" placeholder="Số điện thoại" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            <button class="btn btn-filled" style="width: 100%;">Gửi thông tin</button>
+                        </div>
+                    `;
+                default:
+                    return `${actions}<div>Block content placeholder</div>`;
+            }
+        }
+
+        function setDevice(device) {
+            document.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const canvas = document.getElementById('canvas');
+            canvas.className = `canvas ${device}`;
+        }
+    </script>
+</body>
+</html>
