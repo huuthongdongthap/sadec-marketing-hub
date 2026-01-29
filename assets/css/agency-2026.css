@@ -294,6 +294,11 @@ h6 {
     padding: 30px;
     overflow-y: auto;
     width: 100%;
+    background: linear-gradient(135deg,
+            var(--bg-void, #09090b) 0%,
+            var(--bg-deep, #121215) 50%,
+            var(--bg-surface, #18181b) 100%) !important;
+    color: var(--text-primary, #ffffff);
 }
 
 /* ===== 2026 PREMIUM GLASS CARDS ===== */
