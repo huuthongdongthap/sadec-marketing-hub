@@ -216,11 +216,11 @@ body {
 }
 
 .section {
-  padding: 80px 0 40px 0;
+  padding: 48px 0 32px 0;
 }
 
 .section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 64px;
 }
 
 .grid {
@@ -988,7 +988,7 @@ textarea.form-input {
 .section-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 24px;
+  margin: 0 auto 12px;
 }
 
 .section-badge {
@@ -999,7 +999,7 @@ textarea.form-input {
   border-radius: var(--md-sys-shape-corner-full);
   font: var(--md-sys-typescale-label-medium);
   font-size: 0.75rem;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .section-title {
@@ -1012,66 +1012,66 @@ textarea.form-input {
 
 .section-description {
   font: var(--md-sys-typescale-body-large);
-  font-size: 0.9rem;
-  margin-bottom: 16px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
   color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Case Study Compact */
 #case-study {
-    padding: 60px 0 32px 0;
+  padding: 48px 0 24px 0;
 }
 
 #case-study .grid {
-    grid-template-columns: 2fr 3fr;
-    gap: 24px;
-    align-items: center;
+  grid-template-columns: 2fr 3fr;
+  gap: 24px;
+  align-items: center;
 }
 
 #case-study .case-study-content {
-    padding: 12px;
+  padding: 12px;
 }
 
 #case-study .case-study-image,
 #case-study img {
-    max-height: none;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
+  max-height: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
 }
 
 #case-study h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 #case-study .stats {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 8px;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
 #case-study .stat-number {
-    font-size: 1.25rem;
-    font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 #case-study .stat-label {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 #case-study ul {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 #case-study ul li {
-    padding: 2px 0;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
+  padding: 2px 0;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
 }
 
 /* ===== CYBER-GLASS VISUALS ===== */
