@@ -1018,30 +1018,59 @@ textarea.form-input {
 }
 
 /* Case Study Compact */
+#case-study {
+    padding: 60px 0 40px 0;
+}
+
+#case-study .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
 #case-study .case-study-content {
-    padding: 16px;
+    padding: 12px;
 }
-#case-study .case-study-image {
-    max-height: 280px;
+
+#case-study .case-study-image,
+#case-study img {
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    width: 100%;
 }
+
 #case-study h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: 8px;
 }
+
 #case-study .stats {
-    gap: 12px;
-    margin-bottom: 12px;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
 }
-.stat-number {
-    font-size: 1.5rem;
+
+#case-study .stat-number {
+    font-size: 1.25rem;
     font-weight: 700;
 }
-.stat-label {
-    font-size: 0.75rem;
+
+#case-study .stat-label {
+    font-size: 0.7rem;
 }
+
+#case-study ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
 #case-study ul li {
-    padding: 4px 0;
-    font-size: 0.85rem;
+    padding: 2px 0;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
 }
 
 /* ===== CYBER-GLASS VISUALS ===== */
