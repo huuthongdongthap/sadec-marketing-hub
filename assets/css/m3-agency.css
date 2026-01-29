@@ -216,12 +216,12 @@ body {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .grid {
   display: grid;
-  gap: 24px;
+  gap: 16px;
   overflow: hidden;
 }
 
@@ -714,7 +714,7 @@ textarea.form-input {
 
 /* Pricing */
 .pricing-card {
-  padding: 32px;
+  padding: 24px;
   text-align: center;
   position: relative;
   overflow: visible !important;
@@ -755,7 +755,7 @@ textarea.form-input {
 }
 
 .pricing-price {
-  font: var(--md-sys-typescale-display-small);
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -994,15 +994,25 @@ textarea.form-input {
 }
 
 .section-title {
-  font: var(--md-sys-typescale-display-small);
+  font-size: 2rem;
+  font-weight: 700;
   color: #191C1B !important;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   opacity: 1 !important;
 }
 
 .section-description {
   font: var(--md-sys-typescale-body-large);
   color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Case Study Compact */
+#case-study .stats {
+    gap: 16px;
+}
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 /* ===== CYBER-GLASS VISUALS ===== */
