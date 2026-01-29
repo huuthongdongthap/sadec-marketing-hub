@@ -438,6 +438,21 @@ body {
   color: var(--md-sys-color-on-surface);
 }
 
+.nav-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-actions button,
+.nav-actions .btn,
+.nav-actions md-filled-button,
+.nav-actions md-outlined-button {
+  white-space: nowrap;
+  max-height: 40px;
+}
+
 /* Forms */
 .form-group {
   margin-bottom: 24px;
