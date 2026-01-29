@@ -1019,13 +1019,13 @@ textarea.form-input {
 
 /* Case Study Compact */
 #case-study {
-    padding: 60px 0 40px 0;
+    padding: 60px 0 32px 0;
 }
 
 #case-study .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     gap: 24px;
-    align-items: start;
+    align-items: center;
 }
 
 #case-study .case-study-content {
@@ -1034,10 +1034,11 @@ textarea.form-input {
 
 #case-study .case-study-image,
 #case-study img {
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 16px;
+    max-height: none;
     width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
 }
 
 #case-study h3 {
