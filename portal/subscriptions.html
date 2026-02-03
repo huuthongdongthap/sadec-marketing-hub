@@ -369,12 +369,17 @@
 
             <!-- Pricing Grid -->
             <div class="pricing-grid" id="pricing-grid">
-                <!-- Free Plan -->
-                <div class="pricing-card">
+                <!-- Current Plan - Starter -->
+                <div class="pricing-card" style="border-color: var(--md-sys-color-primary);">
+                    <div class="featured-label" style="background: #2E7D32;">Gói hiện tại</div>
                     <div class="plan-name">Starter</div>
                     <div class="plan-price">
                         <span class="price-value">0₫</span>
                         <span class="price-period">/tháng</span>
+                    </div>
+                    <div style="background: var(--md-sys-color-surface-container); padding: 12px; border-radius: 12px; margin-bottom: 16px; text-align: center;">
+                        <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant); margin-bottom: 4px;">Ngày hết hạn</div>
+                        <div style="font-weight: 600; color: var(--md-sys-color-on-surface);" id="expiryDate">31/03/2026</div>
                     </div>
                     <ul class="plan-features">
                         <li class="feature-item">
@@ -390,7 +395,10 @@
                             <span>Hỗ trợ qua Email</span>
                         </li>
                     </ul>
-                    <button class="btn btn-outlined btn-plan" disabled>Đang sử dụng</button>
+                    <button class="btn btn-outlined btn-plan" onclick="openRenewalModal()">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">autorenew</span>
+                        Gia hạn gói
+                    </button>
                 </div>
 
                 <!-- Basic Plan -->
@@ -418,7 +426,10 @@
                             <span>Hỗ trợ 24/7</span>
                         </li>
                     </ul>
-                    <button class="btn btn-filled btn-plan" onclick="selectPlan('basic')">Nâng cấp</button>
+                    <button class="btn btn-filled btn-plan" onclick="openUpgradeModal('Basic', 'basic')">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">upgrade</span>
+                        Nâng cấp
+                    </button>
                 </div>
 
                 <!-- Pro Plan -->
@@ -451,7 +462,10 @@
                             <span>Ưu tiên hỗ trợ</span>
                         </li>
                     </ul>
-                    <button class="btn btn-filled btn-plan" onclick="selectPlan('pro')">Nâng cấp</button>
+                    <button class="btn btn-filled btn-plan" onclick="openUpgradeModal('Pro', 'pro')">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">upgrade</span>
+                        Nâng cấp
+                    </button>
                 </div>
 
                 <!-- Enterprise Plan -->
@@ -561,12 +575,15 @@
     <div id="modal-container"></div>
     <div id="toast-container"></div>
 
+    <!-- Payment Modal Component -->
+    <payment-modal id="subscriptionPaymentModal"></payment-modal>
+
     <!-- Scripts -->
+    <script type="module" src="../assets/js/components/payment-modal.js"></script>
     <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <script type="module" src="../assets/js/portal-client.js"></script>
 
     <script type="module">
-        import { modal, toast } from '../assets/js/portal-client.js';
         import { paymentManager } from '../assets/js/payment-gateway.js';
 
         // Billing Cycle Logic
@@ -575,6 +592,7 @@
         const yearlyLabel = document.getElementById('yearly-label');
         const prices = document.querySelectorAll('.price-value[data-monthly]');
         const periods = document.querySelectorAll('.price-period[data-period-monthly]');
+        const paymentModal = document.getElementById('subscriptionPaymentModal');
 
         let isYearly = false;
 
@@ -607,7 +625,6 @@
 
             prices.forEach(price => {
                 const value = isYearly ? price.dataset.yearly : price.dataset.monthly;
-                // Simple formatting assuming values are already formatted in data attributes
                 price.textContent = `${value}₫`;
             });
 
@@ -617,136 +634,81 @@
             });
         }
 
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
-        }
-
-        // Plan Selection Logic attached to window for HTML access
-        window.selectPlan = (planId) => {
-            const planNames = {
-                basic: 'Gói Basic',
-                pro: 'Gói Pro'
-            };
-
-            const amount = planId === 'basic' ? (isYearly ? 48000000 : 5000000) : (isYearly ? 144000000 : 15000000);
-            const cycle = isYearly ? 'năm' : 'tháng';
-
-            const modalContent = `
-                <div style="padding: 24px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-                        <h2 style="margin: 0;">Xác nhận đăng ký</h2>
-                        <button class="modal-close" style="background: none; border: none; cursor: pointer; padding: 4px;">
-                            <span class="material-symbols-outlined">close</span>
-                        </button>
-                    </div>
-
-                    <div style="background: var(--md-sys-color-surface-container); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span style="font-weight: 500;">Dịch vụ</span>
-                            <span>${planNames[planId]}</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span style="font-weight: 500;">Chu kỳ</span>
-                            <span>Theo ${cycle}</span>
-                        </div>
-                        <div style="border-top: 1px solid var(--md-sys-color-outline-variant); margin: 12px 0;"></div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-weight: 700;">Tổng thanh toán</span>
-                            <span style="font-size: 20px; font-weight: 700; color: var(--md-sys-color-primary);">${formatCurrency(amount)}</span>
-                        </div>
-                    </div>
-
-                    <h3 style="font-size: 16px; margin-bottom: 16px;">Chọn phương thức thanh toán</h3>
-
-                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                        <div class="payment-option selected" onclick="selectPaymentMethod(this, 'vnpay')">
-                            <input type="radio" name="payment_method" value="vnpay" checked>
-                            <span class="material-symbols-outlined" style="color: #0056b3;">account_balance_wallet</span>
-                            <div>
-                                <div style="font-weight: 500;">VNPay QR</div>
-                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Quét mã QR qua ứng dụng ngân hàng</div>
-                            </div>
-                        </div>
-
-                        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
-                            <input type="radio" name="payment_method" value="momo">
-                            <span class="material-symbols-outlined" style="color: #a50064;">qr_code_scanner</span>
-                            <div>
-                                <div style="font-weight: 500;">Ví MoMo</div>
-                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Thanh toán qua ví điện tử MoMo</div>
-                            </div>
-                        </div>
-
-                        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
-                            <input type="radio" name="payment_method" value="bank">
-                            <span class="material-symbols-outlined" style="color: #2E7D32;">account_balance</span>
-                            <div>
-                                <div style="font-weight: 500;">Chuyển khoản ngân hàng</div>
-                                <div style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);">Vietcombank - Mekong Agency</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-filled" style="width: 100%; justify-content: center; padding: 16px; font-size: 16px;" onclick="processPayment('${planId}', ${amount})">
-                        Thanh toán ngay
-                    </button>
-                </div>
-            `;
-
-            modal.open(modalContent);
-
-            // Re-bind modal close button since innerHTML replaces it
-            setTimeout(() => {
-                const closeBtn = document.querySelector('.modal-content .modal-close');
-                if (closeBtn) {
-                    closeBtn.onclick = () => modal.close();
-                }
-            }, 100);
+        // Plan prices mapping
+        const planPrices = {
+            starter: { monthly: 0, yearly: 0 },
+            basic: { monthly: 5000000, yearly: 48000000 },
+            pro: { monthly: 15000000, yearly: 144000000 }
         };
 
-        window.selectPaymentMethod = (element, method) => {
-            // Update visual selection
-            document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
+        // Open Renewal Modal for Current Plan
+        window.openRenewalModal = () => {
+            const currentPlan = 'starter'; // Get from user data
+            const amount = isYearly ? planPrices.starter.yearly : planPrices.starter.monthly;
+            const invoiceId = `RENEW-${Date.now()}`;
 
-            // Check radio button
-            const radio = element.querySelector('input[type="radio"]');
-            if (radio) radio.checked = true;
+            paymentModal.setAttribute('amount', amount);
+            paymentModal.setAttribute('package-name', `Gia hạn gói Starter (${isYearly ? 'Năm' : 'Tháng'})`);
+            paymentModal.setAttribute('invoice-id', invoiceId);
+            paymentModal.style.display = 'block';
         };
 
-        window.processPayment = async (planId, amount) => {
-            // Get selected payment method
-            const methodInput = document.querySelector('input[name="payment_method"]:checked');
-            const method = methodInput ? methodInput.value : 'vnpay';
+        // Open Upgrade Modal
+        window.openUpgradeModal = (planName, planId) => {
+            const amount = isYearly ? planPrices[planId].yearly : planPrices[planId].monthly;
+            const invoiceId = `UPGRADE-${Date.now()}`;
 
-            modal.close();
-            toast.show('Đang khởi tạo thanh toán...', 'info');
+            paymentModal.setAttribute('amount', amount);
+            paymentModal.setAttribute('package-name', `Nâng cấp gói ${planName} (${isYearly ? 'Năm' : 'Tháng'})`);
+            paymentModal.setAttribute('invoice-id', invoiceId);
+            paymentModal.style.display = 'block';
+        };
+
+        // Handle payment submission
+        paymentModal.addEventListener('payment-submitted', async (e) => {
+            const { gateway, amount, packageName, invoiceId } = e.detail;
 
             try {
-                const result = await paymentManager.processPayment(method, {
+                // Process payment through gateway
+                const result = await paymentManager.processPayment(gateway, {
                     amount: amount,
-                    description: `Thanh toan goi ${planId.toUpperCase()}`,
-                    orderId: `SUB-${Date.now()}`
+                    description: packageName,
+                    orderId: invoiceId
                 });
 
+                // Hide modal
+                paymentModal.style.display = 'none';
+
+                // Redirect to payment gateway
                 if (result && result.data) {
                     if (typeof result.data === 'string') {
-                        // Redirect to gateway (VNPay, MoMo)
                         window.location.href = result.data;
-                    } else if (result.data.type === 'qr_display') {
-                        // Bank Transfer QR
-                        // In a full implementation, we would show another modal with the QR
-                        // For now, redirect to result page which mimics "pending" state
-                        window.location.href = `payment-result.html?status=pending&method=bank&amount=${amount}&qr=${encodeURIComponent(result.data.qrUrl)}`;
+                    } else if (result.data.qrUrl) {
+                        window.location.href = `payment-result.html?status=pending&method=${gateway}&amount=${amount}&qr=${encodeURIComponent(result.data.qrUrl)}`;
                     }
-                } else {
-                     toast.show('Không thể khởi tạo cổng thanh toán', 'error');
                 }
             } catch (error) {
-                console.error('Payment Error:', error);
-                toast.show('Có lỗi xảy ra khi xử lý thanh toán', 'error');
+                console.error('Payment error:', error);
+                alert('Có lỗi xảy ra khi xử lý thanh toán. Vui lòng thử lại.');
             }
-        };
+        });
+
+        // Handle payment cancellation
+        paymentModal.addEventListener('payment-cancelled', () => {
+            paymentModal.style.display = 'none';
+        });
+
+        // Update expiry date dynamically (example)
+        function updateExpiryDate() {
+            const expiryEl = document.getElementById('expiryDate');
+            if (expiryEl) {
+                // In production, fetch from API
+                const expiryDate = new Date('2026-03-31');
+                expiryEl.textContent = expiryDate.toLocaleDateString('vi-VN');
+            }
+        }
+
+        updateExpiryDate();
     </script>
 </body>
 
