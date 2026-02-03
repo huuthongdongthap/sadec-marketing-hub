@@ -640,21 +640,30 @@
         `;
         document.body.appendChild(loadingDiv);
 
-        // Call Supabase Edge Function
+        // Call Supabase Edge Function based on gateway
         const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
 
-        const response = await fetch(`${SUPABASE_URL}/functions/v1/create-payment`, {
+        // Select endpoint based on gateway
+        const endpointMap = {
+          'payos': 'create-payos-payment',
+          'vnpay': 'create-payment',
+          'momo': 'create-momo-payment'
+        };
+        const endpoint = endpointMap[gateway] || 'create-payos-payment';
+
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
           },
           body: JSON.stringify({
-            gateway: gateway,
             amount: parseInt(amount),
             description: `Thanh toán gói ${packageName}`,
-            orderId: invoiceId,
+            orderCode: Date.now(), // PayOS requires orderCode
+            invoiceId: invoiceId,
+            invoiceNumber: invoiceId,
             returnUrl: window.location.origin + '/payment-result.html',
             cancelUrl: window.location.origin + '/pricing.html'
           })
