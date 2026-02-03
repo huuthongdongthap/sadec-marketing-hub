@@ -336,9 +336,9 @@
             <li class="pricing-feature">Tư vấn chiến lược cơ bản</li>
           </ul>
 
-          <a href="#contact" class="btn btn-outlined" style="width: 100%;">
+          <button onclick="openPaymentModal('Khởi nghiệp', 5000000)" class="btn btn-outlined" style="width: 100%;">
             Bắt đầu ngay
-          </a>
+          </button>
         </div>
 
         <!-- Growth - Featured -->
@@ -357,10 +357,10 @@
             <li class="pricing-feature">Báo cáo hàng ngày</li>
           </ul>
 
-          <a href="#contact" class="btn btn-filled"
+          <button onclick="openPaymentModal('Tăng trưởng', 12000000)" class="btn btn-filled"
             style="width: 100%; background: white; color: var(--md-sys-color-primary);">
             Đăng ký ngay
-          </a>
+          </button>
         </div>
 
         <!-- Enterprise -->
@@ -553,6 +553,9 @@
     </div>
   </footer>
 
+  <!-- Payment Modal -->
+  <payment-modal id="paymentModal" style="display: none;"></payment-modal>
+
   <!-- Scripts -->
   <script>
     function toggleMenu() {
@@ -576,7 +579,53 @@
       alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong 24 giờ.');
       this.reset();
     });
+
+    // Payment Modal Handler
+    function openPaymentModal(packageName, amount) {
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        // Generate a simple invoice ID
+        const invoiceId = 'INV-' + Date.now();
+
+        // Set attributes
+        modal.setAttribute('package-name', packageName);
+        modal.setAttribute('amount', amount);
+        modal.setAttribute('invoice-id', invoiceId);
+
+        // Show modal (remove hidden style if exists)
+        modal.style.display = 'block';
+
+        // Listen for payment events
+        modal.addEventListener('payment-submitted', handlePaymentSubmitted, { once: true });
+        modal.addEventListener('payment-cancelled', handlePaymentCancelled, { once: true });
+      }
+    }
+
+    function handlePaymentSubmitted(event) {
+      const { gateway, amount, packageName, invoiceId } = event.detail;
+      console.log('Payment submitted:', { gateway, amount, packageName, invoiceId });
+
+      // Hide modal
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+
+      // TODO: Integrate with actual payment processing
+      alert(`Đang chuyển đến cổng thanh toán ${gateway}...`);
+    }
+
+    function handlePaymentCancelled() {
+      // Hide modal
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
   </script>
+
+  <!-- Payment Modal Component -->
+  <script type="module" src="assets/js/components/payment-modal.js"></script>
 </body>
 
 </html>

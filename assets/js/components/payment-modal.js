@@ -2,6 +2,10 @@
  * Payment Modal Component
  * Material Design 3 Web Component with Shadow DOM
  */
+
+// Import gateway selector component
+import './gateway-selector.js';
+
 class PaymentModal extends HTMLElement {
   constructor() {
     super();
