@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/portal.css">
 
+    <!-- payOS SDK -->
+    <script src="https://cdn.payos.vn/payos-checkout/v1/stable/payos-initialize.js"></script>
+
     <style>
         .portal-layout {
             display: grid;
@@ -256,6 +259,11 @@
             color: white;
         }
 
+        .method-logo.payos {
+            background: #0088FF;
+            color: white;
+        }
+
         .method-logo.bank {
             background: #E3F2FD;
             color: #1565C0;
@@ -336,6 +344,87 @@
         .qr-hint {
             font: var(--md-sys-typescale-body-small);
             color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Loading & Modal Styles */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .modal-overlay.visible {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--md-sys-color-surface-container-high);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: 32px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .modal-icon.error { color: #C62828; }
+        .modal-icon.success { color: #2E7D32; }
+        .modal-icon.info { color: #1565C0; }
+
+        .modal-title {
+            font: var(--md-sys-typescale-headline-small);
+            margin-bottom: 12px;
+        }
+
+        .modal-message {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 24px;
+            white-space: pre-line;
         }
 
         /* History */
@@ -519,6 +608,14 @@
                                 </div>
                             </div>
 
+                            <div class="method-option" data-method="payos">
+                                <div class="method-logo payos">💰</div>
+                                <div class="method-info">
+                                    <div class="method-name">payOS</div>
+                                    <div class="method-desc">QR Code - Mọi ngân hàng</div>
+                                </div>
+                            </div>
+
                             <div class="method-option" data-method="bank">
                                 <div class="method-logo bank">🏦</div>
                                 <div class="method-info">
@@ -581,10 +678,57 @@
         </main>
     </div>
 
+    <!-- Error/Info Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon" id="modal-icon">⚠️</div>
+            <h2 class="modal-title" id="modal-title">Thông báo</h2>
+            <p class="modal-message" id="modal-message">Đây là thông báo mẫu.</p>
+            <div>
+                <md-filled-button onclick="closeModal()">Đóng</md-filled-button>
+            </div>
+        </div>
+    </div>
+
     <script type="module">
         import { supabase, auth } from '../assets/js/supabase.js';
 
         const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+
+        // Modal helper functions
+        function showModal(type, title, message) {
+            const modal = document.getElementById('modal-overlay');
+            const icon = document.getElementById('modal-icon');
+            const titleEl = document.getElementById('modal-title');
+            const messageEl = document.getElementById('modal-message');
+
+            // Set icon based on type
+            if (type === 'error') {
+                icon.textContent = '⚠️';
+                icon.className = 'modal-icon error';
+            } else if (type === 'success') {
+                icon.textContent = '✅';
+                icon.className = 'modal-icon success';
+            } else if (type === 'info') {
+                icon.textContent = 'ℹ️';
+                icon.className = 'modal-icon info';
+            }
+
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            modal.classList.add('visible');
+        }
+
+        window.closeModal = function() {
+            document.getElementById('modal-overlay').classList.remove('visible');
+        };
+
+        // Close modal when clicking overlay
+        document.getElementById('modal-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'modal-overlay') {
+                closeModal();
+            }
+        });
 
         // Select invoice
         document.querySelectorAll('.invoice-card').forEach(card => {
@@ -614,7 +758,7 @@
                 if (method === 'bank') {
                     bankInfo.classList.add('visible');
                     qrSection.classList.remove('visible');
-                } else if (method === 'vnpay' || method === 'momo') {
+                } else if (method === 'vnpay' || method === 'momo' || method === 'payos') {
                     bankInfo.classList.remove('visible');
                     qrSection.classList.add('visible');
                 }
@@ -636,32 +780,44 @@
         document.getElementById('pay-btn').addEventListener('click', async () => {
             const methodOption = document.querySelector('.method-option.selected');
             if (!methodOption) {
-                alert('Vui lòng chọn phương thức thanh toán');
+                showModal('error', 'Lỗi', 'Vui lòng chọn phương thức thanh toán');
                 return;
             }
 
             const method = methodOption.dataset.method;
             const invoiceCard = document.querySelector('.invoice-card.selected');
 
+            if (!invoiceCard) {
+                showModal('error', 'Lỗi', 'Vui lòng chọn hóa đơn cần thanh toán');
+                return;
+            }
+
             if (method === 'bank') {
-                alert('Vui lòng chuyển khoản theo thông tin ở trên.\n\nSau khi chuyển khoản, hệ thống sẽ tự động xác nhận trong 5-10 phút.');
-            } else if (method === 'vnpay' || method === 'momo') {
+                showModal('info', 'Chuyển khoản ngân hàng', 'Vui lòng chuyển khoản theo thông tin ở trên.\n\nSau khi chuyển khoản, hệ thống sẽ tự động xác nhận trong 5-10 phút.');
+            } else if (method === 'vnpay' || method === 'momo' || method === 'payos') {
                 const btn = document.getElementById('pay-btn');
                 const originalText = btn.textContent;
                 btn.disabled = true;
-                btn.innerHTML = '<div class="spinner" style="width: 20px; height: 20px; border-width: 2px;"></div> Đang xử lý...';
+                btn.innerHTML = '<div class="spinner"></div> Đang xử lý...';
 
                 try {
                     // Get invoice details
                     const amountStr = invoiceCard.dataset.amount; // e.g. "8500000"
                     const amount = parseInt(amountStr);
                     const invoiceNumber = invoiceCard.querySelector('.invoice-number').textContent.trim(); // e.g. "#INV-2026-001"
-                    const cleanInvoiceId = invoiceNumber.replace('#', '');
+                    const cleanInvoiceId = invoiceNumber.replace('#', ''); // "INV-2026-001"
 
                     // Determine endpoint based on method
-                    const endpoint = method === 'vnpay' ? 'create-payment' : 'create-momo-payment';
+                    let endpoint = '';
+                    if (method === 'vnpay') {
+                        endpoint = 'create-payment';
+                    } else if (method === 'momo') {
+                        endpoint = 'create-momo-payment';
+                    } else if (method === 'payos') {
+                        endpoint = 'create-payos-payment';
+                    }
 
-                    // Call Edge Function
+                    // Call Edge Function with invoiceNumber (breaking change fix)
                     const { data: { session } } = await supabase.auth.getSession();
                     const token = session?.access_token;
 
@@ -672,7 +828,8 @@
                             'Authorization': `Bearer ${token || ''}`
                         },
                         body: JSON.stringify({
-                            invoiceId: cleanInvoiceId,
+                            invoiceNumber: cleanInvoiceId,  // ✅ FIXED: Added invoiceNumber
+                            invoiceId: cleanInvoiceId,       // Keep for backward compatibility
                             amount: amount,
                             orderInfo: `Thanh toan hoa don ${cleanInvoiceId}`,
                             paymentMethod: method
@@ -685,21 +842,46 @@
                         throw new Error(result.error || 'Payment creation failed');
                     }
 
-                    if (result.success && result.paymentUrl) {
+                    if (result.success && (result.paymentUrl || result.checkoutUrl)) {
                         // Redirect to Payment Gateway
-                        window.location.href = result.paymentUrl;
+                        const redirectUrl = result.checkoutUrl || result.paymentUrl;
+
+                        // For payOS, use SDK if available, otherwise redirect
+                        if (method === 'payos' && window.PayOSCheckout && result.checkoutUrl) {
+                            // PayOS SDK embedded checkout (optional)
+                            const payosConfig = {
+                                checkoutUrl: redirectUrl,
+                                onSuccess: (data) => {
+                                    window.location.href = `payment-result.html?code=00&status=PAID&orderCode=${result.orderCode || ''}`;
+                                },
+                                onCancel: () => {
+                                    window.location.href = `payment-result.html?cancel=true&orderCode=${result.orderCode || ''}`;
+                                },
+                                onError: (error) => {
+                                    showModal('error', 'Lỗi PayOS', error.message || 'Có lỗi xảy ra');
+                                    btn.disabled = false;
+                                    btn.textContent = originalText;
+                                }
+                            };
+
+                            // Use PayOS embedded checkout
+                            window.PayOSCheckout.open(payosConfig);
+                        } else {
+                            // Standard redirect for all gateways
+                            window.location.href = redirectUrl;
+                        }
                     } else {
                         throw new Error(result.error || 'Invalid response from server');
                     }
 
                 } catch (error) {
                     console.error('Payment Error:', error);
-                    alert(`Lỗi thanh toán: ${error.message}`);
+                    showModal('error', 'Lỗi thanh toán', error.message || 'Có lỗi xảy ra khi tạo thanh toán. Vui lòng thử lại.');
                     btn.disabled = false;
                     btn.textContent = originalText;
                 }
             } else {
-                alert('Phương thức thanh toán chưa được hỗ trợ.');
+                showModal('error', 'Không hỗ trợ', 'Phương thức thanh toán chưa được hỗ trợ.');
             }
         });
     </script>

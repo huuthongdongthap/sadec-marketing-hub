@@ -196,10 +196,15 @@
         async function verifyPayment(gateway = 'vnpay') {
             try {
                 // Determine endpoint based on gateway
-                const endpoint = gateway === 'momo' ? 'verify-momo-payment' : 'verify-payment';
+                let endpoint = 'verify-payment'; // Default for VNPay
+                if (gateway === 'momo') {
+                    endpoint = 'verify-momo-payment';
+                } else if (gateway === 'payos') {
+                    endpoint = 'verify-payos-payment';
+                }
 
                 // Call the verify-payment Edge Function
-                // We pass the query string exactly as received from VNPay/MoMo
+                // We pass the query string exactly as received from gateway
                 const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}${window.location.search}`, {
                     method: 'GET',
                     headers: {
@@ -222,9 +227,9 @@
                 const resultMessage = document.getElementById('result-message');
 
                 // Fill transaction details from server response
-                document.getElementById('txn-id').textContent = result.transactionId || urlParams.get('vnp_TxnRef') || 'N/A';
+                document.getElementById('txn-id').textContent = result.transactionId || urlParams.get('vnp_TxnRef') || urlParams.get('orderCode') || 'N/A';
                 document.getElementById('txn-amount').textContent = result.amount ? parseInt(result.amount).toLocaleString('vi-VN') + ' ₫' : 'N/A';
-                document.getElementById('txn-bank').textContent = result.bankCode || 'N/A';
+                document.getElementById('txn-bank').textContent = result.bankCode || gateway.toUpperCase();
 
                 if (result.payDate) {
                     // Format date: YYYYMMDDHHmmss -> DD/MM/YYYY HH:mm
@@ -244,11 +249,13 @@
                 }
 
                 // Determine result based on status from server
+                let autoRedirect = false;
                 if (result.status === 'success') {
                     resultIcon.className = 'result-icon success';
                     iconSymbol.textContent = 'check_circle';
                     resultTitle.textContent = '✅ Thanh toán thành công!';
                     resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
+                    autoRedirect = true;
                 } else if (result.status === 'invalid') {
                     resultIcon.className = 'result-icon failed';
                     iconSymbol.textContent = 'warning';
@@ -260,6 +267,20 @@
                     iconSymbol.textContent = 'error';
                     resultTitle.textContent = '⚠️ Thanh toán không thành công';
                     resultMessage.textContent = result.message || 'Đã xảy ra lỗi trong quá trình thanh toán. Vui lòng thử lại.';
+                }
+
+                // Auto-redirect after 5s for successful payments
+                if (autoRedirect) {
+                    let countdown = 5;
+                    const countdownInterval = setInterval(() => {
+                        countdown--;
+                        if (countdown > 0) {
+                            resultMessage.textContent = `Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!\n\nTự động chuyển về trang thanh toán trong ${countdown} giây...`;
+                        } else {
+                            clearInterval(countdownInterval);
+                            window.location.href = 'payments.html';
+                        }
+                    }, 1000);
                 }
 
             } catch (error) {
@@ -274,11 +295,30 @@
             }
         }
 
-        // Check if we have VNPay params
+        // Check gateway type from URL params
         if (urlParams.has('vnp_ResponseCode')) {
+            // VNPay callback
             verifyPayment('vnpay');
         } else if (urlParams.has('resultCode') && urlParams.has('partnerCode')) {
+            // MoMo callback
             verifyPayment('momo');
+        } else if (urlParams.has('code') && urlParams.has('orderCode')) {
+            // PayOS callback (code, status, orderCode params)
+            verifyPayment('payos');
+        } else if (urlParams.get('cancel') === 'true') {
+            // User cancelled payment
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+
+            document.getElementById('result-icon').className = 'result-icon failed';
+            document.getElementById('result-icon-symbol').textContent = 'cancel';
+            document.getElementById('result-title').textContent = '❌ Đã hủy thanh toán';
+            document.getElementById('result-message').textContent = 'Bạn đã hủy giao dịch thanh toán.';
+
+            document.getElementById('txn-id').textContent = urlParams.get('orderCode') || 'N/A';
+            document.getElementById('txn-amount').textContent = '--';
+            document.getElementById('txn-bank').textContent = '--';
+            document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
         } else if (urlParams.get('status') === 'pending') {
             // Handle Pending / QR Display
             document.getElementById('loading-state').style.display = 'none';
