@@ -93,6 +93,11 @@
   --md-sys-motion-duration-long: 600ms;
   --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* --- PAYMENT STATUS COLORS --- */
+  --payment-success: #34C759;
+  --payment-pending: #FF9500;
+  --payment-failed: #FF3B30;
 }
 
 /* Dark Mode Support */
