@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/portal.css">
+    <script type="module" src="../assets/js/components/payment-status-chip.js"></script>
 
     <style>
         .portal-layout {
@@ -156,6 +157,93 @@
         .amount {
             font: var(--md-sys-typescale-title-small);
         }
+
+        /* Checkbox styling */
+        .invoice-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--md-sys-color-primary);
+        }
+
+        /* Payment button styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn.btn-filled {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .btn.btn-filled:hover {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn.btn-filled.error {
+            background: var(--md-sys-color-error);
+            color: var(--md-sys-color-on-error);
+        }
+
+        .btn.btn-filled.error:hover {
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-on-error-container);
+        }
+
+        .btn.small {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        /* Floating action bar */
+        .floating-action-bar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: var(--md-sys-color-surface-container-high);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-action-bar.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .floating-action-bar .count {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .floating-action-bar .btn {
+            white-space: nowrap;
+        }
+
+        .payment-action-cell {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -194,23 +282,33 @@
                 <table class="invoice-table">
                     <thead>
                         <tr>
+                            <th style="width: 40px;">
+                                <input type="checkbox" class="invoice-checkbox" id="selectAll">
+                            </th>
                             <th>Mã hóa đơn</th>
                             <th>Dự án</th>
                             <th>Ngày tạo</th>
                             <th>Hạn thanh toán</th>
                             <th>Số tiền</th>
                             <th>Trạng thái</th>
+                            <th>Thanh toán</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2026-001" data-amount="15000000">
+                            </td>
                             <td><span class="invoice-id">INV-2026-001</span></td>
                             <td>Chiến dịch Facebook Ads Q1</td>
                             <td>01/01/2026</td>
                             <td>15/01/2026</td>
                             <td><span class="amount">15.000.000đ</span></td>
-                            <td><span class="status-pill pending">Chờ thanh toán</span></td>
+                            <td><payment-status-chip status="pending"></payment-status-chip></td>
+                            <td>
+                                <button class="btn btn-filled small" onclick="handlePayment('INV-2026-001')">Thanh toán</button>
+                            </td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
@@ -223,12 +321,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2025-056" data-amount="8000000" disabled>
+                            </td>
                             <td><span class="invoice-id">INV-2025-056</span></td>
                             <td>Thiết kế logo mới</td>
                             <td>01/12/2025</td>
                             <td>15/12/2025</td>
                             <td><span class="amount">8.000.000đ</span></td>
-                            <td><span class="status-pill paid">Đã thanh toán</span></td>
+                            <td><payment-status-chip status="paid"></payment-status-chip></td>
+                            <td>
+                                <payment-status-chip status="paid"></payment-status-chip>
+                            </td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
@@ -241,12 +345,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2025-055" data-amount="5000000" disabled>
+                            </td>
                             <td><span class="invoice-id">INV-2025-055</span></td>
                             <td>SEO Website tháng 12</td>
                             <td>01/12/2025</td>
                             <td>15/12/2025</td>
                             <td><span class="amount">5.000.000đ</span></td>
-                            <td><span class="status-pill paid">Đã thanh toán</span></td>
+                            <td><payment-status-chip status="paid"></payment-status-chip></td>
+                            <td>
+                                <payment-status-chip status="paid"></payment-status-chip>
+                            </td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
@@ -259,12 +369,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2026-002" data-amount="5000000">
+                            </td>
                             <td><span class="invoice-id">INV-2026-002</span></td>
                             <td>SEO Website tháng 1</td>
                             <td>01/01/2026</td>
                             <td>15/01/2026</td>
                             <td><span class="amount">5.000.000đ</span></td>
-                            <td><span class="status-pill pending">Chờ thanh toán</span></td>
+                            <td><payment-status-chip status="pending"></payment-status-chip></td>
+                            <td>
+                                <button class="btn btn-filled small" onclick="handlePayment('INV-2026-002')">Thanh toán</button>
+                            </td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
@@ -277,12 +393,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2025-054" data-amount="3000000" disabled>
+                            </td>
                             <td><span class="invoice-id">INV-2025-054</span></td>
                             <td>Quản lý Fanpage tháng 11</td>
                             <td>01/11/2025</td>
                             <td>15/11/2025</td>
                             <td><span class="amount">3.000.000đ</span></td>
-                            <td><span class="status-pill paid">Đã thanh toán</span></td>
+                            <td><payment-status-chip status="paid"></payment-status-chip></td>
+                            <td>
+                                <payment-status-chip status="paid"></payment-status-chip>
+                            </td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
@@ -295,16 +417,49 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2026-003" data-amount="20000000" disabled>
+                            </td>
                             <td><span class="invoice-id">INV-2026-003</span></td>
                             <td>Google Ads - Tết 2026</td>
                             <td>--</td>
                             <td>--</td>
                             <td><span class="amount">20.000.000đ</span></td>
                             <td><span class="status-pill draft">Nháp</span></td>
+                            <td>--</td>
                             <td>
                                 <div class="invoice-actions">
                                     <button class="action-btn" title="Xem chi tiết">
                                         <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="invoice-checkbox" data-invoice-id="INV-2025-053" data-amount="8000000">
+                            </td>
+                            <td><span class="invoice-id">INV-2025-053</span></td>
+                            <td>Video marketing tháng 10</td>
+                            <td>01/10/2025</td>
+                            <td>15/10/2025</td>
+                            <td><span class="amount">8.000.000đ</span></td>
+                            <td>
+                                <payment-status-chip status="overdue"></payment-status-chip>
+                            </td>
+                            <td>
+                                <div class="payment-action-cell">
+                                    <button class="btn btn-filled error small" onclick="handlePayment('INV-2025-053')">Thanh toán ngay</button>
+                                    <payment-status-chip status="overdue"></payment-status-chip>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="action-btn" title="Xem chi tiết">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="action-btn" title="Tải PDF">
+                                        <span class="material-symbols-outlined">download</span>
                                     </button>
                                 </div>
                             </td>
@@ -315,10 +470,101 @@
         </main>
     </div>
 
+    <!-- Floating Action Bar -->
+    <div class="floating-action-bar" id="floatingActionBar">
+        <span class="count" id="selectedCount">0 hóa đơn được chọn</span>
+        <button class="btn btn-filled" onclick="handleBulkPayment()">
+            <span class="material-symbols-outlined">payment</span>
+            Thanh toán
+        </button>
+    </div>
+
     <!-- Portal Client Script -->
     <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <script type="module" src="../assets/js/portal-client.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
+
+    <script>
+        // Bulk payment selection functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectAllCheckbox = document.getElementById('selectAll');
+            const invoiceCheckboxes = document.querySelectorAll('.invoice-checkbox:not([disabled])');
+            const floatingActionBar = document.getElementById('floatingActionBar');
+            const selectedCount = document.getElementById('selectedCount');
+
+            // Select all functionality
+            selectAllCheckbox?.addEventListener('change', (e) => {
+                invoiceCheckboxes.forEach(checkbox => {
+                    checkbox.checked = e.target.checked;
+                });
+                updateFloatingActionBar();
+            });
+
+            // Individual checkbox change
+            invoiceCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    updateSelectAllState();
+                    updateFloatingActionBar();
+                });
+            });
+
+            function updateSelectAllState() {
+                const allChecked = Array.from(invoiceCheckboxes).every(cb => cb.checked);
+                const someChecked = Array.from(invoiceCheckboxes).some(cb => cb.checked);
+
+                if (selectAllCheckbox) {
+                    selectAllCheckbox.checked = allChecked;
+                    selectAllCheckbox.indeterminate = someChecked && !allChecked;
+                }
+            }
+
+            function updateFloatingActionBar() {
+                const checkedBoxes = Array.from(invoiceCheckboxes).filter(cb => cb.checked);
+                const count = checkedBoxes.length;
+
+                if (count > 0) {
+                    floatingActionBar.classList.add('visible');
+                    selectedCount.textContent = `${count} hóa đơn được chọn`;
+                } else {
+                    floatingActionBar.classList.remove('visible');
+                }
+            }
+        });
+
+        // Single payment handler
+        async function handlePayment(invoiceId) {
+            console.log('Processing payment for invoice:', invoiceId);
+
+            // TODO: Open payment modal with invoice details
+            alert(`Mở modal thanh toán cho hóa đơn ${invoiceId}\n\nTính năng này sẽ được kết nối với payment modal component.`);
+
+            // Example: Open payment modal (will be implemented with payment-modal component)
+            // const modal = document.createElement('payment-modal');
+            // modal.setAttribute('invoice-id', invoiceId);
+            // document.body.appendChild(modal);
+        }
+
+        // Bulk payment handler
+        async function handleBulkPayment() {
+            const checkedBoxes = document.querySelectorAll('.invoice-checkbox:checked:not([disabled])');
+            const invoiceIds = Array.from(checkedBoxes).map(cb => cb.dataset.invoiceId);
+            const totalAmount = Array.from(checkedBoxes).reduce((sum, cb) => {
+                return sum + parseInt(cb.dataset.amount || 0);
+            }, 0);
+
+            console.log('Processing bulk payment for invoices:', invoiceIds);
+            console.log('Total amount:', totalAmount);
+
+            // TODO: Open payment modal with multiple invoices
+            alert(`Mở modal thanh toán cho ${invoiceIds.length} hóa đơn:\n${invoiceIds.join(', ')}\n\nTổng tiền: ${totalAmount.toLocaleString('vi-VN')}đ\n\nTính năng này sẽ được kết nối với payment modal component.`);
+
+            // Example: Open payment modal for bulk payment
+            // const modal = document.createElement('payment-modal');
+            // modal.setAttribute('invoice-ids', JSON.stringify(invoiceIds));
+            // modal.setAttribute('total-amount', totalAmount);
+            // document.body.appendChild(modal);
+        }
+    </script>
 </body>
 
 </html>
