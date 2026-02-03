@@ -1,76 +1,48 @@
 // Supabase Edge Function: Create VNPay Payment
-// Secure server-side payment URL generation for VNPay integration
+// Secure server-side payment URL generation for VNPay integration with signature verification
 
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.0';
+import {
+    validateEnvVars,
+    getCorsHeaders,
+    createHmacSha512,
+    sortObject,
+    formatVnpDate,
+    generateVNPayTxnRef,
+    savePaymentTransaction,
+    type PaymentRequest,
+    type PaymentResponse
+} from '../_shared/payment-utils.ts';
 
-// VNPay Configuration (sandbox mode)
+// Validate required environment variables at startup
+const REQUIRED_ENV_VARS = [
+    'VNPAY_TMN_CODE',
+    'VNPAY_SECRET_KEY',
+    'SUPABASE_URL',
+    'SUPABASE_SERVICE_ROLE_KEY'
+];
+
+try {
+    validateEnvVars(REQUIRED_ENV_VARS);
+} catch (error) {
+    console.error('Environment validation failed:', error.message);
+}
+
+// VNPay Configuration
 const VNPAY_CONFIG = {
     vnpUrl: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html',
-    tmnCode: Deno.env.get('VNPAY_TMN_CODE') || 'DEMO1234',
-    secretKey: Deno.env.get('VNPAY_SECRET_KEY') || 'VNPAYSECRETKEY2024',
+    tmnCode: Deno.env.get('VNPAY_TMN_CODE')!,
+    secretKey: Deno.env.get('VNPAY_SECRET_KEY')!,
     returnUrl: Deno.env.get('VNPAY_RETURN_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
     version: '2.1.0',
     locale: 'vn',
     currCode: 'VND'
 };
 
-interface PaymentRequest {
-    invoiceId: string;
-    amount: number;
-    orderInfo: string;
-    clientId?: string;
-}
-
-interface PaymentResponse {
-    success: boolean;
-    paymentUrl?: string;
-    transactionId?: string;
-    error?: string;
-}
-
-// Simple hash function for VNPay signature (HMAC-SHA512)
-async function createHmacSha512(secretKey: string, data: string): Promise<string> {
-    const enc = new TextEncoder();
-    const key = await crypto.subtle.importKey(
-        'raw',
-        enc.encode(secretKey),
-        { name: 'HMAC', hash: 'SHA-512' },
-        false,
-        ['sign']
-    );
-    const signature = await crypto.subtle.sign('HMAC', key, enc.encode(data));
-    return Array.from(new Uint8Array(signature))
-        .map(b => b.toString(16).padStart(2, '0'))
-        .join('');
-}
-
-// Sort object keys for VNPay signature
-function sortObject(obj: Record<string, string>): Record<string, string> {
-    const sorted: Record<string, string> = {};
-    const keys = Object.keys(obj).sort();
-    for (const key of keys) {
-        sorted[key] = obj[key];
-    }
-    return sorted;
-}
-
-// Format date for VNPay
-function formatVnpDate(date: Date): string {
-    const pad = (n: number) => n.toString().padStart(2, '0');
-    return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}${pad(date.getHours())}${pad(date.getMinutes())}${pad(date.getSeconds())}`;
-}
-
-// Generate unique transaction reference
-function generateTxnRef(): string {
-    const timestamp = Date.now().toString(36);
-    const random = Math.random().toString(36).substring(2, 8);
-    return `MKG${timestamp}${random}`.toUpperCase();
-}
-
-async function createPaymentUrl(req: PaymentRequest): Promise<PaymentResponse> {
+async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<PaymentResponse> {
     try {
-        const txnRef = generateTxnRef();
+        const txnRef = generateVNPayTxnRef(req.invoiceNumber);
         const createDate = formatVnpDate(new Date());
         const expireDate = formatVnpDate(new Date(Date.now() + 15 * 60 * 1000)); // 15 min expiry
 
@@ -82,7 +54,7 @@ async function createPaymentUrl(req: PaymentRequest): Promise<PaymentResponse> {
             vnp_Locale: VNPAY_CONFIG.locale,
             vnp_CurrCode: VNPAY_CONFIG.currCode,
             vnp_TxnRef: txnRef,
-            vnp_OrderInfo: req.orderInfo || `Thanh toan hoa don ${req.invoiceId}`,
+            vnp_OrderInfo: req.orderInfo || `Thanh toan hoa don ${req.invoiceNumber}`,
             vnp_OrderType: 'other',
             vnp_Amount: (req.amount * 100).toString(), // VNPay expects amount in smallest unit
             vnp_ReturnUrl: VNPAY_CONFIG.returnUrl,
@@ -95,12 +67,26 @@ async function createPaymentUrl(req: PaymentRequest): Promise<PaymentResponse> {
         vnpParams = sortObject(vnpParams);
         const signData = new URLSearchParams(vnpParams).toString();
 
-        // Create secure hash
+        // Create secure hash using HMAC SHA-512
         const secureHash = await createHmacSha512(VNPAY_CONFIG.secretKey, signData);
         vnpParams['vnp_SecureHash'] = secureHash;
 
         // Build final URL
         const paymentUrl = `${VNPAY_CONFIG.vnpUrl}?${new URLSearchParams(vnpParams).toString()}`;
+
+        // Save transaction to database
+        await savePaymentTransaction(supabase, {
+            invoice_id: req.invoiceId,
+            amount: req.amount,
+            gateway: 'vnpay',
+            status: 'pending',
+            transaction_id: txnRef,
+            callback_data: {
+                vnp_TxnRef: txnRef,
+                vnp_Amount: vnpParams.vnp_Amount,
+                vnp_OrderInfo: vnpParams.vnp_OrderInfo
+            }
+        });
 
         return {
             success: true,
@@ -109,21 +95,17 @@ async function createPaymentUrl(req: PaymentRequest): Promise<PaymentResponse> {
         };
 
     } catch (error) {
+        console.error('VNPay Error:', error);
         return {
             success: false,
-            error: error.message || 'Failed to create payment URL'
+            error: error.message || 'Failed to create VNPay payment URL'
         };
     }
 }
 
 serve(async (req: Request) => {
-    // CORS headers
-    const headers = {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-    };
+    const origin = req.headers.get('origin');
+    const headers = getCorsHeaders(origin);
 
     // Handle CORS preflight
     if (req.method === 'OPTIONS') {
@@ -141,9 +123,9 @@ serve(async (req: Request) => {
         const body: PaymentRequest = await req.json();
 
         // Validate request
-        if (!body.invoiceId) {
+        if (!body.invoiceId || !body.invoiceNumber) {
             return new Response(
-                JSON.stringify({ error: 'Invoice ID is required' }),
+                JSON.stringify({ error: 'Invoice ID and Invoice Number are required' }),
                 { status: 400, headers }
             );
         }
@@ -163,27 +145,20 @@ serve(async (req: Request) => {
             );
         }
 
-        const result = await createPaymentUrl(body);
+        // Create Supabase client
+        const supabase = createClient(
+            Deno.env.get('SUPABASE_URL')!,
+            Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+        );
+
+        const result = await createPaymentUrl(body, supabase);
 
         if (!result.success) {
             return new Response(
                 JSON.stringify({ error: result.error }),
-                { status: 500, headers }
+                { status: 400, headers }
             );
         }
-
-        // Optional: Log transaction to database
-        // const supabase = createClient(
-        //     Deno.env.get('SUPABASE_URL')!,
-        //     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-        // );
-        // await supabase.from('transactions').insert({
-        //     transaction_id: result.transactionId,
-        //     invoice_id: body.invoiceId,
-        //     amount: body.amount,
-        //     status: 'pending',
-        //     payment_method: 'vnpay'
-        // });
 
         return new Response(
             JSON.stringify(result),
@@ -191,6 +166,7 @@ serve(async (req: Request) => {
         );
 
     } catch (error) {
+        console.error('Server error:', error);
         return new Response(
             JSON.stringify({ error: 'Internal server error' }),
             { status: 500, headers }

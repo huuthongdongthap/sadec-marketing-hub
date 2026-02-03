@@ -1,5 +1,5 @@
-// Supabase Edge Function: Create MoMo Payment
-// Secure server-side payment URL generation for MoMo integration with signature verification
+// Supabase Edge Function: Create payOS Payment
+// Secure server-side payment URL generation for payOS integration with signature verification
 
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.0';
@@ -7,7 +7,7 @@ import {
     validateEnvVars,
     getCorsHeaders,
     createHmacSha256,
-    generateMoMoOrderId,
+    generatePayOSOrderCode,
     savePaymentTransaction,
     type PaymentRequest,
     type PaymentResponse
@@ -15,9 +15,9 @@ import {
 
 // Validate required environment variables at startup
 const REQUIRED_ENV_VARS = [
-    'MOMO_PARTNER_CODE',
-    'MOMO_ACCESS_KEY',
-    'MOMO_SECRET_KEY',
+    'PAYOS_CLIENT_ID',
+    'PAYOS_API_KEY',
+    'PAYOS_CHECKSUM_KEY',
     'SUPABASE_URL',
     'SUPABASE_SERVICE_ROLE_KEY'
 ];
@@ -28,94 +28,101 @@ try {
     console.error('Environment validation failed:', error.message);
 }
 
-// MoMo Configuration
-const MOMO_CONFIG = {
-    endpoint: 'https://test-payment.momo.vn/v2/gateway/api/create',
-    partnerCode: Deno.env.get('MOMO_PARTNER_CODE')!,
-    accessKey: Deno.env.get('MOMO_ACCESS_KEY')!,
-    secretKey: Deno.env.get('MOMO_SECRET_KEY')!,
-    redirectUrl: Deno.env.get('MOMO_REDIRECT_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
-    ipnUrl: Deno.env.get('MOMO_IPN_URL') || 'https://sadec-marketing-hub.vercel.app/api/momo-ipn',
+// payOS Configuration
+const PAYOS_CONFIG = {
+    endpoint: 'https://api-merchant.payos.vn/v2/payment-requests',
+    clientId: Deno.env.get('PAYOS_CLIENT_ID')!,
+    apiKey: Deno.env.get('PAYOS_API_KEY')!,
+    checksumKey: Deno.env.get('PAYOS_CHECKSUM_KEY')!,
+    returnUrl: Deno.env.get('PAYOS_RETURN_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
+    cancelUrl: Deno.env.get('PAYOS_CANCEL_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payments.html',
 };
 
 async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<PaymentResponse> {
     try {
-        const orderId = generateMoMoOrderId(req.invoiceNumber);
-        const requestId = orderId;
-        const amount = req.amount.toString();
-        const orderInfo = req.orderInfo || `Thanh toan hoa don ${req.invoiceNumber}`;
-        const requestType = 'captureWallet';
-        const extraData = ''; // Base64 encoded string if needed
+        const orderCode = generatePayOSOrderCode();
+        const amount = req.amount;
+        const description = req.orderInfo || `Thanh toan hoa don ${req.invoiceNumber}`;
 
-        // MoMo Signature format:
-        // accessKey=$accessKey&amount=$amount&extraData=$extraData&ipnUrl=$ipnUrl&orderId=$orderId&orderInfo=$orderInfo&partnerCode=$partnerCode&redirectUrl=$redirectUrl&requestId=$requestId&requestType=$requestType
-        const rawSignature = `accessKey=${MOMO_CONFIG.accessKey}&amount=${amount}&extraData=${extraData}&ipnUrl=${MOMO_CONFIG.ipnUrl}&orderId=${orderId}&orderInfo=${orderInfo}&partnerCode=${MOMO_CONFIG.partnerCode}&redirectUrl=${MOMO_CONFIG.redirectUrl}&requestId=${requestId}&requestType=${requestType}`;
-
-        const signature = await createHmacSha256(MOMO_CONFIG.secretKey, rawSignature);
-
-        // Request body
+        // payOS request body format
         const requestBody = {
-            partnerCode: MOMO_CONFIG.partnerCode,
-            partnerName: 'Mekong Agency',
-            storeId: 'MekongAgency_Store',
-            requestId: requestId,
+            orderCode: orderCode,
             amount: amount,
-            orderId: orderId,
-            orderInfo: orderInfo,
-            redirectUrl: MOMO_CONFIG.redirectUrl,
-            ipnUrl: MOMO_CONFIG.ipnUrl,
-            lang: 'vi',
-            requestType: requestType,
-            autoCapture: true,
-            extraData: extraData,
+            description: description,
+            buyerName: req.clientId || 'Customer',
+            buyerEmail: 'customer@example.com',
+            buyerPhone: '',
+            buyerAddress: '',
+            items: [
+                {
+                    name: description,
+                    quantity: 1,
+                    price: amount
+                }
+            ],
+            returnUrl: PAYOS_CONFIG.returnUrl,
+            cancelUrl: PAYOS_CONFIG.cancelUrl,
+            expiredAt: Math.floor(Date.now() / 1000) + 15 * 60, // 15 minutes expiry
+        };
+
+        // Create checksum for payOS
+        // Checksum format: amount={amount}&cancelUrl={cancelUrl}&description={description}&orderCode={orderCode}&returnUrl={returnUrl}
+        const checksumData = `amount=${amount}&cancelUrl=${PAYOS_CONFIG.cancelUrl}&description=${description}&orderCode=${orderCode}&returnUrl=${PAYOS_CONFIG.returnUrl}`;
+        const signature = await createHmacSha256(PAYOS_CONFIG.checksumKey, checksumData);
+
+        // Add signature to request
+        const signedRequest = {
+            ...requestBody,
             signature: signature
         };
 
-        // Call MoMo API
-        const response = await fetch(MOMO_CONFIG.endpoint, {
+        // Call payOS API
+        const response = await fetch(PAYOS_CONFIG.endpoint, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
+                'Content-Type': 'application/json',
+                'x-client-id': PAYOS_CONFIG.clientId,
+                'x-api-key': PAYOS_CONFIG.apiKey,
             },
-            body: JSON.stringify(requestBody)
+            body: JSON.stringify(signedRequest)
         });
 
         const result = await response.json();
 
-        if (result.resultCode === 0) {
+        // payOS response structure
+        if (result.code === '00' && result.data) {
             // Save transaction to database
             await savePaymentTransaction(supabase, {
                 invoice_id: req.invoiceId,
-                amount: req.amount,
-                gateway: 'momo',
+                amount: amount,
+                gateway: 'payos',
                 status: 'pending',
-                transaction_id: orderId,
+                transaction_id: orderCode.toString(),
                 callback_data: {
-                    orderId: orderId,
-                    requestId: requestId,
-                    orderInfo: orderInfo,
-                    payUrl: result.payUrl
+                    orderCode: orderCode,
+                    description: description,
+                    checkoutUrl: result.data.checkoutUrl
                 }
             });
 
             return {
                 success: true,
-                paymentUrl: result.payUrl,
-                deeplink: result.deeplink,
-                transactionId: orderId
+                checkoutUrl: result.data.checkoutUrl,
+                paymentUrl: result.data.checkoutUrl,
+                transactionId: orderCode.toString()
             };
         } else {
             return {
                 success: false,
-                error: result.message || result.localMessage || 'Failed to create MoMo payment'
+                error: result.desc || result.message || 'Failed to create payOS payment'
             };
         }
 
     } catch (error) {
-        console.error('MoMo Error:', error);
+        console.error('payOS Error:', error);
         return {
             success: false,
-            error: error.message || 'Internal server error during MoMo payment creation'
+            error: error.message || 'Internal server error during payOS payment creation'
         };
     }
 }
