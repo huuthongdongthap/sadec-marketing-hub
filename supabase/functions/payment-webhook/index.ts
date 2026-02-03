@@ -34,7 +34,7 @@ serve(async (req) => {
     const origin = req.headers.get('origin');
     const corsHeaders = getCorsHeaders(origin);
 
-    // Handle CORS
+    // Handle CORS preflight
     if (req.method === 'OPTIONS') {
         return new Response('ok', { headers: corsHeaders });
     }
@@ -43,10 +43,26 @@ serve(async (req) => {
         const url = new URL(req.url);
         const gateway = url.searchParams.get('gateway'); // 'vnpay', 'momo', or 'payos'
 
+        // Validate gateway parameter
         if (!gateway || !['vnpay', 'momo', 'payos'].includes(gateway)) {
             return new Response(JSON.stringify({ error: 'Invalid or missing gateway parameter' }), {
                 headers: { ...corsHeaders, 'Content-Type': 'application/json' },
                 status: 400,
+            });
+        }
+
+        // Validate HTTP method based on gateway
+        // VNPay uses GET for IPN, MoMo and PayOS use POST
+        if (gateway === 'vnpay' && req.method !== 'GET') {
+            return new Response(JSON.stringify({ error: 'VNPay webhooks must use GET method' }), {
+                headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+                status: 405,
+            });
+        }
+        if ((gateway === 'momo' || gateway === 'payos') && req.method !== 'POST') {
+            return new Response(JSON.stringify({ error: `${gateway.toUpperCase()} webhooks must use POST method` }), {
+                headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+                status: 405,
             });
         }
 
