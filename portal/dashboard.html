@@ -72,6 +72,19 @@
             padding: 24px;
         }
 
+        .stat-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border-radius: var(--md-sys-shape-corner-medium);
+            transition: transform var(--md-sys-motion-duration-short);
+        }
+
+        .stat-card-link:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+        }
+
         .stat-header {
             display: flex;
             justify-content: space-between;
@@ -286,10 +299,16 @@
                     <h1 class="page-title">Dashboard</h1>
                     <div class="body-medium text-muted">Chào mừng trở lại, Nguyễn Tùng!</div>
                 </div>
-                <a href="#" class="btn btn-filled">
-                    <span class="material-symbols-outlined">add</span>
-                    Yêu cầu mới
-                </a>
+                <div style="display: flex; gap: 12px;">
+                    <a href="payments.html" class="btn btn-tonal">
+                        <span class="material-symbols-outlined">payment</span>
+                        Thanh toán nhanh
+                    </a>
+                    <a href="#" class="btn btn-filled">
+                        <span class="material-symbols-outlined">add</span>
+                        Yêu cầu mới
+                    </a>
+                </div>
             </div>
 
             <!-- Stats Grid -->
@@ -336,15 +355,17 @@
                     <div class="stat-label">Leads mới</div>
                 </div>
 
-                <div class="card card-elevated stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon tertiary">
-                            <span class="material-symbols-outlined">receipt_long</span>
+                <a href="payments.html" class="stat-card-link">
+                    <div class="card card-elevated stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon tertiary">
+                                <span class="material-symbols-outlined">receipt_long</span>
+                            </div>
                         </div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Hóa đơn chờ thanh toán</div>
                     </div>
-                    <div class="stat-value">2</div>
-                    <div class="stat-label">Hóa đơn chờ thanh toán</div>
-                </div>
+                </a>
             </div>
 
             <!-- Content Grid -->
@@ -417,6 +438,14 @@
                         <div class="activity-item">
                             <div class="activity-dot green"></div>
                             <div class="activity-content">
+                                <div class="activity-text">Hóa đơn #INV-2024-057 đã thanh toán</div>
+                                <div class="activity-time">1 giờ trước</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-dot green"></div>
+                            <div class="activity-content">
                                 <div class="activity-text">Chiến dịch Facebook đạt 1000 leads</div>
                                 <div class="activity-time">2 giờ trước</div>
                             </div>
@@ -427,6 +456,14 @@
                             <div class="activity-content">
                                 <div class="activity-text">Báo cáo SEO tháng 12 đã sẵn sàng</div>
                                 <div class="activity-time">Hôm qua</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-dot orange"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">Nhắc nhở thanh toán hóa đơn #INV-2024-058</div>
+                                <div class="activity-time">2 ngày trước</div>
                             </div>
                         </div>
 
