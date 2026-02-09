@@ -9,7 +9,12 @@
     "migrate": "node database/migrate.js",
     "migrate:print": "node database/migrate.js --print",
     "migrate:run": "node database/run-migrations.js",
-    "all-phases": "bash run-all-phases.sh"
+    "all-phases": "bash run-all-phases.sh",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
   },
   "keywords": [
     "marketing",
@@ -20,6 +25,8 @@
   "author": "Sa Đéc Marketing Hub",
   "license": "MIT",
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "http-server": "^14.1.1",
     "pg": "^8.16.3"
   },
   "dependencies": {

@@ -42,3 +42,10 @@ seo-accessibility-report.md
 test-*.js
 create-users.js
 push-data.js
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests/fixtures/storage-state.json
