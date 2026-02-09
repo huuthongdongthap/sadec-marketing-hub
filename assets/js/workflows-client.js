@@ -150,7 +150,7 @@ function showToast(message, type = 'info') {
     if (window.MekongAdmin?.Toast) {
         window.MekongAdmin.Toast[type](message);
     } else {
-        console.log(`[${type}] ${message}`);
+        // console.log(`[${type}] ${message}`);
     }
 }
 

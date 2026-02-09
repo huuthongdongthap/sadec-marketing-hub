@@ -57,8 +57,6 @@ class VNPayGateway extends PaymentGateway {
     }
 
     async createPaymentUrl(orderInfo) {
-        console.log('VNPay: Creating payment URL for', orderInfo);
-
         const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
         if (isProd) {
@@ -160,8 +158,6 @@ class MoMoGateway extends PaymentGateway {
     }
 
     async createPaymentUrl(orderInfo) {
-        console.log('MoMo: Creating payment URL for', orderInfo);
-
         const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
         if (isProd) {
@@ -259,7 +255,6 @@ class BankTransferGateway extends PaymentGateway {
 
     async checkPayment(orderId) {
         // In a real system, poll an API to check if the transfer was received (Cassuo or similar)
-        console.log('Checking bank transfer status for', orderId);
         return { status: 'pending' };
     }
 }
@@ -279,8 +274,6 @@ class PayOSGateway extends PaymentGateway {
     }
 
     async createPaymentUrl(orderInfo) {
-        console.log('PayOS: Creating payment URL for', orderInfo);
-
         const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
         if (isProd) {
@@ -320,7 +313,6 @@ class PayOSGateway extends PaymentGateway {
             }
         } else {
             // Local simulation for development
-            console.log('PayOS: Local dev simulation for', orderInfo);
             return `${this.config.returnUrl}?code=00&orderCode=${orderInfo.orderId}&status=PAID`;
         }
     }

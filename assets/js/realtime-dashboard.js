@@ -54,7 +54,6 @@ const RealtimeDashboard = {
                 this.handleConnectionStatus(status);
             });
 
-        // console.log('🔌 Realtime Dashboard initialized');
         return true;
     },
 
@@ -63,7 +62,6 @@ const RealtimeDashboard = {
      */
     handleConnectionStatus(status) {
         this.isConnected = status === 'SUBSCRIBED';
-        // console.log(`📡 Realtime: ${status}`);
         this.updateConnectionIndicator();
 
         if (status === 'SUBSCRIBED') {
@@ -85,8 +83,6 @@ const RealtimeDashboard = {
         this.reconnectAttempts++;
         const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 30000);
 
-        // console.log(`📡 Realtime: Reconnecting in ${delay / 1000}s... (attempt ${this.reconnectAttempts})`);
-
         setTimeout(() => {
             this.disconnect();
             this.init();
@@ -97,8 +93,6 @@ const RealtimeDashboard = {
      * Handle database changes - ENHANCED with MekongStore integration
      */
     handleChange(table, payload) {
-        // console.log(`🔄 ${table}: ${payload.eventType}`, payload.new || payload.old);
-
         // Sync with MekongStore (if available)
         if (window.DataSync) {
             window.DataSync.handleRealtimeUpdate(table, payload);
@@ -159,8 +153,6 @@ const RealtimeDashboard = {
         // Use sadec-toast if available
         if (window.SadecToast) {
             window.SadecToast.show(message, 'info', 3000);
-        } else {
-            // console.log(`🔔 ${message}`);
         }
     },
 
@@ -203,7 +195,6 @@ const RealtimeDashboard = {
                 window.DataSync.fetch('leads', {}),
                 window.DataSync.fetch('posts', {})
             ]);
-            // console.log('📡 All data refreshed');
         }
     }
 };

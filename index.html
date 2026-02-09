@@ -614,11 +614,19 @@
         modal.style.display = 'none';
       }
 
-      // Call payment API
+      // Call payment API with localhost fallback
       createPayment(gateway, amount, packageName, invoiceId);
     }
 
     async function createPayment(gateway, amount, packageName, invoiceId) {
+      // Localhost simulation - skip API calls on development
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
+      if (isLocalhost) {
+        console.log('createPayment: Local dev simulation for', gateway, amount);
+        window.location.href = `/portal/payment-result.html?code=00&orderCode=${invoiceId}&status=PAID&amount=${amount}&gateway=${gateway}`;
+        return;
+      }
+
       try {
         // Show loading indicator
         const loadingDiv = document.createElement('div');
@@ -664,8 +672,8 @@
             orderCode: Date.now(), // PayOS requires orderCode
             invoiceId: invoiceId,
             invoiceNumber: invoiceId,
-            returnUrl: window.location.origin + '/payment-result.html',
-            cancelUrl: window.location.origin + '/pricing.html'
+            returnUrl: window.location.origin + '/portal/payment-result.html',
+            cancelUrl: window.location.origin + '/#pricing'
           })
         });
 
@@ -682,7 +690,7 @@
             window.location.href = result.data.payUrl;
           } else if (result.data.qrUrl) {
             // For QR payment, redirect to result page with QR
-            window.location.href = `/payment-result.html?qr=${encodeURIComponent(result.data.qrUrl)}&amount=${amount}`;
+            window.location.href = `/portal/payment-result.html?qr=${encodeURIComponent(result.data.qrUrl)}&amount=${amount}`;
           } else {
             alert('Không thể khởi tạo thanh toán. Vui lòng thử lại.');
           }
@@ -706,7 +714,7 @@
   </script>
 
   <!-- Payment Modal Component -->
-  <script type="module" src="assets/js/components/payment-modal.js"></script>
+  <script type="module" src="assets/js/components/payment-modal.js?v=20260209b"></script>
 </body>
 
 </html>

@@ -17,7 +17,6 @@ class PWAInstaller {
             e.preventDefault();
             // Stash the event so it can be triggered later.
             this.deferredPrompt = e;
-            console.log('[PWA] Install prompt captured');
 
             // Show custom install UI if it exists
             this.showInstallPromotion();
@@ -25,7 +24,6 @@ class PWAInstaller {
 
         // Handle successful installation
         window.addEventListener('appinstalled', () => {
-            console.log('[PWA] App installed successfully');
             this.deferredPrompt = null;
             // Hide install UI
             this.hideInstallPromotion();
@@ -36,7 +34,7 @@ class PWAInstaller {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
-                        console.log('[PWA] ServiceWorker registered with scope:', registration.scope);
+                        // Registration successful
                     })
                     .catch(err => {
                         console.error('[PWA] ServiceWorker registration failed:', err);
@@ -74,7 +72,6 @@ class PWAInstaller {
 
         // Wait for the user to respond to the prompt
         const { outcome } = await this.deferredPrompt.userChoice;
-        console.log(`[PWA] User response: ${outcome}`);
 
         // We've used the prompt, and can't use it again, throw it away
         this.deferredPrompt = null;

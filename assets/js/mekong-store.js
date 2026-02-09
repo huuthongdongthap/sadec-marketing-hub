@@ -294,7 +294,7 @@ const MekongStore = {
      */
     _log(...args) {
         if (this.config.debug) {
-            // console.log('📦 MekongStore:', ...args);
+            // Debug mode only
         }
     },
 
@@ -303,7 +303,6 @@ const MekongStore = {
      */
     enableDebug() {
         this.config.debug = true;
-        // console.log('📦 MekongStore: Debug mode enabled');
     }
 };
 

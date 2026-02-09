@@ -14,7 +14,6 @@
 
         init() {
             this.bindCards();
-            console.log('[Agency2026] SpotlightManager initialized');
         }
 
         bindCards() {
@@ -48,7 +47,6 @@
 
         init() {
             this.setupIntersectionObserver();
-            console.log('[Agency2026] AnimatedCounter initialized');
         }
 
         setupIntersectionObserver() {
@@ -119,7 +117,6 @@
 
         init() {
             this.bindElements();
-            console.log('[Agency2026] TiltEffect initialized');
         }
 
         bindElements() {
@@ -154,7 +151,6 @@
     class StaggeredReveal {
         init() {
             this.setupObserver();
-            console.log('[Agency2026] StaggeredReveal initialized');
         }
 
         setupObserver() {
@@ -190,8 +186,6 @@
                     btn.style.transform = '';
                 });
             });
-
-            console.log('[Agency2026] MagneticButton initialized');
         }
     }
 
@@ -220,8 +214,6 @@
             this.tilt.init();
             this.reveal.init();
             this.magnetic.init();
-
-            console.log('[Agency2026] Premium UI fully initialized ✨');
         }
     }
 

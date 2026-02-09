@@ -23,11 +23,8 @@
          */
         async init() {
             if (this.initialized) {
-                // console.log('📦 DataSync already initialized');
                 return;
             }
-
-            // console.log('📦 Initializing Data Sync System...');
 
             // Wait for dependencies
             await this.waitForDependencies();
@@ -35,7 +32,6 @@
             // Initialize MekongStore
             if (window.MekongStore) {
                 window.MekongStore.init();
-                // console.log('✅ MekongStore initialized');
             }
 
             // Connect realtime to store
@@ -48,7 +44,6 @@
             this.setupCrossTabSync();
 
             this.initialized = true;
-            // console.log('✅ Data Sync System ready');
 
             // Dispatch ready event
             window.dispatchEvent(new CustomEvent('datasync:ready'));
@@ -89,8 +84,6 @@
                     window.DataSync.handleRealtimeUpdate(table, payload);
                 }
             });
-
-            // console.log('✅ Realtime → Store connected');
         },
 
         /**
@@ -100,7 +93,6 @@
             // Listen for auth changes
             if (window.AuthAPI?.onAuthChange) {
                 window.AuthAPI.onAuthChange((event, session) => {
-                    // console.log('🔐 Auth event:', event);
 
                     if (event === 'SIGNED_OUT') {
                         // Clear store on logout
@@ -114,7 +106,6 @@
 
             // Listen for role changes
             window.addEventListener('auth:role:changed', (e) => {
-                // console.log('🔐 Role changed:', e.detail.role);
             });
         },
 
@@ -125,7 +116,6 @@
             window.addEventListener('storage', (e) => {
                 if (e.key?.startsWith('mekong_store_')) {
                     const entity = e.key.replace('mekong_store_', '');
-                    // console.log(`📡 Cross-tab update: ${entity}`);
 
                     // Restore from new localStorage value
                     if (window.MekongStore) {
@@ -148,7 +138,6 @@
                     window.DataSync.fetch('leads', { limit: 50 }),
                     window.DataSync.fetch('posts', { limit: 20 })
                 ]);
-                // console.log('✅ All data refreshed');
             } catch (err) {
                 console.error('Failed to refresh data:', err);
             }

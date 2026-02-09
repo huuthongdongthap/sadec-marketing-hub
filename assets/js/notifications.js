@@ -17,7 +17,6 @@ class NotificationManager {
         try {
             const permission = await Notification.requestPermission();
             this.permission = permission;
-            console.log('[Notification] Permission:', permission);
             return permission;
         } catch (error) {
             console.error('[Notification] Error requesting permission:', error);
@@ -44,7 +43,7 @@ class NotificationManager {
                 });
             }
         } else {
-            console.log('[Notification] Permission not granted yet');
+            // console.log('[Notification] Permission not granted yet');
         }
     }
 
@@ -52,7 +51,6 @@ class NotificationManager {
     async subscribeToPush() {
         if (this.permission !== 'granted') return null;
 
-        console.log('[Notification] Subscribing to push service...');
         // In a real app, we would get the VAPID key and subscribe via SW registration
         // navigator.serviceWorker.ready.then(reg => reg.pushManager.subscribe(...))
 

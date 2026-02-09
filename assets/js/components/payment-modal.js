@@ -1,11 +1,17 @@
 /**
  * Payment Modal Component
  * Material Design 3 Web Component with Shadow DOM
+ * 
+ * Architecture: Pure UI component that dispatches events.
+ * Host page (index.html, invoices.html) handles payment API calls.
+ * 
+ * KEY DESIGN: render() is called ONLY ONCE in connectedCallback().
+ * attributeChangedCallback() updates text content directly without
+ * re-creating DOM elements, preserving all event listeners.
  */
 
-// Import gateway selector component and payment manager
+// Import gateway selector component
 import './gateway-selector.js';
-import { paymentManager } from '../payment-gateway.js';
 
 class PaymentModal extends HTMLElement {
   constructor() {
@@ -13,6 +19,7 @@ class PaymentModal extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this._selectedGateway = null;
     this._isLoading = false;
+    this._rendered = false;
   }
 
   static get observedAttributes() {
@@ -44,14 +51,30 @@ class PaymentModal extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
-    this.attachEventListeners();
+    if (!this._rendered) {
+      this.render();
+      this.attachEventListeners();
+      this._rendered = true;
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      this.render();
+    if (oldValue !== newValue && this._rendered) {
+      // Update ONLY the text content — do NOT re-render the whole DOM
+      this.updateDisplayValues();
     }
+  }
+
+  updateDisplayValues() {
+    const packageEl = this.shadowRoot.getElementById('displayPackage');
+    const invoiceEl = this.shadowRoot.getElementById('displayInvoice');
+    const amountEl = this.shadowRoot.getElementById('displayAmount');
+    const subtitleEl = this.shadowRoot.getElementById('modalSubtitle');
+
+    if (packageEl) packageEl.textContent = this.packageName;
+    if (invoiceEl) invoiceEl.textContent = this.invoiceId;
+    if (amountEl) amountEl.textContent = this.formatCurrency(this.amount);
+    if (subtitleEl) subtitleEl.textContent = `Complete your payment to activate ${this.packageName}`;
   }
 
   render() {
@@ -68,9 +91,6 @@ class PaymentModal extends HTMLElement {
           --md-sys-shape-corner-medium: 12px;
           --md-sys-shape-corner-full: 9999px;
           --md-sys-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
-          --payment-success: #34C759;
-          --payment-pending: #FF9500;
-          --payment-failed: #FF3B30;
         }
 
         * {
@@ -105,14 +125,8 @@ class PaymentModal extends HTMLElement {
         }
 
         @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-header {
@@ -257,11 +271,11 @@ class PaymentModal extends HTMLElement {
         }
       </style>
 
-      <div class="modal-overlay">
+      <div class="modal-overlay" id="modalOverlay">
         <div class="modal-container">
           <div class="modal-header">
             <h2 class="modal-title">Payment</h2>
-            <p class="modal-subtitle">Complete your payment to activate ${this.packageName}</p>
+            <p class="modal-subtitle" id="modalSubtitle">Complete your payment</p>
           </div>
 
           <div class="modal-body">
@@ -270,15 +284,15 @@ class PaymentModal extends HTMLElement {
             <div class="payment-info">
               <div class="info-row">
                 <span class="info-label">Package</span>
-                <span class="info-value">${this.packageName}</span>
+                <span class="info-value" id="displayPackage"></span>
               </div>
               <div class="info-row">
                 <span class="info-label">Invoice ID</span>
-                <span class="info-value">${this.invoiceId}</span>
+                <span class="info-value" id="displayInvoice"></span>
               </div>
               <div class="info-row">
                 <span class="info-label">Amount</span>
-                <span class="info-value amount-value">${this.formatCurrency(this.amount)}</span>
+                <span class="info-value amount-value" id="displayAmount"></span>
               </div>
             </div>
 
@@ -297,17 +311,21 @@ class PaymentModal extends HTMLElement {
         </div>
       </div>
     `;
+
+    // Set initial display values
+    this.updateDisplayValues();
   }
 
   attachEventListeners() {
     const gatewaySelector = this.shadowRoot.getElementById('gatewaySelector');
     const submitBtn = this.shadowRoot.getElementById('submitBtn');
     const cancelBtn = this.shadowRoot.getElementById('cancelBtn');
+    const overlay = this.shadowRoot.getElementById('modalOverlay');
 
     if (gatewaySelector) {
       gatewaySelector.addEventListener('gateway-selected', (e) => {
         this._selectedGateway = e.detail.gateway;
-        submitBtn.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
       });
     }
 
@@ -318,6 +336,13 @@ class PaymentModal extends HTMLElement {
     if (cancelBtn) {
       cancelBtn.addEventListener('click', () => this.handleCancel());
     }
+
+    // Close on overlay click
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) this.handleCancel();
+      });
+    }
   }
 
   async handleSubmit() {
@@ -327,41 +352,19 @@ class PaymentModal extends HTMLElement {
     this.hideError();
 
     try {
-      // Call PaymentManager directly to process payment
-      const result = await paymentManager.processPayment(this._selectedGateway, {
-        amount: this.amount,
-        orderId: this.invoiceId,
-        invoiceId: this.invoiceId,
-        invoiceNumber: this.invoiceId,
-        description: `Payment for ${this.packageName} - ${this.invoiceId}`,
-        clientId: 'web-portal'
-      });
-
-      if (result.success) {
-        // Dispatch event for host pages
-        this.dispatchEvent(new CustomEvent('payment-submitted', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            gateway: this._selectedGateway,
-            amount: this.amount,
-            packageName: this.packageName,
-            invoiceId: this.invoiceId
-          }
-        }));
-
-        if (result.type === 'redirect') {
-          // Redirect to payment gateway URL
-          window.location.href = result.data;
-        } else if (result.type === 'display') {
-          // Show QR code modal (for bank transfer)
-          this.showQRModal(result.data);
+      // Dispatch event — host page handles actual payment API call
+      this.dispatchEvent(new CustomEvent('payment-submitted', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          gateway: this._selectedGateway,
+          amount: this.amount,
+          packageName: this.packageName,
+          invoiceId: this.invoiceId
         }
-      } else {
-        throw new Error(result.error || 'Payment processing failed');
-      }
+      }));
     } catch (error) {
-      console.error('Payment error:', error);
+      console.error('[payment-modal] Payment error:', error);
       this.showError(error.message || 'Payment submission failed');
       this.setLoading(false);
     }
@@ -409,13 +412,6 @@ class PaymentModal extends HTMLElement {
       style: 'currency',
       currency: 'VND'
     }).format(amount);
-  }
-
-  showQRModal(qrData) {
-    // TODO: Implement QR modal for bank transfer
-    console.log('Show QR modal:', qrData);
-    alert('QR Code payment not yet implemented. Please use another payment method.');
-    this.setLoading(false);
   }
 }
 

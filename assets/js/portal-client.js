@@ -982,7 +982,6 @@ function setupInvoiceRealtime(tableElement) {
             'postgres_changes',
             { event: '*', schema: 'public', table: 'invoices' },
             (payload) => {
-                // console.log('Invoice change received!', payload);
 
                 // If update event and matches a row in the table
                 if (payload.eventType === 'UPDATE') {
