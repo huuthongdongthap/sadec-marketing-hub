@@ -149,8 +149,6 @@ function renderWorkflowsList(workflowsData, containerId = 'workflows-list') {
 function showToast(message, type = 'info') {
     if (window.MekongAdmin?.Toast) {
         window.MekongAdmin.Toast[type](message);
-    } else {
-        // console.log(`[${type}] ${message}`);
     }
 }
 
@@ -179,8 +177,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     renderWorkflowsList(data.workflows);
     await bindWorkflowStats();
-
-    // console.debug('✅ Workflows dashboard loaded');
 });
 
 export { loadWorkflowsData, renderWorkflowsList, bindWorkflowStats };

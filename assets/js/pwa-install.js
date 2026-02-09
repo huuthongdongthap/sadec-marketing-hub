@@ -83,8 +83,6 @@ class PWAInstaller {
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         if (isIOS) {
             alert('Để cài đặt trên iOS:\n1. Nhấn nút "Chia sẻ" (Share)\n2. Chọn "Thêm vào MH chính" (Add to Home Screen)');
-        } else {
-            console.log('Installation not supported or already installed');
         }
     }
 }

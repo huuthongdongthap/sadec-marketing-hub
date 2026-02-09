@@ -43,7 +43,7 @@ class NotificationManager {
                 });
             }
         } else {
-            // console.log('[Notification] Permission not granted yet');
+            // Permission not granted
         }
     }
 
