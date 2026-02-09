@@ -319,6 +319,18 @@
             document.getElementById('txn-amount').textContent = '--';
             document.getElementById('txn-bank').textContent = '--';
             document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
+            // Auto-redirect after 5s
+            let countdown = 5;
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    document.getElementById('result-message').textContent = `Bạn đã hủy giao dịch thanh toán.\n\nTự động chuyển về trang thanh toán trong ${countdown} giây...`;
+                } else {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'payments.html';
+                }
+            }, 1000);
         } else if (urlParams.get('status') === 'pending') {
             // Handle Pending / QR Display
             document.getElementById('loading-state').style.display = 'none';

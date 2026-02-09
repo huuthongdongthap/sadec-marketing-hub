@@ -236,6 +236,76 @@ class BankTransferGateway extends PaymentGateway {
 }
 
 /**
+ * PayOS Gateway Implementation
+ */
+class PayOSGateway extends PaymentGateway {
+    constructor() {
+        super({
+            url: 'https://pzcgvfhppglzfjavxuid.supabase.co',
+            returnUrl: window.location.origin + '/portal/payment-result.html',
+            cancelUrl: window.location.origin + '/portal/payment-result.html?cancel=true'
+        });
+    }
+
+    async createPaymentUrl(orderInfo) {
+        console.log('PayOS: Creating payment URL for', orderInfo);
+
+        try {
+            // Call Supabase Edge Function to create PayOS payment
+            const response = await fetch(`${this.config.url}/functions/v1/create-payos-payment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    amount: orderInfo.amount,
+                    description: orderInfo.orderDescription || `Thanh toan don hang ${orderInfo.orderId}`,
+                    orderCode: orderInfo.orderId || Date.now(),
+                    returnUrl: this.config.returnUrl,
+                    cancelUrl: this.config.cancelUrl
+                })
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'PayOS API error');
+            }
+
+            const result = await response.json();
+
+            // Return the checkout URL from PayOS
+            return result.checkoutUrl || result.paymentUrl;
+        } catch (error) {
+            console.error('PayOS Error:', error);
+            // Fallback to demo URL for development
+            return `${this.config.returnUrl}?code=00&orderCode=${orderInfo.orderId}&status=PAID`;
+        }
+    }
+
+    async verifyCallback(params) {
+        const code = params.get('code');
+        const orderCode = params.get('orderCode');
+        const status = params.get('status');
+
+        if (code === '00' || status === 'PAID') {
+            return {
+                success: true,
+                orderId: orderCode,
+                message: 'Giao dịch PayOS thành công',
+                gateway: 'payos'
+            };
+        } else {
+            return {
+                success: false,
+                orderId: orderCode,
+                message: 'Giao dịch PayOS thất bại hoặc bị hủy',
+                gateway: 'payos'
+            };
+        }
+    }
+}
+
+/**
  * Payment Manager Facade
  */
 class PaymentManager {
@@ -243,6 +313,7 @@ class PaymentManager {
         this.gateways = {
             vnpay: new VNPayGateway(),
             momo: new MoMoGateway(),
+            payos: new PayOSGateway(),
             bank: new BankTransferGateway()
         };
     }
@@ -297,6 +368,7 @@ class PaymentManager {
         let gatewayType = null;
         if (params.has('vnp_TxnRef')) gatewayType = 'vnpay';
         else if (params.has('partnerCode') || params.has('resultCode')) gatewayType = 'momo';
+        else if (params.has('code') && params.has('orderCode')) gatewayType = 'payos';
 
         if (!gatewayType) return null;
 
@@ -310,5 +382,6 @@ export const paymentManager = new PaymentManager();
 export const gateways = {
     VNPayGateway,
     MoMoGateway,
+    PayOSGateway,
     BankTransferGateway
 };

@@ -36,8 +36,8 @@ export default defineConfig({
     /* Screenshot on failure */
     screenshot: 'only-on-failure',
 
-    /* Video on failure */
-    video: 'retain-on-failure',
+    /* Video disabled (ffmpeg issues on macOS) */
+    video: 'off',
   },
 
   /* Configure projects for major browsers */

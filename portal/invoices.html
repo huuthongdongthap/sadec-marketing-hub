@@ -479,10 +479,14 @@
         </button>
     </div>
 
+    <!-- Payment Modal -->
+    <payment-modal id="paymentModal" style="display: none;"></payment-modal>
+
     <!-- Portal Client Script -->
     <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <script type="module" src="../assets/js/portal-client.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/components/payment-modal.js"></script>
 
     <script>
         // Bulk payment selection functionality
@@ -535,13 +539,83 @@
         async function handlePayment(invoiceId) {
             console.log('Processing payment for invoice:', invoiceId);
 
-            // TODO: Open payment modal with invoice details
-            alert(`Mở modal thanh toán cho hóa đơn ${invoiceId}\n\nTính năng này sẽ được kết nối với payment modal component.`);
+            // Get invoice details from the table row
+            const row = document.querySelector(`[data-invoice-id="${invoiceId}"]`)?.closest('tr');
+            if (!row) {
+                alert('Không tìm thấy hóa đơn');
+                return;
+            }
 
-            // Example: Open payment modal (will be implemented with payment-modal component)
-            // const modal = document.createElement('payment-modal');
-            // modal.setAttribute('invoice-id', invoiceId);
-            // document.body.appendChild(modal);
+            const amountText = row.querySelector('.amount')?.textContent || '0đ';
+            const amount = parseInt(amountText.replace(/[^\d]/g, ''));
+
+            // Open payment modal
+            const modal = document.getElementById('paymentModal');
+            if (modal) {
+                modal.setAttribute('amount', amount);
+                modal.setAttribute('invoice-id', invoiceId);
+                modal.setAttribute('package-name', `Hóa đơn ${invoiceId}`);
+                modal.style.display = 'block';
+
+                // Listen for payment events
+                modal.addEventListener('payment-submitted', async (event) => {
+                    const { gateway, amount: paidAmount } = event.detail;
+                    console.log('Payment submitted:', { gateway, paidAmount, invoiceId });
+
+                    // Hide modal
+                    modal.style.display = 'none';
+
+                    // Call payment API and redirect
+                    await processInvoicePayment(gateway, paidAmount, invoiceId);
+                }, { once: true });
+
+                modal.addEventListener('payment-cancelled', () => {
+                    modal.style.display = 'none';
+                }, { once: true });
+            }
+        }
+
+        // Process invoice payment
+        async function processInvoicePayment(gateway, amount, invoiceId) {
+            try {
+                const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+
+                const endpointMap = {
+                    'payos': 'create-payos-payment',
+                    'vnpay': 'create-payment',
+                    'momo': 'create-momo-payment'
+                };
+                const endpoint = endpointMap[gateway] || 'create-payos-payment';
+
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: parseInt(amount),
+                        description: `Thanh toán hóa đơn ${invoiceId}`,
+                        orderCode: Date.now(),
+                        invoiceId: invoiceId,
+                        returnUrl: window.location.origin + '/portal/payment-result.html',
+                        cancelUrl: window.location.origin + '/portal/invoices.html'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    // Redirect to payment gateway
+                    if (result.data.checkoutUrl) {
+                        window.location.href = result.data.checkoutUrl;
+                    } else if (result.data.payUrl) {
+                        window.location.href = result.data.payUrl;
+                    }
+                } else {
+                    alert('Lỗi: ' + (result.error || 'Không thể tạo thanh toán'));
+                }
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+            }
         }
 
         // Bulk payment handler
@@ -555,14 +629,35 @@
             console.log('Processing bulk payment for invoices:', invoiceIds);
             console.log('Total amount:', totalAmount);
 
-            // TODO: Open payment modal with multiple invoices
-            alert(`Mở modal thanh toán cho ${invoiceIds.length} hóa đơn:\n${invoiceIds.join(', ')}\n\nTổng tiền: ${totalAmount.toLocaleString('vi-VN')}đ\n\nTính năng này sẽ được kết nối với payment modal component.`);
+            if (invoiceIds.length === 0) {
+                alert('Vui lòng chọn ít nhất một hóa đơn');
+                return;
+            }
 
-            // Example: Open payment modal for bulk payment
-            // const modal = document.createElement('payment-modal');
-            // modal.setAttribute('invoice-ids', JSON.stringify(invoiceIds));
-            // modal.setAttribute('total-amount', totalAmount);
-            // document.body.appendChild(modal);
+            // Open payment modal for bulk payment
+            const modal = document.getElementById('paymentModal');
+            if (modal) {
+                modal.setAttribute('amount', totalAmount);
+                modal.setAttribute('invoice-id', invoiceIds.join(','));
+                modal.setAttribute('package-name', `${invoiceIds.length} hóa đơn`);
+                modal.style.display = 'block';
+
+                // Listen for payment events
+                modal.addEventListener('payment-submitted', async (event) => {
+                    const { gateway } = event.detail;
+                    console.log('Bulk payment submitted:', { gateway, totalAmount, invoiceIds });
+
+                    // Hide modal
+                    modal.style.display = 'none';
+
+                    // Call payment API for bulk payment
+                    await processInvoicePayment(gateway, totalAmount, invoiceIds.join(','));
+                }, { once: true });
+
+                modal.addEventListener('payment-cancelled', () => {
+                    modal.style.display = 'none';
+                }, { once: true });
+            }
         }
     </script>
 </body>
