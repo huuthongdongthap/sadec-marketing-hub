@@ -3,8 +3,9 @@
  * Material Design 3 Web Component with Shadow DOM
  */
 
-// Import gateway selector component
+// Import gateway selector component and payment manager
 import './gateway-selector.js';
+import { paymentManager } from '../payment-gateway.js';
 
 class PaymentModal extends HTMLElement {
   constructor() {
@@ -326,18 +327,29 @@ class PaymentModal extends HTMLElement {
     this.hideError();
 
     try {
-      // Emit payment-submitted event with payment details
-      this.dispatchEvent(new CustomEvent('payment-submitted', {
-        detail: {
-          gateway: this._selectedGateway,
-          amount: this.amount,
-          packageName: this.packageName,
-          invoiceId: this.invoiceId
-        },
-        bubbles: true,
-        composed: true
-      }));
+      // Call PaymentManager directly to process payment
+      const result = await paymentManager.processPayment(this._selectedGateway, {
+        amount: this.amount,
+        orderId: this.invoiceId,
+        invoiceId: this.invoiceId,
+        invoiceNumber: this.invoiceId,
+        description: `Payment for ${this.packageName} - ${this.invoiceId}`,
+        clientId: 'web-portal'
+      });
+
+      if (result.success) {
+        if (result.type === 'redirect') {
+          // Redirect to payment gateway URL
+          window.location.href = result.data;
+        } else if (result.type === 'display') {
+          // Show QR code modal (for bank transfer)
+          this.showQRModal(result.data);
+        }
+      } else {
+        throw new Error(result.error || 'Payment processing failed');
+      }
     } catch (error) {
+      console.error('Payment error:', error);
       this.showError(error.message || 'Payment submission failed');
       this.setLoading(false);
     }
@@ -385,6 +397,13 @@ class PaymentModal extends HTMLElement {
       style: 'currency',
       currency: 'VND'
     }).format(amount);
+  }
+
+  showQRModal(qrData) {
+    // TODO: Implement QR modal for bank transfer
+    console.log('Show QR modal:', qrData);
+    alert('QR Code payment not yet implemented. Please use another payment method.');
+    this.setLoading(false);
   }
 }
 

@@ -52,51 +52,44 @@ class PaymentGateway {
 class VNPayGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.vnpay);
+        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
     }
 
     async createPaymentUrl(orderInfo) {
-        // orderInfo: { amount, orderId, orderDescription, bankCode }
         console.log('VNPay: Creating payment URL for', orderInfo);
 
-        // In a real implementation, this requires server-side signing.
-        // For the client-side demo/skeleton, we simulate the redirect.
-        // We'll call a serverless function in production.
-
-        // Mock URL construction for demo
-        const params = new URLSearchParams();
-        params.append('vnp_Version', '2.1.0');
-        params.append('vnp_Command', 'pay');
-        params.append('vnp_TmnCode', this.config.tmnCode);
-        params.append('vnp_Amount', (orderInfo.amount * 100).toString()); // Amount in VND * 100
-        params.append('vnp_CurrCode', 'VND');
-        params.append('vnp_TxnRef', orderInfo.orderId);
-        params.append('vnp_OrderInfo', orderInfo.orderDescription);
-        params.append('vnp_OrderType', 'other');
-        params.append('vnp_Locale', 'vn');
-        params.append('vnp_ReturnUrl', this.config.returnUrl);
-        params.append('vnp_IpAddr', '127.0.0.1');
-        params.append('vnp_CreateDate', this._getDateFormat(new Date()));
-
-        // For demo purposes, we return a direct link to the result page with success params
-        // In production, this returns the actual VNPay URL
         const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
         if (isProd) {
-             // Use Supabase Edge Function to generate signed URL
-             try {
-                // Placeholder for Edge Function call
-                // const response = await fetch('/api/vnpay/create_url', { ... });
-                // return response.url;
+            try {
+                // Call Supabase Edge Function to create VNPay payment
+                const response = await fetch(`${this.supabaseUrl}/functions/v1/create-payment`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        invoiceId: orderInfo.invoiceId || orderInfo.orderId,
+                        invoiceNumber: orderInfo.invoiceNumber || orderInfo.orderId,
+                        amount: parseInt(orderInfo.amount),
+                        orderInfo: orderInfo.orderDescription || `Payment for ${orderInfo.orderId}`
+                    })
+                });
 
-                // Fallback to simulation for now
-                 return `${this.config.returnUrl}?vnp_TxnRef=${orderInfo.orderId}&vnp_Amount=${orderInfo.amount * 100}&vnp_ResponseCode=00&vnp_TransactionNo=12345678`;
-             } catch (e) {
-                 console.error('VNPay Error', e);
-                 return null;
-             }
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'VNPay API error');
+                }
+
+                const result = await response.json();
+                return result.checkoutUrl || result.paymentUrl;
+            } catch (error) {
+                console.error('VNPay Error:', error);
+                throw error;
+            }
         } else {
-             // Local simulation
-             return `${this.config.returnUrl}?vnp_TxnRef=${orderInfo.orderId}&vnp_Amount=${orderInfo.amount * 100}&vnp_ResponseCode=00&vnp_TransactionNo=12345678`;
+            // Local simulation for development
+            return `${this.config.returnUrl}?vnp_TxnRef=${orderInfo.orderId}&vnp_Amount=${orderInfo.amount * 100}&vnp_ResponseCode=00&vnp_TransactionNo=12345678`;
         }
     }
 
@@ -160,21 +153,53 @@ class VNPayGateway extends PaymentGateway {
 class MoMoGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.momo);
+        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
     }
 
     async createPaymentUrl(orderInfo) {
         console.log('MoMo: Creating payment URL for', orderInfo);
 
-        // Simulation for now
-        const params = new URLSearchParams();
-        params.append('partnerCode', this.config.partnerCode);
-        params.append('orderId', orderInfo.orderId);
-        params.append('requestId', orderInfo.orderId);
-        params.append('amount', orderInfo.amount);
-        params.append('orderInfo', orderInfo.orderDescription);
-        params.append('resultCode', '0');
+        const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
-        return `${this.config.returnUrl}?${params.toString()}`;
+        if (isProd) {
+            try {
+                // Call Supabase Edge Function to create MoMo payment
+                const response = await fetch(`${this.supabaseUrl}/functions/v1/create-momo-payment`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        invoiceId: orderInfo.invoiceId || orderInfo.orderId,
+                        invoiceNumber: orderInfo.invoiceNumber || orderInfo.orderId,
+                        amount: parseInt(orderInfo.amount),
+                        orderInfo: orderInfo.orderDescription || `Payment for ${orderInfo.orderId}`
+                    })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'MoMo API error');
+                }
+
+                const result = await response.json();
+                return result.checkoutUrl || result.payUrl;
+            } catch (error) {
+                console.error('MoMo Error:', error);
+                throw error;
+            }
+        } else {
+            // Local simulation for development
+            const params = new URLSearchParams();
+            params.append('partnerCode', this.config.partnerCode);
+            params.append('orderId', orderInfo.orderId);
+            params.append('requestId', orderInfo.orderId);
+            params.append('amount', orderInfo.amount);
+            params.append('orderInfo', orderInfo.orderDescription);
+            params.append('resultCode', '0');
+
+            return `${this.config.returnUrl}?${params.toString()}`;
+        }
     }
 
     async verifyCallback(params) {
@@ -252,17 +277,18 @@ class PayOSGateway extends PaymentGateway {
 
         try {
             // Call Supabase Edge Function to create PayOS payment
+            // Edge Function expects: { invoiceId, invoiceNumber, amount, orderInfo, clientId }
             const response = await fetch(`${this.config.url}/functions/v1/create-payos-payment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    amount: orderInfo.amount,
-                    description: orderInfo.orderDescription || `Thanh toan don hang ${orderInfo.orderId}`,
-                    orderCode: orderInfo.orderId || Date.now(),
-                    returnUrl: this.config.returnUrl,
-                    cancelUrl: this.config.cancelUrl
+                    invoiceId: orderInfo.invoiceId || orderInfo.orderId,
+                    invoiceNumber: orderInfo.invoiceNumber || orderInfo.orderId,
+                    amount: parseInt(orderInfo.amount),
+                    orderInfo: orderInfo.orderDescription || `Payment for ${orderInfo.orderId}`,
+                    clientId: orderInfo.clientId || 'web-portal'
                 })
             });
 
@@ -273,8 +299,12 @@ class PayOSGateway extends PaymentGateway {
 
             const result = await response.json();
 
-            // Return the checkout URL from PayOS
-            return result.checkoutUrl || result.paymentUrl;
+            // Return the checkout URL from PayOS response
+            if (result.checkoutUrl) {
+                return result.checkoutUrl;
+            } else {
+                throw new Error('No checkoutUrl in response');
+            }
         } catch (error) {
             console.error('PayOS Error:', error);
             // Fallback to demo URL for development
