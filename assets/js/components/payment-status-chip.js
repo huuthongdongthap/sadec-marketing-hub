@@ -21,12 +21,16 @@ class PaymentStatusChip extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
+    if (!this.shadowRoot.querySelector('style')) {
+      this.render();
+    } else {
+      this.updateView();
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'status' && oldValue !== newValue) {
-      this.render();
+      this.updateView();
     }
   }
 
@@ -59,6 +63,25 @@ class PaymentStatusChip extends HTMLElement {
     };
 
     return configs[status] || configs.pending;
+  }
+
+  updateView() {
+    const chip = this.shadowRoot.querySelector('.status-chip');
+    if (!chip) return; // Not rendered yet
+
+    const config = this.getStatusConfig(this.status);
+
+    // Update styles
+    chip.className = `status-chip ${this.status}`;
+    chip.style.color = config.color;
+    chip.style.backgroundColor = config.bgColor;
+
+    // Update content
+    const icon = this.shadowRoot.querySelector('.status-icon');
+    const label = this.shadowRoot.querySelector('.status-label');
+
+    if (icon) icon.textContent = config.icon;
+    if (label) label.textContent = config.label;
   }
 
   render() {
