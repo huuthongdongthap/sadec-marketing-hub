@@ -227,6 +227,8 @@
         import { supabase } from '../assets/js/supabase.js';
 
         const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
 
         // Parse VNPay response from URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -234,6 +236,69 @@
         // Verify payment with Edge Function
         async function verifyPayment(gateway = 'vnpay') {
             try {
+                // Localhost fallback - skip API and show success based on URL params
+                if (isLocalhost) {
+                    console.log('Localhost: Simulating payment verification for', gateway);
+
+                    // Wait a bit to show loading state (better UX)
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+
+                    // Hide loading, show result
+                    document.getElementById('loading-state').style.display = 'none';
+                    document.getElementById('result-state').style.display = 'block';
+
+                    const resultIcon = document.getElementById('result-icon');
+                    const iconSymbol = document.getElementById('result-icon-symbol');
+                    const resultTitle = document.getElementById('result-title');
+                    const resultMessage = document.getElementById('result-message');
+
+                    // Fill transaction details from URL params
+                    document.getElementById('txn-id').textContent = urlParams.get('vnp_TxnRef') || urlParams.get('orderCode') || urlParams.get('orderId') || 'LOCAL-TEST';
+                    document.getElementById('txn-amount').textContent = urlParams.get('amount') || '500.000 ₫';
+                    document.getElementById('txn-bank').textContent = gateway.toUpperCase();
+                    document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
+                    // Determine success based on URL params
+                    const vnpaySuccess = urlParams.get('vnp_ResponseCode') === '00';
+                    const momoSuccess = urlParams.get('resultCode') === '0';
+                    const payosSuccess = urlParams.get('code') === '00' || urlParams.get('status') === 'PAID';
+
+                    if (vnpaySuccess || momoSuccess || payosSuccess) {
+                        resultIcon.className = 'result-icon success';
+                        iconSymbol.textContent = 'check_circle';
+                        resultTitle.textContent = '✅ Thanh toán thành công!';
+                        resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
+
+                        // Auto-redirect countdown
+                        const countdownContainer = document.getElementById('countdown-container');
+                        const countdownProgress = document.getElementById('countdown-progress');
+                        countdownContainer.style.display = 'block';
+
+                        let countdown = 5;
+                        countdownProgress.style.width = '100%';
+
+                        const countdownInterval = setInterval(() => {
+                            countdown--;
+                            const progress = (countdown / 5) * 100;
+                            countdownProgress.style.width = `${progress}%`;
+
+                            if (countdown > 0) {
+                                resultMessage.textContent = `Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!\n\nTự động chuyển về trang hóa đơn trong ${countdown} giây...`;
+                            } else {
+                                clearInterval(countdownInterval);
+                                window.location.href = 'invoices.html';
+                            }
+                        }, 1000);
+                    } else {
+                        resultIcon.className = 'result-icon failed';
+                        iconSymbol.textContent = 'error';
+                        resultTitle.textContent = '⚠️ Thanh toán không thành công';
+                        resultMessage.textContent = 'Giao dịch không thành công. Vui lòng thử lại.';
+                    }
+                    return;
+                }
+
+                // Production: Call Edge Function
                 // Determine endpoint based on gateway
                 let endpoint = 'verify-payment'; // Default for VNPay
                 if (gateway === 'momo') {
@@ -247,7 +312,8 @@
                 const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}${window.location.search}`, {
                     method: 'GET',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
                     }
                 });
 

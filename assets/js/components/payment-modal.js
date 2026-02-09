@@ -338,6 +338,18 @@ class PaymentModal extends HTMLElement {
       });
 
       if (result.success) {
+        // Dispatch event for host pages
+        this.dispatchEvent(new CustomEvent('payment-submitted', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            gateway: this._selectedGateway,
+            amount: this.amount,
+            packageName: this.packageName,
+            invoiceId: this.invoiceId
+          }
+        }));
+
         if (result.type === 'redirect') {
           // Redirect to payment gateway URL
           window.location.href = result.data;

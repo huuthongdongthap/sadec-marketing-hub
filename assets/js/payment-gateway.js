@@ -53,6 +53,7 @@ class VNPayGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.vnpay);
         this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
     }
 
     async createPaymentUrl(orderInfo) {
@@ -66,7 +67,8 @@ class VNPayGateway extends PaymentGateway {
                 const response = await fetch(`${this.supabaseUrl}/functions/v1/create-payment`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${this.supabaseAnonKey}`
                     },
                     body: JSON.stringify({
                         invoiceId: orderInfo.invoiceId || orderInfo.orderId,
@@ -154,6 +156,7 @@ class MoMoGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.momo);
         this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
     }
 
     async createPaymentUrl(orderInfo) {
@@ -167,7 +170,8 @@ class MoMoGateway extends PaymentGateway {
                 const response = await fetch(`${this.supabaseUrl}/functions/v1/create-momo-payment`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${this.supabaseAnonKey}`
                     },
                     body: JSON.stringify({
                         invoiceId: orderInfo.invoiceId || orderInfo.orderId,
@@ -270,44 +274,53 @@ class PayOSGateway extends PaymentGateway {
             returnUrl: window.location.origin + '/portal/payment-result.html',
             cancelUrl: window.location.origin + '/portal/payment-result.html?cancel=true'
         });
+        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
     }
 
     async createPaymentUrl(orderInfo) {
         console.log('PayOS: Creating payment URL for', orderInfo);
 
-        try {
-            // Call Supabase Edge Function to create PayOS payment
-            // Edge Function expects: { invoiceId, invoiceNumber, amount, orderInfo, clientId }
-            const response = await fetch(`${this.config.url}/functions/v1/create-payos-payment`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    invoiceId: orderInfo.invoiceId || orderInfo.orderId,
-                    invoiceNumber: orderInfo.invoiceNumber || orderInfo.orderId,
-                    amount: parseInt(orderInfo.amount),
-                    orderInfo: orderInfo.orderDescription || `Payment for ${orderInfo.orderId}`,
-                    clientId: orderInfo.clientId || 'web-portal'
-                })
-            });
+        const isProd = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
 
-            if (!response.ok) {
-                const error = await response.json();
-                throw new Error(error.message || 'PayOS API error');
+        if (isProd) {
+            try {
+                // Call Supabase Edge Function to create PayOS payment
+                const response = await fetch(`${this.supabaseUrl}/functions/v1/create-payos-payment`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${this.supabaseAnonKey}`
+                    },
+                    body: JSON.stringify({
+                        invoiceId: orderInfo.invoiceId || orderInfo.orderId,
+                        invoiceNumber: orderInfo.invoiceNumber || orderInfo.orderId,
+                        amount: parseInt(orderInfo.amount),
+                        orderInfo: orderInfo.orderDescription || `Payment for ${orderInfo.orderId}`,
+                        clientId: orderInfo.clientId || 'web-portal'
+                    })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'PayOS API error');
+                }
+
+                const result = await response.json();
+
+                // Return the checkout URL from PayOS response
+                if (result.checkoutUrl) {
+                    return result.checkoutUrl;
+                } else {
+                    throw new Error('No checkoutUrl in response');
+                }
+            } catch (error) {
+                console.error('PayOS Error:', error);
+                throw error;
             }
-
-            const result = await response.json();
-
-            // Return the checkout URL from PayOS response
-            if (result.checkoutUrl) {
-                return result.checkoutUrl;
-            } else {
-                throw new Error('No checkoutUrl in response');
-            }
-        } catch (error) {
-            console.error('PayOS Error:', error);
-            // Fallback to demo URL for development
+        } else {
+            // Local simulation for development
+            console.log('PayOS: Local dev simulation for', orderInfo);
             return `${this.config.returnUrl}?code=00&orderCode=${orderInfo.orderId}&status=PAID`;
         }
     }
@@ -368,10 +381,8 @@ class PaymentManager {
 
         try {
             const result = await gateway.createPaymentUrl({
-                amount: orderData.amount,
-                orderId: orderData.orderId,
-                orderDescription: orderData.description || `Thanh toan don hang ${orderData.orderId}`,
-                bankCode: orderData.bankCode // Optional
+                ...orderData,
+                orderDescription: orderData.description || `Thanh toan don hang ${orderData.orderId}`
             });
 
             return {
