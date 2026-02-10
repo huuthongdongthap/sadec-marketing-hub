@@ -4,8 +4,8 @@
   "description": "Sa Đéc Marketing Hub - Digital Marketing Agency",
   "scripts": {
     "dev": "npx http-server -p 8080 -o",
-    "prebuild": "node inject-env.js",
-    "build": "node inject-env.js",
+    "prebuild": "node scripts/tools/inject-env.js",
+    "build": "node scripts/tools/inject-env.js",
     "migrate": "node database/migrate.js",
     "migrate:print": "node database/migrate.js --print",
     "migrate:run": "node database/run-migrations.js",
