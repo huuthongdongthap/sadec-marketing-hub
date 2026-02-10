@@ -15,9 +15,6 @@
 import './sadec-toast.js';
 import './sadec-sidebar.js';
 
-// Log initialization
-console.debug('Sadec Components loaded: sadec-toast, sadec-sidebar');
-
 // Export for programmatic access
 export { SadecToast } from './sadec-toast.js';
 export { SadecSidebar } from './sadec-sidebar.js';

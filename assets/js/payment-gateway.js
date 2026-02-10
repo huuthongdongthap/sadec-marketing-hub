@@ -7,6 +7,9 @@
  */
 
 // Configuration (should be injected via env in production)
+const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+
 const PAYMENT_CONFIG = {
     vnpay: {
         tmnCode: 'MEKONG01',
@@ -52,8 +55,8 @@ class PaymentGateway {
 class VNPayGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.vnpay);
-        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        this.supabaseUrl = SUPABASE_URL;
+        this.supabaseAnonKey = SUPABASE_ANON_KEY;
     }
 
     async createPaymentUrl(orderInfo) {
@@ -153,8 +156,8 @@ class VNPayGateway extends PaymentGateway {
 class MoMoGateway extends PaymentGateway {
     constructor() {
         super(PAYMENT_CONFIG.momo);
-        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        this.supabaseUrl = SUPABASE_URL;
+        this.supabaseAnonKey = SUPABASE_ANON_KEY;
     }
 
     async createPaymentUrl(orderInfo) {
@@ -265,12 +268,12 @@ class BankTransferGateway extends PaymentGateway {
 class PayOSGateway extends PaymentGateway {
     constructor() {
         super({
-            url: 'https://pzcgvfhppglzfjavxuid.supabase.co',
+            url: SUPABASE_URL,
             returnUrl: window.location.origin + '/portal/payment-result.html',
             cancelUrl: window.location.origin + '/portal/payment-result.html?cancel=true'
         });
-        this.supabaseUrl = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        this.supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        this.supabaseUrl = SUPABASE_URL;
+        this.supabaseAnonKey = SUPABASE_ANON_KEY;
     }
 
     async createPaymentUrl(orderInfo) {

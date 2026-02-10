@@ -175,8 +175,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (data.budgets.length > 0) {
         renderBudgetBreakdown(data.budgets);
     }
-
-    console.debug('✅ Finance dashboard loaded');
 });
 
 export { loadFinanceData, bindFinanceDashboard, renderInvoiceTable, renderBudgetBreakdown, formatCurrency };

@@ -170,8 +170,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderCalendarGrid(posts);
     renderPostsList(posts);
     await bindContentStats();
-
-    console.debug('✅ Content calendar loaded');
 });
 
 export { loadContentData, renderCalendarGrid, renderPostsList, bindContentStats, PLATFORMS, STATUS_COLORS };

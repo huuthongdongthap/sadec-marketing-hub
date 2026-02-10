@@ -410,7 +410,7 @@
         }
 
         // Check gateway type from URL params
-        if (urlParams.has('vnp_ResponseCode')) {
+        if (urlParams.has('vnp_ResponseCode') && urlParams.has('vnp_TxnRef')) {
             // VNPay callback
             verifyPayment('vnpay');
         } else if (urlParams.has('resultCode') && urlParams.has('partnerCode')) {
