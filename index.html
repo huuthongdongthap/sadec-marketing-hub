@@ -585,12 +585,13 @@
 
     // Payment Modal Handler
     // Initialize listeners once
-    const modal = document.getElementById('paymentModal');
-    if (modal && !modal._paymentListenersAttached) {
-      modal.addEventListener('payment-submitted', handlePaymentSubmitted);
-      modal.addEventListener('payment-cancelled', handlePaymentCancelled);
-      modal._paymentListenersAttached = true;
-    }
+    customElements.whenDefined('payment-modal').then(() => {
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.addEventListener('payment-submitted', handlePaymentSubmitted);
+        modal.addEventListener('payment-cancelled', handlePaymentCancelled);
+      }
+    });
 
     function openPaymentModal(packageName, amount) {
       const modal = document.getElementById('paymentModal');
@@ -608,17 +609,20 @@
       }
     }
 
-    function handlePaymentSubmitted(event) {
+    async function handlePaymentSubmitted(event) {
       const { gateway, amount, packageName, invoiceId } = event.detail;
 
-      // Hide modal
-      const modal = document.getElementById('paymentModal');
-      if (modal) {
-        modal.style.display = 'none';
-      }
-
       // Call payment API with localhost fallback
-      createPayment(gateway, amount, packageName, invoiceId);
+      try {
+        await createPayment(gateway, amount, packageName, invoiceId);
+      } catch (e) {
+        // Only hide modal on error so user can retry or see error
+        // On success, we redirect anyway
+        const modal = document.getElementById('paymentModal');
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
     }
 
     async function createPayment(gateway, amount, packageName, invoiceId) {
@@ -651,8 +655,8 @@
         document.body.appendChild(loadingDiv);
 
         // Call Supabase Edge Function based on gateway
-        const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
+        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
 
         // Select endpoint based on gateway
         const endpointMap = {
