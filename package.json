@@ -9,7 +9,7 @@
     "migrate": "node database/migrate.js",
     "migrate:print": "node database/migrate.js --print",
     "migrate:run": "node database/run-migrations.js",
-    "all-phases": "bash run-all-phases.sh",
+    "all-phases": "bash scripts/tools/run-all-phases.sh",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",

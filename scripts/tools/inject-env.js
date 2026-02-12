@@ -34,7 +34,7 @@ window.__ENV__ = {
 `;
 
 // Write to the root directory
-const outputPath = path.join(__dirname, 'env.js');
+const outputPath = path.join(__dirname, '../../env.js');
 fs.writeFileSync(outputPath, content, 'utf8');
 
 console.log('✅ env.js generated successfully');

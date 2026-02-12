@@ -537,8 +537,6 @@
 
         // Single payment handler
         async function handlePayment(invoiceId) {
-            console.log('Processing payment for invoice:', invoiceId);
-
             // Get invoice details from the table row
             const row = document.querySelector(`[data-invoice-id="${invoiceId}"]`)?.closest('tr');
             if (!row) {
@@ -557,28 +555,39 @@
                 modal.setAttribute('package-name', `Hóa đơn ${invoiceId}`);
                 modal.style.display = 'block';
 
-                // Listen for payment events
-                modal.addEventListener('payment-submitted', async (event) => {
+                // Define handlers
+                const handleSubmit = async (event) => {
+                    // Remove listeners
+                    modal.removeEventListener('payment-submitted', handleSubmit);
+                    modal.removeEventListener('payment-cancelled', handleCancel);
+
                     const { gateway, amount: paidAmount } = event.detail;
-                    console.log('Payment submitted:', { gateway, paidAmount, invoiceId });
 
                     // Hide modal
                     modal.style.display = 'none';
 
                     // Call payment API and redirect
                     await processInvoicePayment(gateway, paidAmount, invoiceId);
-                }, { once: true });
+                };
 
-                modal.addEventListener('payment-cancelled', () => {
+                const handleCancel = () => {
+                    // Remove listeners
+                    modal.removeEventListener('payment-submitted', handleSubmit);
+                    modal.removeEventListener('payment-cancelled', handleCancel);
+
                     modal.style.display = 'none';
-                }, { once: true });
+                };
+
+                // Listen for payment events
+                modal.addEventListener('payment-submitted', handleSubmit);
+                modal.addEventListener('payment-cancelled', handleCancel);
             }
         }
 
         // Process invoice payment
         async function processInvoicePayment(gateway, amount, invoiceId) {
             try {
-                const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
+                const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
 
                 const endpointMap = {
                     'payos': 'create-payos-payment',
@@ -626,9 +635,6 @@
                 return sum + parseInt(cb.dataset.amount || 0);
             }, 0);
 
-            console.log('Processing bulk payment for invoices:', invoiceIds);
-            console.log('Total amount:', totalAmount);
-
             if (invoiceIds.length === 0) {
                 alert('Vui lòng chọn ít nhất một hóa đơn');
                 return;
@@ -642,21 +648,32 @@
                 modal.setAttribute('package-name', `${invoiceIds.length} hóa đơn`);
                 modal.style.display = 'block';
 
-                // Listen for payment events
-                modal.addEventListener('payment-submitted', async (event) => {
+                // Define handlers
+                const handleSubmit = async (event) => {
+                    // Remove listeners
+                    modal.removeEventListener('payment-submitted', handleSubmit);
+                    modal.removeEventListener('payment-cancelled', handleCancel);
+
                     const { gateway } = event.detail;
-                    console.log('Bulk payment submitted:', { gateway, totalAmount, invoiceIds });
 
                     // Hide modal
                     modal.style.display = 'none';
 
                     // Call payment API for bulk payment
                     await processInvoicePayment(gateway, totalAmount, invoiceIds.join(','));
-                }, { once: true });
+                };
 
-                modal.addEventListener('payment-cancelled', () => {
+                const handleCancel = () => {
+                    // Remove listeners
+                    modal.removeEventListener('payment-submitted', handleSubmit);
+                    modal.removeEventListener('payment-cancelled', handleCancel);
+
                     modal.style.display = 'none';
-                }, { once: true });
+                };
+
+                // Listen for payment events
+                modal.addEventListener('payment-submitted', handleSubmit);
+                modal.addEventListener('payment-cancelled', handleCancel);
             }
         }
     </script>

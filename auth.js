@@ -452,7 +452,6 @@ const AuthSecurity = {
         this.resetTimer = this.resetTimer.bind(this);
         this.setupListeners();
         this.resetTimer();
-        console.log('🛡️ AuthSecurity: Idle monitor active');
     },
 
     setupListeners() {

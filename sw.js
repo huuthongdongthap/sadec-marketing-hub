@@ -15,17 +15,14 @@ const ASSETS_TO_CACHE = [
     '/assets/css/m3-agency.css',
     '/assets/css/admin-unified.css',
     '/assets/js/components/sadec-sidebar.js',
-    '/assets/js/auth.js',
     '/assets/js/utils.js'
 ];
 
 // Install Event - Pre-cache core assets
 self.addEventListener('install', (event) => {
-    console.log('[Service Worker] Installing...');
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('[Service Worker] Caching app shell');
                 return cache.addAll(ASSETS_TO_CACHE);
             })
             .then(() => self.skipWaiting())
@@ -34,12 +31,10 @@ self.addEventListener('install', (event) => {
 
 // Activate Event - Cleanup old caches
 self.addEventListener('activate', (event) => {
-    console.log('[Service Worker] Activating...');
     event.waitUntil(
         caches.keys().then((keyList) => {
             return Promise.all(keyList.map((key) => {
                 if (key !== CACHE_NAME) {
-                    console.log('[Service Worker] Removing old cache', key);
                     return caches.delete(key);
                 }
             }));
@@ -98,7 +93,6 @@ self.addEventListener('fetch', (event) => {
 
 // Push Notification Event
 self.addEventListener('push', (event) => {
-    console.log('[Service Worker] Push Received.');
     let data = { title: 'Mekong Agency', body: 'New notification', url: '/' };
 
     if (event.data) {
@@ -119,7 +113,6 @@ self.addEventListener('push', (event) => {
 
 // Notification Click Event
 self.addEventListener('notificationclick', (event) => {
-    console.log('[Service Worker] Notification click received.');
     event.notification.close();
 
     event.waitUntil(

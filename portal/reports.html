@@ -508,7 +508,6 @@
             try {
                 const user = await auth.getUser();
                 if (!user) {
-                    console.log('Demo mode active');
                     return; // Keep static data for demo
                 }
 

@@ -226,8 +226,8 @@
     <script type="module">
         import { supabase } from '../assets/js/supabase.js';
 
-        const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
+        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
         const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
 
         // Parse VNPay response from URL
@@ -238,8 +238,6 @@
             try {
                 // Localhost fallback - skip API and show success based on URL params
                 if (isLocalhost) {
-                    console.log('Localhost: Simulating payment verification for', gateway);
-
                     // Wait a bit to show loading state (better UX)
                     await new Promise(resolve => setTimeout(resolve, 1000));
 
