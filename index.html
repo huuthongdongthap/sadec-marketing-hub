@@ -675,7 +675,7 @@
           },
           body: JSON.stringify({
             amount: parseInt(amount),
-            description: `Thanh toán gói ${packageName}`,
+            description: `Gói ${packageName}`.substring(0, 25),
             orderCode: Date.now(), // PayOS requires orderCode
             invoiceId: invoiceId,
             invoiceNumber: invoiceId,
