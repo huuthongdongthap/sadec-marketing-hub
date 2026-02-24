@@ -76,9 +76,10 @@ supabase functions deploy verify-momo-payment --no-verify-jwt
 - Wrap `savePaymentTransaction` trong try-catch (non-blocking) giống PayOS
 - Đọc `description` từ `req.description` thay vì chỉ `req.orderInfo`
 
-### 4.3 Fix `index.html` - cleanup duplicate event listeners
-- Hiện tại có 3 layer event listeners (bulletproof) → giữ Document-level + whenDefined
-- Remove debug console.log (production cleanup)
+### 4.3 ✅ DONE: `index.html` - cleanup
+- Giữ Document-level + whenDefined listeners (bulletproof design)
+- Debug console.log đã được xóa sạch
+- Cache-busting versions đã cập nhật lên v=20260224
 
 ---
 
@@ -131,6 +132,6 @@ claude "Setup VNPay & MoMo payment gateways theo plan .tasks/setup-vnpay-momo-ke
 
 | Gateway | API Keys | Edge Function | Frontend | Status |
 |---------|----------|--------------|----------|--------|
-| PayOS | ✅ Set | ✅ Deployed | ✅ Working | 🟢 LIVE |
-| VNPay | ❌ Chưa set | ✅ Code ready | ✅ Working | 🔴 Cần keys |
-| MoMo | ❌ Chưa set | ✅ Code ready | ✅ Working | 🔴 Cần keys |
+| PayOS | ✅ Set | ✅ Deployed | ✅ Clean | 🟢 LIVE |
+| VNPay | ❌ Chưa set | ✅ Code ready | ✅ Hidden (uncomment when ready) | 🔴 Cần keys |
+| MoMo | ❌ Chưa set | ✅ Code ready | ✅ Hidden (uncomment when ready) | 🔴 Cần keys |
