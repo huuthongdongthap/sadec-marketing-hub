@@ -14,13 +14,7 @@ class GatewaySelector extends HTMLElement {
     this.attachEventListeners();
 
     // Dispatch default gateway selection
-    setTimeout(() => {
-      this.dispatchEvent(new CustomEvent('gateway-selected', {
-        detail: { gateway: 'payos' },
-        bubbles: true,
-        composed: true
-      }));
-    }, 0);
+    setTimeout(() => this.selectGateway('payos'), 0);
   }
 
   render() {
