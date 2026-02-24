@@ -689,11 +689,13 @@
         // Remove loading
         document.getElementById('paymentLoading')?.remove();
 
+        console.log('[Payment] API response:', JSON.stringify(result));
         if (result.success) {
           // Redirect to payment gateway
           // API returns checkoutUrl/paymentUrl at root level OR inside result.data
           const data = result.data || result;
           const checkoutUrl = data.checkoutUrl || data.paymentUrl || data.payUrl;
+          console.log('[Payment] Redirecting to:', checkoutUrl);
           if (checkoutUrl) {
             window.location.href = checkoutUrl;
           } else if (data.qrUrl) {
