@@ -583,13 +583,27 @@
       this.reset();
     });
 
-    // Payment Modal Handler
-    // Initialize listeners once
+    // Payment Modal Handler - BULLETPROOF event setup
+    // Method 1: Direct on element
+    const payModal = document.getElementById('paymentModal');
+    if (payModal) {
+      console.log('[Init] paymentModal found, attaching direct listener');
+      payModal.addEventListener('payment-submitted', handlePaymentSubmitted);
+      payModal.addEventListener('payment-cancelled', handlePaymentCancelled);
+    }
+    // Method 2: Document-level capture (catches ALL events including from Shadow DOM)
+    document.addEventListener('payment-submitted', function (event) {
+      console.log('[Document] payment-submitted caught at document level!', event.detail);
+      handlePaymentSubmitted(event);
+    });
+    // Method 3: Also via whenDefined as backup
     customElements.whenDefined('payment-modal').then(() => {
+      console.log('[Init] payment-modal custom element defined');
       const modal = document.getElementById('paymentModal');
       if (modal) {
         modal.addEventListener('payment-submitted', handlePaymentSubmitted);
         modal.addEventListener('payment-cancelled', handlePaymentCancelled);
+        console.log('[Init] Listeners re-attached after whenDefined');
       }
     });
 
@@ -610,12 +624,15 @@
     }
 
     async function handlePaymentSubmitted(event) {
+      console.log('[Payment] handlePaymentSubmitted CALLED!', event.detail);
       const { gateway, amount, packageName, invoiceId } = event.detail;
+      console.log('[Payment] gateway:', gateway, 'amount:', amount, 'packageName:', packageName);
 
       // Call payment API with localhost fallback
       try {
         await createPayment(gateway, amount, packageName, invoiceId);
       } catch (e) {
+        console.error('[Payment] createPayment threw error:', e);
         // Only hide modal on error so user can retry or see error
         // On success, we redirect anyway
         const modal = document.getElementById('paymentModal');
