@@ -127,6 +127,21 @@ design:
     secondary: "#5d5d74"
     surface: "#fefbff"
 
+# OpenClaw AI Assistant
+openclaw:
+  enabled: true
+  version: "2026.2.14"
+  gateway: "ws://127.0.0.1:18789"
+  channels:
+    - zalo
+    - webchat
+  model:
+    primary: "anthropic/claude-sonnet-4-5"
+    fallbacks:
+      - "dashscope/qwen-plus"
+      - "openrouter/auto"
+  workspace: "~/.openclaw/workspace"
+
 # Deployment
 deploy:
   platform: vercel

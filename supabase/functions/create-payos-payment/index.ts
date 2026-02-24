@@ -42,7 +42,7 @@ async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<Pay
     try {
         const orderCode = generatePayOSOrderCode();
         const amount = req.amount;
-        const description = req.orderInfo || `Thanh toan hoa don ${req.invoiceNumber}`;
+        const description = (req.description || req.orderInfo || `Goi ${req.invoiceNumber}`).substring(0, 25);
 
         // payOS request body format
         const requestBody = {
