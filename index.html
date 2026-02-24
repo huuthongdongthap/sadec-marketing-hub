@@ -689,15 +689,15 @@
         // Remove loading
         document.getElementById('paymentLoading')?.remove();
 
-        if (result.success && result.data) {
+        if (result.success) {
           // Redirect to payment gateway
-          if (result.data.checkoutUrl) {
-            window.location.href = result.data.checkoutUrl;
-          } else if (result.data.payUrl) {
-            window.location.href = result.data.payUrl;
-          } else if (result.data.qrUrl) {
-            // For QR payment, redirect to result page with QR
-            window.location.href = `/portal/payment-result.html?qr=${encodeURIComponent(result.data.qrUrl)}&amount=${amount}`;
+          // API returns checkoutUrl/paymentUrl at root level OR inside result.data
+          const data = result.data || result;
+          const checkoutUrl = data.checkoutUrl || data.paymentUrl || data.payUrl;
+          if (checkoutUrl) {
+            window.location.href = checkoutUrl;
+          } else if (data.qrUrl) {
+            window.location.href = `/portal/payment-result.html?qr=${encodeURIComponent(data.qrUrl)}&amount=${amount}`;
           } else {
             alert('Không thể khởi tạo thanh toán. Vui lòng thử lại.');
           }
