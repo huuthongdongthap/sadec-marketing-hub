@@ -183,6 +183,9 @@ class GatewaySelector extends HTMLElement {
           </div>
         </label>
 
+        <!-- VNPay & MoMo temporarily hidden - enable after API keys configured -->
+        <!-- See .tasks/setup-vnpay-momo-keys.md for setup guide -->
+        <!--
         <label class="gateway-option" data-gateway="vnpay">
           <input type="radio" name="gateway" value="vnpay" class="radio-input">
           <span class="radio-circle"></span>
@@ -203,6 +206,7 @@ class GatewaySelector extends HTMLElement {
             <div class="gateway-description">Mobile wallet & QR payment</div>
           </div>
         </label>
+        -->
       </div>
     `;
   }

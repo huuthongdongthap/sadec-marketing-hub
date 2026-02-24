@@ -583,27 +583,16 @@
       this.reset();
     });
 
-    // Payment Modal Handler - BULLETPROOF event setup
-    // Method 1: Direct on element
-    const payModal = document.getElementById('paymentModal');
-    if (payModal) {
-      console.log('[Init] paymentModal found, attaching direct listener');
-      payModal.addEventListener('payment-submitted', handlePaymentSubmitted);
-      payModal.addEventListener('payment-cancelled', handlePaymentCancelled);
-    }
-    // Method 2: Document-level capture (catches ALL events including from Shadow DOM)
-    document.addEventListener('payment-submitted', function (event) {
-      console.log('[Document] payment-submitted caught at document level!', event.detail);
-      handlePaymentSubmitted(event);
-    });
-    // Method 3: Also via whenDefined as backup
+    // Payment Modal Handler
+    // Document-level listener (catches composed events from Shadow DOM)
+    document.addEventListener('payment-submitted', handlePaymentSubmitted);
+    document.addEventListener('payment-cancelled', handlePaymentCancelled);
+    // Backup: also attach after custom element is defined
     customElements.whenDefined('payment-modal').then(() => {
-      console.log('[Init] payment-modal custom element defined');
       const modal = document.getElementById('paymentModal');
       if (modal) {
         modal.addEventListener('payment-submitted', handlePaymentSubmitted);
         modal.addEventListener('payment-cancelled', handlePaymentCancelled);
-        console.log('[Init] Listeners re-attached after whenDefined');
       }
     });
 
@@ -624,15 +613,13 @@
     }
 
     async function handlePaymentSubmitted(event) {
-      console.log('[Payment] handlePaymentSubmitted CALLED!', event.detail);
       const { gateway, amount, packageName, invoiceId } = event.detail;
-      console.log('[Payment] gateway:', gateway, 'amount:', amount, 'packageName:', packageName);
 
       // Call payment API with localhost fallback
       try {
         await createPayment(gateway, amount, packageName, invoiceId);
       } catch (e) {
-        console.error('[Payment] createPayment threw error:', e);
+        console.error('Payment error:', e);
         // Only hide modal on error so user can retry or see error
         // On success, we redirect anyway
         const modal = document.getElementById('paymentModal');
@@ -706,13 +693,13 @@
         // Remove loading
         document.getElementById('paymentLoading')?.remove();
 
-        console.log('[Payment] API response:', JSON.stringify(result));
+
         if (result.success) {
           // Redirect to payment gateway
           // API returns checkoutUrl/paymentUrl at root level OR inside result.data
           const data = result.data || result;
           const checkoutUrl = data.checkoutUrl || data.paymentUrl || data.payUrl;
-          console.log('[Payment] Redirecting to:', checkoutUrl);
+
           if (checkoutUrl) {
             window.location.href = checkoutUrl;
           } else if (data.qrUrl) {
