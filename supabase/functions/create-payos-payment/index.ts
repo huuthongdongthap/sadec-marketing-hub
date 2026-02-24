@@ -91,19 +91,23 @@ async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<Pay
 
         // payOS response structure
         if (result.code === '00' && result.data) {
-            // Save transaction to database
-            await savePaymentTransaction(supabase, {
-                invoice_id: req.invoiceId,
-                amount: amount,
-                gateway: 'payos',
-                status: 'pending',
-                transaction_id: orderCode.toString(),
-                callback_data: {
-                    orderCode: orderCode,
-                    description: description,
-                    checkoutUrl: result.data.checkoutUrl
-                }
-            });
+            // Save transaction to database (non-blocking - don't fail payment if DB save fails)
+            try {
+                await savePaymentTransaction(supabase, {
+                    invoice_id: req.invoiceId,
+                    amount: amount,
+                    gateway: 'payos',
+                    status: 'pending',
+                    transaction_id: orderCode.toString(),
+                    callback_data: {
+                        orderCode: orderCode,
+                        description: description,
+                        checkoutUrl: result.data.checkoutUrl
+                    }
+                });
+            } catch (dbError) {
+                console.warn('Failed to save transaction to DB (non-blocking):', dbError.message);
+            }
 
             return {
                 success: true,
