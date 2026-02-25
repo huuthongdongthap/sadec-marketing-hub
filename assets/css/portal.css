@@ -158,7 +158,7 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
 }
 
 .btn-filled:hover {
-    background: var(--md-sys-color-primary-dark, #004D40);
+    background: color-mix(in srgb, var(--md-sys-color-primary) 85%, #000 15%);
     box-shadow: 0 2px 8px rgba(0, 106, 96, 0.3);
 }
 
@@ -215,6 +215,10 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
     justify-content: space-between;
     align-items: center;
 }
+
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
 
 .mb-24 {
     margin-bottom: 24px;
@@ -284,11 +288,48 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+/* Invoice table row hover */
+.invoice-table tbody tr:hover {
+    background: var(--md-sys-color-surface-container);
+}
+
+/* Project icon color variants (avoids inline styles) */
+.project-icon.secondary {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-secondary);
+}
+.project-icon.tertiary {
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-tertiary);
+}
+
+/* Featured label variants */
+.featured-label--current {
+    background: #2E7D32;
+    color: #fff;
+}
+
+/* Approve button (green) via CSS class - avoids inline --md-filled-button-container-color */
+md-filled-button.btn-approve-green {
+    --md-filled-button-container-color: #2E7D32;
+    --md-filled-button-label-text-color: #fff;
+    --md-filled-button-hover-container-color: #1B5E20;
+    --md-filled-button-hover-label-text-color: #fff;
+}
+
+/* Icon size utility classes */
+.icon-xxs { font-size: 12px; }
+.icon-xs { font-size: 14px; }
+.icon-sm { font-size: 16px; }
+.icon-md { font-size: 18px; }
+
 /* Invoice stat value semantic colors via classes */
-.invoice-stat-value.color-paid {
+.invoice-stat-value.color-paid,
+.color-paid {
     color: #155724;
 }
-.invoice-stat-value.color-pending {
+.invoice-stat-value.color-pending,
+.color-pending {
     color: #856404;
 }
 
@@ -333,6 +374,11 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
 .detail-value--urgent {
     color: #E53935;
     font-weight: 500;
+}
+
+/* Feedback text color */
+.detail-value--feedback {
+    color: #F57C00;
 }
 
 /* Mobile responsiveness */
