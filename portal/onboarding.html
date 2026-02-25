@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng - Mekong Marketing Hub</title>
+    <meta name="description" content="Onboarding wizard - thiết lập tài khoản Client Portal">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-surface);
+            padding: 20px;
+        }
+
+        .onboarding-card {
+            max-width: 560px;
+            width: 100%;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 28px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Stepper */
+        .stepper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--md-sys-color-outline-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            background: transparent;
+        }
+
+        .step-dot.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-color: var(--md-sys-color-primary);
+            transform: scale(1.1);
+        }
+
+        .step-dot.done {
+            background: #2E7D32;
+            color: #fff;
+            border-color: #2E7D32;
+        }
+
+        .step-line {
+            width: 40px;
+            height: 2px;
+            background: var(--md-sys-color-outline-variant);
+            transition: background 0.3s;
+        }
+
+        .step-line.done {
+            background: #2E7D32;
+        }
+
+        /* Step Content */
+        .step-content {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-title {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .step-subtitle {
+            font: var(--md-sys-typescale-body-large);
+            color: var(--md-sys-color-on-surface-variant);
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        /* Welcome illustration */
+        .welcome-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font: var(--md-sys-typescale-body-medium);
+        }
+
+        .feature-list li .material-symbols-outlined {
+            color: var(--md-sys-color-primary);
+            font-size: 20px;
+        }
+
+        /* Form fields */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            font: var(--md-sys-typescale-body-large);
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 2px rgba(103, 80, 164, 0.15);
+        }
+
+        .password-hint {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 4px;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            font: var(--md-sys-typescale-label-large);
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            padding: 14px 20px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            background: transparent;
+            color: var(--md-sys-color-on-surface);
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        /* Success state */
+        .success-check {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #E8F5E9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #2E7D32;
+            font-size: 48px;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .dashboard-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            margin-top: 20px;
+        }
+
+        .dashboard-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(46, 125, 50, 0.3);
+        }
+
+        .error-text {
+            color: #C62828;
+            font: var(--md-sys-typescale-body-small);
+            margin-top: 8px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-card">
+        <!-- Stepper -->
+        <div class="stepper">
+            <div class="step-dot active" id="dot-1">1</div>
+            <div class="step-line" id="line-1"></div>
+            <div class="step-dot" id="dot-2">2</div>
+            <div class="step-line" id="line-2"></div>
+            <div class="step-dot" id="dot-3">3</div>
+            <div class="step-line" id="line-3"></div>
+            <div class="step-dot" id="dot-4">4</div>
+        </div>
+
+        <!-- Step 1: Welcome -->
+        <div class="step-content active" id="step-1">
+            <div class="welcome-icon">🚀</div>
+            <h1 class="step-title">Chào mừng bạn!</h1>
+            <p class="step-subtitle">Hãy cùng thiết lập tài khoản để bắt đầu sử dụng Mekong Marketing Hub</p>
+
+            <ul class="feature-list">
+                <li>
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard theo dõi chiến dịch real-time
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    Quản lý hóa đơn & thanh toán
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">analytics</span>
+                    Báo cáo hiệu quả marketing chi tiết
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">support_agent</span>
+                    Hỗ trợ chuyên gia 24/7
+                </li>
+            </ul>
+
+            <div class="btn-row">
+                <button class="btn-primary" onclick="goToStep(2)">
+                    Bắt đầu
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Change Password -->
+        <div class="step-content" id="step-2">
+            <h1 class="step-title">Đổi mật khẩu</h1>
+            <p class="step-subtitle">Thay mật khẩu tạm bằng mật khẩu an toàn của bạn</p>
+
+            <div class="form-group">
+                <label for="new-password">Mật khẩu mới</label>
+                <input type="password" id="new-password" placeholder="Tối thiểu 8 ký tự" minlength="8">
+                <div class="password-hint">Sử dụng chữ hoa, chữ thường, số và ký tự đặc biệt</div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Xác nhận mật khẩu</label>
+                <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu mới">
+            </div>
+            <div class="error-text" id="pw-error"></div>
+
+            <div class="btn-row">
+                <button class="btn-secondary" onclick="goToStep(1)">Quay lại</button>
+                <button class="btn-primary" id="pw-btn" onclick="changePassword()">
+                    Đổi mật khẩu
+                    <span class="material-symbols-outlined">lock</span>
+                </button>
+            </div>
+            <div style="text-align: center; margin-top: 12px;">
+                <a href="#" onclick="goToStep(3); return false;"
+                    style="font: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);">Bỏ
+                    qua, đổi sau →</a>
+            </div>
+        </div>
+
+        <!-- Step 3: Business Info -->
+        <div class="step-content" id="step-3">
+            <h1 class="step-title">Thông tin doanh nghiệp</h1>
+            <p class="step-subtitle">Giúp chúng tôi phục vụ bạn tốt hơn</p>
+
+            <div class="form-group">
+                <label for="company-name">Tên doanh nghiệp / cửa hàng</label>
+                <input type="text" id="company-name" placeholder="VD: Trái cây Mekong">
+            </div>
+            <div class="form-group">
+                <label for="industry">Ngành nghề</label>
+                <select id="industry">
+                    <option value="">-- Chọn ngành --</option>
+                    <option value="food_beverage">Thực phẩm & Đồ uống</option>
+                    <option value="agriculture">Nông nghiệp & Thủy sản</option>
+                    <option value="retail">Bán lẻ & FMCG</option>
+                    <option value="tourism">Du lịch & Khách sạn</option>
+                    <option value="education">Giáo dục & Đào tạo</option>
+                    <option value="healthcare">Y tế & Sức khỏe</option>
+                    <option value="construction">Xây dựng & Bất động sản</option>
+                    <option value="technology">Công nghệ & Phần mềm</option>
+                    <option value="services">Dịch vụ tổng hợp</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="website-url">Website (nếu có)</label>
+                <input type="url" id="website-url" placeholder="https://example.com">
+            </div>
+
+            <div class="btn-row">
+                <button class="btn-secondary" onclick="goToStep(2)">Quay lại</button>
+                <button class="btn-primary" id="biz-btn" onclick="saveBusinessInfo()">
+                    Tiếp tục
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+            <div style="text-align: center; margin-top: 12px;">
+                <a href="#" onclick="goToStep(4); return false;"
+                    style="font: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);">Bỏ
+                    qua, điền sau →</a>
+            </div>
+        </div>
+
+        <!-- Step 4: Complete -->
+        <div class="step-content" id="step-4">
+            <div class="success-check">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <h1 class="step-title">Hoàn tất!</h1>
+            <p class="step-subtitle">Tài khoản của bạn đã sẵn sàng. Bắt đầu khám phá Mekong Marketing Hub ngay.</p>
+
+            <ul class="feature-list">
+                <li>
+                    <span class="material-symbols-outlined">check</span>
+                    Tài khoản đã kích hoạt
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">check</span>
+                    Gói dịch vụ đã được áp dụng
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">check</span>
+                    Sẵn sàng sử dụng
+                </li>
+            </ul>
+
+            <button class="dashboard-btn" onclick="window.location.href='dashboard.html'">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                Vào Dashboard
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { supabase } from '../assets/js/supabase.js';
+
+        let currentStep = 1;
+
+        // Check auth — redirect to login if not authenticated
+        async function checkAuth() {
+            try {
+                const { data: { user } } = await supabase.getUser();
+                if (!user) {
+                    // Not logged in — try auto-login from URL params or redirect
+                    window.location.href = '/portal/login.html?redirect=onboarding';
+                }
+            } catch (e) {
+                // supabase might not be fully configured, still show onboarding
+                console.warn('Auth check skipped:', e);
+            }
+        }
+        checkAuth();
+
+        // Navigation
+        window.goToStep = function (step) {
+            // Hide current
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            // Mark previous steps as done
+            for (let i = 1; i < step; i++) {
+                document.getElementById(`dot-${i}`).className = 'step-dot done';
+                document.getElementById(`dot-${i}`).innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">check</span>';
+                if (i < 4) document.getElementById(`line-${i}`).className = 'step-line done';
+            }
+            // Show new step
+            currentStep = step;
+            document.getElementById(`step-${step}`).classList.remove('active');
+            // Force reflow for animation
+            void document.getElementById(`step-${step}`).offsetWidth;
+            document.getElementById(`step-${step}`).classList.add('active');
+            document.getElementById(`dot-${step}`).className = 'step-dot active';
+            document.getElementById(`dot-${step}`).textContent = step;
+            // Reset future dots
+            for (let i = step + 1; i <= 4; i++) {
+                document.getElementById(`dot-${i}`).className = 'step-dot';
+                document.getElementById(`dot-${i}`).textContent = i;
+                if (i < 4) document.getElementById(`line-${i}`).className = 'step-line';
+            }
+        };
+
+        // Change password
+        window.changePassword = async function () {
+            const newPw = document.getElementById('new-password').value;
+            const confirmPw = document.getElementById('confirm-password').value;
+            const errorEl = document.getElementById('pw-error');
+            const btn = document.getElementById('pw-btn');
+
+            if (newPw.length < 8) {
+                errorEl.textContent = 'Mật khẩu phải có ít nhất 8 ký tự.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            if (newPw !== confirmPw) {
+                errorEl.textContent = 'Mật khẩu xác nhận không khớp.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Đang cập nhật...';
+            errorEl.style.display = 'none';
+
+            try {
+                const { error } = await supabase.auth.updateUser({ password: newPw });
+                if (error) throw error;
+                goToStep(3);
+            } catch (err) {
+                errorEl.textContent = err.message || 'Lỗi đổi mật khẩu.';
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = 'Đổi mật khẩu <span class="material-symbols-outlined">lock</span>';
+            }
+        };
+
+        // Save business info
+        window.saveBusinessInfo = async function () {
+            const companyName = document.getElementById('company-name').value.trim();
+            const industry = document.getElementById('industry').value;
+            const websiteUrl = document.getElementById('website-url').value.trim();
+            const btn = document.getElementById('biz-btn');
+
+            btn.disabled = true;
+            btn.textContent = 'Đang lưu...';
+
+            try {
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user) {
+                    await supabase.from('clients').update({
+                        company_name: companyName,
+                        industry: industry,
+                        website: websiteUrl,
+                        onboarding_completed: true
+                    }).eq('user_id', user.id);
+                }
+                goToStep(4);
+            } catch (err) {
+                console.error('Save business info error:', err);
+                // Still proceed even if save fails
+                goToStep(4);
+            }
+        };
+    </script>
+
+    <script type="module" src="../assets/js/portal-client.js"></script>
+</body>
+
+</html>

@@ -110,6 +110,7 @@
             display: flex;
             gap: 12px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .loading-state {
@@ -154,9 +155,11 @@
                 transform: scale(0);
                 opacity: 0;
             }
+
             50% {
                 transform: scale(1.2);
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1;
@@ -165,6 +168,184 @@
 
         .result-icon.success .material-symbols-outlined {
             animation: checkmark 0.5s ease-out;
+        }
+
+        /* === Activation Section === */
+        .activation-section {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 24px;
+            text-align: left;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .activation-section h2 {
+            font: var(--md-sys-typescale-title-large);
+            margin: 0 0 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .activation-section .subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 20px;
+        }
+
+        .form-field {
+            margin-bottom: 16px;
+        }
+
+        .form-field label {
+            display: block;
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 6px;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            font: var(--md-sys-typescale-body-large);
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 2px rgba(103, 80, 164, 0.15);
+        }
+
+        .activate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            font: var(--md-sys-typescale-label-large);
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .activate-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .activate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .activate-btn .spinner-sm {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        /* === Credentials Card === */
+        .credentials-card {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 24px;
+            text-align: left;
+            border: 1px solid #A5D6A7;
+        }
+
+        .credentials-card h2 {
+            font: var(--md-sys-typescale-title-large);
+            color: #2E7D32;
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .credential-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .credential-row .cred-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: #555;
+        }
+
+        .credential-row .cred-value {
+            font: var(--md-sys-typescale-body-large);
+            font-weight: 600;
+            color: #1B5E20;
+            user-select: all;
+        }
+
+        .cred-warning {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: #FFF3E0;
+            border-radius: 10px;
+            margin: 12px 0;
+            font: var(--md-sys-typescale-body-small);
+            color: #E65100;
+        }
+
+        .portal-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #2E7D32;
+            color: #fff;
+            font: var(--md-sys-typescale-label-large);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .portal-btn:hover {
+            background: #1B5E20;
+            transform: translateY(-1px);
+        }
+
+        .error-msg {
+            padding: 10px 14px;
+            background: #FFEBEE;
+            border-radius: 10px;
+            margin-top: 12px;
+            font: var(--md-sys-typescale-body-small);
+            color: #C62828;
+            display: none;
         }
     </style>
 </head>
@@ -204,13 +385,67 @@
                 </div>
             </div>
 
+            <!-- Activation Form (PayOS success only) -->
+            <div id="activation-section" class="activation-section" style="display: none;">
+                <h2>
+                    <span class="material-symbols-outlined">person_add</span>
+                    Hoàn tất đăng ký
+                </h2>
+                <div class="subtitle">Nhập thông tin để nhận tài khoản Client Portal</div>
+                <div class="form-field">
+                    <label for="act-email">Email đăng nhập</label>
+                    <input type="email" id="act-email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="act-phone">Số điện thoại</label>
+                    <input type="tel" id="act-phone" placeholder="0915 xxx xxx">
+                </div>
+                <div class="form-field">
+                    <label for="act-package">Gói dịch vụ</label>
+                    <select id="act-package">
+                        <option value="Cơ bản">Cơ bản — 5.000.000 ₫/tháng</option>
+                        <option value="Tăng trưởng" selected>Tăng trưởng — 12.000.000 ₫/tháng</option>
+                        <option value="Chuyên nghiệp">Chuyên nghiệp — 25.000.000 ₫/tháng</option>
+                    </select>
+                </div>
+                <button class="activate-btn" id="activate-btn" onclick="activateAccount()">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Kích hoạt tài khoản
+                </button>
+                <div class="error-msg" id="activation-error"></div>
+            </div>
+
+            <!-- Credentials Card (shown after activation) -->
+            <div id="credentials-card" class="credentials-card" style="display: none;">
+                <h2>
+                    <span class="material-symbols-outlined">verified</span>
+                    Tài khoản đã tạo!
+                </h2>
+                <div class="credential-row">
+                    <span class="cred-label">Email</span>
+                    <span class="cred-value" id="cred-email">--</span>
+                </div>
+                <div class="credential-row">
+                    <span class="cred-label">Mật khẩu tạm</span>
+                    <span class="cred-value" id="cred-password">--</span>
+                </div>
+                <div class="cred-warning">
+                    <span class="material-symbols-outlined">warning</span>
+                    Hãy đổi mật khẩu ngay khi đăng nhập lần đầu
+                </div>
+                <button class="portal-btn" onclick="window.location.href='/portal/onboarding.html'">
+                    <span class="material-symbols-outlined">login</span>
+                    Vào Portal ngay
+                </button>
+            </div>
+
             <div id="countdown-container" style="display: none;">
                 <div class="countdown-bar">
                     <div class="countdown-progress" id="countdown-progress" style="width: 100%;"></div>
                 </div>
             </div>
 
-            <div class="actions">
+            <div class="actions" id="default-actions">
                 <md-filled-button onclick="window.location.href='dashboard.html'">
                     <span class="material-symbols-outlined" slot="icon">home</span>
                     Về Dashboard
@@ -226,9 +461,14 @@
     <script type="module">
         import { supabase } from '../assets/js/supabase.js';
 
-        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
         const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
         const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
+
+        // Track if this is a PayOS payment for activation flow
+        let isPayOSPayment = false;
+        let currentOrderCode = null;
+        let currentAmount = 0;
 
         // Parse VNPay response from URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -267,26 +507,14 @@
                         resultTitle.textContent = '✅ Thanh toán thành công!';
                         resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
 
-                        // Auto-redirect countdown
-                        const countdownContainer = document.getElementById('countdown-container');
-                        const countdownProgress = document.getElementById('countdown-progress');
-                        countdownContainer.style.display = 'block';
-
-                        let countdown = 5;
-                        countdownProgress.style.width = '100%';
-
-                        const countdownInterval = setInterval(() => {
-                            countdown--;
-                            const progress = (countdown / 5) * 100;
-                            countdownProgress.style.width = `${progress}%`;
-
-                            if (countdown > 0) {
-                                resultMessage.textContent = `Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!\n\nTự động chuyển về trang hóa đơn trong ${countdown} giây...`;
-                            } else {
-                                clearInterval(countdownInterval);
-                                window.location.href = 'invoices.html';
-                            }
-                        }, 1000);
+                        // Show activation form for PayOS, countdown for others
+                        if (payosSuccess && isPayOSPayment) {
+                            document.getElementById('activation-section').style.display = 'block';
+                            document.getElementById('default-actions').style.display = 'none';
+                            autoDetectPackage(currentAmount);
+                        } else {
+                            startCountdown();
+                        }
                     } else {
                         resultIcon.className = 'result-icon failed';
                         iconSymbol.textContent = 'error';
@@ -352,47 +580,32 @@
                 }
 
                 // Determine result based on status from server
-                let autoRedirect = false;
                 if (result.status === 'success') {
                     resultIcon.className = 'result-icon success';
                     iconSymbol.textContent = 'check_circle';
                     resultTitle.textContent = '✅ Thanh toán thành công!';
                     resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
-                    autoRedirect = true;
+
+                    // Show activation form for PayOS payments
+                    if (isPayOSPayment) {
+                        document.getElementById('activation-section').style.display = 'block';
+                        document.getElementById('default-actions').style.display = 'none';
+                        // Auto-detect package from amount
+                        autoDetectPackage(currentAmount);
+                    } else {
+                        // Non-PayOS: auto-redirect
+                        startCountdown();
+                    }
                 } else if (result.status === 'invalid') {
                     resultIcon.className = 'result-icon failed';
                     iconSymbol.textContent = 'warning';
                     resultTitle.textContent = '⚠️ Chữ ký không hợp lệ';
                     resultMessage.textContent = 'Cảnh báo: Dữ liệu thanh toán có thể đã bị thay đổi.';
                 } else {
-                    // Failed or other status
                     resultIcon.className = 'result-icon failed';
                     iconSymbol.textContent = 'error';
                     resultTitle.textContent = '⚠️ Thanh toán không thành công';
                     resultMessage.textContent = result.message || 'Đã xảy ra lỗi trong quá trình thanh toán. Vui lòng thử lại.';
-                }
-
-                // Auto-redirect after 5s for successful payments
-                if (autoRedirect) {
-                    const countdownContainer = document.getElementById('countdown-container');
-                    const countdownProgress = document.getElementById('countdown-progress');
-                    countdownContainer.style.display = 'block';
-
-                    let countdown = 5;
-                    countdownProgress.style.width = '100%';
-
-                    const countdownInterval = setInterval(() => {
-                        countdown--;
-                        const progress = (countdown / 5) * 100;
-                        countdownProgress.style.width = `${progress}%`;
-
-                        if (countdown > 0) {
-                            resultMessage.textContent = `Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!\n\nTự động chuyển về trang hóa đơn trong ${countdown} giây...`;
-                        } else {
-                            clearInterval(countdownInterval);
-                            window.location.href = 'invoices.html';
-                        }
-                    }, 1000);
                 }
 
             } catch (error) {
@@ -416,6 +629,9 @@
             verifyPayment('momo');
         } else if (urlParams.has('code') && urlParams.has('orderCode')) {
             // PayOS callback (code, status, orderCode params)
+            isPayOSPayment = true;
+            currentOrderCode = urlParams.get('orderCode');
+            currentAmount = parseInt(urlParams.get('amount') || '0');
             verifyPayment('payos');
         } else if (urlParams.get('cancel') === 'true') {
             // User cancelled payment
@@ -479,6 +695,92 @@
             document.getElementById('result-title').textContent = '✅ Demo: Kết quả thanh toán';
             document.getElementById('result-message').textContent = 'Trang này hiển thị kết quả sau khi thanh toán VNPay/MoMo hoàn tất.';
         }
+
+        // === Helper Functions ===
+
+        function autoDetectPackage(amount) {
+            const sel = document.getElementById('act-package');
+            if (!sel) return;
+            if (amount >= 20000000) sel.value = 'Chuyên nghiệp';
+            else if (amount >= 10000000) sel.value = 'Tăng trưởng';
+            else sel.value = 'Cơ bản';
+        }
+
+        function startCountdown() {
+            const countdownContainer = document.getElementById('countdown-container');
+            const countdownProgress = document.getElementById('countdown-progress');
+            const resultMessage = document.getElementById('result-message');
+            countdownContainer.style.display = 'block';
+            let countdown = 5;
+            countdownProgress.style.width = '100%';
+            const interval = setInterval(() => {
+                countdown--;
+                countdownProgress.style.width = `${(countdown / 5) * 100}%`;
+                if (countdown > 0) {
+                    resultMessage.textContent = `Hóa đơn đã thanh toán thành công. Tự động chuyển về trang hóa đơn trong ${countdown} giây...`;
+                } else {
+                    clearInterval(interval);
+                    window.location.href = 'invoices.html';
+                }
+            }, 1000);
+        }
+
+        // Global function for onclick
+        window.activateAccount = async function () {
+            const email = document.getElementById('act-email').value.trim();
+            const phone = document.getElementById('act-phone').value.trim();
+            const packageName = document.getElementById('act-package').value;
+            const btn = document.getElementById('activate-btn');
+            const errorDiv = document.getElementById('activation-error');
+
+            // Validate
+            if (!email || !email.includes('@')) {
+                errorDiv.textContent = 'Vui lòng nhập email hợp lệ.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            // Show loading
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner-sm"></div> Đang kích hoạt...';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/activate-subscription`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        orderCode: currentOrderCode || urlParams.get('orderCode') || 'UNKNOWN',
+                        packageName: packageName,
+                        amount: currentAmount || parseInt(urlParams.get('amount') || '0'),
+                        buyerEmail: email,
+                        buyerPhone: phone
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success || result.email) {
+                    // Success! Show credentials
+                    document.getElementById('activation-section').style.display = 'none';
+                    document.getElementById('credentials-card').style.display = 'block';
+                    document.getElementById('cred-email').textContent = result.email || email;
+                    document.getElementById('cred-password').textContent = result.tempPassword || '(Đã có tài khoản - dùng mật khẩu hiện tại)';
+
+                    // Update title
+                    document.getElementById('result-title').textContent = '🎉 Đăng ký thành công!';
+                    document.getElementById('result-message').textContent = 'Tài khoản Client Portal của bạn đã sẵn sàng.';
+                } else {
+                    throw new Error(result.error || 'Không thể kích hoạt tài khoản');
+                }
+            } catch (err) {
+                console.error('Activation error:', err);
+                errorDiv.textContent = err.message || 'Lỗi kích hoạt. Vui lòng thử lại.';
+                errorDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined">rocket_launch</span> Kích hoạt tài khoản';
+            }
+        };
     </script>
 
     <script type="module" src="../assets/js/portal-client.js"></script>
