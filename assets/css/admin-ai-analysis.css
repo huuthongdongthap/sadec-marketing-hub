@@ -1,0 +1,266 @@
+/* Page-specific: AI Analysis */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+.analysis-card {
+            background: var(--md-sys-color-surface);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--md-sys-elevation-1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+.analysis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+.analysis-card.image::before {
+            background: linear-gradient(90deg, var(--md-sys-color-tertiary), var(--md-sys-color-primary));
+        }
+.analysis-card.video::before {
+            background: linear-gradient(90deg, var(--md-sys-color-error), var(--md-sys-color-secondary));
+        }
+.analysis-card.document::before {
+            background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+        }
+.analysis-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            border-color: var(--md-sys-color-primary);
+        }
+.analysis-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+.analysis-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+.analysis-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+.analysis-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+.analysis-icon .material-symbols-outlined {
+            font-size: 32px;
+        }
+.analysis-icon.image {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+.analysis-icon.video {
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-error);
+        }
+.analysis-icon.document {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+.analysis-title {
+            font: var(--md-sys-typescale-title-large);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 8px;
+        }
+.analysis-desc {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+.analysis-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+.feature-tag {
+            padding: 6px 12px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 8px;
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface);
+        }
+/* Upload Zone */
+        .upload-section {
+            background: var(--md-sys-color-surface);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+.upload-zone {
+            border: 2px dashed var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+.upload-zone:hover {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+.upload-zone.dragover {
+            border-color: var(--md-sys-color-primary);
+            background: rgba(0, 106, 96, 0.1);
+        }
+.upload-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--md-sys-color-surface-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+.upload-icon .material-symbols-outlined {
+            font-size: 36px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.upload-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 8px;
+        }
+.upload-subtitle {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+/* Commands */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+.command-card {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--md-sys-color-surface-container), var(--md-sys-color-surface-container));
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+.command-card:hover {
+            background: linear-gradient(135deg, var(--md-sys-color-primary-container), var(--md-sys-color-primary-container));
+            transform: scale(1.02);
+        }
+.command-text {
+            font-family: 'Fira Code', monospace;
+            font-size: 18px;
+            color: var(--md-sys-color-primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+.command-desc {
+            font: var(--md-sys-typescale-label-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+/* Recent Analyses */
+        .analysis-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+.analysis-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 12px;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+.analysis-item:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+.analysis-item-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--md-sys-color-outline-variant);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+.analysis-item-info {
+            flex: 1;
+        }
+.analysis-item-name {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 4px;
+        }
+.analysis-item-type {
+            font: var(--md-sys-typescale-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.analysis-item-status {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+.analysis-item-status.complete {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+.analysis-item-status.pending {
+            background: var(--md-sys-color-surface)3E0;
+            color: var(--md-sys-color-secondary);
+        }
+/* API Key Section */
+        .api-key-section {
+            background: linear-gradient(135deg, var(--md-sys-color-tertiary-container), var(--md-sys-color-tertiary-container));
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+.api-key-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--md-sys-color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-tertiary);
+        }
+.api-key-info {
+            flex: 1;
+        }
+.api-key-title {
+            font: var(--md-sys-typescale-title-small);
+            color: #1967D2;
+            margin-bottom: 4px;
+        }
+.api-key-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.btn-google {
+            background: var(--md-sys-color-tertiary);
+            color: var(--md-sys-color-surface);
+        }
+.btn-google:hover {
+            background: #3367D6;
+        }

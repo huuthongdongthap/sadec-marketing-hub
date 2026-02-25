@@ -1,0 +1,153 @@
+@media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+.nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+.nav-item.active {
+            background: var(--md-sys-color-inverse-primary);
+            color: var(--md-sys-color-inverse-surface);
+            opacity: 1;
+        }
+.stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+@media (max-width: 1200px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+@media (max-width: 600px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+.mini-stat {
+            padding: 20px;
+            text-align: center;
+        }
+.mini-stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            margin-bottom: 4px;
+        }
+.mini-stat-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.campaigns-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+.campaigns-table th {
+            text-align: left;
+            padding: 16px;
+            font: var(--md-sys-typescale-label-large);
+            color: var(--md-sys-color-on-surface-variant);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+.campaigns-table td {
+            padding: 16px;
+            font: var(--md-sys-typescale-body-medium);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+.campaigns-table tr:hover {
+            background: var(--md-sys-color-surface-container);
+        }
+.campaign-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+.campaign-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+.campaign-icon.facebook {
+            background: var(--md-sys-color-tertiary-container);
+            color: #1877F2;
+        }
+.campaign-icon.google {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+.campaign-icon.zalo {
+            background: var(--md-sys-color-tertiary-container);
+            color: #0068FF;
+        }
+.campaign-icon.tiktok {
+            background: #FCE4EC;
+            color: #000;
+        }
+.campaign-title {
+            font: var(--md-sys-typescale-title-small);
+        }
+.campaign-client {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.status-badge.active {
+            background: #D4EDDA;
+            color: #155724;
+        }
+.status-badge.paused {
+            background: var(--md-sys-color-surface)3CD;
+            color: #856404;
+        }
+.status-badge.completed {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+.status-badge.draft {
+            background: #E2E3E5;
+            color: #383D41;
+        }
+.metric-cell {
+            text-align: right;
+        }
+.metric-value {
+            font: var(--md-sys-typescale-title-small);
+        }
+.metric-label {
+            font: var(--md-sys-typescale-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.roi-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            font: var(--md-sys-typescale-label-large);
+        }
+.roi-badge.excellent {
+            background: #D4EDDA;
+            color: #155724;
+        }
+.roi-badge.good {
+            background: var(--md-sys-color-surface)3CD;
+            color: #856404;
+        }
+.roi-badge.average {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+.action-btn {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.action-btn:hover {
+            background: var(--md-sys-color-surface-container-high);
+        }

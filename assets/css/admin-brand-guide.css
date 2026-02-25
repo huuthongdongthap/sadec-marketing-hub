@@ -1,0 +1,273 @@
+/* Brand Guide Specific Styles */
+        .brand-header {
+            background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary) 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+.brand-section {
+            padding: 64px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+.brand-section:last-child {
+            border-bottom: none;
+        }
+.section-title {
+            font: var(--brand-type-headline-large);
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 8px;
+        }
+.section-subtitle {
+            font: var(--brand-type-body-large);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 40px;
+        }
+/* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+.color-swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--md-sys-elevation-1);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+.color-swatch:hover {
+            box-shadow: var(--md-sys-elevation-3);
+            transform: translateY(-4px);
+        }
+.color-preview {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: var(--md-sys-typescale-label-large);
+        }
+.color-info {
+            padding: 16px;
+            background: var(--md-sys-color-surface);
+        }
+.color-name {
+            font: var(--brand-type-title-medium);
+            margin-bottom: 4px;
+        }
+.color-hex {
+            font: var(--brand-type-code);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+.copied-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--md-sys-color-inverse-surface);
+            color: var(--md-sys-color-inverse-on-surface);
+            padding: 16px 24px;
+            border-radius: 8px;
+            font: var(--brand-type-label-large);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+.copied-toast.show {
+            opacity: 1;
+        }
+/* Typography Samples */
+        .type-sample {
+            padding: 24px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+.type-label {
+            font: var(--brand-type-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+.type-specs {
+            font: var(--brand-type-code-small);
+            color: var(--md-sys-color-tertiary);
+            margin-top: 12px;
+        }
+/* Logo Gallery */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+.logo-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--md-sys-elevation-1);
+        }
+.logo-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+.logo-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+.logo-preview.dark {
+            background: #191C1B;
+        }
+.logo-preview.light {
+            background: #FAFDFC;
+        }
+.logo-preview.pattern {
+            background: repeating-linear-gradient(45deg,
+                    var(--md-sys-color-surface-container),
+                    var(--md-sys-color-surface-container) 10px,
+                    var(--md-sys-color-surface) 10px,
+                    var(--md-sys-color-surface) 20px);
+        }
+.logo-info {
+            padding: 20px;
+            background: var(--md-sys-color-surface);
+        }
+.logo-name {
+            font: var(--brand-type-title-medium);
+            margin-bottom: 8px;
+        }
+.logo-usage {
+            font: var(--brand-type-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+        }
+/* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            border: none;
+            border-radius: 20px;
+            font: var(--brand-type-label-medium);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+.download-btn:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+/* Font Stack Display */
+        .font-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+.font-card {
+            padding: 32px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+        }
+.font-preview {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+.font-name {
+            font: var(--brand-type-title-medium);
+            margin-bottom: 4px;
+        }
+.font-role {
+            font: var(--brand-type-body-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+/* Spacing Demo */
+        .spacing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-end;
+        }
+.spacing-item {
+            text-align: center;
+        }
+.spacing-box {
+            background: var(--md-sys-color-primary);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+.spacing-label {
+            font: var(--brand-type-label-small);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+/* Guidelines Card */
+        .guideline-card {
+            display: flex;
+            gap: 24px;
+            padding: 24px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+.guideline-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+.guideline-icon.do {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-primary);
+        }
+.guideline-icon.dont {
+            background: var(--md-sys-color-error-container);
+            color: var(--md-sys-color-error);
+        }
+.guideline-content h4 {
+            font: var(--brand-type-title-medium);
+            margin-bottom: 8px;
+        }
+.guideline-content p {
+            font: var(--brand-type-body-medium);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+/* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--md-sys-elevation-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+.print-btn:hover {
+            box-shadow: var(--md-sys-elevation-4);
+            transform: scale(1.05);
+        }
+@media print {
+
+            .print-btn,
+            nav,
+            .copied-toast {
+                display: none !important;
+            }
+.brand-section {
+                page-break-inside: avoid;
+            }
