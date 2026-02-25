@@ -3,6 +3,85 @@
    Additional styles for portal interactions
    ================================================ */
 
+/* ---- Global Portal UI Polish ---- */
+
+/* Main content: subtle warm gradient background */
+.main-content {
+    background: linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--md-sys-color-surface) 92%, var(--md-sys-color-primary) 8%) 0%,
+        var(--md-sys-color-surface) 55%,
+        color-mix(in srgb, var(--md-sys-color-surface) 95%, var(--md-sys-color-tertiary) 5%) 100%
+    ) !important;
+}
+
+/* Card elevated: deeper shadow + subtle border */
+.card-elevated {
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.10),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 60%, transparent 40%) !important;
+    transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+}
+
+.card-elevated:hover {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.10),
+        0 16px 40px rgba(0, 0, 0, 0.06) !important;
+    transform: translateY(-2px);
+}
+
+/* Stat value: bolder and darker for readability */
+.stat-value,
+.invoice-stat-value {
+    font-weight: 800 !important;
+    color: var(--md-sys-color-on-surface) !important;
+    letter-spacing: -0.5px;
+}
+
+/* Page title: larger and bolder */
+.page-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.3px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .btn, .card, .card-elevated, .card-outlined,
+.stat-card-link, .project-item, .invoice-table tr,
+.nav-item, .sidebar-item {
+    transition: all 0.2s ease !important;
+}
+
+/* Stat cards: subtle gradient backgrounds */
+.stat-card {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--md-sys-color-surface-container-low) 80%, var(--md-sys-color-primary-container) 20%) 0%,
+        var(--md-sys-color-surface-container-low) 100%
+    ) !important;
+}
+
+/* Table rows: better breathing room */
+.invoice-table td {
+    padding: 20px 16px !important;
+}
+
+.invoice-table th {
+    padding: 14px 16px !important;
+}
+
+/* Invoice stat cards: gradient tint */
+.invoice-stat {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--md-sys-color-surface-container-low) 85%, var(--md-sys-color-primary-container) 15%) 0%,
+        var(--md-sys-color-surface-container-low) 100%
+    ) !important;
+}
+
 /* Project Type Colors (for modal) */
 .project-type.ads {
     background: #E3F2FD;
