@@ -260,10 +260,80 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
 }
 
 /* KPI card and other card hover states */
-.kpi-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.kpi-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.invoice-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.pricing-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.kpi-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+}
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 40%, var(--md-sys-color-outline-variant) 60%);
+}
+
+.invoice-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+.invoice-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    border-color: var(--md-sys-color-primary);
+}
+
+.pricing-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Invoice stat value semantic colors via classes */
+.invoice-stat-value.color-paid {
+    color: #155724;
+}
+.invoice-stat-value.color-pending {
+    color: #856404;
+}
+
+/* Data table row hover */
+.data-table tbody tr {
+    cursor: default;
+    transition: background 0.15s ease;
+}
+.data-table tbody tr:hover {
+    background: var(--md-sys-color-surface-container);
+}
+
+/* Approval card transition */
+.approval-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Stat card link - stronger hover */
+.stat-card-link:hover .card-elevated {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Current plan card highlight */
+.pricing-card--current {
+    border-color: var(--md-sys-color-primary) !important;
+}
+
+/* Payment method check icon */
+.method-check-icon {
+    color: var(--md-sys-color-primary);
+}
+
+/* Small copy icon in bank info */
+.copy-icon-sm {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* Urgent deadline text */
+.detail-value--urgent {
+    color: #E53935;
+    font-weight: 500;
+}
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
