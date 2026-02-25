@@ -287,6 +287,10 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
 .pricing-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
 
 /* Invoice table row hover */
 .invoice-table tbody tr:hover {
@@ -379,6 +383,74 @@ md-filled-button.btn-approve-green {
 /* Feedback text color */
 .detail-value--feedback {
     color: #F57C00;
+}
+
+/* QR code emoji placeholder size */
+.qr-emoji-placeholder {
+    font-size: 80px;
+}
+
+/* Payment button: full-width with top margin */
+md-filled-button.pay-action-btn {
+    width: 100%;
+    margin-top: 24px;
+}
+
+/* Payment security note */
+.payment-security-note {
+    text-align: center;
+    margin-top: 16px;
+    font: var(--md-sys-typescale-body-small);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Table column: checkbox cell */
+.th-checkbox {
+    width: 40px;
+}
+
+/* Report history card spacing */
+.campaigns-card + .campaigns-card {
+    margin-top: 32px;
+}
+
+/* Inline text color helpers for JS-rendered content */
+.text-facebook { color: #1877F2; }
+.text-google   { color: #4285F4; }
+.text-success  { color: #388E3C; }
+.text-warning  { color: #F57C00; }
+
+/* Table cell: centered empty state */
+.td-empty-center {
+    text-align: center;
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 24px;
+}
+
+/* Current plan expiry box */
+.plan-expiry-box {
+    background: var(--md-sys-color-surface-container);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.plan-expiry-label {
+    font: var(--md-sys-typescale-label-small);
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 4px;
+}
+
+.plan-expiry-value {
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+}
+
+/* Card with no padding + hidden overflow (table container) */
+.card-table-container {
+    padding: 0;
+    overflow: hidden;
 }
 
 /* Mobile responsiveness */

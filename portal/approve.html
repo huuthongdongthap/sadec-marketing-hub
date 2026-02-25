@@ -87,7 +87,13 @@
             padding: 2px 8px;
             border-radius: 12px;
             font: var(--md-sys-typescale-label-small);
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--md-sys-color-surface-container-high);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .status-tab.active .status-count {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--md-sys-color-on-primary);
         }
 
         /* Approval Cards */
@@ -209,7 +215,24 @@
             color: var(--md-sys-color-on-surface-variant);
         }
 
-        .details-section {}
+        .preview-image.story {
+            aspect-ratio: 9/16;
+            max-height: 300px;
+        }
+
+        .preview-text-content {
+            background: var(--md-sys-color-surface-container);
+            padding: 20px;
+            border-radius: 12px;
+            font: var(--md-sys-typescale-body-medium);
+            line-height: 1.6;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .preview-link {
+            margin-left: 8px;
+        }
 
         .detail-item {
             margin-bottom: 16px;
@@ -364,8 +387,8 @@
                     <div class="approval-content">
                         <div class="preview-section">
                             <div class="preview-label">Preview</div>
-                            <div class="preview-image"
-                                style="background: linear-gradient(135deg, #E1306C, #833AB4); aspect-ratio: 9/16; max-height: 300px;">
+                            <div class="preview-image story"
+                                style="background: linear-gradient(135deg, #E1306C, #833AB4);">
                                 <span style="color: white; font-weight: bold;">📱 Story Preview</span>
                             </div>
                         </div>
@@ -415,8 +438,7 @@
                     <div class="approval-content">
                         <div class="preview-section">
                             <div class="preview-label">Nội dung</div>
-                            <div
-                                style="background: var(--md-sys-color-surface-container); padding: 20px; border-radius: 12px; font: var(--md-sys-typescale-body-medium); line-height: 1.6;">
+                            <div class="preview-text-content">
                                 🌸 <strong>XUÂN VỀ - RỘNG YÊU THƯƠNG</strong> 🌸<br><br>
                                 Tết đến xuân về, Mekong Agency xin gửi lời chúc tốt đẹp nhất đến quý khách hàng!<br><br>
                                 ✨ Ưu đãi đặc biệt: Giảm ngay 30% cho mọi gói dịch vụ<br>
@@ -595,7 +617,7 @@
                 `;
             } else if (item.type === 'text') {
                 return `
-                    <div style="background: var(--md-sys-color-surface-container); padding: 20px; border-radius: 12px; font: var(--md-sys-typescale-body-medium); line-height: 1.6; max-height: 300px; overflow-y: auto;">
+                    <div class="preview-text-content">
                         ${item.content_body || item.preview_url}
                     </div>
                 `;
@@ -603,7 +625,7 @@
                  return `
                     <div class="preview-image">
                          <span class="material-symbols-outlined placeholder">description</span>
-                         <a href="${item.preview_url}" target="_blank" style="margin-left: 8px;">Xem nội dung</a>
+                         <a href="${item.preview_url}" target="_blank" class="preview-link">Xem nội dung</a>
                     </div>
                 `;
             }

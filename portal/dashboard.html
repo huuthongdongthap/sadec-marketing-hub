@@ -196,6 +196,16 @@
             border-radius: 12px;
         }
 
+        .project-icon.secondary {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-secondary);
+        }
+
+        .project-icon.tertiary {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-tertiary);
+        }
+
         .project-info {
             flex: 1;
         }
@@ -281,6 +291,9 @@
         .activity-time {
             font: var(--md-sys-typescale-body-small);
             color: var(--md-sys-color-on-surface-variant);
+        }
+        .card-section {
+            padding: 24px;
         }
     </style>
 </head>
@@ -373,7 +386,7 @@
             <!-- Content Grid -->
             <div class="content-grid">
                 <!-- Projects -->
-                <div class="card card-outlined" style="padding: 24px;">
+                <div class="card card-outlined card-section">
                     <div class="flex-between mb-24">
                         <div class="section-title">Dự án gần đây</div>
                         <a href="projects.html" class="btn btn-text">Xem tất cả</a>
@@ -431,7 +444,7 @@
                 </div>
 
                 <!-- Activity -->
-                <div class="card card-outlined" style="padding: 24px;">
+                <div class="card card-outlined card-section">
                     <div class="section-title">Hoạt động gần đây</div>
 
                     <div class="activity-list">

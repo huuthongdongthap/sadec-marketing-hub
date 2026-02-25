@@ -652,22 +652,17 @@
                     <!-- QR Section -->
                     <div class="qr-section" id="qr-section">
                         <div class="qr-code">
-                            <span style="font-size: 80px;">📱</span>
+                            <span class="qr-emoji-placeholder">📱</span>
                         </div>
                         <div class="qr-hint">Quét mã QR bằng app VNPay/MoMo để thanh toán</div>
                     </div>
 
-                    <md-filled-button style="width: 100%; margin-top: 24px;" id="pay-btn">
+                    <md-filled-button class="pay-action-btn" id="pay-btn">
                         <span class="material-symbols-outlined" slot="icon">lock</span>
                         Thanh toán 8,500,000 ₫
                     </md-filled-button>
 
-                    <div style="text-align: center; margin-top: 16px;">
-                        <span
-                            style="font: var(--md-sys-typescale-body-small); color: var(--md-sys-color-on-surface-variant);">
-                            🔒 Thanh toán được bảo mật bởi SSL
-                        </span>
-                    </div>
+                    <div class="payment-security-note">🔒 Thanh toán được bảo mật bởi SSL</div>
                 </div>
             </div>
         </main>
@@ -744,7 +739,7 @@
                     o.querySelector('.material-symbols-outlined')?.remove();
                 });
                 option.classList.add('selected');
-                option.insertAdjacentHTML('beforeend', '<span class="material-symbols-outlined" style="color: var(--md-sys-color-primary);">check_circle</span>');
+                option.insertAdjacentHTML('beforeend', '<span class="material-symbols-outlined method-check-icon">check_circle</span>');
 
                 const method = option.dataset.method;
                 const bankInfo = document.getElementById('bank-info');

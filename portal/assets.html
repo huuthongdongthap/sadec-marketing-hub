@@ -84,7 +84,13 @@
             font: var(--md-sys-typescale-label-small);
             padding: 2px 8px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--md-sys-color-surface-container-high);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .folder-tab.active .folder-count {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--md-sys-color-on-primary);
         }
 
         /* Asset Grid */
@@ -146,7 +152,11 @@
         }
 
         .asset-preview .file-icon.video {
-            color: #9C27B0;
+            color: #CE93D8;
+        }
+
+        .asset-preview.video-bg {
+            background: #1A0030;
         }
 
         .asset-info {
@@ -204,7 +214,10 @@
             background: var(--md-sys-color-primary-container);
         }
 
-        .upload-zone .material-symbols-outlined {
+        .asset-preview .banner-label {
+            color: white;
+            font: var(--md-sys-typescale-body-small);
+        }
             font-size: 48px;
             color: var(--md-sys-color-primary);
             margin-bottom: 16px;
@@ -331,7 +344,7 @@
                 <!-- Banner Assets -->
                 <div class="asset-card" data-type="banners">
                     <div class="asset-preview" style="background: linear-gradient(135deg, #006A60, #00897B);">
-                        <span style="color: white; font-size: 14px;">Banner 1200x628</span>
+                        <span class="banner-label">Banner 1200x628</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">FB Ad Banner - Tết Sale</div>
@@ -354,7 +367,7 @@
 
                 <div class="asset-card" data-type="banners">
                     <div class="asset-preview" style="background: linear-gradient(135deg, #E91E63, #9C27B0);">
-                        <span style="color: white; font-size: 14px;">Story 1080x1920</span>
+                        <span class="banner-label">Story 1080x1920</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">IG Story - Khuyến mãi</div>
@@ -424,7 +437,7 @@
 
                 <!-- Video Assets -->
                 <div class="asset-card" data-type="videos">
-                    <div class="asset-preview" style="background: #000;">
+                    <div class="asset-preview video-bg">
                         <span class="material-symbols-outlined file-icon video">play_circle</span>
                     </div>
                     <div class="asset-info">
@@ -447,7 +460,7 @@
                 </div>
 
                 <div class="asset-card" data-type="videos">
-                    <div class="asset-preview" style="background: #000;">
+                    <div class="asset-preview video-bg">
                         <span class="material-symbols-outlined file-icon video">play_circle</span>
                     </div>
                     <div class="asset-info">

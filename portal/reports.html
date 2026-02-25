@@ -654,23 +654,23 @@
                 tbody.innerHTML = `
                     <tr>
                         <td><strong>Facebook Ads Q1 2026</strong></td>
-                        <td><span style="color:#1877F2;">📘</span> Facebook</td>
-                        <td><span class="status-badge active">🟢 Đang chạy</span></td>
+                        <td><span class="text-facebook">📘</span> Facebook</td>
+                        <td><span class="status-badge running">🟢 Đang chạy</span></td>
                         <td>130,000</td>
                         <td>4,200</td>
                         <td>3.2%</td>
                         <td>18,000,000đ</td>
-                        <td><strong style="color:#388E3C;">3.5x</strong></td>
+                        <td><strong class="text-success">3.5x</strong></td>
                     </tr>
                     <tr>
                         <td><strong>Google Search - Từ khóa thương hiệu</strong></td>
-                        <td><span style="color:#4285F4;">🔍</span> Google</td>
-                        <td><span class="status-badge active">🟢 Đang chạy</span></td>
+                        <td><span class="text-google">🔍</span> Google</td>
+                        <td><span class="status-badge running">🟢 Đang chạy</span></td>
                         <td>52,000</td>
                         <td>2,800</td>
                         <td>5.4%</td>
                         <td>12,000,000đ</td>
-                        <td><strong style="color:#388E3C;">4.1x</strong></td>
+                        <td><strong class="text-success">4.1x</strong></td>
                     </tr>
                     <tr>
                         <td><strong>TikTok Viral Campaign</strong></td>
@@ -680,7 +680,7 @@
                         <td>6,100</td>
                         <td>6.9%</td>
                         <td>8,500,000đ</td>
-                        <td><strong style="color:#F57C00;">1.8x</strong></td>
+                        <td><strong class="text-warning">1.8x</strong></td>
                     </tr>
                 `;
             }
@@ -689,7 +689,7 @@
         function updateCampaignTable(campaignList) {
             const tbody = document.getElementById('campaign-table-body');
             if (!campaignList.length) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center">Chưa có dữ liệu chiến dịch</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="8" class="td-empty-center">Chưa có dữ liệu chiến dịch</td></tr>';
                 return;
             }
 
@@ -705,10 +705,12 @@
 
                 // Platform icon
                 let platformIcon = '';
-                if (camp.platform === 'facebook') platformIcon = '<span style="color: #1877F2;">📘</span> Facebook';
-                else if (camp.platform === 'google') platformIcon = '<span style="color: #4285F4;">🔍</span> Google';
+                if (camp.platform === 'facebook') platformIcon = '<span class="text-facebook">📘</span> Facebook';
+                else if (camp.platform === 'google') platformIcon = '<span class="text-google">🔍</span> Google';
                 else if (camp.platform === 'tiktok') platformIcon = '🎵 TikTok';
                 else platformIcon = '📢 ' + camp.platform;
+
+                const roiClass = roi >= 2 ? 'text-success' : 'text-warning';
 
                 return `
                     <tr>
@@ -719,7 +721,7 @@
                         <td>${(metrics.clicks || 0).toLocaleString()}</td>
                         <td>${metrics.ctr || 0}%</td>
                         <td>${utils.formatCompactNumber(camp.spent || 0)}</td>
-                        <td><strong style="color: ${roi >= 2 ? '#388E3C' : '#F57C00'};">${roi}x</strong></td>
+                        <td><strong class="${roiClass}">${roi}x</strong></td>
                     </tr>
                 `;
             }).join('');
