@@ -33,7 +33,6 @@
         }
 
         .main-content {
-            background: var(--md-sys-color-surface);
             padding: 32px;
             overflow-y: auto;
         }
@@ -44,7 +43,6 @@
         }
 
         .page-title {
-            font: var(--md-sys-typescale-display-small);
             margin-bottom: 8px;
         }
 
@@ -645,6 +643,12 @@
         window.openRenewalModal = () => {
             const currentPlan = 'starter'; // Get from user data
             const amount = isYearly ? planPrices.starter.yearly : planPrices.starter.monthly;
+
+            if (amount === 0) {
+                alert('Gói Starter miễn phí, không cần thanh toán. Gói của bạn sẽ tự động gia hạn.');
+                return;
+            }
+
             const invoiceId = `RENEW-${Date.now()}`;
 
             paymentModal.setAttribute('amount', amount);

@@ -259,6 +259,12 @@ a, button, .btn, .card, .card-elevated, .card-outlined,
     opacity: 0.5;
 }
 
+/* KPI card and other card hover states */
+.kpi-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.kpi-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.invoice-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.pricing-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .btn {
