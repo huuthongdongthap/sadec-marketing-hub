@@ -52,12 +52,14 @@
                         <div class="stat-icon primary">
                             <span class="material-symbols-outlined">folder_open</span>
                         </div>
-                        <div class="stat-trend up">
+                        <div class="stat-trend up" id="trend-projects">
                             <span class="material-symbols-outlined icon-xs">trending_up</span>
                             +2
                         </div>
                     </div>
-                    <div class="stat-value">5</div>
+                    <div class="stat-value" id="stat-projects">
+                        <span class="skeleton-text" style="display:inline-block;width:2ch;height:1em;background:var(--md-sys-color-surface-variant);border-radius:4px;animation:pulse 1.5s ease-in-out infinite;">&nbsp;</span>
+                    </div>
                     <div class="stat-label">Dự án đang chạy</div>
                 </div>
 
@@ -66,12 +68,14 @@
                         <div class="stat-icon secondary">
                             <span class="material-symbols-outlined">visibility</span>
                         </div>
-                        <div class="stat-trend up">
+                        <div class="stat-trend up" id="trend-reach">
                             <span class="material-symbols-outlined icon-xs">trending_up</span>
                             +45%
                         </div>
                     </div>
-                    <div class="stat-value">12.5K</div>
+                    <div class="stat-value" id="stat-reach">
+                        <span class="skeleton-text" style="display:inline-block;width:4ch;height:1em;background:var(--md-sys-color-surface-variant);border-radius:4px;animation:pulse 1.5s ease-in-out infinite;">&nbsp;</span>
+                    </div>
                     <div class="stat-label">Lượt tiếp cận</div>
                 </div>
 
@@ -80,12 +84,14 @@
                         <div class="stat-icon success">
                             <span class="material-symbols-outlined">person_add</span>
                         </div>
-                        <div class="stat-trend up">
+                        <div class="stat-trend up" id="trend-leads">
                             <span class="material-symbols-outlined icon-xs">trending_up</span>
                             +28%
                         </div>
                     </div>
-                    <div class="stat-value">234</div>
+                    <div class="stat-value" id="stat-leads">
+                        <span class="skeleton-text" style="display:inline-block;width:3ch;height:1em;background:var(--md-sys-color-surface-variant);border-radius:4px;animation:pulse 1.5s ease-in-out infinite;">&nbsp;</span>
+                    </div>
                     <div class="stat-label">Leads mới</div>
                 </div>
 
@@ -95,16 +101,25 @@
                             <div class="stat-icon tertiary">
                                 <span class="material-symbols-outlined">receipt_long</span>
                             </div>
-                            <div class="stat-trend down">
+                            <div class="stat-trend down" id="trend-invoices">
                                 <span class="material-symbols-outlined icon-xs">schedule</span>
                                 Cần xử lý
                             </div>
                         </div>
-                        <div class="stat-value">2</div>
+                        <div class="stat-value" id="stat-invoices">
+                            <span class="skeleton-text" style="display:inline-block;width:1ch;height:1em;background:var(--md-sys-color-surface-variant);border-radius:4px;animation:pulse 1.5s ease-in-out infinite;">&nbsp;</span>
+                        </div>
                         <div class="stat-label">Hóa đơn chờ thanh toán</div>
                     </div>
                 </a>
             </div>
+
+            <style>
+                @keyframes pulse {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0.4; }
+                }
+            </style>
 
             <!-- Content Grid -->
             <div class="content-grid">
@@ -169,8 +184,7 @@
                 <!-- Activity -->
                 <div class="card card-outlined card-section">
                     <div class="section-title">Hoạt động gần đây</div>
-
-                    <div class="activity-list">
+                    <div class="activity-list" id="activity-list">
                         <div class="activity-item">
                             <div class="activity-dot green"></div>
                             <div class="activity-content">
@@ -178,7 +192,6 @@
                                 <div class="activity-time">1 giờ trước</div>
                             </div>
                         </div>
-
                         <div class="activity-item">
                             <div class="activity-dot green"></div>
                             <div class="activity-content">
@@ -186,7 +199,6 @@
                                 <div class="activity-time">2 giờ trước</div>
                             </div>
                         </div>
-
                         <div class="activity-item">
                             <div class="activity-dot blue"></div>
                             <div class="activity-content">
@@ -194,7 +206,6 @@
                                 <div class="activity-time">Hôm qua</div>
                             </div>
                         </div>
-
                         <div class="activity-item">
                             <div class="activity-dot orange"></div>
                             <div class="activity-content">
@@ -202,20 +213,28 @@
                                 <div class="activity-time">2 ngày trước</div>
                             </div>
                         </div>
-
-                        <div class="activity-item">
-                            <div class="activity-dot orange"></div>
-                            <div class="activity-content">
-                                <div class="activity-text">Hóa đơn #INV-2024-056 đã gửi</div>
-                                <div class="activity-time">2 ngày trước</div>
-                            </div>
-                        </div>
-
                         <div class="activity-item">
                             <div class="activity-dot green"></div>
                             <div class="activity-content">
                                 <div class="activity-text">Logo mới đã được phê duyệt</div>
                                 <div class="activity-time">3 ngày trước</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Deadlines -->
+                <div class="card card-outlined card-section">
+                    <div class="flex-between mb-24">
+                        <div class="section-title">Deadline sắp tới</div>
+                        <a href="projects.html" class="btn btn-text">Xem tất cả</a>
+                    </div>
+                    <div class="project-list" id="deadlines-list">
+                        <div class="activity-item">
+                            <div class="activity-dot orange"></div>
+                            <div class="activity-content">
+                                <div class="activity-text body-medium">Chiến dịch Facebook Ads Q1</div>
+                                <div class="activity-time">31/03/2026</div>
                             </div>
                         </div>
                     </div>

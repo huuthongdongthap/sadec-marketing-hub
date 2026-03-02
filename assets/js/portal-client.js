@@ -766,19 +766,181 @@ async function loadDashboard() {
         if (!user) {
             // Demo mode - use static data already in HTML
             toast.show('Đang xem ở chế độ Demo', 'info');
-        } else {
-            // Live mode - fetch real stats
-            const [projectStats, invoiceStats] = await Promise.all([
-                projects.getAll(),
-                invoices.getStats()
-            ]);
-
-            // Update stats cards
-            // (Implementation would update DOM elements with real data)
+            return;
         }
+
+        // --- Get clientId from clients table ---
+        const { data: clientRow, error: clientErr } = await supabase
+            .from('clients')
+            .select('id')
+            .eq('user_id', user.id)
+            .single();
+
+        if (clientErr || !clientRow) {
+            console.warn('Dashboard: client record not found, using static data');
+            return;
+        }
+
+        const clientId = clientRow.id;
+        const now = new Date();
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000).toISOString();
+        const sixtyDaysAgo = new Date(now - 60 * 24 * 60 * 60 * 1000).toISOString();
+
+        // --- Parallel fetch ---
+        const [projectsRes, invoicesRes, campaignsRes, activitiesRes, deadlinesRes] = await Promise.allSettled([
+            supabase.from('projects').select('id, status, created_at').eq('client_id', clientId),
+            supabase.from('invoices').select('id, status').eq('client_id', clientId).eq('status', 'pending'),
+            supabase.from('campaigns').select('reach, leads_generated, created_at').eq('client_id', clientId),
+            supabase.from('activities').select('id, description, type, created_at').eq('client_id', clientId).order('created_at', { ascending: false }).limit(5),
+            supabase.from('projects').select('id, name, deadline').eq('client_id', clientId).gt('deadline', now.toISOString()).order('deadline', { ascending: true }).limit(3)
+        ]);
+
+        // ---- STAT: Active Projects ----
+        const elProjects = document.getElementById('stat-projects');
+        const elTrendProjects = document.getElementById('trend-projects');
+        if (elProjects) {
+            if (projectsRes.status === 'fulfilled' && !projectsRes.value.error) {
+                const allProjects = projectsRes.value.data || [];
+                const activeCount = allProjects.filter(p => p.status === 'active').length;
+                const recentCount = allProjects.filter(p => p.created_at >= thirtyDaysAgo).length;
+                const prevCount = allProjects.filter(p => p.created_at >= sixtyDaysAgo && p.created_at < thirtyDaysAgo).length;
+                elProjects.textContent = activeCount || '0';
+                if (elTrendProjects) {
+                    const diff = recentCount - prevCount;
+                    elTrendProjects.innerHTML = diff >= 0
+                        ? `<span class="material-symbols-outlined icon-xs">trending_up</span> +${diff}`
+                        : `<span class="material-symbols-outlined icon-xs">trending_down</span> ${diff}`;
+                    elTrendProjects.className = `stat-trend ${diff >= 0 ? 'up' : 'down'}`;
+                }
+            } else {
+                elProjects.textContent = '—';
+            }
+        }
+
+        // ---- STAT: Pending Invoices ----
+        const elInvoices = document.getElementById('stat-invoices');
+        if (elInvoices) {
+            if (invoicesRes.status === 'fulfilled' && !invoicesRes.value.error) {
+                const pendingCount = (invoicesRes.value.data || []).length;
+                elInvoices.textContent = pendingCount || '0';
+            } else {
+                elInvoices.textContent = '—';
+            }
+        }
+
+        // ---- STAT: Reach & Leads ----
+        const elReach = document.getElementById('stat-reach');
+        const elLeads = document.getElementById('stat-leads');
+        const elTrendReach = document.getElementById('trend-reach');
+        const elTrendLeads = document.getElementById('trend-leads');
+        if (elReach || elLeads) {
+            if (campaignsRes.status === 'fulfilled' && !campaignsRes.value.error) {
+                const allCampaigns = campaignsRes.value.data || [];
+                const totalReach = allCampaigns.reduce((s, c) => s + (c.reach || 0), 0);
+                const totalLeads = allCampaigns.reduce((s, c) => s + (c.leads_generated || 0), 0);
+
+                const recentCampaigns = allCampaigns.filter(c => c.created_at >= thirtyDaysAgo);
+                const prevCampaigns = allCampaigns.filter(c => c.created_at >= sixtyDaysAgo && c.created_at < thirtyDaysAgo);
+                const recentReach = recentCampaigns.reduce((s, c) => s + (c.reach || 0), 0);
+                const prevReach = prevCampaigns.reduce((s, c) => s + (c.reach || 0), 0);
+                const recentLeads = recentCampaigns.reduce((s, c) => s + (c.leads_generated || 0), 0);
+                const prevLeads = prevCampaigns.reduce((s, c) => s + (c.leads_generated || 0), 0);
+
+                if (elReach) {
+                    elReach.textContent = totalReach >= 1000
+                        ? `${(totalReach / 1000).toFixed(1)}K`
+                        : (totalReach || '0');
+                }
+                if (elLeads) {
+                    elLeads.textContent = totalLeads || '0';
+                }
+
+                if (elTrendReach && prevReach > 0) {
+                    const pct = Math.round(((recentReach - prevReach) / prevReach) * 100);
+                    elTrendReach.innerHTML = pct >= 0
+                        ? `<span class="material-symbols-outlined icon-xs">trending_up</span> +${pct}%`
+                        : `<span class="material-symbols-outlined icon-xs">trending_down</span> ${pct}%`;
+                    elTrendReach.className = `stat-trend ${pct >= 0 ? 'up' : 'down'}`;
+                }
+                if (elTrendLeads && prevLeads > 0) {
+                    const pct = Math.round(((recentLeads - prevLeads) / prevLeads) * 100);
+                    elTrendLeads.innerHTML = pct >= 0
+                        ? `<span class="material-symbols-outlined icon-xs">trending_up</span> +${pct}%`
+                        : `<span class="material-symbols-outlined icon-xs">trending_down</span> ${pct}%`;
+                    elTrendLeads.className = `stat-trend ${pct >= 0 ? 'up' : 'down'}`;
+                }
+
+                if (allCampaigns.length === 0) {
+                    if (elReach) elReach.textContent = 'Chưa có dữ liệu. Hãy liên hệ đội ngũ marketing.';
+                    if (elLeads) elLeads.textContent = '—';
+                }
+            } else {
+                if (elReach) elReach.textContent = '—';
+                if (elLeads) elLeads.textContent = '—';
+            }
+        }
+
+        // ---- SECTION: Recent Activities ----
+        const elActivityList = document.getElementById('activity-list');
+        if (elActivityList && activitiesRes.status === 'fulfilled' && !activitiesRes.value.error) {
+            const activityData = activitiesRes.value.data || [];
+            if (activityData.length > 0) {
+                const dotColorMap = { invoice: 'green', campaign: 'green', report: 'blue', reminder: 'orange', default: 'blue' };
+                elActivityList.innerHTML = activityData.map(a => {
+                    const dot = dotColorMap[a.type] || dotColorMap.default;
+                    const timeAgo = _timeAgo(a.created_at);
+                    return `
+                        <div class="activity-item">
+                            <div class="activity-dot ${dot}"></div>
+                            <div class="activity-content">
+                                <div class="activity-text">${a.description || ''}</div>
+                                <div class="activity-time">${timeAgo}</div>
+                            </div>
+                        </div>`;
+                }).join('');
+            }
+        }
+
+        // ---- SECTION: Upcoming Deadlines ----
+        const elDeadlines = document.getElementById('deadlines-list');
+        if (elDeadlines && deadlinesRes.status === 'fulfilled' && !deadlinesRes.value.error) {
+            const deadlineData = deadlinesRes.value.data || [];
+            if (deadlineData.length > 0) {
+                elDeadlines.innerHTML = deadlineData.map(p => {
+                    const d = new Date(p.deadline);
+                    const daysLeft = Math.ceil((d - now) / (24 * 60 * 60 * 1000));
+                    const dot = daysLeft <= 7 ? 'orange' : 'blue';
+                    const dateStr = d.toLocaleDateString('vi-VN');
+                    return `
+                        <div class="activity-item">
+                            <div class="activity-dot ${dot}"></div>
+                            <div class="activity-content">
+                                <div class="activity-text body-medium">${p.name}</div>
+                                <div class="activity-time">${dateStr} · còn ${daysLeft} ngày</div>
+                            </div>
+                        </div>`;
+                }).join('');
+            } else {
+                elDeadlines.innerHTML = '<div class="activity-item"><div class="activity-content"><div class="activity-text" style="color:var(--md-sys-color-on-surface-variant)">Không có deadline sắp tới.</div></div></div>';
+            }
+        }
+
     } catch (error) {
         console.error('Error loading dashboard:', error);
+        // Silently keep static fallback data already rendered in HTML
     }
+}
+
+function _timeAgo(isoString) {
+    if (!isoString) return '';
+    const diff = Date.now() - new Date(isoString).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 60) return `${mins} phút trước`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs} giờ trước`;
+    const days = Math.floor(hrs / 24);
+    if (days === 1) return 'Hôm qua';
+    return `${days} ngày trước`;
 }
 
 // ================================================
