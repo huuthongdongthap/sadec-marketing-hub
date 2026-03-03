@@ -69,8 +69,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 48px;
+            padding: 24px 32px;
             background: var(--md-sys-color-surface);
+            overflow-y: auto;
         }
 
         .login-form {
@@ -84,7 +85,7 @@
             gap: 12px;
             font: var(--md-sys-typescale-title-large);
             color: var(--md-sys-color-primary);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-decoration: none;
         }
 
@@ -92,7 +93,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
             background: var(--md-sys-color-surface-container);
             padding: 4px;
             border-radius: 12px;
@@ -116,11 +117,11 @@
         .role-tab.active {
             background: var(--md-sys-color-surface);
             color: var(--md-sys-color-primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .role-tab:hover:not(.active) {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .role-icon {
@@ -140,7 +141,7 @@
         .login-subtitle {
             font: var(--md-sys-typescale-body-large);
             color: var(--md-sys-color-on-surface-variant);
-            margin-bottom: 32px;
+            margin-bottom: 16px;
         }
 
         .hero-feature {
@@ -158,8 +159,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -177,7 +185,8 @@
                 <div class="hero-feature" id="hero-admin" style="display: none;">
                     <div class="title-large mb-8" style="color: white;">🛡️ Admin Workspace</div>
                     <div class="body-large" style="color: rgba(255,255,255,0.9);">
-                        Quản lý toàn bộ hệ thống, theo dõi hiệu suất và điều phối chiến dịch marketing từ trung tâm điều khiển.
+                        Quản lý toàn bộ hệ thống, theo dõi hiệu suất và điều phối chiến dịch marketing từ trung tâm điều
+                        khiển.
                     </div>
                 </div>
 
@@ -191,12 +200,15 @@
                 <div class="hero-feature" id="hero-affiliate" style="display: none;">
                     <div class="title-large mb-8" style="color: white;">🤝 Affiliate Partner</div>
                     <div class="body-large" style="color: rgba(255,255,255,0.9);">
-                        Kiếm thu nhập thụ động bằng cách giới thiệu giải pháp marketing của Mekong Agency đến mạng lưới của bạn.
+                        Kiếm thu nhập thụ động bằng cách giới thiệu giải pháp marketing của Mekong Agency đến mạng lưới
+                        của bạn.
                     </div>
                 </div>
 
                 <div style="margin-top: 48px; display: flex; gap: 16px; align-items: center;">
-                    <div style="width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">M</div>
+                    <div
+                        style="width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--md-sys-color-primary);">
+                        M</div>
                     <div>
                         <div style="color: white; font-weight: 600;">Mekong Marketing Hub</div>
                         <div style="color: rgba(255,255,255,0.7); font-size: 13px;">Unified Access System</div>
@@ -241,17 +253,21 @@
                     </div>
 
                     <div class="form-group mb-24">
-                        <md-outlined-text-field label="Mật khẩu" type="password" id="password" required style="width: 100%;">
+                        <md-outlined-text-field label="Mật khẩu" type="password" id="password" required
+                            style="width: 100%;">
                             <md-icon slot="leading-icon">lock</md-icon>
                         </md-outlined-text-field>
                     </div>
 
                     <div class="flex-between mb-24">
-                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--md-sys-color-on-surface-variant);">
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--md-sys-color-on-surface-variant);">
                             <md-checkbox touch-target="wrapper" id="rememberMe"></md-checkbox>
                             <span>Ghi nhớ tôi</span>
                         </label>
-                        <a href="../forgot-password.html" style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 500;">Quên mật khẩu?</a>
+                        <a href="../forgot-password.html"
+                            style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 500;">Quên
+                            mật khẩu?</a>
                     </div>
 
                     <md-filled-button type="submit" id="loginBtn" style="width: 100%;">
@@ -262,14 +278,18 @@
                 <div style="margin-top: 32px; text-align: center;">
                     <p style="color: var(--md-sys-color-on-surface-variant); font-size: 14px;">
                         Chưa có tài khoản?
-                        <a href="../register.html" id="registerLink" style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
+                        <a href="../register.html" id="registerLink"
+                            style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 600;">Đăng ký
+                            ngay</a>
                     </p>
                 </div>
 
                 <!-- Demo Credentials Hint (Optional) -->
-                <div style="margin-top: 40px; padding: 16px; background: var(--md-sys-color-surface-container-high); border-radius: 8px; font-size: 12px;">
+                <div
+                    style="margin-top: 16px; padding: 12px; background: var(--md-sys-color-surface-container-high); border-radius: 8px; font-size: 12px;">
                     <div style="font-weight: 600; margin-bottom: 8px;">🧪 Demo Credentials:</div>
-                    <div id="demo-credentials" style="font-family: monospace; color: var(--md-sys-color-on-surface-variant);">
+                    <div id="demo-credentials"
+                        style="font-family: monospace; color: var(--md-sys-color-on-surface-variant);">
                         affiliate@mekongmarketing.com / affiliate123
                     </div>
                 </div>
@@ -408,4 +428,5 @@
         });
     </script>
 </body>
+
 </html>
