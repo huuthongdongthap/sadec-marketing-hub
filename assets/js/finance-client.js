@@ -6,14 +6,7 @@
  */
 
 import { invoices, budget, utils } from './supabase.js';
-
-// Format currency
-function formatCurrency(amount) {
-    if (!amount) return '0đ';
-    if (amount >= 1000000000) return (amount / 1000000000).toFixed(1) + 'B đ';
-    if (amount >= 1000000) return (amount / 1000000).toFixed(0) + 'M đ';
-    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
-}
+import { formatCurrency } from './shared/format-utils.js';
 
 // Finance Dashboard Data
 async function loadFinanceData() {
