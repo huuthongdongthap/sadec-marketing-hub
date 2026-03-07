@@ -1,39 +1,53 @@
 /**
  * Portal Utils Module
  * Utility Functions & Helpers
+ * Re-exports from shared/format-utils.js
  */
 
+// Re-export from shared format-utils
+export {
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatNumber,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime,
+    truncate,
+    debounce,
+    throttle
+} from '../shared/format-utils.js';
+
 // ================================================
-// FORMATTING UTILITIES
+// VALIDATION UTILITIES
 // ================================================
 
 /**
- * Format currency (VND)
+ * Validate email format
  */
-export function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
+export function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
 }
 
 /**
- * Format date to Vietnamese locale
+ * Validate phone number (Vietnamese)
  */
-export function formatDate(dateString, options = {}) {
-    if (!dateString) return '';
-
-    const date = new Date(dateString);
-    const defaultOptions = {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-
-    return date.toLocaleDateString('vi-VN', { ...defaultOptions, ...options });
+export function isValidPhone(phone) {
+    const regex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
+    return regex.test(phone.replace(/\s/g, ''));
 }
+
+/**
+ * Validate required field
+ */
+export function isRequired(value) {
+    return value && value.trim().length > 0;
+}
+
+// ================================================
+// HELPER UTILITIES (portal-specific)
+// ================================================
 
 /**
  * Format relative time (time ago)
@@ -75,15 +89,6 @@ export function parseNumber(str) {
 }
 
 /**
- * Truncate text to max length
- */
-export function truncate(text, maxLength = 50, suffix = '...') {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + suffix;
-}
-
-/**
  * Escape HTML to prevent XSS
  */
 export function escapeHtml(text) {
@@ -92,33 +97,6 @@ export function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
-}
-
-// ================================================
-// VALIDATION UTILITIES
-// ================================================
-
-/**
- * Validate email format
- */
-export function isValidEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-/**
- * Validate phone number (Vietnamese)
- */
-export function isValidPhone(phone) {
-    const regex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
-    return regex.test(phone.replace(/\s/g, ''));
-}
-
-/**
- * Validate required field
- */
-export function isRequired(value) {
-    return value && value.trim().length > 0;
 }
 
 // ================================================
@@ -150,35 +128,6 @@ export function waitForDOM(selector, timeout = 5000) {
             reject(new Error(`Element ${selector} not found within ${timeout}ms`));
         }, timeout);
     });
-}
-
-/**
- * Debounce function
- */
-export function debounce(func, wait = 300) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-/**
- * Throttle function
- */
-export function throttle(func, limit = 300) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
 }
 
 // ================================================

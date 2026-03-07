@@ -5,6 +5,8 @@
  * ==============================================
  */
 
+import { formatCurrency, formatNumber } from './shared/format-utils.js';
+
 // ===== EVENT BUS =====
 class EcommerceEventBus {
     constructor() {
@@ -497,18 +499,6 @@ class RetargetingManager {
                 : 0
         };
     }
-}
-
-// ===== FORMATTERS =====
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
-}
-
-function formatNumber(num) {
-    return new Intl.NumberFormat('vi-VN').format(num);
 }
 
 // ===== GLOBAL INSTANCES =====

@@ -5,6 +5,8 @@
  * ==============================================
  */
 
+import { formatCurrency } from './shared/format-utils.js';
+
 // ===== EVENT BUS =====
 class CSEventBus {
     constructor() { this.listeners = new Map(); }
@@ -284,11 +286,6 @@ function createDemoCustomers(manager) {
     manager.generateActions();
 
     return manager.getAllCustomers();
-}
-
-// ===== FORMATTERS =====
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
 }
 
 // ===== GLOBAL INSTANCE =====

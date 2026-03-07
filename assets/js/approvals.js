@@ -5,6 +5,8 @@
  * ==============================================
  */
 
+import { formatCurrency } from './shared/format-utils.js';
+
 // ===== APPROVAL EVENT BUS =====
 class ApprovalEventBus {
     constructor() {
@@ -413,13 +415,6 @@ const expenseWithApproval = {
 // ===== HELPER FUNCTIONS =====
 function simulateWork(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
 }
 
 // ===== GLOBAL INSTANCE =====
