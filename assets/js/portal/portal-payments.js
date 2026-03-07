@@ -6,6 +6,7 @@
 import { supabase } from './supabase.js';
 import { paymentManager } from './payment-gateway.js';
 import { toast, modal } from './portal-ui.js';
+import { formatCurrency } from '../shared/format-utils.js';
 
 // ================================================
 // PAYMENT ACTIONS
@@ -208,13 +209,6 @@ export async function markInvoiceAsPaid(invoiceId) {
 // ================================================
 // HELPERS
 // ================================================
-
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
-}
 
 function getStatusLabel(status) {
     const labels = {
