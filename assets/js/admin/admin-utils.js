@@ -16,84 +16,11 @@ export {
     formatNumber,
     formatDate,
     formatDateTime,
-    formatRelativeTime as formatRelativeTimeShared,
+    formatRelativeTime,
     truncate,
     debounce,
     throttle
 } from '../shared/format-utils.js';
-
-// ================================================
-// FORMATTING UTILITIES (Admin-specific)
-// ================================================
-
-/**
- * Format date to Vietnamese locale (admin-specific with custom options)
- */
-export function formatDate(dateString, options = {}) {
-    if (!dateString) return '';
-
-    const date = new Date(dateString);
-    const defaultOptions = {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-
-    return date.toLocaleDateString('vi-VN', { ...defaultOptions, ...options });
-}
-
-/**
- * Format relative time (time ago) - Admin-specific Vietnamese format
- */
-export function formatRelativeTime(isoString) {
-    if (!isoString) return '';
-
-    const seconds = Math.floor((new Date() - new Date(isoString)) / 1000);
-
-    const intervals = {
-        year: 31536000,
-        month: 2592000,
-        week: 604800,
-        day: 86400,
-        hour: 3600,
-        minute: 60
-    };
-
-    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
-        const interval = Math.floor(seconds / secondsInUnit);
-        if (interval >= 1) {
-            return `${interval} ${unit} trước`;
-        }
-    }
-
-    return 'Vừa xong';
-}
-
-/**
- * Debounce function
- */
-export function debounce(func, wait = 300) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-/**
- * Truncate text to max length
- */
-export function truncate(text, maxLength = 50, suffix = '...') {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + suffix;
-}
 
 // ================================================
 // TOAST NOTIFICATION SYSTEM

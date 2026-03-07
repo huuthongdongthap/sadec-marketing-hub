@@ -8,6 +8,7 @@
  */
 
 // ===== RE-EXPORTS FROM SHARED =====
+// All format functions are now in shared/format-utils.js
 export {
     formatCurrency,
     formatCurrencyCompact,

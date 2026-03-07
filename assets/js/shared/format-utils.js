@@ -41,23 +41,31 @@ export function formatNumber(num) {
 }
 
 // ===== DATE FORMATTING =====
-export function formatDate(date, style = 'medium') {
+export function formatDate(date, style = 'medium', options = {}) {
     if (!date) return '--';
     const d = new Date(date);
-    if (style === 'short') {
-        return d.toLocaleDateString('vi-VN');
-    }
-    if (style === 'short-yearless') {
-        return d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
-    }
-    if (style === 'long') {
+
+    // Default options based on style
+    const defaultOptions = {
+        short: { day: '2-digit', month: '2-digit' },
+        'short-yearless': { day: '2-digit', month: '2-digit' },
+        medium: { year: 'numeric', month: 'short', day: 'numeric' },
+        long: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    };
+
+    // Admin default: include hour and minute
+    if (options.admin === true) {
         return d.toLocaleDateString('vi-VN', {
-            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            ...options
         });
     }
-    return d.toLocaleDateString('vi-VN', {
-        year: 'numeric', month: 'short', day: 'numeric'
-    });
+
+    return d.toLocaleDateString('vi-VN', { ...defaultOptions[style], ...options });
 }
 
 export function formatDateTime(date) {
@@ -65,18 +73,36 @@ export function formatDateTime(date) {
     return d.toLocaleString('vi-VN');
 }
 
-export function formatRelativeTime(date) {
-    const d = new Date(date);
-    const now = new Date();
-    const diffInSeconds = (d - now) / 1000;
-    const rtf = new Intl.RelativeTimeFormat('vi-VN', { numeric: 'auto' });
+export function formatRelativeTime(dateString) {
+    if (!dateString) return '';
 
-    if (Math.abs(diffInSeconds) < 60) return rtf.format(Math.round(diffInSeconds), 'second');
-    if (Math.abs(diffInSeconds) < 3600) return rtf.format(Math.round(diffInSeconds / 60), 'minute');
-    if (Math.abs(diffInSeconds) < 86400) return rtf.format(Math.round(diffInSeconds / 3600), 'hour');
-    if (Math.abs(diffInSeconds) < 2592000) return rtf.format(Math.round(diffInSeconds / 86400), 'day');
-    if (Math.abs(diffInSeconds) < 31536000) return rtf.format(Math.round(diffInSeconds / 2592000), 'month');
-    return rtf.format(Math.round(diffInSeconds / 31536000), 'year');
+    const seconds = Math.floor((new Date() - new Date(dateString)) / 1000);
+
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60
+    };
+
+    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
+        const interval = Math.floor(seconds / secondsInUnit);
+        if (interval >= 1) {
+            const labels = {
+                year: interval === 1 ? 'năm' : 'năm',
+                month: interval === 1 ? 'tháng' : 'tháng',
+                week: interval === 1 ? 'tuần' : 'tuần',
+                day: interval === 1 ? 'ngày' : 'ngày',
+                hour: interval === 1 ? 'giờ' : 'giờ',
+                minute: interval === 1 ? 'phút' : 'phút'
+            };
+            return `${interval} ${labels[unit]} trước`;
+        }
+    }
+
+    return 'Vừa xong';
 }
 
 // ===== STRING UTILITIES =====
