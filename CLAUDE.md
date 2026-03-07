@@ -816,5 +816,107 @@ git push origin main
 
 ---
 
-_Genesis: 2026-02-06 | Hiến Pháp v2.2: 2026-02-17_
-_ClaudeKit DNA v2.9.1+ | Agent Teams + BMAD + Binh Pháp + Tôm Hùm v29.0_
+## ĐIỀU 57 — TÔM HÙM 4-PANE MANAGEMENT (CTO DIRECTIVE)
+
+> **"Tướng tại ngoại, quân mệnh hữu sở bất thọ"** — The general in the field; there are sovereign commands he does not accept.
+> P0 CTO tự quản lý P1-P3, Antigravity CHỈ giao plan cho CTO.
+
+### Kiến trúc 4-Pane tmux
+
+```
+tmux session: tom_hum
+┌──────────────────┬──────────────────┐
+│  🎯 P0:CTO       │  ⚡ P1:BUILDER   │
+│  Pane 0.0        │  Pane 0.1        │
+│  ~/.claude-planner│  ~/.claude-developer│
+├──────────────────┼──────────────────┤
+│  🔍 P2:TESTER    │  🎨 P3:DESIGNER  │
+│  Pane 0.2        │  Pane 0.3        │
+│  ~/.claude-tester │  ~/.claude-designer │
+└──────────────────┴──────────────────┘
+```
+
+### API Config (Coding Plan — 2026-03-07)
+
+```json
+{
+  "ANTHROPIC_BASE_URL": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+  "ANTHROPIC_API_KEY": "sk-sp-***",
+  "ANTHROPIC_MODEL": "qwen3.5-plus"
+}
+```
+
+| Endpoint | Protocol | Key Type | Status |
+|----------|----------|----------|--------|
+| `coding-intl.dashscope.aliyuncs.com/apps/anthropic` | Anthropic | `sk-sp-*` | ✅ |
+| `coding-intl.dashscope.aliyuncs.com/v1` | OpenAI | `sk-sp-*` | ✅ |
+| `dashscope-intl.aliyuncs.com/compatible-mode/v1` | OpenAI | `sk-*` only | ❌ sk-sp |
+
+### tom-dispatch Commands
+
+```bash
+# Giao việc cho agent cụ thể
+tom-dispatch P0 "task description"
+tom-dispatch cto "task description"
+tom-dispatch builder "task description"
+tom-dispatch tester "task description"
+tom-dispatch designer "task description"
+
+# Giao việc cho tất cả
+tom-dispatch all "command"
+
+# Auto phân chia task
+tom-dispatch cook "feature description"
+
+# Kiểm tra trạng thái
+tom-dispatch status
+```
+
+### Agent Roles
+
+| Pane | Profile | Role | Trách nhiệm |
+|------|---------|------|-------------|
+| P0 | `~/.claude-planner` | **CTO** | Nhận plan từ Antigravity, phân chia P1-P3, review, commit, báo cáo |
+| P1 | `~/.claude-developer` | **BUILDER** | Code production, refactor, tách modules |
+| P2 | `~/.claude-tester` | **TESTER** | Tests, smoke tests, verify imports, quality |
+| P3 | `~/.claude-designer` | **DESIGNER** | UI/UX audit, CSS, accessibility, meta tags |
+
+### CTO Directive Pattern (ĐIỀU 57.1)
+
+> **Antigravity TUYỆT ĐỐI KHÔNG dispatch trực tiếp cho P1/P2/P3.**
+> Antigravity CHỈ giao plan cho CTO (P0). CTO tự quản lý.
+
+```
+ĐÚNG ✅:
+  Antigravity → tom-dispatch P0 "CTO DIRECTIVE: Phase 2 plan..."
+  CTO P0 tự quyết → dispatch P1, P2, P3
+
+SAI ❌:
+  Antigravity → tom-dispatch P1 "refactor file.js"  (bypass CTO)
+  Antigravity → tom-dispatch all "task"              (micromanage)
+```
+
+### VIBE Monitor v3 — AI Giám Sát (ĐIỀU 57.2)
+
+```
+Model: Ollama qwen3.5:9b (local, miễn phí)
+Script: ~/mekong-cli/vibe-monitor.sh
+Refresh: 8s raw log, 24s AI analysis
+```
+
+VIBE v3 TÁCH BIỆT với CTO:
+- **P0 CTO** = Thi hành (Qwen 3.5 Plus cloud) → code, review, commit
+- **VIBE v3** = Quan sát (Qwen 3.5 9B local) → đọc log, cảnh báo lệch task
+
+| Vai trò | Trách nhiệm | Model |
+|---------|-------------|-------|
+| 👤 CEO (Anh) | Ra quyết định, duyệt plan | Human |
+| 🤖 Antigravity | Lên plan, giao CTO, đọc báo cáo | Gemini |
+| 🧠 VIBE v3 | Giám sát 24/7, cảnh báo lệch task | Ollama qwen3.5:9b |
+| 🎯 P0 CTO | Nhận plan, dispatch P1-P3, commit | qwen3.5-plus (cloud) |
+| ⚡🔍🎨 P1-P3 | Chỉ nhận lệnh từ CTO | qwen3.5-plus (cloud) |
+
+---
+
+_Genesis: 2026-02-06 | Hiến Pháp v2.3: 2026-03-07_
+_ClaudeKit DNA v2.9.1+ | Agent Teams + BMAD + Binh Pháp + Tôm Hùm v29.0 + 4-Pane CTO_

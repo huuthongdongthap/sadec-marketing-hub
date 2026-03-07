@@ -1,31 +1,33 @@
 /**
  * Admin Utils Module
  * Utility Functions & UI Components for Admin Panel
+ *
+ * Note: Format functions re-exported from shared/format-utils.js
  */
 
 // ================================================
-// FORMATTING UTILITIES
+// RE-EXPORTS FROM SHARED
+// ================================================
+
+export {
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatNumber,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime as formatRelativeTimeShared,
+    truncate,
+    debounce,
+    throttle
+} from '../shared/format-utils.js';
+
+// ================================================
+// FORMATTING UTILITIES (Admin-specific)
 // ================================================
 
 /**
- * Format currency (VND)
- */
-export function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
-}
-
-/**
- * Format number with thousand separators
- */
-export function formatNumber(num) {
-    return new Intl.NumberFormat('vi-VN').format(num);
-}
-
-/**
- * Format date to Vietnamese locale
+ * Format date to Vietnamese locale (admin-specific with custom options)
  */
 export function formatDate(dateString, options = {}) {
     if (!dateString) return '';
@@ -43,7 +45,7 @@ export function formatDate(dateString, options = {}) {
 }
 
 /**
- * Format relative time (time ago)
+ * Format relative time (time ago) - Admin-specific Vietnamese format
  */
 export function formatRelativeTime(isoString) {
     if (!isoString) return '';
