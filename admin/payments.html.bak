@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Hub - Mekong Agency</title>
+    <meta name="description"
+        content="Payment processing hub for invoicing, transaction management, and financial reconciliation.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-payments.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="payments"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💳 Payment Hub</div>
+                    <div class="page-subtitle">Manage payments, subscriptions & billing</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Opening Stripe Dashboard...', 'info')">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        Stripe
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Creating new invoice...', 'success')">
+                        <span class="material-symbols-outlined">add</span>
+                        New Invoice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Revenue Stats -->
+            <div class="revenue-stats">
+                <div class="stat-card mrr">
+                    <div class="stat-label">Monthly Recurring Revenue</div>
+                    <div class="stat-value">$52,400</div>
+                    <div class="stat-trend up">↑ 12% from last month</div>
+                </div>
+                <div class="stat-card arr">
+                    <div class="stat-label">Annual Run Rate</div>
+                    <div class="stat-value">$628,800</div>
+                    <div class="stat-trend up">↑ 24% YoY</div>
+                </div>
+                <div class="stat-card transactions">
+                    <div class="stat-label">Transactions (30d)</div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-trend up">↑ 8%</div>
+                </div>
+                <div class="stat-card customers">
+                    <div class="stat-label">Paying Customers</div>
+                    <div class="stat-value">892</div>
+                    <div class="stat-trend up">↑ 15 new</div>
+                </div>
+            </div>
+
+            <!-- Payment Providers -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">account_balance</span>
+                        Payment Providers
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="providers-grid">
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo stripe">S</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Stripe</div>
+                                    <div class="provider-desc">Global payments</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Cards</span>
+                                <span class="feature-tag">Subscriptions</span>
+                                <span class="feature-tag">Invoices</span>
+                                <span class="feature-tag">Webhooks</span>
+                            </div>
+                        </div>
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo momo">M</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">MoMo</div>
+                                    <div class="provider-desc">Vietnamese E-Wallet</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">QR Code</span>
+                                <span class="feature-tag">E-Wallet</span>
+                                <span class="feature-tag">VND</span>
+                            </div>
+                        </div>
+                        <div class="provider-card connected">
+                            <div class="provider-header">
+                                <div class="provider-logo zalopay">Z</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">ZaloPay</div>
+                                    <div class="provider-desc">Vietnamese Payments</div>
+                                </div>
+                                <span class="provider-status connected">✓ Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">QR Code</span>
+                                <span class="feature-tag">Bank Transfer</span>
+                                <span class="feature-tag">VND</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <div class="provider-header">
+                                <div class="provider-logo sepay">S</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">SePay</div>
+                                    <div class="provider-desc">Bank Automation</div>
+                                </div>
+                                <span class="provider-status pending">⏳ Pending</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Auto Verify</span>
+                                <span class="feature-tag">Bank Transfer</span>
+                            </div>
+                        </div>
+                        <div class="provider-card">
+                            <div class="provider-header">
+                                <div class="provider-logo polar">P</div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Polar</div>
+                                    <div class="provider-desc">For Creators</div>
+                                </div>
+                                <span class="provider-status disconnected">Not Connected</span>
+                            </div>
+                            <div class="provider-features">
+                                <span class="feature-tag">Digital Products</span>
+                                <span class="feature-tag">Subscriptions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Tiers -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">subscriptions</span>
+                        Subscription Plans
+                    </div>
+                    <button class="btn btn-stripe" onclick="showToast('Syncing with Stripe...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Sync Stripe
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="tiers-grid">
+                        <div class="tier-card">
+                            <div class="tier-name">Starter</div>
+                            <div class="tier-price">$9</div>
+                            <div class="tier-period">/month or $90/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">5 Projects</div>
+                                <div class="tier-feature">1,000 API calls</div>
+                                <div class="tier-feature">Email support</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">124
+                                subscribers</div>
+                        </div>
+                        <div class="tier-card popular">
+                            <div class="tier-name">Pro</div>
+                            <div class="tier-price">$29</div>
+                            <div class="tier-period">/month or $290/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">Unlimited Projects</div>
+                                <div class="tier-feature">50,000 API calls</div>
+                                <div class="tier-feature">Priority support</div>
+                                <div class="tier-feature">Advanced analytics</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">567
+                                subscribers</div>
+                        </div>
+                        <div class="tier-card">
+                            <div class="tier-name">Enterprise</div>
+                            <div class="tier-price">$99</div>
+                            <div class="tier-period">/month or $990/year</div>
+                            <div class="tier-features">
+                                <div class="tier-feature">Everything in Pro</div>
+                                <div class="tier-feature">Unlimited API calls</div>
+                                <div class="tier-feature">Dedicated support</div>
+                                <div class="tier-feature">Custom integrations</div>
+                                <div class="tier-feature">SLA guarantee</div>
+                            </div>
+                            <div style="font: var(--md-sys-typescale-label-small); color: rgba(255,255,255,0.4);">201
+                                subscribers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Recent Transactions
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Exporting transactions...', 'info')">
+                        <span class="material-symbols-outlined">download</span>
+                        Export
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Pro Subscription - ABC Corp</div>
+                                <div class="transaction-meta">Stripe • Just now • Monthly renewal</div>
+                            </div>
+                            <div class="transaction-amount positive">+$29.00</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Enterprise Subscription - XYZ Ltd</div>
+                                <div class="transaction-meta">Stripe • 2 hours ago • Annual</div>
+                            </div>
+                            <div class="transaction-amount positive">+$990.00</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon success">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">One-time Purchase - Nguyen Van A</div>
+                                <div class="transaction-meta">MoMo • 5 hours ago • QR Payment</div>
+                            </div>
+                            <div class="transaction-amount positive">+₫2,500,000</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon pending">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Bank Transfer - Startup VN</div>
+                                <div class="transaction-meta">SePay • 1 day ago • Awaiting verification</div>
+                            </div>
+                            <div class="transaction-amount" style="color: #FFC107;">₫15,000,000</div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon failed">
+                                <span class="material-symbols-outlined">close</span>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-title">Failed Payment - Test User</div>
+                                <div class="transaction-meta">Stripe • 2 days ago • Card declined</div>
+                            </div>
+                            <div class="transaction-amount negative">$29.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(0, 212, 106, 0.95)', color: '#000' },
+                error: { bg: 'rgba(255, 107, 107, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(255, 193, 7, 0.95)', color: '#000' },
+                info: { bg: 'rgba(99, 91, 255, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

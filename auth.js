@@ -32,7 +32,7 @@ const ROLE_REDIRECTS = {
     manager: '/admin/dashboard.html',
     content_creator: '/admin/dashboard.html',
     client: '/portal/dashboard.html',
-    affiliate: '/affiliate/dashboard.html'
+    affiliate: '/portal/dashboard.html'
 };
 
 const ROLE_LABELS = {
@@ -293,6 +293,9 @@ const AuthActions = {
         AuthState.user = null;
         AuthState.profile = null;
         AuthState.isAuthenticated = false;
+
+        // Dispatch sign-out event for listeners (e.g., portal-guard)
+        window.dispatchEvent(new CustomEvent('auth:signout'));
 
         // Redirect to login
         window.location.href = '/auth/login.html';

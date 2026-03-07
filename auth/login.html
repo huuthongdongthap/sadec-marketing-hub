@@ -408,12 +408,18 @@
                 const result = await Auth.Actions.signIn(email, password);
 
                 if (result.success) {
-                    // Check if role matches context (warning only)
-                    // In a real app, you might strictly enforce this,
-                    // but for a unified login, we just redirect to the correct place
+                    // Check for redirect param first
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirectParam = urlParams.get('redirect');
 
-                    const redirectUrl = Auth.Guards.getRedirectUrl();
-                    window.location.href = redirectUrl;
+                    if (redirectParam) {
+                        // Redirect to the page that requested auth
+                        window.location.href = decodeURIComponent(redirectParam);
+                    } else {
+                        // Default role-based redirect
+                        const redirectUrl = Auth.Guards.getRedirectUrl();
+                        window.location.href = redirectUrl;
+                    }
                 } else {
                     alert(result.error || 'Đăng nhập thất bại');
                     loginBtn.disabled = false;

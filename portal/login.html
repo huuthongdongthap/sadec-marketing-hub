@@ -165,9 +165,18 @@
                 const result = await Auth.Actions.signIn(email, password);
 
                 if (result.success) {
-                    // Redirect based on role
-                    const redirectUrl = Auth.Guards.getRedirectUrl();
-                    window.location.href = redirectUrl;
+                    // Check for redirect param first
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirectParam = urlParams.get('redirect');
+
+                    if (redirectParam) {
+                        // Redirect to the page that requested auth
+                        window.location.href = decodeURIComponent(redirectParam);
+                    } else {
+                        // Default role-based redirect
+                        const redirectUrl = Auth.Guards.getRedirectUrl();
+                        window.location.href = redirectUrl;
+                    }
                 } else {
                     alert(result.error || 'Email hoặc mật khẩu không đúng');
                 }

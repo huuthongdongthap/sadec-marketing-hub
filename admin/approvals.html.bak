@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approvals Dashboard - Mekong Agency</title>
+    <meta name="description" content="Approval workflow management for content, campaigns, and budget requests.">
+    <meta name="description" content="Human-in-Loop Approval Dashboard - Mekong Agency">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-approvals.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="workflows.html" class="btn btn-text">Workflows</a>
+                <a href="agents.html" class="btn btn-text">Agents</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">👤 Approvals Dashboard</h1>
+            <p class="body-large" style="opacity: 0.9;">Human-in-Loop - Kiểm soát và phê duyệt quy trình</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+
+        <!-- Metrics -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value pending" id="metricPending">0</div>
+                <div class="metric-label">Pending</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value approved" id="metricApproved">0</div>
+                <div class="metric-label">Approved</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value rejected" id="metricRejected">0</div>
+                <div class="metric-label">Rejected</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="metricRate" style="color: var(--md-sys-color-primary);">0%</div>
+                <div class="metric-label">Approval Rate</div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section">
+            <div class="demo-title">
+                <span class="material-symbols-outlined">science</span>
+                Test Approval Request
+            </div>
+            <form class="demo-form" id="demoForm">
+                <div class="demo-field">
+                    <label>Type</label>
+                    <select id="demoType">
+                        <option value="proposal">Proposal</option>
+                        <option value="expense">Expense</option>
+                        <option value="contract">Contract</option>
+                        <option value="content">Content</option>
+                    </select>
+                </div>
+                <div class="demo-field">
+                    <label>Title</label>
+                    <input type="text" id="demoTitle" placeholder="VD: Proposal ABC Corp" value="Test Request">
+                </div>
+                <div class="demo-field">
+                    <label>Amount (VND)</label>
+                    <input type="number" id="demoAmount" placeholder="15000000" value="15000000">
+                </div>
+                <button type="submit" class="demo-btn">
+                    <span class="material-symbols-outlined">add</span>
+                    Create Request
+                </button>
+            </form>
+        </section>
+
+        <!-- Approval Rules -->
+        <section class="rules-section">
+            <h2 class="section-title">
+                <span class="material-symbols-outlined">rule</span>
+                Approval Rules
+            </h2>
+            <div class="rules-grid" id="rulesGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Pending Approvals -->
+        <section class="pending-section">
+            <h2 class="section-title">
+                <span class="material-symbols-outlined">pending_actions</span>
+                Pending Approvals
+            </h2>
+            <div class="approval-list" id="pendingList">
+                <div class="empty-state" id="emptyPending">
+                    <span class="material-symbols-outlined">inbox</span>
+                    <p>No pending approvals</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History -->
+        <section class="history-section">
+            <div class="history-header">
+                <span class="material-symbols-outlined">history</span>
+                Approval History
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="empty-state" id="emptyHistory">
+                    <span class="material-symbols-outlined">folder_off</span>
+                    <p>No approval history yet</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/approvals.js"></script>
+    <script>
+        // Render rules
+        function renderRules() {
+            const rulesGrid = document.getElementById('rulesGrid');
+            rulesGrid.innerHTML = approvalRules.map(rule => `
+        <div class="rule-card">
+          <div class="rule-icon ${rule.type}">
+            <span class="material-symbols-outlined">${getRuleIcon(rule.type)}</span>
+          </div>
+          <div class="rule-info">
+            <h4>${rule.name}</h4>
+            <p>${rule.description}</p>
+            <div class="rule-threshold">
+              ${rule.threshold > 0 ? `Threshold: ${formatCurrency(rule.threshold)}` : 'Always requires approval'}
+              → ${rule.approverName}
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function getRuleIcon(type) {
+            const icons = {
+                proposal: 'description',
+                contract: 'handshake',
+                expense: 'payments',
+                content: 'article'
+            };
+            return icons[type] || 'rule';
+        }
+
+        // Render pending approvals
+        function renderPending() {
+            const pendingList = document.getElementById('pendingList');
+            const pending = approvalManager.getPendingApprovals();
+
+            if (pending.length === 0) {
+                pendingList.innerHTML = `
+          <div class="empty-state" id="emptyPending">
+            <span class="material-symbols-outlined">inbox</span>
+            <p>No pending approvals</p>
+          </div>
+        `;
+                return;
+            }
+
+            pendingList.innerHTML = pending.map(req => `
+        <div class="approval-card" id="approval-${req.id}">
+          <div class="approval-header">
+            <div>
+              <div class="approval-title">${req.title}</div>
+              <div class="approval-meta">
+                ${req.type} • Requested by ${req.requestedBy} • ${formatTime(req.requestedAt)}
+              </div>
+            </div>
+            <span class="approval-badge pending">Pending</span>
+          </div>
+          <div class="approval-body">
+            <div class="approval-amount">
+              ${req.amount > 0 ? formatCurrency(req.amount) : req.description}
+            </div>
+            <div class="approval-actions">
+              <button class="action-btn reject" onclick="rejectApproval('${req.id}')">
+                <span class="material-symbols-outlined">close</span>
+                Reject
+              </button>
+              <button class="action-btn approve" onclick="approveRequest('${req.id}')">
+                <span class="material-symbols-outlined">check</span>
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Render history
+        function renderHistory() {
+            const historyList = document.getElementById('historyList');
+            const history = approvalManager.getHistory();
+
+            if (history.length === 0) {
+                historyList.innerHTML = `
+          <div class="empty-state" id="emptyHistory">
+            <span class="material-symbols-outlined">folder_off</span>
+            <p>No approval history yet</p>
+          </div>
+        `;
+                return;
+            }
+
+            historyList.innerHTML = history.map(req => `
+        <div class="history-item">
+          <div class="history-icon ${req.status}">
+            <span class="material-symbols-outlined">
+              ${req.status === 'approved' ? 'check' : 'close'}
+            </span>
+          </div>
+          <div class="history-content">
+            <div class="history-title">${req.title}</div>
+            <div class="history-meta">
+              ${req.status === 'approved' ? 'Approved' : 'Rejected'} by ${req.decidedBy} • ${formatTime(req.decidedAt)}
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Update metrics
+        function updateMetrics() {
+            const metrics = approvalManager.getMetrics();
+            document.getElementById('metricPending').textContent = metrics.pending;
+            document.getElementById('metricApproved').textContent = metrics.approved;
+            document.getElementById('metricRejected').textContent = metrics.rejected;
+            document.getElementById('metricRate').textContent = metrics.approvalRate + '%';
+        }
+
+        // Actions
+        async function approveRequest(id) {
+            await approvalManager.approve(id, 'Current User', 'Approved via dashboard');
+            refresh();
+        }
+
+        async function rejectApproval(id) {
+            const reason = prompt('Reason for rejection:');
+            if (reason !== null) {
+                await approvalManager.reject(id, 'Current User', reason);
+                refresh();
+            }
+        }
+
+        // Demo form
+        document.getElementById('demoForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const type = document.getElementById('demoType').value;
+            const title = document.getElementById('demoTitle').value;
+            const amount = parseInt(document.getElementById('demoAmount').value) || 0;
+
+            approvalManager.createRequest({
+                type,
+                title,
+                amount,
+                requestedBy: 'Demo User'
+            });
+
+            refresh();
+        });
+
+        // Helpers
+        function formatTime(isoString) {
+            return new Date(isoString).toLocaleString('vi-VN');
+        }
+
+        function refresh() {
+            renderPending();
+            renderHistory();
+            updateMetrics();
+        }
+
+        // Event listeners
+        approvalBus.on('approval:requested', () => refresh());
+        approvalBus.on('approval:approved', () => refresh());
+        approvalBus.on('approval:rejected', () => refresh());
+
+        // Init
+        renderRules();
+        refresh();
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Events - Mekong Agency</title>
+    <meta name="description" content="Virtual events management for webinars, workshops, and online marketing events.">
+    <meta name="description" content="Virtual Events Dashboard - Mekong Agency">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+  </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-events.css">
+</head>
+
+<body>
+    <div class="layout-2026">
+        <sadec-sidebar active="events"></sadec-sidebar>
+
+        <main class="main-content">
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="cyber-text">Virtual Events</h1>
+                    <p class="text-secondary">Webinars, Workshops & Conferences</p>
+                </div>
+            </div>
+
+            <div class="animate-entry delay-2">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('events')">
+                        <span class="material-symbols-outlined">event</span> Events
+                    </button>
+                    <button class="tab" onclick="switchTab('registrations')">
+                        <span class="material-symbols-outlined">people</span> Registrations
+                    </button>
+                    <button class="tab" onclick="switchTab('emails')">
+                        <span class="material-symbols-outlined">mail</span> Emails
+                    </button>
+                    <button class="tab" onclick="switchTab('create')">
+                        <span class="material-symbols-outlined">add</span> Create
+                    </button>
+                </div>
+
+                <!-- Events Tab -->
+                <div class="tab-content active" id="tab-events">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon events"><span class="material-symbols-outlined">event</span></div>
+                            <div class="metric-value" id="metricEvents">0</div>
+                            <div class="metric-label">Total Events</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon live"><span class="material-symbols-outlined">stream</span></div>
+                            <div class="metric-value" id="metricLive">0</div>
+                            <div class="metric-label">Live Now</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon registrations"><span
+                                    class="material-symbols-outlined">person_add</span>
+                            </div>
+                            <div class="metric-value" id="metricRegistrations">0</div>
+                            <div class="metric-label">Registrations</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span>
+                            </div>
+                            <div class="metric-value" id="metricRate">0%</div>
+                            <div class="metric-label">Attendance Rate</div>
+                        </div>
+                    </div>
+
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">📅 Upcoming & Recent Events</h3>
+                    <div class="event-grid" id="eventGrid"></div>
+                </div>
+
+                <!-- Registrations Tab -->
+                <div class="tab-content" id="tab-registrations">
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">👥 Event Registrations</h3>
+                    <select id="eventSelect"
+                        style="padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); color: white; border: 1px solid var(--glass-border); width: 100%;">
+                    </select>
+                    <div class="registration-list" id="registrationList"></div>
+                </div>
+
+                <!-- Emails Tab -->
+                <div class="tab-content" id="tab-emails">
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">📧 Email Sequence</h3>
+                    <div class="email-sequence" id="emailSequence"></div>
+                </div>
+
+                <!-- Create Tab -->
+                <div class="tab-content" id="tab-create">
+                    <div class="create-form">
+                        <h3 class="cyber-text">➕ Create New Event</h3>
+                        <form id="createForm">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Event Title</label>
+                                    <input type="text" id="eventTitle" value="Digital Marketing Workshop">
+                                </div>
+                                <div class="form-field" style="max-width: 200px;">
+                                    <label>Type</label>
+                                    <select id="eventType">
+                                        <option value="webinar">Webinar</option>
+                                        <option value="workshop">Workshop</option>
+                                        <option value="conference">Conference</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Date</label>
+                                    <input type="date" id="eventDate" value="2026-03-01">
+                                </div>
+                                <div class="form-field">
+                                    <label>Time</label>
+                                    <input type="time" id="eventTime" value="14:00">
+                                </div>
+                                <div class="form-field">
+                                    <label>Duration (minutes)</label>
+                                    <input type="number" id="eventDuration" value="60">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Description</label>
+                                    <textarea id="eventDesc" rows="3">Mô tả sự kiện...</textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="create-btn">
+                                <span class="material-symbols-outlined">add</span>
+                                Create Event
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="create-form">
+                        <h3 class="cyber-text">📝 Register Attendee (Demo)</h3>
+                        <form id="registerForm">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Event</label>
+                                    <select id="regEvent"></select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Name</label>
+                                    <input type="text" id="regName" value="Nguyễn Văn Test">
+                                </div>
+                                <div class="form-field">
+                                    <label>Email</label>
+                                    <input type="email" id="regEmail" value="test@email.com">
+                                </div>
+                            </div>
+                            <button type="submit" class="create-btn" style="background: #10b981;">
+                                <span class="material-symbols-outlined">person_add</span>
+                                Register
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/events.js"></script>
+    <script>
+        createDemoEvents(eventsManager);
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        function updateMetrics() {
+            const m = eventsManager.getMetrics();
+            document.getElementById('metricEvents').textContent = m.totalEvents;
+            document.getElementById('metricLive').textContent = m.liveEvents;
+            document.getElementById('metricRegistrations').textContent = m.totalRegistrations;
+            document.getElementById('metricRate').textContent = m.avgAttendanceRate + '%';
+        }
+
+        function renderEvents() {
+            const events = eventsManager.getAllEvents();
+            document.getElementById('eventGrid').innerHTML = events.map(e => {
+                const type = EventTypes[e.type] || EventTypes.webinar;
+                const metrics = e.getMetrics();
+                return `
+          <div class="event-card">
+            <div class="event-thumbnail">
+              <span class="material-symbols-outlined">${type.icon}</span>
+              <span class="event-badge ${e.status}">${e.status}</span>
+            </div>
+            <div class="event-body">
+              <div class="event-type">${type.name}</div>
+              <div class="event-title">${e.title}</div>
+              <div class="event-datetime">
+                <span class="material-symbols-outlined" style="font-size:18px">calendar_today</span>
+                ${formatEventDate(e.date, e.time)}
+              </div>
+              <div class="event-stats">
+                <span>👥 ${metrics.registered} registered</span>
+                <span>✅ ${metrics.attended} attended</span>
+              </div>
+              <div class="event-actions">
+                ${e.status === 'scheduled' ? `
+                  <button class="event-btn live" onclick="startEvent('${e.id}')">
+                    <span class="material-symbols-outlined">stream</span> Go Live
+                  </button>
+                ` : e.status === 'live' ? `
+                  <button class="event-btn secondary" onclick="endEvent('${e.id}')">
+                    <span class="material-symbols-outlined">stop</span> End
+                  </button>
+                ` : e.status === 'draft' ? `
+                  <button class="event-btn primary" onclick="publishEvent('${e.id}')">
+                    <span class="material-symbols-outlined">publish</span> Publish
+                  </button>
+                ` : ''}
+                <button class="event-btn secondary" onclick="viewRegistrations('${e.id}')">
+                  <span class="material-symbols-outlined">people</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+            }).join('');
+        }
+
+        function renderEmailSequence() {
+            document.getElementById('emailSequence').innerHTML = Object.values(EmailTemplates).map((t, i) => `
+        <div class="email-card">
+          <div class="email-number">${i + 1}</div>
+          <div class="email-timing">⏱️ ${t.timing}</div>
+          <div class="email-subject">${t.subject.replace('{eventTitle}', 'Event Name')}</div>
+        </div>
+      `).join('');
+        }
+
+        function populateEventSelects() {
+            const events = eventsManager.getAllEvents();
+            const options = events.map(e => `<option value="${e.id}">${e.title}</option>`).join('');
+            document.getElementById('eventSelect').innerHTML = options;
+            document.getElementById('regEvent').innerHTML = options;
+        }
+
+        function renderRegistrations() {
+            const eventId = document.getElementById('eventSelect').value;
+            const regs = eventsManager.getEventRegistrations(eventId);
+
+            document.getElementById('registrationList').innerHTML = regs.length > 0 ? `
+        <div class="registration-header">Registrations (${regs.length})</div>
+        ${regs.map(r => `
+          <div class="registration-item">
+            <div class="registration-avatar">${r.name.charAt(0)}</div>
+            <div class="registration-info">
+              <div class="registration-name">${r.name}</div>
+              <div class="registration-email">${r.email}</div>
+            </div>
+            <span class="registration-status ${r.attended ? 'attended' : 'registered'}">
+              ${r.attended ? '✓ Attended' : 'Registered'}
+            </span>
+          </div>
+        `).join('')}
+      ` : '<div class="empty-state">No registrations yet</div>';
+        }
+
+        function publishEvent(id) { eventsManager.publishEvent(id); refresh(); }
+        function startEvent(id) { eventsManager.startEvent(id); refresh(); alert('Event is LIVE!'); }
+        function endEvent(id) { eventsManager.endEvent(id); refresh(); }
+        function viewRegistrations(id) {
+            document.getElementById('eventSelect').value = id;
+            switchTab('registrations');
+            renderRegistrations();
+        }
+
+        document.getElementById('eventSelect').addEventListener('change', renderRegistrations);
+
+        document.getElementById('createForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            eventsManager.createEvent({
+                title: document.getElementById('eventTitle').value,
+                type: document.getElementById('eventType').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                duration: parseInt(document.getElementById('eventDuration').value),
+                description: document.getElementById('eventDesc').value
+            });
+            refresh();
+            alert('Event created!');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            eventsManager.register(
+                document.getElementById('regEvent').value,
+                { name: document.getElementById('regName').value, email: document.getElementById('regEmail').value }
+            );
+            refresh();
+            alert('Registered!');
+        });
+
+        function refresh() {
+            updateMetrics();
+            renderEvents();
+            populateEventSelects();
+            renderRegistrations();
+        }
+
+        renderEmailSequence();
+        refresh();
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

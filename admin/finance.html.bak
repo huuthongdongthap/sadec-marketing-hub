@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard - Mekong Agency</title>
+    <meta name="description"
+        content="Financial management dashboard with revenue tracking, expense analytics, and profit forecasting for marketing agencies.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-finance.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="finance"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <h1 class="page-title" style="font-size: 24px; margin: 0;">💵 Finance Dashboard</h1>
+                    <div class="page-subtitle">January 2026 • Real-time financial overview</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Syncing with accounting...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Sync
+                    </button>
+                    <button class="btn btn-primary" onclick="exportReport()">
+                        <span class="material-symbols-outlined">download</span>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Revenue</span>
+                        <div class="stat-icon revenue">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$50,000</div>
+                    <span class="stat-trend up">↑ 12% from last month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Expenses</span>
+                        <div class="stat-icon expense">
+                            <span class="material-symbols-outlined">trending_down</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$35,000</div>
+                    <span class="stat-trend down">↑ 5% from last month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Net Profit</span>
+                        <div class="stat-icon profit">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">$15,000</div>
+                    <span class="stat-trend up">30% margin</span>
+                    <div class="margin-bar">
+                        <div class="margin-fill" style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Runway</span>
+                        <div class="stat-icon runway">
+                            <span class="material-symbols-outlined">hourglass_top</span>
+                        </div>
+                    </div>
+                    <div class="stat-value">8 months</div>
+                    <span class="stat-trend up">✓ Above 6-month target</span>
+                </div>
+            </div>
+
+            <!-- P&L Statement -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Profit & Loss Statement
+                    </div>
+                    <span style="color: #94A3B8; font: var(--md-sys-typescale-label-medium);">January 2026</span>
+                </div>
+                <div class="section-body">
+                    <table class="pnl-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>% of Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(16, 185, 129, 0.2);">💰</div>
+                                        <span>Revenue</span>
+                                    </div>
+                                </td>
+                                <td class="amount-positive">$50,000</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(245, 158, 11, 0.2);">📦</div>
+                                        <span>Cost of Goods Sold (COGS)</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$15,000</td>
+                                <td class="amount-neutral">30%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(239, 68, 68, 0.2);">🏢</div>
+                                        <span>Operating Expenses (OpEx)</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$12,000</td>
+                                <td class="amount-neutral">24%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(59, 130, 246, 0.2);">👥</div>
+                                        <span>Payroll</span>
+                                    </div>
+                                </td>
+                                <td class="amount-negative">-$8,000</td>
+                                <td class="amount-neutral">16%</td>
+                            </tr>
+                            <tr class="pnl-total">
+                                <td>
+                                    <div class="pnl-category">
+                                        <div class="category-icon" style="background: rgba(16, 185, 129, 0.3);">✨</div>
+                                        <strong>Net Profit</strong>
+                                    </div>
+                                </td>
+                                <td>$15,000</td>
+                                <td>30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chart of Accounts -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">account_tree</span>
+                        Chart of Accounts
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="accounts-grid">
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon revenue">
+                                    <span class="material-symbols-outlined">trending_up</span>
+                                </div>
+                                <div class="account-name">Revenue</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Consulting</span>
+                                    <span>$28,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Subscriptions</span>
+                                    <span>$18,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>One-time</span>
+                                    <span>$4,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #10B981;">$50,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon cogs">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div class="account-name">COGS</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Contractors</span>
+                                    <span>$10,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Software</span>
+                                    <span>$3,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Hosting</span>
+                                    <span>$2,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #F59E0B;">$15,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon opex">
+                                    <span class="material-symbols-outlined">business</span>
+                                </div>
+                                <div class="account-name">OpEx</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Marketing</span>
+                                    <span>$5,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Office</span>
+                                    <span>$4,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Tools</span>
+                                    <span>$3,000</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #EF4444;">$12,000</span>
+                            </div>
+                        </div>
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="account-icon payroll">
+                                    <span class="material-symbols-outlined">groups</span>
+                                </div>
+                                <div class="account-name">Payroll</div>
+                            </div>
+                            <div class="account-items">
+                                <div class="account-item">
+                                    <span>Salaries</span>
+                                    <span>$6,000</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Benefits</span>
+                                    <span>$1,500</span>
+                                </div>
+                                <div class="account-item">
+                                    <span>Taxes</span>
+                                    <span>$500</span>
+                                </div>
+                            </div>
+                            <div class="account-total">
+                                <span>Total</span>
+                                <span style="color: #3B82F6;">$8,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cash Flow Alerts -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">notifications</span>
+                        Cash Flow Alerts
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="alerts-list">
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Runway Status</div>
+                                <div class="alert-desc">Current runway exceeds 6-month minimum</div>
+                            </div>
+                            <div class="alert-value healthy">8 months</div>
+                        </div>
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Cash Buffer</div>
+                                <div class="alert-desc">Emergency fund above $50K threshold</div>
+                            </div>
+                            <div class="alert-value healthy">$72,000</div>
+                        </div>
+                        <div class="alert-item healthy">
+                            <div class="alert-icon healthy">
+                                <span class="material-symbols-outlined">check</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Profit Margin</div>
+                                <div class="alert-desc">Net margin above 20% target</div>
+                            </div>
+                            <div class="alert-value healthy">30%</div>
+                        </div>
+                        <div class="alert-item warning">
+                            <div class="alert-icon warning">
+                                <span class="material-symbols-outlined">warning</span>
+                            </div>
+                            <div class="alert-info">
+                                <div class="alert-title">Accounts Receivable</div>
+                                <div class="alert-desc">3 invoices overdue by 30+ days</div>
+                            </div>
+                            <div class="alert-value warning">$8,500</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function exportReport() {
+            showToast('📊 Generating finance report...', 'info');
+            setTimeout(() => {
+                showToast('✅ Report exported: finance-jan-2026.pdf', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(16, 185, 129, 0.95)', color: '#fff' },
+                error: { bg: 'rgba(239, 68, 68, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(245, 158, 11, 0.95)', color: '#000' },
+                info: { bg: 'rgba(59, 130, 246, 0.95)', color: '#fff' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/finance-client.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

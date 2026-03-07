@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Contracts - Mekong Agency</title>
+    <meta name="description"
+        content="Contract management system for legal documents, agreements, and compliance tracking.">
+    <script type="importmap">{"imports":{"@material/web/":"https://esm.run/@material/web/"}}</script>
+    <script type="module">import '@material/web/all.js';</script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-legal.css">
+</head>
+
+<body>
+    <div class="layout-2026">
+        <sadec-sidebar active="legal"></sadec-sidebar>
+
+        <main class="main-content">
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="cyber-text">Legal Contracts</h1>
+                    <p class="text-secondary">Contract Management & Tracking</p>
+                </div>
+            </div>
+
+            <div class="animate-entry delay-2">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="mTotal">0</div>
+                        <div class="metric-label">Total Contracts</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="mActive">0</div>
+                        <div class="metric-label">Active</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="mPending">0</div>
+                        <div class="metric-label">Pending Signature</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="mExpiring">0</div>
+                        <div class="metric-label">Expiring Soon</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="mValue">0</div>
+                        <div class="metric-label">Total Value</div>
+                    </div>
+                </div>
+
+                <h3 class="cyber-text" style="margin-bottom:16px; font-size: 20px;">📋 Contracts</h3>
+                <div class="contract-list" id="contractList"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/legal.js"></script>
+    <script>
+        createDemoLegal(legalManager);
+        function render() {
+            const m = legalManager.getMetrics();
+            document.getElementById('mTotal').textContent = m.total;
+            document.getElementById('mActive').textContent = m.active;
+            document.getElementById('mPending').textContent = m.pending;
+            document.getElementById('mExpiring').textContent = m.expiringSoon;
+            document.getElementById('mValue').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', notation: 'compact' }).format(m.totalValue);
+            document.getElementById('contractList').innerHTML = legalManager.getAllContracts().map(c => { const type = ContractTypes[c.type]; return `<div class="contract-item"><div class="contract-icon"><span class="material-symbols-outlined">description</span></div><div class="contract-info"><div class="contract-title">${c.title}</div><div class="contract-meta">${type?.name || c.type} • ${c.party}</div></div><div class="contract-value">${c.value > 0 ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.value) : '-'}</div><span class="contract-status status-${c.status}">${ContractStatus[c.status]?.name || c.status}</span></div>` }).join('');
+        }
+        render();
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

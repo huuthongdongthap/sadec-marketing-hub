@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Readiness - Mekong Agency</title>
+    <meta name="description"
+        content="Venture capital readiness dashboard with metrics, documentation, and investor pitch preparation.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-vc-readiness.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="vc-readiness"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💸 VC Readiness Dashboard</div>
+                    <div class="page-subtitle">Prepare for your next funding round</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="runAssessment()">
+                        <span class="material-symbols-outlined">assessment</span>
+                        Re-assess
+                    </button>
+                    <button class="btn btn-primary" onclick="generatePitch()">
+                        <span class="material-symbols-outlined">slideshow</span>
+                        Generate Pitch
+                    </button>
+                </div>
+            </div>
+
+            <!-- Readiness Score -->
+            <div class="readiness-card">
+                <div class="readiness-score">
+                    <div class="score-circle">
+                        <div class="score-value">82</div>
+                        <div class="score-max">/ 100</div>
+                    </div>
+                    <div class="score-status ready">✅ READY FOR SEED</div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">analytics</span>
+                        Investor Metrics
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Updating metrics...', 'info')">
+                        <span class="material-symbols-outlined">sync</span>
+                        Refresh
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon mrr">💰</div>
+                            <div class="metric-value">$50K</div>
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-change up">↑ 15% MoM</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon growth">📈</div>
+                            <div class="metric-value">15%</div>
+                            <div class="metric-label">Growth Rate</div>
+                            <div class="metric-change up">↑ 3% vs last</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon ltv">👤</div>
+                            <div class="metric-value">$2,400</div>
+                            <div class="metric-label">LTV</div>
+                            <div class="metric-change up">↑ 12x CAC</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon cac">🎯</div>
+                            <div class="metric-value">$200</div>
+                            <div class="metric-label">CAC</div>
+                            <div class="metric-change up">↓ 8% improved</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon churn">📉</div>
+                            <div class="metric-value">3%</div>
+                            <div class="metric-label">Monthly Churn</div>
+                            <div class="metric-change up">↓ below target</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Room -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">folder</span>
+                        Data Room
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Opening data room...', 'info')">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        Open
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="data-room-grid">
+                        <div class="data-room-folder" onclick="showToast('Opening Executive Summary...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="folder-name">01 Executive Summary</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">one-pager.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Financials...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">attach_money</span>
+                                </div>
+                                <div class="folder-name">02 Financials</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">p&l-12mo.xlsx</div>
+                                <div class="folder-file">projections-3yr.xlsx</div>
+                                <div class="folder-file">cap-table.xlsx</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Metrics...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">bar_chart</span>
+                                </div>
+                                <div class="folder-name">03 Metrics</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">kpi-dashboard.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Team...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">groups</span>
+                                </div>
+                                <div class="folder-name">04 Team</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">org-chart.pdf</div>
+                            </div>
+                            <span class="folder-status pending">⏳ Pending</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Product...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div class="folder-name">05 Product</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">roadmap.pdf</div>
+                                <div class="folder-file">demo-video.mp4</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                        <div class="data-room-folder" onclick="showToast('Opening Legal...', 'info')">
+                            <div class="folder-header">
+                                <div class="folder-icon">
+                                    <span class="material-symbols-outlined">gavel</span>
+                                </div>
+                                <div class="folder-name">06 Legal</div>
+                            </div>
+                            <div class="folder-files">
+                                <div class="folder-file">incorporation.pdf</div>
+                                <div class="folder-file">ip-assignments.pdf</div>
+                            </div>
+                            <span class="folder-status complete">✓ Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pitch Deck -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">slideshow</span>
+                        Pitch Deck (12 Slides)
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Downloading pitch deck...', 'success')">
+                        <span class="material-symbols-outlined">download</span>
+                        Export PDF
+                    </button>
+                </div>
+                <div class="section-body">
+                    <div class="slides-row">
+                        <div class="slide-card">
+                            <div class="slide-number">1</div>
+                            <div class="slide-title">Title</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">2</div>
+                            <div class="slide-title">Problem</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">3</div>
+                            <div class="slide-title">Solution</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">4</div>
+                            <div class="slide-title">Market Size</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">5</div>
+                            <div class="slide-title">Product</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">6</div>
+                            <div class="slide-title">Traction</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">7</div>
+                            <div class="slide-title">Business Model</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">8</div>
+                            <div class="slide-title">Competition</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">9</div>
+                            <div class="slide-title">Team</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">10</div>
+                            <div class="slide-title">Financials</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">11</div>
+                            <div class="slide-title">The Ask</div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="slide-number">12</div>
+                            <div class="slide-title">Contact</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anti-Dilution Checklist -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="material-symbols-outlined">verified_user</span>
+                        Anti-Dilution Checklist
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="checklist-grid">
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">1x Liquidation Preference</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Broad-based Weighted Average</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Founder-friendly Vesting</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon warn">⚠</div>
+                            <span class="check-text">Investor Board Seat (Review)</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">No Full Ratchet</span>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-icon pass">✓</div>
+                            <span class="check-text">Pro-rata Rights OK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function runAssessment() {
+            showToast('🔍 Running VC readiness assessment...', 'info');
+            setTimeout(() => {
+                showToast('✅ Score: 82/100 - Ready for Seed Round!', 'success');
+            }, 2000);
+        }
+
+        function generatePitch() {
+            showToast('📊 Generating 12-slide pitch deck...', 'info');
+            setTimeout(() => {
+                showToast('✅ Pitch deck generated: seed-pitch.pdf', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: 'rgba(100, 255, 218, 0.95)', color: '#0a192f' },
+                error: { bg: 'rgba(255, 85, 85, 0.95)', color: '#fff' },
+                warning: { bg: 'rgba(255, 184, 108, 0.95)', color: '#0a192f' },
+                info: { bg: 'rgba(139, 233, 253, 0.95)', color: '#0a192f' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

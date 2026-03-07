@@ -6,21 +6,23 @@
  */
 
 import { invoices, clients, campaigns, deals, activities, utils } from './supabase.js';
+import { formatNumber, formatCurrencyVN } from './enhanced-utils.js';
 
 // Format currency
-function formatCurrency(amount) {
-    if (!amount) return '0 VND';
-    if (amount >= 1000000000) return (amount / 1000000000).toFixed(1) + 'B VND';
-    if (amount >= 1000000) return (amount / 1000000).toFixed(1) + 'M VND';
-    return new Intl.NumberFormat('vi-VN').format(amount) + ' VND';
-}
+// Using the enhanced utils version that formats with B/M VNĐ suffixes
+// function formatCurrency(amount) {
+//     if (!amount) return '0 VND';
+//     if (amount >= 1000000000) return (amount / 1000000000).toFixed(1) + 'B VND';
+//     if (amount >= 1000000) return (amount / 1000000).toFixed(1) + 'M VND';
+//     return new Intl.NumberFormat('vi-VN').format(amount) + ' VND';
+// }
 
-function formatNumber(num) {
-    if (!num) return '0';
-    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-    return num.toLocaleString('vi-VN');
-}
+// function formatNumber(num) {
+//     if (!num) return '0';
+//     if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+//     if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+//     return num.toLocaleString('vi-VN');
+// }
 
 // Load aggregated dashboard data
 async function loadDashboardData() {
@@ -93,7 +95,7 @@ async function bindDashboard() {
         if (el) el.innerText = text;
     };
 
-    safeSetText('stat-revenue', formatCurrency(data.revenue.value));
+    safeSetText('stat-revenue', formatCurrencyVN(data.revenue.value));
     safeSetText('stat-clients', data.clients.value);
 
     // Dynamically update label if we swapped metric

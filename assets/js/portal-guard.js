@@ -1,39 +1,78 @@
 /**
  * Portal Route Guard
  * Redirects unauthenticated users to login page.
+ * Uses centralized Auth system from auth.js
+ *
  * Skip guard on localhost for demo mode.
  */
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
-const SUPABASE_ANON = window.__ENV__?.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcglsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3MDkwMDEsImV4cCI6MjA1MzI4NTAwMX0.sFSNOkFGYBbOFHABLFq-0J5RLWWH7icISppbsJBgMOk';
-
-const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-
-// Skip guard entirely on localhost for demo mode
-if (!isLocalhost) {
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
-
-    try {
-        const { data: { user }, error } = await supabase.auth.getUser();
-
-        if (!user || error) {
-            const redirect = encodeURIComponent(window.location.pathname + window.location.search);
-            window.location.replace(`/portal/login.html?redirect=${redirect}`);
+// Wait for Auth to be available
+function waitForAuth(timeout = 5000) {
+    return new Promise((resolve, reject) => {
+        if (window.Auth && window.Auth.Guards) {
+            resolve();
+            return;
         }
 
-        // Listen for sign-out events
-        supabase.auth.onAuthStateChange((event) => {
-            if (event === 'SIGNED_OUT') {
-                window.location.replace('/portal/login.html');
+        const startTime = Date.now();
+        const checkInterval = setInterval(() => {
+            if (window.Auth && window.Auth.Guards) {
+                clearInterval(checkInterval);
+                resolve();
+            } else if (Date.now() - startTime > timeout) {
+                clearInterval(checkInterval);
+                reject(new Error('Auth system not loaded'));
             }
+        }, 100);
+    });
+}
+
+// Main guard logic
+(async function portalGuard() {
+    const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+
+    // Skip guard entirely on localhost for demo mode
+    if (isLocalhost) {
+        return;
+    }
+
+    try {
+        // Wait for Auth system to load
+        await waitForAuth();
+
+        // Initialize auth state
+        await window.Auth.State.init();
+
+        // Check authentication
+        if (!window.Auth.State.isAuthenticated) {
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+            // Don't redirect if already on login page
+            if (currentPage === 'login.html') {
+                return;
+            }
+
+            // Redirect to login with current page as redirect param
+            const redirectParam = encodeURIComponent(currentPath + window.location.search);
+            window.location.replace(`/portal/login.html?redirect=${redirectParam}`);
+            return;
+        }
+
+        // User is authenticated - export user info for other scripts
+        window.__PORTAL_USER__ = {
+            id: window.Auth.State.user?.id,
+            email: window.Auth.State.user?.email,
+            profile: window.Auth.State.profile
+        };
+
+        // Listen for sign-out events
+        window.addEventListener('auth:signout', () => {
+            window.location.replace('/portal/login.html');
         });
 
-        // Export user info for other scripts
-        window.__PORTAL_USER__ = user;
-
-    } catch (e) {
-        console.warn('Portal guard error:', e);
+    } catch (error) {
+        console.warn('[Portal Guard] Error:', error);
         // Don't block page on guard errors — graceful degradation
     }
-}
+})();

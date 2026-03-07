@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Guide - Mekong Agency</title>
+    <meta name="description"
+        content="Brand guidelines management with logo usage, color palettes, typography, and design standards.">
+    <meta name="description" content="Hướng dẫn thương hiệu chính thức của Mekong Agency">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/brand-colors.css">
+    <link rel="stylesheet" href="../assets/css/brand-typography.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-brand-guide.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="../admin/dashboard.html" class="btn btn-text">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="brand-header" style="padding-top: 140px;">
+        <h1 class="brand-display-large" style="margin-bottom: 16px;">Brand Guidelines</h1>
+        <p class="brand-body-large" style="opacity: 0.9; max-width: 500px; margin: 0 auto;">
+            Hướng dẫn sử dụng thương hiệu chính thức của Mekong Agency -
+            đảm bảo tính nhất quán trên mọi nền tảng
+        </p>
+    </header>
+
+    <div class="container">
+        <!-- Colors Section -->
+        <section class="brand-section" id="colors">
+            <h2 class="section-title">🎨 Bảng màu thương hiệu</h2>
+            <p class="section-subtitle">Click vào màu để copy mã hex. Sử dụng nhất quán trên mọi nền tảng.</p>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Primary - Mekong Teal</h3>
+            <div class="color-grid" style="margin-bottom: 40px;">
+                <div class="color-swatch" onclick="copyColor('#006A60')">
+                    <div class="color-preview" style="background: #006A60; color: white;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary</div>
+                        <div class="color-hex">#006A60</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#74F8E5')">
+                    <div class="color-preview" style="background: #74F8E5; color: #00201C;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Container</div>
+                        <div class="color-hex">#74F8E5</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Secondary - Sa Đéc Gold</h3>
+            <div class="color-grid" style="margin-bottom: 40px;">
+                <div class="color-swatch" onclick="copyColor('#9C6800')">
+                    <div class="color-preview" style="background: #9C6800; color: white;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary</div>
+                        <div class="color-hex">#9C6800</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#FFDEA6')">
+                    <div class="color-preview" style="background: #FFDEA6; color: #321B00;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary Container</div>
+                        <div class="color-hex">#FFDEA6</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Tertiary - Accent Purple</h3>
+            <div class="color-grid" style="margin-bottom: 40px;">
+                <div class="color-swatch" onclick="copyColor('#6750A4')">
+                    <div class="color-preview" style="background: #6750A4; color: white;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Tertiary</div>
+                        <div class="color-hex">#6750A4</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#EADDFF')">
+                    <div class="color-preview" style="background: #EADDFF; color: #21005E;">Aa</div>
+                    <div class="color-info">
+                        <div class="color-name">Tertiary Container</div>
+                        <div class="color-hex">#EADDFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Semantic Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch" onclick="copyColor('#10b981')">
+                    <div class="color-preview" style="background: #10b981; color: white;">✓</div>
+                    <div class="color-info">
+                        <div class="color-name">Success</div>
+                        <div class="color-hex">#10b981</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#f59e0b')">
+                    <div class="color-preview" style="background: #f59e0b; color: white;">⚠</div>
+                    <div class="color-info">
+                        <div class="color-name">Warning</div>
+                        <div class="color-hex">#f59e0b</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#BA1A1A')">
+                    <div class="color-preview" style="background: #BA1A1A; color: white;">✕</div>
+                    <div class="color-info">
+                        <div class="color-name">Error</div>
+                        <div class="color-hex">#BA1A1A</div>
+                    </div>
+                </div>
+                <div class="color-swatch" onclick="copyColor('#3b82f6')">
+                    <div class="color-preview" style="background: #3b82f6; color: white;">ℹ</div>
+                    <div class="color-info">
+                        <div class="color-name">Info</div>
+                        <div class="color-hex">#3b82f6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="brand-section" id="typography">
+            <h2 class="section-title">✍️ Hệ thống Typography</h2>
+            <p class="section-subtitle">Font stack và type scale theo chuẩn Material Design 3</p>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Font Stack</h3>
+            <div class="font-stack" style="margin-bottom: 48px;">
+                <div class="font-card">
+                    <div class="font-preview" style="font-family: 'Google Sans', sans-serif;">Ag</div>
+                    <div class="font-name">Google Sans</div>
+                    <div class="font-role">Heading & Display</div>
+                </div>
+                <div class="font-card">
+                    <div class="font-preview" style="font-family: 'Google Sans Text', sans-serif;">Ag</div>
+                    <div class="font-name">Google Sans Text</div>
+                    <div class="font-role">Body & Labels</div>
+                </div>
+                <div class="font-card">
+                    <div class="font-preview" style="font-family: 'JetBrains Mono', monospace;">Ag</div>
+                    <div class="font-name">JetBrains Mono</div>
+                    <div class="font-role">Code & Technical</div>
+                </div>
+            </div>
+
+            <h3 class="brand-title-large" style="margin-bottom: 24px;">Type Scale</h3>
+
+            <div class="type-sample">
+                <div class="type-label">Display Large</div>
+                <div class="brand-display-large">Mekong Agency</div>
+                <div class="type-specs">57px / 64px • Google Sans 500</div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Headline Large</div>
+                <div class="brand-headline-large">Tăng trưởng doanh thu</div>
+                <div class="type-specs">32px / 40px • Google Sans 500</div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Title Large</div>
+                <div class="brand-title-large">Giải pháp marketing số toàn diện</div>
+                <div class="type-specs">22px / 28px • Google Sans 500</div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Body Large</div>
+                <div class="brand-body-large">Chúng tôi cung cấp dịch vụ marketing số chất lượng cao cho doanh nghiệp
+                    vừa và nhỏ tại vùng Đồng bằng sông Cửu Long.</div>
+                <div class="type-specs">16px / 24px • Google Sans Text 400</div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Label Large</div>
+                <div class="brand-label-large">Bắt đầu ngay</div>
+                <div class="type-specs">14px / 20px • Google Sans Text 500</div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Code</div>
+                <div class="brand-code">const agency = new MekongAgency();</div>
+                <div class="type-specs">14px / 20px • JetBrains Mono 400</div>
+            </div>
+        </section>
+
+        <!-- Logo Section -->
+        <section class="brand-section" id="logos">
+            <h2 class="section-title">🎯 Logo Variants</h2>
+            <p class="section-subtitle">4 phiên bản logo cho các ngữ cảnh sử dụng khác nhau</p>
+
+            <div class="logo-grid">
+                <div class="logo-card">
+                    <div class="logo-preview light">
+                        <img src="../assets/images/logo-primary.png" alt="Logo Primary">
+                    </div>
+                    <div class="logo-info">
+                        <div class="logo-name">Primary Logo</div>
+                        <div class="logo-usage">Sử dụng chính trên nền sáng, website, tài liệu</div>
+                        <a href="../assets/images/logo-primary.png" download class="download-btn">
+                            <span class="material-symbols-outlined">download</span>
+                            Tải xuống
+                        </a>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-preview pattern">
+                        <img src="../assets/images/logo-icon.png" alt="Logo Icon">
+                    </div>
+                    <div class="logo-info">
+                        <div class="logo-name">Icon Only</div>
+                        <div class="logo-usage">Favicon, app icon, social media avatar</div>
+                        <a href="../assets/images/logo-icon.png" download class="download-btn">
+                            <span class="material-symbols-outlined">download</span>
+                            Tải xuống
+                        </a>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-preview dark">
+                        <img src="../assets/images/logo-dark.png" alt="Logo Dark Mode">
+                    </div>
+                    <div class="logo-info">
+                        <div class="logo-name">Dark Mode</div>
+                        <div class="logo-usage">Nền tối, dark theme, video overlay</div>
+                        <a href="../assets/images/logo-dark.png" download class="download-btn">
+                            <span class="material-symbols-outlined">download</span>
+                            Tải xuống
+                        </a>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-preview light">
+                        <img src="../assets/images/logo-light.png" alt="Logo Light Mode">
+                    </div>
+                    <div class="logo-info">
+                        <div class="logo-name">Light Mode</div>
+                        <div class="logo-usage">Letterhead, in ấn, tài liệu chính thức</div>
+                        <a href="../assets/images/logo-light.png" download class="download-btn">
+                            <span class="material-symbols-outlined">download</span>
+                            Tải xuống
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="brand-section" id="guidelines">
+            <h2 class="section-title">📋 Quy tắc sử dụng</h2>
+            <p class="section-subtitle">Những điều nên và không nên khi sử dụng thương hiệu</p>
+
+            <div class="grid grid-2" style="gap: 24px;">
+                <div>
+                    <h3 class="brand-title-medium" style="margin-bottom: 16px; color: #10b981;">✓ NÊN LÀM</h3>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon do">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Giữ khoảng cách an toàn</h4>
+                            <p>Luôn để khoảng cách tối thiểu bằng chiều cao chữ "M" xung quanh logo</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon do">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Sử dụng màu đúng</h4>
+                            <p>Chỉ sử dụng các màu trong bảng màu thương hiệu được xác định</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon do">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Dùng file gốc chất lượng cao</h4>
+                            <p>Luôn sử dụng file logo từ thư viện brand assets chính thức</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="brand-title-medium" style="margin-bottom: 16px; color: #ef4444;">✕ KHÔNG NÊN</h3>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon dont">
+                            <span class="material-symbols-outlined">close</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Thay đổi tỷ lệ logo</h4>
+                            <p>Không kéo dãn hoặc bóp méo logo theo bất kỳ hướng nào</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon dont">
+                            <span class="material-symbols-outlined">close</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Đổi màu logo tùy ý</h4>
+                            <p>Không thay đổi màu sắc logo ngoài các phiên bản được cung cấp</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-card">
+                        <div class="guideline-icon dont">
+                            <span class="material-symbols-outlined">close</span>
+                        </div>
+                        <div class="guideline-content">
+                            <h4>Đặt trên nền phức tạp</h4>
+                            <p>Tránh đặt logo trên nền ảnh nhiều chi tiết hoặc nhiều màu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing Section -->
+        <section class="brand-section" id="spacing">
+            <h2 class="section-title">📐 Spacing System</h2>
+            <p class="section-subtitle">Hệ thống spacing 8px để đảm bảo tính nhất quán</p>
+
+            <div class="spacing-grid">
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 8px; height: 8px;"></div>
+                    <div class="spacing-label">8px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 16px; height: 16px;"></div>
+                    <div class="spacing-label">16px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 24px; height: 24px;"></div>
+                    <div class="spacing-label">24px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 32px; height: 32px;"></div>
+                    <div class="spacing-label">32px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 48px; height: 48px;"></div>
+                    <div class="spacing-label">48px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 64px; height: 64px;"></div>
+                    <div class="spacing-label">64px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-box" style="width: 80px; height: 80px;"></div>
+                    <div class="spacing-label">80px</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast -->
+    <div class="copied-toast" id="toast">Đã copy mã màu!</div>
+
+    <!-- Print FAB -->
+    <button class="print-btn" onclick="window.print()" title="In brand guide">
+        <span class="material-symbols-outlined">print</span>
+    </button>
+
+    <script>
+        function copyColor(hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('toast');
+                toast.textContent = `Đã copy ${hex}`;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

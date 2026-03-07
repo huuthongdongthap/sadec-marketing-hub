@@ -37,7 +37,7 @@
         <main class="main-content">
             <div class="top-bar">
                 <div>
-                    <h1 class="page-title" style="font-size: 24px; margin: 0;">Campaign Manager</h1>
+                    <h1 class="page-title dashboard-title">Campaign Manager</h1>
                     <div class="body-medium text-muted">Quản lý và theo dõi chiến dịch marketing</div>
                 </div>
                 <button class="btn btn-filled">
@@ -53,7 +53,7 @@
                     <div class="mini-stat-label">Đang chạy</div>
                 </div>
                 <div class="card card-elevated mini-stat">
-                    <div class="mini-stat-value" style="color: #155724;">8.5x</div>
+                    <div class="mini-stat-value text-green">8.5x</div>
                     <div class="mini-stat-label">ROI trung bình</div>
                 </div>
                 <div class="card card-elevated mini-stat">
@@ -61,13 +61,13 @@
                     <div class="mini-stat-label">Chi tiêu tháng này</div>
                 </div>
                 <div class="card card-elevated mini-stat">
-                    <div class="mini-stat-value" style="color: #155724;">1,062M</div>
+                    <div class="mini-stat-value text-green">1,062M</div>
                     <div class="mini-stat-label">Doanh thu từ ads</div>
                 </div>
             </div>
 
             <!-- Campaigns Table -->
-            <div class="card card-outlined" style="padding: 0; overflow: hidden;">
+            <div class="card card-outlined">
                 <table class="campaigns-table">
                     <thead>
                         <tr>
@@ -230,7 +230,7 @@
                                 <div class="metric-value">--</div>
                             </td>
                             <td class="metric-cell">
-                                <span class="roi-badge" style="background: #E2E3E5; color: #383D41;">--</span>
+                                <span class="roi-badge bg-gray-light text-gray-dark">--</span>
                             </td>
                             <td>
                                 <button class="action-btn" title="Xem chi tiết">
@@ -281,6 +281,7 @@
 
     <!-- Admin Client Script -->
     <script type="module" src="../assets/js/admin-client.js"></script>
+    <script src="../assets/js/enhanced-utils.js"></script>
     <script src="../assets/js/admin-shared.js"></script>
     <!-- Content AI -->
     <script src="../assets/js/content-ai.js"></script>

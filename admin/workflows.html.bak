@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Dashboard - Mekong Agency</title>
+    <meta name="description"
+        content="Automated workflow management for marketing operations - task automation, approval flows, and process optimization.">
+
+    <!-- Material Web Components -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+    <script type="module">
+        import '@material/web/all.js';
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-workflows.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="material-symbols-outlined">water_drop</span>
+                Mekong Agency
+            </a>
+            <div class="nav-actions">
+                <a href="agents.html" class="btn btn-text">Agents</a>
+                <a href="dashboard.html" class="btn btn-outlined">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="display-small" style="margin-bottom: 8px;">⛓️ Workflow Dashboard</h1>
+            <p class="body-large" style="opacity: 0.9;">Workflow Chain - Tự động hóa quy trình kinh doanh</p>
+        </div>
+    </header>
+
+    <div class="container dashboard-content">
+
+        <!-- Metrics -->
+        <section class="metrics-section">
+            <div class="metrics-grid" id="metricsGrid">
+                <div class="metric-card">
+                    <div class="metric-value" id="metricWorkflows">3</div>
+                    <div class="metric-label">Workflows</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="metricExecutions">0</div>
+                    <div class="metric-label">Executions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="metricSuccess">0%</div>
+                    <div class="metric-label">Success Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="metricSteps">12</div>
+                    <div class="metric-label">Total Steps</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Cards -->
+        <section class="workflow-grid" id="workflowGrid">
+            <!-- Rendered by JavaScript -->
+        </section>
+
+        <!-- Execution Log -->
+        <section class="execution-section">
+            <div class="execution-header">
+                <h2>
+                    <span class="material-symbols-outlined">history</span>
+                    Execution Log
+                </h2>
+                <button class="btn btn-text" onclick="clearLog()">Clear</button>
+            </div>
+            <div class="execution-log" id="executionLog">
+                <div class="empty-log">
+                    <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;">inbox</span>
+                    <p>No executions yet. Run a workflow to see activity.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Input Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Run Workflow</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic form fields -->
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="executeWorkflow()">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">play_arrow</span>
+                    Run
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/workflows.js"></script>
+    <script>
+        // State
+        let selectedWorkflow = null;
+
+        // DOM Elements
+        const workflowGrid = document.getElementById('workflowGrid');
+        const executionLog = document.getElementById('executionLog');
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        // Render workflows
+        function renderWorkflows() {
+            const workflows = workflowRegistry.getAll();
+
+            workflowGrid.innerHTML = workflows.map(wf => `
+        <div class="workflow-card" data-workflow="${wf.id}" id="wf-${wf.id}">
+          <div class="workflow-header">
+            <div class="workflow-title">
+              <span class="material-symbols-outlined">${getWorkflowIcon(wf.id)}</span>
+              ${wf.name}
+            </div>
+            <div class="workflow-description">${wf.description}</div>
+          </div>
+          <div class="workflow-body">
+            <div class="workflow-steps" id="steps-${wf.id}">
+              ${wf.steps.map((step, i) => `
+                <div class="step-item" id="step-${wf.id}-${i}">
+                  <div class="step-number">${i + 1}</div>
+                  <div class="step-name">${step.name}</div>
+                  <div class="step-status" id="status-${wf.id}-${i}">Pending</div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="workflow-actions">
+              <button class="run-btn" onclick="openModal('${wf.id}')" id="run-${wf.id}">
+                <span class="material-symbols-outlined">play_arrow</span>
+                Run Workflow
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function getWorkflowIcon(id) {
+            const icons = {
+                'client-onboarding': 'person_add',
+                'content-publishing': 'article',
+                'lead-nurturing': 'trending_up'
+            };
+            return icons[id] || 'account_tree';
+        }
+
+        // Modal
+        function openModal(workflowId) {
+            selectedWorkflow = workflowRegistry.get(workflowId);
+
+            document.getElementById('modalTitle').textContent = `Run: ${selectedWorkflow.name}`;
+            document.getElementById('modalBody').innerHTML = getFormFields(workflowId);
+
+            modalOverlay.classList.add('show');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('show');
+            selectedWorkflow = null;
+        }
+
+        function getFormFields(workflowId) {
+            const fields = {
+                'client-onboarding': `
+          <div class="form-group">
+            <label class="form-label">Client Name</label>
+            <input type="text" class="form-input" id="input-clientName" placeholder="VD: ABC Company" value="Demo Client">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="input-email" placeholder="client@example.com" value="demo@example.com">
+          </div>
+        `,
+                'content-publishing': `
+          <div class="form-group">
+            <label class="form-label">Topic</label>
+            <input type="text" class="form-input" id="input-topic" placeholder="VD: Marketing Tips 2026" value="SEO Local cho SME">
+          </div>
+        `,
+                'lead-nurturing': `
+          <div class="form-group">
+            <label class="form-label">Lead Name</label>
+            <input type="text" class="form-input" id="input-leadName" placeholder="VD: Nguyễn Văn A" value="Lead Demo">
+          </div>
+        `
+            };
+            return fields[workflowId] || '';
+        }
+
+        async function executeWorkflow() {
+            if (!selectedWorkflow) return;
+
+            const workflowId = selectedWorkflow.id;
+            const data = collectFormData(workflowId);
+
+            closeModal();
+
+            // Disable run button
+            document.getElementById(`run-${workflowId}`).disabled = true;
+
+            // Reset step states
+            resetStepStates(workflowId);
+
+            // Run workflow
+            const result = await workflowRegistry.run(workflowId, data);
+
+            // Re-enable button
+            document.getElementById(`run-${workflowId}`).disabled = false;
+
+            // Update metrics
+            updateMetrics();
+        }
+
+        function collectFormData(workflowId) {
+            const data = {};
+            const inputs = document.querySelectorAll('#modalBody input');
+            inputs.forEach(input => {
+                const key = input.id.replace('input-', '');
+                data[key] = input.value;
+            });
+            return data;
+        }
+
+        function resetStepStates(workflowId) {
+            const workflow = workflowRegistry.get(workflowId);
+            workflow.steps.forEach((_, i) => {
+                const stepEl = document.getElementById(`step-${workflowId}-${i}`);
+                const statusEl = document.getElementById(`status-${workflowId}-${i}`);
+                if (stepEl && statusEl) {
+                    stepEl.className = 'step-item';
+                    statusEl.textContent = 'Pending';
+                }
+            });
+        }
+
+        // Log
+        function addLogEntry(type, message, meta = '') {
+            const emptyLog = executionLog.querySelector('.empty-log');
+            if (emptyLog) emptyLog.remove();
+
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `
+        <div class="log-icon ${type}">
+          <span class="material-symbols-outlined">${getLogIcon(type)}</span>
+        </div>
+        <div class="log-content">
+          <div class="log-message">${message}</div>
+          <div class="log-meta">${meta || new Date().toLocaleTimeString('vi-VN')}</div>
+        </div>
+      `;
+
+            executionLog.insertBefore(entry, executionLog.firstChild);
+        }
+
+        function getLogIcon(type) {
+            const icons = {
+                'started': 'play_circle',
+                'step': 'arrow_forward',
+                'completed': 'check_circle',
+                'failed': 'error'
+            };
+            return icons[type] || 'info';
+        }
+
+        function clearLog() {
+            executionLog.innerHTML = `
+        <div class="empty-log">
+          <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;">inbox</span>
+          <p>No executions yet. Run a workflow to see activity.</p>
+        </div>
+      `;
+        }
+
+        // Metrics
+        function updateMetrics() {
+            const workflows = workflowRegistry.getAll();
+            let totalExecutions = 0;
+            let totalCompleted = 0;
+            let totalSteps = 0;
+
+            workflows.forEach(wf => {
+                const metrics = wf.getMetrics();
+                totalExecutions += metrics.totalExecutions;
+                totalCompleted += metrics.completedCount;
+                totalSteps += wf.steps.length;
+            });
+
+            document.getElementById('metricWorkflows').textContent = workflows.length;
+            document.getElementById('metricExecutions').textContent = totalExecutions;
+            document.getElementById('metricSuccess').textContent =
+                totalExecutions > 0 ? Math.round((totalCompleted / totalExecutions) * 100) + '%' : '0%';
+            document.getElementById('metricSteps').textContent = totalSteps;
+        }
+
+        // Event listeners
+        workflowBus.on('workflow:started', (data) => {
+            addLogEntry('started', `Started: ${data.workflowName}`, data.timestamp);
+        });
+
+        workflowBus.on('step:started', (data) => {
+            const stepEl = document.getElementById(`step-${data.executionId.split('-')[0]}-${data.stepIndex}`)
+                || document.querySelector(`[id^="step-"][id$="-${data.stepIndex}"].step-item`);
+
+            // Find correct step element
+            const workflows = workflowRegistry.getAll();
+            workflows.forEach(wf => {
+                const el = document.getElementById(`step-${wf.id}-${data.stepIndex}`);
+                if (el && wf.steps[data.stepIndex]?.name === data.stepName) {
+                    el.className = 'step-item active';
+                    document.getElementById(`status-${wf.id}-${data.stepIndex}`).textContent = 'Running...';
+                }
+            });
+
+            addLogEntry('step', `Step ${data.stepIndex + 1}: ${data.stepName}`, `${data.stepIndex + 1}/${data.totalSteps}`);
+        });
+
+        workflowBus.on('step:completed', (data) => {
+            const workflows = workflowRegistry.getAll();
+            workflows.forEach(wf => {
+                const el = document.getElementById(`step-${wf.id}-${data.stepIndex}`);
+                if (el && wf.steps[data.stepIndex]?.name === data.stepName) {
+                    el.className = 'step-item completed';
+                    document.getElementById(`status-${wf.id}-${data.stepIndex}`).textContent = '✓ Done';
+                }
+            });
+        });
+
+        workflowBus.on('step:failed', (data) => {
+            const workflows = workflowRegistry.getAll();
+            workflows.forEach(wf => {
+                const el = document.getElementById(`step-${wf.id}-${data.stepIndex}`);
+                if (el && wf.steps[data.stepIndex]?.name === data.stepName) {
+                    el.className = 'step-item failed';
+                    document.getElementById(`status-${wf.id}-${data.stepIndex}`).textContent = '✗ Failed';
+                }
+            });
+            addLogEntry('failed', `Failed: ${data.stepName} - ${data.error}`);
+        });
+
+        workflowBus.on('workflow:completed', (data) => {
+            addLogEntry('completed', `Completed: ${data.workflowName} in ${data.duration}`);
+            updateMetrics();
+        });
+
+        workflowBus.on('workflow:failed', (data) => {
+            addLogEntry('failed', `Failed: ${data.workflowName} - ${data.error}`);
+            updateMetrics();
+        });
+
+        // Initialize
+        renderWorkflows();
+        updateMetrics();
+
+        // Close modal on overlay click
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/workflows-client.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

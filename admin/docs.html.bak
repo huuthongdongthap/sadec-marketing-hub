@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Hub - Mekong Agency</title>
+    <meta name="description"
+        content="Comprehensive documentation hub for API references, guides, and technical resources.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-docs.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="docs"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">📚 Documentation Hub</div>
+                    <div class="body-medium text-muted">Quản lý và duy trì tài liệu dự án</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" id="syncBtn">
+                        <span class="material-symbols-outlined">sync</span>
+                        Đồng bộ
+                    </button>
+                    <button class="btn btn-primary" id="generateBtn">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        Tạo Docs
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Tổng tài liệu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">API Endpoints</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">User Guides</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Độ phủ docs</div>
+                </div>
+            </div>
+
+            <!-- Documentation Types -->
+            <div class="doc-types-grid">
+                <!-- API Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('api')">
+                    <div class="doc-type-icon api">
+                        <span class="material-symbols-outlined">api</span>
+                    </div>
+                    <div class="doc-type-title">API Documentation</div>
+                    <div class="doc-type-desc">REST endpoints, request/response specs, error handling</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">REST API</span>
+                        <span class="doc-item-tag">WebSocket</span>
+                        <span class="doc-item-tag">Error Codes</span>
+                    </div>
+                </div>
+
+                <!-- User Guides -->
+                <div class="doc-type-card" onclick="navigateToSection('user')">
+                    <div class="doc-type-icon user">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <div class="doc-type-title">User Guides</div>
+                    <div class="doc-type-desc">Hướng dẫn sử dụng, tutorials, best practices</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Tutorials</span>
+                        <span class="doc-item-tag">FAQ</span>
+                        <span class="doc-item-tag">Troubleshooting</span>
+                    </div>
+                </div>
+
+                <!-- Developer Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('dev')">
+                    <div class="doc-type-icon dev">
+                        <span class="material-symbols-outlined">code</span>
+                    </div>
+                    <div class="doc-type-title">Developer Docs</div>
+                    <div class="doc-type-desc">Setup, contribution guidelines, testing</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Setup</span>
+                        <span class="doc-item-tag">Contributing</span>
+                        <span class="doc-item-tag">Testing</span>
+                    </div>
+                </div>
+
+                <!-- Architecture Documentation -->
+                <div class="doc-type-card" onclick="navigateToSection('arch')">
+                    <div class="doc-type-icon arch">
+                        <span class="material-symbols-outlined">architecture</span>
+                    </div>
+                    <div class="doc-type-title">Architecture</div>
+                    <div class="doc-type-desc">System design, data flow, security</div>
+                    <div class="doc-type-items">
+                        <span class="doc-item-tag">Diagrams</span>
+                        <span class="doc-item-tag">Database</span>
+                        <span class="doc-item-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workflow Steps -->
+            <div class="workflow-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">construction</span>
+                    Quy trình Documentation
+                </div>
+                <div class="workflow-steps">
+                    <div class="workflow-step" onclick="runCommand('init')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                        </div>
+                        <div class="step-title">1. Khởi tạo</div>
+                        <div class="step-command">/docs:init</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('generate')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">auto_awesome</span>
+                        </div>
+                        <div class="step-title">2. Tạo Docs</div>
+                        <div class="step-command">/docs:generate</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('update')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">edit_document</span>
+                        </div>
+                        <div class="step-title">3. Cập nhật</div>
+                        <div class="step-command">/docs:update</div>
+                    </div>
+                    <div class="workflow-step" onclick="runCommand('review')">
+                        <div class="step-icon">
+                            <span class="material-symbols-outlined">checklist</span>
+                        </div>
+                        <div class="step-title">4. Review</div>
+                        <div class="step-command">/docs:summarize</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Documents -->
+            <div class="workflow-section">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">schedule</span>
+                    Tài liệu gần đây
+                </div>
+                <div class="docs-list" id="docsList">
+                    <div class="doc-item">
+                        <div class="doc-item-icon md">
+                            <span class="material-symbols-outlined">description</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">README.md</div>
+                            <div class="doc-item-path">/README.md</div>
+                        </div>
+                        <div class="doc-item-updated">Hôm nay</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon api">
+                            <span class="material-symbols-outlined">api</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">API Reference</div>
+                            <div class="doc-item-path">/docs/api/reference.md</div>
+                        </div>
+                        <div class="doc-item-updated">Hôm qua</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon guide">
+                            <span class="material-symbols-outlined">school</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Getting Started</div>
+                            <div class="doc-item-path">/docs/guides/getting-started.md</div>
+                        </div>
+                        <div class="doc-item-updated">2 ngày trước</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon md">
+                            <span class="material-symbols-outlined">folder</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Architecture Overview</div>
+                            <div class="doc-item-path">/docs/architecture/overview.md</div>
+                        </div>
+                        <div class="doc-item-updated">3 ngày trước</div>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-item-icon guide">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <div class="doc-item-info">
+                            <div class="doc-item-name">Contributing Guide</div>
+                            <div class="doc-item-path">/docs/CONTRIBUTING.md</div>
+                        </div>
+                        <div class="doc-item-updated">1 tuần trước</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function navigateToSection(section) {
+            const sectionNames = {
+                api: 'API Documentation',
+                user: 'User Guides',
+                dev: 'Developer Docs',
+                arch: 'Architecture'
+            };
+            showToast(`Đang mở ${sectionNames[section]}...`, 'info');
+        }
+
+        function runCommand(command) {
+            const commands = {
+                init: '/docs:init',
+                generate: '/docs:generate',
+                update: '/docs:update',
+                review: '/docs:summarize'
+            };
+            showToast(`Chạy lệnh: ${commands[command]}`, 'success');
+        }
+
+        // Button handlers
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            showToast('Đang tạo documentation từ codebase...', 'success');
+        });
+
+        document.getElementById('syncBtn').addEventListener('click', () => {
+            showToast('Đang đồng bộ documentation...', 'info');
+        });
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#E8F5E9', color: '#2E7D32' },
+                error: { bg: '#FFEBEE', color: '#C62828' },
+                warning: { bg: '#FFF3E0', color: '#E65100' },
+                info: { bg: '#E3F2FD', color: '#1565C0' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

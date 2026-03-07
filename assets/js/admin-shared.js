@@ -1,10 +1,11 @@
 /**
  * ADMIN SHARED - Max Level 2026
  * Unified functionality for all admin pages
+ * Note: Currency formatting and other utilities are now in enhanced-utils.js
  */
 
 // ============================================
-// TOAST NOTIFICATIONS
+// TOAST NOTIFICATIONS (Keep since this is specialized)
 // ============================================
 class Toast {
     static container = null;
@@ -52,7 +53,7 @@ class Toast {
 }
 
 // ============================================
-// THEME MANAGER
+// THEME MANAGER (Keep since this is specialized)
 // ============================================
 class ThemeManager {
     static STORAGE_KEY = 'mekong-theme';
@@ -81,7 +82,7 @@ class ThemeManager {
 }
 
 // ============================================
-// SCROLL PROGRESS
+// SCROLL PROGRESS (Keep since this is specialized)
 // ============================================
 class ScrollProgress {
     static init() {
@@ -99,7 +100,7 @@ class ScrollProgress {
 }
 
 // ============================================
-// MOBILE SIDEBAR
+// MOBILE SIDEBAR (Keep since this is specialized)
 // ============================================
 class MobileSidebar {
     static init() {
@@ -130,7 +131,7 @@ class MobileSidebar {
 }
 
 // ============================================
-// DASHBOARD CHARTS (Chart.js Integration)
+// DASHBOARD CHARTS (Keep since this is specialized)
 // ============================================
 class DashboardCharts {
     static colors = {
@@ -261,7 +262,7 @@ class DashboardCharts {
 }
 
 // ============================================
-// SEARCH FUNCTIONALITY
+// SEARCH FUNCTIONALITY (Keep since this is specialized)
 // ============================================
 class GlobalSearch {
     static pages = [
@@ -306,7 +307,7 @@ class GlobalSearch {
 }
 
 // ============================================
-// SUPABASE LIVE DATA
+// SUPABASE LIVE DATA (Keep since this is specialized)
 // ============================================
 class LiveData {
     static supabase = null;
@@ -369,22 +370,23 @@ class LiveData {
         };
     }
 
-    static formatCurrency(amount) {
-        if (amount >= 1000000000) {
-            return (amount / 1000000000).toFixed(1) + 'B VNĐ';
-        } else if (amount >= 1000000) {
-            return (amount / 1000000).toFixed(0) + 'M VNĐ';
-        }
-        return amount.toLocaleString('vi-VN') + ' VNĐ';
-    }
+    // Replace with import from enhanced-utils
+    // static formatCurrency(amount) {
+    //     if (amount >= 1000000000) {
+    //         return (amount / 1000000000).toFixed(1) + 'B VNĐ';
+    //     } else if (amount >= 1000000) {
+    //         return (amount / 1000000).toFixed(0) + 'M VNĐ';
+    //     }
+    //     return amount.toLocaleString('vi-VN') + ' VNĐ';
+    // }
 
     static async bindDashboard() {
         const stats = await this.getStats();
 
         // Bind to dashboard elements
         const bindings = {
-            'stat-revenue': this.formatCurrency(stats.totalRevenue),
-            'stat-pipeline': this.formatCurrency(stats.pipelineValue),
+            'stat-revenue': stats.totalRevenue, // Raw value to be formatted in the method below
+            'stat-pipeline': stats.pipelineValue,
             'stat-clients': stats.activeClients,
             'stat-leads': stats.totalLeads,
             'stat-hot-leads': stats.hotLeads,
@@ -395,10 +397,33 @@ class LiveData {
 
         Object.entries(bindings).forEach(([id, value]) => {
             const el = document.getElementById(id);
-            if (el) el.textContent = value;
+            if (el) {
+                // Format currency using enhanced-utils if it's a revenue/pipeline field
+                if (['stat-revenue', 'stat-pipeline'].includes(id)) {
+                    // Try to use the enhanced utils for formatting
+                    if (window.MekongUtils && typeof window.MekongUtils.formatCurrencyVN === 'function') {
+                        el.textContent = window.MekongUtils.formatCurrencyVN(value);
+                    } else {
+                        // Fallback to original method
+                        el.textContent = this.formatCurrencyFallback(value);
+                    }
+                } else {
+                    el.textContent = value;
+                }
+            }
         });
 
         return stats;
+    }
+
+    // Fallback formatCurrency method for when enhanced-utils is not available
+    static formatCurrencyFallback(amount) {
+        if (amount >= 1000000000) {
+            return (amount / 1000000000).toFixed(1) + 'B VNĐ';
+        } else if (amount >= 1000000) {
+            return (amount / 1000000).toFixed(0) + 'M VNĐ';
+        }
+        return amount.toLocaleString('vi-VN') + ' VNĐ';
     }
 }
 

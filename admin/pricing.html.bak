@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Strategy - Mekong Agency</title>
+    <meta name="description"
+        content="Dynamic pricing strategy dashboard for service packages, discounts, and revenue optimization.">
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    
+
+    <!-- Web Components -->
+    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-pricing.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <!-- Sidebar - Using Web Component -->
+        <sadec-sidebar active="pricing"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <div>
+                    <div class="page-title">💰 Pricing Strategy</div>
+                    <div class="body-medium text-muted">6 Tiers: Bootstrap (70%) + VC-Ready (30%)</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="showToast('Đang test pricing...', 'info')">
+                        <span class="material-symbols-outlined">speed</span>
+                        Test Config
+                    </button>
+                    <button class="btn btn-primary" onclick="showToast('Đang tạo pricing page...', 'success')">
+                        <span class="material-symbols-outlined">web</span>
+                        Generate Page
+                    </button>
+                </div>
+            </div>
+
+            <!-- Revenue Summary -->
+            <div class="section-container">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">analytics</span>
+                    Revenue Overview
+                </div>
+                <div class="revenue-grid">
+                    <div class="revenue-card">
+                        <div class="revenue-icon mrr">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div class="revenue-value">$45K</div>
+                        <div class="revenue-label">MRR</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="revenue-icon arr">
+                            <span class="material-symbols-outlined">savings</span>
+                        </div>
+                        <div class="revenue-value">$540K</div>
+                        <div class="revenue-label">ARR</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="revenue-icon avg">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <div class="revenue-value">$2.5K</div>
+                        <div class="revenue-label">ARPU</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="revenue-icon cust">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <div class="revenue-value">18</div>
+                        <div class="revenue-label">Active Clients</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Path Tabs -->
+            <div class="path-tabs">
+                <div class="path-tab active" data-path="bootstrap" onclick="switchPath('bootstrap')">
+                    🚀 Bootstrap Path <span class="path-percent">(70%)</span>
+                </div>
+                <div class="path-tab" data-path="vc" onclick="switchPath('vc')">
+                    🏯 VC-Ready Path <span class="path-percent">(30%)</span>
+                </div>
+            </div>
+
+            <!-- Bootstrap Tiers -->
+            <div class="section-container" id="bootstrapTiers">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Bootstrap Tiers (Self-Serve)
+                </div>
+                <div class="tiers-grid">
+                    <!-- Starter -->
+                    <div class="tier-card">
+                        <span class="margin-badge">80% margin</span>
+                        <div class="tier-emoji">📦</div>
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-desc">Perfect for getting started</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">$49</span>
+                            <span class="tier-price-period">/month</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Core marketing tools</li>
+                            <li>Email support</li>
+                            <li>5 projects</li>
+                            <li>Basic analytics</li>
+                        </ul>
+                        <button class="tier-btn">Chọn gói này</button>
+                    </div>
+
+                    <!-- Growth -->
+                    <div class="tier-card popular">
+                        <span class="margin-badge">80% margin</span>
+                        <div class="tier-emoji">🚀</div>
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-desc">For scaling businesses</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">$199</span>
+                            <span class="tier-price-period">/month</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Everything in Starter</li>
+                            <li>Priority support</li>
+                            <li>API access</li>
+                            <li>Advanced analytics</li>
+                            <li>Team collaboration</li>
+                        </ul>
+                        <button class="tier-btn">Chọn gói này</button>
+                    </div>
+
+                    <!-- Scale -->
+                    <div class="tier-card">
+                        <span class="margin-badge">75% margin</span>
+                        <div class="tier-emoji">⚡</div>
+                        <div class="tier-name">Scale</div>
+                        <div class="tier-desc">Enterprise features</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">$499</span>
+                            <span class="tier-price-period">/month</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Everything in Growth</li>
+                            <li>White-label options</li>
+                            <li>Custom integrations</li>
+                            <li>SLA guarantee</li>
+                            <li>Dedicated onboarding</li>
+                        </ul>
+                        <button class="tier-btn">Chọn gói này</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VC-Ready Tiers -->
+            <div class="section-container" id="vcTiers" style="display: none;">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    VC-Ready Tiers (High-Touch)
+                </div>
+                <div class="tiers-grid">
+                    <!-- Warrior -->
+                    <div class="tier-card">
+                        <span class="margin-badge">60% margin</span>
+                        <div class="tier-emoji">🥋</div>
+                        <div class="tier-name">Warrior</div>
+                        <div class="tier-desc">Monthly retainer</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">$2,000</span>
+                            <span class="tier-price-period">/month</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Core marketing automation</li>
+                            <li>CRM integration</li>
+                            <li>Strategy sessions</li>
+                            <li>Dedicated CSM</li>
+                            <li>Monthly reporting</li>
+                        </ul>
+                        <button class="tier-btn">Liên hệ</button>
+                    </div>
+
+                    <!-- General -->
+                    <div class="tier-card popular">
+                        <span class="margin-badge">60% margin</span>
+                        <div class="tier-emoji">⚔️</div>
+                        <div class="tier-name">General</div>
+                        <div class="tier-desc">Full-stack growth</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">$5,000</span>
+                            <span class="tier-price-period">/month</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Everything in Warrior</li>
+                            <li>Paid ads management</li>
+                            <li>Content creation</li>
+                            <li>Weekly strategy calls</li>
+                            <li>Full marketing team</li>
+                        </ul>
+                        <button class="tier-btn">Liên hệ</button>
+                    </div>
+
+                    <!-- Tuong Quan -->
+                    <div class="tier-card">
+                        <span class="margin-badge">Equity</span>
+                        <div class="tier-emoji">🏯</div>
+                        <div class="tier-name">Tướng Quân</div>
+                        <div class="tier-desc">Venture Studio model</div>
+                        <div class="tier-price">
+                            <span class="tier-price-amount">15-30%</span>
+                            <span class="tier-price-period">equity</span>
+                        </div>
+                        <ul class="tier-features">
+                            <li>Full growth team</li>
+                            <li>Revenue share model</li>
+                            <li>Strategic partnership</li>
+                            <li>Unlimited resources</li>
+                            <li>Exit alignment</li>
+                        </ul>
+                        <button class="tier-btn">Liên hệ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Margin Configuration -->
+            <div class="section-container">
+                <div class="section-title">
+                    <span class="material-symbols-outlined">tune</span>
+                    Target Margins
+                </div>
+                <div class="margin-config">
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">📦 Starter</span>
+                            <span class="margin-value">80%</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">🚀 Growth</span>
+                            <span class="margin-value">80%</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">⚡ Scale</span>
+                            <span class="margin-value">75%</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">🥋 Warrior</span>
+                            <span class="margin-value">60%</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">⚔️ General</span>
+                            <span class="margin-value">60%</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="margin-item">
+                        <div class="margin-header">
+                            <span class="margin-tier">🏯 Tướng Quân</span>
+                            <span class="margin-value">Equity</span>
+                        </div>
+                        <div class="margin-bar">
+                            <div class="margin-fill"
+                                style="width: 100%; background: linear-gradient(90deg, #FFD700, #FFA000);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchPath(path) {
+            document.querySelectorAll('.path-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.path === path) {
+                    tab.classList.add('active');
+                }
+            });
+
+            document.getElementById('bootstrapTiers').style.display = path === 'bootstrap' ? 'block' : 'none';
+            document.getElementById('vcTiers').style.display = path === 'vc' ? 'block' : 'none';
+        }
+
+        // Toast notification
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: { bg: '#E8F5E9', color: '#2E7D32' },
+                error: { bg: '#FFEBEE', color: '#C62828' },
+                warning: { bg: '#FFF3E0', color: '#E65100' },
+                info: { bg: '#E3F2FD', color: '#1565C0' }
+            };
+            const style = colors[type] || colors.info;
+
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background: ${style.bg};
+                color: ${style.color};
+                border-radius: 12px;
+                font-family: 'Google Sans', sans-serif;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                animation: slideUp 0.3s ease-out;
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease-in';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes slideDown {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../assets/js/admin-shared.js"></script>
+    <!-- Content AI -->
+    <script src="../assets/js/content-ai.js"></script>
+    <!-- Central State Management -->
+    <script src="../assets/js/mekong-store.js"></script>
+    <!-- Realtime Updates -->
+    <script src="../assets/js/realtime-dashboard.js"></script>
+    <!-- Data Sync Integration -->
+    <script src="../assets/js/data-sync-init.js"></script>
+    <!-- Mobile Menu -->
+    <script src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

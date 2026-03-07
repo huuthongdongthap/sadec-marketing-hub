@@ -1,0 +1,256 @@
+/**
+ * Portal Invoices Module
+ * Invoice Display, Detail & Actions
+ */
+
+import { DEMO_INVOICES } from './portal-auth.js';
+import { supabase, utils } from './supabase.js';
+import { toast, modal, renderInvoices, updateInvoiceStats } from './portal-ui.js';
+import { formatCurrency } from './portal-utils.js';
+import { payInvoiceOnline, downloadInvoicePDF, markInvoiceAsPaid } from './portal-payments.js';
+
+// ================================================
+// INVOICE DETAIL MODAL
+// ================================================
+
+export function showInvoiceDetail(invoice) {
+    const statusLabels = {
+        draft: { text: 'Nháp', class: 'draft' },
+        sent: { text: 'Chờ thanh toán', class: 'pending' },
+        paid: { text: 'Đã thanh toán', class: 'paid' },
+        overdue: { text: 'Quá hạn', class: 'overdue' },
+        cancelled: { text: 'Đã hủy', class: 'draft' }
+    };
+    const status = statusLabels[invoice.status] || statusLabels.draft;
+
+    const itemsHTML = invoice.items ? invoice.items.map(item => `
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0;">${item.description}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: center;">${item.quantity}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #E0E0E0; text-align: right;">${formatCurrency(item.price)}</td>
+        </tr>
+    `).join('') : '';
+
+    modal.open(`
+        <div style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
+                <div>
+                    <span class="status-pill ${status.class}" style="margin-bottom: 8px; display: inline-block;">
+                        ${status.text}
+                    </span>
+                    <h2 style="margin: 0; font-size: 24px;">${invoice.invoice_number}</h2>
+                    <p style="color: #666; margin: 8px 0 0 0;">${invoice.project?.name || 'Dự án không xác định'}</p>
+                </div>
+                <button class="modal-close" style="background: none; border: none; cursor: pointer; padding: 8px;">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+                <div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Ngày tạo</div>
+                    <div style="font-size: 16px;">${invoice.issue_date ? utils.formatDate(invoice.issue_date) : '--'}</div>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Hạn thanh toán</div>
+                    <div style="font-size: 16px;">${invoice.due_date ? utils.formatDate(invoice.due_date) : '--'}</div>
+                </div>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+                <thead>
+                    <tr style="background: #f5f5f5;">
+                        <th style="padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase;">Mô tả</th>
+                        <th style="padding: 12px; text-align: center; font-size: 12px; text-transform: uppercase;">SL</th>
+                        <th style="padding: 12px; text-align: right; font-size: 12px; text-transform: uppercase;">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${itemsHTML}
+                </tbody>
+            </table>
+
+            <div style="background: #f5f5f5; padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span>Tạm tính</span>
+                    <span>${formatCurrency(invoice.amount)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span>Thuế VAT</span>
+                    <span>${formatCurrency(invoice.tax || 0)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; padding-top: 8px; border-top: 1px solid #ddd;">
+                    <span>Tổng cộng</span>
+                    <span style="color: var(--md-sys-color-primary, #006A60);">${formatCurrency(invoice.total)}</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+                <button id="downloadInvoice" class="btn btn-outlined" style="flex: 1;">
+                    <span class="material-symbols-outlined">download</span> Tải PDF
+                </button>
+                ${invoice.status === 'sent' || invoice.status === 'overdue' ? `
+                <button id="payOnlineBtn" class="btn btn-filled" style="flex: 1;">
+                    <span class="material-symbols-outlined">payments</span> Thanh toán Online
+                </button>
+                <button id="markAsPaid" data-invoice-id="${invoice.id}" class="btn btn-outlined" style="flex: 1;">
+                    <span class="material-symbols-outlined">check_circle</span> Đã thanh toán (Demo)
+                </button>
+                ` : ''}
+            </div>
+        </div>
+    `);
+
+    // Bind button actions
+    document.getElementById('downloadInvoice')?.addEventListener('click', () => downloadInvoicePDF(invoice));
+    document.getElementById('payOnlineBtn')?.addEventListener('click', () => payInvoiceOnline(invoice));
+    document.getElementById('markAsPaid')?.addEventListener('click', () => markInvoiceAsPaid(invoice.id));
+}
+
+// ================================================
+// LOAD INVOICES
+// ================================================
+
+/**
+ * Load and render invoices table
+ */
+export async function loadInvoices(tableElement) {
+    if (!tableElement) return;
+
+    try {
+        // Show loading state
+        tableElement.innerHTML = '<tr><td colspan="7" class="loading-state">Đang tải hóa đơn...</td></tr>';
+
+        // Try to load from Supabase first
+        let invoices = await loadInvoicesFromSupabase();
+
+        // Fallback to demo data if no invoices found
+        if (!invoices || invoices.length === 0) {
+            invoices = DEMO_INVOICES;
+        }
+
+        // Render invoices
+        renderInvoices(tableElement, invoices);
+
+        // Update stats
+        updateInvoiceStats(invoices);
+
+        // Setup row click handlers
+        setupInvoiceRowHandlers(tableElement, invoices);
+
+    } catch (error) {
+        console.error('Load invoices error:', error);
+        toast.error('Không thể tải danh sách hóa đơn');
+
+        // Fallback to demo data
+        renderInvoices(tableElement, DEMO_INVOICES);
+        updateInvoiceStats(DEMO_INVOICES);
+    }
+}
+
+/**
+ * Load invoices from Supabase
+ */
+async function loadInvoicesFromSupabase() {
+    if (!supabase) return null;
+
+    try {
+        const { data, error } = await supabase
+            .from('invoices')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        return data;
+    } catch (error) {
+        console.error('Supabase load invoices error:', error);
+        return null;
+    }
+}
+
+/**
+ * Setup invoice row click handlers
+ */
+function setupInvoiceRowHandlers(tableElement, invoices) {
+    tableElement.querySelectorAll('.view-btn').forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const invoice = invoices[index];
+            if (invoice) showInvoiceDetail(invoice);
+        });
+    });
+
+    tableElement.querySelectorAll('.download-btn').forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const invoice = invoices[index];
+            if (invoice) downloadInvoicePDF(invoice);
+        });
+    });
+
+    tableElement.querySelectorAll('.pay-btn').forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const invoice = invoices[index];
+            if (invoice) payInvoiceOnline(invoice);
+        });
+    });
+}
+
+// ================================================
+// REALTIME SUBSCRIPTIONS
+// ================================================
+
+/**
+ * Setup realtime invoice updates
+ */
+export function setupInvoiceRealtime(tableElement) {
+    if (!tableElement || !supabase) return;
+
+    const channel = supabase.channel('invoices-realtime')
+        .on(
+            'postgres_changes',
+            { event: '*', schema: 'public', table: 'invoices' },
+            (payload) => {
+                if (payload.eventType === 'UPDATE') {
+                    const updatedInvoice = payload.new;
+                    const row = tableElement.querySelector(`tr[data-invoice-id="${updatedInvoice.id}"]`);
+
+                    if (row) {
+                        const statusCell = row.querySelector('.status-pill');
+                        if (statusCell) {
+                            statusCell.className = 'status-pill';
+                            const statusMap = {
+                                'paid': { class: 'paid', text: 'Đã thanh toán' },
+                                'pending': { class: 'pending', text: 'Chờ thanh toán' },
+                                'sent': { class: 'pending', text: 'Chờ thanh toán' },
+                                'overdue': { class: 'overdue', text: 'Quá hạn' },
+                                'draft': { class: 'draft', text: 'Nháp' }
+                            };
+                            const statusInfo = statusMap[updatedInvoice.status] || { class: 'draft', text: updatedInvoice.status };
+                            statusCell.classList.add(statusInfo.class);
+                            statusCell.textContent = statusInfo.text;
+                        }
+
+                        if (updatedInvoice.status === 'paid') {
+                            const actionsCell = row.querySelector('.invoice-actions');
+                            if (actionsCell) {
+                                const payBtn = actionsCell.querySelector('.pay-btn');
+                                if (payBtn) payBtn.remove();
+                            }
+                            toast.show(`Hóa đơn ${updatedInvoice.invoice_number} đã được thanh toán!`, 'success');
+                        }
+                    }
+                } else if (payload.eventType === 'INSERT') {
+                    loadInvoices(tableElement);
+                    toast.show('Có hóa đơn mới!', 'info');
+                }
+            }
+        )
+        .subscribe();
+
+    return channel;
+}
+
+// Export payment actions for external use
+export { payInvoiceOnline, downloadInvoicePDF, markInvoiceAsPaid };
