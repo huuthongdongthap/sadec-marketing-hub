@@ -62,6 +62,7 @@ class SadecSidebar extends HTMLElement {
             label: '🤖 AI RaaS',
             items: [
                 { id: 'missions', label: 'AI Missions', icon: 'rocket_launch', href: 'portal/missions.html' },
+                { id: 'ocop-exporter', label: 'OCOP Exporter', icon: 'public', href: 'portal/ocop-exporter.html' },
                 { id: 'credits', label: 'Credits', icon: 'toll', href: 'portal/credits.html' }
             ]
         },
