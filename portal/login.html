@@ -134,8 +134,8 @@
 
     <!-- Supabase & Auth Integration -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../supabase-config.js"></script>
-    <script src="../auth.js"></script>
+    <script type="module" src="../supabase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
     <script>
         // Portal Login - Integrated with auth.js
         const loginForm = document.getElementById('loginForm');
@@ -196,7 +196,7 @@
             });
         });
     </script>
-    <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
 </body>
 
 </html>

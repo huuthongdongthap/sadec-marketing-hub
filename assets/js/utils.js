@@ -25,3 +25,18 @@ export {
 export function generateId(prefix = 'id') {
     return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
+
+// ===== DEFAULT EXPORT FOR BACKWARDS COMPATIBILITY =====
+export default {
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatNumber,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime,
+    truncate,
+    debounce,
+    throttle,
+    generateId
+};

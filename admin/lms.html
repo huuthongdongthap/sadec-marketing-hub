@@ -17,7 +17,7 @@
     
 
     <!-- Web Components -->
-    <script src="../assets/js/components/sadec-sidebar.js"></script>
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
     <link rel="stylesheet" href="../assets/css/admin-lms.css">
 </head>
 
@@ -74,7 +74,7 @@
             </div>
         </main>
     </div>
-    <script src="../assets/js/lms.js"></script>
+    <script type="module" src="../assets/js/lms.js"></script>
     <script>
         createDemoLMS(lmsManager);
         function switchTab(id) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active')); event.target.closest('.tab').classList.add('active'); document.getElementById('tab-' + id).classList.add('active') }
@@ -90,18 +90,18 @@
         }
         render();
     </script>
-    <script src="../assets/js/enhanced-utils.js"></script>
-    <script src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/enhanced-utils.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
     <!-- Content AI -->
-    <script src="../assets/js/content-ai.js"></script>
+    <script type="module" src="../assets/js/content-ai.js"></script>
     <!-- Central State Management -->
-    <script src="../assets/js/mekong-store.js"></script>
+    <script type="module" src="../assets/js/mekong-store.js"></script>
     <!-- Realtime Updates -->
-    <script src="../assets/js/realtime-dashboard.js"></script>
+    <script type="module" src="../assets/js/realtime-dashboard.js"></script>
     <!-- Data Sync Integration -->
-    <script src="../assets/js/data-sync-init.js"></script>
+    <script type="module" src="../assets/js/data-sync-init.js"></script>
     <!-- Mobile Menu -->
-    <script src="../assets/js/mobile-menu.js"></script>
+    <script type="module" src="../assets/js/mobile-menu.js"></script>
 </body>
 
 </html>
