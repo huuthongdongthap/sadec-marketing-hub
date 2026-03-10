@@ -34,7 +34,11 @@ echo ""
 
 # Check submodule status
 echo "📦 SUBMODULES:"
-git submodule status
+if [ -f ".gitmodules" ]; then
+    git submodule status
+else
+    echo "   No .gitmodules file (no submodules configured)"
+fi
 echo ""
 
 # Count files by type
