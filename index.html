@@ -648,8 +648,14 @@
         document.body.appendChild(loadingDiv);
 
         // Call Supabase Edge Function based on gateway
-        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MzE3ODYsImV4cCI6MjA4MjMwNzc4Nn0.xE_iEkIYaY0ql0Br_B64o1JKLuiAeAPg8GydLm71DLs';
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL;
+        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY;
+
+        if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+          console.warn('[Payment] Supabase credentials not configured. Run build to inject env.');
+          alert('Cấu hình thanh toán chưa sẵn sàng. Vui lòng liên hệ quản trị viên.');
+          return;
+        }
 
         // Select endpoint based on gateway
         const endpointMap = {

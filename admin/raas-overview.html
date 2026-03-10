@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RaaS Platform Overview - quản lý tenants, missions, credits và revenue">
+    <title>RaaS Overview - Admin</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+
+    <style>
+        .raas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .raas-kpi {
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .raas-kpi::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 80px; height: 80px;
+            border-radius: 0 0 0 80px;
+            opacity: 0.1;
+        }
+        .raas-kpi.revenue::before { background: #4CAF50; }
+        .raas-kpi.missions::before { background: #2196F3; }
+        .raas-kpi.users::before { background: #9C27B0; }
+        .raas-kpi.credits::before { background: #FF9800; }
+
+        .kpi-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .kpi-icon.revenue { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+        .kpi-icon.missions { background: linear-gradient(135deg, #2196F3, #1565C0); }
+        .kpi-icon.users { background: linear-gradient(135deg, #9C27B0, #6A1B9A); }
+        .kpi-icon.credits { background: linear-gradient(135deg, #FF9800, #E65100); }
+
+        .kpi-value {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+        }
+        .kpi-label {
+            font-size: 13px;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 4px;
+        }
+        .kpi-trend {
+            font-size: 12px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .kpi-trend.up { color: #4CAF50; }
+        .kpi-trend.down { color: #F44336; }
+
+        /* Mission Activity Table */
+        .raas-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .raas-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--md-sys-color-on-surface-variant);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            font-weight: 500;
+        }
+        .raas-table td {
+            padding: 14px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+        }
+        .raas-table tr:hover td {
+            background: var(--md-sys-color-surface-variant);
+        }
+
+        .status-chip {
+            display: inline-flex;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .status-chip.done { background: #E8F5E9; color: #2E7D32; }
+        .status-chip.running { background: #E3F2FD; color: #1565C0; }
+        .status-chip.queued { background: #F3E5F5; color: #7B1FA2; }
+        .status-chip.failed { background: #FFEBEE; color: #C62828; }
+
+        .gateway-badge {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <sadec-sidebar active="raas-overview"></sadec-sidebar>
+
+        <main class="main-content" role="main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">RaaS Platform</h1>
+                    <div class="body-medium text-muted">Revenue-as-a-Service — Quản lý nền tảng AI mission</div>
+                </div>
+            </div>
+
+            <!-- KPI Grid -->
+            <div class="raas-grid">
+                <div class="raas-kpi revenue">
+                    <div class="kpi-icon revenue">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <div class="kpi-value">2,450,000đ</div>
+                    <div class="kpi-label">Revenue tháng này</div>
+                    <div class="kpi-trend up">
+                        <span class="material-symbols-outlined" style="font-size:14px">trending_up</span>
+                        +32% vs tháng trước
+                    </div>
+                </div>
+
+                <div class="raas-kpi missions">
+                    <div class="kpi-icon missions">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <div class="kpi-value">87</div>
+                    <div class="kpi-label">Missions hoàn thành</div>
+                    <div class="kpi-trend up">
+                        <span class="material-symbols-outlined" style="font-size:14px">trending_up</span>
+                        +18% vs tháng trước
+                    </div>
+                </div>
+
+                <div class="raas-kpi users">
+                    <div class="kpi-icon users">
+                        <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <div class="kpi-value">12</div>
+                    <div class="kpi-label">Active tenants</div>
+                    <div class="kpi-trend up">
+                        <span class="material-symbols-outlined" style="font-size:14px">trending_up</span>
+                        +3 tenant mới
+                    </div>
+                </div>
+
+                <div class="raas-kpi credits">
+                    <div class="kpi-icon credits">
+                        <span class="material-symbols-outlined">toll</span>
+                    </div>
+                    <div class="kpi-value">490</div>
+                    <div class="kpi-label">Credits bán ra</div>
+                    <div class="kpi-trend up">
+                        <span class="material-symbols-outlined" style="font-size:14px">trending_up</span>
+                        +45% vs tháng trước
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Missions -->
+            <div class="card card-outlined card-section">
+                <div class="flex-between mb-24">
+                    <div class="section-title">Missions gần đây</div>
+                    <button class="btn btn-text">Xem tất cả</button>
+                </div>
+                <table class="raas-table">
+                    <thead>
+                        <tr>
+                            <th>Tenant</th>
+                            <th>Mission</th>
+                            <th>Complexity</th>
+                            <th>Credits</th>
+                            <th>Status</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nguyễn Tùng</td>
+                            <td>Phân tích SEO đối thủ AB...</td>
+                            <td><span class="gateway-badge">complex</span></td>
+                            <td>5</td>
+                            <td><span class="status-chip done">Hoàn thành</span></td>
+                            <td>13:15 hôm nay</td>
+                        </tr>
+                        <tr>
+                            <td>Trần Minh</td>
+                            <td>Viết 10 bài social media</td>
+                            <td><span class="gateway-badge">standard</span></td>
+                            <td>3</td>
+                            <td><span class="status-chip running">Đang chạy</span></td>
+                            <td>12:30 hôm nay</td>
+                        </tr>
+                        <tr>
+                            <td>Lê Hạnh</td>
+                            <td>Tạo landing page sản phẩm</td>
+                            <td><span class="gateway-badge">standard</span></td>
+                            <td>3</td>
+                            <td><span class="status-chip done">Hoàn thành</span></td>
+                            <td>09:20 hôm nay</td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Tùng</td>
+                            <td>Check email marketing</td>
+                            <td><span class="gateway-badge">simple</span></td>
+                            <td>1</td>
+                            <td><span class="status-chip done">Hoàn thành</span></td>
+                            <td>Hôm qua 16:00</td>
+                        </tr>
+                        <tr>
+                            <td>Phạm Đức</td>
+                            <td>Audit website performance</td>
+                            <td><span class="gateway-badge">complex</span></td>
+                            <td>5</td>
+                            <td><span class="status-chip failed">Thất bại</span></td>
+                            <td>Hôm qua 14:30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Revenue by Tenant -->
+            <div class="card card-outlined card-section" style="margin-top: 24px;">
+                <div class="section-title" style="margin-bottom: 16px;">Top Tenants theo Credit Usage</div>
+                <table class="raas-table">
+                    <thead>
+                        <tr>
+                            <th>Tenant</th>
+                            <th>Credits mua</th>
+                            <th>Credits dùng</th>
+                            <th>Missions</th>
+                            <th>Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nguyễn Tùng</strong></td>
+                            <td>150</td>
+                            <td>103</td>
+                            <td>28</td>
+                            <td>750,000đ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trần Minh</strong></td>
+                            <td>100</td>
+                            <td>87</td>
+                            <td>22</td>
+                            <td>500,000đ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lê Hạnh</strong></td>
+                            <td>80</td>
+                            <td>65</td>
+                            <td>18</td>
+                            <td>400,000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="../env.js"></script>
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
+</body>
+
+</html>

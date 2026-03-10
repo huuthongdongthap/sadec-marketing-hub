@@ -26,6 +26,9 @@ reports/
 # Temporary files
 *.tmp
 *.temp
+*.bak
+.warp-watchdog.pid
+.cto-reports/
 .vercel
 .env*.local
 .skills/

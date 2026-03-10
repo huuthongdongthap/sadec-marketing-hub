@@ -195,7 +195,7 @@
         import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
         const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
-        const SUPABASE_ANON = window.__ENV__?.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcglsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3MDkwMDEsImV4cCI6MjA1MzI4NTAwMX0.sFSNOkFGYBbOFHABLFq-0J5RLWWH7icISppbsJBgMOk';
+        const SUPABASE_ANON = window.__ENV__?.SUPABASE_ANON_KEY || '';
         const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
 
         const DEMO_INVOICES = [

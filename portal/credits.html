@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quản lý credits AI - mua, theo dõi và sử dụng credits trên Mekong RaaS Platform">
+    <title>Credits - Mekong RaaS</title>
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+
+    <style>
+        /* Balance Hero */
+        .balance-hero {
+            background: linear-gradient(135deg, #1a237e 0%, #4a148c 50%, #880e4f 100%);
+            border-radius: 20px;
+            padding: 32px;
+            color: #fff;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .balance-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .balance-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%; left: -5%;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .balance-label { font-size: 14px; opacity: 0.8; margin-bottom: 4px; }
+        .balance-value {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            position: relative;
+        }
+        .balance-value span { font-size: 20px; font-weight: 400; opacity: 0.7; }
+        .balance-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .balance-stat-item { text-align: center; }
+        .balance-stat-val {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .balance-stat-label { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+
+        /* Credit Packages */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .package-card {
+            background: var(--md-sys-color-surface);
+            border: 2px solid var(--md-sys-color-outline-variant);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .package-card:hover {
+            border-color: var(--md-sys-color-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .package-card.popular {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+        .package-card.popular::before {
+            content: 'PHỔ BIẾN';
+            position: absolute;
+            top: -10px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 2px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .package-credits {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+        }
+        .package-label {
+            font-size: 14px;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 12px;
+        }
+        .package-price {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 4px;
+        }
+        .package-unit {
+            font-size: 12px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .package-savings {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        /* Transaction History */
+        .tx-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .tx-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--md-sys-color-on-surface-variant);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .tx-table td {
+            padding: 14px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+        .tx-amount {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+        }
+        .tx-amount.credit { color: #4CAF50; }
+        .tx-amount.debit { color: #F44336; }
+        .tx-reason {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tx-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .tx-icon.credit {
+            background: #E8F5E9;
+            color: #4CAF50;
+        }
+        .tx-icon.debit {
+            background: #FFF3E0;
+            color: #FF9800;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portal-layout">
+        <sadec-sidebar role="client" active="credits"></sadec-sidebar>
+
+        <main class="main-content" role="main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Credits</h1>
+                    <div class="body-medium text-muted">Quản lý credit AI - mua thêm và theo dõi sử dụng</div>
+                </div>
+                <div class="flex-between gap-12">
+                    <a href="missions.html" class="btn btn-tonal">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        AI Missions
+                    </a>
+                </div>
+            </div>
+
+            <!-- Balance Hero -->
+            <div class="balance-hero">
+                <div class="balance-label">Số dư hiện tại</div>
+                <div class="balance-value" id="balance-value">47 <span>credits</span></div>
+                <div class="balance-stats">
+                    <div class="balance-stat-item">
+                        <div class="balance-stat-val" id="total-earned">100</div>
+                        <div class="balance-stat-label">Tổng mua</div>
+                    </div>
+                    <div class="balance-stat-item">
+                        <div class="balance-stat-val" id="total-spent">53</div>
+                        <div class="balance-stat-label">Đã sử dụng</div>
+                    </div>
+                    <div class="balance-stat-item">
+                        <div class="balance-stat-val" id="missions-count">12</div>
+                        <div class="balance-stat-label">Missions</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit Packages -->
+            <div class="card card-outlined card-section">
+                <div class="flex-between mb-24">
+                    <div class="section-title">Mua thêm Credits</div>
+                </div>
+                <div class="packages-grid">
+                    <div class="package-card" onclick="buyCredits(10, 50000)">
+                        <div class="package-credits">10</div>
+                        <div class="package-label">credits</div>
+                        <div class="package-price">50,000đ</div>
+                        <div class="package-unit">5,000đ /credit</div>
+                    </div>
+                    <div class="package-card" onclick="buyCredits(30, 120000)">
+                        <div class="package-credits">30</div>
+                        <div class="package-label">credits</div>
+                        <div class="package-price">120,000đ</div>
+                        <div class="package-unit">4,000đ /credit</div>
+                        <div class="package-savings">Tiết kiệm 20%</div>
+                    </div>
+                    <div class="package-card popular" onclick="buyCredits(50, 175000)">
+                        <div class="package-credits">50</div>
+                        <div class="package-label">credits</div>
+                        <div class="package-price">175,000đ</div>
+                        <div class="package-unit">3,500đ /credit</div>
+                        <div class="package-savings">Tiết kiệm 30%</div>
+                    </div>
+                    <div class="package-card" onclick="buyCredits(100, 300000)">
+                        <div class="package-credits">100</div>
+                        <div class="package-label">credits</div>
+                        <div class="package-price">300,000đ</div>
+                        <div class="package-unit">3,000đ /credit</div>
+                        <div class="package-savings">Tiết kiệm 40%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="card card-outlined card-section">
+                <div class="section-title" style="margin-bottom: 16px;">Lịch sử giao dịch</div>
+                <table class="tx-table">
+                    <thead>
+                        <tr>
+                            <th>Thời gian</th>
+                            <th>Nội dung</th>
+                            <th style="text-align:right">Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tx-list">
+                        <tr>
+                            <td>10/03/2026 13:15</td>
+                            <td>
+                                <div class="tx-reason">
+                                    <div class="tx-icon debit"><span class="material-symbols-outlined" style="font-size:16px">rocket_launch</span></div>
+                                    Mission: Phân tích SEO đối thủ (complex)
+                                </div>
+                            </td>
+                            <td style="text-align:right"><span class="tx-amount debit">-5</span></td>
+                        </tr>
+                        <tr>
+                            <td>10/03/2026 10:30</td>
+                            <td>
+                                <div class="tx-reason">
+                                    <div class="tx-icon debit"><span class="material-symbols-outlined" style="font-size:16px">rocket_launch</span></div>
+                                    Mission: Viết 10 bài social media (standard)
+                                </div>
+                            </td>
+                            <td style="text-align:right"><span class="tx-amount debit">-3</span></td>
+                        </tr>
+                        <tr>
+                            <td>09/03/2026 15:00</td>
+                            <td>
+                                <div class="tx-reason">
+                                    <div class="tx-icon credit"><span class="material-symbols-outlined" style="font-size:16px">add_circle</span></div>
+                                    Mua gói 50 credits (PayOS)
+                                </div>
+                            </td>
+                            <td style="text-align:right"><span class="tx-amount credit">+50</span></td>
+                        </tr>
+                        <tr>
+                            <td>08/03/2026 09:20</td>
+                            <td>
+                                <div class="tx-reason">
+                                    <div class="tx-icon debit"><span class="material-symbols-outlined" style="font-size:16px">rocket_launch</span></div>
+                                    Mission: Tạo landing page (standard)
+                                </div>
+                            </td>
+                            <td style="text-align:right"><span class="tx-amount debit">-3</span></td>
+                        </tr>
+                        <tr>
+                            <td>07/03/2026 14:00</td>
+                            <td>
+                                <div class="tx-reason">
+                                    <div class="tx-icon credit"><span class="material-symbols-outlined" style="font-size:16px">card_giftcard</span></div>
+                                    Welcome bonus — Tài khoản mới
+                                </div>
+                            </td>
+                            <td style="text-align:right"><span class="tx-amount credit">+10</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../env.js"></script>
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+    <script type="module" src="../assets/js/portal-guard.js"></script>
+    <script src="../assets/js/admin-shared.js"></script>
+
+    <script>
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
+        const SUPABASE_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
+
+        async function buyCredits(credits, priceVND) {
+            const confirmed = confirm(`Mua ${credits} credits với giá ${priceVND.toLocaleString('vi-VN')}đ?\n\nBạn sẽ được chuyển đến cổng thanh toán.`);
+            if (!confirmed) return;
+
+            try {
+                const res = await fetch(`${SUPABASE_URL}/functions/v1/raas-bridge`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    },
+                    body: JSON.stringify({
+                        action: 'buy_credits',
+                        credits: credits,
+                        amount: priceVND,
+                        gateway: 'payos'
+                    })
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.checkout_url) {
+                        window.location.href = data.checkout_url;
+                    }
+                } else {
+                    throw new Error('Payment init failed');
+                }
+            } catch (err) {
+                console.warn('[Credits] Edge Function not available, showing demo', err);
+                alert(`Demo mode: Đã giả lập mua ${credits} credits thành công!\n\nTrong production, bạn sẽ được chuyển đến PayOS.`);
+
+                // Update balance in demo
+                const balEl = document.getElementById('balance-value');
+                const current = parseInt(balEl.textContent) || 47;
+                balEl.innerHTML = `${current + credits} <span>credits</span>`;
+
+                const earnedEl = document.getElementById('total-earned');
+                const currentEarned = parseInt(earnedEl.textContent) || 100;
+                earnedEl.textContent = currentEarned + credits;
+            }
+        }
+    </script>
+</body>
+
+</html>

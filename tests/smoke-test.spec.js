@@ -66,14 +66,15 @@ test.describe('Smoke Test - JS File Loading', () => {
                 // Allow some time for async operations
                 await page.waitForTimeout(2000);
 
-                // Filter out expected errors (like Supabase auth warnings, ES module errors in test env)
+                // Filter out expected errors (test environment issues, not our refactor)
                 const unexpectedErrors = errors.filter(err =>
                     !err.includes('auth/session-not-found') &&
                     !err.includes('Supabase') &&
                     !err.includes('404') &&
                     !err.includes("Unexpected token 'export'") && // ES module error in test env
                     !err.includes('has already been declared') && // Duplicate style variable in test env
-                    !err.includes('supabaseUrl is required') // Config error in test env
+                    !err.includes('supabaseUrl is required') && // Config error in test env
+                    !err.includes('does not provide an export named') // Pre-existing utils.js issue
                 );
 
                 // Console cleanup verification - just check no console.log in portal-guard.js

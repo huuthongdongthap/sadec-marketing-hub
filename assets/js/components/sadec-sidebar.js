@@ -58,6 +58,13 @@ class SadecSidebar extends HTMLElement {
                 { id: 'subscriptions', label: 'Gói dịch vụ', icon: 'card_membership', href: 'portal/subscriptions.html' }
             ]
         },
+        raas: {
+            label: '🤖 AI RaaS',
+            items: [
+                { id: 'missions', label: 'AI Missions', icon: 'rocket_launch', href: 'portal/missions.html' },
+                { id: 'credits', label: 'Credits', icon: 'toll', href: 'portal/credits.html' }
+            ]
+        },
         reports: {
             label: 'BÁO CÁO',
             items: [
@@ -141,6 +148,12 @@ class SadecSidebar extends HTMLElement {
                 { id: 'brand-guide', label: 'Brand Guide', icon: 'palette', href: 'admin/brand-guide.html' },
                 { id: 'video-workflow', label: 'Video', icon: 'videocam', href: 'admin/video-workflow.html' },
                 { id: 'docs', label: 'Docs', icon: 'article', href: 'admin/docs.html' }
+            ]
+        },
+        raas: {
+            label: '🚀 RaaS PLATFORM',
+            items: [
+                { id: 'raas-overview', label: 'RaaS Overview', icon: 'monitoring', href: 'admin/raas-overview.html' }
             ]
         },
         system: {

@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
     <url>
-        <loc>https://sadec-marketing-hub.vercel.app/</loc>
-        <lastmod>2026-01-20</lastmod>
+        <loc>https://sadecmarketinghub.com/</loc>
+        <lastmod>2026-03-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+
+    <!-- Public Pages -->
     <url>
-        <loc>https://sadec-marketing-hub.vercel.app/login.html</loc>
-        <lastmod>2026-01-20</lastmod>
+        <loc>https://sadecmarketinghub.com/login.html</loc>
+        <lastmod>2026-03-10</lastmod>
         <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://sadecmarketinghub.com/register.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://sadecmarketinghub.com/terms.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://sadec-marketing-hub.vercel.app/register.html</loc>
-        <lastmod>2026-01-20</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://sadecmarketinghub.com/privacy.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+
+    <!-- Auth -->
     <url>
-        <loc>https://sadec-marketing-hub.vercel.app/verify-email.html</loc>
-        <lastmod>2026-01-20</lastmod>
+        <loc>https://sadecmarketinghub.com/auth/login.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://sadecmarketinghub.com/verify-email.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://sadecmarketinghub.com/forgot-password.html</loc>
+        <lastmod>2026-03-10</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.1</priority>
     </url>
 </urlset>
-
-

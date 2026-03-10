@@ -1,112 +1,67 @@
-name: Sa Đéc Marketing Hub — CI/CD
+name: CI — Quality Gates
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
-  lint-and-test:
-    name: Lint, Security & Test
+  quality-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Check for exposed secrets
+      # Security — No hardcoded secrets
+      - name: Check for hardcoded secrets
         run: |
-          echo "🔒 Checking for exposed secrets..."
-          ! grep -rE "(API_KEY|SECRET|PASSWORD|SUPABASE_KEY)\s*=\s*['\"][^$\{]" \
-            --include="*.js" --include="*.ts" --include="*.html" \
-            --exclude-dir=".github" --exclude-dir="node_modules" . \
-            | grep -v ".example" | grep -v "your-api-key" | grep -v "VITE_" \
-            || (echo "❌ Exposed secrets found!" && exit 1)
-          echo "✅ No exposed secrets"
+          echo "🔍 Scanning for hardcoded Supabase keys..."
+          if grep -r "eyJhbGciOiJIUzI1NiIs" --include="*.html" --include="*.js" \
+            --exclude-dir=node_modules --exclude="mekong-env.js" --exclude="supabase-config.js" .; then
+            echo "❌ Found hardcoded Supabase keys!"
+            exit 1
+          fi
+          echo "✅ No hardcoded secrets found"
 
-      - name: HTML structure check
+      # Hygiene — No .bak files
+      - name: Check for backup files
         run: |
-          echo "📄 Checking HTML files..."
-          for f in $(find . -name "*.html" -not -path "./node_modules/*" -not -path "./.github/*"); do
-            grep -q "<!DOCTYPE html>" "$f" && echo "✅ $f" || echo "⚠️  $f missing DOCTYPE"
-          done
+          echo "🧹 Checking for .bak files..."
+          BAK_COUNT=$(find . -name "*.bak" -not -path "./node_modules/*" | wc -l)
+          if [ "$BAK_COUNT" -gt 0 ]; then
+            echo "❌ Found $BAK_COUNT .bak files:"
+            find . -name "*.bak" -not -path "./node_modules/*"
+            exit 1
+          fi
+          echo "✅ No .bak files found"
 
-      - name: PWA manifest check
-        run: |
-          echo "📱 Checking PWA manifest..."
-          [ -f manifest.json ] && echo "✅ manifest.json exists" || (echo "❌ No manifest.json" && exit 1)
-          python3 -c "
-          import json
-          with open('manifest.json') as f:
-              m = json.load(f)
-          assert 'name' in m, 'Missing name'
-          assert 'icons' in m and len(m['icons']) >= 2, 'Need at least 2 icons'
-          assert 'start_url' in m, 'Missing start_url'
-          print('✅ PWA manifest valid:', m['name'])
-          "
+      # Playwright Tests
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
 
-      - name: Service Worker check
-        run: |
-          [ -f sw.js ] && echo "✅ Service Worker exists" || echo "⚠️ No sw.js"
-          [ -f offline.html ] && echo "✅ Offline page exists" || echo "⚠️ No offline.html"
+      - name: Run smoke tests
+        run: npx playwright test tests/smoke-all-pages.spec.ts --project=chromium
+        env:
+          CI: true
 
-      - name: Robots & Sitemap check
-        run: |
-          [ -f robots.txt ] && echo "✅ robots.txt" || echo "⚠️ No robots.txt"
-          [ -f sitemap.xml ] && echo "✅ sitemap.xml" || echo "⚠️ No sitemap.xml"
+      - name: Run SEO validation
+        run: npx playwright test tests/seo-validation.spec.ts --project=chromium
+        env:
+          CI: true
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps chromium 2>/dev/null || true
-
-      - name: Run Playwright tests
-        run: npm test -- --reporter=line 2>/dev/null || echo "⚠️ No tests configured"
-        continue-on-error: true
-
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v4
         with:
-          node-version: '22'
-      - name: NPM Audit
-        run: npm audit --audit-level=high 2>/dev/null || echo "No critical vulnerabilities found"
-        continue-on-error: true
-
-  production-readiness:
-    name: 100/100 Production Score
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Score check
-        run: |
-          echo "🏆 Sa Đéc Marketing Hub — Production Readiness Score"
-          echo "======================================================"
-          score=0
-
-          [ -f README.md ] && score=$((score+10)) && echo "✅ README.md (+10)"
-          [ -f manifest.json ] && score=$((score+10)) && echo "✅ PWA manifest (+10)"
-          [ -f sw.js ] && score=$((score+10)) && echo "✅ Service Worker (+10)"
-          [ -f robots.txt ] && score=$((score+10)) && echo "✅ robots.txt (+10)"
-          [ -f sitemap.xml ] && score=$((score+10)) && echo "✅ sitemap.xml (+10)"
-          [ -f vercel.json ] && score=$((score+10)) && echo "✅ vercel.json (+10)"
-          [ -f CHANGELOG.md ] && score=$((score+10)) && echo "✅ CHANGELOG (+10)"
-          [ -f .github/workflows/ci.yml ] && score=$((score+10)) && echo "✅ CI/CD (+10)"
-          [ -f offline.html ] && score=$((score+10)) && echo "✅ Offline support (+10)"
-          [ -f RELEASE_NOTES_V2.md ] && score=$((score+10)) && echo "✅ Release Notes (+10)"
-
-          echo ""
-          echo "🎯 SCORE: $score/100"
-          [ $score -ge 90 ] && echo "🚀 PRODUCTION READY!" || echo "⚠️ Below production threshold"
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

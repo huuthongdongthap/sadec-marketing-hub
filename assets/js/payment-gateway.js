@@ -8,7 +8,7 @@
 
 // Configuration (should be injected via env in production)
 const SUPABASE_URL = 'https://pzcgvfhppglzfjavxuid.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3NTgwMTcsImV4cCI6MjA1MDMzNDAxN30.H2C_lfXBYfHJHU5LFmtEmJf-CIjkVqoIOlZ6gMJWnFg';
+const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
 
 const PAYMENT_CONFIG = {
     vnpay: {
