@@ -278,6 +278,12 @@ class AgentSystem {
 
 const mekongAgents = new AgentSystem();
 
+// Export ra window cho global access (fix smoke test errors)
+if (typeof window !== 'undefined') {
+    window.mekongAgents = mekongAgents;
+    window.agentBus = agentBus;
+}
+
 export {
     AgentSystem,
     agentBus,
