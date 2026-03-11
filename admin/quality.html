@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality & ATTP - Cà Phê Sa Đéc</title>
+    <meta name="description" content="Quality & Food Safety Checklist - Hệ thống kiểm tra chất lượng và an toàn thực phẩm.">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        /* Quality Layout */
+        .quality-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        /* Stat Cards */
+        .quality-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .quality-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .quality-stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .quality-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quality-stat-card:nth-child(1) .quality-stat-value { color: #76ff03; }
+        .quality-stat-card:nth-child(2) .quality-stat-card:nth-child(2) .quality-stat-value { color: #00e5ff; }
+        .quality-stat-card:nth-child(3) .quality-stat-value { color: #ff6ec7; }
+        .quality-stat-card:nth-child(4) .quality-stat-value { color: #ffd600; }
+
+        /* Tab System */
+        .quality-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quality-tab {
+            padding: 12px 24px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quality-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .quality-tab.active {
+            background: linear-gradient(135deg, #76ff03 0%, #4caf50 100%);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(118, 255, 3, 0.3);
+        }
+
+        /* Checklist Panel */
+        .checklist-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            margin-bottom: 20px;
+        }
+
+        .checklist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .checklist-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist-progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #76ff03, #4caf50);
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #76ff03;
+            min-width: 50px;
+        }
+
+        /* Checklist Items */
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(118, 255, 3, 0.3);
+        }
+
+        .checklist-item.checked {
+            background: rgba(118, 255, 3, 0.08);
+            border-color: rgba(118, 255, 3, 0.4);
+        }
+
+        .checklist-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .checklist-checkbox:hover {
+            border-color: #76ff03;
+            background: rgba(118, 255, 3, 0.1);
+        }
+
+        .checklist-checkbox.checked {
+            background: linear-gradient(135deg, #76ff03, #4caf50);
+            border-color: transparent;
+        }
+
+        .checklist-checkbox .material-symbols-outlined {
+            font-size: 16px;
+            color: #000;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .checklist-checkbox.checked .material-symbols-outlined {
+            opacity: 1;
+        }
+
+        .checklist-content {
+            flex: 1;
+        }
+
+        .checklist-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .checklist-item.checked .checklist-name {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: line-through;
+        }
+
+        .checklist-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .checklist-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .checklist-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-check {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(118, 255, 3, 0.5);
+            background: rgba(118, 255, 3, 0.15);
+            color: #76ff03;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-check:hover {
+            background: rgba(118, 255, 3, 0.3);
+        }
+
+        .btn-check:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* History Panel */
+        .history-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .history-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-clear-history {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 82, 82, 0.5);
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-clear-history:hover {
+            background: rgba(255, 82, 82, 0.3);
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            font-size: 13px;
+        }
+
+        .history-icon {
+            font-size: 20px;
+        }
+
+        .history-info {
+            flex: 1;
+        }
+
+        .history-text {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .history-time {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .history-score {
+            font-weight: 700;
+            font-size: 14px;
+            color: #76ff03;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            color: rgba(255, 255, 255, 0.3);
+            gap: 12px;
+        }
+
+        .empty-state .material-symbols-outlined {
+            font-size: 64px;
+            opacity: 0.3;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .quality-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quality-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quality-tabs {
+                flex-direction: column;
+            }
+
+            .quality-tab {
+                justify-content: center;
+            }
+
+            .checklist-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="quality"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">✅ Quality & ATTP Checklist</h1>
+                    <p class="text-secondary">Kiểm tra chất lượng và an toàn thực phẩm</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Tìm kiếm..." id="searchInput" aria-label="Search">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="quality-stats animate-entry delay-2">
+                <div class="quality-stat-card">
+                    <div class="quality-stat-value" id="stat-compliance-score">0%</div>
+                    <div class="quality-stat-label">Compliance Score</div>
+                </div>
+                <div class="quality-stat-card">
+                    <div class="quality-stat-value" id="stat-checks-today">0</div>
+                    <div class="quality-stat-label">Checks hôm nay</div>
+                </div>
+                <div class="quality-stat-card">
+                    <div class="quality-stat-value" id="stat-issues-open">0</div>
+                    <div class="quality-stat-label">Issues open</div>
+                </div>
+                <div class="quality-stat-card">
+                    <div class="quality-stat-value" id="stat-streak">0</div>
+                    <div class="quality-stat-label">Streak (ngày)</div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="quality-tabs animate-entry delay-3" id="qualityTabs">
+                <button class="quality-tab active" data-tab="hourly" onclick="switchTab('hourly')">
+                    <span class="material-symbols-outlined">schedule</span>
+                    Hàng giờ
+                </button>
+                <button class="quality-tab" data-tab="daily" onclick="switchTab('daily')">
+                    <span class="material-symbols-outlined">today</span>
+                    Hàng ngày
+                </button>
+                <button class="quality-tab" data-tab="weekly" onclick="switchTab('weekly')">
+                    <span class="material-symbols-outlined">calendar_view_week</span>
+                    Hàng tuần
+                </button>
+                <button class="quality-tab" data-tab="monthly" onclick="switchTab('monthly')">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    Hàng tháng
+                </button>
+            </div>
+
+            <!-- Checklist Panel -->
+            <div class="checklist-panel animate-entry delay-4">
+                <div class="checklist-header">
+                    <div class="checklist-title">
+                        <span class="material-symbols-outlined">assignment</span>
+                        <span id="checklistTitle">Kiểm tra hàng giờ</span>
+                    </div>
+                    <div class="checklist-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">0/0</div>
+                    </div>
+                </div>
+
+                <div class="checklist-items" id="checklistItems">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="history-panel animate-entry delay-5">
+                <div class="history-header">
+                    <div class="history-title">
+                        <span class="material-symbols-outlined">history</span>
+                        Lịch sử kiểm tra
+                    </div>
+                    <button class="btn-clear-history" onclick="clearHistory()">Xóa lịch sử</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../supabase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script type="module" src="../assets/js/admin-guard.js"></script>
+    <script type="module" src="../assets/js/enhanced-utils.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
+    <script>
+        // ============ CHECKLIST DATA ============
+        const CHECKLISTS = {
+            hourly: [
+                { id: 'h1', name: 'Mặt bar sạch sẽ, gọn gàng', emoji: '🧽' },
+                { id: 'h2', name: 'Nhiệt độ tủ mát (2-4°C)', emoji: '🌡️' },
+                { id: 'h3', name: 'Nhân viên rửa tay đúng cách', emoji: '🧼' },
+                { id: 'h4', name: 'Khu vực pha chế vệ sinh', emoji: '✨' },
+                { id: 'h5', name: 'Dụng cụ được khử trùng', emoji: '🥄' },
+                { id: 'h6', name: 'Găng tay đầy đủ', emoji: '🧤' }
+            ],
+            daily: [
+                { id: 'd1', name: 'Vệ sinh toilet khách hàng', emoji: '🚽' },
+                { id: 'd2', name: 'Kiểm tra hạn sử dụng nguyên liệu', emoji: '📅' },
+                { id: 'd3', name: 'Đổ rác và vệ sinh thùng rác', emoji: '🗑️' },
+                { id: 'd4', name: 'Lau sàn nhà khu vực bar', emoji: '🧹' },
+                { id: 'd5', name: 'Vệ sinh máy pha cà phê', emoji: '☕' },
+                { id: 'd6', name: 'Kiểm tra tồn kho nguyên liệu', emoji: '📦' },
+                { id: 'd7', name: 'Vệ sinh bàn ghế khách', emoji: '🪑' },
+                { id: 'd8', name: 'Kiểm tra nhiệt độ tủ đông', emoji: '❄️' }
+            ],
+            weekly: [
+                { id: 'w1', name: 'Descale máy pha cà phê', emoji: '🔧' },
+                { id: 'w2', name: 'Vệ sinh grinder (máy xay)', emoji: '⚙️' },
+                { id: 'w3', name: 'Kiểm tra pest (côn trùng)', emoji: '🪳' },
+                { id: 'w4', name: 'Vệ sinh máy lạnh, quạt', emoji: '💨' },
+                { id: 'w5', name: 'Kiểm tra đèn, điện', emoji: '💡' },
+                { id: 'w6', name: 'Vệ sinh kệ, tủ lưu trữ', emoji: '🗄️' }
+            ],
+            monthly: [
+                { id: 'm1', name: 'Audit ATTP toàn diện', emoji: '📋' },
+                { id: 'm2', name: 'Kiểm tra giấy phép vệ sinh', emoji: '📜' },
+                { id: 'm3', name: 'Pest control chuyên nghiệp', emoji: '🏢' },
+                { id: 'm4', name: 'Calibration thiết bị đo', emoji: '📏' },
+                { id: 'm5', name: 'Đánh giá nhà cung cấp', emoji: '🤝' },
+                { id: 'm6', name: 'Training nhân viên ATTP', emoji: '📚' },
+                { id: 'm7', name: 'Kiểm tra hệ thống nước', emoji: '💧' }
+            ]
+        };
+
+        let currentTab = 'hourly';
+        let qualityData = { checks: {}, history: [], streak: 0, lastCheckDate: null };
+
+        // ============ CORE FUNCTIONS ============
+        function loadQualityData() {
+            try {
+                const saved = localStorage.getItem('sadec_quality_checks');
+                if (saved) {
+                    qualityData = JSON.parse(saved);
+                }
+            } catch (e) { console.error('Load error:', e); }
+        }
+
+        function saveQualityData() {
+            localStorage.setItem('sadec_quality_checks', JSON.stringify(qualityData));
+            updateStats();
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.quality-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.tab === tab);
+            });
+
+            const titles = {
+                hourly: 'Kiểm tra hàng giờ',
+                daily: 'Kiểm tra hàng ngày',
+                weekly: 'Kiểm tra hàng tuần',
+                monthly: 'Kiểm tra hàng tháng'
+            };
+            document.getElementById('checklistTitle').textContent = titles[tab];
+            renderChecklist();
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklistItems');
+            const items = CHECKLISTS[currentTab];
+            const today = new Date().toLocaleDateString('vi-VN');
+            const currentHour = new Date().getHours();
+
+            let checkedCount = 0;
+            let html = '';
+
+            items.forEach(item => {
+                const key = `${currentTab}_${item.id}`;
+                const checkInfo = qualityData.checks[key];
+                const isChecked = checkInfo && checkInfo.date === today;
+                const isCheckedCurrentHour = checkInfo && checkInfo.date === today && checkInfo.hour === currentHour;
+
+                if (isChecked) checkedCount++;
+
+                const timeDisplay = checkInfo ?
+                    (checkInfo.hour !== undefined ? `${checkInfo.hour}:00 - ${checkInfo.time}` : checkInfo.time) :
+                    'Chưa kiểm tra';
+                const checker = checkInfo ? checkInfo.checkedBy : '—';
+
+                html += `
+                    <div class="checklist-item ${isChecked ? 'checked' : ''}">
+                        <div class="checklist-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck('${key}', '${item.name}')">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <span style="font-size: 24px;">${item.emoji}</span>
+                        <div class="checklist-content">
+                            <div class="checklist-name">${item.name}</div>
+                            <div class="checklist-meta">
+                                <span><span class="material-symbols-outlined" style="font-size:14px;">person</span> ${checker}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;">schedule</span> ${timeDisplay}</span>
+                            </div>
+                        </div>
+                        <div class="checklist-actions">
+                            <button class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                                <span class="material-symbols-outlined">done</span>
+                                ${isChecked ? 'Đã check' : 'Check'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html || `
+                <div class="empty-state">
+                    <span class="material-symbols-outlined">assignment_turned_in</span>
+                    <p>Không có mục kiểm tra</p>
+                </div>
+            `;
+
+            // Update progress
+            const percentage = items.length > 0 ? Math.round((checkedCount / items.length) * 100) : 0;
+            document.getElementById('progressFill').style.width = `${percentage}%`;
+            document.getElementById('progressText').textContent = `${checkedCount}/${items.length}`;
+        }
+
+        function toggleCheck(key, name) {
+            const now = new Date();
+            const today = now.toLocaleDateString('vi-VN');
+            const time = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+            const hour = now.getHours();
+
+            // Get current user
+            let checkedBy = 'Admin';
+            try {
+                const user = JSON.parse(localStorage.getItem('sadec_user') || '{}');
+                checkedBy = user.email?.split('@')[0] || 'Admin';
+            } catch (e) {}
+
+            if (qualityData.checks[key]) {
+                delete qualityData.checks[key];
+            } else {
+                qualityData.checks[key] = {
+                    date: today,
+                    time: time,
+                    hour: currentTab === 'hourly' ? hour : undefined,
+                    checkedBy: checkedBy
+                };
+
+                // Add to history
+                qualityData.history.unshift({
+                    key,
+                    name,
+                    date: today,
+                    time,
+                    checkedBy,
+                    tab: currentTab
+                });
+
+                // Keep only last 100 history items
+                qualityData.history = qualityData.history.slice(0, 100);
+
+                // Update streak
+                if (qualityData.lastCheckDate !== today) {
+                    const yesterday = new Date(now);
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    const yesterdayStr = yesterday.toLocaleDateString('vi-VN');
+
+                    if (qualityData.lastCheckDate === yesterdayStr) {
+                        qualityData.streak++;
+                    } else {
+                        qualityData.streak = 1;
+                    }
+                    qualityData.lastCheckDate = today;
+                }
+            }
+
+            saveQualityData();
+            renderChecklist();
+            renderHistory();
+        }
+
+        function renderHistory() {
+            const container = document.getElementById('historyList');
+
+            if (qualityData.history.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <span class="material-symbols-outlined">history</span>
+                        <p>Chưa có lịch sử kiểm tra</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = qualityData.history.slice(0, 20).map(item => {
+                const icons = { hourly: 'schedule', daily: 'today', weekly: 'calendar_view_week', monthly: 'calendar_month' };
+                const emojis = { hourly: '⏰', daily: '📅', weekly: '📆', monthly: '🗓️' };
+
+                return `
+                    <div class="history-item">
+                        <span class="history-icon">${emojis[item.tab] || '✅'}</span>
+                        <div class="history-info">
+                            <div class="history-text">${item.name}</div>
+                            <div class="history-time">${item.date} • ${item.time} • ${item.checkedBy}</div>
+                        </div>
+                        <span class="history-score">✓</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateStats() {
+            const today = new Date().toLocaleDateString('vi-VN');
+
+            // Count checks today
+            const checksToday = Object.values(qualityData.checks).filter(c => c.date === today).length;
+
+            // Calculate compliance score
+            let totalItems = 0;
+            let checkedItems = 0;
+            Object.values(CHECKLISTS).forEach(items => {
+                totalItems += items.length;
+                items.forEach(item => {
+                    const key = `${getTabFromKey('hourly')}_${item.id}`;
+                });
+            });
+
+            // Simple score calculation
+            const totalChecks = Object.keys(qualityData.checks).length;
+            const maxChecks = Object.values(CHECKLISTS).reduce((sum, items) => sum + items.length, 0);
+            const complianceScore = maxChecks > 0 ? Math.round((totalChecks / maxChecks) * 100) : 0;
+
+            // Count open issues (items that should be checked but aren't)
+            let issuesOpen = 0;
+            Object.entries(CHECKLISTS).forEach(([tab, items]) => {
+                items.forEach(item => {
+                    const key = `${tab}_${item.id}`;
+                    if (!qualityData.checks[key]) issuesOpen++;
+                });
+            });
+
+            document.getElementById('stat-compliance-score').textContent = `${Math.min(complianceScore, 100)}%`;
+            document.getElementById('stat-checks-today').textContent = checksToday;
+            document.getElementById('stat-issues-open').textContent = issuesOpen;
+            document.getElementById('stat-streak').textContent = qualityData.streak;
+        }
+
+        function getTabFromKey(key) {
+            return key.split('_')[0];
+        }
+
+        function clearHistory() {
+            if (confirm('Xóa toàn bộ lịch sử kiểm tra?')) {
+                qualityData.history = [];
+                saveQualityData();
+                renderHistory();
+            }
+        }
+
+        function searchChecklist(query) {
+            const container = document.getElementById('checklistItems');
+            const items = CHECKLISTS[currentTab];
+            const filtered = items.filter(item =>
+                item.name.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <span class="material-symbols-outlined">search_off</span>
+                        <p>Không tìm thấy kết quả</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Re-render with filtered items
+            const today = new Date().toLocaleDateString('vi-VN');
+            let html = '';
+
+            filtered.forEach(item => {
+                const key = `${currentTab}_${item.id}`;
+                const checkInfo = qualityData.checks[key];
+                const isChecked = checkInfo && checkInfo.date === today;
+                const timeDisplay = checkInfo ? checkInfo.time : 'Chưa kiểm tra';
+                const checker = checkInfo ? checkInfo.checkedBy : '—';
+
+                html += `
+                    <div class="checklist-item ${isChecked ? 'checked' : ''}">
+                        <div class="checklist-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck('${key}', '${item.name}')">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <span style="font-size: 24px;">${item.emoji}</span>
+                        <div class="checklist-content">
+                            <div class="checklist-name">${item.name}</div>
+                            <div class="checklist-meta">
+                                <span><span class="material-symbols-outlined" style="font-size:14px;">person</span> ${checker}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;">schedule</span> ${timeDisplay}</span>
+                            </div>
+                        </div>
+                        <div class="checklist-actions">
+                            <button class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                                <span class="material-symbols-outlined">done</span>
+                                ${isChecked ? 'Đã check' : 'Check'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQualityData();
+            renderChecklist();
+            renderHistory();
+            updateStats();
+
+            // Search handler
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+                if (query) {
+                    searchChecklist(query.toLowerCase());
+                } else {
+                    renderChecklist();
+                }
+            });
+        });
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="../assets/js/content-ai.js"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>
