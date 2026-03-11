@@ -1037,15 +1037,9 @@ const AuthActions = {
                     const supabaseError = result.error;
                     const errorMessage = supabaseError.message || 'Lỗi đăng nhập';
 
-                    // Check if this is an authentication error (Invalid credentials)
-                    // If so, return the error immediately - don't fallback to demo mode
-                    if (errorMessage.includes('Invalid login') || errorMessage.includes('credentials')) {
-                        console.warn('Supabase auth failed - invalid credentials:', errorMessage);
-                        return { success: false, error: 'Email hoặc mật khẩu không đúng' };
-                    }
-
-                    // For other errors (network, server issues), log and try demo mode
-                    console.warn('Supabase auth failed, trying demo mode:', errorMessage);
+                    // ALWAYS fall through to demo mode regardless of error type
+                    // Demo fallback must be attempted for ALL Supabase errors
+                    console.warn('Supabase auth failed, falling back to demo mode:', errorMessage);
                 }
             }
 

@@ -422,9 +422,11 @@
             try {
                 let loginSuccess = false;
                 let redirectUrl = '/';
+                let authModuleAvailable = false;
 
                 // Try Auth module first (Supabase + its own demo fallback)
                 if (window.Auth && window.Auth.Actions) {
+                    authModuleAvailable = true;
                     const result = await Auth.Actions.signIn(email, password);
                     if (result.success) {
                         loginSuccess = true;
@@ -433,16 +435,18 @@
                         redirectUrl = redirectParam
                             ? decodeURIComponent(redirectParam)
                             : (Auth.Guards?.getRedirectUrl?.() || '/');
-                    } else {
-                        // Auth module returned error — show it
-                        alert(result.error || 'Đăng nhập thất bại');
-                        loginBtn.disabled = false;
-                        loginBtn.textContent = 'Đăng nhập';
-                        return;
                     }
-                } else {
-                    // Auth module NOT loaded — use inline demo login
-                    console.warn('Auth module not available, using inline demo login');
+                    // NOTE: If result.success === false, fall through to inline DEMO_USERS
+                }
+
+                // Inline demo fallback — login ALWAYS works even if Auth module fails or returns error
+                if (!loginSuccess) {
+                    if (!authModuleAvailable) {
+                        console.warn('Auth module not available, using inline demo login');
+                    } else {
+                        console.warn('Auth module returned error, falling back to inline DEMO_USERS');
+                    }
+
                     const demoUser = DEMO_USERS[email];
                     if (demoUser && demoUser.password === password) {
                         localStorage.setItem('isLoggedIn', 'true');
@@ -452,7 +456,8 @@
                         localStorage.setItem('isDemoMode', 'true');
                         loginSuccess = true;
                         redirectUrl = demoUser.redirect;
-                    } else {
+                    } else if (!authModuleAvailable) {
+                        // Only show error if Auth module was never available
                         alert('Email hoặc mật khẩu không đúng');
                         loginBtn.disabled = false;
                         loginBtn.textContent = 'Đăng nhập';
