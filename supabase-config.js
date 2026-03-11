@@ -31,7 +31,8 @@ function initSupabase() {
 
 function getClient() {
     if (!supabaseClient) initSupabase();
-    return supabaseClient;
+    // Null safety: return null if client not initialized (window.supabase undefined)
+    return supabaseClient || null;
 }
 
 // ============================================================================
@@ -886,8 +887,8 @@ const AuthState = {
         this.isLoading = true;
 
         try {
-            // Try Supabase via AuthAPI
-            if (window.AuthAPI) {
+            // Null safety: Check if AuthAPI exists before using
+            if (window.AuthAPI && typeof window.AuthAPI.getSession === 'function') {
                 const session = await window.AuthAPI.getSession();
 
                 if (session?.user) {
@@ -898,7 +899,7 @@ const AuthState = {
                     const jwtRole = session.user.app_metadata?.role;
 
                     if (jwtRole && ROLE_LEVELS[jwtRole]) {
-                        // Role found in JWT - use it directly (most secure)
+                        // Role found in JWT claims - use it directly (most secure)
                         this.profile = {
                             id: session.user.id,
                             email: session.user.email,
@@ -909,9 +910,12 @@ const AuthState = {
                         // console.debug('Auth: Role from JWT claims:', jwtRole);
                     } else {
                         // Fallback: Load profile from database (for users before trigger)
-                        const profile = await window.AuthAPI.getProfile();
-                        if (profile) {
-                            this.profile = profile;
+                        // Null safety: check if getProfile exists
+                        if (typeof window.AuthAPI.getProfile === 'function') {
+                            const profile = await window.AuthAPI.getProfile();
+                            if (profile) {
+                                this.profile = profile;
+                            }
                         }
                         // console.debug('Auth: Role from user_profiles:', this.profile?.role);
                     }
