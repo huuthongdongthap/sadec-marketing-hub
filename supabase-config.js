@@ -1022,12 +1022,17 @@ const AuthActions = {
 
     // Sign in with email/password
     async signIn(email, password) {
+        console.log('[AuthActions.signIn] Called with email:', email);
         try {
             // Try Supabase via AuthAPI
+            console.log('[AuthActions.signIn] Checking window.AuthAPI...');
             if (window.AuthAPI) {
+                console.log('[AuthActions.signIn] Calling window.AuthAPI.signIn...');
                 const result = await window.AuthAPI.signIn(email, password);
+                console.log('[AuthActions.signIn] AuthAPI result:', result);
 
                 if (result.data?.user) {
+                    console.log('[AuthActions.signIn] Supabase login SUCCESS');
                     await AuthState.init();
                     return { success: true, user: result.data.user };
                 }
@@ -1036,14 +1041,19 @@ const AuthActions = {
                     // Extract error message from Supabase error object
                     const supabaseError = result.error;
                     const errorMessage = supabaseError.message || 'Lỗi đăng nhập';
+                    console.log('[AuthActions.signIn] Supabase error type:', supabaseError.constructor.name);
+                    console.log('[AuthActions.signIn] Supabase error message:', errorMessage);
 
                     // ALWAYS fall through to demo mode regardless of error type
                     // Demo fallback must be attempted for ALL Supabase errors
-                    console.warn('Supabase auth failed, falling back to demo mode:', errorMessage);
+                    console.warn('[AuthActions.signIn] Supabase auth failed, falling back to demo mode:', errorMessage);
                 }
+            } else {
+                console.warn('[AuthActions.signIn] window.AuthAPI not defined');
             }
 
-            // Demo mode fallback (only for network/server errors, not invalid credentials)
+            // Demo mode fallback
+            console.log('[AuthActions.signIn] Checking DEMO_USERS...');
             const DEMO_USERS = {
                 'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin' },
                 'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager' },
@@ -1053,8 +1063,10 @@ const AuthActions = {
             };
 
             const demoUser = DEMO_USERS[email.toLowerCase()];
+            console.log('[AuthActions.signIn] DEMO_USERS lookup result:', demoUser);
 
             if (demoUser && demoUser.password === password) {
+                console.log('[AuthActions.signIn] DEMO USER MATCH!');
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('userEmail', email);
                 localStorage.setItem('userRole', demoUser.role);
@@ -1063,12 +1075,19 @@ const AuthActions = {
 
                 await AuthState.init();
                 return { success: true, user: { email }, isDemo: true };
+            } else {
+                console.log('[AuthActions.signIn] Demo user check failed');
+                if (!demoUser) {
+                    console.log('[AuthActions.signIn] No demo user found for email:', email);
+                } else {
+                    console.log('[AuthActions.signIn] Password mismatch. Expected:', demoUser.password, 'Got:', password);
+                }
             }
 
             return { success: false, error: 'Email hoặc mật khẩu không đúng' };
 
         } catch (error) {
-            console.error('Sign in error:', error);
+            console.error('[AuthActions.signIn] Exception caught:', error);
             return { success: false, error: error.message };
         }
     },
