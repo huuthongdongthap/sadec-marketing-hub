@@ -339,7 +339,13 @@
             }
 
             // Check if already authenticated
-            Auth.Guards.redirectIfAuthenticated();
+            try {
+                if (window.Auth && window.Auth.Guards) {
+                    await Auth.Guards.redirectIfAuthenticated();
+                }
+            } catch (e) {
+                console.warn(e);
+            }
         });
 
         function switchRole(role) {
