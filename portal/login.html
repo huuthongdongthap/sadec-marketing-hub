@@ -101,6 +101,17 @@
 
                 <div class="login-divider">hoặc đăng nhập với email</div>
 
+                <!-- Inline DEMO_USERS fallback when Auth is undefined -->
+                <script>
+                    const DEMO_USERS = {
+                        'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin', redirect: '/admin/dashboard.html' },
+                        'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager', redirect: '/admin/dashboard.html' },
+                        'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator', redirect: '/admin/dashboard.html' },
+                        'client@mekongmarketing.com': { password: 'client123', role: 'client', name: 'Client Demo', redirect: '/portal/dashboard.html' },
+                        'affiliate@mekongmarketing.com': { password: 'affiliate123', role: 'affiliate', name: 'Affiliate Demo', redirect: '/affiliate/dashboard.html' }
+                    };
+                </script>
+
                 <form id="loginForm">
                     <div class="form-group">
                         <label class="form-label" for="email">Email</label>
@@ -143,8 +154,14 @@
         const passwordInput = loginForm.querySelector('input[type="password"]');
         const submitBtn = loginForm.querySelector('button[type="submit"]');
 
-        // Check if already logged in
-        Auth.Guards.redirectIfAuthenticated();
+        // Check if already logged in - wrap in try-catch for when Auth is undefined
+        try {
+            if (window.Auth && window.Auth.Guards) {
+                Auth.Guards.redirectIfAuthenticated();
+            }
+        } catch (e) {
+            console.warn('Auth.Guards unavailable, skipping redirect check');
+        }
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -162,7 +179,20 @@
             submitBtn.textContent = 'Đang đăng nhập...';
 
             try {
-                const result = await Auth.Actions.signIn(email, password);
+                // Use centralized Auth action with fallback to inline DEMO_USERS
+                let result;
+                if (window.Auth && window.Auth.Actions) {
+                    result = await Auth.Actions.signIn(email, password);
+                } else {
+                    // Fallback to inline DEMO_USERS when Auth module not available
+                    console.warn('Auth module not available, using inline DEMO_USERS');
+                    const demoUser = DEMO_USERS[email];
+                    if (demoUser && demoUser.password === password) {
+                        result = { success: true, user: { email, role: demoUser.role, name: demoUser.name } };
+                    } else {
+                        result = { success: false, error: 'Email hoặc mật khẩu không đúng' };
+                    }
+                }
 
                 if (result.success) {
                     // Check for redirect param first
@@ -174,15 +204,17 @@
                         window.location.href = decodeURIComponent(redirectParam);
                     } else {
                         // Default role-based redirect
-                        const redirectUrl = Auth.Guards.getRedirectUrl();
+                        const redirectUrl = (window.Auth && window.Auth.Guards)
+                            ? Auth.Guards.getRedirectUrl()
+                            : DEMO_USERS[email]?.redirect || '/';
                         window.location.href = redirectUrl;
                     }
                 } else {
                     alert(result.error || 'Email hoặc mật khẩu không đúng');
                 }
             } catch (err) {
-                // console.error('Login error:', err);
-                alert('Có lỗi xảy ra, vui lòng thử lại');
+                console.error('Login error:', err);
+                alert('Có lỗi xảy ra: ' + (err.message || 'Không xác định'));
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Đăng nhập';
