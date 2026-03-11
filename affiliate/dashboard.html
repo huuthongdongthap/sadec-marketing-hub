@@ -351,11 +351,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             // Initialize Auth
-            await Auth.UI.init();
+            await Auth.State.init();
 
             // Guard: Require Affiliate Role
             if (!Auth.State.isAuthenticated) {
                 window.location.href = '/auth/login.html?role=affiliate';
+                return;
             }
         });
     </script>

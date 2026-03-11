@@ -181,6 +181,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="../supabase-config.js"></script>
     <script type="module" src="../auth.js"></script>
+    <script type="module" src="../assets/js/admin-guard.js"></script>
     <script type="module" src="../assets/js/enhanced-utils.js"></script>
     <script type="module" src="../assets/js/admin-shared.js"></script>
     <script src="../assets/js/dashboard-client.js" type="module"></script>
@@ -189,11 +190,6 @@
     <script>
         // Initialize Chart.js after DOM load
         document.addEventListener('DOMContentLoaded', async () => {
-            // Check Auth
-            if (window.Auth && window.Auth.Guards) {
-                // await Auth.Guards.requireAuth(); // Uncomment to enforce auth
-            }
-
             // Initialize Live Data
             if (window.MekongAdmin && window.SupabaseAPI) {
                 MekongAdmin.LiveData.init(SupabaseAPI.getClient());
