@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Manager - Cà Phê Sa Đéc</title>
+    <meta name="description" content="Menu management system for Container Coffee Hub Sa Đéc - Create, edit and organize menu items with recipe tracking.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+    <link rel="stylesheet" href="../assets/css/admin-menu.css">
+</head>
+
+<body>
+    <div class="layout-2026">
+        <sadec-sidebar active="menu"></sadec-sidebar>
+        <main class="main-content">
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">🍽️ Menu Manager</h1>
+                    <p class="text-secondary">Quản lý thực đơn Container Coffee Hub</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Tìm món..." id="searchInput" aria-label="Search menu items">
+                    </div>
+                    <button class="btn-cyber" onclick="MenuManager.exportCSV()" title="Export CSV">
+                        <span class="material-symbols-outlined">download</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-stats animate-entry delay-2">
+                <div class="menu-stat-card"><div class="menu-stat-value cyan" id="stat-total">0</div><div class="menu-stat-label">Tổng món</div></div>
+                <div class="menu-stat-card"><div class="menu-stat-value lime" id="stat-avail">0</div><div class="menu-stat-label">Đang bán</div></div>
+                <div class="menu-stat-card"><div class="menu-stat-value pink" id="stat-avgprice">0₫</div><div class="menu-stat-label">Giá TB</div></div>
+                <div class="menu-stat-card"><div class="menu-stat-value gold" id="stat-avgmargin">0%</div><div class="menu-stat-label">Margin TB</div></div>
+            </div>
+
+            <div class="menu-toolbar animate-entry delay-3">
+                <div class="toolbar-left">
+                    <button class="filter-chip active" data-filter="all" onclick="MenuManager.filter('all')">Tất cả</button>
+                    <button class="filter-chip" data-filter="coffee" onclick="MenuManager.filter('coffee')">☕ Cà phê</button>
+                    <button class="filter-chip" data-filter="tea" onclick="MenuManager.filter('tea')">🍵 Trà</button>
+                    <button class="filter-chip" data-filter="blended" onclick="MenuManager.filter('blended')">🧊 Đá Xay</button>
+                    <button class="filter-chip" data-filter="snacks" onclick="MenuManager.filter('snacks')">🍰 Snacks</button>
+                </div>
+                <button class="add-menu-btn" onclick="MenuManager.openModal()">
+                    <span class="material-symbols-outlined">add</span> Thêm món mới
+                </button>
+            </div>
+
+            <div class="menu-table-wrapper animate-entry delay-3">
+                <table class="menu-table">
+                    <thead><tr><th>Món</th><th>Danh mục</th><th>Giá bán</th><th>Giá vốn</th><th>Margin</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+                    <tbody id="menuTableBody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="menuModal">
+        <div class="modal-content">
+            <div class="modal-title"><span class="material-symbols-outlined">restaurant_menu</span><span id="modalTitle">Thêm món mới</span></div>
+            <form id="menuForm" onsubmit="MenuManager.save(event)">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">Tên món</label><input class="form-input" id="itemName" required placeholder="VD: Cà phê sữa đá"></div>
+                    <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" id="itemEmoji" placeholder="☕" maxlength="4"></div>
+                </div>
+                <div class="form-group"><label class="form-label">Danh mục</label>
+                    <select class="form-select" id="itemCat" required><option value="coffee">☕ Cà phê</option><option value="tea">🍵 Trà</option><option value="blended">🧊 Đá Xay</option><option value="snacks">🍰 Snacks</option></select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">Giá bán (VND)</label><input class="form-input" type="number" id="itemPrice" required min="0" placeholder="45000"></div>
+                    <div class="form-group"><label class="form-label">Giá vốn (VND)</label><input class="form-input" type="number" id="itemCost" min="0" placeholder="12000"></div>
+                </div>
+                <div class="form-group"><label class="form-label">Công thức</label><textarea class="form-textarea" id="itemRecipe" placeholder="VD: 18g espresso + 30ml sữa"></textarea></div>
+                <div class="modal-actions"><button type="button" class="modal-cancel" onclick="MenuManager.closeModal()">Hủy</button><button type="submit" class="modal-save">Lưu</button></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../supabase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script type="module" src="../assets/js/admin-guard.js"></script>
+    <script src="../assets/js/admin/menu-manager.js"></script>
+    <script type="module" src="../assets/js/enhanced-utils.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
+    <script type="module" src="../assets/js/content-ai.js"></script>
+    <script type="module" src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

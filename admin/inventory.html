@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Tồn Kho - Cà Phê Sa Đéc</title>
+    <meta name="description" content="Inventory Management - Quản lý tồn kho nguyên liệu, vật tư cho Container Coffee Hub Sa Đéc.">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        /* Inventory Layout */
+        .inventory-header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .inventory-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Stat Cards */
+        .inventory-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .inventory-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .inventory-stat-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.1);
+        }
+
+        .inventory-stat-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .inventory-stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .inventory-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .inventory-stat-card:nth-child(1) .inventory-stat-value { color: #00e5ff; }
+        .inventory-stat-card:nth-child(2) .inventory-stat-value { color: #ffd600; }
+        .inventory-stat-card:nth-child(3) .inventory-stat-value { color: #ff5252; }
+        .inventory-stat-card:nth-child(4) .inventory-stat-value { color: #76ff03; }
+
+        /* Toolbar */
+        .inventory-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .filter-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(0, 229, 255, 0.3);
+        }
+
+        .add-inventory-btn {
+            padding: 10px 24px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-inventory-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Table */
+        .inventory-table-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inventory-table th {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .inventory-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .inventory-table tr:hover td {
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        .inventory-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Item Name Cell */
+        .item-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .item-emoji {
+            font-size: 24px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-ok {
+            background: rgba(118, 255, 3, 0.15);
+            color: #76ff03;
+            border: 1px solid rgba(118, 255, 3, 0.3);
+        }
+
+        .status-low {
+            background: rgba(255, 214, 0, 0.15);
+            color: #ffd600;
+            border: 1px solid rgba(255, 214, 0, 0.3);
+        }
+
+        .status-out {
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            border: 1px solid rgba(255, 82, 82, 0.3);
+        }
+
+        /* Restock Button */
+        .restock-btn {
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            background: rgba(0, 229, 255, 0.1);
+            color: #00e5ff;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .restock-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.6);
+        }
+
+        .restock-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: #00e5ff;
+        }
+
+        .action-btn.delete:hover {
+            background: rgba(255, 82, 82, 0.15);
+            border-color: rgba(255, 82, 82, 0.4);
+            color: #ff5252;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(20, 30, 40, 0.98), rgba(10, 20, 30, 0.98));
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 24px;
+            padding: 32px;
+            width: 90%;
+            max-width: 560px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 82, 82, 0.2);
+            border-color: rgba(255, 82, 82, 0.4);
+            color: #ff5252;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: rgba(0, 229, 255, 0.5);
+            box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .modal-cancel-btn {
+            flex: 1;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .modal-cancel-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-save-btn {
+            flex: 1;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.4);
+        }
+
+        /* Empty State */
+        .inventory-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .inventory-empty .material-symbols-outlined {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .inventory-empty h3 {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .inventory-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .inventory-header-section {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .inventory-stats {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .inventory-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filter-chips {
+                justify-content: center;
+            }
+            .add-inventory-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="inventory"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div class="inventory-header-section">
+                    <div class="inventory-title">
+                        <span class="material-symbols-outlined" style="font-size: 32px; color: #00e5ff;">inventory_2</span>
+                        <div>
+                            <h1 class="dashboard-title">📦 Quản Lý Tồn Kho</h1>
+                            <p class="text-secondary">Theo dõi nguyên liệu, vật tư và cảnh báo hết hàng</p>
+                        </div>
+                    </div>
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Tìm nguyên liệu..." id="searchInput" aria-label="Search inventory">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="inventory-stats animate-entry delay-2">
+                <div class="inventory-stat-card">
+                    <span class="inventory-stat-icon">📦</span>
+                    <div class="inventory-stat-value" id="stat-total-items">0</div>
+                    <div class="inventory-stat-label">Tổng Items</div>
+                </div>
+                <div class="inventory-stat-card">
+                    <span class="inventory-stat-icon">⚠️</span>
+                    <div class="inventory-stat-value" id="stat-low-stock">0</div>
+                    <div class="inventory-stat-label">Sắp Hết</div>
+                </div>
+                <div class="inventory-stat-card">
+                    <span class="inventory-stat-icon">❌</span>
+                    <div class="inventory-stat-value" id="stat-out-stock">0</div>
+                    <div class="inventory-stat-label">Hết Hàng</div>
+                </div>
+                <div class="inventory-stat-card">
+                    <span class="inventory-stat-icon">💰</span>
+                    <div class="inventory-stat-value" id="stat-inventory-value">0₫</div>
+                    <div class="inventory-stat-label">Giá Trị Tồn</div>
+                </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="inventory-toolbar animate-entry delay-3">
+                <div class="filter-chips" id="filterChips">
+                    <button class="filter-chip active" data-filter="all" onclick="filterInventory('all')">
+                        📋 Tất cả
+                    </button>
+                    <button class="filter-chip" data-filter="nguyen-lieu" onclick="filterInventory('nguyen-lieu')">
+                        🫘 Nguyên liệu
+                    </button>
+                    <button class="filter-chip" data-filter="dong-goi" onclick="filterInventory('dong-goi')">
+                        📦 Đóng gói
+                    </button>
+                    <button class="filter-chip" data-filter="thiet-bi" onclick="filterInventory('thiet-bi')">
+                        🔧 Thiết bị
+                    </button>
+                </div>
+                <button class="add-inventory-btn" onclick="openModal()">
+                    <span class="material-symbols-outlined">add</span>
+                    Thêm mới
+                </button>
+            </div>
+
+            <!-- Table -->
+            <div class="inventory-table-wrapper animate-entry delay-4">
+                <table class="inventory-table" id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Tên nguyên liệu</th>
+                            <th>Đơn vị</th>
+                            <th>Số lượng</th>
+                            <th>Threshold</th>
+                            <th>Nhà cung cấp</th>
+                            <th>Lần nhập cuối</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody">
+                        <!-- Rendered by JS -->
+                    </tbody>
+                </table>
+                <div class="inventory-empty" id="emptyState" style="display: none;">
+                    <span class="material-symbols-outlined">inventory_2</span>
+                    <h3>Chưa có nguyên liệu nào</h3>
+                    <p>Nhấn "Thêm mới" để thêm nguyên liệu đầu tiên</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="material-symbols-outlined">inventory</span>
+                    <span id="modalTitle">Thêm Nguyên Liệu</span>
+                </div>
+                <button class="modal-close" onclick="closeModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form id="inventoryForm" onsubmit="return handleFormSubmit(event)">
+                <input type="hidden" id="itemId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="itemName">Tên nguyên liệu *</label>
+                        <input type="text" id="itemName" class="form-input" required placeholder="Ví dụ: Cà phê hạt">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="itemCategory">Danh mục *</label>
+                        <select id="itemCategory" class="form-select" required>
+                            <option value="">Chọn danh mục</option>
+                            <option value="nguyen-lieu">🫘 Nguyên liệu</option>
+                            <option value="dong-goi">📦 Đóng gói</option>
+                            <option value="thiet-bi">🔧 Thiết bị</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="itemUnit">Đơn vị tính *</label>
+                        <select id="itemUnit" class="form-select" required>
+                            <option value="">Chọn đơn vị</option>
+                            <option value="kg">Kg</option>
+                            <option value="g">Gram</option>
+                            <option value="l">Lít</option>
+                            <option value="ml">Mililit</option>
+                            <option value="hop">Hộp</option>
+                            <option value="chai">Chai</option>
+                            <option value="tui">Túi</option>
+                            <option value="cai">Cái</option>
+                            <option value="gói">Gói</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="itemEmoji">Emoji</label>
+                        <input type="text" id="itemEmoji" class="form-input" placeholder="🫘">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="itemQuantity">Số lượng *</label>
+                        <input type="number" id="itemQuantity" class="form-input" required min="0" step="0.1" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="itemThreshold">Threshold cảnh báo *</label>
+                        <input type="number" id="itemThreshold" class="form-input" required min="1" placeholder="5">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="itemSupplier">Nhà cung cấp</label>
+                        <input type="text" id="itemSupplier" class="form-input" placeholder="Tên NCC">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="itemLastRestock">Lần nhập cuối</label>
+                        <input type="date" id="itemLastRestock" class="form-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="itemNotes">Ghi chú</label>
+                    <textarea id="itemNotes" class="form-textarea" placeholder="Ghi chú thêm..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="modal-cancel-btn" onclick="closeModal()">Hủy</button>
+                    <button type="submit" class="modal-save-btn">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Restock Success Overlay -->
+    <div class="order-success-overlay" id="restockSuccess" style="display: none;">
+        <div class="order-success-content">
+            <div class="success-icon">✅</div>
+            <div class="success-text">Đã nhập hàng thành công!</div>
+            <div class="success-order-id" id="restockItemName"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../supabase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script type="module" src="../assets/js/admin-guard.js"></script>
+    <script type="module" src="../assets/js/enhanced-utils.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
+    <script>
+        // ============ INVENTORY DATA ============
+        const DEFAULT_INVENTORY = [
+            // Nguyên liệu
+            { id: 'inv001', name: 'Cà phê hạt', emoji: '🫘', category: 'nguyen-lieu', unit: 'kg', quantity: 5, threshold: 2, supplier: 'Trung Nguyên', lastRestock: '2026-03-05', notes: 'Cà phê Robusta Đắk Lắk' },
+            { id: 'inv002', name: 'Sữa đặc', emoji: '🥛', category: 'nguyen-lieu', unit: 'hộp', quantity: 10, threshold: 5, supplier: 'Vinamilk', lastRestock: '2026-03-08', notes: 'Sữa đặc Ông Thọ' },
+            { id: 'inv003', name: 'Sữa tươi', emoji: '🍼', category: 'nguyen-lieu', unit: 'lít', quantity: 20, threshold: 10, supplier: 'Vinamilk', lastRestock: '2026-03-10', notes: 'Sữa tươi không đường 1L' },
+            { id: 'inv004', name: 'Đường', emoji: '🍬', category: 'nguyen-lieu', unit: 'kg', quantity: 10, threshold: 3, supplier: 'Biên Hòa', lastRestock: '2026-03-01', notes: 'Đường trắng tinh luyện' },
+            { id: 'inv005', name: 'Đá viên', emoji: '🧊', category: 'nguyen-lieu', unit: 'kg', quantity: 50, threshold: 20, supplier: 'Đá sạch Sài Gòn', lastRestock: '2026-03-09', notes: 'Đá viên công nghiệp 25kg/bao' },
+            { id: 'inv006', name: 'Bột matcha', emoji: '🍵', category: 'nguyen-lieu', unit: 'kg', quantity: 1, threshold: 0.5, supplier: 'Kyoto Matcha', lastRestock: '2026-02-28', notes: 'Matcha Nhật Bản loại 1' },
+            { id: 'inv007', name: 'Syrup caramel', emoji: '🍯', category: 'nguyen-lieu', unit: 'chai', quantity: 2, threshold: 1, supplier: 'Monin', lastRestock: '2026-03-03', notes: 'Syrup Monin 700ml' },
+            { id: 'inv008', name: 'Cacao', emoji: '🍫', category: 'nguyen-lieu', unit: 'kg', quantity: 2, threshold: 1, supplier: 'Marou', lastRestock: '2026-02-25', notes: 'Bột cacao nguyên chất' },
+            { id: 'inv009', name: 'Trà túi lọc', emoji: '🫖', category: 'nguyen-lieu', unit: 'gói', quantity: 50, threshold: 20, supplier: 'Dilmah', lastRestock: '2026-03-07', notes: 'Trà đen túi lọc' },
+            { id: 'inv010', name: 'Bơ', emoji: '🥑', category: 'nguyen-lieu', unit: 'kg', quantity: 3, threshold: 1, supplier: 'Woolworths', lastRestock: '2026-03-06', notes: 'Bơ sáp Đà Lạt' },
+            // Đóng gói
+            { id: 'inv011', name: 'Ly giấy 16oz', emoji: '🥤', category: 'dong-goi', unit: 'cái', quantity: 200, threshold: 50, supplier: 'GreenViet', lastRestock: '2026-03-04', notes: 'Ly giấy 2 lớp, 500ml' },
+            { id: 'inv012', name: 'Ly giấy 12oz', emoji: '🥤', category: 'dong-goi', unit: 'cái', quantity: 200, threshold: 50, supplier: 'GreenViet', lastRestock: '2026-03-04', notes: 'Ly giấy 2 lớp, 350ml' },
+            { id: 'inv013', name: 'Nắp ly', emoji: '🔴', category: 'dong-goi', unit: 'cái', quantity: 500, threshold: 100, supplier: 'GreenViet', lastRestock: '2026-03-04', notes: 'Nắp bằng nhựa PLA' },
+            { id: 'inv014', name: 'Ống hút', emoji: '🥢', category: 'dong-goi', unit: 'cái', quantity: 300, threshold: 100, supplier: 'BioStraw', lastRestock: '2026-03-02', notes: 'Ống hút giấy phân hủy sinh học' },
+            { id: 'inv015', name: 'Khăn giấy', emoji: '🧻', category: 'dong-goi', unit: 'gói', quantity: 20, threshold: 5, supplier: 'Paseo', lastRestock: '2026-03-01', notes: 'Khăn giấy 2 lớp' },
+        ];
+
+        let inventoryItems = [];
+        let currentFilter = 'all';
+
+        // ============ STORAGE ============
+        function loadInventory() {
+            try {
+                const stored = localStorage.getItem('sadec_inventory');
+                if (stored) {
+                    inventoryItems = JSON.parse(stored);
+                } else {
+                    inventoryItems = [...DEFAULT_INVENTORY];
+                    saveInventory();
+                }
+            } catch (e) {
+                console.error('Error loading inventory:', e);
+                inventoryItems = [...DEFAULT_INVENTORY];
+            }
+        }
+
+        function saveInventory() {
+            localStorage.setItem('sadec_inventory', JSON.stringify(inventoryItems));
+        }
+
+        // ============ RENDER ============
+        function getStatus(item) {
+            if (item.quantity === 0) return { class: 'status-out', label: 'Hết hàng' };
+            if (item.quantity <= item.threshold) return { class: 'status-low', label: 'Sắp hết' };
+            return { class: 'status-ok', label: 'Đủ' };
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('inventoryTableBody');
+            const emptyState = document.getElementById('emptyState');
+            const table = document.getElementById('inventoryTable');
+
+            let items = inventoryItems;
+            if (currentFilter !== 'all') {
+                items = items.filter(i => i.category === currentFilter);
+            }
+
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            if (search) {
+                items = items.filter(i => i.name.toLowerCase().includes(search));
+            }
+
+            if (items.length === 0) {
+                tbody.innerHTML = '';
+                table.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            table.style.display = 'table';
+            emptyState.style.display = 'none';
+
+            tbody.innerHTML = items.map(item => {
+                const status = getStatus(item);
+                return `
+                    <tr>
+                        <td>
+                            <div class="item-name-cell">
+                                <span class="item-emoji">${item.emoji || '📦'}</span>
+                                <span class="item-name">${item.name}</span>
+                            </div>
+                        </td>
+                        <td>${item.unit}</td>
+                        <td>${formatQuantity(item.quantity, item.unit)}</td>
+                        <td>${formatQuantity(item.threshold, item.unit)}</td>
+                        <td>${item.supplier || '—'}</td>
+                        <td>${item.lastRestock ? formatDate(item.lastRestock) : '—'}</td>
+                        <td><span class="status-badge ${status.class}">${status.label}</span></td>
+                        <td>
+                            <div style="display: flex; gap: 6px;">
+                                <button class="restock-btn" onclick="openRestockModal('${item.id}')" ${item.quantity > 0 && item.quantity > item.threshold ? 'disabled' : ''}>
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Nhập
+                                </button>
+                                <button class="action-btn" onclick="editItem('${item.id}')" title="Sửa">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                                <button class="action-btn delete" onclick="deleteItem('${item.id}')" title="Xóa">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const totalItems = inventoryItems.length;
+            const lowStock = inventoryItems.filter(i => i.quantity <= i.threshold && i.quantity > 0).length;
+            const outStock = inventoryItems.filter(i => i.quantity === 0).length;
+            // Tính giá trị tồn kho (ước tính dựa trên số lượng)
+            const inventoryValue = inventoryItems.reduce((sum, i) => sum + (i.quantity * 50000), 0);
+
+            document.getElementById('stat-total-items').textContent = totalItems;
+            document.getElementById('stat-low-stock').textContent = lowStock;
+            document.getElementById('stat-out-stock').textContent = outStock;
+            document.getElementById('stat-inventory-value').textContent = formatVND(inventoryValue);
+        }
+
+        // ============ ACTIONS ============
+        function filterInventory(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.filter === filter);
+            });
+            renderTable();
+        }
+
+        function openModal(itemId = null) {
+            const overlay = document.getElementById('modalOverlay');
+            const title = document.getElementById('modalTitle');
+            const form = document.getElementById('inventoryForm');
+
+            if (itemId) {
+                const item = inventoryItems.find(i => i.id === itemId);
+                if (item) {
+                    title.textContent = 'Sửa Nguyên Liệu';
+                    document.getElementById('itemId').value = item.id;
+                    document.getElementById('itemName').value = item.name;
+                    document.getElementById('itemCategory').value = item.category;
+                    document.getElementById('itemUnit').value = item.unit;
+                    document.getElementById('itemEmoji').value = item.emoji || '';
+                    document.getElementById('itemQuantity').value = item.quantity;
+                    document.getElementById('itemThreshold').value = item.threshold;
+                    document.getElementById('itemSupplier').value = item.supplier || '';
+                    document.getElementById('itemLastRestock').value = item.lastRestock || '';
+                    document.getElementById('itemNotes').value = item.notes || '';
+                }
+            } else {
+                title.textContent = 'Thêm Nguyên Liệu';
+                form.reset();
+                document.getElementById('itemId').value = '';
+            }
+
+            overlay.classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('show');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const itemId = document.getElementById('itemId').value;
+            const itemData = {
+                name: document.getElementById('itemName').value,
+                category: document.getElementById('itemCategory').value,
+                unit: document.getElementById('itemUnit').value,
+                emoji: document.getElementById('itemEmoji').value || getEmojiForCategory(document.getElementById('itemCategory').value),
+                quantity: parseFloat(document.getElementById('itemQuantity').value),
+                threshold: parseFloat(document.getElementById('itemThreshold').value),
+                supplier: document.getElementById('itemSupplier').value,
+                lastRestock: document.getElementById('itemLastRestock').value,
+                notes: document.getElementById('itemNotes').value
+            };
+
+            if (itemId) {
+                // Edit
+                const index = inventoryItems.findIndex(i => i.id === itemId);
+                if (index !== -1) {
+                    inventoryItems[index] = { ...inventoryItems[index], ...itemData };
+                }
+            } else {
+                // Add new
+                const newItem = {
+                    id: 'inv' + Date.now(),
+                    ...itemData
+                };
+                inventoryItems.push(newItem);
+            }
+
+            saveInventory();
+            closeModal();
+            renderTable();
+            return false;
+        }
+
+        function editItem(itemId) {
+            openModal(itemId);
+        }
+
+        function deleteItem(itemId) {
+            if (confirm('Bạn có chắc muốn xóa nguyên liệu này?')) {
+                inventoryItems = inventoryItems.filter(i => i.id !== itemId);
+                saveInventory();
+                renderTable();
+            }
+        }
+
+        function openRestockModal(itemId) {
+            const item = inventoryItems.find(i => i.id === itemId);
+            if (!item) return;
+
+            const qty = prompt(`Nhập số lượng cần thêm cho "${item.name}" (${item.unit}):`, '5');
+            if (qty && !isNaN(qty) && parseFloat(qty) > 0) {
+                item.quantity += parseFloat(qty);
+                item.lastRestock = new Date().toISOString().split('T')[0];
+                saveInventory();
+                renderTable();
+
+                // Show success
+                const overlay = document.getElementById('restockSuccess');
+                document.getElementById('restockItemName').textContent = `${item.name}: +${qty} ${item.unit}`;
+                overlay.style.display = 'flex';
+                setTimeout(() => overlay.style.display = 'none', 2000);
+            }
+        }
+
+        // ============ UTILS ============
+        function getEmojiForCategory(category) {
+            const emojis = {
+                'nguyen-lieu': '🫘',
+                'dong-goi': '📦',
+                'thiet-bi': '🔧'
+            };
+            return emojis[category] || '📦';
+        }
+
+        function formatQuantity(qty, unit) {
+            const num = parseFloat(qty);
+            if (num === Math.floor(num)) {
+                return `${num} ${unit}`;
+            }
+            return `${num.toFixed(1)} ${unit}`;
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('vi-VN');
+        }
+
+        function formatVND(n) {
+            return new Intl.NumberFormat('vi-VN').format(n) + '₫';
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            loadInventory();
+            renderTable();
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', () => {
+                renderTable();
+            });
+        });
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="../assets/js/content-ai.js"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>

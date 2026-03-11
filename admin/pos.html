@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container POS - Cà Phê Sa Đéc</title>
+    <meta name="description" content="Point of Sale system for Container Coffee Hub Sa Đéc - Order management, payment processing, and real-time sales tracking.">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="../assets/css/agency-2026.css">
+    <link rel="stylesheet" href="../assets/css/admin-unified.css">
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <style>
+        /* POS Layout */
+        .pos-container {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 20px;
+            height: calc(100vh - 140px);
+            overflow: hidden;
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 10px 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .category-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 14px;
+            overflow-y: auto;
+            padding-right: 8px;
+            max-height: calc(100vh - 260px);
+        }
+
+        .menu-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .menu-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 3px;
+        }
+
+        .menu-grid::-webkit-scrollbar-thumb {
+            background: rgba(0, 229, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .menu-item-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .menu-item-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 229, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.15);
+        }
+
+        .menu-item-card:hover::before {
+            opacity: 1;
+        }
+
+        .menu-item-card:active {
+            transform: scale(0.96);
+        }
+
+        .menu-item-emoji {
+            font-size: 40px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .menu-item-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .menu-item-price {
+            font-size: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00e5ff, #76ff03);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cart Sidebar */
+        .cart-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            backdrop-filter: blur(20px);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cart-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-count {
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .clear-cart-btn {
+            background: rgba(255, 82, 82, 0.15);
+            border: 1px solid rgba(255, 82, 82, 0.3);
+            color: #ff5252;
+            padding: 6px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .clear-cart-btn:hover {
+            background: rgba(255, 82, 82, 0.3);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 16px;
+        }
+
+        .cart-items::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .cart-items::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+
+        .cart-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cart-item-emoji {
+            font-size: 28px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .cart-item-price {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.5);
+        }
+
+        .qty-value {
+            font-weight: 700;
+            font-size: 15px;
+            color: #fff;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-empty {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            gap: 12px;
+        }
+
+        .cart-empty .material-symbols-outlined {
+            font-size: 64px;
+            opacity: 0.3;
+        }
+
+        /* Cart Footer / Checkout */
+        .cart-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cart-total-amount {
+            background: linear-gradient(135deg, #00e5ff, #76ff03);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .payment-btn {
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .payment-btn .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        .payment-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-btn.active {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.5);
+            color: #00e5ff;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 50%, #0097a7 100%);
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.4);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Order Stats */
+        .pos-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .pos-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .pos-stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .pos-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pos-stat-card:nth-child(1) .pos-stat-value { color: #00e5ff; }
+        .pos-stat-card:nth-child(2) .pos-stat-value { color: #76ff03; }
+        .pos-stat-card:nth-child(3) .pos-stat-value { color: #ff6ec7; }
+        .pos-stat-card:nth-child(4) .pos-stat-value { color: #ffd600; }
+
+        /* Success animation */
+        .order-success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .order-success-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .order-success-content {
+            background: rgba(20, 30, 40, 0.95);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            animation: successPop 0.5s ease;
+        }
+
+        @keyframes successPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-icon {
+            font-size: 72px;
+            color: #76ff03;
+            margin-bottom: 16px;
+        }
+
+        .success-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .success-order-id {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pos-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                overflow: auto;
+            }
+            .cart-panel {
+                height: auto;
+                min-height: 400px;
+            }
+            .pos-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: 50vh;
+            }
+            .pos-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="pos"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">☕ Container POS</h1>
+                    <p class="text-secondary">Cà Phê Sa Đéc — Hệ thống bán hàng</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Tìm món..." id="searchInput" aria-label="Search menu">
+                    </div>
+                    <button class="btn-cyber" title="Order History" onclick="showOrderHistory()">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Today Stats -->
+            <div class="pos-stats animate-entry delay-2">
+                <div class="pos-stat-card">
+                    <div class="pos-stat-value" id="stat-orders-today">0</div>
+                    <div class="pos-stat-label">Đơn hôm nay</div>
+                </div>
+                <div class="pos-stat-card">
+                    <div class="pos-stat-value" id="stat-revenue-today">0₫</div>
+                    <div class="pos-stat-label">Doanh thu</div>
+                </div>
+                <div class="pos-stat-card">
+                    <div class="pos-stat-value" id="stat-avg-ticket">0₫</div>
+                    <div class="pos-stat-label">Ticket TB</div>
+                </div>
+                <div class="pos-stat-card">
+                    <div class="pos-stat-value" id="stat-items-sold">0</div>
+                    <div class="pos-stat-label">Món đã bán</div>
+                </div>
+            </div>
+
+            <!-- POS Main -->
+            <div class="pos-container animate-entry delay-3">
+                <!-- Left: Menu -->
+                <div>
+                    <div class="category-tabs" id="categoryTabs">
+                        <button class="category-tab active" data-cat="all" onclick="filterCategory('all')">
+                            🍽️ Tất cả
+                        </button>
+                        <button class="category-tab" data-cat="coffee" onclick="filterCategory('coffee')">
+                            ☕ Cà Phê
+                        </button>
+                        <button class="category-tab" data-cat="tea" onclick="filterCategory('tea')">
+                            🍵 Trà
+                        </button>
+                        <button class="category-tab" data-cat="blended" onclick="filterCategory('blended')">
+                            🧊 Đá Xay
+                        </button>
+                        <button class="category-tab" data-cat="snacks" onclick="filterCategory('snacks')">
+                            🍰 Bánh & Snacks
+                        </button>
+                    </div>
+                    <div class="menu-grid" id="menuGrid"></div>
+                </div>
+
+                <!-- Right: Cart -->
+                <div class="cart-panel">
+                    <div class="cart-header">
+                        <div class="cart-title">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                            Đơn hàng
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                        <button class="clear-cart-btn" onclick="clearCart()">Xóa hết</button>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <div class="cart-empty">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                            <p>Chọn món để bắt đầu</p>
+                        </div>
+                    </div>
+
+                    <div class="cart-footer">
+                        <div class="cart-summary-row">
+                            <span>Tạm tính</span>
+                            <span id="subtotal">0₫</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Giảm giá</span>
+                            <span id="discount" style="color: #76ff03;">-0₫</span>
+                        </div>
+                        <div class="cart-total-row">
+                            <span>TỔNG</span>
+                            <span class="cart-total-amount" id="totalAmount">0₫</span>
+                        </div>
+
+                        <div class="payment-methods">
+                            <button class="payment-btn active" data-method="cash" onclick="selectPayment('cash')">
+                                <span class="material-symbols-outlined">payments</span>
+                                Tiền mặt
+                            </button>
+                            <button class="payment-btn" data-method="transfer" onclick="selectPayment('transfer')">
+                                <span class="material-symbols-outlined">account_balance</span>
+                                Chuyển khoản
+                            </button>
+                            <button class="payment-btn" data-method="momo" onclick="selectPayment('momo')">
+                                <span class="material-symbols-outlined">phone_android</span>
+                                MoMo
+                            </button>
+                            <button class="payment-btn" data-method="vnpay" onclick="selectPayment('vnpay')">
+                                <span class="material-symbols-outlined">credit_card</span>
+                                VNPay
+                            </button>
+                        </div>
+
+                        <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
+                            <span class="material-symbols-outlined">point_of_sale</span>
+                            THANH TOÁN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Success Overlay -->
+    <div class="order-success-overlay" id="orderSuccess">
+        <div class="order-success-content">
+            <div class="success-icon">✅</div>
+            <div class="success-text">Đặt hàng thành công!</div>
+            <div class="success-order-id" id="successOrderId">Mã đơn: #---</div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../supabase-config.js"></script>
+    <script type="module" src="../auth.js"></script>
+    <script type="module" src="../assets/js/admin-guard.js"></script>
+    <script type="module" src="../assets/js/enhanced-utils.js"></script>
+    <script type="module" src="../assets/js/admin-shared.js"></script>
+    <script>
+        // ============ POS DATA ============
+        const MENU_DATA = [
+            // Coffee
+            { id: 'cf01', name: 'Espresso', price: 35000, category: 'coffee', emoji: '☕', cost: 8000 },
+            { id: 'cf02', name: 'Americano', price: 39000, category: 'coffee', emoji: '☕', cost: 9000 },
+            { id: 'cf03', name: 'Cà phê sữa đá', price: 29000, category: 'coffee', emoji: '🥤', cost: 7000 },
+            { id: 'cf04', name: 'Cà phê đen đá', price: 25000, category: 'coffee', emoji: '🖤', cost: 6000 },
+            { id: 'cf05', name: 'Latte', price: 45000, category: 'coffee', emoji: '🥛', cost: 12000 },
+            { id: 'cf06', name: 'Cappuccino', price: 45000, category: 'coffee', emoji: '☕', cost: 12000 },
+            { id: 'cf07', name: 'Mocha', price: 49000, category: 'coffee', emoji: '🍫', cost: 14000 },
+            { id: 'cf08', name: 'Affogato', price: 55000, category: 'coffee', emoji: '🍨', cost: 16000 },
+            { id: 'cf09', name: 'Cold Brew', price: 42000, category: 'coffee', emoji: '🧊', cost: 10000 },
+            { id: 'cf10', name: 'Bạc xỉu', price: 32000, category: 'coffee', emoji: '🍼', cost: 8000 },
+            // Tea
+            { id: 'te01', name: 'Trà đào cam sả', price: 39000, category: 'tea', emoji: '🍑', cost: 10000 },
+            { id: 'te02', name: 'Trà vải lychee', price: 39000, category: 'tea', emoji: '🫐', cost: 10000 },
+            { id: 'te03', name: 'Matcha Latte', price: 49000, category: 'tea', emoji: '🍵', cost: 15000 },
+            { id: 'te04', name: 'Trà ổi hồng', price: 35000, category: 'tea', emoji: '🍈', cost: 9000 },
+            { id: 'te05', name: 'Hồng trà sữa', price: 35000, category: 'tea', emoji: '🧋', cost: 9000 },
+            { id: 'te06', name: 'Trà sen vàng', price: 32000, category: 'tea', emoji: '🪷', cost: 8000 },
+            // Blended
+            { id: 'bl01', name: 'Sinh tố bơ', price: 45000, category: 'blended', emoji: '🥑', cost: 14000 },
+            { id: 'bl02', name: 'Frappe Caramel', price: 55000, category: 'blended', emoji: '🍦', cost: 16000 },
+            { id: 'bl03', name: 'Sinh tố dâu', price: 45000, category: 'blended', emoji: '🍓', cost: 13000 },
+            { id: 'bl04', name: 'Smoothie xoài', price: 42000, category: 'blended', emoji: '🥭', cost: 12000 },
+            { id: 'bl05', name: 'Đá xay Oreo', price: 49000, category: 'blended', emoji: '🍪', cost: 14000 },
+            // Snacks
+            { id: 'sn01', name: 'Bánh mì bơ tỏi', price: 25000, category: 'snacks', emoji: '🥖', cost: 8000 },
+            { id: 'sn02', name: 'Croissant', price: 35000, category: 'snacks', emoji: '🥐', cost: 12000 },
+            { id: 'sn03', name: 'Bánh Tiramisu', price: 45000, category: 'snacks', emoji: '🍰', cost: 15000 },
+            { id: 'sn04', name: 'Cookie choco', price: 20000, category: 'snacks', emoji: '🍪', cost: 6000 },
+            { id: 'sn05', name: 'Yogurt granola', price: 39000, category: 'snacks', emoji: '🥣', cost: 12000 },
+        ];
+
+        let cart = [];
+        let selectedPayment = 'cash';
+        let todayOrders = [];
+        let currentCategory = 'all';
+
+        // ============ RENDER FUNCTIONS ============
+        function renderMenu(filter = 'all', search = '') {
+            const grid = document.getElementById('menuGrid');
+            let items = MENU_DATA;
+            if (filter !== 'all') items = items.filter(i => i.category === filter);
+            if (search) items = items.filter(i => i.name.toLowerCase().includes(search.toLowerCase()));
+
+            grid.innerHTML = items.map(item => `
+                <div class="menu-item-card" onclick="addToCart('${item.id}')">
+                    <span class="menu-item-emoji">${item.emoji}</span>
+                    <div class="menu-item-name">${item.name}</div>
+                    <div class="menu-item-price">${formatVND(item.price)}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            const countEl = document.getElementById('cartCount');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        <p>Chọn món để bắt đầu</p>
+                    </div>`;
+                countEl.textContent = '0';
+                checkoutBtn.disabled = true;
+                updateTotals();
+                return;
+            }
+
+            countEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
+            checkoutBtn.disabled = false;
+
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <span class="cart-item-emoji">${item.emoji}</span>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${formatVND(item.price)}</div>
+                    </div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                        <span class="qty-value">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+            const discount = 0;
+            const total = subtotal - discount;
+
+            document.getElementById('subtotal').textContent = formatVND(subtotal);
+            document.getElementById('discount').textContent = `-${formatVND(discount)}`;
+            document.getElementById('totalAmount').textContent = formatVND(total);
+        }
+
+        function updateDayStats() {
+            const ordersCount = todayOrders.length;
+            const revenue = todayOrders.reduce((s, o) => s + o.total, 0);
+            const avgTicket = ordersCount > 0 ? Math.round(revenue / ordersCount) : 0;
+            const itemsSold = todayOrders.reduce((s, o) => s + o.items.reduce((ss, i) => ss + i.qty, 0), 0);
+
+            document.getElementById('stat-orders-today').textContent = ordersCount;
+            document.getElementById('stat-revenue-today').textContent = formatVND(revenue);
+            document.getElementById('stat-avg-ticket').textContent = formatVND(avgTicket);
+            document.getElementById('stat-items-sold').textContent = itemsSold;
+        }
+
+        // ============ ACTIONS ============
+        function addToCart(itemId) {
+            const existing = cart.find(i => i.id === itemId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                const menuItem = MENU_DATA.find(i => i.id === itemId);
+                cart.push({ ...menuItem, qty: 1 });
+            }
+            renderCart();
+        }
+
+        function changeQty(itemId, delta) {
+            const item = cart.find(i => i.id === itemId);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) cart = cart.filter(i => i.id !== itemId);
+            renderCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            renderCart();
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
+            renderMenu(cat, document.getElementById('searchInput').value);
+        }
+
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-method="${method}"]`).classList.add('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+            const orderNum = (todayOrders.length + 1).toString().padStart(3, '0');
+            const order = {
+                id: `ORD-${Date.now()}`,
+                number: orderNum,
+                items: [...cart],
+                total,
+                payment: selectedPayment,
+                time: new Date().toLocaleTimeString('vi-VN'),
+                date: new Date().toLocaleDateString('vi-VN')
+            };
+
+            todayOrders.push(order);
+            localStorage.setItem('pos_orders_today', JSON.stringify(todayOrders));
+
+            // Show success
+            const overlay = document.getElementById('orderSuccess');
+            document.getElementById('successOrderId').textContent = `Mã đơn: #${orderNum} — ${formatVND(total)}`;
+            overlay.classList.add('show');
+            setTimeout(() => overlay.classList.remove('show'), 2000);
+
+            clearCart();
+            updateDayStats();
+        }
+
+        function showOrderHistory() {
+            alert(`📋 Lịch sử đơn hôm nay:\n\n${todayOrders.map(o =>
+                `#${o.number} | ${o.time} | ${formatVND(o.total)} | ${o.payment}`
+            ).join('\n') || 'Chưa có đơn nào.'}`);
+        }
+
+        // ============ UTILS ============
+        function formatVND(n) {
+            return new Intl.NumberFormat('vi-VN').format(n) + '₫';
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved orders
+            try {
+                const saved = localStorage.getItem('pos_orders_today');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    const today = new Date().toLocaleDateString('vi-VN');
+                    todayOrders = parsed.filter(o => o.date === today);
+                }
+            } catch (e) { /* ignore */ }
+
+            renderMenu();
+            renderCart();
+            updateDayStats();
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                renderMenu(currentCategory, e.target.value);
+            });
+        });
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="../assets/js/content-ai.js"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="../assets/js/mobile-menu.js"></script>
+</body>
+
+</html>
