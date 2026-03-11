@@ -13,6 +13,7 @@
   </script>
     <script type="module">import '@material/web/all.js';</script>
 
+
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
@@ -328,7 +329,7 @@
         let currentRole = 'affiliate';
 
         // Initialize based on URL param
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             const params = new URLSearchParams(window.location.search);
             const roleParam = params.get('role');
 
@@ -391,6 +392,8 @@
             url.searchParams.set('role', role);
             window.history.pushState({}, '', url);
         }
+        // Expose to window for onclick attributes in HTML
+        window.switchRole = switchRole;
 
         // Login Logic - MUST wait for DOM ready before accessing elements
         document.addEventListener('DOMContentLoaded', () => {
@@ -420,19 +423,22 @@
                 console.log('[LOGIN] Event defaultPrevented:', e.defaultPrevented);
                 console.log('[LOGIN] URL before prevent:', window.location.href);
 
-            const email = document.getElementById('email').value.trim().toLowerCase();
-            const password = document.getElementById('password').value;
+                const emailField = document.getElementById('email');
+                const passwordField = document.getElementById('password');
+                // Material Web components: .value works after upgrade, fallback to empty
+                const email = (emailField.value || '').trim().toLowerCase();
+                const password = passwordField.value || '';
 
-            console.log('Email:', email);
-            console.log('Password length:', password.length);
+                console.log('Email:', email);
+                console.log('Password length:', password.length);
 
-            if (!email || !password) {
-                alert('Vui lòng nhập đầy đủ thông tin');
-                return;
-            }
+                if (!email || !password) {
+                    alert('Vui lòng nhập đầy đủ thông tin');
+                    return;
+                }
 
-            loginBtn.disabled = true;
-            loginBtn.textContent = 'Đang xử lý...';
+                loginBtn.disabled = true;
+                loginBtn.textContent = 'Đang xử lý...';
 
             // Inline demo users — login ALWAYS works even if Auth module fails
             const DEMO_USERS = {
@@ -526,6 +532,21 @@
                 alert('Lỗi: ' + (error.message || 'Không xác định'));
                 loginBtn.disabled = false;
                 loginBtn.textContent = 'Đăng nhập';
+            }
+        });
+        });
+
+        // BACKUP: md-filled-button click handler — Material Web buttons
+        // may not always trigger native form submit
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', (e) => {
+                    const form = document.getElementById('loginForm');
+                    if (form) {
+                        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+                    }
+                });
             }
         });
     </script>
