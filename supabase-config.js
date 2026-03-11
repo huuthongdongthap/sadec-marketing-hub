@@ -18,15 +18,14 @@ function initSupabase() {
     try {
         if (typeof window.supabase !== 'undefined' && typeof window.supabase.createClient === 'function') {
             supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
             return true;
         } else {
-
-            return false;
+            console.error('Supabase CDN not loaded');
+            return null;
         }
     } catch (err) {
-
-        return false;
+        console.error('Supabase init error:', err.message);
+        return null;
     }
 }
 

@@ -26,23 +26,23 @@ class SadecSidebar extends HTMLElement {
         overview: {
             label: '📊 TỔNG QUAN',
             items: [
-                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: 'affiliate/dashboard.html' },
-                { id: 'referrals', label: 'Giới thiệu', icon: 'group_add', href: 'affiliate/referrals.html' },
-                { id: 'commissions', label: 'Hoa hồng', icon: 'payments', href: 'affiliate/commissions.html' }
+                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: '/affiliate/dashboard.html' },
+                { id: 'referrals', label: 'Giới thiệu', icon: 'group_add', href: '/affiliate/referrals.html' },
+                { id: 'commissions', label: 'Hoa hồng', icon: 'payments', href: '/affiliate/commissions.html' }
             ]
         },
         tools: {
             label: '🛠️ CÔNG CỤ',
             items: [
-                { id: 'links', label: 'Link Builder', icon: 'link', href: 'affiliate/links.html' },
-                { id: 'media', label: 'Media Kit', icon: 'perm_media', href: 'affiliate/media.html' }
+                { id: 'links', label: 'Link Builder', icon: 'link', href: '/affiliate/links.html' },
+                { id: 'media', label: 'Media Kit', icon: 'perm_media', href: '/affiliate/media.html' }
             ]
         },
         account: {
             label: '👤 TÀI KHOẢN',
             items: [
-                { id: 'profile', label: 'Hồ sơ', icon: 'person', href: 'affiliate/profile.html' },
-                { id: 'settings', label: 'Cài đặt', icon: 'settings', href: 'affiliate/settings.html' }
+                { id: 'profile', label: 'Hồ sơ', icon: 'person', href: '/affiliate/profile.html' },
+                { id: 'settings', label: 'Cài đặt', icon: 'settings', href: '/affiliate/settings.html' }
             ]
         }
     };
@@ -52,25 +52,25 @@ class SadecSidebar extends HTMLElement {
         main: {
             label: 'MENU CHÍNH',
             items: [
-                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: 'portal/dashboard.html' },
-                { id: 'projects', label: 'Dự án', icon: 'folder_open', href: 'portal/projects.html' },
-                { id: 'invoices', label: 'Hóa đơn', icon: 'receipt_long', href: 'portal/invoices.html' },
-                { id: 'subscriptions', label: 'Gói dịch vụ', icon: 'card_membership', href: 'portal/subscriptions.html' }
+                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: '/portal/dashboard.html' },
+                { id: 'projects', label: 'Dự án', icon: 'folder_open', href: '/portal/projects.html' },
+                { id: 'invoices', label: 'Hóa đơn', icon: 'receipt_long', href: '/portal/invoices.html' },
+                { id: 'subscriptions', label: 'Gói dịch vụ', icon: 'card_membership', href: '/portal/subscriptions.html' }
             ]
         },
         raas: {
             label: '🤖 AI RaaS',
             items: [
-                { id: 'missions', label: 'AI Missions', icon: 'rocket_launch', href: 'portal/missions.html' },
-                { id: 'ocop-exporter', label: 'OCOP Exporter', icon: 'public', href: 'portal/ocop-exporter.html' },
-                { id: 'credits', label: 'Credits', icon: 'toll', href: 'portal/credits.html' }
+                { id: 'missions', label: 'AI Missions', icon: 'rocket_launch', href: '/portal/missions.html' },
+                { id: 'ocop-exporter', label: 'OCOP Exporter', icon: 'public', href: '/portal/ocop-exporter.html' },
+                { id: 'credits', label: 'Credits', icon: 'toll', href: '/portal/credits.html' }
             ]
         },
         reports: {
             label: 'BÁO CÁO',
             items: [
-                { id: 'analytics', label: 'Phân tích', icon: 'analytics', href: 'portal/reports.html' },
-                { id: 'reports', label: 'Báo cáo', icon: 'description', href: 'portal/reports.html' }
+                { id: 'analytics', label: 'Phân tích', icon: 'analytics', href: '/portal/reports.html' },
+                { id: 'reports', label: 'Báo cáo', icon: 'description', href: '/portal/reports.html' }
             ]
         },
         support: {
@@ -87,85 +87,85 @@ class SadecSidebar extends HTMLElement {
         dashboard: {
             label: '📊 DASHBOARD',
             items: [
-                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: 'admin/dashboard.html' }
+                { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: '/admin/dashboard.html' }
             ]
         },
         sales: {
             label: '💼 SALES & CRM',
             items: [
-                { id: 'pipeline', label: 'Pipeline', icon: 'filter_alt', href: 'admin/pipeline.html' },
-                { id: 'leads', label: 'Leads CRM', icon: 'group', href: 'admin/leads.html' },
-                { id: 'proposals', label: 'Proposals', icon: 'description', href: 'admin/proposals.html' },
-                { id: 'pricing', label: 'Pricing', icon: 'sell', href: 'admin/pricing.html' },
-                { id: 'ecommerce', label: 'E-commerce', icon: 'shopping_cart', href: 'admin/ecommerce.html' }
+                { id: 'pipeline', label: 'Pipeline', icon: 'filter_alt', href: '/admin/pipeline.html' },
+                { id: 'leads', label: 'Leads CRM', icon: 'group', href: '/admin/leads.html' },
+                { id: 'proposals', label: 'Proposals', icon: 'description', href: '/admin/proposals.html' },
+                { id: 'pricing', label: 'Pricing', icon: 'sell', href: '/admin/pricing.html' },
+                { id: 'ecommerce', label: 'E-commerce', icon: 'shopping_cart', href: '/admin/ecommerce.html' }
             ]
         },
         marketing: {
             label: '📣 MARKETING',
             items: [
-                { id: 'campaigns', label: 'Campaigns', icon: 'campaign', href: 'admin/campaigns.html' },
-                { id: 'landing-builder', label: 'Landing Pages', icon: 'web', href: 'admin/landing-builder.html' },
-                { id: 'zalo', label: 'Zalo OA', icon: 'chat', href: 'admin/zalo.html' },
-                { id: 'content-calendar', label: 'Content AI', icon: 'calendar_month', href: 'admin/content-calendar.html' },
-                { id: 'community', label: 'Community', icon: 'groups', href: 'admin/community.html' },
-                { id: 'events', label: 'Events', icon: 'event', href: 'admin/events.html' }
+                { id: 'campaigns', label: 'Campaigns', icon: 'campaign', href: '/admin/campaigns.html' },
+                { id: 'landing-builder', label: 'Landing Pages', icon: 'web', href: '/admin/landing-builder.html' },
+                { id: 'zalo', label: 'Zalo OA', icon: 'chat', href: '/admin/zalo.html' },
+                { id: 'content-calendar', label: 'Content AI', icon: 'calendar_month', href: '/admin/content-calendar.html' },
+                { id: 'community', label: 'Community', icon: 'groups', href: '/admin/community.html' },
+                { id: 'events', label: 'Events', icon: 'event', href: '/admin/events.html' }
             ]
         },
         finance: {
             label: '💰 FINANCE',
             items: [
-                { id: 'finance', label: 'Finance', icon: 'payments', href: 'admin/finance.html' },
-                { id: 'payments', label: 'Payments', icon: 'credit_card', href: 'admin/payments.html' }
+                { id: 'finance', label: 'Finance', icon: 'payments', href: '/admin/finance.html' },
+                { id: 'payments', label: 'Payments', icon: 'credit_card', href: '/admin/payments.html' }
             ]
         },
         customers: {
             label: '👥 CUSTOMERS',
             items: [
-                { id: 'onboarding', label: 'Onboarding', icon: 'start', href: 'admin/onboarding.html' },
-                { id: 'customer-success', label: 'Success', icon: 'thumb_up', href: 'admin/customer-success.html' },
-                { id: 'retention', label: 'Retention', icon: 'loyalty', href: 'admin/retention.html' }
+                { id: 'onboarding', label: 'Onboarding', icon: 'start', href: '/admin/onboarding.html' },
+                { id: 'customer-success', label: 'Success', icon: 'thumb_up', href: '/admin/customer-success.html' },
+                { id: 'retention', label: 'Retention', icon: 'loyalty', href: '/admin/retention.html' }
             ]
         },
         automation: {
             label: '🤖 AUTOMATION',
             items: [
-                { id: 'workflows', label: 'Workflows', icon: 'alt_route', href: 'admin/workflows.html' },
-                { id: 'agents', label: 'AI Agents', icon: 'smart_toy', href: 'admin/agents.html' },
-                { id: 'approvals', label: 'Approvals', icon: 'approval', href: 'admin/approvals.html' }
+                { id: 'workflows', label: 'Workflows', icon: 'alt_route', href: '/admin/workflows.html' },
+                { id: 'agents', label: 'AI Agents', icon: 'smart_toy', href: '/admin/agents.html' },
+                { id: 'approvals', label: 'Approvals', icon: 'approval', href: '/admin/approvals.html' }
             ]
         },
         strategy: {
             label: '🎯 STRATEGY',
             items: [
-                { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: 'admin/binh-phap.html' },
-                { id: 'ai-analysis', label: 'AI Analysis', icon: 'insights', href: 'admin/ai-analysis.html' },
-                { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: 'admin/vc-readiness.html' }
+                { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: '/admin/binh-phap.html' },
+                { id: 'ai-analysis', label: 'AI Analysis', icon: 'insights', href: '/admin/ai-analysis.html' },
+                { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: '/admin/vc-readiness.html' }
             ]
         },
         content: {
             label: '📚 CONTENT',
             items: [
-                { id: 'lms', label: 'Academy LMS', icon: 'school', href: 'admin/lms.html' },
-                { id: 'brand-guide', label: 'Brand Guide', icon: 'palette', href: 'admin/brand-guide.html' },
-                { id: 'video-workflow', label: 'Video', icon: 'videocam', href: 'admin/video-workflow.html' },
-                { id: 'docs', label: 'Docs', icon: 'article', href: 'admin/docs.html' }
+                { id: 'lms', label: 'Academy LMS', icon: 'school', href: '/admin/lms.html' },
+                { id: 'brand-guide', label: 'Brand Guide', icon: 'palette', href: '/admin/brand-guide.html' },
+                { id: 'video-workflow', label: 'Video', icon: 'videocam', href: '/admin/video-workflow.html' },
+                { id: 'docs', label: 'Docs', icon: 'article', href: '/admin/docs.html' }
             ]
         },
         raas: {
             label: '🚀 RaaS PLATFORM',
             items: [
-                { id: 'raas-overview', label: 'RaaS Overview', icon: 'monitoring', href: 'admin/raas-overview.html' }
+                { id: 'raas-overview', label: 'RaaS Overview', icon: 'monitoring', href: '/admin/raas-overview.html' }
             ]
         },
         system: {
             label: '⚙️ SYSTEM',
             items: [
-                { id: 'auth', label: 'Auth & Users', icon: 'admin_panel_settings', href: 'admin/auth.html' },
-                { id: 'hr-hiring', label: 'HR & Hiring', icon: 'badge', href: 'admin/hr-hiring.html' },
-                { id: 'legal', label: 'Legal', icon: 'gavel', href: 'admin/legal.html' },
-                { id: 'api-builder', label: 'API Builder', icon: 'api', href: 'admin/api-builder.html' },
-                { id: 'deploy', label: 'Deploy', icon: 'rocket_launch', href: 'admin/deploy.html' },
-                { id: 'mvp-launch', label: 'MVP Launch', icon: 'flag', href: 'admin/mvp-launch.html' }
+                { id: 'auth', label: 'Auth & Users', icon: 'admin_panel_settings', href: '/admin/auth.html' },
+                { id: 'hr-hiring', label: 'HR & Hiring', icon: 'badge', href: '/admin/hr-hiring.html' },
+                { id: 'legal', label: 'Legal', icon: 'gavel', href: '/admin/legal.html' },
+                { id: 'api-builder', label: 'API Builder', icon: 'api', href: '/admin/api-builder.html' },
+                { id: 'deploy', label: 'Deploy', icon: 'rocket_launch', href: '/admin/deploy.html' },
+                { id: 'mvp-launch', label: 'MVP Launch', icon: 'flag', href: '/admin/mvp-launch.html' }
             ]
         }
     };
