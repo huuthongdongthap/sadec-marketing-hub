@@ -410,36 +410,72 @@
             loginBtn.disabled = true;
             loginBtn.textContent = 'Đang xử lý...';
 
-            // Check if Auth module is loaded
-            if (!window.Auth || !window.Auth.Actions) {
-                alert('Hệ thống đang tải, vui lòng thử lại');
-                loginBtn.disabled = false;
-                loginBtn.textContent = 'Đăng nhập';
-                return;
-            }
+            // Inline demo users — login ALWAYS works even if Auth module fails
+            const DEMO_USERS = {
+                'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin', redirect: '/admin/dashboard.html' },
+                'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager', redirect: '/admin/dashboard.html' },
+                'creator@mekongmarketing.com': { password: 'creator123', role: 'content_creator', name: 'Creator', redirect: '/admin/dashboard.html' },
+                'client@mekongmarketing.com': { password: 'client123', role: 'client', name: 'Client Demo', redirect: '/portal/dashboard.html' },
+                'affiliate@mekongmarketing.com': { password: 'affiliate123', role: 'affiliate', name: 'Affiliate Demo', redirect: '/affiliate/dashboard.html' }
+            };
 
             try {
-                const result = await Auth.Actions.signIn(email, password);
+                let loginSuccess = false;
+                let redirectUrl = '/';
 
-                if (result.success) {
-                    // Check for redirect param first
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const redirectParam = urlParams.get('redirect');
-
-                    if (redirectParam) {
-                        // Redirect to the page that requested auth
-                        window.location.href = decodeURIComponent(redirectParam);
+                // Try Auth module first (Supabase + its own demo fallback)
+                if (window.Auth && window.Auth.Actions) {
+                    const result = await Auth.Actions.signIn(email, password);
+                    if (result.success) {
+                        loginSuccess = true;
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const redirectParam = urlParams.get('redirect');
+                        redirectUrl = redirectParam
+                            ? decodeURIComponent(redirectParam)
+                            : (Auth.Guards?.getRedirectUrl?.() || '/');
                     } else {
-                        // Default role-based redirect
-                        const redirectUrl = Auth.Guards.getRedirectUrl();
-                        window.location.href = redirectUrl;
+                        // Auth module returned error — show it
+                        alert(result.error || 'Đăng nhập thất bại');
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = 'Đăng nhập';
+                        return;
                     }
                 } else {
-                    alert(result.error || 'Đăng nhập thất bại');
-                    loginBtn.disabled = false;
-                    loginBtn.textContent = 'Đăng nhập';
+                    // Auth module NOT loaded — use inline demo login
+                    console.warn('Auth module not available, using inline demo login');
+                    const demoUser = DEMO_USERS[email];
+                    if (demoUser && demoUser.password === password) {
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userEmail', email);
+                        localStorage.setItem('userRole', demoUser.role);
+                        localStorage.setItem('userName', demoUser.name);
+                        localStorage.setItem('isDemoMode', 'true');
+                        loginSuccess = true;
+                        redirectUrl = demoUser.redirect;
+                    } else {
+                        alert('Email hoặc mật khẩu không đúng');
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = 'Đăng nhập';
+                        return;
+                    }
+                }
+
+                if (loginSuccess) {
+                    window.location.href = redirectUrl;
                 }
             } catch (error) {
+                console.error('Login error:', error);
+                // Last resort: try inline demo even if Auth threw
+                const demoUser = DEMO_USERS[email];
+                if (demoUser && demoUser.password === password) {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userRole', demoUser.role);
+                    localStorage.setItem('userName', demoUser.name);
+                    localStorage.setItem('isDemoMode', 'true');
+                    window.location.href = demoUser.redirect;
+                    return;
+                }
                 alert('Lỗi: ' + (error.message || 'Không xác định'));
                 loginBtn.disabled = false;
                 loginBtn.textContent = 'Đăng nhập';
