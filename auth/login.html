@@ -410,6 +410,14 @@
             loginBtn.disabled = true;
             loginBtn.textContent = 'Đang xử lý...';
 
+            // Check if Auth module is loaded
+            if (!window.Auth || !window.Auth.Actions) {
+                alert('Hệ thống đang tải, vui lòng thử lại');
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Đăng nhập';
+                return;
+            }
+
             try {
                 const result = await Auth.Actions.signIn(email, password);
 
@@ -432,8 +440,7 @@
                     loginBtn.textContent = 'Đăng nhập';
                 }
             } catch (error) {
-                console.error(error);
-                alert('Có lỗi xảy ra');
+                alert('Lỗi: ' + (error.message || 'Không xác định'));
                 loginBtn.disabled = false;
                 loginBtn.textContent = 'Đăng nhập';
             }
