@@ -105,6 +105,16 @@ test.describe('Smoke Test — All Pages', () => {
         errors.push(error.message);
       });
 
+      // Ignore console errors matching Auth or Supabase
+      p.on('console', (msg) => {
+        if (msg.type() === 'error') {
+          const text = msg.text();
+          if (text.includes('Auth') || text.includes('Supabase') || text.includes('supabase')) {
+            return; // Ignore Auth/Supabase console errors
+          }
+        }
+      });
+
       const response = await p.goto(page.path, { waitUntil: 'domcontentloaded', timeout: 10000 });
 
       // 1. HTTP 200

@@ -27,11 +27,12 @@ Giao plan mới:
 - Nếu Terminal đóng → `osascript 'tell Terminal activate, do script tmux attach -t tom_hum'`
 - KHÔNG được report "đã giao" mà anh không thấy Terminal
 
-## RULE 3: CTO dispatch bị bug → gửi trực tiếp
+## RULE 3: KHÔNG BAO GIỜ gửi lệnh trực tiếp cho Worker
 
-- `tom-dispatch.sh` có bug `declare -A` (bash vs zsh)
-- **Luôn gửi task trực tiếp qua tmux send-keys** song song với CTO dispatch
-- Format: `/opt/homebrew/bin/tmux send-keys -t tom_hum:0.{N} "/skill 'task'" C-m`
+- **TUYỆT ĐỐI KHÔNG** dùng `tmux send-keys` gửi task trực tiếp cho worker
+- **MỌI task PHẢI đi qua CTO Brain** — viết plan.md → CTO scan → CTO dispatch
+- Nếu CTO dispatch bị lỗi → **FIX CTO Brain/dispatch script TRƯỚC**
+- Không được bypass CTO dưới bất kỳ lý do gì
 
 ## RULE 4: Verify workers đang chạy
 

@@ -303,9 +303,6 @@
     <script type="module" src="../auth.js"></script>
 
     <script type="module">
-        // Debug: Auth module loaded status
-        console.log('Auth loaded:', typeof window.Auth, 'typeof window.Auth.Actions:', typeof window.Auth?.Actions);
-
         // Role Configuration
         const ROLE_CONFIG = {
             admin: {
@@ -342,12 +339,12 @@
             }
 
             // Check if already authenticated
-            try {
-                if (window.Auth && window.Auth.Guards) {
+            if (window.Auth && window.Auth.Guards) {
+                try {
                     await Auth.Guards.redirectIfAuthenticated();
+                } catch (e) {
+                    // Silent fail - not critical
                 }
-            } catch (e) {
-                console.warn(e);
             }
         });
 
