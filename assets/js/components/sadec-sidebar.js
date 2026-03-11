@@ -18,7 +18,8 @@ class SadecSidebar extends HTMLElement {
         'dashboard', 'pipeline', 'leads', 'proposals',
         'campaigns', 'content-calendar', 'finance',
         'onboarding', 'workflows', 'binh-phap',
-        'lms', 'docs', 'auth'
+        'lms', 'docs', 'auth',
+        'pos', 'menu', 'inventory', 'shifts', 'quality', 'suppliers', 'loyalty'
     ];
 
     // Affiliate menu items
@@ -155,6 +156,18 @@ class SadecSidebar extends HTMLElement {
             label: '🚀 RaaS PLATFORM',
             items: [
                 { id: 'raas-overview', label: 'RaaS Overview', icon: 'monitoring', href: '/admin/raas-overview.html' }
+            ]
+        },
+        fnb: {
+            label: '☕ F&B CONTAINER',
+            items: [
+                { id: 'pos', label: 'POS', icon: 'point_of_sale', href: '/admin/pos.html' },
+                { id: 'menu', label: 'Menu', icon: 'restaurant_menu', href: '/admin/menu.html' },
+                { id: 'inventory', label: 'Tồn Kho', icon: 'inventory_2', href: '/admin/inventory.html' },
+                { id: 'shifts', label: 'Ca Làm', icon: 'schedule', href: '/admin/shifts.html' },
+                { id: 'quality', label: 'ATTP', icon: 'verified', href: '/admin/quality.html' },
+                { id: 'suppliers', label: 'Nhà Cung Cấp', icon: 'local_shipping', href: '/admin/suppliers.html' },
+                { id: 'loyalty', label: 'Loyalty', icon: 'loyalty', href: '/admin/loyalty.html' }
             ]
         },
         system: {
