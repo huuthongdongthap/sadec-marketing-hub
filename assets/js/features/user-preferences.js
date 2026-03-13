@@ -193,7 +193,7 @@ export class UserPreferences {
         this._preferences = { ...this.defaults };
         this.save();
         this.apply();
-        console.log('[UserPreferences] Reset to defaults');
+        _debug('[UserPreferences] Reset to defaults');
     }
 
     /**
@@ -231,7 +231,7 @@ export class UserPreferences {
             root.setAttribute('data-theme', theme);
         }
 
-        console.log(`[UserPreferences] Theme applied: ${theme}`);
+        _debug('[UserPreferences] Theme applied: ' + theme);
     }
 
     /**
@@ -317,7 +317,7 @@ export class UserPreferences {
             try {
                 callback({ key, newValue, oldValue });
             } catch (e) {
-                console.error('[UserPreferences] Listener error:', e);
+                _debug('[UserPreferences] Listener error: ' + e.message);
             }
         });
     }
@@ -359,9 +359,9 @@ export class UserPreferences {
                 this._preferences = { ...this.defaults, ...imported };
                 this.save();
                 this.apply();
-                console.log('[UserPreferences] Imported successfully');
+                _debug('[UserPreferences] Imported successfully');
             } catch (err) {
-                console.error('[UserPreferences] Import failed:', err);
+                _debug('[UserPreferences] Import failed: ' + err.message);
             }
         };
 

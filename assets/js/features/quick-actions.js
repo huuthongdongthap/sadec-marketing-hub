@@ -12,6 +12,16 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+/**
+ * Debug logger - only active in development
+ * @param {string} message - Log message
+ */
+const _debug = (message) => {
+    if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') {
+        console.log(message);
+    }
+};
+
 export class QuickActions {
     /**
      * Quick actions configuration
@@ -95,7 +105,7 @@ export class QuickActions {
     static init() {
         this.createFAB();
         this.bindKeyboard();
-        console.log('[QuickActions] Initialized');
+        _debug('[QuickActions] Initialized');
     }
 
     /**
