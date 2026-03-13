@@ -1,137 +1,127 @@
-#!/usr/bin/env node
 /**
- * ═══════════════════════════════════════════════════════════════════════════
- * SA ĐÉC MARKETING HUB — AUTO-FIX SCRIPT
- * Tự động fix các issues đơn giản:
- * - Thêm charset meta tag
- * - Thêm viewport meta tag
- * - Thêm lang attribute
- *
- * Usage: node scripts/audit/auto-fix.js
- * ═══════════════════════════════════════════════════════════════════════════
+ * Auto-Fix Audit Issues
+ * Tự động fix các issues: charset, viewport, lang, skip links, main landmarks
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT_DIR = path.resolve(__dirname, '../..');
-const SCAN_DIRS = ['admin', 'portal', 'affiliate', 'auth', ''];
-const EXCLUDE_PATTERNS = ['node_modules', '.git', 'dist', '.min.'];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.join(__dirname, '..', '..');
 
-let fixedCount = 0;
-let errorCount = 0;
+const CONFIG = {
+    excludeDirs: ['node_modules', '.git', 'dist', 'build'],
+    fileExtensions: ['.html']
+};
 
-function shouldExclude(filePath) {
-  return EXCLUDE_PATTERNS.some(pattern => filePath.toLowerCase().includes(pattern.toLowerCase()));
-}
-
-function getAllHtmlFiles(dir, fileList = []) {
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    try {
-      const stat = fs.statSync(filePath);
-      if (stat.isDirectory()) {
-        if (!shouldExclude(filePath)) {
-          getAllHtmlFiles(filePath, fileList);
+function getAllFiles(dir, files = []) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            if (!CONFIG.excludeDirs.includes(entry.name) && !entry.name.startsWith('.')) {
+                getAllFiles(fullPath, files);
+            }
+        } else if (entry.isFile() && CONFIG.fileExtensions.includes(path.extname(entry.name))) {
+            const relPath = path.relative(rootDir, fullPath);
+            files.push({ path: fullPath, relPath });
         }
-      } else if (file.endsWith('.html') && !shouldExclude(filePath)) {
-        fileList.push(filePath);
-      }
-    } catch (err) {
-      // Skip
     }
-  }
-  return fileList;
+    return files;
 }
 
 function autoFix(content, filePath) {
-  let fixed = false;
-  const relativePath = path.relative(ROOT_DIR, filePath);
-  let result = content;
+    const changes = [];
+    let modified = content;
 
-  // Fix 1: Add charset if missing
-  if (!result.includes('<meta charset=')) {
-    result = result.replace(
-      /(<head[^>]*>)/i,
-      '$1\n  <meta charset="UTF-8">'
-    );
-    console.log(`  ✅ Added charset: ${relativePath}`);
-    fixed = true;
-  }
-
-  // Fix 2: Add viewport if missing
-  if (!result.includes('name="viewport"')) {
-    result = result.replace(
-      /(<meta charset="UTF-8">)/i,
-      '$1\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">'
-    );
-    console.log(`  ✅ Added viewport: ${relativePath}`);
-    fixed = true;
-  }
-
-  // Fix 3: Add lang to html tag if missing
-  if (!result.match(/<html[^>]*lang=/i)) {
-    result = result.replace(
-      /(<html[^>]*>)/i,
-      '<html lang="vi">'
-    );
-    console.log(`  ✅ Added lang="vi": ${relativePath}`);
-    fixed = true;
-  }
-
-  // Fix 4: Add meta description if missing (generic)
-  if (!result.includes('name="description"')) {
-    const titleMatch = result.match(/<title>([^<]+)<\/title>/i);
-    const description = titleMatch
-      ? titleMatch[1].replace(' - Mekong Agency', '')
-      : 'Sa Đéc Marketing Hub';
-
-    result = result.replace(
-      /(<meta charset="UTF-8">)/i,
-      '$1\n  <meta name="description" content="' + description + ' - Digital Marketing Agency">'
-    );
-    console.log(`  ✅ Added meta description: ${relativePath}`);
-    fixed = true;
-  }
-
-  return { result, fixed };
-}
-
-function runAutoFix() {
-  console.log('🔧 Sa Đéc Marketing Hub — Auto-Fix Script\n');
-  console.log('='.repeat(60));
-
-  let totalFiles = 0;
-
-  SCAN_DIRS.forEach(dir => {
-    const scanPath = path.join(ROOT_DIR, dir);
-    if (fs.existsSync(scanPath)) {
-      const htmlFiles = getAllHtmlFiles(scanPath);
-      totalFiles += htmlFiles.length;
-
-      htmlFiles.forEach(file => {
-        try {
-          const content = fs.readFileSync(file, 'utf8');
-          const { result, fixed } = autoFix(content, file);
-
-          if (fixed) {
-            fs.writeFileSync(file, result, 'utf8');
-            fixedCount++;
-          }
-        } catch (err) {
-          console.error(`  ❌ Error processing ${file}: ${err.message}`);
-          errorCount++;
-        }
-      });
+    // Fix charset
+    if (!/<meta charset=["']?UTF-8["']?/i.test(modified)) {
+        modified = modified.replace(/<head>/i, '<head>\n  <meta charset="UTF-8">');
+        changes.push('Added charset');
     }
-  });
 
-  console.log('\n' + '='.repeat(60));
-  console.log(`✅ Auto-fix complete!`);
-  console.log(`   Files processed: ${totalFiles}`);
-  console.log(`   Files fixed: ${fixedCount}`);
-  console.log(`   Errors: ${errorCount}`);
+    // Fix viewport
+    if (!/<meta name=["']?viewport["']/i.test(modified)) {
+        modified = modified.replace(/<head>/i, '<head>\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">');
+        changes.push('Added viewport');
+    }
+
+    // Fix html lang
+    if (!/<html[^>]*lang=["']/i.test(modified)) {
+        modified = modified.replace(/<html/i, '<html lang="vi"');
+        changes.push('Added html lang');
+    }
+
+    // Fix skip link
+    if (!/<a[^>]*href=["']#main["']/i.test(modified)) {
+        modified = modified.replace(/<body>/i, '<body>\n  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;">Skip to content</a>');
+        changes.push('Added skip link');
+    }
+
+    // Fix main landmark
+    if (!/<main[^>]*id=["']main["']/i.test(modified)) {
+        const patterns = [
+            /(<div class="main-content"[^>]*>)/i,
+            /(<div class="container"[^>]*>)/i,
+            /(<div id="app"[^>]*>)/i
+        ];
+        let fixed = false;
+        for (const pattern of patterns) {
+            if (pattern.test(modified)) {
+                modified = modified.replace(pattern, '$1\n  <main id="main" role="main">');
+                modified = modified.replace(/(<\/div>\s*<\/body>)/i, '  </main>\n$1');
+                changes.push('Added main landmark');
+                fixed = true;
+                break;
+            }
+        }
+        if (!fixed) {
+            modified = modified.replace(/(<body[^>]*>)/i, '$1\n<main id="main" role="main">');
+            modified = modified.replace(/(<\/body>)/i, '</main>\n$1');
+            changes.push('Added main landmark (wrapper)');
+        }
+    }
+
+    return { modified, changes };
 }
 
-runAutoFix();
+// Main
+console.log('🔧 Starting Auto-Fix...\n');
+const htmlFiles = getAllFiles(rootDir);
+let modifiedCount = 0;
+const modifiedFiles = [];
+
+for (const { path: filePath, relPath } of htmlFiles) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf8');
+        const { modified, changes } = autoFix(content, relPath);
+        if (changes.length > 0) {
+            fs.writeFileSync(filePath, modified, 'utf8');
+            modifiedCount++;
+            modifiedFiles.push({ relPath, changes });
+            console.log(`✅ ${relPath}: ${changes.length} changes`);
+        }
+    } catch (error) {
+        console.error(`❌ ${relPath}: ${error.message}`);
+    }
+}
+
+console.log(`\n📊 Auto-Fix Complete!`);
+console.log(`📝 Files modified: ${modifiedCount}`);
+
+// Report
+const reportDir = path.join(rootDir, 'reports', 'audit');
+fs.mkdirSync(reportDir, { recursive: true });
+const report = `# Auto-Fix Report
+
+**Date:** ${new Date().toISOString().split('T')[0]}
+**Files Modified:** ${modifiedCount}
+
+## Modified Files
+
+${modifiedFiles.map(f => `### ${f.relPath}\n\nChanges:\n${f.changes.map(c => `- ${c}`).join('\n')}\n`).join('\n')}
+`;
+fs.writeFileSync(path.join(reportDir, `auto-fix-${new Date().toISOString().split('T')[0]}.md`), report);
+console.log(`📄 Report: reports/audit/auto-fix-${new Date().toISOString().split('T')[0]}.md`);
