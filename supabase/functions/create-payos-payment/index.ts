@@ -10,7 +10,8 @@ import {
     generatePayOSOrderCode,
     savePaymentTransaction,
     type PaymentRequest,
-    type PaymentResponse
+    type PaymentResponse,
+    type SupabaseType
 } from '../_shared/payment-utils.ts';
 
 // Validate required environment variables at startup
@@ -38,7 +39,7 @@ const PAYOS_CONFIG = {
     cancelUrl: Deno.env.get('PAYOS_CANCEL_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payments.html',
 };
 
-async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<PaymentResponse> {
+async function createPaymentUrl(req: PaymentRequest, supabase: SupabaseType): Promise<PaymentResponse> {
     try {
         const orderCode = generatePayOSOrderCode();
         const amount = req.amount;

@@ -11,7 +11,8 @@ import {
     sortObject,
     savePaymentTransaction,
     markInvoiceAsPaid,
-    extractInvoiceNumber
+    extractInvoiceNumber,
+    type SupabaseType
 } from '../_shared/payment-utils.ts';
 
 // Validate required environment variables at startup
@@ -88,7 +89,7 @@ serve(async (req) => {
     }
 });
 
-async function handleVNPayIPN(req: Request, supabase: any, corsHeaders: Record<string, string>) {
+async function handleVNPayIPN(req: Request, supabase: SupabaseType, corsHeaders: Record<string, string>) {
     // VNPay sends GET request for IPN
     const url = new URL(req.url);
     const params = Object.fromEntries(url.searchParams.entries());
@@ -218,7 +219,7 @@ async function handleVNPayIPN(req: Request, supabase: any, corsHeaders: Record<s
     }
 }
 
-async function handleMoMoIPN(req: Request, supabase: any, corsHeaders: Record<string, string>) {
+async function handleMoMoIPN(req: Request, supabase: SupabaseType, corsHeaders: Record<string, string>) {
     // MoMo sends POST request
     const body = await req.json();
     const {
@@ -346,7 +347,7 @@ async function handleMoMoIPN(req: Request, supabase: any, corsHeaders: Record<st
     });
 }
 
-async function handlePayOSIPN(req: Request, supabase: any, corsHeaders: Record<string, string>) {
+async function handlePayOSIPN(req: Request, supabase: SupabaseType, corsHeaders: Record<string, string>) {
     // payOS sends POST request with webhook data
     const body = await req.json();
     const { code, data, signature, desc } = body;

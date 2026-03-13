@@ -1,4 +1,69 @@
 // Shared Payment Utilities for all payment gateways
+import { SupabaseClient, createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.0';
+
+// Type-safe Supabase client type
+export type SupabaseType = SupabaseClient<any, any, any>;
+
+// Gateway type for payment routing
+export type GatewayType = 'vnpay' | 'momo' | 'payos';
+
+// Common payment handler interface
+export interface PaymentHandlerConfig {
+    gateway: GatewayType;
+    requiredEnvVars: string[];
+}
+
+// Request validation result
+export interface ValidationResult {
+    valid: boolean;
+    error?: string;
+    statusCode?: number;
+}
+
+// Validate payment request body
+export function validatePaymentRequest(body: unknown): ValidationResult {
+    if (!body || typeof body !== 'object') {
+        return { valid: false, error: 'Invalid request body', statusCode: 400 };
+    }
+
+    const req = body as Partial<PaymentRequest>;
+
+    if (!req.invoiceId || !req.invoiceNumber) {
+        return { valid: false, error: 'Invoice ID and Invoice Number are required', statusCode: 400 };
+    }
+
+    if (typeof req.amount !== 'number' || req.amount <= 0) {
+        return { valid: false, error: 'Invalid amount', statusCode: 400 };
+    }
+
+    return { valid: true };
+}
+
+// Common error response creator
+export function createPaymentError(message: string, context?: { gateway?: string; error?: unknown }): void {
+    console.error(`${context?.gateway || 'Payment'} Error:`, context?.error || message);
+}
+
+// Base handler for common serve logic
+export function createBaseRequestHandler(
+    handler: (req: Request) => Promise<Response>,
+    gateway: string
+) {
+    return async (req: Request): Promise<Response> => {
+        try {
+            return await handler(req);
+        } catch (error) {
+            console.error(`${gateway} handler error:`, error);
+            return new Response(
+                JSON.stringify({ error: 'Internal server error' }),
+                {
+                    status: 500,
+                    headers: { 'Content-Type': 'application/json' }
+                }
+            );
+        }
+    };
+}
 
 // Environment variables validation
 export function validateEnvVars(required: string[]): void {
@@ -101,6 +166,7 @@ export interface PaymentRequest {
     amount: number;
     orderInfo?: string;
     clientId?: string;
+    description?: string;
 }
 
 // Payment response interface
@@ -113,18 +179,43 @@ export interface PaymentResponse {
     error?: string;
 }
 
+// Transaction callback data types
+export interface VNPayCallbackData {
+    vnp_TxnRef: string;
+    vnp_Amount: string;
+    vnp_OrderInfo: string;
+}
+
+export interface MoMoCallbackData {
+    orderId: string;
+    requestId: string;
+    orderInfo: string;
+    payUrl?: string;
+}
+
+export interface PayOSCallbackData {
+    orderCode: number;
+    checkoutUrl?: string;
+    description?: string;
+}
+
+export type PaymentCallbackData = VNPayCallbackData | MoMoCallbackData | PayOSCallbackData;
+
+// Transaction data interface
+export interface PaymentTransactionData {
+    invoice_id?: string;
+    amount: number;
+    gateway: 'vnpay' | 'momo' | 'payos';
+    status: 'pending' | 'completed' | 'failed' | 'cancelled';
+    transaction_id: string;
+    gateway_transaction_no?: string;
+    callback_data: PaymentCallbackData;
+}
+
 // Save payment transaction to database
 export async function savePaymentTransaction(
-    supabase: any,
-    data: {
-        invoice_id?: string;
-        amount: number;
-        gateway: string;
-        status: string;
-        transaction_id: string;
-        gateway_transaction_no?: string;
-        callback_data: any;
-    }
+    supabase: SupabaseType,
+    data: PaymentTransactionData
 ) {
     try {
         const { error } = await supabase.from('payment_transactions').insert({
@@ -149,7 +240,7 @@ export async function savePaymentTransaction(
 
 // Find invoice by transaction ID from payment_transactions table
 export async function findInvoiceByTransactionId(
-    supabase: any,
+    supabase: SupabaseType,
     transactionId: string
 ): Promise<{ invoice_id: string; invoice_number: string } | null> {
     const { data, error } = await supabase
@@ -186,7 +277,7 @@ export function extractInvoiceNumber(transactionRef: string, gateway: string): s
 
 // Update invoice status to paid
 export async function markInvoiceAsPaid(
-    supabase: any,
+    supabase: SupabaseType,
     invoiceId: string,
     paidAt?: string
 ): Promise<void> {
@@ -202,4 +293,102 @@ export async function markInvoiceAsPaid(
         console.error('Error updating invoice:', error);
         throw error;
     }
+}
+
+// Common handler builder for payment creation endpoints
+// This reduces duplication across VNPay, MoMo, and PayOS handlers
+export function createPaymentHandler(options: {
+    gateway: GatewayType;
+    validateAmount?: (amount: number) => ValidationResult;
+    minAmount?: number;
+}) {
+    const { gateway, validateAmount, minAmount } = options;
+
+    // Build validation response
+    function validateRequest(body: unknown): { valid: true; body: PaymentRequest } | { valid: false; response: Response } {
+        const validation = validatePaymentRequest(body);
+        if (!validation.valid) {
+            return {
+                valid: false,
+                response: new Response(JSON.stringify({ error: validation.error }), {
+                    status: validation.statusCode || 400,
+                    headers: { 'Content-Type': 'application/json' }
+                })
+            };
+        }
+
+        const req = body as PaymentRequest;
+
+        // Gateway-specific amount validation
+        if (validateAmount) {
+            const amountValidation = validateAmount(req.amount);
+            if (!amountValidation.valid) {
+                return {
+                    valid: false,
+                    response: new Response(JSON.stringify({ error: amountValidation.error }), {
+                        status: amountValidation.statusCode || 400,
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                };
+            }
+        }
+
+        // Minimum amount check
+        if (minAmount && req.amount < minAmount) {
+            return {
+                valid: false,
+                response: new Response(
+                    JSON.stringify({ error: `Minimum payment amount is ${minAmount.toLocaleString('vi-VN')} VND` }),
+                    { status: 400, headers: { 'Content-Type': 'application/json' } }
+                )
+            };
+        }
+
+        return { valid: true, body: req };
+    }
+
+    return {
+        validateRequest,
+        gateway
+    };
+}
+
+// Standard CORS + method handling wrapper
+export async function handleCorsAndMethod(
+    req: Request,
+    handler: (req: Request) => Promise<Response>
+): Promise<Response> {
+    const origin = req.headers.get('origin');
+    const headers = getCorsHeaders(origin);
+
+    // Handle CORS preflight
+    if (req.method === 'OPTIONS') {
+        return new Response(null, { status: 204, headers });
+    }
+
+    // Only allow POST
+    if (req.method !== 'POST') {
+        return new Response(
+            JSON.stringify({ error: 'Method not allowed' }),
+            { status: 405, headers }
+        );
+    }
+
+    try {
+        return await handler(req);
+    } catch (error) {
+        console.error('Server error:', error);
+        return new Response(
+            JSON.stringify({ error: 'Internal server error' }),
+            { status: 500, headers }
+        );
+    }
+}
+
+// Create Supabase client helper
+export function createSupabaseClient(): SupabaseType {
+    return createClient(
+        Deno.env.get('SUPABASE_URL')!,
+        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
 }

@@ -10,7 +10,8 @@ import {
     generateMoMoOrderId,
     savePaymentTransaction,
     type PaymentRequest,
-    type PaymentResponse
+    type PaymentResponse,
+    type SupabaseType
 } from '../_shared/payment-utils.ts';
 
 // Validate required environment variables at startup
@@ -38,7 +39,7 @@ const MOMO_CONFIG = {
     ipnUrl: Deno.env.get('MOMO_IPN_URL') || 'https://sadec-marketing-hub.vercel.app/api/momo-ipn',
 };
 
-async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<PaymentResponse> {
+async function createPaymentUrl(req: PaymentRequest, supabase: SupabaseType): Promise<PaymentResponse> {
     try {
         const orderId = generateMoMoOrderId(req.invoiceNumber);
         const requestId = orderId;

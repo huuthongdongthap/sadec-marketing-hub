@@ -2,9 +2,7 @@
 // Secure server-side payment URL generation for VNPay integration with signature verification
 
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.0';
 import {
-    validateEnvVars,
     getCorsHeaders,
     createHmacSha512,
     sortObject,
@@ -12,22 +10,12 @@ import {
     generateVNPayTxnRef,
     savePaymentTransaction,
     type PaymentRequest,
-    type PaymentResponse
+    type PaymentResponse,
+    type SupabaseType,
+    handleCorsAndMethod,
+    createSupabaseClient,
+    validatePaymentRequest
 } from '../_shared/payment-utils.ts';
-
-// Validate required environment variables at startup
-const REQUIRED_ENV_VARS = [
-    'VNPAY_TMN_CODE',
-    'VNPAY_SECRET_KEY',
-    'SUPABASE_URL',
-    'SUPABASE_SERVICE_ROLE_KEY'
-];
-
-try {
-    validateEnvVars(REQUIRED_ENV_VARS);
-} catch (error) {
-    console.error('Environment validation failed:', error.message);
-}
 
 // VNPay Configuration
 const VNPAY_CONFIG = {
@@ -40,7 +28,7 @@ const VNPAY_CONFIG = {
     currCode: 'VND'
 };
 
-async function createPaymentUrl(req: PaymentRequest, supabase: any): Promise<PaymentResponse> {
+async function createPaymentUrl(req: PaymentRequest, supabase: SupabaseType): Promise<PaymentResponse> {
     try {
         const txnRef = generateVNPayTxnRef(req.invoiceNumber);
         const createDate = formatVnpDate(new Date());

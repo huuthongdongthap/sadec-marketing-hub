@@ -118,7 +118,9 @@ class SadecSidebar extends HTMLElement {
                 { id: 'zalo', label: 'Zalo OA', icon: 'chat', href: '/admin/zalo.html' },
                 { id: 'content-calendar', label: 'Content AI', icon: 'calendar_month', href: '/admin/content-calendar.html' },
                 { id: 'community', label: 'Community', icon: 'groups', href: '/admin/community.html' },
-                { id: 'events', label: 'Events', icon: 'event', href: '/admin/events.html' }
+                { id: 'events', label: 'Events', icon: 'event', href: '/admin/events.html' },
+                { id: 'social-media', label: 'Social Media', icon: 'share', href: '/admin/social-media.html' },
+                { id: 'email-marketing', label: 'Email Marketing', icon: 'email', href: '/admin/email-marketing.html' }
             ]
         },
         finance: {
@@ -149,7 +151,9 @@ class SadecSidebar extends HTMLElement {
             items: [
                 { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: '/admin/binh-phap.html' },
                 { id: 'ai-analysis', label: 'AI Analysis', icon: 'insights', href: '/admin/ai-analysis.html' },
-                { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: '/admin/vc-readiness.html' }
+                { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: '/admin/vc-readiness.html' },
+                { id: 'analytics', label: 'Analytics', icon: 'analytics', href: '/admin/analytics.html' },
+                { id: 'competitor', label: 'Competitor', icon: 'compare', href: '/admin/competitor.html' }
             ]
         },
         content: {

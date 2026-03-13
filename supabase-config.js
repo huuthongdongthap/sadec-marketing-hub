@@ -19,12 +19,9 @@ function initSupabase() {
         if (typeof window.supabase !== 'undefined' && typeof window.supabase.createClient === 'function') {
             supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             return true;
-        } else {
-            console.error('Supabase CDN not loaded');
-            return null;
         }
+        return null;
     } catch (err) {
-        console.error('Supabase init error:', err.message);
         return null;
     }
 }
@@ -623,7 +620,6 @@ const BinhPhapAPI = {
             .single();
 
         if (error) {
-            console.warn('mv_dashboard_stats not available, falling back to live query');
             return await this.getDashboardStatsLive();
         }
         return data;
@@ -950,7 +946,7 @@ const AuthState = {
             }
 
         } catch (error) {
-            console.error('Auth init error:', error);
+            // Auth init error - silently continue with unauthenticated state
         }
 
         this.isLoading = false;
@@ -1022,38 +1018,21 @@ const AuthActions = {
 
     // Sign in with email/password
     async signIn(email, password) {
-        console.log('[AuthActions.signIn] Called with email:', email);
         try {
-            // Try Supabase via AuthAPI
-            console.log('[AuthActions.signIn] Checking window.AuthAPI...');
             if (window.AuthAPI) {
-                console.log('[AuthActions.signIn] Calling window.AuthAPI.signIn...');
                 const result = await window.AuthAPI.signIn(email, password);
-                console.log('[AuthActions.signIn] AuthAPI result:', result);
 
                 if (result.data?.user) {
-                    console.log('[AuthActions.signIn] Supabase login SUCCESS');
                     await AuthState.init();
                     return { success: true, user: result.data.user };
                 }
 
                 if (result.error) {
-                    // Extract error message from Supabase error object
-                    const supabaseError = result.error;
-                    const errorMessage = supabaseError.message || 'Lỗi đăng nhập';
-                    console.log('[AuthActions.signIn] Supabase error type:', supabaseError.constructor.name);
-                    console.log('[AuthActions.signIn] Supabase error message:', errorMessage);
-
-                    // ALWAYS fall through to demo mode regardless of error type
-                    // Demo fallback must be attempted for ALL Supabase errors
-                    console.warn('[AuthActions.signIn] Supabase auth failed, falling back to demo mode:', errorMessage);
+                    const errorMessage = result.error.message || 'Lỗi đăng nhập';
+                    // Fall through to demo mode for all errors
                 }
-            } else {
-                console.warn('[AuthActions.signIn] window.AuthAPI not defined');
             }
 
-            // Demo mode fallback
-            console.log('[AuthActions.signIn] Checking DEMO_USERS...');
             const DEMO_USERS = {
                 'admin@mekongmarketing.com': { password: 'admin123', role: 'super_admin', name: 'Admin' },
                 'manager@mekongmarketing.com': { password: 'manager123', role: 'manager', name: 'Manager' },
@@ -1063,10 +1042,8 @@ const AuthActions = {
             };
 
             const demoUser = DEMO_USERS[email.toLowerCase()];
-            console.log('[AuthActions.signIn] DEMO_USERS lookup result:', demoUser);
 
             if (demoUser && demoUser.password === password) {
-                console.log('[AuthActions.signIn] DEMO USER MATCH!');
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('userEmail', email);
                 localStorage.setItem('userRole', demoUser.role);
@@ -1075,19 +1052,11 @@ const AuthActions = {
 
                 await AuthState.init();
                 return { success: true, user: { email }, isDemo: true };
-            } else {
-                console.log('[AuthActions.signIn] Demo user check failed');
-                if (!demoUser) {
-                    console.log('[AuthActions.signIn] No demo user found for email:', email);
-                } else {
-                    console.log('[AuthActions.signIn] Password mismatch. Expected:', demoUser.password, 'Got:', password);
-                }
             }
 
             return { success: false, error: 'Email hoặc mật khẩu không đúng' };
 
         } catch (error) {
-            console.error('[AuthActions.signIn] Exception caught:', error);
             return { success: false, error: error.message };
         }
     },
@@ -1122,7 +1091,6 @@ const AuthActions = {
             return { success: true, isDemo: true };
 
         } catch (error) {
-            console.error('Sign up error:', error);
             return { success: false, error: error.message };
         }
     },
@@ -1134,7 +1102,7 @@ const AuthActions = {
                 await window.AuthAPI.signOut();
             }
         } catch (error) {
-            console.error('Sign out error:', error);
+            // Silently handle sign out errors
         }
 
         // Clear local storage
@@ -1223,7 +1191,6 @@ const AuthActions = {
             return { verified: true, email: localStorage.getItem('userEmail') };
 
         } catch (error) {
-            console.error('Check email verified error:', error);
             return { verified: false, email: null };
         }
     },
@@ -1324,7 +1291,6 @@ const AuthSecurity = {
     },
 
     handleTimeout() {
-        console.warn('🛡️ AuthSecurity: Session expired due to inactivity');
         AuthActions.signOut();
         alert('Phiên làm việc hết hạn. Vui lòng đăng nhập lại.');
     }
