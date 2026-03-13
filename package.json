@@ -9,6 +9,8 @@
     "build:minify": "node scripts/build/minify.js",
     "build:optimize": "node scripts/build/optimize-lazy.js",
     "optimize": "npm run build:optimize && npm run build:minify",
+    "audit": "node scripts/audit/html-audit.js",
+    "audit:fix": "node scripts/audit/fix-html.js",
     "migrate": "node database/migrate.js",
     "migrate:print": "node database/migrate.js --print",
     "migrate:run": "node database/run-migrations.js",

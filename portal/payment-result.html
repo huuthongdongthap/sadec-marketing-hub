@@ -5,8 +5,46 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="../favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kết quả thanh toán - Client Portal</title>
-    <meta name="description" content="Payment result page for VNPay transaction confirmation.">
+    
+  <!-- SEO Meta Tags -->
+  <title>Kết Quả Thanh Toán - Payment Result</title>
+  <meta name="description" content="Xem kết quả giao dịch thanh toán vừa thực hiện.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/payment-result/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Kết Quả Thanh Toán - Payment Result">
+  <meta property="og:description" content="Xem kết quả giao dịch thanh toán vừa thực hiện.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/payment-result/">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kết Quả Thanh Toán - Payment Result">
+  <meta name="twitter:description" content="Xem kết quả giao dịch thanh toán vừa thực hiện.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "Mekong Agency",
+    "description": "Xem kết quả giao dịch thanh toán vừa thực hiện.",
+    "url": "https://sadecmarketinghub.com/portal/payment-result/",
+    "logo": "https://sadecmarketinghub.com/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
 
     <script type="importmap">
     {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
@@ -18,6 +56,10 @@
     <link rel="stylesheet" href="../assets/css/m3-agency.css">
     <link rel="stylesheet" href="../assets/css/portal.css">
 
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body class="body-centered">
@@ -279,7 +321,6 @@
                 }
 
             } catch (error) {
-                console.error('Verification error:', error);
                 document.getElementById('loading-state').style.display = 'none';
                 document.getElementById('result-state').style.display = 'block';
 
@@ -444,7 +485,6 @@
                     throw new Error(result.error || 'Không thể kích hoạt tài khoản');
                 }
             } catch (err) {
-                console.error('Activation error:', err);
                 errorDiv.textContent = err.message || 'Lỗi kích hoạt. Vui lòng thử lại.';
                 errorDiv.style.display = 'block';
                 btn.disabled = false;

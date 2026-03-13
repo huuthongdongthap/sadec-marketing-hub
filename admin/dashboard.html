@@ -4,9 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgencyOS 2026 - Dashboard</title>
-    <meta name="description"
-        content="Admin dashboard for Mekong Agency - Real-time KPIs, revenue tracking, and operational overview for marketing agency management.">
+    
+  <!-- SEO Meta Tags -->
+  <title>Admin Dashboard - Mekong Agency Management</title>
+  <meta name="description" content="Bảng điều khiển quản trị - Theo dõi KPIs, doanh thu, và hiệu suất chiến dịch marketing realtime.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/dashboard/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Admin Dashboard - Mekong Agency Management">
+  <meta property="og:description" content="Bảng điều khiển quản trị - Theo dõi KPIs, doanh thu, và hiệu suất chiến dịch marketing realtime.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/dashboard/">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Admin Dashboard - Mekong Agency Management">
+  <meta name="twitter:description" content="Bảng điều khiển quản trị - Theo dõi KPIs, doanh thu, và hiệu suất chiến dịch marketing realtime.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "Mekong Agency",
+    "description": "Bảng điều khiển quản trị - Theo dõi KPIs, doanh thu, và hiệu suất chiến dịch marketing realtime.",
+    "url": "https://sadecmarketinghub.com/admin/dashboard/",
+    "logo": "https://sadecmarketinghub.com/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
 
     <!-- FONTS -->
     <link
@@ -32,6 +69,10 @@
 
     
     <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -60,63 +101,57 @@
                     <button class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
                         <span class="material-symbols-outlined">dark_mode</span>
                     </button>
-                    <a href="#" class="btn-cyber">
+                    <a href="javascript:void(0)" class="btn-cyber">
                         <span class="material-symbols-outlined">add</span> NEW PROJECT
                     </a>
                 </div>
             </div>
 
-            <!-- Stats -->
+            <!-- Stats - Using KPI Card Widgets -->
             <div class="stats-grid animate-entry-premium delay-2">
                 <!-- Stat 1: Revenue -->
-                <div class="glass-card glass-card-premium" data-tilt>
-                    <div class="stat-card-inner">
-                        <div class="stat-icon-neon cyan">
-                            <span class="material-symbols-outlined">trending_up</span>
-                        </div>
-                        <div class="stat-label">Total Revenue</div>
-                        <div class="stat-value stat-value-animated" id="stat-revenue" data-target="2400000000"
-                            data-suffix=" VND">0 VND</div>
-                        <div class="stat-trend positive">▲ 12.5% increase</div>
-                    </div>
-                </div>
+                <kpi-card-widget
+                    title="Total Revenue"
+                    value="0"
+                    trend="positive"
+                    trend-value="12.5%"
+                    icon="trending_up"
+                    color="cyan"
+                    id="kpi-revenue">
+                </kpi-card-widget>
 
                 <!-- Stat 2: Clients -->
-                <div class="glass-card glass-card-premium" data-tilt>
-                    <div class="stat-card-inner">
-                        <div class="stat-icon-neon purple">
-                            <span class="material-symbols-outlined">group_add</span>
-                        </div>
-                        <div class="stat-label">Active Clients</div>
-                        <div class="stat-value stat-value-animated" id="stat-clients" data-target="142">0</div>
-                        <div class="stat-trend positive">▲ 8 new this week</div>
-                    </div>
-                </div>
+                <kpi-card-widget
+                    title="Active Clients"
+                    value="0"
+                    trend="positive"
+                    trend-value="8 new"
+                    icon="group_add"
+                    color="purple"
+                    id="kpi-clients">
+                </kpi-card-widget>
 
                 <!-- Stat 3: Leads -->
-                <div class="glass-card glass-card-premium" data-tilt>
-                    <div class="stat-card-inner">
-                        <div class="stat-icon-neon white">
-                            <span class="material-symbols-outlined">ads_click</span>
-                        </div>
-                        <div class="stat-label">Total Leads</div>
-                        <div class="stat-value stat-value-animated" id="stat-impressions" data-target="8500000">0</div>
-                        <div class="stat-trend neutral">─ Stable performance</div>
-                    </div>
-                </div>
+                <kpi-card-widget
+                    title="Total Leads"
+                    value="0"
+                    trend="neutral"
+                    trend-value="Stable"
+                    icon="ads_click"
+                    color="lime"
+                    id="kpi-leads">
+                </kpi-card-widget>
 
                 <!-- Stat 4: Campaign Rate -->
-                <div class="glass-card glass-card-premium" data-tilt>
-                    <div class="stat-card-inner">
-                        <div class="stat-icon-neon lime">
-                            <span class="material-symbols-outlined">bolt</span>
-                        </div>
-                        <div class="stat-label">Active Campaign Rate</div>
-                        <div class="stat-value stat-value-animated" id="stat-health" data-target="99" data-suffix=".9%">
-                            0%</div>
-                        <div class="stat-trend positive">● All systems operational</div>
-                    </div>
-                </div>
+                <kpi-card-widget
+                    title="Active Campaigns"
+                    value="0"
+                    trend="positive"
+                    trend-value="100%"
+                    icon="bolt"
+                    color="orange"
+                    id="kpi-campaigns">
+                </kpi-card-widget>
             </div>
 
             <!-- Content Area -->
@@ -223,6 +258,11 @@
     <script src="../assets/js/dashboard-client.js" type="module"></script>
     <script type="module" src="../assets/js/agency-2026-premium.js"></script>
     <script type="module" src="../assets/js/notifications.js"></script>
+    <!-- Dashboard Widgets -->
+    <script type="module" src="widgets/kpi-card.html"></script>
+    <script type="module" src="widgets/revenue-chart.js"></script>
+    <script type="module" src="widgets/activity-feed.js"></script>
+    <script type="module" src="widgets/project-progress.js"></script>
     <script>
         // Initialize Chart.js after DOM load
         document.addEventListener('DOMContentLoaded', async () => {
