@@ -158,7 +158,6 @@ Yêu cầu:
 
       return this.parseResult(result, type);
     } catch (error) {
-      console.error('AI Content Generation Error:', error);
 
       if (typeof Toast !== 'undefined') {
         Toast.hideAll();
@@ -194,7 +193,6 @@ Yêu cầu:
       return data.content;
     } catch (error) {
       // Fallback to direct API call
-      console.warn('Supabase function failed, falling back to direct API:', error);
       return await this.callEdgeFunction(system, prompt);
     }
   }
@@ -249,7 +247,6 @@ Yêu cầu:
       };
     } catch (e) {
       // Return raw result if parsing fails
-      console.warn('Failed to parse AI result:', e);
       return {
         raw: result,
         type,
@@ -655,7 +652,6 @@ class AIContentPanel extends HTMLElement {
         result.textContent = JSON.stringify(result_data, null, 2);
         result.classList.add('show');
       } catch (error) {
-        console.error('Generation error:', error);
       } finally {
         generateBtn.disabled = false;
         generateBtn.innerHTML = '<span class="material-symbols-outlined">auto_awesome</span> Tạo Content';

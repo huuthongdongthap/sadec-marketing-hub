@@ -53,7 +53,6 @@ class ErrorBoundary extends HTMLElement {
   handleError(error) {
     this.hasError = true;
     this.error = error;
-    console.error(`[ErrorBoundary] Module "${this.getAttribute('data-module')}":`, error);
 
     // Show toast notification
     if (typeof Toast !== 'undefined') {
@@ -268,7 +267,6 @@ const ErrorBoundaryUtils = {
       return fn();
     } catch (error) {
       if (onError) onError(error);
-      else console.error('[ErrorBoundary]', error);
       return null;
     }
   },
@@ -281,7 +279,6 @@ const ErrorBoundaryUtils = {
       return await fn();
     } catch (error) {
       if (onError) onError(error);
-      else console.error('[ErrorBoundary]', error);
       throw error;
     }
   },
@@ -325,7 +322,6 @@ const ErrorBoundaryUtils = {
    */
   registerGlobalHandler() {
     window.addEventListener('error', (event) => {
-      console.error('[Global Error]', event.error);
 
       if (typeof Toast !== 'undefined') {
         Toast.error(event.error?.message || 'Đã xảy ra lỗi', {
@@ -335,7 +331,6 @@ const ErrorBoundaryUtils = {
     });
 
     window.addEventListener('unhandledrejection', (event) => {
-      console.error('[Global Unhandled Rejection]', event.reason);
 
       if (typeof Toast !== 'undefined') {
         Toast.error(event.reason?.message || 'Lỗi không xác định', {

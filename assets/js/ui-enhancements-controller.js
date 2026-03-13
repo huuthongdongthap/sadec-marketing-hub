@@ -22,7 +22,6 @@ class UIEnhancements {
         this.setupRippleEffect();
         this.setupPageLoader();
         this.setupReducedMotion();
-        console.log('[UIEnhancements] Initialized');
     }
 
     /**

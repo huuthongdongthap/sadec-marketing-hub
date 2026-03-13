@@ -20,12 +20,10 @@ export { AnalyticsDashboard } from '../features/analytics-dashboard.js';
  * Auto-initialize all components
  */
 function initializeComponents() {
-  console.log('[Mekong Components] Initializing...');
 
   // Components are auto-initialized in their constructors
   // Toast, Theme, MobileUI already init on load
 
-  console.log('[Mekong Components] Ready!');
 }
 
 // Initialize on DOMContentLoaded

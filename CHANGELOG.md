@@ -2,6 +2,57 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.2.0] - 2026-03-13
+
+### 🚀 Major Features
+- **Dashboard Widgets System:**
+  - Added KPI card components with real-time data formatting
+  - Implemented traffic chart visualization with Chart.js
+  - Created conversion funnel display for analytics
+  - Added project progress tracker widget
+  - Implemented activity feed component for dashboard updates
+
+- **Responsive Design Overhaul:**
+  - New responsive CSS fixes (`assets/css/responsive-fix-2026.css`)
+  - Enhanced mobile navigation with improved hamburger menu
+  - Touch-friendly tap targets (48px minimum)
+  - Bottom navigation support for mobile devices
+
+### 🔧 Refactoring & Cleanup
+- **Dead Code Removal:**
+  - Removed 664 lines of unused/dead code across 132 files
+  - Cleaned up console.log statements from production code
+  - Removed deprecated audit scripts
+  - Consolidated duplicate utilities into shared modules
+
+- **Script Cleanup:**
+  - Removed 30+ standalone audit/migration scripts (moved to tooling)
+  - Streamlined build scripts (cache-busting, css-bundle, minify)
+  - Cleaned up SEO audit scripts (centralized metadata)
+
+### 📦 Component Updates
+- **Widget System:** Enhanced `widgets/index.js` with modular component registration
+- **Theme Manager:** Added dynamic theme switching support
+- **Error Boundary:** Implemented global error handler (`components/error-boundary.js`)
+- **API Utils:** Consolidated API calls into `shared/api-utils.js`
+
+### 🧪 Testing
+- **New E2E Tests:**
+  - Added dashboard widgets tests (`tests/dashboard-widgets.spec.ts`)
+  - Expanded components/widgets tests (73 new test cases)
+  - Improved Playwright configuration for better coverage
+
+### 📈 Technical Debt
+- Reduced bundle size by removing dead code
+- Improved code maintainability through consolidation
+- Enhanced test coverage for critical user flows
+- Fixed accessibility issues across admin pages
+
+### 📝 Files Changed
+- **132 files modified:** 1604 insertions(+), 664 deletions(-)
+- **New files:** PLAN_FEATURES_UX_2026-03-13.md, responsive CSS bundle, debug scripts
+- **Key updates:** 46 admin pages, 8 affiliate pages, 15 portal pages
+
 ## [v4.1.0] - 2026-03-13
 
 ### 🚀 Major Features

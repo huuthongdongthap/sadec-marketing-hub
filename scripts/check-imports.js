@@ -52,17 +52,10 @@ function checkImports(dir) {
 checkImports(jsDir);
 
 if (errors.length === 0) {
-  console.log('✓ Không tìm thấy broken imports');
 } else {
-  console.log(`✘ Tìm thấy ${errors.length} broken imports:\n`);
   errors.forEach((err, idx) => {
-    console.log(`${idx + 1}. ${err.file}`);
-    console.log(`   Import: ${err.import || err.require}`);
-    console.log(`   Issue: ${err.issue}`);
-    console.log();
   });
 }
 
 // Save to JSON
 fs.writeFileSync('scripts/import-errors.json', JSON.stringify(errors, null, 2));
-console.log(`\nĐã lưu kết quả vào scripts/import-errors.json`);

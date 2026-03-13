@@ -34,5 +34,4 @@
 // This empty listener ensures auth.js can be loaded independently
 document.addEventListener('DOMContentLoaded', () => {
     // Auth state is already initialized by supabase-config.js
-    // console.debug('Auth.js loaded - re-exporting from supabase-config.js');
 });

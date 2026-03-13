@@ -74,7 +74,6 @@ function getAllFiles(dir, extensions = ['.js', '.ts', '.css'], fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.warn(`Warning: Cannot access ${filePath}`);
         }
     }
 
@@ -465,7 +464,6 @@ function generateReport(issues) {
  * Main review function
  */
 function runReview() {
-    console.log('🔍 Sa Đéc Marketing Hub - Code Quality Review\n');
 
     const allFiles = [];
     for (const dir of SCAN_DIRS) {
@@ -474,8 +472,6 @@ function runReview() {
             allFiles.push(...getAllFiles(dirPath));
         }
     }
-
-    console.log(`Found ${allFiles.length} files to review\n`);
 
     const allIssues = [];
     for (const file of allFiles) {
@@ -488,16 +484,11 @@ function runReview() {
         }
     }
 
-    console.log(`\n\nScanned ${reviewResults.filesScanned} files`);
-    console.log(`Found ${allIssues.length} issues\n`);
-
     // Generate and save report
     const report = generateReport(allIssues);
     const reportPath = path.join(ROOT_DIR, 'reports', 'dev', 'pr-review', 'code-quality.md');
     fs.mkdirSync(path.dirname(reportPath), { recursive: true });
     fs.writeFileSync(reportPath, report, 'utf8');
-
-    console.log(`📄 Report saved to: ${reportPath}`);
 
     // Save JSON data
     const jsonPath = path.join(ROOT_DIR, 'reports', 'dev', 'pr-review', 'code-quality.json');

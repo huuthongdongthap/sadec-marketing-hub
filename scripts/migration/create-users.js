@@ -90,39 +90,28 @@ async function checkDbConnection() {
         await dbClient.end();
         return true;
     } catch (e) {
-        console.warn('⚠️  Database connection warning:', e.message);
-        console.warn('   Continuing with Auth API only...\n');
         return false;
     }
 }
 
 async function main() {
-    console.log('🔐 Auto-Creating Demo Users for Mekong Marketing');
-    console.log('=================================================\n');
 
     await checkDbConnection();
 
     for (const user of DEMO_USERS) {
         try {
-            console.log(`👤 Creating ${user.role}: ${user.email}...`);
             const authUser = await createAuthUser(user);
-            console.log(`   ✅ Created! ID: ${authUser.id}`);
         } catch (err) {
             const msg = err.message;
             if (msg.includes('already been registered') || msg.includes('unique constraint')) {
-                console.log(`   ⚠️  Already exists`);
             } else {
-                console.log(`   ❌ Error: ${msg}`);
             }
         }
     }
 
-    console.log('\n✨ Done! Login credentials:\n');
     console.table(DEMO_USERS.map(({role, email, password}) => ({role, email, password})));
-    console.log('\n🔗 Login at: /login.html');
 }
 
 main().catch(err => {
-    console.error(err);
     process.exit(1);
 });

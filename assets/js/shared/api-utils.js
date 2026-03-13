@@ -7,7 +7,7 @@
  * @module shared/api-utils
  */
 
-import { supabase } from '../supabase-config.js';
+import { supabase } from '../../../supabase-config.js';
 
 // ============================================================================
 // HTTP HELPERS
@@ -22,7 +22,6 @@ async function getAuthToken() {
         const { data: { session } } = await supabase.auth.getSession();
         return session?.access_token || null;
     } catch (error) {
-        console.error('Error getting auth token:', error);
         return null;
     }
 }
@@ -152,7 +151,7 @@ export async function deleteJSON(url) {
  * Query data from Supabase with error handling
  * @param {string} table - Table name
  * @param {Object} [options={}] - Query options
- * @returns {Promise<{data: any, error: Error|null}>} Query result
+ * @returns {Promise<{data: unknown, error: Error|null}>} Query result
  */
 export async function queryTable(table, options = {}) {
     try {
@@ -179,7 +178,6 @@ export async function queryTable(table, options = {}) {
         if (error) throw error;
         return { data, error: null };
     } catch (error) {
-        console.error(`Error querying ${table}:`, error);
         return { data: null, error };
     }
 }
@@ -188,7 +186,7 @@ export async function queryTable(table, options = {}) {
  * Insert data into Supabase table
  * @param {string} table - Table name
  * @param {Object} data - Data to insert
- * @returns {Promise<{data: any, error: Error|null}>} Insert result
+ * @returns {Promise<{data: unknown, error: Error|null}>} Insert result
  */
 export async function insertIntoTable(table, data) {
     try {
@@ -200,7 +198,6 @@ export async function insertIntoTable(table, data) {
         if (error) throw error;
         return { data: result, error: null };
     } catch (error) {
-        console.error(`Error inserting into ${table}:`, error);
         return { data: null, error };
     }
 }
@@ -210,7 +207,7 @@ export async function insertIntoTable(table, data) {
  * @param {string} table - Table name
  * @param {Object} data - Data to update
  * @param {Object} condition - Where condition { column: value }
- * @returns {Promise<{data: any, error: Error|null}>} Update result
+ * @returns {Promise<{data: unknown, error: Error|null}>} Update result
  */
 export async function updateInTable(table, data, condition) {
     try {
@@ -225,7 +222,6 @@ export async function updateInTable(table, data, condition) {
         if (error) throw error;
         return { data: result, error: null };
     } catch (error) {
-        console.error(`Error updating ${table}:`, error);
         return { data: null, error };
     }
 }
@@ -234,7 +230,7 @@ export async function updateInTable(table, data, condition) {
  * Delete data from Supabase table
  * @param {string} table - Table name
  * @param {Object} condition - Where condition { column: value }
- * @returns {Promise<{data: any, error: Error|null}>} Delete result
+ * @returns {Promise<{data: unknown, error: Error|null}>} Delete result
  */
 export async function deleteFromTable(table, condition) {
     try {
@@ -249,7 +245,6 @@ export async function deleteFromTable(table, condition) {
         if (error) throw error;
         return { data: result, error: null };
     } catch (error) {
-        console.error(`Error deleting from ${table}:`, error);
         return { data: null, error };
     }
 }
@@ -265,7 +260,6 @@ export async function deleteFromTable(table, condition) {
  * @returns {Object} Formatted error object
  */
 export function handleApiError(error, context = '') {
-    console.error(`API Error${context ? ` - ${context}` : ''}:`, error);
 
     return {
         success: false,

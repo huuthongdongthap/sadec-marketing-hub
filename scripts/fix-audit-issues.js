@@ -41,7 +41,6 @@ function getAllJSFiles(dir, fileList = []) {
 
 function fixConsoleStatements(content) {
     const lines = content.split('\n');
-    const consolePatterns = ['console.log', 'console.warn', 'console.error', 'console.debug', 'console.info'];
     
     let removed = 0;
     const newLines = lines.filter(line => {
@@ -109,28 +108,16 @@ function processFile(filePath) {
     if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
         stats.filesFixed++;
-        console.log(`  ✓ ${filePath}: Fixed`);
     }
 }
 
 function main() {
-    console.log('🔧 Fixing performance audit issues...\n');
     
     for (const dir of SCAN_DIRS) {
         const files = getAllJSFiles(dir);
         files.forEach(file => processFile(file));
     }
     
-    console.log('\n' + '='.repeat(50));
-    console.log('SUMMARY');
-    console.log('='.repeat(50));
-    console.log(`Files scanned:    ${stats.filesScanned}`);
-    console.log(`Files fixed:      ${stats.filesFixed}`);
-    console.log(`Console removed:  ${stats.consoleRemoved}`);
-    console.log(`TODOs fixed:      ${stats.todosFixed}`);
-    console.log(`Any types fixed:  ${stats.anyTypesFixed}`);
-    console.log('='.repeat(50));
-    console.log('\n✅ Audit issues fixed!');
 }
 
 main();

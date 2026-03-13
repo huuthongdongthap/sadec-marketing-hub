@@ -31,7 +31,6 @@ function fixEmptyHref(content, filePath) {
     count++;
 
     if (count > 0) {
-        console.log(`  Fixed ${count} empty href in ${path.relative(ROOT_DIR, filePath)}`);
     }
 
     return fixed;
@@ -46,7 +45,6 @@ function addMetaCharset(content, filePath) {
     const charset = '    <meta charset="UTF-8">\n';
 
     if (content.includes('</head>')) {
-        console.log(`  Added charset to ${path.relative(ROOT_DIR, filePath)}`);
         return content.replace('</head>', charset + '</head>');
     }
 
@@ -62,7 +60,6 @@ function addViewport(content, filePath) {
     const viewport = '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
 
     if (content.includes('</head>')) {
-        console.log(`  Added viewport to ${path.relative(ROOT_DIR, filePath)}`);
         return content.replace('</head>', viewport + '</head>');
     }
 
@@ -80,7 +77,6 @@ function addTitle(content, filePath) {
     const title = `    <title>${fileName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</title>\n`;
 
     if (content.includes('</head>')) {
-        console.log(`  Added title to ${path.relative(ROOT_DIR, filePath)}`);
         return content.replace('</head>', title + '</head>');
     }
 
@@ -96,7 +92,6 @@ function addPreconnect(content, filePath) {
             '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n';
 
         if (content.includes('</head>')) {
-            console.log(`  Added preconnect to ${path.relative(ROOT_DIR, filePath)}`);
             return content.replace('</head>', preconnect + '</head>');
         }
     }
@@ -138,7 +133,6 @@ function fixHTMLFiles() {
                     totalFixed += processFile(filePath);
                 }
             } catch (err) {
-                console.warn(`Warning: Cannot process ${filePath}`);
             }
         }
     }
@@ -182,15 +176,9 @@ function processFile(filePath) {
  * Main function
  */
 function main() {
-    console.log('🔧 Sa Đéc Marketing Hub - HTML Auto-Fix\n');
 
     const totalFixed = fixHTMLFiles();
 
-    console.log(`\n✅ Auto-fix complete! Applied ${totalFixed} fixes.`);
-    console.log('\nNote: Some issues require manual review:');
-    console.log('  - Accessibility (form labels) - Add proper <label> elements');
-    console.log('  - Missing OG tags - Add social media meta tags per page');
-    console.log('  - Component files - Some widget files are partials, not full pages');
 }
 
 main();

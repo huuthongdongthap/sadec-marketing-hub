@@ -23,6 +23,79 @@ test.describe('Admin KPI Card Widget', () => {
   });
 });
 
+/**
+ * Widgets Demo Page Test
+ * Tests the admin/widgets-demo.html page that showcases all dashboard widgets
+ */
+test.describe('Admin Widgets Demo Page', () => {
+  test('should load widgets demo page successfully', async ({ page }) => {
+    const errors: string[] = [];
+
+    // Capture JS errors (ignore benign ones)
+    page.on('pageerror', (error) => {
+      if (error.message.includes('supabase')) return;
+      if (error.message.includes('__ENV__')) return;
+      if (error.message.includes('CustomElementRegistry')) return;
+      errors.push(error.message);
+    });
+
+    const response = await page.goto('/admin/widgets-demo.html', { waitUntil: 'load', timeout: 15000 });
+
+    // 1. HTTP 200
+    expect(response?.status()).toBe(200);
+
+    // 2. Has title
+    const title = await page.title();
+    expect(title.length).toBeGreaterThan(0);
+    expect(title).toContain('Widgets Demo');
+
+    // 3. No critical JS errors
+    expect(errors, `JS errors on widgets-demo: ${errors.join(', ')}`).toHaveLength(0);
+  });
+
+  test('should render KPI cards section', async ({ page }) => {
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
+
+    // Wait for custom elements to register
+    await page.waitForTimeout(1000);
+
+    // Should have KPI card widgets
+    const kpiCards = page.locator('kpi-card-widget');
+    await expect(kpiCards).toHaveCount({ gte: 1 });
+  });
+
+  test('should have demo controls section', async ({ page }) => {
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
+
+    // Demo controls should be visible
+    const demoControls = page.locator('.demo-controls');
+    await expect(demoControls).toBeVisible();
+
+    // Should have refresh button
+    const refreshBtn = page.locator('button[onclick="refreshWidgets()"]');
+    await expect(refreshBtn).toBeVisible();
+  });
+
+  test('should render chart widgets', async ({ page }) => {
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(1500);
+
+    // Should have various chart widgets
+    const chartWidgets = page.locator('pie-chart-widget, line-chart-widget, area-chart-widget, bar-chart-widget');
+    await expect(chartWidgets).toHaveCount({ gte: 1 });
+  });
+
+  test('widgets demo responsive on mobile', async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 375, height: 667 } });
+    const page = await context.newPage();
+
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('body')).toBeVisible();
+
+    await context.close();
+  });
+});
+
 test.describe('Admin Phase Tracker Component', () => {
   test('should render phase tracker', async ({ page }) => {
     await page.goto('/admin/components/phase-tracker.html', { waitUntil: 'domcontentloaded' });

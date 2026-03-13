@@ -90,18 +90,13 @@ function addSEO(filePath, data) {
     }
 
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`  ✓ ${filePath}: Added SEO`);
 }
-
-console.log('🚀 Adding SEO for affiliate & components...\n');
 
 Object.entries(SEO_FILES).forEach(([file, data]) => {
     const filePath = path.join(ROOT_DIR, file);
     if (fs.existsSync(filePath)) {
         addSEO(filePath, data);
     } else {
-        console.log(`  - ${file}: Not found`);
     }
 });
 
-console.log('\n✅ Complete!');

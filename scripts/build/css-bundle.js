@@ -94,7 +94,6 @@ const CSS_OPTIONS = {
 };
 
 function bundleCSS() {
-    console.log('🎨 CSS Bundling...\n');
 
     // Create dist directory
     if (!fs.existsSync(DIST_DIR)) {
@@ -108,7 +107,6 @@ function bundleCSS() {
             .filter(f => fs.existsSync(f));
 
         if (inputPaths.length === 0) {
-            console.log(`⊘ ${outputFile}: No input files found`);
             continue;
         }
 
@@ -120,7 +118,6 @@ function bundleCSS() {
             const minified = new CleanCSS(CSS_OPTIONS).minify(combined);
 
             if (minified.errors && minified.errors.length > 0) {
-                console.error(`✗ ${outputFile}: CSS errors:`, minified.errors);
                 continue;
             }
 
@@ -133,13 +130,10 @@ function bundleCSS() {
             const minifiedSize = Buffer.byteLength(minified.styles, 'utf8');
             const savings = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
 
-            console.log(`✓ ${outputFile}: ${inputPaths.length} files → ${formatSize(minifiedSize)} (${savings}% savings)`);
         } catch (error) {
-            console.error(`✗ ${outputFile}: Error - ${error.message}`);
         }
     }
 
-    console.log('\n✅ CSS Bundling complete!');
 }
 
 function formatSize(bytes) {

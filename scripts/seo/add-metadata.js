@@ -360,14 +360,12 @@ function processFile(filePath, data) {
 
     // Check if already has SEO tags
     if (content.includes('<title>') && content.includes('og:title')) {
-        console.log(`  → ${path.relative(ROOT_DIR, filePath)}: Already has SEO`);
         return false;
     }
 
     // Find </head> or first link/style tag
     const insertBefore = content.indexOf('</head>');
     if (insertBefore === -1) {
-        console.log(`  ✗ ${path.relative(ROOT_DIR, filePath)}: No </head> found`);
         return false;
     }
 
@@ -380,7 +378,6 @@ function processFile(filePath, data) {
 
     // Write back
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`  ✓ ${path.relative(ROOT_DIR, filePath)}: Added SEO tags`);
 
     return true;
 }
@@ -389,7 +386,6 @@ function processFile(filePath, data) {
  * Main function
  */
 function main() {
-    console.log('🚀 Adding SEO metadata to HTML files...\n');
 
     let updated = 0;
 
@@ -401,11 +397,9 @@ function main() {
                 updated++;
             }
         } else {
-            console.log(`  - ${file}: File not found`);
         }
     }
 
-    console.log(`\n✅ SEO metadata complete! Updated ${updated} files.`);
 }
 
 main();

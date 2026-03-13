@@ -34,7 +34,6 @@ function migrateFile(filename) {
     const filepath = path.join(ADMIN_DIR, filename);
 
     if (!fs.existsSync(filepath)) {
-        console.log(`⏭️  Skipping ${filename} (not found)`);
         return false;
     }
 
@@ -44,7 +43,6 @@ function migrateFile(filename) {
 
     // 1. Check if already migrated
     if (content.includes('<sadec-sidebar')) {
-        console.log(`✅ ${filename} already migrated`);
         return false;
     }
 
@@ -74,14 +72,9 @@ function migrateFile(filename) {
 
     const newLength = content.length;
     const diff = originalLength - newLength;
-    console.log(`✅ ${filename} migrated (${diff > 0 ? '-' : '+'}${Math.abs(diff)} bytes)`);
 
     return true;
 }
-
-console.log('🚀 Starting Sidebar Migration...\n');
-console.log(`📁 Admin directory: ${ADMIN_DIR}`);
-console.log(`📄 Pages to migrate: ${PAGES_TO_MIGRATE.length}\n`);
 
 let migrated = 0;
 let skipped = 0;
@@ -94,8 +87,3 @@ PAGES_TO_MIGRATE.forEach(filename => {
     }
 });
 
-console.log('\n' + '═'.repeat(50));
-console.log(`✅ Migrated: ${migrated}`);
-console.log(`⏭️  Skipped: ${skipped}`);
-console.log('═'.repeat(50));
-console.log('\n🎉 Migration complete!');

@@ -913,4 +913,31 @@ iframe {
     box-shadow: none;
     border: 1px solid #ccc;
   }
+
+
+/* Touch Target Enhancement - WCAG 2.1 */
+.btn-icon,
+.icon-btn,
+button[aria-label],
+button.material-symbols-outlined {
+    min-width: var(--touch-target-small, 40px);
+    min-height: var(--touch-target-small, 40px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure buttons meet minimum touch target */
+.btn,
+button,
+a.btn {
+    min-height: var(--touch-target-small, 40px);
+}
+
+/* Small icon buttons in tables */
+.table-actions .btn-icon {
+    min-width: 36px;
+    min-height: 36px;
+}
+
 }

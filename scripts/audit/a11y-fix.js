@@ -30,7 +30,6 @@ function getAllHTMLFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.warn(`Warning: Cannot access ${filePath}`);
         }
     }
     return fileList;
@@ -118,7 +117,6 @@ function fixAccessibility(filePath) {
         const html = dom.serialize();
         fs.writeFileSync(filePath, html, 'utf8');
         filesModified++;
-        console.log(`✓ ${path.relative(ROOT_DIR, filePath)}`);
     }
 
     return modified;
@@ -128,7 +126,6 @@ function fixAccessibility(filePath) {
  * Main function
  */
 function main() {
-    console.log('♿ Sa Đéc Marketing Hub - Accessibility Auto-Fix\n');
 
     const allFiles = [];
     for (const dir of SCAN_DIRS) {
@@ -138,19 +135,13 @@ function main() {
         }
     }
 
-    console.log(`Found ${allFiles.length} HTML files to process\n`);
-
     for (const file of allFiles) {
         try {
             fixAccessibility(file);
         } catch (error) {
-            console.error(`✗ Error processing ${file}:`, error.message);
         }
     }
 
-    console.log(`\n✅ Accessibility Auto-Fix Complete!`);
-    console.log(`   Files Modified: ${filesModified}`);
-    console.log(`   Issues Fixed: ${issuesFixed}`);
 }
 
 main();

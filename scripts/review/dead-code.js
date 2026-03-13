@@ -46,7 +46,6 @@ function getAllJSFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.warn(`Warning: Cannot access ${filePath}`);
         }
     }
     return fileList;
@@ -347,7 +346,6 @@ function generateReport(issues) {
  * Main function
  */
 function runDetection() {
-    console.log('🔍 Sa Đéc Marketing Hub - Dead Code Detection\n');
 
     const allFiles = [];
     for (const dir of SCAN_DIRS) {
@@ -356,8 +354,6 @@ function runDetection() {
             allFiles.push(...getAllJSFiles(dirPath));
         }
     }
-
-    console.log(`Found ${allFiles.length} JS files to analyze\n`);
 
     const allIssues = [];
     const allFunctions = [];
@@ -384,12 +380,8 @@ function runDetection() {
                 process.stdout.write('.');
             }
         } catch (error) {
-            console.error(`Error analyzing ${file}:`, error.message);
         }
     }
-
-    console.log(`\n\nScanned ${results.filesScanned} files`);
-    console.log(`Found ${allIssues.length} issues\n`);
 
     // Generate and save report
     const report = generateReport(allIssues);
@@ -401,7 +393,6 @@ function runDetection() {
     const jsonPath = path.join(ROOT_DIR, 'reports', 'dev', 'pr-review', 'dead-code.json');
     fs.writeFileSync(jsonPath, JSON.stringify(allIssues, null, 2), 'utf8');
 
-    console.log(`📄 Report saved to: ${reportPath}`);
 }
 
 runDetection();

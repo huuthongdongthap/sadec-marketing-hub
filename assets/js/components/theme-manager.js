@@ -240,7 +240,6 @@ class ThemeManager {
    */
   set(theme) {
     if (!this.themes[theme]) {
-      console.warn(`Theme "${theme}" not found`);
       return;
     }
 

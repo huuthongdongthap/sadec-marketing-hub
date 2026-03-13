@@ -39,7 +39,6 @@
     // Handle initial state
     handleResize();
 
-    // [REMOVED] console.log('MobileNav: Initialized');
   }
 
   /**
@@ -459,7 +458,6 @@
     initResponsiveGrids();
     initTouchButtons();
     initLazyLoading();
-    // [REMOVED] console.log('ResponsiveUtils: Initialized');
   }
 
   // Auto-initialize

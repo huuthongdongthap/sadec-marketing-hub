@@ -237,7 +237,6 @@ async function submitOnboarding() {
         }, 3000);
 
     } catch (error) {
-        console.error('Onboarding error:', error);
         showError(errorEl, 'Có lỗi xảy ra. Vui lòng thử lại.');
         submitBtn.disabled = false;
         submitBtn.innerHTML = `
@@ -272,10 +271,8 @@ async function saveOnboardingData() {
         });
 
         if (!response.ok) {
-            console.warn('API save failed, but continuing with local data');
         }
     } catch (error) {
-        console.warn('API unavailable, using local storage only');
     }
 }
 
@@ -317,7 +314,6 @@ async function performFirstROIAnalysis() {
             })
         });
     } catch (error) {
-        console.warn('ROI analysis API call failed');
     }
 }
 
@@ -348,9 +344,7 @@ function loadSavedData() {
                 });
             }
 
-            console.log('Loaded saved onboarding data');
         } catch (error) {
-            console.error('Failed to load saved data:', error);
         }
     }
 }

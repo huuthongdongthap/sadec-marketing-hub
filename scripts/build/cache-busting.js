@@ -78,9 +78,7 @@ function updateServiceWorker(newVersion) {
 
     if (versionRegex.test(content)) {
         content = content.replace(versionRegex, `const CACHE_VERSION = '${newVersion}'`);
-        console.log(`✓ Updated CACHE_VERSION to: ${newVersion}`);
     } else {
-        console.log('⚠ CACHE_VERSION constant not found in sw.js');
         return false;
     }
 
@@ -103,7 +101,6 @@ function saveCacheVersion(version) {
     };
 
     fs.writeFileSync(CACHE_VERSION_PATH, JSON.stringify(versionData, null, 2));
-    console.log(`✓ Saved cache version to: ${path.relative(ROOT_DIR, CACHE_VERSION_PATH)}`);
 }
 
 /**
@@ -113,11 +110,8 @@ function addFingerprints() {
     const distDir = path.join(ROOT_DIR, 'dist');
 
     if (!fs.existsSync(distDir)) {
-        console.log('⚠ Dist directory not found. Run build first.');
         return;
     }
-
-    console.log('\n📝 Adding fingerprints to dist files...');
 
     const assetDirs = ['assets'];
 
@@ -139,7 +133,6 @@ function addFingerprints() {
             if (file !== newPath && fs.existsSync(file)) {
                 // Copy file với tên mới (giữ file gốc cho dev)
                 fs.copyFileSync(file, newPath);
-                console.log(`  ✓ ${path.relative(distDir, file)} → ${path.relative(distDir, newPath)}`);
             }
         }
     }
@@ -149,14 +142,11 @@ function addFingerprints() {
  * Main function
  */
 function main() {
-    console.log('🔄 Generating cache version...\n');
 
     const newVersion = generateCacheVersion();
-    console.log(`New cache version: ${newVersion}`);
 
     // Cập nhật sw.js
     if (updateServiceWorker(newVersion)) {
-        console.log('✓ Service Worker updated');
     }
 
     // Lưu version info
@@ -165,11 +155,6 @@ function main() {
     // Add fingerprints cho dist files
     addFingerprints();
 
-    console.log('\n✅ Cache versioning complete!\n');
-    console.log('📊 Summary:');
-    console.log(`   Version: ${newVersion}`);
-    console.log(`   Files tracked: ${JSON.parse(fs.readFileSync(CACHE_VERSION_PATH)).files.length}`);
-    console.log(`   Next build will use this cache version`);
 }
 
 main();

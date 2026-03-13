@@ -14,7 +14,6 @@
 
     // Skip guard on localhost for demo mode
     if (isLocalhost) {
-        // [REMOVED] console.log('[Admin Guard] Skipping on localhost (demo mode)');
         return;
     }
 

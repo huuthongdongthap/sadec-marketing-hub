@@ -48,11 +48,28 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
+    /* Test against mobile viewports - Responsive breakpoints */
+    {
+      name: 'mobile-small',
+      use: {
+        ...devices['Pixel 5'],
+        viewport: { width: 375, height: 667 },
+      },
+    },
+    {
+      name: 'mobile',
+      use: {
+        ...devices['iPad Mini'],
+        viewport: { width: 768, height: 1024 },
+      },
+    },
+    {
+      name: 'tablet',
+      use: {
+        ...devices['iPad Mini'],
+        viewport: { width: 1024, height: 768 },
+      },
+    },
   ],
 
   /* Run your local dev server before starting the tests */

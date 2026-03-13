@@ -20,7 +20,6 @@ const auditResults = {
 };
 
 /**
- * Check for console.log statements
  */
 function checkConsoleLogs(filePath, content) {
     const consolePattern = /console\.(log|warn|error|info|debug)\(/g;
@@ -57,7 +56,7 @@ function checkTodoComments(filePath, content) {
  * Check for 'any' types in TypeScript/JS comments
  */
 function checkAnyTypes(filePath, content) {
-    // Check for @type {any} or : any patterns
+    // Check for @type {unknown} or : any patterns
     const anyPattern = /(:\s*any|@type\s*\{\s*any\s*\}|as\s+any)/gi;
     const matches = content.match(anyPattern);
 
@@ -241,22 +240,15 @@ function processDirectory(dir) {
  * Print audit results
  */
 function printResults() {
-    console.log('\n' + '='.repeat(70));
-    console.log('🔍 SA ĐÉC MARKETING HUB - PERFORMANCE AUDIT');
-    console.log('='.repeat(70) + '\n');
 
     // Errors
     if (auditResults.errors.length > 0) {
-        console.log('❌ ERRORS\n');
         auditResults.errors.forEach(item => {
-            console.log(`  ${item.file}`);
-            console.log(`     ${item.issue}\n`);
         });
     }
 
     // Warnings
     if (auditResults.warnings.length > 0) {
-        console.log('⚠️  WARNINGS\n');
 
         // Group by type
         const byType = {};
@@ -266,39 +258,23 @@ function printResults() {
         });
 
         for (const [type, items] of Object.entries(byType)) {
-            console.log(`  ${type.toUpperCase()}: ${items.length} issue(s)`);
             items.slice(0, 5).forEach(item => {
-                console.log(`    - ${item.file}: ${item.issue}`);
             });
             if (items.length > 5) {
-                console.log(`    ... and ${items.length - 5} more`);
             }
-            console.log();
         }
     }
 
     // Summary
-    console.log('📊 SUMMARY\n');
-    console.log('-'.repeat(70));
-    console.log(`Errors:   ${auditResults.errors.length}`);
-    console.log(`Warnings: ${auditResults.warnings.length}`);
-    console.log(`Passed:   ${auditResults.passed.length}`);
 
     const score = calculateScore();
-    console.log(`\nHealth Score: ${score}/100`);
 
     if (score >= 90) {
-        console.log('Rating: 🟢 Excellent');
     } else if (score >= 70) {
-        console.log('Rating: 🟡 Good');
     } else if (score >= 50) {
-        console.log('Rating: 🟠 Needs Improvement');
     } else {
-        console.log('Rating: 🔴 Critical');
     }
 
-    console.log('-'.repeat(70));
-    console.log('✅ Audit complete!\n');
 }
 
 /**
@@ -320,7 +296,6 @@ function calculateScore() {
  * Main function
  */
 function main() {
-    console.log('🔍 Running performance audit...\n');
 
     // Process all directories
     for (const dir of DIRECTORIES) {
@@ -335,7 +310,6 @@ function main() {
     const reportPath = path.join(ROOT_DIR, 'reports', 'perf-audit.json');
     fs.mkdirSync(path.dirname(reportPath), { recursive: true });
     fs.writeFileSync(reportPath, JSON.stringify(auditResults, null, 2));
-    console.log(`📄 Report saved to: ${path.relative(ROOT_DIR, reportPath)}\n`);
 
     // Exit with error code if critical issues found
     if (auditResults.errors.length > 0) {

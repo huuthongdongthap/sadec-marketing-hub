@@ -45,7 +45,6 @@ function getHtmlFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.error(`Error reading ${filePath}: ${err.message}`);
         }
     }
 
@@ -161,10 +160,8 @@ function processFile(filePath) {
  * Main function
  */
 function main() {
-    console.log('🔍 Scanning for duplicate dns-prefetch links...\n');
 
     const htmlFiles = getHtmlFiles(ROOT_DIR);
-    console.log(`Found ${htmlFiles.length} HTML files\n`);
 
     let updatedCount = 0;
     let skippedCount = 0;
@@ -176,20 +173,14 @@ function main() {
             const updated = processFile(filePath);
 
             if (updated) {
-                console.log(`✅ ${relativePath}`);
                 updatedCount++;
             } else {
                 skippedCount++;
             }
         } catch (err) {
-            console.error(`❌ ${relativePath}: ${err.message}`);
         }
     }
 
-    console.log(`\n📊 Summary:`);
-    console.log(`   Updated: ${updatedCount} files`);
-    console.log(`   Skipped: ${skippedCount} files`);
-    console.log(`   Total:   ${htmlFiles.length} files\n`);
 }
 
 // Run

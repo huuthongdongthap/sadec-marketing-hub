@@ -23,8 +23,6 @@ export function initializeWidgets() {
     // Widgets are auto-initialized by browser when defined as custom elements
     // This function is for any additional setup needed
 
-    console.log('[Dashboard Widgets] All widgets initialized');
-
     // Dispatch custom event for widgets ready
     window.dispatchEvent(new CustomEvent('dashboard-widgets-ready'));
 }
@@ -37,7 +35,6 @@ export function initializeWidgets() {
 export function updateWidgetData(widgetId, data) {
     const widget = document.getElementById(widgetId);
     if (!widget) {
-        console.warn(`[Dashboard Widgets] Widget "${widgetId}" not found`);
         return;
     }
 
@@ -67,14 +64,12 @@ export function refreshAllWidgets() {
     ];
 
     events.forEach(event => window.dispatchEvent(event));
-    console.log('[Dashboard Widgets] Refresh triggered');
 }
 
 /**
  * Register widgets manually (if needed)
  */
 export function registerWidgets() {
-    console.log('[Dashboard Widgets] Manual registration called');
 }
 
 // Auto-initialize on DOM ready

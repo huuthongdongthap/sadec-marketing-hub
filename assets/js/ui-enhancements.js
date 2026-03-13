@@ -454,7 +454,6 @@
   function initAll() {
     // Skip animations if user prefers reduced motion
     if (prefersReducedMotion()) {
-      // [REMOVED] console.log('Reduced motion enabled - animations disabled');
       return;
     }
 
@@ -469,7 +468,6 @@
     // Optional enhancements
     // initParallax();
 
-    // [REMOVED] console.log('UI Enhancements initialized');
   }
 
   // Initialize on DOM ready

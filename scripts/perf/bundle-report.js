@@ -94,7 +94,6 @@ function scanDirectory(dir, extensions, type) {
             try {
                 analyzeFile(filePath, type);
             } catch (error) {
-                console.error(`Error analyzing ${filePath}:`, error.message);
             }
         }
     }
@@ -104,15 +103,8 @@ function scanDirectory(dir, extensions, type) {
  * Print report
  */
 function printReport() {
-    console.log('\n' + '='.repeat(70));
-    console.log('📦 SA ĐÉC MARKETING HUB - BUNDLE SIZE REPORT');
-    console.log('='.repeat(70) + '\n');
 
     // JavaScript Report
-    console.log('📜 JAVASCRIPT FILES\n');
-    console.log('-'.repeat(70));
-    console.log('File'.padEnd(45) + 'Raw'.padStart(10) + 'Gzip'.padStart(10) + 'Ratio'.padStart(8) + 'Status');
-    console.log('-'.repeat(70));
 
     report.js.files
         .sort((a, b) => b.rawSize - a.rawSize)
@@ -128,21 +120,13 @@ function printReport() {
             );
         });
 
-    console.log('-'.repeat(70));
-    console.log(`Total JS: ${formatBytes(report.js.total)} (${report.js.files.length} files)\n`);
-
     // CSS Report
-    console.log('🎨 CSS FILES\n');
-    console.log('-'.repeat(70));
-    console.log('File'.padEnd(45) + 'Raw'.padStart(10) + 'Gzip'.padStart(10) + 'Ratio'.padStart(8) + 'Status');
-    console.log('-'.repeat(70));
 
     report.css.files
         .sort((a, b) => b.rawSize - a.rawSize)
         .forEach(file => {
             const icon = file.severity === 'critical' ? '🔴' :
                         file.severity === 'warning' ? '🟡' : '🟢';
-            console.log(
                 file.path.padEnd(45) +
                 formatBytes(file.rawSize).padStart(10) +
                 formatBytes(file.gzipSize).padStart(10) +
@@ -151,12 +135,7 @@ function printReport() {
             );
         });
 
-    console.log('-'.repeat(70));
-    console.log(`Total CSS: ${formatBytes(report.css.total)} (${report.css.files.length} files)\n`);
-
     // Summary & Recommendations
-    console.log('📊 SUMMARY\n');
-    console.log('-'.repeat(70));
 
     const totalSize = report.js.total + report.css.total;
     const totalFiles = report.js.files.length + report.css.files.length;
@@ -165,34 +144,21 @@ function printReport() {
     const warningFiles = [...report.js.files, ...report.css.files]
         .filter(f => f.severity === 'warning');
 
-    console.log(`Total Bundle Size: ${formatBytes(totalSize)}`);
-    console.log(`Total Files: ${totalFiles}`);
-    console.log(`Critical Files (>${CRITICAL_THRESHOLD}KB): ${criticalFiles.length}`);
-    console.log(`Warning Files (>${WARN_THRESHOLD}KB): ${warningFiles.length}`);
-
     if (criticalFiles.length > 0 || warningFiles.length > 0) {
-        console.log('\n⚠️  RECOMMENDATIONS\n');
 
         criticalFiles.forEach(file => {
-            console.log(`🔴 ${file.path}`);
-            console.log(`   Size: ${formatBytes(file.rawSize)} → Consider splitting or lazy loading\n`);
         });
 
         warningFiles.forEach(file => {
-            console.log(`🟡 ${file.path}`);
-            console.log(`   Size: ${formatBytes(file.rawSize)} → Review for optimization opportunities\n`);
         });
     }
 
-    console.log('-'.repeat(70));
-    console.log('✅ Report complete!\n');
 }
 
 /**
  * Main function
  */
 function main() {
-    console.log('🔍 Analyzing bundle sizes...\n');
 
     // Scan JS files
     scanDirectory(path.join(ASSETS_DIR, 'js'), ['.js'], 'js');
@@ -207,7 +173,6 @@ function main() {
     const reportPath = path.join(ROOT_DIR, 'reports', 'bundle-report.json');
     fs.mkdirSync(path.dirname(reportPath), { recursive: true });
     fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-    console.log(`📄 Report saved to: ${path.relative(ROOT_DIR, reportPath)}\n`);
 }
 
 main();

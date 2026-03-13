@@ -95,7 +95,6 @@ async function processFile(filename) {
             content = cleanExistingScripts(content);
             const cleaned = originalLength !== content.length;
             if (cleaned && CONFIG.verbose) {
-                console.log(`  🧹 Cleaned existing scripts from ${filename}`);
             }
         }
 
@@ -137,18 +136,14 @@ async function processFile(filename) {
 // ============================================================================
 
 async function main() {
-    console.log('🔌 Script Integration Utility\n');
 
     if (CONFIG.dryRun) {
-        console.log('⚡ DRY-RUN MODE - No files will be modified\n');
     }
     if (CONFIG.clean) {
-        console.log('🧹 CLEAN MODE - Removing existing scripts before adding\n');
     }
 
     // Get all HTML files
     const files = await getHtmlFiles(CONFIG.adminDir);
-    console.log(`📁 Found ${files.length} HTML files in admin/\n`);
 
     // Process all files in parallel
     const results = await Promise.all(files.map(processFile));
@@ -163,19 +158,12 @@ async function main() {
         results.forEach(r => {
             const icon = r.status === 'updated' ? '✅' : r.status === 'error' ? '❌' : '⏭️';
             const detail = r.reason || r.note || '';
-            console.log(`${icon} ${r.file} ${detail}`);
         });
-        console.log('');
     }
 
     // Summary
-    console.log('═'.repeat(50));
-    console.log(`✅ Updated: ${updated.length}${CONFIG.dryRun ? ' (dry-run)' : ''}`);
-    console.log(`⏭️  Skipped: ${skipped.length}`);
     if (errors.length > 0) {
-        console.log(`❌ Errors:  ${errors.length}`);
     }
-    console.log('═'.repeat(50));
 
     // Exit with error code if any errors
     if (errors.length > 0) {
@@ -184,7 +172,6 @@ async function main() {
 }
 
 main().catch(err => {
-    console.error('❌ Fatal error:', err.message);
     process.exit(1);
 });
 

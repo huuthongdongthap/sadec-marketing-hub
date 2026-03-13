@@ -1,53 +1,61 @@
-# Architecture — Sa Đéc Marketing Hub
+# SaDec Marketing Hub - Architecture Plan
 
-## Stack Overview
+## 🎯 Overview
 
-```
-┌─────────────────────────────────────────────┐
-│            CLIENT (Browser)                  │
-│   HTML/CSS/JS Vanilla + Web Components      │
-│   Material Design 3 · Teal #006A60          │
-└──────────────────┬──────────────────────────┘
-                   │ HTTPS
-┌──────────────────▼──────────────────────────┐
-│              VERCEL EDGE CDN                 │
-│   Security Headers · Cache-Control          │
-│   vercel.json routing rules                 │
-└──────────────────┬──────────────────────────┘
-                   │
-┌──────────────────▼──────────────────────────┐
-│              SUPABASE BACKEND                │
-│  Auth (JWT)  │  PostgreSQL  │  Realtime     │
-│  Row Level Security (RLS)                   │
-│  Edge Functions (business logic)            │
-└─────────────────────────────────────────────┘
-```
+**Full-suite marketing platform** với 4 modules cốt lõi:
+1. **Landing Page Builder** - Drag-drop builder, templates, A/B testing
+2. **Lead Capture & CRM** - Form builder, lead scoring, pipeline management
+3. **Email Marketing** - Campaign builder, automation, analytics
+4. **Analytics Dashboard** - Traffic tracking, conversion funnels, ROI
 
-## Portals
+## 📋 Implementation Phases
 
-| Portal | URL | Người dùng |
-|--------|-----|-----------|
-| Admin | `/admin/dashboard.html` | Nhân viên nội bộ |
-| Agency | `/agency-platform.html` | Đối tác agency |
-| Client | `/client-portal.html` | Khách hàng |
-| Affiliate | `/affiliate.html` | Cộng tác viên |
+### Phase 1: Foundation (Days 1-2)
+- [ ] Scaffold project
+- [ ] Setup build tool (Vite)
+- [ ] Configure Tailwind + TypeScript
+- [ ] Create base UI components
+- [ ] Setup routing
 
-## Key Files
+### Phase 2: Landing Page Builder (Days 3-5)
+- [ ] Drag-drop engine
+- [ ] Canvas rendering
+- [ ] Property editor
+- [ ] Template gallery
+- [ ] Export functionality
 
-| File | Mô tả |
-|------|-------|
-| `supabase-config.js` | Supabase client init |
-| `auth.js` | Auth flow, role checking |
-| `material-interactions.js` | MD3 interactions |
-| `assets/js/enhanced-utils.js` | Shared utilities |
-| `sw.js` | Service Worker (PWA) |
-| `mekong.config.yaml` | Mekong CLI config |
+### Phase 3: CRM (Days 6-8)
+- [ ] Form builder
+- [ ] Lead database
+- [ ] Scoring algorithm
+- [ ] Pipeline Kanban
 
-## Data Flow — Payments
+### Phase 4: Email Marketing (Days 9-11)
+- [ ] Campaign builder
+- [ ] Email editor
+- [ ] Automation workflow
+- [ ] Send tracking
 
-```
-User → Client Portal → PayOS/VNPay API
-     → Supabase (log transaction)
-     → Webhook → Supabase Edge Function
-     → Update payment status
-```
+### Phase 5: Analytics (Days 12-14)
+- [ ] Traffic dashboard
+- [ ] Funnel visualization
+- [ ] ROI reports
+- [ ] Real-time widgets
+
+### Phase 6: UX Polish (Days 15-16)
+- [ ] Loading states
+- [ ] Error boundaries
+- [ ] Responsive check
+- [ ] Dark mode
+- [ ] Accessibility audit
+
+### Phase 7: Testing (Days 17-18)
+- [ ] Unit tests
+- [ ] Integration tests
+- [ ] E2E tests
+
+### Phase 8: Launch (Day 19)
+- [ ] Final QA
+- [ ] Deploy staging
+- [ ] User acceptance test
+- [ ] Deploy production

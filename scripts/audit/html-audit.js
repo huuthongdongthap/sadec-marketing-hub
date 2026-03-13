@@ -65,7 +65,6 @@ function getAllHTMLFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.warn(`Warning: Cannot access ${filePath}`);
         }
     }
 
@@ -479,7 +478,6 @@ These links point to non-existent files:
  * Main audit function
  */
 function runAudit() {
-    console.log('🔍 Sa Đéc Marketing Hub - HTML Audit Scanner\n');
 
     // Collect all HTML files
     const allFiles = [];
@@ -489,8 +487,6 @@ function runAudit() {
             allFiles.push(...getAllHTMLFiles(dirPath));
         }
     }
-
-    console.log(`Found ${allFiles.length} HTML files to scan\n`);
 
     // Scan each file
     const allIssues = [];
@@ -553,12 +549,8 @@ function runAudit() {
 
             process.stdout.write('.');
         } catch (error) {
-            console.error(`Error scanning ${relativePath}:`, error.message);
         }
     }
-
-    console.log(`\n\nScanned ${stats.filesScanned} files`);
-    console.log(`Found ${allIssues.length} files with issues\n`);
 
     // Generate report
     const report = generateReport(allIssues);
@@ -567,14 +559,6 @@ function runAudit() {
     const reportPath = path.join(ROOT_DIR, 'audit-report.md');
     fs.writeFileSync(reportPath, report, 'utf8');
 
-    console.log(`📄 Report saved to: ${reportPath}`);
-    console.log(`\n📊 Summary:`);
-    console.log(`   Broken Links: ${stats.brokenLinks.length}`);
-    console.log(`   Missing Meta: ${stats.missingMeta.length}`);
-    console.log(`   Missing Alt: ${stats.missingAlt.length}`);
-    console.log(`   Empty Href: ${stats.emptyHref.length}`);
-    console.log(`   Duplicate IDs: ${stats.duplicateIds.length}`);
-    console.log(`   Accessibility: ${stats.accessibility.length}`);
 }
 
 // Run audit

@@ -33,7 +33,6 @@ class AnalyticsDashboard {
    */
   setupLayout() {
     if (!this.container) {
-      console.warn('AnalyticsDashboard: Container not found');
       return;
     }
 
@@ -454,7 +453,6 @@ class AnalyticsDashboard {
           table: 'analytics'
         },
         (payload) => {
-          console.log('Analytics update received:', payload);
           this.refresh();
         })
       .subscribe();
@@ -502,7 +500,6 @@ class AnalyticsDashboard {
         Toast.success('Dữ liệu đã làm mới', { title: 'Cập nhật' });
       }
     } catch (error) {
-      console.error('Refresh error:', error);
       if (typeof Toast !== 'undefined') {
         Toast.error('Không thể làm mới dữ liệu', { title: 'Lỗi' });
       }

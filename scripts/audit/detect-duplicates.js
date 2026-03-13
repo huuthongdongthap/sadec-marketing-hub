@@ -47,7 +47,6 @@ function getAllJSFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.warn(`Warning: Cannot access ${filePath}`);
         }
     }
     return fileList;
@@ -385,7 +384,6 @@ function generateReport(duplicateClusters, specificPatterns) {
  * Main detection function
  */
 function runDetection() {
-    console.log('🔍 Sa Đéc Marketing Hub - Duplicate Code Detection\n');
 
     // Collect all JS files
     const allFiles = [];
@@ -397,7 +395,6 @@ function runDetection() {
     }
 
     results.totalFiles = allFiles.length;
-    console.log(`Found ${allFiles.length} JS files to analyze\n`);
 
     // Extract all code blocks
     const allBlocks = [];
@@ -412,14 +409,10 @@ function runDetection() {
                 process.stdout.write('.');
             }
         } catch (error) {
-            console.error(`Error analyzing ${file}:`, error.message);
         }
     }
 
-    console.log(`\n\nExtracted ${allBlocks.length} code blocks`);
-
     // Find duplicates
-    console.log('Finding duplicate clusters...\n');
     const duplicateClusters = findDuplicates(allBlocks);
 
     // Detect specific patterns
@@ -435,10 +428,6 @@ function runDetection() {
     const jsonPath = path.join(ROOT_DIR, 'reports', 'dev', 'tech-debt', 'duplicates.json');
     fs.writeFileSync(jsonPath, JSON.stringify({ duplicateClusters, specificPatterns }, null, 2), 'utf8');
 
-    console.log(`📄 Report saved to: ${reportPath}`);
-    console.log(`\n📊 Summary:`);
-    console.log(`   Duplicate Clusters: ${duplicateClusters.length}`);
-    console.log(`   Pattern Occurrences: ${specificPatterns.length}`);
 }
 
 runDetection();

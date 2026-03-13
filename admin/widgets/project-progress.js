@@ -204,7 +204,6 @@ class ProjectProgressWidget extends HTMLElement {
                 this.renderProjects(projects);
                 return;
             } catch (error) {
-                console.warn('Failed to load projects from API, using demo data');
             }
         }
 

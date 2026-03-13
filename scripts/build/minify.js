@@ -128,7 +128,6 @@ async function minifyHTML(content, filePath) {
         const minified = await minifyHtml(content, HTML_OPTIONS);
         return minified;
     } catch (error) {
-        console.error(`Error minifying HTML ${filePath}:`, error.message);
         stats.errors.push({ file: filePath, error: error.message });
         return content;
     }
@@ -141,12 +140,10 @@ async function minifyCSS(content, filePath) {
     try {
         const minified = new CleanCSS(CSS_OPTIONS).minify(content);
         if (minified.errors && minified.errors.length > 0) {
-            console.error(`CSS errors in ${filePath}:`, minified.errors);
             stats.errors.push({ file: filePath, error: minified.errors.join(', ') });
         }
         return minified.styles;
     } catch (error) {
-        console.error(`Error minifying CSS ${filePath}:`, error.message);
         stats.errors.push({ file: filePath, error: error.message });
         return content;
     }
@@ -160,7 +157,6 @@ async function minifyJS(content, filePath) {
         const minified = await Terser.minify(content, TERSER_OPTIONS);
         return minified.code || content;
     } catch (error) {
-        console.error(`Error minifying JS ${filePath}:`, error.message);
         stats.errors.push({ file: filePath, error: error.message });
         return content;
     }
@@ -210,7 +206,6 @@ async function processFile(filePath) {
     fs.writeFileSync(destPath, minifiedContent, 'utf8');
 
     const savings = ((1 - newSize / originalSize) * 100).toFixed(1);
-    console.log(`${savings > 0 ? '✓' : '→'} ${relativePath} (${savings}% saved)`);
 }
 
 /**
@@ -241,9 +236,6 @@ function copyStaticAssets() {
  * Print build stats
  */
 function printStats() {
-    console.log('\n' + '='.repeat(50));
-    console.log('BUILD STATISTICS');
-    console.log('='.repeat(50));
 
     const formatSize = (bytes) => {
         if (bytes < 1024) return `${bytes} B`;
@@ -255,48 +247,20 @@ function printStats() {
         return ((1 - minified / original) * 100).toFixed(1);
     };
 
-    console.log(`HTML: ${stats.html.files} files`);
-    console.log(`  Original: ${formatSize(stats.html.original)}`);
-    console.log(`  Minified: ${formatSize(stats.html.minified)}`);
-    console.log(`  Savings: ${calcSavings(stats.html.original, stats.html.minified)}%`);
-    console.log('');
-
-    console.log(`CSS: ${stats.css.files} files`);
-    console.log(`  Original: ${formatSize(stats.css.original)}`);
-    console.log(`  Minified: ${formatSize(stats.css.minified)}`);
-    console.log(`  Savings: ${calcSavings(stats.css.original, stats.css.minified)}%`);
-    console.log('');
-
-    console.log(`JS: ${stats.js.files} files`);
-    console.log(`  Original: ${formatSize(stats.js.original)}`);
-    console.log(`  Minified: ${formatSize(stats.js.minified)}`);
-    console.log(`  Savings: ${calcSavings(stats.js.original, stats.js.minified)}%`);
-    console.log('');
-
     const totalOriginal = stats.html.original + stats.css.original + stats.js.original;
     const totalMinified = stats.html.minified + stats.css.minified + stats.js.minified;
 
-    console.log('TOTAL:');
-    console.log(`  Original: ${formatSize(totalOriginal)}`);
-    console.log(`  Minified: ${formatSize(totalMinified)}`);
-    console.log(`  Overall Savings: ${calcSavings(totalOriginal, totalMinified)}%`);
-    console.log('');
-
     if (stats.errors.length > 0) {
-        console.log(`ERRORS: ${stats.errors.length}`);
         stats.errors.forEach(err => {
-            console.log(`  - ${err.file}: ${err.error}`);
         });
     }
 
-    console.log('='.repeat(50));
 }
 
 /**
  * Main build function
  */
 async function build() {
-    console.log('🔨 Starting minification build...\n');
 
     // Clean dist directory
     if (fs.existsSync(DIST_DIR)) {
@@ -312,8 +276,6 @@ async function build() {
             allFiles.push(...getAllFiles(srcDir));
         }
     }
-
-    console.log(`Found ${allFiles.length} files to process\n`);
 
     // Process files
     for (const file of allFiles) {
@@ -349,11 +311,9 @@ async function build() {
     // Print stats
     printStats();
 
-    console.log('\n✅ Build complete! Output in dist/');
 }
 
 // Run build
 build().catch(err => {
-    console.error('Build failed:', err);
     process.exit(1);
 });

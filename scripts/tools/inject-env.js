@@ -19,8 +19,6 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
 
 // Validate required variables
 if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-    console.warn('⚠️  Warning: SUPABASE_URL or SUPABASE_ANON_KEY not set.');
-    console.warn('   The app will fall back to demo mode.');
 }
 
 // Generate the env.js content
@@ -37,6 +35,3 @@ window.__ENV__ = {
 const outputPath = path.join(__dirname, '../../env.js');
 fs.writeFileSync(outputPath, content, 'utf8');
 
-console.log('✅ env.js generated successfully');
-console.log(`   SUPABASE_URL: ${SUPABASE_URL ? '***' + SUPABASE_URL.slice(-10) : '(not set)'}`);
-console.log(`   SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY ? '***' + SUPABASE_ANON_KEY.slice(-10) : '(not set)'}`);

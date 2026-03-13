@@ -25,7 +25,6 @@ async function withClient(callback) {
         await client.connect();
         return await callback(client);
     } catch (err) {
-        console.error('❌ Database connection error:', err.message);
         process.exit(1);
     } finally {
         await client.end();
@@ -38,8 +37,6 @@ async function withClient(callback) {
 
 const commands = {
     async status(client) {
-        console.log('\n📊 Database Status');
-        console.log('==================');
 
         const safeCount = (table) => `(SELECT count(*) FROM ${table})`;
 
@@ -57,14 +54,10 @@ const commands = {
                 console.table(result.rows[0]);
             }
         } catch (e) {
-            console.log('⚠️  Could not fetch full status (tables might be missing).');
-            console.log('   Error:', e.message);
         }
     },
 
     async leads(client) {
-        console.log('\n👤 Leads (Top 10 by Score)');
-        console.log('==========================');
 
         try {
             const result = await client.query(`
@@ -75,7 +68,6 @@ const commands = {
             `);
 
             if (result.rows.length === 0) {
-                console.log('No leads found.');
                 return;
             }
 
@@ -89,13 +81,10 @@ const commands = {
 
             console.table(formatted);
         } catch (e) {
-            console.log('⚠️  Could not fetch leads:', e.message);
         }
     },
 
     async campaigns(client) {
-        console.log('\n📢 Campaigns (Recent)');
-        console.log('=====================');
 
         try {
             const result = await client.query(`
@@ -106,7 +95,6 @@ const commands = {
             `);
 
             if (result.rows.length === 0) {
-                console.log('No campaigns found.');
                 return;
             }
 
@@ -121,13 +109,10 @@ const commands = {
 
             console.table(formatted);
         } catch (e) {
-            console.log('⚠️  Could not fetch campaigns:', e.message);
         }
     },
 
     async clients(client) {
-        console.log('\n🏢 Customers/Clients (Recent)');
-        console.log('=============================');
 
         try {
             const result = await client.query(`
@@ -138,13 +123,11 @@ const commands = {
             `);
 
             if (result.rows.length === 0) {
-                console.log('No customers found.');
                 return;
             }
 
             console.table(result.rows);
         } catch (e) {
-            console.log('⚠️  Could not fetch customers:', e.message);
         }
     },
 
@@ -152,12 +135,8 @@ const commands = {
         const [name, company, email, phone, source] = args;
 
         if (!name || !company || !email) {
-            console.error('❌ Error: Missing required arguments.');
-            console.log('Usage: node push-data.js add-lead "Name" "Company" "email@example.com" [phone] [source]');
             return;
         }
-
-        console.log('➕ Adding new lead...');
 
         try {
             const tenant = await client.query(`SELECT id FROM tenants WHERE slug = 'sadec-hub'`);
@@ -170,10 +149,7 @@ const commands = {
                 VALUES ($1, $2, $3, $4, $5, $6, 'new', 'warm', 50)
             `, [tenant.rows[0].id, name, company, email, phone || null, source || 'manual']);
 
-            console.log(`✅ Lead added successfully: ${name} (${company})`);
-
         } catch (err) {
-            console.error('❌ Failed to add lead:', err.message);
         }
     },
 
@@ -198,22 +174,15 @@ async function main() {
     const commandArgs = args.slice(1);
 
     if (!commands[commandName]) {
-        console.log(`❌ Unknown command: ${commandName}`);
-        console.log('Available commands:', Object.keys(commands).join(', '));
         process.exit(1);
     }
 
-    console.log('🔌 Connecting to Supabase...');
-
     await withClient(async (client) => {
-        console.log('✅ Connected!');
         await commands[commandName](client, commandArgs);
     });
 
-    console.log('\n✨ Done!');
 }
 
 main().catch(err => {
-    console.error('❌ Unexpected error:', err);
     process.exit(1);
 });

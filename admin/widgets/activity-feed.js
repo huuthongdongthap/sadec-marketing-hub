@@ -193,7 +193,6 @@ class ActivityFeedWidget extends HTMLElement {
                 this.renderActivities(activities);
                 return;
             } catch (error) {
-                console.warn('Failed to load activities from API, using demo data');
             }
         }
 

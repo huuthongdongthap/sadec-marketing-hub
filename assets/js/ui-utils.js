@@ -256,7 +256,6 @@ export function showToast(message, duration = 3000) {
 export function initMekongUI() {
   initScrollAnimations();
   initRippleEffect();
-  // [REMOVED] console.log('[MekongUI] Initialized');
 }
 
 // Auto-initialize on DOM ready

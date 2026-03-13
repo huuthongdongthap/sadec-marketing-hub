@@ -24,7 +24,6 @@ function auditFile(filePath) {
   try {
     const absolutePath = path.resolve(filePath);
     if (!fs.existsSync(absolutePath)) {
-        console.log(`Skipping ${filePath} (not found)`);
         return null;
     }
     const html = fs.readFileSync(absolutePath, 'utf8');
@@ -108,7 +107,6 @@ function auditFile(filePath) {
     return report;
 
   } catch (err) {
-    console.error(`Error auditing ${filePath}:`, err.message);
     return null;
   }
 }
@@ -120,7 +118,6 @@ async function runAudit() {
     if (result) results.push(result);
   }
 
-  console.log(JSON.stringify(results, null, 2));
 }
 
 runAudit();

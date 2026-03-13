@@ -252,23 +252,14 @@ function scanConsoleStatements(dir, relativePath) {
 // ============================================
 // RUN ALL SCANS
 // ============================================
-console.log('🔍 Bắt đầu quét Sadéc Marketing Hub...\n');
 
-console.log('1. 📌 Quét broken links...');
 scanBrokenLinks(HTML_DIR);
-console.log('   → Tìm thấy ' + results.brokenLinks.length + ' broken links');
 
-console.log('2. 🏷️  Quét meta tags...');
 scanMetaTags(HTML_DIR);
-console.log('   → Tìm thấy ' + results.metaIssues.length + ' vấn đề meta tags');
 
-console.log('3. ♿ Quét accessibility...');
 scanAccessibility(HTML_DIR);
-console.log('   → Tìm thấy ' + results.accessibilityIssues.length + ' accessibility issues');
 
-console.log('4. 📝 Quét console statements...');
 scanConsoleStatements('js');
-console.log('   → Tìm thấy ' + results.consoleStatements.length + ' console statements');
 
 // ============================================
 // SUMMARY
@@ -288,9 +279,3 @@ results.summary = {
 const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 fs.writeFileSync(REPORTS_DIR + '/audit-' + timestamp + '.json', JSON.stringify(results, null, 2));
 
-console.log('\n✅ Đã lưu báo cáo vào: ' + REPORTS_DIR + '/audit-' + timestamp + '.json');
-console.log('\n=== SUMMARY ===');
-console.log('Broken Links: ' + results.summary.totalBrokenLinks);
-console.log('Meta Issues: ' + results.summary.totalMetaIssues);
-console.log('Accessibility Issues: ' + results.summary.totalAccessibilityIssues);
-console.log('Console Statements: ' + results.summary.totalConsoleStatements);

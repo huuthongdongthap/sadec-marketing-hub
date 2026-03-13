@@ -33,28 +33,19 @@ const CONFIG = {
  * Main Runner
  */
 async function runMigrations() {
-    console.log('\n🚀 Supabase Direct Migration Runner');
-    console.log('═'.repeat(60));
-
     const client = new Client({
         connectionString: CONFIG.connectionString,
         ssl: { rejectUnauthorized: false }
     });
 
     try {
-        console.log('📡 Connecting to Supabase...');
         await client.connect();
-        console.log('✅ Connected!\n');
 
         for (const filename of CONFIG.migrations) {
             await runMigrationFile(client, filename);
         }
 
-        console.log('═'.repeat(60));
-        console.log('🎉 Migration execution finished!');
-
     } catch (err) {
-        console.error('❌ Connection failed:', err.message);
         process.exit(1);
     } finally {
         await client.end();
@@ -68,20 +59,15 @@ async function runMigrationFile(client, filename) {
     const filePath = path.join(__dirname, filename);
 
     if (!fs.existsSync(filePath)) {
-        console.log(`⏭️  Skipping ${filename} (not found)`);
         return;
     }
 
-    console.log(`📄 Running ${filename}...`);
     try {
         const sql = fs.readFileSync(filePath, 'utf8');
         await client.query(sql);
-        console.log(`   ✅ Success\n`);
     } catch (err) {
         if (err.message.includes('already exists') || err.message.includes('already a partition')) {
-            console.log(`   ⚠️  Already applied (safe to ignore)\n`);
-        } else {
-            console.error(`   ❌ Failed: ${err.message}\n`);
+            // Already applied - safe to ignore
         }
     }
 }

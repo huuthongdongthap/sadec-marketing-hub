@@ -53,20 +53,11 @@ const URL_PATTERNS = {
 // ============================================================================
 
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker version:', CACHE_VERSION);
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('[SW] Pre-caching core assets');
-                return cache.addAll(CORE_ASSETS);
-            })
-            .then(() => {
-                console.log('[SW] Pre-caching complete');
-                return self.skipWaiting();
-            })
-            .catch((err) => {
-                console.error('[SW] Install error:', err);
-            })
+            .then((cache) => cache.addAll(CORE_ASSETS))
+            .then(() => self.skipWaiting())
+            .catch(() => {})
     );
 });
 
@@ -75,26 +66,16 @@ self.addEventListener('install', (event) => {
 // ============================================================================
 
 self.addEventListener('activate', (event) => {
-    console.log('[SW] Activating service worker version:', CACHE_VERSION);
-
     const currentCaches = [CACHE_NAME, CACHE_IMAGES, CACHE_API, CACHE_FONTS];
 
     event.waitUntil(
         caches.keys()
-            .then((cacheNames) => {
-                return Promise.all(
-                    cacheNames
-                        .filter((name) => !currentCaches.includes(name))
-                        .map((name) => {
-                            console.log('[SW] Deleting old cache:', name);
-                            return caches.delete(name);
-                        })
-                );
-            })
-            .then(() => {
-                console.log('[SW] Activation complete');
-                return self.clients.claim();
-            })
+            .then((cacheNames) => Promise.all(
+                cacheNames
+                    .filter((name) => !currentCaches.includes(name))
+                    .map((name) => caches.delete(name))
+            ))
+            .then(() => self.clients.claim())
     );
 });
 
@@ -186,7 +167,6 @@ async function cacheFirst(request, cacheName, ttl = Infinity) {
         }
         return networkResponse;
     } catch (error) {
-        console.error('[SW] Cache-first network error:', error);
         return cachedResponse || new Response('Offline', { status: 503 });
     }
 }
@@ -238,8 +218,6 @@ async function networkFirstWithCache(request, cacheName, ttl = null) {
         }
         return networkResponse;
     } catch (error) {
-        console.log('[SW] Network failed, trying cache:', request.url);
-
         const cachedResponse = await cache.match(request);
         if (cachedResponse) {
             // Check TTL if specified
@@ -319,8 +297,6 @@ async function addCacheTimeHeader(response) {
  * Queue failed requests for background sync
  */
 self.addEventListener('sync', (event) => {
-    console.log('[SW] Background sync triggered:', event.tag);
-
     if (event.tag === 'sync-contacts' || event.tag === 'sync-forms') {
         event.waitUntil(syncPendingRequests());
     }
@@ -331,7 +307,6 @@ async function syncPendingRequests() {
     // 1. Read pending requests from IndexedDB
     // 2. Replay them to the server
     // 3. Remove successful ones from the queue
-    console.log('[SW] Syncing pending requests...');
 }
 
 // ============================================================================
@@ -350,7 +325,7 @@ self.addEventListener('push', (event) => {
         try {
             data = JSON.parse(event.data.text());
         } catch (e) {
-            console.error('[SW] Push parse error:', e);
+            // Parse error - use defaults
         }
     }
 
@@ -420,4 +395,3 @@ self.addEventListener('message', (event) => {
     }
 });
 
-console.log('[SW] Service Worker loaded. Version:', CACHE_VERSION);

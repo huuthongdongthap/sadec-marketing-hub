@@ -91,7 +91,6 @@ function optimizeHTML(content, filePath) {
     }
 
     if (changes > 0) {
-        console.log(`  ✓ ${path.relative(ROOT_DIR, filePath)}: ${changes} optimizations`);
     }
 
     return optimized;
@@ -120,7 +119,6 @@ function processDirectory(dirPath) {
                     fs.writeFileSync(filePath, optimized, 'utf8');
                 }
             } catch (error) {
-                console.error(`  ✗ Error processing ${filePath}:`, error.message);
             }
         }
     }
@@ -130,15 +128,12 @@ function processDirectory(dirPath) {
  * Main function
  */
 function main() {
-    console.log('🚀 Optimizing lazy loading...\n');
 
     for (const dir of DIRECTORIES) {
         const dirPath = path.join(ROOT_DIR, dir);
-        console.log(`Processing ${dir || 'root'}...`);
         processDirectory(dirPath);
     }
 
-    console.log('\n✅ Lazy loading optimization complete!');
 }
 
 main();

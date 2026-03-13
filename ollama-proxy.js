@@ -28,7 +28,6 @@ function forwardToOllama(path, method, headers, body, res) {
         proxyRes.pipe(res);
     });
     proxyReq.on('error', (err) => {
-        console.error('Proxy error:', err.message);
         res.writeHead(502);
         res.end(JSON.stringify({ error: 'Bad Gateway: ' + err.message }));
     });
@@ -140,7 +139,6 @@ function handleOpenAIChatCompletion(body, res) {
         });
 
         proxyReq.on('error', (err) => {
-            console.error('Stream proxy error:', err.message);
             res.writeHead(502);
             res.end(JSON.stringify({ error: err.message }));
         });
@@ -173,12 +171,10 @@ function handleOpenAIChatCompletion(body, res) {
                             total_tokens: (ollamaRes.prompt_eval_count || 0) + (ollamaRes.eval_count || 0),
                         },
                     };
-
                     const body = JSON.stringify(openaiRes);
                     res.writeHead(200, { 'content-type': 'application/json', 'content-length': Buffer.byteLength(body) });
                     res.end(body);
                 } catch (e) {
-                    console.error('Parse error:', e.message);
                     res.writeHead(502);
                     res.end(JSON.stringify({ error: 'Failed to parse Ollama response' }));
                 }
@@ -186,7 +182,6 @@ function handleOpenAIChatCompletion(body, res) {
         });
 
         proxyReq.on('error', (err) => {
-            console.error('Proxy error:', err.message);
             res.writeHead(502);
             res.end(JSON.stringify({ error: err.message }));
         });
@@ -249,7 +244,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PROXY_PORT, '127.0.0.1', () => {
-    console.log(`🚀 Ollama Bridge Proxy running on http://127.0.0.1:${PROXY_PORT}`);
-    console.log(`   OpenAI /v1/chat/completions → Ollama /api/chat (think:false)`);
-    console.log(`   All other routes → Ollama passthrough`);
+    // Proxy started successfully
 });

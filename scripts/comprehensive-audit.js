@@ -52,7 +52,6 @@ function getHtmlFiles(dir, fileList = []) {
                 fileList.push(filePath);
             }
         } catch (err) {
-            console.error(`Error reading ${filePath}: ${err.message}`);
         }
     }
 
@@ -423,13 +422,8 @@ function groupByFile(issues, includeDetails = false) {
  * Main function
  */
 function main() {
-    console.log('🔍 Starting Comprehensive Audit...\n');
-    console.log('📁 Scanning for HTML files...');
 
     const htmlFiles = getHtmlFiles(ROOT_DIR);
-    console.log(`Found ${htmlFiles.length} HTML files\n`);
-
-    console.log('🔍 Analyzing files...\n');
 
     let processed = 0;
     for (const filePath of htmlFiles) {
@@ -440,14 +434,10 @@ function main() {
             processFile(filePath);
 
             if (processed % 20 === 0) {
-                console.log(`  Processed ${processed}/${htmlFiles.length} files...`);
             }
         } catch (err) {
-            console.error(`❌ ${relativePath}: ${err.message}`);
         }
     }
-
-    console.log('\n✅ Analysis complete!\n');
 
     // Generate report
     const report = generateReport();
@@ -460,16 +450,7 @@ function main() {
     const reportPath = path.join(REPORTS_DIR, 'comprehensive-audit-' + new Date().toISOString().split('T')[0] + '.md');
     fs.writeFileSync(reportPath, report);
 
-    console.log(`📄 Report saved to: ${reportPath}\n`);
-
     // Print summary
-    console.log('📊 Summary:');
-    console.log(`   Total Files: ${results.summary.totalFiles}`);
-    console.log(`   Total Links: ${results.summary.totalLinks}`);
-    console.log(`   Broken Links: ${results.summary.brokenLinks}`);
-    console.log(`   Missing Meta Tags: ${results.summary.missingMeta}`);
-    console.log(`   Accessibility Issues: ${results.summary.accessibilityIssues}`);
-    console.log('');
 }
 
 // Run

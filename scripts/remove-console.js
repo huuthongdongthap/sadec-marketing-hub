@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
  * 🧹 Remove console statements from production code
- * Replace console.log/error/warn/debug with noop or logging utility
  */
 
 const fs = require('fs');
@@ -27,25 +26,21 @@ function processFile(filePath) {
     const count = consoleMatches.length;
     
     // Replace console statements with comments for error/warn (keep for debugging)
-    // Replace console.log with empty statement
     content = content.replace(
         /console\.log\([^)]*\);?/g, 
         (match) => `// [REMOVED] ${match}`
     );
     
-    // Keep console.error but prefix for potential removal
     content = content.replace(
         /console\.error\(/g, 
         '// [DEV] '
     );
     
-    // Keep console.warn but prefix
     content = content.replace(
         /console\.warn\(/g, 
         '// [DEV] '
     );
     
-    // Replace console.debug
     content = content.replace(
         /console\.debug\([^)]*\);?/g, 
         (match) => `// [REMOVED] ${match}`
@@ -55,7 +50,6 @@ function processFile(filePath) {
         fs.writeFileSync(filePath, content, 'utf8');
         totalReplaced += count;
         modifiedFiles.push({ file: filePath, count: count });
-        console.log(`✓ ${filePath}: Replaced ${count} console statements`);
     }
 }
 
@@ -74,9 +68,5 @@ function walkDir(dir) {
     });
 }
 
-console.log('🧹 Removing console statements from production code...\n');
 walkDir(JS_DIR);
 
-console.log(`\n✅ Done! Modified ${modifiedFiles.length} files, replaced ${totalReplaced} console statements`);
-console.log('\nModified files:');
-modifiedFiles.forEach(f => console.log(`  - ${f.file} (${f.count})`));

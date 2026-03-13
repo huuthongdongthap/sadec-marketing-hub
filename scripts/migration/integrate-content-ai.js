@@ -20,10 +20,8 @@ const SCRIPT_TO_ADD = `
 </body>`;
 
 async function integrate() {
-    console.log('🤖 Integrating Content AI into admin pages...\n');
 
     if (!existsSync(ADMIN_DIR)) {
-        console.error(`❌ Admin directory not found: ${ADMIN_DIR}`);
         return;
     }
 
@@ -40,7 +38,6 @@ async function integrate() {
         let content = await fs.readFile(filepath, 'utf8');
 
         if (content.includes('content-ai.js')) {
-            console.log(`⏭️  ${filename} - already has Content AI`);
             skipped++;
             return;
         }
@@ -48,17 +45,12 @@ async function integrate() {
         if (content.includes('</body>')) {
             content = content.replace('</body>', SCRIPT_TO_ADD);
             await fs.writeFile(filepath, content);
-            console.log(`✅ ${filename} - Content AI added`);
             updated++;
         }
     }));
 
-    console.log('═'.repeat(30));
-    console.log(`✅ Updated: ${updated} pages`);
-    console.log(`⏭️  Skipped: ${skipped} pages`);
 }
 
 integrate().catch(err => {
-    console.error('❌ Error:', err);
     process.exit(1);
 });
