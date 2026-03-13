@@ -4,6 +4,7 @@
 // ================================================
 
 import { auth, leads, clients, deals, utils } from './supabase.js';
+import { formatCurrencyCompact, formatRelativeTime, Toast } from '../enhanced-utils.js';
 
 // ================================================
 // DEMO DEALS DATA
@@ -153,89 +154,6 @@ const DEMO_DEALS = [
 ];
 
 // ================================================
-// TOAST NOTIFICATION
-// ================================================
-
-class ToastManager {
-    constructor() {
-        this.container = null;
-        this.init();
-    }
-
-    init() {
-        if (!document.getElementById('toast-container')) {
-            this.container = document.createElement('div');
-            this.container.id = 'toast-container';
-            this.container.style.cssText = `
-                position: fixed;
-                bottom: 24px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 9999;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            `;
-            document.body.appendChild(this.container);
-        } else {
-            this.container = document.getElementById('toast-container');
-        }
-    }
-
-    show(message, type = 'info', duration = 4000) {
-        const toast = document.createElement('div');
-        const colors = {
-            success: { bg: '#D4EDDA', color: '#155724', icon: 'check_circle' },
-            error: { bg: '#F8D7DA', color: '#721C24', icon: 'error' },
-            warning: { bg: '#FFF3CD', color: '#856404', icon: 'warning' },
-            info: { bg: '#CCE5FF', color: '#004085', icon: 'info' }
-        };
-        const style = colors[type] || colors.info;
-
-        toast.innerHTML = `
-            <span class="material-symbols-outlined" style="font-size: 20px;">${style.icon}</span>
-            <span>${message}</span>
-        `;
-        toast.style.cssText = `
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 24px;
-            background: ${style.bg};
-            color: ${style.color};
-            border-radius: 12px;
-            font-family: 'Google Sans', sans-serif;
-            font-size: 14px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-            animation: slideUp 0.3s ease-out;
-        `;
-
-        this.container.appendChild(toast);
-
-        setTimeout(() => {
-            toast.style.animation = 'slideDown 0.3s ease-in';
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
-    }
-}
-
-// Add animation styles
-const toastStyles = document.createElement('style');
-toastStyles.textContent = `
-    @keyframes slideUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideDown {
-        from { opacity: 1; transform: translateY(0); }
-        to { opacity: 0; transform: translateY(20px); }
-    }
-`;
-document.head.appendChild(toastStyles);
-
-const toast = new ToastManager();
-
-// ================================================
 // MODAL SYSTEM
 // ================================================
 
@@ -323,28 +241,8 @@ const modal = new ModalManager();
 // UTILITY FUNCTIONS
 // ================================================
 
-// Using shared utils from supabase.js -> utils.js
-
-function formatCurrencyShort(amount) {
-    if (!amount) return '0';
-    if (amount >= 1000000000) return (amount / 1000000000).toFixed(1) + 'B';
-    if (amount >= 1000000) return (amount / 1000000).toFixed(0) + 'M';
-    if (amount >= 1000) return (amount / 1000).toFixed(0) + 'K';
-    return amount.toString();
-}
-
-function timeAgo(dateStr) {
-    if (!dateStr) return '--';
-    const date = new Date(dateStr);
-    const now = new Date();
-    const diff = Math.floor((now - date) / 1000);
-
-    if (diff < 60) return 'Vừa xong';
-    if (diff < 3600) return `${Math.floor(diff / 60)}p`;
-    if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
-    if (diff < 604800) return `${Math.floor(diff / 86400)}d`;
-    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
-}
+// Using shared utils from enhanced-utils.js
+// formatCurrencyCompact, formatRelativeTime, Toast imported above
 
 function getScoreClass(score) {
     if (score >= 80) return 'hot';
@@ -437,7 +335,7 @@ function showDealDetail(deal) {
             <!-- Timeline -->
             <div style="font-size: 12px; color: #999; display: flex; gap: 16px; margin-bottom: 24px;">
                 <span>📅 Tạo: ${new Date(deal.created_at).toLocaleDateString('vi-VN')}</span>
-                <span>⏰ Hoạt động: ${timeAgo(deal.last_activity)}</span>
+                <span>⏰ Hoạt động: ${formatRelativeTime(deal.last_activity)}</span>
             </div>
 
             <!-- Actions -->
@@ -477,7 +375,7 @@ function renderPipeline(deals) {
         // Update count and value
         const totalValue = stageDeals.reduce((sum, d) => sum + (d.value || 0), 0);
         if (countEl) countEl.textContent = stageDeals.length;
-        if (valueEl) valueEl.textContent = formatCurrencyShort(totalValue) + 'đ';
+        if (valueEl) valueEl.textContent = formatCurrencyCompact(totalValue) + 'đ';
 
         // Render cards
         if (cardsEl) {
@@ -486,7 +384,7 @@ function renderPipeline(deals) {
                     <span class="deal-score ${getScoreClass(deal.score)}">${deal.score}</span>
                     <div class="deal-card-header">
                         <div class="deal-company">${deal.company}</div>
-                        <div class="deal-value">${formatCurrencyShort(deal.value)}đ</div>
+                        <div class="deal-value">${formatCurrencyCompact(deal.value)}đ</div>
                     </div>
                     <div class="deal-contact">
                         <div class="deal-avatar">${utils.getInitials(deal.contact_name)}</div>
@@ -495,7 +393,7 @@ function renderPipeline(deals) {
                     <div class="deal-meta">
                         <span class="deal-tag">
                             <span class="material-symbols-outlined">schedule</span>
-                            ${timeAgo(deal.last_activity)}
+                            ${formatRelativeTime(deal.last_activity)}
                         </span>
                         <span class="deal-tag">
                             <span class="material-symbols-outlined">trending_up</span>
@@ -544,7 +442,7 @@ function updatePipelineStats(deals) {
 
     // Animate count up
     animateValue(document.getElementById('totalDeals'), totalDeals);
-    document.getElementById('totalValue').textContent = formatCurrencyShort(totalValue) + 'đ';
+    document.getElementById('totalValue').textContent = formatCurrencyCompact(totalValue) + 'đ';
     animateValue(document.getElementById('avgScore'), avgScore);
     document.getElementById('winRate').textContent = winRate + '%';
 }
@@ -652,9 +550,9 @@ function setupDragAndDrop() {
                 // Trigger confetti for closed deals!
                 if (newStage === 'closed') {
                     triggerConfetti();
-                    toast.show(`🎉 CHỐT ĐƠN! Deal "${deal.company}" - ${utils.formatCurrency(deal.value)}`, 'success', 5000);
+                    Toast.show(`🎉 CHỐT ĐƠN! Deal "${deal.company}" - ${utils.formatCurrency(deal.value)}`, 'success', 5000);
                 } else {
-                    toast.show(`Deal "${deal.company}" đã chuyển sang ${newStage.toUpperCase()}`, 'success');
+                    Toast.show(`Deal "${deal.company}" đã chuyển sang ${newStage.toUpperCase()}`, 'success');
                 }
             }
         });
@@ -695,7 +593,7 @@ function exportPipelineReport() {
     link.download = `pipeline-report-${new Date().toISOString().split('T')[0]}.csv`;
     link.click();
 
-    toast.show('Đã xuất báo cáo Pipeline!', 'success');
+    Toast.show('Đã xuất báo cáo Pipeline!', 'success');
 }
 
 // ================================================
@@ -709,16 +607,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!user) {
             // Demo mode
             renderPipeline(DEMO_DEALS);
-            toast.show('🎯 Sales Pipeline - Demo Mode', 'info');
+            Toast.show('🎯 Sales Pipeline - Demo Mode', 'info');
         } else {
             // Live mode - fetch from Supabase
-            toast.show('🔄 Đang tải dữ liệu...', 'info');
+            Toast.show('🔄 Đang tải dữ liệu...', 'info');
             const { data: liveDeals, error } = await deals.getAll();
 
             if (error || !liveDeals || liveDeals.length === 0) {
                 // Fallback to demo if no data
                 renderPipeline(DEMO_DEALS);
-                toast.show('📊 Sử dụng dữ liệu demo', 'info');
+                Toast.show('📊 Sử dụng dữ liệu demo', 'info');
             } else {
                 // Transform data to match expected format
                 const transformedDeals = liveDeals.map(deal => ({
@@ -737,7 +635,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }));
 
                 renderPipeline(transformedDeals);
-                toast.show(`✅ Đã tải ${transformedDeals.length} deals`, 'success');
+                Toast.show(`✅ Đã tải ${transformedDeals.length} deals`, 'success');
             }
         }
 
@@ -752,7 +650,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error loading pipeline:', error);
         renderPipeline(DEMO_DEALS);
-        toast.show('Đang hiển thị demo mode', 'warning');
+        Toast.show('Đang hiển thị demo mode', 'warning');
     }
 });
 
@@ -830,15 +728,15 @@ function showAddDealModal() {
             // Save to Supabase
             const { data, error } = await deals.create(newDeal);
             if (!error) {
-                toast.show('✅ Đã tạo deal mới!', 'success');
+                Toast.show('✅ Đã tạo deal mới!', 'success');
                 modal.close();
                 location.reload();
             } else {
-                toast.show('❌ Lỗi: ' + error.message, 'error');
+                Toast.show('❌ Lỗi: ' + error.message, 'error');
             }
         } else {
             // Demo mode - just show confirmation
-            toast.show('📝 Deal đã được tạo (demo mode)', 'info');
+            Toast.show('📝 Deal đã được tạo (demo mode)', 'info');
             modal.close();
         }
     });

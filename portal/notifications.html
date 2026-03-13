@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quản lý thông báo - Cài đặt notification preferences">
+  <meta property="og:title" content="Notification Settings | Sa Đéc Marketing Hub">
+  <meta property="og:description" content="Customize your notification preferences">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/notifications">
+  <meta property="og:image" content="https://sadecmarketinghub.com/og-image.png">
+  <title>Notification Settings | Sa Đéc Marketing Hub</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .notifications-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .notification-section {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .notification-section h2 {
+      color: var(--md-sys-color-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .notification-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    }
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+    .notification-info h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .notification-info p {
+      font-size: 14px;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 32px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 32px;
+      transition: 0.3s;
+    }
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    input:checked + .toggle-slider {
+      background-color: var(--md-sys-color-primary);
+    }
+    input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+    .channel-toggles {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .channel-badge {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .channel-badge.active {
+      background: var(--md-sys-color-primary);
+      color: white;
+    }
+    .channel-badge.inactive {
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+    }
+  </style>
+</head>
+<body>
+  <div class="notifications-container">
+    <h1>🔔 Cài Đặt Thông Báo</h1>
+    <p>Quản lý cách bạn nhận thông báo từ Sa Đéc Marketing Hub</p>
+
+    <!-- Marketing Alerts -->
+    <div class="notification-section">
+      <h2>📈 Marketing Alerts</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Campaign Performance</h3>
+          <p>Nhận thông báo khi campaign đạt mốc quan trọng</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Budget Alerts</h3>
+          <p>Cảnh báo khi ngân sách sắp hết</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Lead Notifications</h3>
+          <p>Thông báo khi có lead mới</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- ROI Alerts -->
+    <div class="notification-section">
+      <h2>💰 ROI Alerts</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>ROI Milestones</h3>
+          <p>Thông báo khi đạt mốc ROI</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Revenue Updates</h3>
+          <p>Báo cáo doanh thu hàng tuần</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- System Notifications -->
+    <div class="notification-section">
+      <h2>⚙️ System Notifications</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>System Maintenance</h3>
+          <p>Thông báo bảo trì hệ thống</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Security Alerts</h3>
+          <p>Cảnh báo bảo mật quan trọng</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Notification Channels -->
+    <div class="notification-section">
+      <h2>📱 Kênh Thông Báo</h2>
+      <p>Chọn kênh bạn muốn nhận thông báo</p>
+
+      <div class="channel-toggles">
+        <span class="channel-badge active">Email</span>
+        <span class="channel-badge active">In-App</span>
+        <span class="channel-badge">Zalo</span>
+        <span class="channel-badge">SMS</span>
+        <span class="channel-badge">Telegram</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle channel badges
+    document.querySelectorAll('.channel-badge').forEach(badge => {
+      badge.addEventListener('click', () => {
+        badge.classList.toggle('active');
+        badge.classList.toggle('inactive');
+      });
+    });
+  </script>
+</body>
+</html>

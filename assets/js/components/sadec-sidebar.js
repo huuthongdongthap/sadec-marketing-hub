@@ -210,6 +210,21 @@ class SadecSidebar extends HTMLElement {
 
         this.shadowRoot.innerHTML = this.getTemplate(activePage, collapsed, mode, role);
         this.setupEventListeners();
+
+        // Auto-detect mobile and start closed
+        this.checkMobileView();
+        window.addEventListener('resize', () => this.checkMobileView());
+    }
+
+    checkMobileView() {
+        const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
+        if (!sidebar) return;
+
+        const isMobile = window.innerWidth <= 1024;
+        if (isMobile) {
+            sidebar.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
     }
 
     // Auto-detect current page from URL
@@ -536,6 +551,18 @@ class SadecSidebar extends HTMLElement {
                 .sidebar-glass.open {
                     left: 0;
                 }
+
+                /* Overlay when sidebar is open on mobile */
+                .sidebar-glass.open::before {
+                    content: '';
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: -1;
+                }
             }
         `;
     }
@@ -556,15 +583,34 @@ class SadecSidebar extends HTMLElement {
 
     // Public methods
     open() {
-        this.shadowRoot.querySelector('.sidebar-glass').classList.add('open');
+        const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
+        if (sidebar) {
+            sidebar.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
     }
 
     close() {
-        this.shadowRoot.querySelector('.sidebar-glass').classList.remove('open');
+        const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
+        if (sidebar) {
+            sidebar.classList.remove('open');
+            document.body.style.overflow = '';
+        }
     }
 
     toggle() {
-        this.shadowRoot.querySelector('.sidebar-glass').classList.toggle('open');
+        const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
+        if (sidebar) {
+            sidebar.classList.toggle('open');
+            // Toggle body scroll
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+        }
+    }
+
+    // Check if sidebar is currently open
+    isOpen() {
+        const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
+        return sidebar ? sidebar.classList.contains('open') : false;
     }
 }
 
