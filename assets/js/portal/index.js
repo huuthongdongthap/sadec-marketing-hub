@@ -10,7 +10,7 @@ export { supabase, auth, projects, invoices, activities, utils } from './supabas
 
 // UI Components
 export { ModalManager, renderProjects, renderInvoices, updateInvoiceStats } from './portal-ui.js';
-export { Toast } from '../enhanced-utils.js';
+export { Toast } from '../services/enhanced-utils.js';
 
 // Utilities
 export { formatCurrency, formatDate, formatRelativeTime, truncate, escapeHtml } from './portal-utils.js';

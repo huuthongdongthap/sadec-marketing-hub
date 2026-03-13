@@ -15,7 +15,7 @@ export {
   requireAuth,
   getCurrentUser,
   getCurrentUserId
-} from './guard-utils.js';
+} from '../shared/guard-utils.js';
 
 export { default as AdminGuard } from './admin-guard.js';
 export { default as PortalGuard } from './portal-guard.js';
