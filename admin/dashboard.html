@@ -605,6 +605,21 @@
     <script type="module" src="widgets/bar-chart-widget.js?v=mmp5r1rf"></script>
     <!-- Alerts Widget -->
     <script type="module" src="widgets/alerts-widget.js?v=mmp5r1rf"></script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/assets/js/services/service-worker.js')
+                    .then((registration) => {
+                        console.log('[SW] Registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('[SW] Registration failed:', error);
+                    });
+            });
+        }
+    </script>
+
     <script>
         // Initialize Chart.js after DOM load
         document.addEventListener('DOMContentLoaded', async () => {
