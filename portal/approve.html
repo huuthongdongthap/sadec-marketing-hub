@@ -430,7 +430,7 @@
                  return `
                     <div class="preview-image">
                          <span class="material-symbols-outlined placeholder" aria-label="Description" role="img">description</span>
-                         <a href="javascript:void(0)" target="_blank" class="preview-link">Xem nội dung</a>
+                         <button type="button" class="preview-link" onclick="openPreview('${item.id}')">Xem nội dung</button>
                     </div>
                 `;
             }
