@@ -559,11 +559,13 @@ class SadecSidebar extends HTMLElement {
                     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
                 }
 
+                .sidebar-glass.mobile,
                 .sidebar-glass.open {
                     left: 0;
                 }
 
                 /* Overlay when sidebar is open on mobile */
+                .sidebar-glass.mobile::before,
                 .sidebar-glass.open::before {
                     content: '';
                     position: fixed;

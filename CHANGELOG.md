@@ -2,6 +2,31 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.1.0] - 2026-03-13
+
+### 🚀 Major Features
+- **UI Enhancements 2027:**
+  - Added new CSS theme with modern design system (`assets/css/ui-enhancements-2027.css`)
+  - Implemented UI controller for dynamic component behavior (`assets/js/ui-enhancements-controller.js`)
+  - Enhanced visual styling across all admin pages
+
+### 🔧 Refactoring & Cleanup
+- **Meta Tag Consolidation:**
+  - Removed duplicate SEO meta tags from 30+ admin pages
+  - Centralized Open Graph, Twitter Card, and Schema.org JSON-LD
+  - Reduced average file size by ~50 lines per page (1.5KB total reduction)
+- **Files Modified:** 32 HTML files across admin, affiliate, and portal sections
+- **Net Change:** -100 insertions, -1591 deletions
+
+### 📦 Component Updates
+- **Sidebar Enhancement:** Added new features to `sadec-sidebar.js` component
+- **Widget Improvements:** Updated `widgets-demo.html` and `widgets/kpi-card.html` with enhanced functionality
+
+### 📈 Technical Debt
+- Eliminated code duplication across marketing hub pages
+- Improved maintainability through single-source-of-truth meta configuration
+- Reduced page load time through HTML minification
+
 ## [v4.0.0] - 2026-01-27
 
 ### 🚀 Major Features (Growth & Automation)
