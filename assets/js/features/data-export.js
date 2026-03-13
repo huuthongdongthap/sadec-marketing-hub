@@ -17,9 +17,7 @@
  * @param {string} message - Log message
  */
 const _debug = (message) => {
-    if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') {
-        console.log(message);
-    }
+    // Debug logger - disabled in production
 };
 
 export class ExportManager {

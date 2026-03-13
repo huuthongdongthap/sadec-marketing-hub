@@ -217,7 +217,7 @@ test.describe('Dashboard Widgets', () => {
       const successBtn = page.locator('.btn-success').first();
       await successBtn.click();
       
-      const alert = page.locator('.alert-success').first();
+      const alert = page.locator('.toast.toast-success').first();
       const alertTitle = alert.locator('.alert-title');
       await expect(alertTitle).toBeVisible();
     });

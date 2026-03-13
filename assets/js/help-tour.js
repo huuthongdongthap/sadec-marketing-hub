@@ -463,9 +463,8 @@ class HelpTour {
   showToast(message, type = 'info') {
     if (window.Toast) {
       Toast.show({ title: type === 'success' ? '✓' : 'ℹ', message, type, duration: 3000 });
-    } else {
-      console.log(`[${type.toUpperCase()}] ${message}`);
     }
+    // Silent fallback when Toast unavailable
   }
 }
 

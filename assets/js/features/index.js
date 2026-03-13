@@ -19,7 +19,7 @@ export { QuickActions } from './quick-actions.js';
  * Initialize all features
  */
 function initializeFeatures() {
-    console.log('[Features] All features loaded');
+    // Features initialized
 }
 
 // Auto-initialize
