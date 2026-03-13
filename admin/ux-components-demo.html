@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Components Demo - Sa Đéc Marketing Hub</title>
+  <meta name="description" content="Demo các UX components: Skip Link, Back to Top, Reading Progress, Toast">
+  
+  <link rel="stylesheet" href="/assets/css/m3-agency.css">
+  <link rel="stylesheet" href="/assets/css/admin-dashboard.css">
+  
+  <style>
+    .demo-section {
+      padding: 40px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .demo-card {
+      background: var(--md-sys-color-surface);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .demo-card h2 {
+      margin-top: 0;
+      color: var(--md-sys-color-on-surface);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    
+    .demo-content {
+      min-height: 200vh; /* For scroll demonstrations */
+      padding: 20px;
+      background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link Component -->
+  <skip-link target="#main-demo" text="Bỏ qua đến nội dung demo"></skip-link>
+
+  <!-- Reading Progress Component -->
+  <reading-progress color="#0061AB" height="4" position="top"></reading-progress>
+
+  <!-- Main Header -->
+  <header class="page-header">
+    <h1>🎨 UX Components Demo</h1>
+    <p>Accessibility & UX Enhancements for Sa Đéc Marketing Hub</p>
+  </header>
+
+  <main id="main-demo" class="demo-section">
+    
+    <!-- Toast Notifications Demo -->
+    <section class="demo-card">
+      <h2>📬 Toast Notifications</h2>
+      <p>Click buttons below to show different toast types:</p>
+      
+      <div class="button-group">
+        <button class="btn btn-primary" onclick="Toast.success('✅ Thao tác thành công!')">
+          Success Toast
+        </button>
+        <button class="btn btn-error" onclick="Toast.error('❌ Có lỗi xảy ra!')">
+          Error Toast
+        </button>
+        <button class="btn btn-warning" onclick="Toast.warning('⚠️ Vui lòng kiểm tra lại!')">
+          Warning Toast
+        </button>
+        <button class="btn btn-info" onclick="Toast.info('ℹ️ Thông báo mới')">
+          Info Toast
+        </button>
+      </div>
+    </section>
+
+    <!-- Tooltip Demo -->
+    <section class="demo-card">
+      <h2>💬 Tooltip Component</h2>
+      <p>Hover over the elements below:</p>
+      
+      <div class="button-group">
+        <tooltip content="Đây là tooltip ở trên">
+          <button class="btn btn-primary">Tooltip Top</button>
+        </tooltip>
+        
+        <tooltip content="Đây là tooltip ở dưới" position="bottom">
+          <button class="btn btn-secondary">Tooltip Bottom</button>
+        </tooltip>
+        
+        <tooltip content="Đây là tooltip bên trái" position="left">
+          <button class="btn btn-tertiary">Tooltip Left</button>
+        </tooltip>
+        
+        <tooltip content="Đây là tooltip bên phải" position="right">
+          <button class="btn btn-primary">Tooltip Right</button>
+        </tooltip>
+      </div>
+    </section>
+
+    <!-- Skip Link Demo -->
+    <section class="demo-card">
+      <h2>♿ Skip Link</h2>
+      <p>Nhấn <kbd>Tab</kbd> để thấy skip link xuất hiện ở góc trên bên trái.</p>
+      <p>Skip link giúp users keyboard có thể bỏ qua navigation và đi thẳng đến nội dung chính.</p>
+    </section>
+
+    <!-- Back To Top Demo -->
+    <section class="demo-card">
+      <h2>⬆️ Back To Top</h2>
+      <p>Cuộn xuống dưới để thấy nút "Back To Top" xuất hiện ở góc phải bên dưới.</p>
+      <div class="demo-content">
+        <p>Nội dung demo để cuộn...</p>
+        <p style="margin-top: 1500px;">↓ Cuộn xuống nhé!</p>
+      </div>
+    </section>
+
+    <!-- Reading Progress Demo -->
+    <section class="demo-card">
+      <h2>📊 Reading Progress</h2>
+      <p>Thanh progress bar màu xanh ở đầu trang sẽ hiển thị tiến độ đọc của bạn.</p>
+      <div class="demo-content">
+        <p>Cuộn xuống để thấy progress bar thay đổi...</p>
+        <p style="margin-top: 1500px;">↓ Progress bar đã đạt 100%!</p>
+      </div>
+    </section>
+
+    <!-- Keyboard Shortcuts Demo -->
+    <section class="demo-card">
+      <h2>⌨️ Keyboard Shortcuts</h2>
+      <p>Các keyboard shortcuts có sẵn:</p>
+      <ul>
+        <li><kbd>Tab</kbd> - Di chuyển focus (sẽ thấy Skip Link)</li>
+        <li><kbd>Escape</kbd> - Đóng tooltip/modal</li>
+        <li><kbd>Home</kbd> - Cuộn lên đầu trang</li>
+        <li><kbd>End</kbd> - Cuộn xuống cuối trang</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Back To Top Component -->
+  <back-to-top threshold="300" smooth="true"></back-to-top>
+
+  <script type="module">
+    // Import all components
+    import '/assets/js/components/index.js';
+    
+    console.log('✅ UX Components Demo loaded successfully!');
+    
+    // Auto-show welcome toast
+    setTimeout(() => {
+      Toast?.info('👋 Chào mừng đến với UX Components Demo!');
+    }, 500);
+  </script>
+</body>
+</html>

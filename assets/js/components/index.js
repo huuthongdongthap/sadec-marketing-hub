@@ -21,6 +21,12 @@ export { SadecToast } from './sadec-toast.js';
 export { LoadingButton } from './loading-button.js';
 export { PaymentStatusChip } from './payment-status-chip.js';
 
+// Accessibility Components (2026-03-14)
+export { SkipLink } from './skip-link.js';
+export { BackToTop } from './back-to-top.js';
+export { ReadingProgress } from './reading-progress.js';
+export { Tooltip } from './tooltip.js';
+
 // Features
 export { AIGenerator, AIContentGenerator, AIContentPanel } from '../features/ai-content-generator.js';
 export { AnalyticsDashboard } from '../features/analytics-dashboard.js';
@@ -64,6 +70,12 @@ window.MekongComponents = {
   SadecToast: window.SadecToast,
   LoadingButton: window.LoadingButton,
   PaymentStatusChip: window.PaymentStatusChip,
+
+  // Accessibility (2026-03-14)
+  SkipLink: window.SkipLink,
+  BackToTop: window.BackToTop,
+  ReadingProgress: window.ReadingProgress,
+  Tooltip: window.Tooltip,
 
   // Features
   AIGenerator: window.AIGenerator,

@@ -1,340 +1,294 @@
 /**
- * ═══════════════════════════════════════════════════════════════════════════
- * SA ĐÉC MARKETING HUB — TOOLTIP COMPONENT
- * ═══════════════════════════════════════════════════════════════════════════
- *
- * Tooltip component với micro-animations và accessibility support
- *
- * Features:
- * - Position detection (top, bottom, left, right, auto)
- * - Show/hide on hover/focus/click
- * - ARIA attributes cho accessibility
- * - Dark mode support
- * - Micro-animation (fade-in + scale-up)
- * - Auto-hide với delay
- * - HTML content support
- *
- * Usage:
- *   HTML: <button data-tooltip="Helpful text" data-tooltip-position="top">Hover me</button>
- *   JS:   Tooltip.show(element, 'Content', { position: 'top', duration: 3000 })
- *         Tooltip.hide(element)
- *
- * ═══════════════════════════════════════════════════════════════════════════
+ * Tooltip Component - Enhanced
+ * Tooltip với accessibility và positioning
+ * @version 2.0.0 | 2026-03-14
  */
 
-class TooltipManager {
+class Tooltip extends HTMLElement {
   constructor() {
-    this.activeTooltips = new Map();
-    this.defaultDelay = 200; // ms before show
-    this.defaultDuration = 5000; // ms before auto-hide
-    this.init();
+    super();
+    this.attachShadow({ mode: 'open' });
+    this._boundPosition = this.positionTooltip.bind(this);
+    this._escapeHandler = this.handleEscape.bind(this);
   }
 
-  init() {
-    // Auto-bind tooltips với data-tooltip attribute
-    document.addEventListener('DOMContentLoaded', () => {
-      this.bindAll();
-    });
-
-    // Re-bind khi có DOM changes (cho dynamic content)
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.addedNodes.length) {
-          mutation.addedNodes.forEach((node) => {
-            if (node.nodeType === 1 && node.hasAttribute?.('data-tooltip')) {
-              this.bind(node);
-            }
-            // Check children
-            if (node.querySelectorAll) {
-              node.querySelectorAll('[data-tooltip]').forEach((el) => this.bind(el));
-            }
-          });
-        }
-      });
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
+  static get observedAttributes() {
+    return ['content', 'position', 'delay'];
   }
 
-  /**
-   * Bind tooltip events cho element
-   */
-  bind(element) {
-    const options = this.parseOptions(element);
+  connectedCallback() {
+    this.render();
+    this.setupTrigger();
+    this.setupDocumentListeners();
+  }
 
-    // Mouse events
-    element.addEventListener('mouseenter', (e) => {
-      this.show(element, options.content || element.getAttribute('data-tooltip'), options);
-    });
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
 
-    element.addEventListener('mouseleave', () => {
-      this.hide(element);
-    });
-
-    // Focus events cho accessibility
-    element.addEventListener('focus', (e) => {
-      this.show(element, options.content || element.getAttribute('data-tooltip'), options);
-    });
-
-    element.addEventListener('blur', () => {
-      this.hide(element);
-    });
-
-    // Click toggle (optional)
-    if (element.hasAttribute('data-tooltip-click')) {
-      element.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (this.activeTooltips.has(element)) {
-          this.hide(element);
-        } else {
-          this.show(element, options.content || element.getAttribute('data-tooltip'), options);
-        }
-      });
-    }
-
-    // Keyboard escape để hide
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.hideAll();
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue && this.shadowRoot) {
+      this.render();
+      if (name === 'content' && this.isShown) {
+        this.updateContent();
       }
-    });
+    }
   }
 
-  /**
-   * Bind tất cả tooltips trong document
-   */
-  bindAll(root = document) {
-    root.querySelectorAll('[data-tooltip]').forEach((el) => this.bind(el));
+  render() {
+    const content = this.getAttribute('content') || '';
+    const position = this.getAttribute('position') || 'top';
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: inline-block;
+          position: relative;
+        }
+
+        .tooltip-container {
+          position: relative;
+          display: inline-block;
+        }
+
+        .tooltip {
+          position: absolute;
+          padding: 8px 12px;
+          background: var(--md-sys-color-inverse-surface, #2B2B2B);
+          color: var(--md-sys-color-inverse-on-surface, #EAECEF);
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.4;
+          border-radius: 4px;
+          white-space: nowrap;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-50%) translateY(4px);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 10000;
+          pointer-events: none;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        /* Positioning */
+        .tooltip.top {
+          bottom: 100%;
+          left: 50%;
+          margin-bottom: 8px;
+        }
+
+        .tooltip.bottom {
+          top: 100%;
+          left: 50%;
+          margin-top: 8px;
+        }
+
+        .tooltip.left {
+          right: 100%;
+          top: 50%;
+          margin-right: 8px;
+          transform: translateY(-50%);
+        }
+
+        .tooltip.right {
+          left: 100%;
+          top: 50%;
+          margin-left: 8px;
+          transform: translateY(-50%);
+        }
+
+        /* Arrow */
+        .tooltip::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+        }
+
+        .tooltip.top::after {
+          top: 100%;
+          left: 50%;
+          margin-left: -6px;
+          border-top-color: var(--md-sys-color-inverse-surface, #2B2B2B);
+        }
+
+        .tooltip.bottom::after {
+          bottom: 100%;
+          left: 50%;
+          margin-left: -6px;
+          border-bottom-color: var(--md-sys-color-inverse-surface, #2B2B2B);
+        }
+
+        .tooltip.left::after {
+          right: 100%;
+          top: 50%;
+          margin-top: -6px;
+          border-left-color: var(--md-sys-color-inverse-surface, #2B2B2B);
+        }
+
+        .tooltip.right::after {
+          left: 100%;
+          top: 50%;
+          margin-top: -6px;
+          border-right-color: var(--md-sys-color-inverse-surface, #2B2B2B);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .tooltip {
+            transition: none;
+          }
+        }
+      </style>
+      <span class="tooltip-container">
+        <slot></slot>
+        <span class="tooltip ${position}" role="tooltip" aria-hidden="true">
+          ${content}
+        </span>
+      </span>
+    `;
   }
 
-  /**
-   * Parse options từ element attributes
-   */
-  parseOptions(element) {
-    return {
-      position: element.getAttribute('data-tooltip-position') || 'auto',
-      delay: parseInt(element.getAttribute('data-tooltip-delay')) || this.defaultDelay,
-      duration: parseInt(element.getAttribute('data-tooltip-duration')) || this.defaultDuration,
-      content: element.getAttribute('data-tooltip-html') || null,
-      allowHTML: element.hasAttribute('data-tooltip-allow-html'),
-      class: element.getAttribute('data-tooltip-class') || ''
+  setupTrigger() {
+    const trigger = this.querySelector('[slot="trigger"]') || this.children[0];
+    if (!trigger) return;
+
+    trigger.setAttribute('aria-describedby', 'tooltip');
+
+    this._showTimeout = null;
+    this._hideTimeout = null;
+    const delay = parseInt(this.getAttribute('delay'), 10) || 200;
+
+    this._onMouseEnter = () => {
+      this._showTimeout = setTimeout(() => this.show(), 100);
     };
+
+    this._onMouseLeave = () => {
+      clearTimeout(this._showTimeout);
+      this._hideTimeout = setTimeout(() => this.hide(), delay);
+    };
+
+    this._onFocus = () => this.show();
+    this._onBlur = () => this.hide();
+    this._onClick = () => this.toggle();
+
+    trigger.addEventListener('mouseenter', this._onMouseEnter);
+    trigger.addEventListener('mouseleave', this._onMouseLeave);
+    trigger.addEventListener('focus', this._onFocus);
+    trigger.addEventListener('blur', this._onBlur);
+    trigger.addEventListener('click', this._onClick);
+    trigger.style.cursor = 'help';
   }
 
-  /**
-   * Show tooltip
-   */
-  show(element, content, options = {}) {
-    if (!content) return;
-
-    const opts = { ...this.parseOptions(element), ...options };
-
-    // Clear existing timer
-    if (element._tooltipTimer) {
-      clearTimeout(element._tooltipTimer);
-    }
-
-    // Delay before showing
-    element._tooltipTimer = setTimeout(() => {
-      // Remove existing tooltip cho element này
-      this.hide(element);
-
-      // Create tooltip element
-      const tooltip = document.createElement('div');
-      tooltip.className = `mekong-tooltip ${opts.class}`;
-      tooltip.setAttribute('role', 'tooltip');
-      tooltip.innerHTML = opts.allowHTML ? content : this.escapeHtml(content);
-
-      // Set ARIA
-      const tooltipId = `tooltip-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-      tooltip.id = tooltipId;
-      element.setAttribute('aria-describedby', tooltipId);
-
-      // Append to body
-      document.body.appendChild(tooltip);
-      this.activeTooltips.set(element, tooltip);
-
-      // Position
-      this.position(tooltip, element, opts.position);
-
-      // Animation
-      requestAnimationFrame(() => {
-        tooltip.classList.add('mekong-tooltip--visible');
-      });
-
-      // Auto-hide
-      if (opts.duration > 0) {
-        element._tooltipHideTimer = setTimeout(() => {
-          this.hide(element);
-        }, opts.duration);
-      }
-    }, opts.delay);
+  setupDocumentListeners() {
+    document.addEventListener('scroll', this._boundPosition, { passive: true });
+    document.addEventListener('keydown', this._escapeHandler);
+    window.addEventListener('resize', this._boundPosition);
   }
 
-  /**
-   * Hide tooltip
-   */
-  hide(element) {
-    // Clear timers
-    if (element._tooltipTimer) {
-      clearTimeout(element._tooltipTimer);
-      element._tooltipTimer = null;
-    }
-    if (element._tooltipHideTimer) {
-      clearTimeout(element._tooltipHideTimer);
-      element._tooltipHideTimer = null;
-    }
-
-    // Remove tooltip
-    const tooltip = this.activeTooltips.get(element);
+  show() {
+    const tooltip = this.shadowRoot.querySelector('.tooltip');
     if (tooltip) {
-      // Animation out
-      tooltip.classList.remove('mekong-tooltip--visible');
-      tooltip.classList.add('mekong-tooltip--hiding');
-
-      // Remove after animation
-      setTimeout(() => {
-        tooltip.remove();
-        this.activeTooltips.delete(element);
-        element.removeAttribute('aria-describedby');
-      }, 200);
+      tooltip.classList.add('show');
+      tooltip.setAttribute('aria-hidden', 'false');
+      this.isShown = true;
+      this.positionTooltip();
     }
   }
 
-  /**
-   * Hide tất cả tooltips
-   */
-  hideAll() {
-    this.activeTooltips.forEach((_, element) => this.hide(element));
+  hide() {
+    const tooltip = this.shadowRoot.querySelector('.tooltip');
+    if (tooltip) {
+      tooltip.classList.remove('show');
+      tooltip.setAttribute('aria-hidden', 'true');
+      this.isShown = false;
+    }
   }
 
-  /**
-   * Position tooltip relative to trigger
-   */
-  position(tooltip, element, preferredPosition) {
-    const rect = element.getBoundingClientRect();
-    const tooltipRect = tooltip.getBoundingClientRect();
-    const scrollX = window.scrollX || window.pageXOffset;
-    const scrollY = window.scrollY || window.pageYOffset;
+  toggle() {
+    this.isShown ? this.hide() : this.show();
+  }
 
-    // Viewport boundaries
+  updateContent() {
+    const tooltip = this.shadowRoot.querySelector('.tooltip');
+    const content = this.getAttribute('content') || '';
+    if (tooltip) {
+      tooltip.textContent = content;
+    }
+  }
+
+  positionTooltip() {
+    if (!this.isShown) return;
+
+    const tooltip = this.shadowRoot.querySelector('.tooltip');
+    if (!tooltip) return;
+
+    const trigger = this.querySelector('[slot="trigger"]') || this.children[0];
+    if (!trigger) return;
+
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const triggerRect = trigger.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
-    // Calculate positions
-    let position = preferredPosition;
-    let top, left;
+    // Reset position
+    tooltip.style.left = '';
+    tooltip.style.right = '';
+    tooltip.style.top = '';
+    tooltip.style.bottom = '';
 
-    // Auto-detect nếu không có preference
-    if (position === 'auto') {
-      const spaceBelow = viewportHeight - rect.bottom;
-      const spaceAbove = rect.top;
-      const spaceRight = viewportWidth - rect.right;
-      const spaceLeft = rect.left;
+    const position = this.getAttribute('position') || 'top';
 
-      // Prefer bottom or top based on space
-      if (spaceBelow > tooltipRect.height + 10 || spaceBelow > spaceAbove) {
-        position = 'bottom';
-      } else if (spaceAbove > tooltipRect.height + 10) {
-        position = 'top';
-      } else if (spaceRight > tooltipRect.width + 10) {
-        position = 'right';
-      } else if (spaceLeft > tooltipRect.width + 10) {
-        position = 'left';
-      } else {
-        position = 'top'; // Default fallback
-      }
+    // Adjust if out of viewport
+    if (position === 'top' && tooltipRect.top < 0) {
+      tooltip.classList.remove('top');
+      tooltip.classList.add('bottom');
+    } else if (position === 'bottom' && tooltipRect.bottom > viewportHeight) {
+      tooltip.classList.remove('bottom');
+      tooltip.classList.add('top');
     }
 
-    // Calculate position
-    switch (position) {
-      case 'top':
-        top = rect.top + scrollY - tooltipRect.height - 8;
-        left = rect.left + scrollX + (rect.width - tooltipRect.width) / 2;
-        tooltip.setAttribute('data-position', 'top');
-        break;
-      case 'bottom':
-        top = rect.bottom + scrollY + 8;
-        left = rect.left + scrollX + (rect.width - tooltipRect.width) / 2;
-        tooltip.setAttribute('data-position', 'bottom');
-        break;
-      case 'left':
-        top = rect.top + scrollY + (rect.height - tooltipRect.height) / 2;
-        left = rect.left + scrollX - tooltipRect.width - 8;
-        tooltip.setAttribute('data-position', 'left');
-        break;
-      case 'right':
-        top = rect.top + scrollY + (rect.height - tooltipRect.height) / 2;
-        left = rect.right + scrollX + 8;
-        tooltip.setAttribute('data-position', 'right');
-        break;
-    }
-
-    // Boundary check
-    if (left < scrollX + 5) {
-      left = scrollX + 5;
-    }
-    if (left + tooltipRect.width > scrollX + viewportWidth - 5) {
-      left = scrollX + viewportWidth - tooltipRect.width - 5;
-    }
-    if (top < scrollY + 5) {
-      top = scrollY + 5;
-    }
-    if (top + tooltipRect.height > scrollY + viewportHeight - 5) {
-      top = scrollY + viewportHeight - tooltipRect.height - 5;
-    }
-
-    tooltip.style.top = `${top}px`;
-    tooltip.style.left = `${left}px`;
-  }
-
-  /**
-   * Escape HTML để prevent XSS
-   */
-  escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  /**
-   * Update nội dung tooltip
-   */
-  update(element, content) {
-    const tooltip = this.activeTooltips.get(element);
-    if (tooltip) {
-      tooltip.innerHTML = this.escapeHtml(content);
-      this.position(tooltip, element, element.getAttribute('data-tooltip-position') || 'auto');
+    if (tooltipRect.left < 0) {
+      tooltip.style.left = '0';
+      tooltip.style.transform = 'translateY(-50%)';
+    } else if (tooltipRect.right > viewportWidth) {
+      tooltip.style.right = '0';
+      tooltip.style.transform = 'translateY(-50%)';
     }
   }
 
-  /**
-   * Enable tooltip (cho disabled elements)
-   */
-  enable(element) {
-    element.removeAttribute('data-tooltip-disabled');
+  handleEscape(e) {
+    if (e.key === 'Escape' && this.isShown) {
+      this.hide();
+    }
   }
 
-  /**
-   * Disable tooltip
-   */
-  disable(element) {
-    element.setAttribute('data-tooltip-disabled', 'true');
-    this.hide(element);
+  removeEventListeners() {
+    const trigger = this.querySelector('[slot="trigger"]') || this.children[0];
+    if (trigger) {
+      trigger.removeEventListener('mouseenter', this._onMouseEnter);
+      trigger.removeEventListener('mouseleave', this._onMouseLeave);
+      trigger.removeEventListener('focus', this._onFocus);
+      trigger.removeEventListener('blur', this._onBlur);
+      trigger.removeEventListener('click', this._onClick);
+    }
+
+    document.removeEventListener('scroll', this._boundPosition);
+    document.removeEventListener('keydown', this._escapeHandler);
+    window.removeEventListener('resize', this._boundPosition);
   }
 }
 
-/**
- * Global instance và shortcut methods
- */
-const Tooltip = new TooltipManager();
+// Auto-register
+if (!customElements.get('tooltip')) {
+  customElements.define('tooltip', Tooltip);
+}
 
-// Export
-window.Tooltip = Tooltip;
-window.TooltipManager = TooltipManager;
-
-export { Tooltip, TooltipManager };
-export default Tooltip;
+export { Tooltip };

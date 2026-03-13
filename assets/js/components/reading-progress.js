@@ -1,123 +1,124 @@
 /**
- * Sa Đéc Marketing Hub - Reading Progress Bar
- * UX feature: Show reading progress on pages
- *
- * Usage: Automatically added to pages with long content
+ * Reading Progress Component
+ * Thanh tiến độ đọc bài ở đầu trang
+ * @version 1.0.0 | 2026-03-14
  */
 
-(function() {
-  'use strict';
-
-  const CONFIG = {
-    minHeight: 500, // Only show on pages with content > 500px
-    position: 'top', // 'top' or 'bottom'
-    height: 4,
-    color: 'primary',
-    showPercentage: false
-  };
-
-  let progressBar = null;
-  let progressLabel = null;
-
-  /**
-   * Create progress bar element
-   */
-  function createProgressBar() {
-    if (progressBar) return;
-
-    const container = document.createElement('div');
-    container.className = 'reading-progress-container';
-    container.setAttribute('role', 'progressbar');
-    container.setAttribute('aria-label', 'Reading progress');
-
-    const bar = document.createElement('div');
-    bar.className = 'reading-progress-bar';
-    bar.style.height = CONFIG.height + 'px';
-    bar.style.width = '0%';
-
-    container.appendChild(bar);
-    progressBar = bar;
-
-    if (CONFIG.showPercentage) {
-      progressLabel = document.createElement('span');
-      progressLabel.className = 'reading-progress-label';
-      progressLabel.textContent = '0%';
-      container.appendChild(progressLabel);
-    }
-
-    // Position
-    if (CONFIG.position === 'top') {
-      container.style.top = '0';
-      container.style.borderRadius = `0 0 ${CONFIG.height}px ${CONFIG.height}px`;
-    } else {
-      container.style.bottom = '0';
-      container.style.borderRadius = `${CONFIG.height}px ${CONFIG.height}px 0 0`;
-    }
-
-    document.body.insertBefore(container, document.body.firstChild);
+class ReadingProgress extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this._ticking = false;
   }
 
-  /**
-   * Update progress based on scroll
-   */
-  function updateProgress() {
-    if (!progressBar) return;
+  static get observedAttributes() {
+    return ['color', 'height', 'position'];
+  }
 
-    const scrollTop = window.scrollY || window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight - windowHeight;
+  connectedCallback() {
+    this.render();
+    this.setupScrollListener();
+  }
 
-    let progress = 0;
-    if (documentHeight > 0) {
-      progress = (scrollTop / documentHeight) * 100;
-    }
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
 
-    // Clamp between 0 and 100
-    progress = Math.min(100, Math.max(0, progress));
-
-    progressBar.style.width = progress + '%';
-    progressBar.setAttribute('aria-valuenow', Math.round(progress));
-
-    if (progressLabel) {
-      progressLabel.textContent = Math.round(progress) + '%';
+  attributeChangedCallback() {
+    if (this.shadowRoot) {
+      this.render();
     }
   }
 
-  /**
-   * Handle scroll with RAF for performance
-   */
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateProgress();
-        ticking = false;
-      });
-      ticking = true;
+  render() {
+    const color = this.getAttribute('color') || 'var(--md-sys-color-primary, #0061AB)';
+    const height = this.getAttribute('height') || '4';
+    const position = this.getAttribute('position') || 'top';
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          position: fixed;
+          ${position}: 0;
+          left: 0;
+          width: 100%;
+          height: ${height}px;
+          z-index: 10000;
+          background: transparent;
+        }
+
+        .progress-bar {
+          height: 100%;
+          width: 0%;
+          background: ${color};
+          transition: width 0.1s ease-out;
+        }
+
+        /* Gradient variant */
+        .progress-bar.gradient {
+          background: linear-gradient(
+            90deg,
+            var(--md-sys-color-primary, #0061AB) 0%,
+            var(--md-sys-color-secondary, #006E1C) 50%,
+            var(--md-sys-color-tertiary, #7E48D7) 100%
+          );
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .progress-bar {
+            transition: none;
+          }
+        }
+      </style>
+      <div class="progress-bar" role="progressbar" aria-label="Tiến độ đọc"></div>
+    `;
+  }
+
+  setupScrollListener() {
+    this._onScroll = () => {
+      if (!this._ticking) {
+        window.requestAnimationFrame(() => {
+          this.updateProgress();
+          this._ticking = false;
+        });
+        this._ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this.updateProgress(); // Check on mount
+  }
+
+  updateProgress() {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || 0;
+    const docHeight = doc.scrollHeight - doc.clientHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+    const progressBar = this.shadowRoot.querySelector('.progress-bar');
+    if (progressBar) {
+      progressBar.style.width = `${scrollPercent}%`;
+      progressBar.setAttribute('aria-valuenow', Math.round(scrollPercent));
     }
   }
 
-  /**
-   * Initialize reading progress
-   */
-  function init() {
-    // Only show on pages with enough content
-    const contentHeight = document.documentElement.scrollHeight;
-    if (contentHeight < CONFIG.minHeight) return;
-
-    createProgressBar();
-
-    // Add scroll listener
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Initial update
-    updateProgress();
+  removeEventListeners() {
+    window.removeEventListener('scroll', this._onScroll);
   }
 
-  // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  // Public method to reset progress
+  reset() {
+    const progressBar = this.shadowRoot.querySelector('.progress-bar');
+    if (progressBar) {
+      progressBar.style.width = '0%';
+    }
   }
-})();
+}
+
+// Auto-register
+if (!customElements.get('reading-progress')) {
+  customElements.define('reading-progress', ReadingProgress);
+}
+
+export { ReadingProgress };
