@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<!DOCTYPE html><html lang="vi"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -52,7 +49,7 @@
   </script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/responsive-enhancements.css">
@@ -764,7 +761,7 @@
 
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     
     
     
@@ -990,7 +987,7 @@
                             Notification Logs
                         </h3>
                         <div style="display: flex; gap: 12px;">
-                            <input type="text" class="form-input" placeholder="Search logs..." style="width: 250px;">
+                            <input type="text" class="form-input" placeholder="Search logs..." style="width: 250px;" aria-label="Search logs...">
                             <select class="form-select" style="width: 150px;">
                                 <option value="">All Types</option>
                                 <option value="mission_complete">Mission Complete</option>
@@ -1032,12 +1029,12 @@
                     <form id="broadcastForm" onsubmit="sendBroadcast(event)">
                         <div class="form-group">
                             <label class="form-label">Broadcast Name *</label>
-                            <input type="text" class="form-input" id="broadcastName" placeholder="Summer Sale 2026" required>
+                            <input type="text" class="form-input" id="broadcastName" placeholder="Summer Sale 2026" required="" aria-label="Summer Sale 2026">
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Target Audience *</label>
-                            <select class="form-select" id="broadcastAudience" required>
+                            <select class="form-select" id="broadcastAudience" required="">
                                 <option value="all">All Users</option>
                                 <option value="active">Active Users (last 30 days)</option>
                                 <option value="premium">Premium Users</option>
@@ -1048,7 +1045,7 @@
 
                         <div class="form-group">
                             <label class="form-label">Notification Type *</label>
-                            <select class="form-select" id="broadcastType" required onchange="loadTemplate(this.value)">
+                            <select class="form-select" id="broadcastType" required="" onchange="loadTemplate(this.value)">
                                 <option value="">Select a type...</option>
                                 <option value="mission_complete">Mission Complete</option>
                                 <option value="payment_success">Payment Success</option>
@@ -1061,29 +1058,29 @@
 
                         <div class="form-group">
                             <label class="form-label">Subject / Title *</label>
-                            <input type="text" class="form-input" id="broadcastSubject" placeholder="Notification title" required>
+                            <input type="text" class="form-input" id="broadcastSubject" placeholder="Notification title" required="" aria-label="Notification title">
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Message Body *</label>
-                            <textarea class="form-textarea" id="broadcastBody" placeholder="Enter your message..." required></textarea>
+                            <textarea class="form-textarea" id="broadcastBody" placeholder="Enter your message..." required=""></textarea>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Channels *</label>
                             <div class="channel-toggles">
                                 <label class="channel-toggle active" onclick="toggleChannel(this)">
-                                    <input type="checkbox" checked value="email">
+                                    <input type="checkbox" checked="" value="email" aria-label="Toggle option">
                                     <span class="material-symbols-outlined">mail</span>
                                     Email
                                 </label>
                                 <label class="channel-toggle active" onclick="toggleChannel(this)">
-                                    <input type="checkbox" checked value="zalo">
+                                    <input type="checkbox" checked="" value="zalo" aria-label="Toggle option">
                                     <span class="material-symbols-outlined">chat</span>
                                     Zalo
                                 </label>
                                 <label class="channel-toggle" onclick="toggleChannel(this)">
-                                    <input type="checkbox" value="push">
+                                    <input type="checkbox" value="push" aria-label="Toggle option">
                                     <span class="material-symbols-outlined">notifications</span>
                                     Push
                                 </label>
@@ -1092,7 +1089,7 @@
 
                         <div class="form-group">
                             <label class="form-label">Schedule</label>
-                            <input type="datetime-local" class="form-input" id="broadcastSchedule">
+                            <input type="datetime-local" class="form-input" id="broadcastSchedule" aria-label="broadcast Schedule">
                             <p style="font-size: 12px; color: rgba(224, 230, 240, 0.5); margin-top: 8px;">
                                 Leave empty to send immediately
                             </p>
@@ -1176,32 +1173,32 @@
 
                     <div class="form-group">
                         <label class="form-label">SendGrid API Key</label>
-                        <input type="password" class="form-input" id="sendgridKey" placeholder="SG.xxxxxxxxxxxxx">
+                        <input type="password" class="form-input" id="sendgridKey" placeholder="SG.xxxxxxxxxxxxx" aria-label="SG.xxxxxxxxxxxxx">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Mailgun Domain</label>
-                        <input type="text" class="form-input" id="mailgunDomain" placeholder="mg.mekongagency.com">
+                        <input type="text" class="form-input" id="mailgunDomain" placeholder="mg.mekongagency.com" aria-label="mg.mekongagency.com">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Zalo OA Configuration</label>
-                        <input type="text" class="form-input" id="zaloAppId" placeholder="App ID">
+                        <input type="text" class="form-input" id="zaloAppId" placeholder="App ID" aria-label="App ID">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Zalo App Secret</label>
-                        <input type="password" class="form-input" id="zaloAppSecret" placeholder="App Secret">
+                        <input type="password" class="form-input" id="zaloAppSecret" placeholder="App Secret" aria-label="App Secret">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Firebase Cloud Messaging</label>
-                        <input type="password" class="form-input" id="fcmServerKey" placeholder="FCM Server Key">
+                        <input type="password" class="form-input" id="fcmServerKey" placeholder="FCM Server Key" aria-label="FCM Server Key">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Default Sender Email</label>
-                        <input type="email" class="form-input" id="senderEmail" placeholder="noreply@mekongagency.com" value="noreply@mekongagency.com">
+                        <input type="email" class="form-input" id="senderEmail" placeholder="noreply@mekongagency.com" value="noreply@mekongagency.com" aria-label="noreply@mekongagency.com">
                     </div>
 
                     <div style="display: flex; gap: 12px; margin-top: 24px;">
@@ -1507,6 +1504,7 @@
     </script>
 
   <!-- Mobile Navigation -->
-  <script src="/assets/js/mobile-navigation.js" defer></script>
-</body>
-</html>
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
+
+
+</body></html>

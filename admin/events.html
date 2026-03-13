@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<!DOCTYPE html><html lang="vi"><head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
   <!-- SEO Meta Tags -->
-  <title>Sự Kiện - Events & Workshops</title>
+  <title>Sự Kiện - Events &amp; Workshops</title>
   <meta name="description" content="Đăng ký và quản lý tham gia các sự kiện, workshop marketing và networking.">
 
     <!-- DNS Prefetch (Deduplicated) -->
@@ -20,7 +17,7 @@
   <link rel="canonical" href="https://sadecmarketinghub.com/admin/events/">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Sự Kiện - Events & Workshops">
+  <meta property="og:title" content="Sự Kiện - Events &amp; Workshops">
   <meta property="og:description" content="Đăng ký và quản lý tham gia các sự kiện, workshop marketing và networking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sadecmarketinghub.com/admin/events/">
@@ -28,7 +25,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sự Kiện - Events & Workshops">
+  <meta name="twitter:title" content="Sự Kiện - Events &amp; Workshops">
   <meta name="twitter:description" content="Đăng ký và quản lý tham gia các sự kiện, workshop marketing và networking.">
   <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
 
@@ -58,7 +55,7 @@
     <script type="module">import '@material/web/all.js';</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/m3-agency.css">
     <link rel="stylesheet" href="/assets/css/agency-2026.css">
@@ -125,7 +122,7 @@
             <div class="header-section animate-entry delay-1">
                 <div>
                     <h1 class="cyber-text">Virtual Events</h1>
-                    <p class="text-secondary">Webinars, Workshops & Conferences</p>
+                    <p class="text-secondary">Webinars, Workshops &amp; Conferences</p>
                 </div>
             </div>
 
@@ -159,8 +156,7 @@
                             <div class="metric-label">Live Now</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon registrations"><span
-                                    class="material-symbols-outlined">person_add</span>
+                            <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
                             </div>
                             <div class="metric-value" id="metricRegistrations">0</div>
                             <div class="metric-label">Registrations</div>
@@ -173,15 +169,14 @@
                         </div>
                     </div>
 
-                    <h3 class="cyber-text" style="margin-bottom: 16px;">📅 Upcoming & Recent Events</h3>
+                    <h3 class="cyber-text" style="margin-bottom: 16px;">📅 Upcoming &amp; Recent Events</h3>
                     <div class="event-grid" id="eventGrid"></div>
                 </div>
 
                 <!-- Registrations Tab -->
                 <div class="tab-content" id="tab-registrations">
                     <h3 class="cyber-text" style="margin-bottom: 16px;">👥 Event Registrations</h3>
-                    <select id="eventSelect"
-                        style="padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); color: white; border: 1px solid var(--glass-border); width: 100%;">
+                    <select id="eventSelect" style="padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); color: white; border: 1px solid var(--glass-border); width: 100%;">
                     </select>
                     <div class="registration-list" id="registrationList"></div>
                 </div>
@@ -200,7 +195,7 @@
                             <div class="form-row">
                                 <div class="form-field">
                                     <label>Event Title</label>
-                                    <input type="text" id="eventTitle" value="Digital Marketing Workshop">
+                                    <input type="text" id="eventTitle" value="Digital Marketing Workshop" aria-label="event Title">
                                 </div>
                                 <div class="form-field" style="max-width: 200px;">
                                     <label>Type</label>
@@ -214,15 +209,15 @@
                             <div class="form-row">
                                 <div class="form-field">
                                     <label>Date</label>
-                                    <input type="date" id="eventDate" value="2026-03-01">
+                                    <input type="date" id="eventDate" value="2026-03-01" aria-label="event Date">
                                 </div>
                                 <div class="form-field">
                                     <label>Time</label>
-                                    <input type="time" id="eventTime" value="14:00">
+                                    <input type="time" id="eventTime" value="14:00" aria-label="event Time">
                                 </div>
                                 <div class="form-field">
                                     <label>Duration (minutes)</label>
-                                    <input type="number" id="eventDuration" value="60">
+                                    <input type="number" id="eventDuration" value="60" aria-label="event Duration">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -250,11 +245,11 @@
                             <div class="form-row">
                                 <div class="form-field">
                                     <label>Name</label>
-                                    <input type="text" id="regName" value="Nguyễn Văn Test">
+                                    <input type="text" id="regName" value="Nguyễn Văn Test" aria-label="reg Name">
                                 </div>
                                 <div class="form-field">
                                     <label>Email</label>
-                                    <input type="email" id="regEmail" value="test@email.com">
+                                    <input type="email" id="regEmail" value="test@email.com" aria-label="reg Email">
                                 </div>
                             </div>
                             <button type="submit" class="create-btn" style="background: #10b981;">
@@ -431,7 +426,7 @@
     <script type="module" src="/assets/js/ui-utils.js"></script>
 
   <!-- Mobile Navigation -->
-  <script src="/assets/js/mobile-navigation.js" defer></script>
-</body>
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
 
-</html>
+
+</body></html>

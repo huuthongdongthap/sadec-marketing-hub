@@ -1,37 +1,54 @@
 /**
- * ═══════════════════════════════════════════════════════════════════════════
- * COMPONENTS LOADER
- * Sa Đéc Marketing Hub - Phase 3 UI Componentization
- * 
- * This file loads all custom Web Components.
- * Include this single file to get all components.
- * 
- * Usage in HTML:
- *   <script type="module" src="../assets/js/components/index.js"></script>
- * ═══════════════════════════════════════════════════════════════════════════
+ * Mekong Marketing Hub - Components Index
+ * Export all UI components and features
+ *
+ * Usage:
+ *   <script type="module" src="assets/js/components/index.js"></script>
  */
 
-// Import all components
-import './sadec-toast.js';
-import './sadec-sidebar.js';
+// Core UX Components
+export { Toast, ToastManager } from './toast-manager.js';
+export { ErrorBoundary, ErrorBoundaryUtils } from './error-boundary.js';
+export { Theme, ThemeManager } from './theme-manager.js';
+export { MobileUI, MobileEnhancements } from './mobile-responsive.js';
 
-// Export for programmatic access
-export { SadecToast } from './sadec-toast.js';
-export { SadecSidebar } from './sadec-sidebar.js';
+// Features
+export { AIGenerator, AIContentGenerator, AIContentPanel } from '../features/ai-content-generator.js';
+export { AnalyticsDashboard } from '../features/analytics-dashboard.js';
 
-// Global initialization helper
-window.SadecComponents = {
-    version: '1.0.0',
+/**
+ * Auto-initialize all components
+ */
+function initializeComponents() {
+  console.log('[Mekong Components] Initializing...');
 
-    // Show toast notification
-    toast: (message, type = 'info') => SadecToast.show(message, type),
+  // Components are auto-initialized in their constructors
+  // Toast, Theme, MobileUI already init on load
 
-    // Get sidebar instance
-    getSidebar: () => document.querySelector('sadec-sidebar'),
+  console.log('[Mekong Components] Ready!');
+}
 
-    // Toggle mobile sidebar
-    toggleSidebar: () => {
-        const sidebar = document.querySelector('sadec-sidebar');
-        if (sidebar) sidebar.toggle();
-    }
+// Initialize on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeComponents);
+} else {
+  initializeComponents();
+}
+
+/**
+ * Global API for easy access
+ */
+window.MekongComponents = {
+  // UX
+  Toast: window.Toast,
+  Theme: window.Theme,
+  MobileUI: window.MobileUI,
+  ErrorBoundary: window.ErrorBoundary,
+
+  // Features
+  AIGenerator: window.AIGenerator,
+  AnalyticsDashboard: window.AnalyticsDashboard,
+
+  // Initialize
+  init: initializeComponents
 };

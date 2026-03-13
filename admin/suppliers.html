@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<!DOCTYPE html><html lang="vi"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -52,7 +49,7 @@
   </script>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
 
     <!-- Favicon -->
@@ -693,7 +690,7 @@
 
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     
     
     
@@ -747,7 +744,7 @@
             <div class="header-section animate-entry delay-1">
                 <div>
                     <h1 class="dashboard-title">🚛 Nhà Cung Cấp</h1>
-                    <p class="text-secondary">Quản lý NCC & Đơn hàng</p>
+                    <p class="text-secondary">Quản lý NCC &amp; Đơn hàng</p>
                 </div>
                 <div class="flex">
                     <div class="search-glass">
@@ -840,11 +837,11 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Ngày giao hàng</label>
-                                <input type="date" class="form-input" id="poDeliveryDate">
+                                <input type="date" class="form-input" id="poDeliveryDate" aria-label="po Delivery Date">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Ghi chú</label>
-                                <input type="text" class="form-input" id="poNotes" placeholder="Ghi chú thêm...">
+                                <input type="text" class="form-input" id="poNotes" placeholder="Ghi chú thêm..." aria-label="Ghi chú thêm...">
                             </div>
                         </div>
 
@@ -872,7 +869,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled>
+                        <button class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled="">
                             <span class="material-symbols-outlined">check_circle</span>
                             Tạo Đơn Hàng
                         </button>
@@ -899,33 +896,33 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Tên NCC *</label>
-                    <input type="text" class="form-input" id="supplierName" placeholder="Ví dụ: Cà phê Trung Nguyên">
+                    <input type="text" class="form-input" id="supplierName" placeholder="Ví dụ: Cà phê Trung Nguyên" aria-label="Ví dụ: Cà phê Trung Nguyên">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Loại hàng *</label>
                     <select class="form-select" id="supplierCategory">
                         <option value="">-- Chọn loại --</option>
-                        <option value="cafe">Cà phê & Nguyên liệu</option>
-                        <option value="sua">Sữa & Chế phẩm</option>
-                        <option value="tra">Trà & Đồ uống</option>
-                        <option value="syrop">Syrup & Hương liệu</option>
-                        <option value="ly">Ly & Bao bì</option>
+                        <option value="cafe">Cà phê &amp; Nguyên liệu</option>
+                        <option value="sua">Sữa &amp; Chế phẩm</option>
+                        <option value="tra">Trà &amp; Đồ uống</option>
+                        <option value="syrop">Syrup &amp; Hương liệu</option>
+                        <option value="ly">Ly &amp; Bao bì</option>
                         <option value="da">Đá viên</option>
-                        <option value="banh">Bánh & Snacks</option>
+                        <option value="banh">Bánh &amp; Snacks</option>
                         <option value="vat-tu">Vật tư thiết bị</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Số điện thoại *</label>
-                    <input type="tel" class="form-input" id="supplierPhone" placeholder="0901234567">
+                    <input type="tel" class="form-input" id="supplierPhone" placeholder="0901234567" aria-label="0901234567">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-input" id="supplierEmail" placeholder="contact@supplier.com">
+                    <input type="email" class="form-input" id="supplierEmail" placeholder="contact@supplier.com" aria-label="contact@supplier.com">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Địa chỉ</label>
-                    <input type="text" class="form-input" id="supplierAddress" placeholder="Địa chỉ giao hàng">
+                    <input type="text" class="form-input" id="supplierAddress" placeholder="Địa chỉ giao hàng" aria-label="Địa chỉ giao hàng">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Rating</label>
@@ -969,7 +966,7 @@
                     <span class="category-chip" data-cat="sua" onclick="filterByCategory('sua')">Sữa</span>
                     <span class="category-chip" data-cat="tra" onclick="filterByCategory('tra')">Trà</span>
                     <span class="category-chip" data-cat="syrop" onclick="filterByCategory('syrop')">Syrup</span>
-                    <span class="category-chip" data-cat="ly" onclick="filterByCategory('ly')">Ly & Bao bì</span>
+                    <span class="category-chip" data-cat="ly" onclick="filterByCategory('ly')">Ly &amp; Bao bì</span>
                     <span class="category-chip" data-cat="da" onclick="filterByCategory('da')">Đá viên</span>
                     <span class="category-chip" data-cat="banh" onclick="filterByCategory('banh')">Bánh</span>
                     <span class="category-chip" data-cat="vat-tu" onclick="filterByCategory('vat-tu')">Vật tư</span>
@@ -1426,7 +1423,8 @@
     <script type="module" src="/assets/js/ui-utils.js"></script>
 
   <!-- Mobile Navigation -->
-  <script src="/assets/js/mobile-navigation.js" defer></script>
-</body>
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
 
-</html>
+
+
+</body></html>

@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<!DOCTYPE html><html lang="vi"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -52,7 +49,7 @@
   </script>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
 
     <!-- Favicon -->
@@ -501,7 +498,7 @@
 
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     
     
     
@@ -637,15 +634,15 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Họ và tên</label>
-                <input type="text" class="form-input" id="memberName" placeholder="Nhập tên thành viên">
+                <input type="text" class="form-input" id="memberName" placeholder="Nhập tên thành viên" aria-label="Nhập tên thành viên">
             </div>
             <div class="form-group">
                 <label class="form-label">Số điện thoại</label>
-                <input type="tel" class="form-input" id="memberPhone" placeholder="09xxxxxxxx">
+                <input type="tel" class="form-input" id="memberPhone" placeholder="09xxxxxxxx" aria-label="09xxxxxxxx">
             </div>
             <div class="form-group">
                 <label class="form-label">Điểm khởi tạo (tuỳ chọn)</label>
-                <input type="number" class="form-input" id="memberPoints" placeholder="0" value="0">
+                <input type="number" class="form-input" id="memberPoints" placeholder="0" value="0" aria-label="0">
             </div>
             <div class="modal-actions">
                 <button class="btn-modal btn-cancel" onclick="closeAddMemberModal()">Huỷ</button>
@@ -663,16 +660,16 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Thành viên</label>
-                <input type="text" class="form-input" id="pointsMemberName" readonly>
+                <input type="text" class="form-input" id="pointsMemberName" readonly="" aria-label="points Member Name">
                 <input type="hidden" id="pointsMemberId">
             </div>
             <div class="form-group">
                 <label class="form-label">Số điểm</label>
-                <input type="number" class="form-input" id="pointsAmount" placeholder="Ví dụ: 50">
+                <input type="number" class="form-input" id="pointsAmount" placeholder="Ví dụ: 50" aria-label="Ví dụ: 50">
             </div>
             <div class="form-group">
                 <label class="form-label">Ghi chú</label>
-                <input type="text" class="form-input" id="pointsNote" placeholder="Lý do cộng điểm">
+                <input type="text" class="form-input" id="pointsNote" placeholder="Lý do cộng điểm" aria-label="Lý do cộng điểm">
             </div>
             <div class="modal-actions">
                 <button class="btn-modal btn-cancel" onclick="closeAddPointsModal()">Huỷ</button>
@@ -690,18 +687,18 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Thành viên</label>
-                <input type="text" class="form-input" id="redeemMemberName" readonly>
+                <input type="text" class="form-input" id="redeemMemberName" readonly="" aria-label="redeem Member Name">
                 <input type="hidden" id="redeemMemberId">
             </div>
             <div class="form-group">
                 <label class="form-label">Phần thưởng</label>
-                <input type="text" class="form-input" id="redeemRewardName" readonly>
+                <input type="text" class="form-input" id="redeemRewardName" readonly="" aria-label="redeem Reward Name">
                 <input type="hidden" id="redeemRewardId">
                 <input type="hidden" id="redeemRewardPoints">
             </div>
             <div class="form-group">
                 <label class="form-label">Số điểm hiện có</label>
-                <input type="text" class="form-input" id="redeemMemberPoints" readonly>
+                <input type="text" class="form-input" id="redeemMemberPoints" readonly="" aria-label="redeem Member Points">
             </div>
             <div class="modal-actions">
                 <button class="btn-modal btn-cancel" onclick="closeRedeemModal()">Huỷ</button>
@@ -1020,7 +1017,8 @@
     <script type="module" src="/assets/js/ui-utils.js"></script>
 
   <!-- Mobile Navigation -->
-  <script src="/assets/js/mobile-navigation.js" defer></script>
-</body>
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
 
-</html>
+
+
+</body></html>
