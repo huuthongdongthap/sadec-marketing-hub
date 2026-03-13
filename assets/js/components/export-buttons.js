@@ -208,7 +208,7 @@ class ExportButtons extends HTMLElement {
       window.Toast[type]?.(message);
     } else {
       // Fallback to native alert
-      console.log(`[${type.toUpperCase()}] ${message}`);
+      alert(`[${type.toUpperCase()}] ${message}`);
     }
   }
 }
