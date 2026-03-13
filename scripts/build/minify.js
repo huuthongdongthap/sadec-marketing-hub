@@ -40,7 +40,8 @@ const CSS_OPTIONS = {
 
 const TERSER_OPTIONS = {
     compress: {
-        drop_console: false, // Keep console for debugging
+        drop_console: true, // Drop console for production
+        drop_debugger: true,
         dead_code: true,
         unused: true,
         conditionals: true,
@@ -49,27 +50,39 @@ const TERSER_OPTIONS = {
         booleans: true,
         loops: true,
         typeofs: true,
-        // Additional optimizations
         pure_getters: true,
-        passes: 2, // Multiple passes for better optimization
+        passes: 3, // More passes for better optimization
         join_vars: true,
         collapse_vars: true,
         reduce_vars: true,
-        toplevel: true // Enable top-level compression
+        toplevel: true,
+        negate_iife: true,
+        sequences: true,
+        properties: true,
+        inline: true,
+        hoist_funs: true,
+        hoist_vars: true
     },
     mangle: {
-        safari10: true, // Safari compatibility
-        toplevel: true, // Mangle top-level names
+        safari10: true,
+        toplevel: true,
         keep_fnames: false,
-        keep_classnames: false
+        keep_classnames: false,
+        properties: {
+            regex: /^_/ // Mangle private properties starting with _
+        }
     },
     format: {
         comments: false,
-        ascii_only: true, // Escape non-ASCII characters
-        quote_style: 1 // Use single quotes
+        ascii_only: true,
+        quote_style: 1,
+        beautify: false,
+        wrap_iife: true
     },
-    ecma: 2020, // Target ES2020
-    module: true // Enable module optimization
+    ecma: 2020,
+    module: true,
+    toplevel: true,
+    nameCache: {} // Enable name cache for better mangling across files
 };
 
 // Stats tracking
