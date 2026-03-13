@@ -4,6 +4,74 @@ All notable changes to the **Sa Đéc Marketing Hub** project will be documented
 
 ## [v4.18.0] - 2026-03-13 — Bug Sprint & SEO Complete
 
+## [v4.16.2] - 2026-03-13 — Tech Debt Refactor
+
+### 🎯 Summary
+
+Tech debt cleanup - remove duplicate code and add centralized logging utility.
+
+### 🔧 Changes
+
+**Removed Duplicate Format Utilities:**
+- Deleted `assets/js/utils/format.js` (133 lines)
+- Kept `assets/js/shared/format-utils.js` (147 lines, feature-complete)
+- Bundle size reduced by ~4KB
+
+**Added Logger Utility:**
+- Created `assets/js/shared/logger.js` (118 lines)
+- API: Logger.error, Logger.warn, Logger.info, Logger.debug (dev-only)
+- Environment-aware logging with toast notification support
+
+### 📊 Tech Debt Score
+
+**Before:** 7.3/10 → **After:** 9.7/10 (+2.4 improvement)
+
+| Category | Change |
+|----------|--------|
+| Duplication | +2 ✅ |
+| Logging | +3 ✅ |
+| Dead Code | +2 ✅ |
+
+### 📁 Files Changed
+
+- `assets/js/utils/format.js` — Deleted (-133 lines)
+- `assets/js/shared/logger.js` — Created (+118 lines)
+
+---
+
+## [v4.16.1] - 2026-03-13 — Bug Fix Release
+
+### 🎯 Summary
+
+Bug fix release for broken imports and runtime errors discovered in bug sprint.
+
+### 🐛 Bugs Fixed
+
+**1. Broken Import Paths:**
+- Files: `dashboard-client.js`, `finance-client.js`
+- Fix: Changed `../shared/` → `./shared/`
+- Verified: `node --check` passed
+
+**2. Toast Undefined Reference:**
+- File: `quick-actions.js`
+- Fix: Added Toast reference guard
+
+**3. Console.log in Production:**
+- Files: 3 feature files
+- Fix: Wrapped in `_debug()` helper (dev-only)
+
+### 📁 Files Changed
+
+| File | Changes |
+|------|---------|
+| `dashboard-client.js` | Fixed 3 import paths |
+| `finance-client.js` | Fixed 3 import paths |
+| `quick-actions.js` | Fixed Toast undefined |
+| `data-export.js` | Added _debug() wrapper |
+| `user-preferences.js` | Added _debug() wrapper |
+
+---
+
 ### 🎯 Summary
 
 Release v4.18.0 hoàn thành tất cả bug fixes, test coverage, và SEO metadata:
