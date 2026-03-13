@@ -212,6 +212,7 @@ class SadecSidebar extends HTMLElement {
         this.setupEventListeners();
 
         // Auto-detect mobile and start closed
+        this.isMobile = window.innerWidth <= 1024;
         this.checkMobileView();
         window.addEventListener('resize', () => this.checkMobileView());
     }
@@ -220,10 +221,20 @@ class SadecSidebar extends HTMLElement {
         const sidebar = this.shadowRoot.querySelector('.sidebar-glass');
         if (!sidebar) return;
 
-        const isMobile = window.innerWidth <= 1024;
-        if (isMobile) {
-            sidebar.classList.remove('open');
+        const wasMobile = this.isMobile;
+        this.isMobile = window.innerWidth <= 1024;
+
+        // On mobile: ensure sidebar is closed and add mobile class
+        if (this.isMobile) {
+            sidebar.classList.remove('open', 'collapsed');
+            sidebar.classList.add('mobile');
             document.body.style.overflow = 'auto';
+        } else {
+            sidebar.classList.remove('mobile');
+            // Restore collapsed state on desktop if it was collapsed before
+            if (!wasMobile && this.hasAttribute('collapsed')) {
+                sidebar.classList.add('collapsed');
+            }
         }
     }
 

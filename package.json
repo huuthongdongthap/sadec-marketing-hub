@@ -9,6 +9,7 @@
     "build:minify": "node scripts/build/minify.js",
     "build:optimize": "node scripts/build/optimize-lazy.js",
     "build:css-bundle": "node scripts/build/css-bundle.js",
+    "build:cache": "node scripts/build/cache-busting.js",
     "optimize": "npm run build:css-bundle && npm run build:optimize && npm run build:minify",
     "optimize:full": "npm run build:css-bundle && npm run optimize && node scripts/perf/bundle-report.js",
     "audit": "node scripts/audit/html-audit.js",
