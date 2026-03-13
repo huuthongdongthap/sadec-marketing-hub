@@ -4,6 +4,8 @@
  * @version 1.0.0 | 2026-03-13
  */
 
+import { Logger } from './shared/logger.js';
+
 const EmptyStates = {
   /**
    * Empty state templates
@@ -131,7 +133,7 @@ const EmptyStates = {
       : container;
     
     if (!el) {
-      console.warn(`Empty state container "${container}" not found`);
+      Logger.warn(`Empty state container "${container}" not found`);
       return;
     }
 

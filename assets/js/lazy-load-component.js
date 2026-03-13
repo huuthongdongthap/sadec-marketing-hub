@@ -5,6 +5,8 @@
  * Usage: Import and call LazyLoad.init() in your main JS file
  */
 
+import { Logger } from './shared/logger.js';
+
 const LazyLoad = {
     observer: null,
     loadedElements: new WeakSet(),
@@ -106,7 +108,7 @@ const LazyLoad = {
         loader.onerror = () => {
             img.classList.remove('lazy-loading');
             img.classList.add('lazy-error');
-            console.warn('[LazyLoad] Failed to load image:', src);
+            Logger.warn('[LazyLoad] Failed to load image:', src);
         };
     },
 
@@ -161,7 +163,7 @@ const LazyLoad = {
                 document.head.appendChild(newScript);
             });
         } catch (error) {
-            console.error('[LazyLoad] Failed to load component:', error);
+            Logger.error('[LazyLoad] Failed to load component:', error);
             container.classList.add('lazy-error');
         }
     },

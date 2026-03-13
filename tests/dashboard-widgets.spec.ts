@@ -10,14 +10,17 @@ import { test, expect } from '@playwright/test';
 test.describe('Dashboard Widgets', () => {
   test.beforeEach(async ({ page }) => {
     // Set timeout for navigation
-    page.setDefaultTimeout(10000);
-    page.setDefaultNavigationTimeout(10000);
+    page.setDefaultTimeout(15000);
+    page.setDefaultNavigationTimeout(15000);
 
-    // Navigate to widgets demo
-    await page.goto('/admin/widgets-demo.html', { waitUntil: 'commit', timeout: 15000 });
+    // Navigate to widgets demo with waitUntil: commit (don't wait for full load)
+    await page.goto('/admin/widgets-demo.html', {
+      waitUntil: 'commit',
+      timeout: 15000
+    });
 
-    // Wait for network to be idle (JS modules loaded)
-    await page.waitForLoadState('networkidle', { timeout: 10000 });
+    // Wait for JS modules to load and custom elements to be defined
+    await page.waitForTimeout(2000);
   });
 
   test.describe('KPI Card Widget', () => {

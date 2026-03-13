@@ -16,11 +16,13 @@
  *   });
  */
 
+import { Logger } from '../shared/logger.js';
+
 class SearchAutocomplete {
   constructor(inputSelector, options = {}) {
     this.input = document.querySelector(inputSelector);
     if (!this.input) {
-      console.warn('[SearchAutocomplete] Input not found:', inputSelector);
+      Logger.warn('[SearchAutocomplete] Input not found:', inputSelector);
       return;
     }
 

@@ -34,6 +34,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 class TabsManager {
   constructor() {
     this.tabs = new Map();
@@ -263,7 +265,7 @@ class TabsManager {
         element.classList.add('mekong-tabs__lazy-loaded');
       })
       .catch((err) => {
-        console.error('[Tabs] Failed to load lazy content:', err);
+        Logger.error('[Tabs] Failed to load lazy content:', err);
         element.classList.remove('mekong-tabs__lazy-loading');
         element.classList.add('mekong-tabs__lazy-error');
       });

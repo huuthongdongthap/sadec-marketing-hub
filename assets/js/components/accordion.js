@@ -36,6 +36,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 class AccordionManager {
   constructor() {
     this.accordions = new Map();
@@ -338,7 +340,7 @@ class AccordionManager {
         element.classList.add('mekong-accordion__lazy-loaded');
       })
       .catch((err) => {
-        console.error('[Accordion] Failed to load lazy content:', err);
+        Logger.error('[Accordion] Failed to load lazy content:', err);
         element.classList.remove('mekong-accordion__lazy-loading');
         element.classList.add('mekong-accordion__lazy-error');
       });

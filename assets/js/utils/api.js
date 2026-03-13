@@ -7,6 +7,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 // Supabase URL from environment (global)
 const API_BASE_URL = typeof SUPABASE_URL !== 'undefined' 
     ? SUPABASE_URL 
@@ -16,7 +18,7 @@ const API_BASE_URL = typeof SUPABASE_URL !== 'undefined'
  * API Fetch wrapper with consistent error handling
  * @param {string} endpoint - API endpoint (relative to base URL)
  * @param {Object} options - Fetch options
- * @returns {Promise<any>} Response data
+ * @returns {Promise<unknown>} Response data
  */
 export async function apiFetch(endpoint, options = {}) {
     const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
@@ -45,7 +47,7 @@ export async function apiFetch(endpoint, options = {}) {
         return await response.json();
         
     } catch (error) {
-        console.error('[API Error]', { endpoint, error: error.message });
+        Logger.error('[API Error]', { endpoint, error: error.message });
         throw error;
     }
 }
@@ -58,8 +60,8 @@ export async function apiFetch(endpoint, options = {}) {
  */
 export function handleApiError(error, options = {}) {
     const { showNotification = true, message = 'Có lỗi xảy ra' } = options;
-    
-    console.error('[API Error]', error.message);
+
+    Logger.error('[API Error]', error.message);
     
     if (showNotification && typeof window !== 'undefined') {
         // Try to use Toast if available

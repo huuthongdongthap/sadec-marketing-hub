@@ -4,6 +4,8 @@
  * @version 1.0.0 | 2026-03-13
  */
 
+import { Logger } from '../shared/logger.js';
+
 class NotificationBell {
   constructor() {
     this.notifications = [];
@@ -394,7 +396,7 @@ class NotificationBell {
       // const data = await response.json();
       // data.forEach(n => this.add(n));
     } catch (error) {
-      console.error('Failed to fetch notifications:', error);
+      Logger.error('Failed to fetch notifications:', error);
     }
   }
 }

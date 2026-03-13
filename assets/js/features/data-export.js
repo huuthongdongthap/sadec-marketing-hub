@@ -12,6 +12,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 /**
  * Debug logger - only active in development
  * @param {string} message - Log message
@@ -221,7 +223,7 @@ export class ExportManager {
     static toExcel(data, filename = 'export.xlsx', sheetName = 'Sheet1') {
         // For now, use CSV as fallback
         // Can be enhanced with SheetJS library
-        console.warn('[Export] Excel export using CSV format. Include SheetJS for true XLSX.');
+        Logger.warn('[Export] Excel export using CSV format. Include SheetJS for true XLSX.');
         this.toCSV(data, filename.replace('.xlsx', '.csv'));
     }
 

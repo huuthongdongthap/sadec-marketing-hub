@@ -4,6 +4,7 @@
  */
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import { Logger } from './shared/logger.js';
 
 // Initialize Supabase from injected env vars
 const supabaseUrl = window.__ENV__?.SUPABASE_URL;
@@ -11,7 +12,7 @@ const supabaseKey = window.__ENV__?.SUPABASE_ANON_KEY;
 
 // Validate environment variables
 if (!supabaseUrl || !supabaseKey) {
-    console.error('[LandingRenderer] Missing Supabase configuration');
+    Logger.error('[LandingRenderer] Missing Supabase configuration');
     throw new Error('SUPABASE_URL and SUPABASE_ANON_KEY are required');
 }
 

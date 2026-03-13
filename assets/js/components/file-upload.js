@@ -6,6 +6,8 @@
  *   <div class="file-upload" data-upload-url="/api/upload"></div>
  */
 
+import { Logger } from '../shared/logger.js';
+
 class FileUpload {
   constructor(container, options = {}) {
     this.container = typeof container === 'string' ? document.querySelector(container) : container;
@@ -223,7 +225,7 @@ class FileUpload {
   }
 
   showError(message) {
-    console.error(message);
+    Logger.error(message);
     // Could show toast notification
   }
 

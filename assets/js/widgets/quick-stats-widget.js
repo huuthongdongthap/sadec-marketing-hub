@@ -15,11 +15,13 @@
  *   });
  */
 
+import { Logger } from '../shared/logger.js';
+
 class QuickStatsWidget {
   constructor(containerSelector, options = {}) {
     this.container = document.querySelector(containerSelector);
     if (!this.container) {
-      console.warn('[QuickStats] Container not found:', containerSelector);
+      Logger.warn('[QuickStats] Container not found:', containerSelector);
       return;
     }
 
@@ -238,7 +240,7 @@ class QuickStatsWidget {
       await this.fetchData();
       this.render();
     } catch (error) {
-      console.error('[QuickStats] Failed to load data:', error);
+      Logger.error('[QuickStats] Failed to load data:', error);
     }
   }
 
@@ -470,7 +472,7 @@ class QuickStatsWidget {
         Toast.show('Đã làm mới số liệu', 'success');
       }
     } catch (error) {
-      console.error('[QuickStats] Refresh failed:', error);
+      Logger.error('[QuickStats] Refresh failed:', error);
       if (window.Toast) {
         Toast.show('Không thể làm mới số liệu', 'error');
       }

@@ -6,6 +6,8 @@
  *   <input type="text" class="search-autocomplete" data-search-url="/api/search">
  */
 
+import { Logger } from '../shared/logger.js';
+
 class SearchAutocomplete {
   constructor(input, options = {}) {
     this.input = typeof input === 'string' ? document.querySelector(input) : input;
@@ -109,7 +111,7 @@ class SearchAutocomplete {
       this.render();
       this.show();
     } catch (error) {
-      console.error('Search error:', error);
+      Logger.error('Search error:', error);
       this.results = [];
       this.hide();
     }

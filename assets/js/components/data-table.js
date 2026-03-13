@@ -41,6 +41,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 class DataTable {
   constructor(selector, options = {}) {
     this.element = typeof selector === 'string'
@@ -48,7 +50,7 @@ class DataTable {
       : selector;
 
     if (!this.element) {
-      console.error('[DataTable] Element not found');
+      Logger.error('[DataTable] Element not found');
       return;
     }
 
