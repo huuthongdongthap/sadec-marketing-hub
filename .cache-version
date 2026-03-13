@@ -1,6 +1,6 @@
 {
-  "version": "vmmpe041z.17e4020afc75",
-  "timestamp": "2026-03-13T21:06:35.784Z",
+  "version": "vmmpgxdws.955ff18738df",
+  "timestamp": "2026-03-13T22:28:27.436Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -151,6 +151,10 @@
       "hash": "3ea0fb9a"
     },
     {
+      "path": "assets/css/ai-content-panel.css",
+      "hash": "626dd148"
+    },
+    {
       "path": "assets/css/animations/micro-animations.css",
       "hash": "97817886"
     },
@@ -259,6 +263,10 @@
       "hash": "3a952cc2"
     },
     {
+      "path": "assets/css/quick-tools-panel.css",
+      "hash": "bc67ad1a"
+    },
+    {
       "path": "assets/css/refactored-inline.css",
       "hash": "bb60ffe6"
     },
@@ -293,6 +301,10 @@
     {
       "path": "assets/css/ux-enhancements-2026.css",
       "hash": "08a94541"
+    },
+    {
+      "path": "assets/css/widget-customizer.css",
+      "hash": "eec5990c"
     },
     {
       "path": "assets/css/widgets.css",
@@ -367,6 +379,10 @@
       "hash": "4670c2fa"
     },
     {
+      "path": "assets/js/ai-assistant.js",
+      "hash": "e911537b"
+    },
+    {
       "path": "assets/js/alert-system.js",
       "hash": "73c38b85"
     },
@@ -395,6 +411,10 @@
       "hash": "0c881818"
     },
     {
+      "path": "assets/js/components/activity-component.js",
+      "hash": "ed65d60f"
+    },
+    {
       "path": "assets/js/components/advanced-filters.js",
       "hash": "29af438e"
     },
@@ -407,12 +427,16 @@
       "hash": "31cedbc9"
     },
     {
+      "path": "assets/js/components/chart-components.js",
+      "hash": "6eb20bd1"
+    },
+    {
       "path": "assets/js/components/command-palette.js",
       "hash": "0687b499"
     },
     {
       "path": "assets/js/components/data-table.js",
-      "hash": "2a87b655"
+      "hash": "a2f291f0"
     },
     {
       "path": "assets/js/components/empty-state.js",
@@ -431,6 +455,10 @@
       "hash": "6d8f3642"
     },
     {
+      "path": "assets/js/components/filter-component.js",
+      "hash": "e95d7dba"
+    },
+    {
       "path": "assets/js/components/gateway-selector.js",
       "hash": "f6ac0fef"
     },
@@ -443,6 +471,10 @@
       "hash": "f5399027"
     },
     {
+      "path": "assets/js/components/kpi-component.js",
+      "hash": "9752aab7"
+    },
+    {
       "path": "assets/js/components/loading-button.js",
       "hash": "caa6bd9e"
     },
@@ -453,6 +485,10 @@
     {
       "path": "assets/js/components/notification-bell.js",
       "hash": "195bd2e1"
+    },
+    {
+      "path": "assets/js/components/pagination-component.js",
+      "hash": "d83f1e3d"
     },
     {
       "path": "assets/js/components/payment-modal.js",
@@ -519,8 +555,20 @@
       "hash": "dac91325"
     },
     {
+      "path": "assets/js/core/auth-service.js",
+      "hash": "31df69c5"
+    },
+    {
+      "path": "assets/js/core/database-service.js",
+      "hash": "1840ce24"
+    },
+    {
+      "path": "assets/js/core/storage-service.js",
+      "hash": "be0053db"
+    },
+    {
       "path": "assets/js/core/supabase-client.js",
-      "hash": "bc07ecd3"
+      "hash": "4284c354"
     },
     {
       "path": "assets/js/core/theme-manager.js",
@@ -559,12 +607,16 @@
       "hash": "a10cdfda"
     },
     {
+      "path": "assets/js/features/ai-content-panel.js",
+      "hash": "2456d21a"
+    },
+    {
       "path": "assets/js/features/ai-search-enhancement.js",
       "hash": "d93ff014"
     },
     {
       "path": "assets/js/features/analytics-dashboard.js",
-      "hash": "7b74070b"
+      "hash": "0a354846"
     },
     {
       "path": "assets/js/features/command-palette-enhanced.js",
@@ -584,7 +636,7 @@
     },
     {
       "path": "assets/js/features/index.js",
-      "hash": "91fcb514"
+      "hash": "18b1f5d4"
     },
     {
       "path": "assets/js/features/keyboard-shortcuts.js",
@@ -607,8 +659,16 @@
       "hash": "86c63bb4"
     },
     {
+      "path": "assets/js/features/quick-tools-panel.js",
+      "hash": "58af7478"
+    },
+    {
       "path": "assets/js/features/search-autocomplete.js",
-      "hash": "1373ef39"
+      "hash": "bf7c6f8b"
+    },
+    {
+      "path": "assets/js/features/widget-customizer.js",
+      "hash": "235b0625"
     },
     {
       "path": "assets/js/finance-client.js",
@@ -697,6 +757,10 @@
     {
       "path": "assets/js/portal/portal-data.js",
       "hash": "91ca8ec6"
+    },
+    {
+      "path": "assets/js/portal/portal-guard.js",
+      "hash": "38238ae8"
     },
     {
       "path": "assets/js/portal/portal-invoices.js",
@@ -896,7 +960,7 @@
     },
     {
       "path": "assets/js/supabase.js",
-      "hash": "a294bf4d"
+      "hash": "daf01bdb"
     },
     {
       "path": "assets/js/theme-manager.js",
@@ -953,6 +1017,10 @@
     {
       "path": "assets/js/utils/keyboard-shortcuts.js",
       "hash": "df76c553"
+    },
+    {
+      "path": "assets/js/utils/sort-utils.js",
+      "hash": "07bf3124"
     },
     {
       "path": "assets/js/utils/string.js",
