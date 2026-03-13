@@ -1937,16 +1937,7 @@
     display: flex;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
+/* Note: fadeIn keyframe removed - uses micro-animations.css */
 .modal-content {
     background: var(--md-sys-color-surface-container-high);
     border-radius: var(--md-sys-shape-corner-extra-large);
@@ -1958,17 +1949,7 @@
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+/* Note: slideUp keyframe removed - uses micro-animations.css */
 
 .modal-icon {
     font-size: 64px;
@@ -2694,17 +2675,7 @@ button,
     display: block;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Note: fadeInUp keyframe removed - uses micro-animations.css */
 
 .step-title {
     font: var(--md-sys-typescale-headline-medium);
