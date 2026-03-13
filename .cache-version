@@ -1,6 +1,6 @@
 {
-  "version": "vmmpbp2t6.751d05a57497",
-  "timestamp": "2026-03-13T20:02:01.722Z",
+  "version": "vmmpe041z.17e4020afc75",
+  "timestamp": "2026-03-13T21:06:35.784Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -244,7 +244,11 @@
     },
     {
       "path": "assets/css/micro-animations.css",
-      "hash": "97985655"
+      "hash": "f87688d6"
+    },
+    {
+      "path": "assets/css/new-features-2027.css",
+      "hash": "daef416f"
     },
     {
       "path": "assets/css/pipeline-pro.css",
@@ -432,7 +436,7 @@
     },
     {
       "path": "assets/js/components/index.js",
-      "hash": "77762c0b"
+      "hash": "76bea39f"
     },
     {
       "path": "assets/js/components/kpi-card.js",
@@ -515,12 +519,16 @@
       "hash": "dac91325"
     },
     {
+      "path": "assets/js/core/supabase-client.js",
+      "hash": "bc07ecd3"
+    },
+    {
       "path": "assets/js/core/theme-manager.js",
-      "hash": "5696040a"
+      "hash": "f0af558f"
     },
     {
       "path": "assets/js/core/user-preferences.js",
-      "hash": "16f2cbe2"
+      "hash": "dca59866"
     },
     {
       "path": "assets/js/core-utils.test.js",
@@ -540,7 +548,7 @@
     },
     {
       "path": "assets/js/error-boundary.js",
-      "hash": "ae99b75c"
+      "hash": "555ea329"
     },
     {
       "path": "assets/js/features/activity-timeline.js",
@@ -551,12 +559,20 @@
       "hash": "a10cdfda"
     },
     {
+      "path": "assets/js/features/ai-search-enhancement.js",
+      "hash": "d93ff014"
+    },
+    {
       "path": "assets/js/features/analytics-dashboard.js",
       "hash": "7b74070b"
     },
     {
+      "path": "assets/js/features/command-palette-enhanced.js",
+      "hash": "655a31e2"
+    },
+    {
       "path": "assets/js/features/dark-mode.js",
-      "hash": "a3cdbd32"
+      "hash": "467ed443"
     },
     {
       "path": "assets/js/features/data-export.js",
@@ -564,15 +580,23 @@
     },
     {
       "path": "assets/js/features/features-2026.js",
-      "hash": "aec70695"
+      "hash": "ca14712a"
     },
     {
       "path": "assets/js/features/index.js",
-      "hash": "45e5d649"
+      "hash": "91fcb514"
     },
     {
       "path": "assets/js/features/keyboard-shortcuts.js",
       "hash": "09f7421b"
+    },
+    {
+      "path": "assets/js/features/notification-center.js",
+      "hash": "0391b094"
+    },
+    {
+      "path": "assets/js/features/project-health-monitor.js",
+      "hash": "27d09ebb"
     },
     {
       "path": "assets/js/features/quick-actions.js",
@@ -580,7 +604,7 @@
     },
     {
       "path": "assets/js/features/quick-notes.js",
-      "hash": "421f9ef7"
+      "hash": "86c63bb4"
     },
     {
       "path": "assets/js/features/search-autocomplete.js",
@@ -632,7 +656,7 @@
     },
     {
       "path": "assets/js/micro-animations.js",
-      "hash": "881e6bb0"
+      "hash": "81748e8e"
     },
     {
       "path": "assets/js/mobile-menu.js",
@@ -648,7 +672,7 @@
     },
     {
       "path": "assets/js/notification-manager.js",
-      "hash": "f4a7f819"
+      "hash": "3c96772c"
     },
     {
       "path": "assets/js/onboarding.js",
@@ -792,7 +816,7 @@
     },
     {
       "path": "assets/js/services/performance.js",
-      "hash": "1dffdca7"
+      "hash": "d0cb5d3f"
     },
     {
       "path": "assets/js/services/proposals.js",
@@ -928,7 +952,7 @@
     },
     {
       "path": "assets/js/utils/keyboard-shortcuts.js",
-      "hash": "e2c25d61"
+      "hash": "df76c553"
     },
     {
       "path": "assets/js/utils/string.js",
