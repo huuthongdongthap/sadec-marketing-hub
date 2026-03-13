@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Inline KPI Test</title>
+  <style>body { background: #0a0a14; color: #fff; font-family: system-ui; padding: 20px; }</style>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+  <h1>Inline KPI Test</h1>
+  <kpi-card-widget title="Test" value="100"></kpi-card-widget>
+  <p id="status">Status: initializing</p>
+  <script>
+    document.getElementById('status').textContent = 'Status: script started';
+    
+    class KPICardWidget extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+      connectedCallback() {
+        const title = this.getAttribute('title') || 'KPI';
+        const value = this.getAttribute('value') || '0';
+        this.shadowRoot.innerHTML = '<div style="color:#fff;font-size:24px">' + title + ': ' + value + '</div>';
+        document.getElementById('status').textContent = 'Status: connectedCallback called';
+      }
+    }
+    customElements.define('kpi-card-widget', KPICardWidget);
+    document.getElementById('status').textContent = 'Status: customElements.define called';
+  </script>
+</body>
+</html>
