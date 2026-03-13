@@ -9,7 +9,7 @@ export default defineConfig({
   testIgnore: ['**/*.test.ts'], // Ignore .test.ts files (Deno imports), only run .spec.ts files
 
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -32,20 +32,30 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'http://localhost:5502',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'off',
 
     /* Screenshot on failure */
-    screenshot: 'only-on-failure',
+    screenshot: 'off',
 
     /* Video disabled (ffmpeg issues on macOS) */
     video: 'off',
+
+    /* Clear all context */
+    storageState: { cookies: [], origins: [] },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Disable cache and storage
+        launchOptions: {
+          headless: true,
+          args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+        }
+      },
     },
 
     /* Test against mobile viewports - Responsive breakpoints */
