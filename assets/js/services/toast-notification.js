@@ -21,7 +21,6 @@ class ToastManager {
    */
   init() {
     this.createContainer();
-    console.log('[Toast] Initialized');
   }
 
   /**

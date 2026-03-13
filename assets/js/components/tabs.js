@@ -29,7 +29,7 @@
  *
  *   JS:
  *   Tabs.select('my-tabs', 'tab2');
- *   Tabs.on('change', (data) => console.log(data));
+ *   Tabs.on('change', (data) => { // Handle change event });
  *
  * ═══════════════════════════════════════════════════════════════════════════
  */

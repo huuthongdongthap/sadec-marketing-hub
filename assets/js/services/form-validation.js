@@ -30,8 +30,6 @@ class FormValidator {
     document.querySelectorAll('form[data-validate]').forEach(form => {
       this.attachForm(form);
     });
-
-    console.log('[FormValidator] Initialized');
   }
 
   /**
@@ -362,8 +360,6 @@ class FormValidator {
       bubbles: true,
       detail: { formData: new FormData(formState.element) }
     }));
-
-    console.log('[FormValidator] Form is valid');
   }
 
   /**
