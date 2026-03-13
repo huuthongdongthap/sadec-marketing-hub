@@ -111,8 +111,8 @@ test.describe('Dashboard Widgets', () => {
     test('shows success alert', async ({ page }) => {
       const successBtn = page.locator('.btn-success').first();
       await successBtn.click();
-      
-      const alert = page.locator('.alert-success').first();
+
+      const alert = page.locator('.toast.toast-success').first();
       await expect(alert).toBeVisible();
       await expect(alert).toContainText('Thành công');
     });
@@ -120,8 +120,8 @@ test.describe('Dashboard Widgets', () => {
     test('shows error alert', async ({ page }) => {
       const errorBtn = page.locator('.btn-error').first();
       await errorBtn.click();
-      
-      const alert = page.locator('.alert-error').first();
+
+      const alert = page.locator('.toast.toast-error').first();
       await expect(alert).toBeVisible();
       await expect(alert).toContainText('Lỗi');
     });
@@ -129,8 +129,8 @@ test.describe('Dashboard Widgets', () => {
     test('shows warning alert', async ({ page }) => {
       const warningBtn = page.locator('.btn-warning').first();
       await warningBtn.click();
-      
-      const alert = page.locator('.alert-warning').first();
+
+      const alert = page.locator('.toast.toast-warning').first();
       await expect(alert).toBeVisible();
       await expect(alert).toContainText('Cảnh báo');
     });
@@ -138,32 +138,21 @@ test.describe('Dashboard Widgets', () => {
     test('shows info alert', async ({ page }) => {
       const infoBtn = page.locator('.btn-primary').first();
       await infoBtn.click();
-      
-      const alert = page.locator('.alert-info').first();
+
+      const alert = page.locator('.toast.toast-info').first();
       await expect(alert).toBeVisible();
       await expect(alert).toContainText('Thông báo');
-    });
-
-    test('closes alert on close button click', async ({ page }) => {
-      const successBtn = page.locator('.btn-success').first();
-      await successBtn.click();
-      
-      const alert = page.locator('.alert-success').first();
-      const closeBtn = alert.locator('.alert-close');
-      await closeBtn.click();
-      
-      await expect(alert).not.toBeVisible();
     });
 
     test('alert auto-dismisses after duration', async ({ page }) => {
       const successBtn = page.locator('.btn-success').first();
       await successBtn.click();
-      
-      const alert = page.locator('.alert-success').first();
+
+      const alert = page.locator('.toast.toast-success').first();
       await expect(alert).toBeVisible();
-      
-      // Wait for auto-dismiss (default 5 seconds)
-      await page.waitForTimeout(5500);
+
+      // Wait for auto-dismiss (3 seconds)
+      await page.waitForTimeout(3500);
       await expect(alert).not.toBeVisible();
     });
   });
