@@ -11,9 +11,15 @@
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
-const config = require('./mekong-env');
 
-const connectionString = config.DB_CONNECTION_STRING;
+// Load config from environment variables
+const connectionString = process.env.DB_CONNECTION_STRING || process.env.DATABASE_URL;
+
+if (!connectionString) {
+    console.error('❌ ERROR: DB_CONNECTION_STRING or DATABASE_URL environment variable is required');
+    console.error('   Set it via: export DB_CONNECTION_STRING="postgresql://..."');
+    process.exit(1);
+}
 
 async function main() {
 

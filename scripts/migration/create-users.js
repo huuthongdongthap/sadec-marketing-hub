@@ -11,9 +11,21 @@
 
 const https = require('https');
 const { Client } = require('pg');
-const config = require('./mekong-env');
 
-const { SUPABASE_URL, SUPABASE_SERVICE_KEY: SERVICE_ROLE_KEY, DB_CONNECTION_STRING } = config;
+// Load config from environment variables
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_KEY;
+const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING || process.env.DATABASE_URL;
+
+if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
+    console.error('❌ ERROR: SUPABASE_URL and SUPABASE_SERVICE_KEY required');
+    process.exit(1);
+}
+
+if (!DB_CONNECTION_STRING) {
+    console.error('❌ ERROR: DB_CONNECTION_STRING or DATABASE_URL required');
+    process.exit(1);
+}
 
 // Extract hostname from URL for https request
 const SUPABASE_HOSTNAME = SUPABASE_URL.replace(/^https?:\/\//, '');

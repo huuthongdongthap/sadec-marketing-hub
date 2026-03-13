@@ -4,9 +4,17 @@
    ========================================================================== */
 
 // 🔧 CẤU HÌNH: Read from environment (injected by inject-env.js during build)
-// Fallback to hardcoded values for local development only
-const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
-const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MzE3ODYsImV4cCI6MjA4MjMwNzc4Nn0.xE_iEkIYaY0ql0Br_B64o1JKLuiAeAPg8GydLm71DLs';
+// No fallback - must be provided via environment
+const SUPABASE_URL = window.__ENV__?.SUPABASE_URL;
+const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY;
+
+// Validate environment variables
+if (!SUPABASE_URL) {
+    console.error('[Supabase] Missing SUPABASE_URL environment variable');
+}
+if (!SUPABASE_ANON_KEY) {
+    console.error('[Supabase] Missing SUPABASE_ANON_KEY environment variable');
+}
 
 // Supabase client instance
 let supabaseClient = null;
