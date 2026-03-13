@@ -16,7 +16,7 @@ export {
     truncate,
     debounce,
     throttle
-} from '../shared/format-utils.js';
+} from '../services/core-utils.js';
 
 // ================================================
 // VALIDATION UTILITIES

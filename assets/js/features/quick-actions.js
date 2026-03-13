@@ -299,6 +299,7 @@ export class QuickActions {
      */
     static exportData() {
         const ExportManager = window.ExportManager;
+        const Toast = window.SadecToast || window.Toast;
         Toast?.info('Đang chuẩn bị xuất dữ liệu...');
 
         // Demo export

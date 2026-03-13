@@ -13,6 +13,16 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+/**
+ * Debug logger - only active in development
+ * @param {string} message - Log message
+ */
+const _debug = (message) => {
+    if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') {
+        console.log(message);
+    }
+};
+
 export class UserPreferences {
     /**
      * Default preferences
@@ -85,7 +95,7 @@ export class UserPreferences {
         this.apply();
         this.setupSystemListeners();
 
-        console.log('[UserPreferences] Initialized');
+        _debug('[UserPreferences] Initialized');
     }
 
     /**
@@ -100,7 +110,7 @@ export class UserPreferences {
                 return { ...this.defaults, ...parsed };
             }
         } catch (e) {
-            console.error('[UserPreferences] Failed to load:', e);
+            _debug('[UserPreferences] Failed to load: ' + e.message);
         }
 
         return { ...this.defaults };
@@ -112,9 +122,9 @@ export class UserPreferences {
     static save() {
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this._preferences));
-            console.log('[UserPreferences] Saved');
+            _debug('[UserPreferences] Saved');
         } catch (e) {
-            console.error('[UserPreferences] Failed to save:', e);
+            _debug('[UserPreferences] Failed to save: ' + e.message);
         }
     }
 

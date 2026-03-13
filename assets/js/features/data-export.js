@@ -12,6 +12,16 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+/**
+ * Debug logger - only active in development
+ * @param {string} message - Log message
+ */
+const _debug = (message) => {
+    if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') {
+        console.log(message);
+    }
+};
+
 export class ExportManager {
     /**
      * Export data to CSV file
@@ -21,7 +31,7 @@ export class ExportManager {
      */
     static toCSV(data, filename = 'export.csv', options = {}) {
         if (!data || data.length === 0) {
-            console.error('[Export] No data to export');
+            _debug('[Export] No data to export');
             return;
         }
 
@@ -107,7 +117,7 @@ export class ExportManager {
             : table;
 
         if (!tableEl) {
-            console.error('[Export] Table not found');
+            _debug('[Export] Table not found');
             return;
         }
 
@@ -155,7 +165,7 @@ export class ExportManager {
             : element;
 
         if (!el) {
-            console.error('[Export] Element not found');
+            _debug('[Export] Element not found');
             return;
         }
 
@@ -229,7 +239,7 @@ export class ExportManager {
             : canvas;
 
         if (!canvasEl) {
-            console.error('[Export] Canvas not found');
+            _debug('[Export] Canvas not found');
             return;
         }
 
@@ -278,7 +288,7 @@ export class ExportManager {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
 
-        console.log(`[Export] Downloaded: ${filename}`);
+        _debug(`[Export] Downloaded: ${filename}`);
     }
 
     /**

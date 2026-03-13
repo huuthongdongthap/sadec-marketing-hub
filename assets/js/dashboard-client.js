@@ -7,7 +7,7 @@
  */
 
 import { ApiClientBase, onReady, renderActivities, renderChart } from '../shared/api-client.js';
-import { formatCurrencyVN } from '../shared/format-utils.js';
+import { formatCurrencyVN } from '../services/core-utils.js';
 import { invoices, clients, campaigns, deals, activities } from '../supabase.js';
 
 /**

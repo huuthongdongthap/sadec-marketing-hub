@@ -20,7 +20,7 @@ export {
     truncate,
     debounce,
     throttle
-} from '../shared/format-utils.js';
+} from '../services/core-utils.js';
 
 // Re-export Toast, ThemeManager, ScrollProgress from enhanced-utils for admin modules
 export {
@@ -28,7 +28,7 @@ export {
     ThemeManager,
     ScrollProgress,
     MobileSidebar
-} from '../services/enhanced-utils.js';
+} from '../services/core-utils.js';
 
 // ================================================
 // MODAL MANAGER
