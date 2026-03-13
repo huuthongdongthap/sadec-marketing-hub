@@ -45,7 +45,7 @@ const PAGES_TO_VERIFY = [
 test.describe('Audit Fix Verification — Charset Meta Tag', () => {
   for (const page of PAGES_TO_VERIFY) {
     test(`${page.name} has charset UTF-8`, async ({ page: p }) => {
-      await p.goto(page.path, { waitUntil: 'domcontentloaded' });
+      await p.goto(page.path, { waitUntil: 'domcontentloaded', timeout: 10000 });
 
       const charset = await p.getAttribute('meta[charset]', 'charset');
       expect(charset, `Missing charset on ${page.path}`).toBe('utf-8');
