@@ -35,7 +35,6 @@
     toggle() {
       const isDark = !document.documentElement.classList.contains('dark-mode');
       this.set(isDark);
-      console.log('Dark mode:', isDark ? 'ON' : 'OFF');
     },
 
     createToggle() {
@@ -603,12 +602,10 @@
   // ============================================================================
 
   function init() {
-    console.log('[UX Enhancements] Initializing...');
     injectStyles();
     DarkMode.init();
     KeyboardShortcuts.init();
     SkeletonLoader.init();
-    console.log('[UX Enhancements] Ready!');
   }
 
   // Wait for DOM ready

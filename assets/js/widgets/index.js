@@ -22,5 +22,3 @@ import './loading-states.js';
 
 // Micro animations
 import './micro-animations.js';
-
-console.log('[Dashboard Widgets] All components loaded');

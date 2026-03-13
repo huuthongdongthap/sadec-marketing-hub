@@ -631,10 +631,8 @@
   // ============================================================================
 
   function init() {
-    console.log('[Notification Bell] Initializing...');
     injectStyles();
     NotificationBell.init();
-    console.log('[Notification Bell] Ready!');
 
     // Expose globally for external triggers
     window.NotificationBell = NotificationBell;
