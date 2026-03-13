@@ -9,7 +9,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Dashboard Widgets', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/admin/widgets-demo.html');
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
   });
 
   test.describe('KPI Card Widget', () => {
