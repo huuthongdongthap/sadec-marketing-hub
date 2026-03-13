@@ -1,0 +1,626 @@
+{
+  "version": "vmmoray4n.c76dda847005",
+  "timestamp": "2026-03-13T10:31:10.152Z",
+  "files": [
+    {
+      "path": "assets/css/admin-agents.css",
+      "hash": "84ca9ee6"
+    },
+    {
+      "path": "assets/css/admin-ai-analysis.css",
+      "hash": "249768c6"
+    },
+    {
+      "path": "assets/css/admin-api-builder.css",
+      "hash": "4baa70cb"
+    },
+    {
+      "path": "assets/css/admin-approvals.css",
+      "hash": "d883c020"
+    },
+    {
+      "path": "assets/css/admin-auth.css",
+      "hash": "17b711fb"
+    },
+    {
+      "path": "assets/css/admin-binh-phap.css",
+      "hash": "cb7c5253"
+    },
+    {
+      "path": "assets/css/admin-brand-guide.css",
+      "hash": "42331189"
+    },
+    {
+      "path": "assets/css/admin-campaigns.css",
+      "hash": "18cfebb3"
+    },
+    {
+      "path": "assets/css/admin-community.css",
+      "hash": "95935fa4"
+    },
+    {
+      "path": "assets/css/admin-content-calendar.css",
+      "hash": "b3d4c79c"
+    },
+    {
+      "path": "assets/css/admin-customer-success.css",
+      "hash": "b4255de0"
+    },
+    {
+      "path": "assets/css/admin-dashboard.css",
+      "hash": "eebf5590"
+    },
+    {
+      "path": "assets/css/admin-deploy.css",
+      "hash": "d4c83b5c"
+    },
+    {
+      "path": "assets/css/admin-docs.css",
+      "hash": "d0615526"
+    },
+    {
+      "path": "assets/css/admin-ecommerce.css",
+      "hash": "57fdd23f"
+    },
+    {
+      "path": "assets/css/admin-events.css",
+      "hash": "ce353f0a"
+    },
+    {
+      "path": "assets/css/admin-finance.css",
+      "hash": "89512925"
+    },
+    {
+      "path": "assets/css/admin-hr-hiring.css",
+      "hash": "4c7829bd"
+    },
+    {
+      "path": "assets/css/admin-landing-builder.css",
+      "hash": "6dcd67e2"
+    },
+    {
+      "path": "assets/css/admin-leads.css",
+      "hash": "405edc7a"
+    },
+    {
+      "path": "assets/css/admin-legal.css",
+      "hash": "4cb14b5e"
+    },
+    {
+      "path": "assets/css/admin-lms.css",
+      "hash": "a04099db"
+    },
+    {
+      "path": "assets/css/admin-menu.css",
+      "hash": "0935e50f"
+    },
+    {
+      "path": "assets/css/admin-mvp-launch.css",
+      "hash": "2007049a"
+    },
+    {
+      "path": "assets/css/admin-onboarding.css",
+      "hash": "73477796"
+    },
+    {
+      "path": "assets/css/admin-payments.css",
+      "hash": "d1ef06cc"
+    },
+    {
+      "path": "assets/css/admin-pipeline.css",
+      "hash": "b3d748dd"
+    },
+    {
+      "path": "assets/css/admin-pricing.css",
+      "hash": "c5a7df64"
+    },
+    {
+      "path": "assets/css/admin-proposals.css",
+      "hash": "77103e0f"
+    },
+    {
+      "path": "assets/css/admin-refactored.css",
+      "hash": "07969784"
+    },
+    {
+      "path": "assets/css/admin-retention.css",
+      "hash": "ecb65887"
+    },
+    {
+      "path": "assets/css/admin-unified.css",
+      "hash": "062d46b1"
+    },
+    {
+      "path": "assets/css/admin-vc-readiness.css",
+      "hash": "df16e4be"
+    },
+    {
+      "path": "assets/css/admin-video-workflow.css",
+      "hash": "9208c391"
+    },
+    {
+      "path": "assets/css/admin-workflows.css",
+      "hash": "9f589e70"
+    },
+    {
+      "path": "assets/css/admin-zalo.css",
+      "hash": "ec011223"
+    },
+    {
+      "path": "assets/css/agency-2026.css",
+      "hash": "3ea0fb9a"
+    },
+    {
+      "path": "assets/css/animations/micro-animations.css",
+      "hash": "97817886"
+    },
+    {
+      "path": "assets/css/brand-colors.css",
+      "hash": "7a186a24"
+    },
+    {
+      "path": "assets/css/brand-typography.css",
+      "hash": "91744222"
+    },
+    {
+      "path": "assets/css/bundle/admin-common.css",
+      "hash": "e64e98bc"
+    },
+    {
+      "path": "assets/css/bundle/admin-modules.css",
+      "hash": "39437229"
+    },
+    {
+      "path": "assets/css/bundle/animations.css",
+      "hash": "18170692"
+    },
+    {
+      "path": "assets/css/bundle/portal-common.css",
+      "hash": "03779ade"
+    },
+    {
+      "path": "assets/css/lazy-loading.css",
+      "hash": "0ec16f86"
+    },
+    {
+      "path": "assets/css/m3-agency.css",
+      "hash": "83442b37"
+    },
+    {
+      "path": "assets/css/pipeline-pro.css",
+      "hash": "89304659"
+    },
+    {
+      "path": "assets/css/portal.css",
+      "hash": "3a952cc2"
+    },
+    {
+      "path": "assets/css/refactored-inline.css",
+      "hash": "bb60ffe6"
+    },
+    {
+      "path": "assets/css/responsive-enhancements.css",
+      "hash": "efb22354"
+    },
+    {
+      "path": "assets/css/responsive-fix-2026.css",
+      "hash": "9ebc89a6"
+    },
+    {
+      "path": "assets/css/ui-animations.css",
+      "hash": "8e538e8d"
+    },
+    {
+      "path": "assets/css/ui-enhancements-2026.css",
+      "hash": "f3bdc418"
+    },
+    {
+      "path": "assets/css/ui-enhancements-2027.css",
+      "hash": "60d9ebde"
+    },
+    {
+      "path": "assets/js/admin/admin-campaigns.js",
+      "hash": "d92941b7"
+    },
+    {
+      "path": "assets/js/admin/admin-clients.js",
+      "hash": "e3bbd6bc"
+    },
+    {
+      "path": "assets/js/admin/admin-dashboard.js",
+      "hash": "4bea3b6e"
+    },
+    {
+      "path": "assets/js/admin/admin-data.js",
+      "hash": "aed57297"
+    },
+    {
+      "path": "assets/js/admin/admin-leads.js",
+      "hash": "f7d88984"
+    },
+    {
+      "path": "assets/js/admin/admin-utils.js",
+      "hash": "60b33aa6"
+    },
+    {
+      "path": "assets/js/admin/admin-ux-enhancements.js",
+      "hash": "31834355"
+    },
+    {
+      "path": "assets/js/admin/index.js",
+      "hash": "9257f1fb"
+    },
+    {
+      "path": "assets/js/admin/menu-manager.js",
+      "hash": "f180ea6c"
+    },
+    {
+      "path": "assets/js/admin-client.js",
+      "hash": "320e9a9d"
+    },
+    {
+      "path": "assets/js/admin-guard.js",
+      "hash": "c07e8b1d"
+    },
+    {
+      "path": "assets/js/admin-shared.js",
+      "hash": "5530d87a"
+    },
+    {
+      "path": "assets/js/affiliate-api.js",
+      "hash": "67743400"
+    },
+    {
+      "path": "assets/js/agency-2026-premium.js",
+      "hash": "4670c2fa"
+    },
+    {
+      "path": "assets/js/agents.js",
+      "hash": "2f12b908"
+    },
+    {
+      "path": "assets/js/ai-assistant.js",
+      "hash": "d79fa444"
+    },
+    {
+      "path": "assets/js/approvals.js",
+      "hash": "a5ff9b75"
+    },
+    {
+      "path": "assets/js/base-manager.js",
+      "hash": "a8b5d482"
+    },
+    {
+      "path": "assets/js/binh-phap-client.js",
+      "hash": "99ac0ff0"
+    },
+    {
+      "path": "assets/js/binh-phap.js",
+      "hash": "bafd3275"
+    },
+    {
+      "path": "assets/js/campaign-optimizer.js",
+      "hash": "7ee03f51"
+    },
+    {
+      "path": "assets/js/community.js",
+      "hash": "212e34c6"
+    },
+    {
+      "path": "assets/js/components/error-boundary.js",
+      "hash": "7070ab1a"
+    },
+    {
+      "path": "assets/js/components/gateway-selector.js",
+      "hash": "f6ac0fef"
+    },
+    {
+      "path": "assets/js/components/index.js",
+      "hash": "4af04cc5"
+    },
+    {
+      "path": "assets/js/components/loading-button.js",
+      "hash": "caa6bd9e"
+    },
+    {
+      "path": "assets/js/components/mobile-responsive.js",
+      "hash": "11f78dd0"
+    },
+    {
+      "path": "assets/js/components/payment-modal.js",
+      "hash": "27323e5f"
+    },
+    {
+      "path": "assets/js/components/payment-status-chip.js",
+      "hash": "e6ecd2d8"
+    },
+    {
+      "path": "assets/js/components/sadec-navbar.js",
+      "hash": "f105e531"
+    },
+    {
+      "path": "assets/js/components/sadec-sidebar.js",
+      "hash": "71a827db"
+    },
+    {
+      "path": "assets/js/components/sadec-toast.js",
+      "hash": "a4b30b1a"
+    },
+    {
+      "path": "assets/js/components/theme-manager.js",
+      "hash": "48a6d282"
+    },
+    {
+      "path": "assets/js/components/toast-manager.js",
+      "hash": "86417533"
+    },
+    {
+      "path": "assets/js/content-ai.js",
+      "hash": "cb8db109"
+    },
+    {
+      "path": "assets/js/content-calendar-client.js",
+      "hash": "080ead9c"
+    },
+    {
+      "path": "assets/js/content-calendar.js",
+      "hash": "dac91325"
+    },
+    {
+      "path": "assets/js/core-utils.js",
+      "hash": "962474b2"
+    },
+    {
+      "path": "assets/js/core-utils.test.js",
+      "hash": "e43497e4"
+    },
+    {
+      "path": "assets/js/customer-success.js",
+      "hash": "640bb561"
+    },
+    {
+      "path": "assets/js/dashboard-client.js",
+      "hash": "f25d974b"
+    },
+    {
+      "path": "assets/js/data-sync-init.js",
+      "hash": "e019c6a0"
+    },
+    {
+      "path": "assets/js/ecommerce.js",
+      "hash": "454089cf"
+    },
+    {
+      "path": "assets/js/enhanced-utils.js",
+      "hash": "28114880"
+    },
+    {
+      "path": "assets/js/events.js",
+      "hash": "856eea35"
+    },
+    {
+      "path": "assets/js/features/ai-content-generator.js",
+      "hash": "a10cdfda"
+    },
+    {
+      "path": "assets/js/features/analytics-dashboard.js",
+      "hash": "7b74070b"
+    },
+    {
+      "path": "assets/js/finance-client.js",
+      "hash": "f6d0f11f"
+    },
+    {
+      "path": "assets/js/finance.js",
+      "hash": "5842b65f"
+    },
+    {
+      "path": "assets/js/hr-hiring.js",
+      "hash": "9c48cf34"
+    },
+    {
+      "path": "assets/js/landing-builder.js",
+      "hash": "35a9f8ab"
+    },
+    {
+      "path": "assets/js/landing-renderer.js",
+      "hash": "6c084f52"
+    },
+    {
+      "path": "assets/js/lazy-loader.js",
+      "hash": "74b039a0"
+    },
+    {
+      "path": "assets/js/legal.js",
+      "hash": "36ffbc3c"
+    },
+    {
+      "path": "assets/js/lms.js",
+      "hash": "d1ef36b4"
+    },
+    {
+      "path": "assets/js/loading-states.js",
+      "hash": "1db6066b"
+    },
+    {
+      "path": "assets/js/mekong-store.js",
+      "hash": "fee2e954"
+    },
+    {
+      "path": "assets/js/micro-animations.js",
+      "hash": "f56c6ae5"
+    },
+    {
+      "path": "assets/js/mobile-menu.js",
+      "hash": "d346dd6c"
+    },
+    {
+      "path": "assets/js/mobile-navigation.js",
+      "hash": "7417f78d"
+    },
+    {
+      "path": "assets/js/mvp-launch.js",
+      "hash": "b9bbc296"
+    },
+    {
+      "path": "assets/js/notifications.js",
+      "hash": "b4aa01a2"
+    },
+    {
+      "path": "assets/js/onboarding.js",
+      "hash": "c2b07e48"
+    },
+    {
+      "path": "assets/js/payment-gateway.js",
+      "hash": "4e0bacae"
+    },
+    {
+      "path": "assets/js/performance.js",
+      "hash": "1dffdca7"
+    },
+    {
+      "path": "assets/js/pipeline-client.js",
+      "hash": "7d6f0783"
+    },
+    {
+      "path": "assets/js/pipeline.js",
+      "hash": "c48de607"
+    },
+    {
+      "path": "assets/js/portal/index.js",
+      "hash": "ca1ae80f"
+    },
+    {
+      "path": "assets/js/portal/portal-auth.js",
+      "hash": "bc7bf62c"
+    },
+    {
+      "path": "assets/js/portal/portal-dashboard.js",
+      "hash": "ef53837b"
+    },
+    {
+      "path": "assets/js/portal/portal-data.js",
+      "hash": "91ca8ec6"
+    },
+    {
+      "path": "assets/js/portal/portal-invoices.js",
+      "hash": "97a9264d"
+    },
+    {
+      "path": "assets/js/portal/portal-payments.js",
+      "hash": "9f544989"
+    },
+    {
+      "path": "assets/js/portal/portal-projects.js",
+      "hash": "579149c6"
+    },
+    {
+      "path": "assets/js/portal/portal-ui.js",
+      "hash": "02c64ac9"
+    },
+    {
+      "path": "assets/js/portal/portal-utils.js",
+      "hash": "187877c3"
+    },
+    {
+      "path": "assets/js/portal/supabase.js",
+      "hash": "600fa069"
+    },
+    {
+      "path": "assets/js/portal-client.js",
+      "hash": "723dee3b"
+    },
+    {
+      "path": "assets/js/portal-guard.js",
+      "hash": "48723d3f"
+    },
+    {
+      "path": "assets/js/pricing.js",
+      "hash": "e00b57ce"
+    },
+    {
+      "path": "assets/js/proposals.js",
+      "hash": "9c01c6f1"
+    },
+    {
+      "path": "assets/js/pwa-install.js",
+      "hash": "80f2777f"
+    },
+    {
+      "path": "assets/js/realtime-dashboard.js",
+      "hash": "2050e30b"
+    },
+    {
+      "path": "assets/js/report-generator.js",
+      "hash": "cf51e04b"
+    },
+    {
+      "path": "assets/js/retention.js",
+      "hash": "0351c328"
+    },
+    {
+      "path": "assets/js/shared/api-utils.js",
+      "hash": "67518547"
+    },
+    {
+      "path": "assets/js/shared/format-utils.js",
+      "hash": "b5a7140d"
+    },
+    {
+      "path": "assets/js/shared/guard-utils.js",
+      "hash": "7b277b87"
+    },
+    {
+      "path": "assets/js/shared/modal-utils.js",
+      "hash": "8bf747fa"
+    },
+    {
+      "path": "assets/js/shared-head.js",
+      "hash": "d80d46c6"
+    },
+    {
+      "path": "assets/js/supabase.js",
+      "hash": "b3c7a492"
+    },
+    {
+      "path": "assets/js/ui-enhancements-controller.js",
+      "hash": "048e0426"
+    },
+    {
+      "path": "assets/js/ui-enhancements.js",
+      "hash": "50b3a82e"
+    },
+    {
+      "path": "assets/js/ui-utils.js",
+      "hash": "f8106fc6"
+    },
+    {
+      "path": "assets/js/unified-login.js",
+      "hash": "806b0482"
+    },
+    {
+      "path": "assets/js/utils.js",
+      "hash": "e5017f26"
+    },
+    {
+      "path": "assets/js/vc-readiness.js",
+      "hash": "627a890a"
+    },
+    {
+      "path": "assets/js/video.js",
+      "hash": "e3a3c9e7"
+    },
+    {
+      "path": "assets/js/workflows-client.js",
+      "hash": "630c857e"
+    },
+    {
+      "path": "assets/js/workflows.js",
+      "hash": "6943a8f8"
+    },
+    {
+      "path": "assets/js/zalo-chat.js",
+      "hash": "5f7a3e6d"
+    }
+  ]
+}
