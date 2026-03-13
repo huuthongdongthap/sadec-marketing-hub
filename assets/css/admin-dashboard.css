@@ -94,3 +94,133 @@
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.03);
         }
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet: 1024px */
+@media (max-width: 1024px) {
+    .layout-2026 {
+        grid-template-columns: 1fr;
+    }
+
+    .header-section {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .search-glass {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile: 768px */
+@media (max-width: 768px) {
+    .layout-2026 {
+        grid-template-columns: 1fr;
+    }
+
+    .header-section {
+        margin-bottom: 24px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-glass {
+        width: 100%;
+        padding: 8px 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card-inner {
+        padding: 16px;
+    }
+
+    .stat-icon-glow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .nav-header {
+        padding-bottom: 24px;
+    }
+
+    .nav-header h2 {
+        font-size: 20px;
+    }
+
+    .live-activity-item {
+        gap: 12px;
+        padding: 12px;
+    }
+}
+
+/* Mobile Small: 375px */
+@media (max-width: 375px) {
+    .header-section {
+        margin-bottom: 16px;
+    }
+
+    .search-glass {
+        padding: 6px 12px;
+    }
+
+    .stats-grid {
+        gap: 12px;
+    }
+
+    .stat-card-inner {
+        padding: 12px;
+    }
+
+    .stat-icon-glow {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+        margin: 6px 0;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .nav-header h2 {
+        font-size: 18px;
+    }
+
+    .live-activity-item {
+        gap: 8px;
+        padding: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

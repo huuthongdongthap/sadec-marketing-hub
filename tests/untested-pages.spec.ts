@@ -34,6 +34,8 @@ const UNTESTED_PAGES = [
   { path: '/portal/roiaas-dashboard.html', name: 'Portal ROIaaS Dashboard' },
   { path: '/portal/roiaas-onboarding.html', name: 'Portal ROIaaS Onboarding' },
   { path: '/portal/subscription-plans.html', name: 'Portal Subscription Plans' },
+  { path: '/portal/notifications.html', name: 'Portal Notifications' },
+  { path: '/portal/roi-analytics.html', name: 'Portal ROI Analytics' },
 ];
 
 test.describe('Smoke Test — Previously Untested Pages', () => {

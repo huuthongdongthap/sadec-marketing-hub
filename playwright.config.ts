@@ -6,6 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  testIgnore: ['**/*.test.ts'], // Ignore .test.ts files (Deno imports), only run .spec.ts files
 
   /* Run tests in files in parallel */
   fullyParallel: true,

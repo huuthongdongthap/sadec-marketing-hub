@@ -1,0 +1,648 @@
+{
+  "summary": {
+    "total_files_audited": 29,
+    "total_issues": 106,
+    "broken_links": 3,
+    "missing_alt": 0,
+    "missing_labels": 105,
+    "heading_issues": 11
+  },
+  "files": [
+    {
+      "path": "admin/notifications.html",
+      "total_issues": 13,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 13,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/notifications.html",
+      "total_issues": 10,
+      "meta_score": 9,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": false
+      },
+      "broken_links": [
+        {
+          "file": "portal/notifications.html",
+          "line": 0,
+          "link_type": "href",
+          "current_path": "../assets/css/main.css",
+          "suggested_path": "/assets/css/main.css",
+          "reason": "Should use root-relative path"
+        }
+      ],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 7,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/suppliers.html",
+      "total_issues": 8,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 9,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/loyalty.html",
+      "total_issues": 8,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 9,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/landing-builder.html",
+      "total_issues": 6,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 6,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/inventory.html",
+      "total_issues": 6,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 6,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/events.html",
+      "total_issues": 6,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 6,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "register.html",
+      "total_issues": 4,
+      "meta_score": 11,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/subscription-plans.html",
+      "total_issues": 4,
+      "meta_score": 11,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/roi-analytics.html",
+      "total_issues": 4,
+      "meta_score": 9,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": false
+      },
+      "broken_links": [
+        {
+          "file": "portal/roi-analytics.html",
+          "line": 0,
+          "link_type": "href",
+          "current_path": "../assets/css/main.css",
+          "suggested_path": "/assets/css/main.css",
+          "reason": "Should use root-relative path"
+        }
+      ],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 0,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "index.html",
+      "total_issues": 3,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/ocop-exporter.html",
+      "total_issues": 3,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/menu.html",
+      "total_issues": 3,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/proposals.html",
+      "total_issues": 3,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/workflows.html",
+      "total_issues": 3,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 4,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/components/phase-tracker.html",
+      "total_issues": 3,
+      "meta_score": 9,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": false
+      },
+      "broken_links": [
+        {
+          "file": "admin/components/phase-tracker.html",
+          "line": 0,
+          "link_type": "href",
+          "current_path": "../../assets/css/main.css",
+          "suggested_path": "/assets/css/main.css",
+          "reason": "Should use root-relative path"
+        }
+      ],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 0,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "login.html",
+      "total_issues": 2,
+      "meta_score": 11,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/community.html",
+      "total_issues": 2,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/approvals.html",
+      "total_issues": 2,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/ecommerce.html",
+      "total_issues": 2,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/shifts.html",
+      "total_issues": 2,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 3,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/onboarding.html",
+      "total_issues": 2,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "forgot-password.html",
+      "total_issues": 1,
+      "meta_score": 11,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 1,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/login.html",
+      "total_issues": 1,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/ocop-catalog.html",
+      "total_issues": 1,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 1,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "portal/invoices.html",
+      "total_issues": 1,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/roiaas-admin.html",
+      "total_issues": 1,
+      "meta_score": 11,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 0,
+        "heading_issues": 1,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/zalo.html",
+      "total_issues": 1,
+      "meta_score": 12,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": true
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 2,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    },
+    {
+      "path": "admin/widgets/kpi-card.html",
+      "total_issues": 1,
+      "meta_score": 10,
+      "meta_tags": {
+        "has_title": true,
+        "has_description": true,
+        "has_og_title": true,
+        "has_og_description": true,
+        "has_og_image": true,
+        "has_canonical": false
+      },
+      "broken_links": [],
+      "accessibility": {
+        "images_without_alt": 0,
+        "inputs_without_label": 0,
+        "heading_issues": 0,
+        "missing_lang": false,
+        "missing_skip_link": true
+      }
+    }
+  ]
+}

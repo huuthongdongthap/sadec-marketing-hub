@@ -9,7 +9,8 @@
 export { supabase, auth, projects, invoices, activities, utils } from './supabase.js';
 
 // UI Components
-export { ToastManager, ModalManager, renderProjects, renderInvoices, updateInvoiceStats } from './portal-ui.js';
+export { ModalManager, renderProjects, renderInvoices, updateInvoiceStats } from './portal-ui.js';
+export { Toast } from '../enhanced-utils.js';
 
 // Utilities
 export { formatCurrency, formatDate, formatRelativeTime, truncate, escapeHtml } from './portal-utils.js';
@@ -30,9 +31,10 @@ export { payInvoiceOnline, downloadInvoicePDF, markInvoiceAsPaid } from './porta
 export { loadDashboard, loadActivityFeed, loadDeadlines } from './portal-dashboard.js';
 
 // Toast & Modal instances (for backwards compatibility)
-import { ToastManager, ModalManager } from './portal-ui.js';
+import { Toast } from '../enhanced-utils.js';
+import { ModalManager } from './portal-ui.js';
 
-export const toast = new ToastManager();
+export const toast = Toast;
 export const modal = new ModalManager();
 
 // ================================================

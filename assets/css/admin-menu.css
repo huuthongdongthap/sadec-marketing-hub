@@ -418,6 +418,82 @@
     }
 }
 
+/* Mobile Small: 375px */
+@media (max-width: 375px) {
+    .menu-stats {
+        gap: 12px;
+    }
+
+    .menu-stat-card {
+        padding: 16px;
+    }
+
+    .menu-stat-label {
+        font-size: 11px;
+    }
+
+    .menu-stat-value {
+        font-size: 24px;
+    }
+
+    .menu-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu-filters {
+        justify-content: center;
+    }
+
+    .filter-chip {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .add-menu-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu-table th {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .menu-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .modal-header {
+        margin-bottom: 16px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-cancel,
+    .btn-save {
+        width: 100%;
+    }
+
+    .export-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .form-label {
     display: block;
     margin-bottom: 8px;

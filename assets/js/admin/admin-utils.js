@@ -19,107 +19,12 @@ export {
     formatRelativeTime,
     truncate,
     debounce,
-    throttle
+    throttle,
+    Toast
 } from '../shared/format-utils.js';
 
-// ================================================
-// TOAST NOTIFICATION SYSTEM
-// ================================================
-
-export class ToastManager {
-    constructor() {
-        this.container = null;
-        this.init();
-    }
-
-    init() {
-        if (!document.getElementById('toast-container')) {
-            this.container = document.createElement('div');
-            this.container.id = 'toast-container';
-            this.container.style.cssText = `
-                position: fixed;
-                bottom: 24px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 9999;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            `;
-            document.body.appendChild(this.container);
-        } else {
-            this.container = document.getElementById('toast-container');
-        }
-    }
-
-    show(message, type = 'info', duration = 4000) {
-        const toast = document.createElement('div');
-        const colors = {
-            success: { bg: '#D4EDDA', color: '#155724', icon: 'check_circle' },
-            error: { bg: '#F8D7DA', color: '#721C24', icon: 'error' },
-            warning: { bg: '#FFF3CD', color: '#856404', icon: 'warning' },
-            info: { bg: '#CCE5FF', color: '#004085', icon: 'info' }
-        };
-        const style = colors[type] || colors.info;
-
-        toast.innerHTML = `
-            <span class="material-symbols-outlined" style="font-size: 20px;">${style.icon}</span>
-            <span>${message}</span>
-        `;
-        toast.style.cssText = `
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 24px;
-            background: ${style.bg};
-            color: ${style.color};
-            border-radius: 8px;
-            font-family: 'Google Sans', sans-serif;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            animation: slideUp 0.3s ease-out;
-        `;
-
-        this.container.appendChild(toast);
-
-        setTimeout(() => {
-            toast.style.animation = 'slideDown 0.3s ease-in';
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
-    }
-
-    success(message) {
-        this.show(message, 'success');
-    }
-
-    error(message) {
-        this.show(message, 'error');
-    }
-
-    warning(message) {
-        this.show(message, 'warning');
-    }
-
-    info(message) {
-        this.show(message, 'info');
-    }
-}
-
-// Add animation styles to document
-if (typeof document !== 'undefined') {
-    const toastStyles = document.createElement('style');
-    toastStyles.textContent = `
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideDown {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(20px); }
-        }
-    `;
-    document.head.appendChild(toastStyles);
-}
+// Re-export Toast from enhanced-utils for admin modules
+export { Toast } from '../enhanced-utils.js';
 
 // ================================================
 // MODAL MANAGER
