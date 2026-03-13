@@ -2,6 +2,27 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.34.1] - 2026-03-14 — Accessibility Fix
+
+### 🎯 Summary
+
+Patch release fix accessibility issues - replace `href="#"` với `javascript:void(0)` để ngăn page scroll không mong muốn.
+
+**Health Score:** 100/100 ✅
+
+### ♿ Accessibility Fixes
+
+| File | Change | Impact |
+|------|--------|--------|
+| `admin/features-demo.html` | `href="#"` → `javascript:void(0)` | Prevent page jump |
+| `admin/index.html` | `href="#"` → `javascript:void(0)` | Prevent page jump |
+| `admin/pipeline.html` | `href="#"` → `javascript:void(0)` | Prevent page jump |
+| `portal/customer/dashboard.html` | `href="#"` → `javascript:void(0)` | Prevent page jump |
+
+**Lines Changed:** 26 lines across 4 files
+
+---
+
 ## [v4.34.0] - 2026-03-14 — New Features, UI Build, Export & Filters
 
 ### 🎯 Summary
