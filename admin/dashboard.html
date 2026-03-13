@@ -306,14 +306,11 @@
                 </div>
 
                 <div class="flex">
-                    <div class="search-glass">
+                    <div class="search-glass" onclick="document.querySelector('command-palette').open()">
                         <span class="material-symbols-outlined">search</span>
-                        <input type="text" placeholder="Search system..." aria-label="Search system">
+                        <input type="text" placeholder="Search system... (Ctrl+K)" aria-label="Search system" readonly>
                     </div>
-                    <button type="button" class="btn-cyber" id="notify-toggle" onclick="window.Notifications.requestPermission()"
-                        title="Enable Notifications">
-                        <span class="material-symbols-outlined">notifications</span>
-                    </button>
+                    <notification-bell></notification-bell>
                     <button type="button" class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
                         <span class="material-symbols-outlined">dark_mode</span>
                     </button>
@@ -609,9 +606,61 @@
     <script src="/assets/js/admin/admin-ux-enhancements.js" defer></script>
     <!-- Notification Bell -->
     <script src="/assets/js/admin/notification-bell.js" defer></script>
+    <!-- Command Palette -->
+    <script type="module" src="/admin/widgets/command-palette.js" defer></script>
+    <!-- Help Tour -->
+    <script type="module" src="/admin/widgets/help-tour.js" defer></script>
 
   <!-- Mobile Navigation -->
   <script src="/assets/js/mobile-navigation.js" defer></script>
+
+  <!-- UX Widgets -->
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+
+  <!-- Quick Actions FAB -->
+  <button class="quick-actions-fab" id="quick-actions-fab" title="Quick Actions" onclick="toggleQuickActions()">
+    <span class="material-symbols-outlined">add</span>
+  </button>
+  <div class="quick-actions-menu" id="quick-actions-menu">
+    <a href="/admin/projects.html?action=new" class="quick-action-item">
+      <span class="material-symbols-outlined">add_circle</span>
+      <span>New Project</span>
+    </a>
+    <a href="/admin/campaigns.html?action=new" class="quick-action-item">
+      <span class="material-symbols-outlined">campaign</span>
+      <span>New Campaign</span>
+    </a>
+    <a href="/admin/leads.html" class="quick-action-item">
+      <span class="material-symbols-outlined">ads_click</span>
+      <span>View Leads</span>
+    </a>
+    <a href="/admin/analytics.html" class="quick-action-item">
+      <span class="material-symbols-outlined">analytics</span>
+      <span>Analytics</span>
+    </a>
+    <div style="border-top: 1px solid var(--border, #e5e7eb); margin: 8px 0;"></div>
+    <a href="/admin/settings.html" class="quick-action-item">
+      <span class="material-symbols-outlined">settings</span>
+      <span>Settings</span>
+    </a>
+  </div>
+
+  <script>
+    function toggleQuickActions() {
+      const menu = document.getElementById('quick-actions-menu');
+      menu.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const fab = document.getElementById('quick-actions-fab');
+      const menu = document.getElementById('quick-actions-menu');
+      if (!fab.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 
 </html>
