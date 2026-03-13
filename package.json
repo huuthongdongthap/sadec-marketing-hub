@@ -29,7 +29,8 @@
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
     "perf:audit": "node scripts/perf/audit.js",
-    "perf:bundle-report": "node scripts/perf/bundle-report.js"
+    "perf:bundle-report": "node scripts/perf/bundle-report.js",
+    "perf:critical-css": "node scripts/perf/critical-css.js"
   },
   "keywords": [
     "marketing",

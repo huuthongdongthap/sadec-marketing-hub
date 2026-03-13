@@ -36,7 +36,7 @@ test.describe('New UX Features', () => {
     });
 
     test('command palette opens with Ctrl+K', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Press Ctrl+K to open
       await page.keyboard.press('Control+KeyK');
@@ -51,7 +51,7 @@ test.describe('New UX Features', () => {
     });
 
     test('command palette has search input', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.keyboard.press('Control+KeyK');
 
       const input = page.locator('.command-palette-input');
@@ -59,7 +59,7 @@ test.describe('New UX Features', () => {
     });
 
     test('command palette shows results on search', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.keyboard.press('Control+KeyK');
 
       const input = page.locator('.command-palette-input');
@@ -71,7 +71,7 @@ test.describe('New UX Features', () => {
     });
 
     test('command palette closes with Escape', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.keyboard.press('Control+KeyK');
 
       // Press Escape to close
@@ -88,14 +88,14 @@ test.describe('New UX Features', () => {
 
   test.describe('Notification Bell', () => {
     test('notification bell exists in header', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       const bell = page.locator('#notification-bell, .notification-bell');
       await expect(bell).toBeVisible();
     });
 
     test('notification bell has badge for unread count', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       const badge = page.locator('.notification-badge');
       // Badge may be hidden if no unread notifications
@@ -103,7 +103,7 @@ test.describe('New UX Features', () => {
     });
 
     test('notification panel opens on click', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       const bell = page.locator('.notification-bell');
       await bell.click();
@@ -113,7 +113,7 @@ test.describe('New UX Features', () => {
     });
 
     test('notification panel has header with actions', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.locator('.notification-bell').click();
 
       const header = page.locator('.notification-panel-header');
@@ -125,7 +125,7 @@ test.describe('New UX Features', () => {
     });
 
     test('notification panel shows empty state when no notifications', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.locator('.notification-bell').click();
 
       // Either has notifications or shows empty state
@@ -145,14 +145,14 @@ test.describe('New UX Features', () => {
 
   test.describe('Theme Toggle', () => {
     test('theme toggle button exists in header', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       const toggle = page.locator('#theme-toggle, .theme-toggle, button[aria-label="Toggle dark mode"]');
       await expect(toggle).toBeVisible();
     });
 
     test('theme toggle switches between light and dark mode', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Get initial theme
       const html = page.locator('html');
@@ -171,7 +171,7 @@ test.describe('New UX Features', () => {
     });
 
     test('dark mode applies dark theme styles', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Switch to dark mode
       const toggle = page.locator('#theme-toggle, .theme-toggle').first();
@@ -197,7 +197,7 @@ test.describe('New UX Features', () => {
 
   test.describe('Keyboard Shortcuts', () => {
     test('keyboard shortcuts help modal opens with Ctrl+?', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Press Ctrl+? to open help
       await page.keyboard.press('Control+Shift+Slash');
@@ -208,7 +208,7 @@ test.describe('New UX Features', () => {
     });
 
     test('help modal shows shortcuts list', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.keyboard.press('Control+Shift+Slash');
 
       const shortcutsList = page.locator('.shortcuts-list, .shortcuts-grid');
@@ -216,7 +216,7 @@ test.describe('New UX Features', () => {
     });
 
     test('help modal closes with Escape', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
       await page.keyboard.press('Control+Shift+Slash');
       await page.keyboard.press('Escape');
 
@@ -231,7 +231,7 @@ test.describe('New UX Features', () => {
 
   test.describe('Error Boundaries', () => {
     test('error boundary styles are loaded', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Check if error-boundary CSS is loaded
       const errorBoundaryStyle = await page.evaluate(() => {
@@ -255,7 +255,7 @@ test.describe('New UX Features', () => {
     });
 
     test('empty state component is available', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Check if empty-state styles are loaded
       const emptyStateStyle = await page.evaluate(() => {
