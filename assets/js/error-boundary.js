@@ -16,6 +16,10 @@
  *   }
  */
 
+import { Logger } from './shared/logger.js';
+
+const TAG = '[ErrorBoundary]';
+
 class ErrorBoundaryClass {
   constructor() {
     this.errorContainer = null;
@@ -123,8 +127,8 @@ class ErrorBoundaryClass {
       this.errorQueue.shift();
     }
 
-    // Log to console
-    console.error('[ErrorBoundary]', error);
+    // Log to console via Logger
+    Logger.error(TAG, 'Error occurred:', error);
 
     // Send to analytics/reporting service
     this.reportError(error);

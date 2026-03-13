@@ -9,6 +9,10 @@
  *   NotificationManager.error('Lỗi!', 'Không thể kết nối API');
  */
 
+import { Logger } from './shared/logger.js';
+
+const TAG = '[NotificationManager]';
+
 class NotificationManager {
   constructor() {
     this.container = null;
@@ -288,7 +292,7 @@ class NotificationManager {
       localStorage.setItem('notifications', JSON.stringify(this.notifications));
       localStorage.setItem('notification_unread', this.notifications.filter(n => !n.read).length);
     } catch (e) {
-      console.warn('Cannot save notifications to localStorage:', e);
+      Logger.warn(TAG, 'Cannot save notifications to localStorage:', e);
     }
   }
 
@@ -302,7 +306,7 @@ class NotificationManager {
         this.notifications = JSON.parse(stored);
       }
     } catch (e) {
-      console.warn('Cannot load notifications from localStorage:', e);
+      Logger.warn(TAG, 'Cannot load notifications from localStorage:', e);
     }
   }
 
