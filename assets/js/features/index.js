@@ -22,6 +22,12 @@ export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from
 export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
 export { QuickToolsPanel, QuickToolsPanelInstance, initQuickToolsPanel } from './quick-tools-panel.js';
 
+// UX Utilities
+export { Loading, ScrollAnimations, RippleEffect } from '../loading-states.js';
+export { ToastManager } from '../toast-manager.js';
+export { EmptyStates } from '../empty-states.js';
+export { ToastComponent } from '../toast-component.js';
+
 /**
  * Initialize all features
  */
@@ -55,5 +61,12 @@ window.MekongFeatures = {
     AIContentPanel: window.AIContentPanel,
     QuickToolsPanel: window.QuickToolsPanel,
     initQuickNotes: window.initQuickNotes,
-    init: initializeFeatures
+    init: initializeFeatures,
+    // UX Utilities
+    Loading: window.Loading,
+    ScrollAnimations: window.ScrollAnimations,
+    RippleEffect: window.RippleEffect,
+    ToastManager: window.ToastManager,
+    EmptyStates: window.EmptyStates,
+    ToastComponent: window.ToastComponent
 };

@@ -243,6 +243,71 @@ const Loading = {
                 this.hide(loadingSelector);
             }
         }
+    },
+
+    /**
+     * Barrier loading for sequential operations
+     * Ensures loading state persists until ALL operations complete
+     *
+     * Usage:
+     *   const barrier = Loading.barrier('#container');
+     *   await Promise.all([
+     *     fetch('/api/1').then(() => barrier.complete()),
+     *     fetch('/api/2').then(() => barrier.complete()),
+     *     fetch('/api/3').then(() => barrier.complete())
+     *   ]);
+     *
+     * @param {string} selector - Container selector
+     * @param {Object} options - Loading options
+     * @returns {Object} Barrier controller with complete() method
+     */
+    barrier(selector, options = {}) {
+        let pending = 0;
+        let completed = 0;
+        let isShowing = false;
+
+        return {
+            /**
+             * Register a new pending operation
+             */
+            register() {
+                pending++;
+                if (!isShowing) {
+                    Loading.show(selector, options);
+                    isShowing = true;
+                }
+            },
+
+            /**
+             * Mark an operation as complete
+             */
+            complete() {
+                completed++;
+                if (completed >= pending) {
+                    Loading.hide(selector);
+                    isShowing = false;
+                    pending = 0;
+                    completed = 0;
+                }
+            },
+
+            /**
+             * Force hide regardless of pending operations
+             */
+            forceHide() {
+                Loading.hide(selector);
+                isShowing = false;
+                pending = 0;
+                completed = 0;
+            },
+
+            /**
+             * Get status
+             */
+            getStatus() {
+                return { pending, completed, isShowing };
+            }
+        };
     }
 };
 

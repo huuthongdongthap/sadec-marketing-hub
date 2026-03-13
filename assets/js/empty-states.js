@@ -118,6 +118,93 @@ const EmptyStates = {
       title: 'Đang tải...',
       description: 'Vui lòng chờ trong giây lát.',
       action: null
+    },
+    // AI Features
+    noAIContent: {
+      icon: 'auto_awesome',
+      title: 'Chưa có nội dung AI',
+      description: 'Tạo nội dung đầu tiên với AI của bạn.',
+      action: {
+        label: 'Tạo với AI',
+        onClick: () => {
+          const event = new CustomEvent('ai-generate-request');
+          window.dispatchEvent(event);
+        }
+      }
+    },
+    noAIInsights: {
+      icon: 'psychology',
+      title: 'Chưa có insights AI',
+      description: 'AI sẽ phân tích dữ liệu và đề xuất insights.',
+      action: {
+        label: 'Phân tích ngay',
+        onClick: () => {
+          const event = new CustomEvent('ai-analyze-request');
+          window.dispatchEvent(event);
+        }
+      }
+    },
+    // Dashboard widgets
+    noWidgets: {
+      icon: 'dashboard',
+      title: 'Chưa có widget',
+      description: 'Thêm widget để tùy chỉnh dashboard của bạn.',
+      action: {
+        label: 'Thêm widget',
+        onClick: () => {
+          const event = new CustomEvent('widget-add-request');
+          window.dispatchEvent(event);
+        }
+      }
+    },
+    noAnalytics: {
+      icon: 'analytics',
+      title: 'Chưa có dữ liệu phân tích',
+      description: 'Kết nối nguồn dữ liệu để xem phân tích.',
+      action: {
+        label: 'Kết nối nguồn',
+        onClick: () => window.location.href = '/admin/integrations.html'
+      }
+    },
+    // Calendar
+    noEvents: {
+      icon: 'event',
+      title: 'Không có sự kiện',
+      description: 'Không có sự kiện nào trong lịch.',
+      action: {
+        label: 'Tạo sự kiện',
+        onClick: () => window.location.href = '/admin/events.html?action=new'
+      }
+    },
+    // Content calendar
+    noContent: {
+      icon: 'edit_calendar',
+      title: 'Chưa có nội dung',
+      description: 'Lên lịch nội dung cho mạng xã hội.',
+      action: {
+        label: 'Lên lịch bài viết',
+        onClick: () => window.location.href = '/admin/content-calendar.html?action=new'
+      }
+    },
+    // Files
+    noFiles: {
+      icon: 'folder_open',
+      title: 'Không có file',
+      description: 'Tải lên file đầu tiên của bạn.',
+      action: {
+        label: 'Tải file lên',
+        onClick: () => {}
+      }
+    },
+    // Integrations
+    noIntegrations: {
+      icon: 'extension',
+      title: 'Chưa có tích hợp',
+      description: 'Kết nối các công cụ yêu thích của bạn.',
+      action: {
+        label: 'Khám phá tích hợp',
+        onClick: () => window.location.href = '/admin/integrations.html'
+      }
     }
   },
 
