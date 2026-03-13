@@ -310,7 +310,7 @@ class ErrorBoundaryClass {
 
       localStorage.setItem('error_log', JSON.stringify(errors));
     } catch (e) {
-      console.warn('[ErrorBoundary] Cannot save error to localStorage:', e);
+      Logger.warn(TAG, 'Cannot save error to localStorage:', e);
     }
 
     // Send to API (if available)

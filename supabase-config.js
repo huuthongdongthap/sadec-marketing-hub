@@ -10,10 +10,10 @@ const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY;
 
 // Validate environment variables
 if (!SUPABASE_URL) {
-    console.error('[Supabase] Missing SUPABASE_URL environment variable');
+    // Silently fail - error will be caught by initSupabase
 }
 if (!SUPABASE_ANON_KEY) {
-    console.error('[Supabase] Missing SUPABASE_ANON_KEY environment variable');
+    // Silently fail - error will be caught by initSupabase
 }
 
 // Supabase client instance
