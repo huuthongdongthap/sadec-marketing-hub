@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline Widget Test</title>
+  <style>
+    body { background: #0a0a14; color: #fff; padding: 24px; font-family: system-ui; }
+  </style>
+</head>
+<body>
+  <h1>Inline Widget Test</h1>
+
+  <section>
+    <h2>KPI Card (Inline Script)</h2>
+    <kpi-card-widget title="Doanh Thu" value="125.5M" trend="positive" trend-value="+12.5%" icon="payments" color="cyan"></kpi-card-widget>
+  </section>
+
+  <script>
+    // Inline widget definition - no module import
+    class KPICardWidget extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+      connectedCallback() {
+        const title = this.getAttribute('title') || 'KPI';
+        const value = this.getAttribute('value') || '0';
+        this.shadowRoot.innerHTML = `
+          <style>.kpi-card { background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; }</style>
+          <div class="kpi-card">
+            <div class="kpi-value">${value}</div>
+            <div class="kpi-label">${title}</div>
+          </div>
+        `;
+      }
+    }
+    customElements.define('kpi-card-widget', KPICardWidget);
+    console.log('KPI Card widget registered!');
+  </script>
+</body>
+</html>

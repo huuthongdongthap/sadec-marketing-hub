@@ -8,6 +8,10 @@
  *   ExportUtils.toJSON(data, 'export.json');
  */
 
+import { Logger } from '../shared/logger.js';
+
+const LOG_TAG = '[ExportUtils]';
+
 const ExportUtils = {
   /**
    * Export data to CSV file
@@ -17,7 +21,7 @@ const ExportUtils = {
    */
   toCSV(data, filename = 'export.csv', options = {}) {
     if (!data || data.length === 0) {
-      console.error('No data to export');
+      Logger.warn(LOG_TAG, 'No data to export');
       return;
     }
 
@@ -71,7 +75,7 @@ const ExportUtils = {
     const el = typeof element === 'string' ? document.querySelector(element) : element;
 
     if (!el) {
-      console.error('Element not found');
+      Logger.warn(LOG_TAG, 'Element not found');
       return;
     }
 
@@ -116,7 +120,7 @@ const ExportUtils = {
     const el = typeof table === 'string' ? document.querySelector(table) : table;
 
     if (!el) {
-      console.error('Table not found');
+      Logger.warn(LOG_TAG, 'Table not found');
       return;
     }
 

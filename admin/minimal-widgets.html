@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Widgets Test</title>
+  <style>
+    body { background: #0a0a14; color: #fff; padding: 24px; font-family: system-ui; }
+  </style>
+</head>
+<body>
+  <h1>Minimal Widgets Test</h1>
+
+  <section>
+    <h2>KPI Card</h2>
+    <kpi-card-widget title="Doanh Thu" value="125.5M" trend="positive" trend-value="+12.5%" icon="payments" color="cyan"></kpi-card-widget>
+  </section>
+
+  <script type="module">
+    import './widgets/kpi-card.js';
+    console.log('KPI Card module imported');
+  </script>
+</body>
+</html>
