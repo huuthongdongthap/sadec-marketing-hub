@@ -311,26 +311,149 @@
 .btn-outlined:hover {
             background: var(--md-sys-color-primary-container);
         }
-/* ===== RESPONSIVE ===== */
-        @media (max-width: 1400px) {
-            .pipeline-board {
-                grid-template-columns: repeat(5, 260px);
-            }
+/* ===== RESPONSIVE DESKTOP ===== */
+@media (max-width: 1400px) {
+    .pipeline-board {
+        grid-template-columns: repeat(5, 260px);
+    }
+}
+
+/* ===== TABLET 768px ===== */
+@media (max-width: 768px) {
+    .pipeline-board {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        min-height: auto;
+    }
+
+    .pipeline-stage {
+        min-width: 280px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-pill {
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .stat-pill-value {
+        font-size: 18px;
+    }
+
+    .stat-pill-label {
+        font-size: 11px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-box,
+    .filter-dropdown,
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .live-indicator {
+        display: none;
+    }
+}
+
+/* ===== MOBILE 375px ===== */
+@media (max-width: 480px) {
+    .pipeline-board {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .pipeline-stage {
+        min-width: 100%;
+    }
+
+    .pipeline-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stat-pill {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .body-medium {
+        font-size: 13px;
+    }
+
+    .btn-filled,
+    .btn-outlined {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .stage-header {
+        padding: 12px;
+    }
+
+    .stage-title {
+        font-size: 13px;
+    }
+
+    .stage-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
+
+    .stage-count {
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+
+    .deal-card {
+        padding: 12px;
+    }
+
+    .deal-score {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+        top: -4px;
+        right: -4px;
+    }
+
+    .deal-progress-bar {
+        height: 3px;
+    }
+}
+
 @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

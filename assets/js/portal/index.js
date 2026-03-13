@@ -12,7 +12,7 @@ export { supabase, auth, projects, invoices, activities, utils } from './supabas
 export { ToastManager, ModalManager, renderProjects, renderInvoices, updateInvoiceStats } from './portal-ui.js';
 
 // Utilities
-export { formatCurrency, formatDate, timeAgo, truncate, escapeHtml } from './portal-utils.js';
+export { formatCurrency, formatDate, formatRelativeTime, truncate, escapeHtml } from './portal-utils.js';
 export { isRequired, isValidEmail, isValidPhone } from './portal-utils.js';
 export { debounce, throttle, waitForDOM } from './portal-utils.js';
 export { getStorageItem, setStorageItem, removeStorageItem } from './portal-utils.js';

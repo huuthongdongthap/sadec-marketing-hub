@@ -1,99 +1,10 @@
 /**
  * Portal UI Module
- * UI Components: Toast, Modal, Render Functions
+ * UI Components: Modal, Render Functions
  */
 
+import { Toast } from '../enhanced-utils.js';
 import { formatCurrency } from './portal-utils.js';
-
-// ================================================
-// TOAST MANAGER
-// ================================================
-
-export class ToastManager {
-    constructor() {
-        this.container = null;
-        this.init();
-    }
-
-    init() {
-        if (!document.getElementById('toast-container')) {
-            const container = document.createElement('div');
-            container.id = 'toast-container';
-            container.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 10000;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            `;
-            document.body.appendChild(container);
-            this.container = container;
-        } else {
-            this.container = document.getElementById('toast-container');
-        }
-    }
-
-    show(message, type = 'info', duration = 3000) {
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-        toast.style.cssText = `
-            min-width: 280px;
-            max-width: 400px;
-            padding: 14px 20px;
-            background: var(--md-sys-color-surface);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: slideInRight 0.3s ease;
-        `;
-
-        const icons = {
-            success: '✓',
-            error: '✕',
-            warning: '⚠',
-            info: 'ℹ'
-        };
-
-        const colors = {
-            success: 'var(--md-sys-color-primary)',
-            error: 'var(--md-sys-color-error)',
-            warning: 'var(--md-sys-color-error-container)',
-            info: 'var(--md-sys-color-secondary)'
-        };
-
-        toast.innerHTML = `
-            <span style="font-size: 18px; color: ${colors[type]}">${icons[type]}</span>
-            <span style="flex: 1; font-size: 14px;">${message}</span>
-        `;
-
-        this.container.appendChild(toast);
-
-        setTimeout(() => {
-            toast.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
-    }
-
-    success(message) {
-        this.show(message, 'success');
-    }
-
-    error(message) {
-        this.show(message, 'error');
-    }
-
-    warning(message) {
-        this.show(message, 'warning');
-    }
-
-    info(message) {
-        this.show(message, 'info');
-    }
-}
 
 // ================================================
 // MODAL MANAGER

@@ -5,7 +5,7 @@
 
 import { DEMO_PROJECTS } from './portal-data.js';
 import { supabase } from './supabase.js';
-import { formatCurrency, timeAgo } from './portal-utils.js';
+import { formatCurrency, formatRelativeTime } from './portal-utils.js';
 
 // ================================================
 // DASHBOARD LOADING
@@ -158,7 +158,7 @@ function renderActivityFeed(container, activities) {
             <div class="activity-icon">${getActivityIcon(activity.type)}</div>
             <div class="activity-content">
                 <p class="activity-text">${activity.description}</p>
-                <p class="activity-time">${timeAgo(activity.created_at)}</p>
+                <p class="activity-time">${formatRelativeTime(activity.created_at)}</p>
             </div>
         </div>
     `).join('');
