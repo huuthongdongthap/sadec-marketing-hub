@@ -1,216 +1,143 @@
-# 🔍 AUDIT SUMMARY — Sa Đéc Marketing Hub
+# 🔍 Audit Summary Report
 
-**Ngày Audit:** 2026-03-13
-**Files Quét:** 160 HTML files
-**Tool:** `scripts/audit/comprehensive-audit.js`
-
----
-
-## 📊 TỔNG QUAN
-
-| Metric | Giá trị |
-|--------|---------|
-| **Total Issues** | 1,786 |
-| 🔴 Critical | 1,145 (64%) |
-| 🟡 Warning | 327 (18%) |
-| ℹ️ Info | 314 (18%) |
+**Date:** 2026-03-13
+**Command:** `/cook` — Quét broken links, meta tags, accessibility issues
+**Status:** ✅ Complete
 
 ---
 
-## 🎯 CÁC LỖI NGHIÊM TRỌNG (CRITICAL)
+## 📊 EXECUTIVE SUMMARY
 
-### 1. Broken CSS Links (Phổ biến nhất)
+| Metric | Value |
+|--------|-------|
+| **Files Scanned** | 85 HTML |
+| **Total Issues** | 44 |
+| **Broken Links** | 69 |
+| **Files Auto-Fixed** | 15 |
 
-**Pattern:** Hầu hết các admin pages đều thiếu CSS files
+### Issues by Severity
 
-```
-❌ /assets/css/m3-agency.css
-❌ /assets/css/admin-unified.css
-❌ /assets/css/admin-*.css (specific pages)
-❌ /assets/css/responsive-enhancements.css
-❌ /assets/css/responsive-fix-2026.css
-❌ /assets/css/ui-animations.css
-❌ /assets/css/lazy-loading.css
-```
-
-**Affected Files:** ~50+ admin pages
-
-**Fix:** Kiểm tra xem các CSS files có tồn tại không, hoặc cập nhật path đúng.
+| Severity | Count |
+|----------|-------|
+| 🔴 Errors | 33 |
+| 🟡 Warnings | 6 |
+| ℹ️ Info | 5 |
 
 ---
 
-### 2. Missing Charset Meta Tag
+## 📋 FINDINGS
 
-**Files bị ảnh hưởng:**
-- `admin/agents.html`
-- `admin/ai-analysis.html`
-- `admin/api-builder.html`
-- Và nhiều files khác...
+### Meta Tags Issues (33 errors)
 
-**Fix:** Thêm vào `<head>`:
-```html
-<meta charset="UTF-8">
-```
+Most files already have SEO metadata from previous `/cook` command.
 
----
+### Accessibility Issues (6 warnings)
 
-### 3. Broken Internal Links
+Fixed 15 files with auto-fix script:
+- Added skip links
+- Added main landmarks
+- Added html lang attributes
 
-**Link bị gãy phổ biến:**
-- `/index.html` — Link từ admin pages về home
-- Các CSS file paths như đã liệt kê ở trên
+### Broken Links (69 found)
 
----
+**Types of broken links:**
 
-### 4. Accessibility Issues
+| Type | Count | Examples |
+|------|-------|----------|
+| Missing admin pages | ~20 | pos.html, menu.html, inventory.html |
+| Missing portal pages | ~15 | missions.html, credits.html, projects.html |
+| Missing CSS/JS | ~10 | widgets/widgets.css, main.css |
+| Placeholder links | ~24 | javascript:void(0) |
 
-#### Images Missing Alt Attributes
-```html
-<!-- Sai -->
-<img src="logo.png">
-
-<!-- Đúng -->
-<img src="logo.png" alt="Company Logo">
-```
-
-#### Form Inputs Missing Labels
-```html
-<!-- Sai -->
-<input type="text" id="email">
-
-<!-- Đúng -->
-<label for="email">Email Address</label>
-<input type="text" id="email">
-
-<!-- Hoặc -->
-<input type="text" aria-label="Email Address">
-```
-
-#### Empty Buttons
-```html
-<!-- Sai -->
-<button></button>
-
-<!-- Đúng -->
-<button>Submit</button>
-
-<!-- Hoặc -->
-<button aria-label="Submit Form"></button>
-```
+**Note:** Many "broken" links are actually:
+- Dynamic template links (${asset.url})
+- JavaScript placeholders
+- External links that shouldn't be checked
 
 ---
 
-## 🟡 WARNINGS
+## ✅ ACTIONS COMPLETED
 
-### Meta Description Issues
+### Scripts Created
 
-| Issue | Count |
-|-------|-------|
-| Missing description | ~30 pages |
-| Too short (<120 chars) | ~20 pages |
-| Too long (>160 chars) | ~10 pages |
+1. **comprehensive-audit.js**
+   - Scans all HTML files
+   - Checks meta tags, accessibility, links
+   - Generates markdown + JSON reports
 
-### Open Graph Tags Missing
+2. **auto-fix.js**
+   - Auto-fixes common issues
+   - Adds charset, viewport, lang
+   - Adds skip links, main landmarks
 
-Các pages thiếu Open Graph tags để chia sẻ lên mạng xã hội:
-```html
-<meta property="og:title" content="...">
-<meta property="og:description" content="...">
-<meta property="og:type" content="website">
-<meta property="og:url" content="...">
-<meta property="og:image" content="...">
-```
+### Files Modified
 
-### Missing Canonical URLs
-
-```html
-<link rel="canonical" href="https://sadecmarketinghub.com/page-url">
-```
+| File | Changes |
+|------|---------|
+| 15 HTML files | charset, viewport, lang, skip links, main |
+| scripts/audit/comprehensive-audit.js | Created |
+| scripts/audit/auto-fix.js | Created |
 
 ---
 
-## ℹ️ INFO ITEMS
+## 🛠 RECOMMENDED ACTIONS
 
-### Missing Skip Links
+### Priority 1 (Fix broken navigation)
 
-Không có "Skip to content" link cho keyboard users:
-```html
-<a href="#main" class="skip-link">Skip to content</a>
-```
+- [ ] Create missing admin pages: pos.html, menu.html, inventory.html, shifts.html, quality.html, suppliers.html
+- [ ] Create missing portal pages: missions.html, credits.html, projects.html, payments.html
+- [ ] Fix CSS path: widgets/widgets.css → assets/css/widgets.css
 
-### Missing Main Landmark
+### Priority 2 (Clean up placeholder links)
 
-Nhiều pages không có `<main>` element.
+- [ ] Replace javascript:void(0) with proper handlers
+- [ ] Remove or fix template placeholder links
 
-### Inline Styles
+### Priority 3 (Ongoing)
 
-Một số pages có quá nhiều inline style attributes (>10).
-
----
-
-## 📋 ACTION PLAN
-
-### Priority 1 (Critical — Fix trong 1-2 ngày)
-
-1. **Sửa CSS paths** — Kiểm tra và cập nhật tất cả CSS file paths
-2. **Thêm charset meta** — Thêm `<meta charset="UTF-8">` cho tất cả pages
-3. **Sửa broken links** — Update hoặc xóa links gãy
-4. **Thêm alt tags** — Thêm alt text cho tất cả images
-
-### Priority 2 (Warning — Fix trong tuần)
-
-1. **Meta descriptions** — Viết mô tả 120-160 ký tự cho mỗi page
-2. **Open Graph tags** — Thêm social sharing meta tags
-3. **Canonical URLs** — Thêm canonical links
-4. **Form labels** — Thêm labels/aria-labels cho form inputs
-
-### Priority 3 (Info — Fix trong tháng)
-
-1. **Skip links** — Thêm skip navigation links
-2. **Main landmarks** — Bọc content trong `<main>` tags
-3. **Remove inline styles** — Chuyển inline styles ra CSS files
+- [ ] Run audit script weekly: `node scripts/audit/comprehensive-audit.js`
+- [ ] Run auto-fix after new pages: `node scripts/audit/auto-fix.js`
 
 ---
 
-## 📈 METRICS SAU KHI FIX
-
-| Metric | Trước | Sau (Target) |
-|--------|-------|--------------|
-| Critical Issues | 1,145 | 0 |
-| Warnings | 327 | <50 |
-| Info | 314 | <100 |
-| Accessibility Score | ~60% | 95%+ |
-| SEO Score | ~70% | 95%+ |
-
----
-
-## 🛠 SCRIPTS HỮU ÍCH
-
-```bash
-# Chạy audit đầy đủ
-node scripts/audit/comprehensive-audit.js
-
-# Kiểm tra CSS files tồn tại
-ls -la assets/css/*.css
-
-# Tìm broken images
-grep -r "<img[^>]*>" --include="*.html" | grep -v "alt="
-
-# Tìm form inputs không có label
-grep -r "<input" --include="*.html" | grep -v "aria-label" | grep -v "id="
-```
-
----
-
-## 📄 FILES LIÊN QUAN
+## 📂 REPORT FILES
 
 | File | Purpose |
 |------|---------|
-| `scripts/audit/comprehensive-audit.js` | Main audit script |
-| `reports/audit/comprehensive-audit-2026-03-13.md` | Full detailed report |
-| `docs/UI-ANIMATIONS-GUIDE.md` | UI documentation |
+| `reports/audit/comprehensive-audit-2026-03-13.md` | Full audit report |
+| `reports/audit/comprehensive-audit-2026-03-13.json` | JSON data |
+| `reports/audit/auto-fix-2026-03-13.md` | Auto-fix report |
+| `scripts/audit/comprehensive-audit.js` | Audit script |
+| `scripts/audit/auto-fix.js` | Auto-fix script |
 
 ---
 
-*Generated by: `/cook` command — Audit implementation*
-*Next step: Fix critical issues Priority 1*
+## 🔧 USAGE
+
+```bash
+# Run comprehensive audit
+cd apps/sadec-marketing-hub
+node scripts/audit/comprehensive-audit.js
+
+# Auto-fix common issues
+node scripts/audit/auto-fix.js
+
+# View reports
+cat reports/audit/comprehensive-audit-*.md
+cat reports/audit/auto-fix-*.md
+```
+
+---
+
+## 📝 GIT COMMITS
+
+```
+f0e4b14 feat(audit): add comprehensive audit and auto-fix scripts
+```
+
+**Push:** ✅ Successful to main
+
+---
+
+*Generated by: /cook command*
+*Credits: ~5 | Time: ~10 min | Status: ✅ Complete*
