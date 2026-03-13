@@ -2,6 +2,80 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.10.0] - 2026-03-13 — Components Build: Accordion, Data Table, Debug Tools
+
+### 🧩 New Components
+
+**Accordion CSS (`assets/css/components/accordion.css` - 304 lines):**
+- Collapse/expand sections with smooth animations
+- Multiple accordion styles (default, bordered, separated)
+- Icon rotation on expand/collapse
+- Keyboard navigation support
+- Accessible ARIA attributes
+
+**Data Table JS (`assets/js/components/data-table.js` - 800 lines):**
+- Sortable columns (asc/desc)
+- Pagination with configurable page size
+- Search/filter functionality
+- Row selection (single/multiple)
+- Export to CSV
+- Responsive layout
+- Server-side pagination ready
+
+**Debug Imports Script (`scripts/debug-imports.js` - 174 lines):**
+- Validate import paths in JS/CSS files
+- Detect circular dependencies
+- Find unused imports
+- CLI tool for CI/CD integration
+
+### 📦 Files Added
+
+| File | Lines | Description |
+|------|-------|-------------|
+| `assets/css/components/accordion.css` | 304 | Accordion component styles |
+| `assets/js/components/data-table.js` | 800 | Data table component |
+| `scripts/debug-imports.js` | 174 | Import path validator |
+
+**Total:** 1,278 insertions(+)
+
+### 🔧 Features
+
+**Accordion:**
+```html
+<div class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-header">Section 1</button>
+    <div class="accordion-content">...</div>
+  </div>
+</div>
+```
+
+**Data Table:**
+```javascript
+const table = new DataTable('#my-table', {
+  sortable: true,
+  searchable: true,
+  pagination: true,
+  pageSize: 10,
+  exportCsv: true
+});
+```
+
+### 🧪 Testing
+
+```bash
+# Test accordion component
+npm test -- tests/components/accordion.spec.ts
+
+# Test data table component
+npm test -- tests/components/data-table.spec.ts
+
+# Test debug imports script
+node scripts/debug-imports.js
+```
+
+---
+
 ## [v4.9.0] - 2026-03-13 — Test Coverage Complete Release
 
 ### 🧪 Test Coverage — 100% Pages, CSS, JS Utilities
