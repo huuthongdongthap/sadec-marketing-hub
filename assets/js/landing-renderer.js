@@ -5,9 +5,15 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-// Initialize Supabase - try to use injected env vars first
-const supabaseUrl = window.__ENV__?.SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const supabaseKey = window.__ENV__?.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
+// Initialize Supabase from injected env vars
+const supabaseUrl = window.__ENV__?.SUPABASE_URL;
+const supabaseKey = window.__ENV__?.SUPABASE_ANON_KEY;
+
+// Validate environment variables
+if (!supabaseUrl || !supabaseKey) {
+    console.error('[LandingRenderer] Missing Supabase configuration');
+    throw new Error('SUPABASE_URL and SUPABASE_ANON_KEY are required');
+}
 
 const app = document.getElementById('app');
 
