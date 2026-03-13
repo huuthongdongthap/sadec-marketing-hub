@@ -16,7 +16,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
-import { supabase } from '../services/supabase-client.js';
+import { supabase } from '../supabase.js';
 import { Logger } from '../shared/logger.js';
 
 const TAG = '[NotificationCenter]';
