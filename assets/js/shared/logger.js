@@ -113,6 +113,8 @@ const Logger = {
 };
 
 // Export for ES modules
+export default Logger;
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Logger;
 }
