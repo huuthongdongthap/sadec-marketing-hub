@@ -39,8 +39,7 @@ export function initDarkMode() {
 
     // Create toggle button if not exists
     createToggleButton();
-
-    console.log('[DarkMode] Initialized');
+    // Silent in production
 }
 
 /**
@@ -56,8 +55,7 @@ export function toggleDarkMode() {
 
     // Dispatch event for other components
     window.dispatchEvent(new CustomEvent('theme-change', { detail: { theme: newTheme } }));
-
-    console.log('[DarkMode] Toggled to:', newTheme);
+    // Silent in production
 }
 
 /**

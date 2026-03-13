@@ -42,8 +42,6 @@ export { initOnboardingTour } from './onboarding-tour.js';
  * Initialize all features
  */
 export function initAllFeatures() {
-    console.log('[Features] Initializing all features...');
-
     if (FEATURE_FLAGS.darkMode) initDarkMode();
     if (FEATURE_FLAGS.keyboardShortcuts) initKeyboardShortcuts();
     if (FEATURE_FLAGS.quickNotes) initQuickNotes();
@@ -52,6 +50,4 @@ export function initAllFeatures() {
     if (FEATURE_FLAGS.exportToPDF) initExport();
     if (FEATURE_FLAGS.realTimeNotifications) initRealTimeNotifications();
     if (FEATURE_FLAGS.onboardingTour) initOnboardingTour();
-
-    console.log('[Features] All features initialized');
 }

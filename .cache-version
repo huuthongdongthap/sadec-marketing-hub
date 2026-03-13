@@ -1,6 +1,6 @@
 {
-  "version": "vmmpaet1v.5d9f5a8dfd01",
-  "timestamp": "2026-03-13T19:26:02.899Z",
+  "version": "vmmpbp2t6.751d05a57497",
+  "timestamp": "2026-03-13T20:02:01.722Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -327,10 +327,6 @@
       "hash": "76754d46"
     },
     {
-      "path": "assets/js/admin/dark-mode.js",
-      "hash": "6937d1e2"
-    },
-    {
       "path": "assets/js/admin/index.js",
       "hash": "9257f1fb"
     },
@@ -356,7 +352,7 @@
     },
     {
       "path": "assets/js/admin/ux-components-index.js",
-      "hash": "e364fdea"
+      "hash": "5147d1b4"
     },
     {
       "path": "assets/js/affiliate-api.js",
@@ -424,7 +420,7 @@
     },
     {
       "path": "assets/js/components/export-buttons.js",
-      "hash": "14dc13bb"
+      "hash": "cb9c2291"
     },
     {
       "path": "assets/js/components/file-upload.js",
@@ -436,7 +432,7 @@
     },
     {
       "path": "assets/js/components/index.js",
-      "hash": "f2e3f050"
+      "hash": "77762c0b"
     },
     {
       "path": "assets/js/components/kpi-card.js",
@@ -515,20 +511,20 @@
       "hash": "7cf065b1"
     },
     {
-      "path": "assets/js/components/user-preferences.js",
-      "hash": "64f73b31"
-    },
-    {
       "path": "assets/js/content-calendar.js",
       "hash": "dac91325"
     },
     {
-      "path": "assets/js/core-utils.test.js",
-      "hash": "9fa54131"
+      "path": "assets/js/core/theme-manager.js",
+      "hash": "5696040a"
     },
     {
-      "path": "assets/js/dark-mode.js",
-      "hash": "3d1411cf"
+      "path": "assets/js/core/user-preferences.js",
+      "hash": "16f2cbe2"
+    },
+    {
+      "path": "assets/js/core-utils.test.js",
+      "hash": "9fa54131"
     },
     {
       "path": "assets/js/dashboard-client.js",
@@ -543,6 +539,14 @@
       "hash": "4bea6092"
     },
     {
+      "path": "assets/js/error-boundary.js",
+      "hash": "ae99b75c"
+    },
+    {
+      "path": "assets/js/features/activity-timeline.js",
+      "hash": "e09e42cf"
+    },
+    {
       "path": "assets/js/features/ai-content-generator.js",
       "hash": "a10cdfda"
     },
@@ -551,24 +555,36 @@
       "hash": "7b74070b"
     },
     {
+      "path": "assets/js/features/dark-mode.js",
+      "hash": "a3cdbd32"
+    },
+    {
       "path": "assets/js/features/data-export.js",
       "hash": "1f0f5860"
     },
     {
+      "path": "assets/js/features/features-2026.js",
+      "hash": "aec70695"
+    },
+    {
       "path": "assets/js/features/index.js",
-      "hash": "2179fbbc"
+      "hash": "45e5d649"
+    },
+    {
+      "path": "assets/js/features/keyboard-shortcuts.js",
+      "hash": "09f7421b"
     },
     {
       "path": "assets/js/features/quick-actions.js",
       "hash": "26622368"
     },
     {
-      "path": "assets/js/features/search-autocomplete.js",
-      "hash": "1373ef39"
+      "path": "assets/js/features/quick-notes.js",
+      "hash": "421f9ef7"
     },
     {
-      "path": "assets/js/features/user-preferences.js",
-      "hash": "763b2e07"
+      "path": "assets/js/features/search-autocomplete.js",
+      "hash": "1373ef39"
     },
     {
       "path": "assets/js/finance-client.js",
@@ -629,6 +645,10 @@
     {
       "path": "assets/js/mvp-launch.js",
       "hash": "b9bbc296"
+    },
+    {
+      "path": "assets/js/notification-manager.js",
+      "hash": "f4a7f819"
     },
     {
       "path": "assets/js/onboarding.js",
@@ -853,6 +873,14 @@
     {
       "path": "assets/js/supabase.js",
       "hash": "a294bf4d"
+    },
+    {
+      "path": "assets/js/theme-manager.js",
+      "hash": "03d33fb3"
+    },
+    {
+      "path": "assets/js/toast-component.js",
+      "hash": "66e23c51"
     },
     {
       "path": "assets/js/ui-enhancements-controller.js",

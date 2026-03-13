@@ -46,8 +46,7 @@ class ErrorBoundaryClass {
     this.setupRetryMechanism();
 
     this.initialized = true;
-
-    console.log('[ErrorBoundary] Initialized');
+    // Silent in production
   }
 
   /**

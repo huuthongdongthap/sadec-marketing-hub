@@ -69,7 +69,6 @@ class RealtimeStatsWidget extends HTMLElement {
     }
 
     fallbackToPolling() {
-        console.log('[RealtimeStats] WebSocket failed, falling back to polling');
         this.disconnectWebSocket();
         this.startLiveUpdates();
     }

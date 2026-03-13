@@ -1,20 +1,8 @@
 [
   {
-    "file": "assets/js/components/export-buttons.js",
-    "type": "log",
-    "line": 211,
-    "context": "console.log(`[${type.toUpperCase()}] ${message}`);"
-  },
-  {
     "file": "assets/js/features/search-autocomplete.js",
     "type": "log",
     "line": 15,
     "context": "console.log(item)"
-  },
-  {
-    "file": "admin/widgets/realtime-stats-widget.js",
-    "type": "log",
-    "line": 72,
-    "context": "console.log('[RealtimeStats] WebSocket failed, falling back to polling');"
   }
 ]
