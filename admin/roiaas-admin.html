@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROIaaS Admin Dashboard — Mekong Agency</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           CYBER-GLASS 2026 DESIGN SYSTEM
+           ═══════════════════════════════════════════════════════════════ */
+        :root {
+            --void-black: #0a0e1a;
+            --deep-space: #0f1425;
+            --slate-navy: #1a1f3a;
+            --electric-blue: #00f0ff;
+            --cyber-cyan: #00a8ff;
+            --neon-purple: #8b5cf6;
+            --plasma-pink: #f472b6;
+            --quantum-gold: #fbbf24;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --danger-red: #ef4444;
+
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.12);
+            --glass-shadow: rgba(0, 0, 0, 0.3);
+
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--void-black) 0%, var(--deep-space) 50%, var(--slate-navy) 100%);
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            animation: ambientPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes ambientPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .dashboard-title h1 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyber-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .dashboard-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .refresh-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--electric-blue);
+            border-color: var(--glass-highlight);
+        }
+
+        .refresh-btn.spinning .material-symbols-outlined {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-purple));
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .stat-card:hover {
+            border-color: var(--glass-highlight);
+            transform: translateY(-4px);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-card-icon.revenue {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(0, 168, 255, 0.1));
+            color: var(--electric-blue);
+        }
+
+        .stat-card-icon.clients {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.1));
+            color: var(--neon-purple);
+        }
+
+        .stat-card-icon.tier {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.1));
+            color: var(--quantum-gold);
+        }
+
+        .stat-card-icon.growth {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.1));
+            color: var(--success-green);
+        }
+
+        .stat-card-value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .stat-card-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card-trend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: var(--space-sm);
+            font-size: 12px;
+        }
+
+        .trend-up {
+            color: var(--success-green);
+        }
+
+        .trend-down {
+            color: var(--danger-red);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .card-title .material-symbols-outlined {
+            color: var(--electric-blue);
+        }
+
+        /* Revenue Charts */
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        @media (max-width: 1024px) {
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Clients Table */
+        .clients-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .clients-table th,
+        .clients-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .clients-table th {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .clients-table td {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .client-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .client-name {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .client-email {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .tier-badge {
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .tier-basic {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--electric-blue);
+        }
+
+        .tier-pro {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--neon-purple);
+        }
+
+        .tier-enterprise {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--quantum-gold);
+        }
+
+        .roi-value {
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        .roi-high {
+            color: var(--success-green);
+        }
+
+        .roi-medium {
+            color: var(--warning-orange);
+        }
+
+        .roi-low {
+            color: var(--danger-red);
+        }
+
+        /* Subscription Tiers */
+        .tiers-grid {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            transition: all var(--transition-base);
+        }
+
+        .tier-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--glass-highlight);
+        }
+
+        .tier-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .tier-name {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .tier-count {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--electric-blue);
+        }
+
+        .tier-progress {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: var(--space-sm);
+        }
+
+        .tier-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width var(--transition-base);
+        }
+
+        .tier-progress-fill.basic {
+            background: linear-gradient(90deg, var(--electric-blue), var(--cyber-cyan));
+        }
+
+        .tier-progress-fill.pro {
+            background: linear-gradient(90deg, var(--neon-purple), var(--plasma-pink));
+        }
+
+        .tier-progress-fill.enterprise {
+            background: linear-gradient(90deg, var(--quantum-gold), var(--warning-orange));
+        }
+
+        .tier-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Activity List */
+        .activity-list {
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        .activity-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .activity-icon.export {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--electric-blue);
+        }
+
+        .activity-icon.match {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--neon-purple);
+        }
+
+        .activity-icon.payment {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success-green);
+        }
+
+        .activity-icon.alert {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning-orange);
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2px;
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md);
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .clients-table {
+                font-size: 13px;
+            }
+
+            .clients-table th,
+            .clients-table td {
+                padding: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="dashboard-title">
+                <h1>🚀 ROIaaS Admin Dashboard</h1>
+                <p class="dashboard-subtitle">Master view — All clients, revenue & performance</p>
+            </div>
+            <div class="header-actions">
+                <span style="font-size: 13px; color: rgba(255,255,255,0.5);">
+                    Last updated: <span id="last-update">Just now</span>
+                </span>
+                <button class="refresh-btn" onclick="refreshData()" title="Refresh data">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-icon revenue">💰</div>
+                <div class="stat-card-value" id="total-revenue">₫0</div>
+                <div class="stat-card-label">Total Revenue (MTD)</div>
+                <div class="stat-card-trend trend-up">
+                    <span class="material-symbols-outlined">trending_up</span>
+                    <span>+42% vs last month</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon clients">👥</div>
+                <div class="stat-card-value" id="total-clients">0</div>
+                <div class="stat-card-label">Active Clients</div>
+                <div class="stat-card-trend trend-up">
+                    <span class="material-symbols-outlined">group_add</span>
+                    <span>+8 this month</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon tier">💎</div>
+                <div class="stat-card-value" id="avg-roi">0%</div>
+                <div class="stat-card-label">Avg Client ROI</div>
+                <div class="stat-card-trend trend-up">
+                    <span class="material-symbols-outlined">trending_up</span>
+                    <span>+5.2% avg increase</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon growth">📈</div>
+                <div class="stat-card-value" id="total-deals">0</div>
+                <div class="stat-card-label">Export Deals Closed</div>
+                <div class="stat-card-trend trend-up">
+                    <span class="material-symbols-outlined">trending_up</span>
+                    <span>+24 deals</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Charts Row -->
+        <div class="charts-row">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="material-symbols-outlined">trending_up</span>
+                        Revenue Trend (6 Months)
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="revenueTrendChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="material-symbols-outlined">donut_large</span>
+                        Revenue by Tier
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="revenueByTierChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Clients Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="material-symbols-outlined">people</span>
+                        All Clients ROI
+                    </h3>
+                    <button class="refresh-btn" style="width: 32px; height: 32px;" onclick="refreshClients()">
+                        <span class="material-symbols-outlined">refresh</span>
+                    </button>
+                </div>
+                <table class="clients-table">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Tier</th>
+                            <th>ROI</th>
+                            <th>Revenue</th>
+                            <th>Deals</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clients-table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="sidebar">
+                <!-- Subscription Tiers -->
+                <div class="card sidebar-section">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="material-symbols-outlined">layers</span>
+                            Subscription Tiers
+                        </h3>
+                    </div>
+                    <div class="tiers-grid" id="tiers-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card sidebar-section">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="material-symbols-outlined">history</span>
+                            Recent Activity
+                        </h3>
+                    </div>
+                    <div class="activity-list" id="activity-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * ROIaaS Admin Dashboard — Cyber-Glass 2026
+         * Master admin view for all clients, revenue, and performance
+         */
+        (function() {
+            'use strict';
+
+            // Mock data (replace with Supabase fetch)
+            const dashboardData = {
+                stats: {
+                    totalRevenue: 2850000000,
+                    totalClients: 24,
+                    avgRoi: 38,
+                    totalDeals: 67
+                },
+                revenueTrend: [320, 450, 520, 680, 890, 1150], // triệu VND
+                revenueByTier: {
+                    'Basic': 420,
+                    'Pro': 1280,
+                    'Enterprise': 1150
+                },
+                clients: [
+                    { id: 1, name: 'Nguyễn Văn Minh', email: 'minh@ocop.vn', tier: 'enterprise', roi: 58, revenue: 450000000, deals: 12, status: 'active' },
+                    { id: 2, name: 'Trần Thị Lan', email: 'lan@saigonfood.vn', tier: 'pro', roi: 42, revenue: 280000000, deals: 8, status: 'active' },
+                    { id: 3, name: 'Lê Hoàng Nam', email: 'nam@mekongagri.vn', tier: 'pro', roi: 35, revenue: 195000000, deals: 6, status: 'active' },
+                    { id: 4, name: 'Phạm Thu Hà', email: 'ha@deltafood.vn', tier: 'basic', roi: 28, revenue: 85000000, deals: 3, status: 'active' },
+                    { id: 5, name: 'Võ Thành Công', email: 'cong@organicvn.vn', tier: 'enterprise', roi: 62, revenue: 520000000, deals: 15, status: 'active' },
+                    { id: 6, name: 'Đặng Thị Mai', email: 'mai@riceexport.vn', tier: 'pro', roi: 45, revenue: 310000000, deals: 9, status: 'active' },
+                    { id: 7, name: 'Hoàng Văn Tuấn', email: 'tuan@fruitco.vn', tier: 'basic', roi: 22, revenue: 65000000, deals: 2, status: 'at-risk' },
+                    { id: 8, name: 'Bùi Thị Nhung', email: 'nhung@spicevn.vn', tier: 'pro', roi: 38, revenue: 220000000, deals: 7, status: 'active' }
+                ],
+                tiers: [
+                    { name: 'Basic', count: 8, revenue: 420000000, target: 15, color: 'basic' },
+                    { name: 'Pro', count: 11, revenue: 1280000000, target: 20, color: 'pro' },
+                    { name: 'Enterprise', count: 5, revenue: 1150000000, target: 10, color: 'enterprise' }
+                ],
+                activity: [
+                    { type: 'export', title: 'OCOP Export Agent generated B2B listing for ST25 Rice', time: '2 min ago' },
+                    { type: 'match', title: 'AI Match found 3 buyers for Mekong Agri products', time: '8 min ago' },
+                    { type: 'payment', title: 'Enterprise tier upgrade — OrganicVN', time: '15 min ago' },
+                    { type: 'alert', title: 'Low credit alert — FruitCo (5 credits remaining)', time: '32 min ago' },
+                    { type: 'export', title: 'Compliance checklist generated for EU market', time: '1 hour ago' },
+                    { type: 'payment', title: 'Pro tier renewal — Saigon Food', time: '2 hours ago' }
+                ]
+            };
+
+            // Format currency VND
+            function formatVND(amount) {
+                return new Intl.NumberFormat('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND'
+                }).format(amount);
+            }
+
+            // Format short number
+            function formatShort(num) {
+                if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
+                if (num >= 1000000) return (num / 1000000).toFixed(0) + 'M';
+                return num.toString();
+            }
+
+            // Get initials from name
+            function getInitials(name) {
+                return name.split(' ').map(n => n[0]).slice(-2).join('').toUpperCase();
+            }
+
+            // Get ROI class
+            function getRoiClass(roi) {
+                if (roi >= 40) return 'roi-high';
+                if (roi >= 30) return 'roi-medium';
+                return 'roi-low';
+            }
+
+            // Update stats
+            function updateStats() {
+                document.getElementById('total-revenue').textContent = formatVND(dashboardData.stats.totalRevenue);
+                document.getElementById('total-clients').textContent = dashboardData.stats.totalClients;
+                document.getElementById('avg-roi').textContent = dashboardData.stats.avgRoi + '%';
+                document.getElementById('total-deals').textContent = dashboardData.stats.totalDeals;
+            }
+
+            // Render clients table
+            function renderClientsTable() {
+                const tbody = document.getElementById('clients-table-body');
+                tbody.innerHTML = dashboardData.clients.map(client => {
+                    const tierClass = 'tier-' + client.tier;
+                    const tierLabel = client.tier.charAt(0).toUpperCase() + client.tier.slice(1);
+                    const roiClass = getRoiClass(client.roi);
+                    const statusDot = client.status === 'active' ? '✓' : '⚠';
+                    const statusColor = client.status === 'active' ? var(--success-green) : var(--warning-orange);
+
+                    return `
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <div class="client-avatar">${getInitials(client.name)}</div>
+                                    <div>
+                                        <div class="client-name">${client.name}</div>
+                                        <div class="client-email">${client.email}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="tier-badge ${tierClass}">${tierLabel}</span>
+                            </td>
+                            <td>
+                                <span class="roi-value ${roiClass}">${client.roi}%</span>
+                            </td>
+                            <td>${formatShort(client.revenue)}</td>
+                            <td>${client.deals}</td>
+                            <td style="color: ${statusColor}">${statusDot}</td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            // Render tiers
+            function renderTiers() {
+                const grid = document.getElementById('tiers-grid');
+                grid.innerHTML = dashboardData.tiers.map(tier => {
+                    const progress = (tier.count / tier.target) * 100;
+                    return `
+                        <div class="tier-card">
+                            <div class="tier-card-header">
+                                <span class="tier-name">
+                                    ${tier.name === 'Enterprise' ? '💎' : tier.name === 'Pro' ? '⭐' : '📦'}
+                                    ${tier.name}
+                                </span>
+                                <span class="tier-count">${tier.count}/${tier.target}</span>
+                            </div>
+                            <div class="tier-progress">
+                                <div class="tier-progress-fill ${tier.color}" style="width: ${progress}%"></div>
+                            </div>
+                            <div class="tier-stats">
+                                <span>${formatShort(tier.revenue)} revenue</span>
+                                <span>${Math.round(progress)}% target</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Render activity
+            function renderActivity() {
+                const list = document.getElementById('activity-list');
+                list.innerHTML = dashboardData.activity.map(item => {
+                    const iconClass = item.type;
+                    const icon = item.type === 'export' ? 'public' :
+                                item.type === 'match' ? 'auto_awesome' :
+                                item.type === 'payment' ? 'payments' : 'warning';
+
+                    return `
+                        <div class="activity-item">
+                            <div class="activity-icon ${iconClass}">
+                                <span class="material-symbols-outlined">${icon}</span>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">${item.title}</div>
+                                <div class="activity-time">${item.time}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Initialize charts
+            function initCharts() {
+                Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
+                Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+                // Revenue Trend Chart
+                new Chart(document.getElementById('revenueTrendChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
+                        datasets: [{
+                            label: 'Revenue (triệu VND)',
+                            data: dashboardData.revenueTrend,
+                            borderColor: '#00f0ff',
+                            backgroundColor: 'rgba(0, 240, 255, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#00f0ff',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                            },
+                            x: {
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+
+                // Revenue by Tier Chart
+                new Chart(document.getElementById('revenueByTierChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: Object.keys(dashboardData.revenueByTier),
+                        datasets: [{
+                            data: Object.values(dashboardData.revenueByTier),
+                            backgroundColor: ['#00f0ff', '#8b5cf6', '#fbbf24'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { padding: 15, usePointStyle: true }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Refresh functions
+            window.refreshData = function() {
+                const btn = document.querySelector('.refresh-btn');
+                btn.classList.add('spinning');
+
+                setTimeout(() => {
+                    btn.classList.remove('spinning');
+                    document.getElementById('last-update').textContent = 'Just now';
+                }, 1000);
+            };
+
+            window.refreshClients = function() {
+                // Simulate refresh
+                console.log('Refreshing clients data...');
+            };
+
+            // Initialize on load
+            document.addEventListener('DOMContentLoaded', function() {
+                updateStats();
+                renderClientsTable();
+                renderTiers();
+                renderActivity();
+                initCharts();
+            });
+
+        })();
+    </script>
+</body>
+</html>
