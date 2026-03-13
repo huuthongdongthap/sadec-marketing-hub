@@ -22,16 +22,20 @@ export {
     throttle
 } from '../services/core-utils.js';
 
-// Re-export Toast, ThemeManager, ScrollProgress from enhanced-utils for admin modules
-export {
-    Toast,
-    ThemeManager,
-    ScrollProgress,
-    MobileSidebar
-} from '../services/core-utils.js';
+// Re-export Toast from enhanced-utils
+export { Toast } from '../services/core-utils.js';
+
+// Re-export ThemeManager from components
+export { ThemeManager } from '../components/theme-manager.js';
 
 // Re-export ModalManager from shared
 export { ModalManager, modal, modalHelpers } from '../shared/modal-utils.js';
+
+// Re-export ScrollProgress from enhanced-utils
+export { ScrollProgress } from '../services/enhanced-utils.js';
+
+// Re-export MobileSidebar
+export { MobileSidebar } from '../services/core-utils.js';
 
 // ================================================
 // EXPORT HELPERS

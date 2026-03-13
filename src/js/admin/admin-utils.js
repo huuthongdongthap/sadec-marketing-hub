@@ -25,10 +25,12 @@ export {
 // Re-export Toast, ThemeManager, ScrollProgress from enhanced-utils for admin modules
 export {
     Toast,
-    ThemeManager,
     ScrollProgress,
     MobileSidebar
 } from '../core/enhanced-utils.js';
+
+// Re-export ThemeManager from components
+export { ThemeManager } from '../components/theme-manager.js';
 
 // Re-export ModalManager from shared
 export { ModalManager, modal, modalHelpers } from '../shared/modal-utils.js';
