@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "file": "assets/js/features/search-autocomplete.js",
+    "type": "log",
+    "line": 15,
+    "context": "console.log(item)"
+  },
+  {
+    "file": "assets/js/shared/base-component.js",
+    "type": "log",
+    "line": 159,
+    "context": "console.log(`[${this.name}]`, ...args);"
+  }
+]
