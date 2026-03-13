@@ -8,7 +8,9 @@
     "build": "npm run build:minify",
     "build:minify": "node scripts/build/minify.js",
     "build:optimize": "node scripts/build/optimize-lazy.js",
-    "optimize": "npm run build:optimize && npm run build:minify",
+    "build:css-bundle": "node scripts/build/css-bundle.js",
+    "optimize": "npm run build:css-bundle && npm run build:optimize && npm run build:minify",
+    "optimize:full": "npm run build:css-bundle && npm run optimize && node scripts/perf/bundle-report.js",
     "audit": "node scripts/audit/html-audit.js",
     "audit:fix": "node scripts/audit/fix-html.js",
     "migrate": "node database/migrate.js",
@@ -19,7 +21,9 @@
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "perf:audit": "node scripts/perf/audit.js",
+    "perf:bundle-report": "node scripts/perf/bundle-report.js"
   },
   "keywords": [
     "marketing",

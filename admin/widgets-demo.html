@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Widgets Demo - Mekong Admin</title>
+    <meta name="description" content="Demo và showcase tất cả dashboard widgets">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sadecmarketinghub.com/admin/widgets-demo.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dashboard Widgets Demo - Mekong Admin">
+    <meta property="og:description" content="Demo và showcase tất cả dashboard widgets">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sadecmarketinghub.com/admin/widgets-demo.html">
+    <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dashboard Widgets Demo">
+    <meta name="twitter:description" content="Demo và showcase tất cả dashboard widgets">
+    <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/m3-agency.css">
+    <link rel="stylesheet" href="/assets/css/agency-2026.css">
+    <link rel="stylesheet" href="/assets/css/admin-unified.css">
+    <link rel="stylesheet" href="widgets/widgets.css">
+
+    <style>
+        :root {
+            --primary: #00e5ff;
+            --secondary: #7c4dff;
+            --success: #00e676;
+            --warning: #ff9100;
+            --danger: #ff1744;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--dark-bg);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .demo-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--success));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .demo-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .material-symbols-outlined {
+            color: var(--primary);
+        }
+
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .widgets-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .widgets-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 24px;
+        }
+
+        .widget-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-demo {
+            padding: 10px 20px;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-demo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-demo.primary {
+            background: linear-gradient(135deg, var(--primary), #00b8d4);
+            color: #000;
+            border-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .demo-header h1 {
+                font-size: 28px;
+            }
+
+            .widgets-grid,
+            .widgets-grid-2,
+            .widgets-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+    <script type="module" src="/assets/js/components/sadec-sidebar.js"></script>
+
+    <!-- Dashboard Widgets -->
+    <script type="module" src="widgets/kpi-card.html"></script>
+    <script type="module" src="widgets/revenue-chart.js"></script>
+    <script type="module" src="widgets/activity-feed.js"></script>
+    <script type="module" src="widgets/project-progress.js"></script>
+    <script type="module" src="widgets/pie-chart-widget.js"></script>
+    <script type="module" src="widgets/line-chart-widget.js"></script>
+    <script type="module" src="widgets/area-chart-widget.js"></script>
+    <script type="module" src="widgets/bar-chart-widget.js"></script>
+    <script type="module" src="widgets/alerts-widget.js"></script>
+</head>
+<body>
+    <div class="layout-2026">
+        <sadec-sidebar active="dashboard"></sadec-sidebar>
+
+        <main class="main-content">
+            <div class="demo-header">
+                <h1>Dashboard Widgets Demo</h1>
+                <p>Khám phá tất cả widgets dashboard với animations, responsive design và real-time data</p>
+            </div>
+
+            <!-- KPI Cards Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">analytics</span>
+                    KPI Cards
+                </h2>
+                <div class="widgets-grid-4">
+                    <kpi-card-widget
+                        title="Total Revenue"
+                        value="124,500"
+                        trend="positive"
+                        trend-value="+12.5%"
+                        icon="trending_up"
+                        color="cyan">
+                    </kpi-card-widget>
+
+                    <kpi-card-widget
+                        title="Active Clients"
+                        value="48"
+                        trend="positive"
+                        trend-value="+8 new"
+                        icon="group_add"
+                        color="purple">
+                    </kpi-card-widget>
+
+                    <kpi-card-widget
+                        title="Total Leads"
+                        value="256"
+                        trend="neutral"
+                        trend-value="Stable"
+                        icon="ads_click"
+                        color="lime">
+                    </kpi-card-widget>
+
+                    <kpi-card-widget
+                        title="Conversion Rate"
+                        value="3.2%"
+                        trend="negative"
+                        trend-value="-0.4%"
+                        icon="conversion_path"
+                        color="orange">
+                    </kpi-card-widget>
+                </div>
+            </div>
+
+            <!-- Alerts Widget Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">notifications_active</span>
+                    Alerts Widget
+                </h2>
+                <alerts-widget title="System Alerts" max-items="5"></alerts-widget>
+            </div>
+
+            <!-- Chart Widgets Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">donut_large</span>
+                    Chart Widgets
+                </h2>
+                <div class="widgets-grid">
+                    <pie-chart-widget
+                        title="Traffic Sources"
+                        data-type="traffic">
+                    </pie-chart-widget>
+
+                    <pie-chart-widget
+                        title="Customer Distribution"
+                        data-type="customers">
+                    </pie-chart-widget>
+                </div>
+            </div>
+
+            <!-- Line Chart Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">timeline</span>
+                    Line Chart Widgets
+                </h2>
+                <div class="widgets-grid">
+                    <line-chart-widget
+                        title="Revenue Trend"
+                        data-type="revenue"
+                        time-range="weekly">
+                    </line-chart-widget>
+
+                    <line-chart-widget
+                        title="Conversions"
+                        data-type="conversions"
+                        time-range="monthly">
+                    </line-chart-widget>
+                </div>
+            </div>
+
+            <!-- Area Chart Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">area_chart</span>
+                    Area Chart Widgets
+                </h2>
+                <div class="widgets-grid">
+                    <area-chart-widget
+                        title="Marketing Channels"
+                        data-type="channels"
+                        time-range="weekly">
+                    </area-chart-widget>
+
+                    <area-chart-widget
+                        title="Regional Performance"
+                        data-type="regions"
+                        time-range="monthly">
+                    </area-chart-widget>
+                </div>
+            </div>
+
+            <!-- Bar Chart Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">bar_chart</span>
+                    Bar Chart Widgets
+                </h2>
+                <div class="widgets-grid">
+                    <bar-chart-widget
+                        title="Campaign Performance"
+                        data-type="performance"
+                        orientation="horizontal">
+                    </bar-chart-widget>
+
+                    <bar-chart-widget
+                        title="Revenue by Quarter"
+                        data-type="revenue"
+                        orientation="vertical">
+                    </bar-chart-widget>
+                </div>
+            </div>
+
+            <!-- Existing Widgets Section -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Core Dashboard Widgets
+                </h2>
+                <div class="widgets-grid">
+                    <revenue-chart-widget time-range="weekly"></revenue-chart-widget>
+
+                    <activity-feed-widget title="Live Activity" max-items="5"></activity-feed-widget>
+                </div>
+
+                <div class="widgets-grid" style="margin-top: 24px;">
+                    <project-progress-widget title="Active Projects" status="active"></project-progress-widget>
+                </div>
+            </div>
+
+            <!-- Demo Controls -->
+            <div class="demo-section">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">settings</span>
+                    Demo Controls
+                </h2>
+                <div class="widget-card" style="padding: 24px;">
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 16px;">
+                        Các controls để test widgets:
+                    </p>
+                    <div class="demo-controls">
+                        <button class="btn-demo primary" onclick="refreshWidgets()">Refresh All Widgets</button>
+                        <button class="btn-demo" onclick="toggleTheme()">Toggle Theme</button>
+                        <button class="btn-demo" onclick="simulateAlert()">Simulate Alert</button>
+                        <button class="btn-demo" onclick="updateRandomData()">Update Random Data</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Refresh all widgets
+        function refreshWidgets() {
+            window.location.reload();
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        // Simulate new alert
+        function simulateAlert() {
+            const alertTypes = ['critical', 'warning', 'info', 'success'];
+            const messages = [
+                { type: 'critical', title: 'Server Alert', message: 'CPU usage exceeded 95%' },
+                { type: 'warning', title: 'Storage Warning', message: 'Disk space below 20%' },
+                { type: 'info', title: 'Update Available', message: 'New version v2.5.0 available' },
+                { type: 'success', title: 'Backup Complete', message: 'Daily backup completed successfully' }
+            ];
+
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+            // Dispatch custom event to alerts widget
+            window.dispatchEvent(new CustomEvent('new-alert', { detail: randomMsg }));
+
+            console.log('Simulated alert:', randomMsg);
+            alert(`New Alert: ${randomMsg.title}\n${randomMsg.message}`);
+        }
+
+        // Update random data
+        function updateRandomData() {
+            document.querySelectorAll('kpi-card-widget').forEach(widget => {
+                const newValue = Math.floor(Math.random() * 1000);
+                widget.setAttribute('value', newValue.toLocaleString());
+            });
+
+            console.log('[Demo] Random data updated');
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('[Widgets Demo] Page loaded successfully');
+
+            // Initialize Chart.js if not already loaded
+            if (typeof Chart === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+                document.head.appendChild(script);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -48,14 +48,28 @@ const TERSER_OPTIONS = {
         evaluate: true,
         booleans: true,
         loops: true,
-        typeofs: true
+        typeofs: true,
+        // Additional optimizations
+        pure_getters: true,
+        passes: 2, // Multiple passes for better optimization
+        join_vars: true,
+        collapse_vars: true,
+        reduce_vars: true,
+        toplevel: true // Enable top-level compression
     },
     mangle: {
-        safari10: true // Safari compatibility
+        safari10: true, // Safari compatibility
+        toplevel: true, // Mangle top-level names
+        keep_fnames: false,
+        keep_classnames: false
     },
     format: {
-        comments: false
-    }
+        comments: false,
+        ascii_only: true, // Escape non-ASCII characters
+        quote_style: 1 // Use single quotes
+    },
+    ecma: 2020, // Target ES2020
+    module: true // Enable module optimization
 };
 
 // Stats tracking
