@@ -2,6 +2,104 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.35.0] - 2026-03-14 — New Features 2027
+
+### 🎯 Summary
+
+Release 3 tính năng mới: Notification Center, Command Palette, Project Health Monitor.
+
+**Health Score:** 100/100 ✅
+
+---
+
+### 🔔 Notification Center
+
+**File:** `assets/js/features/notification-center.js`
+
+**Features:**
+- Real-time notifications với Supabase Realtime
+- Badge count trên bell icon
+- Mark as read/unread
+- Notification categories (info, warning, error, success)
+- Sound alerts cho high priority notifications
+- Keyboard shortcut (Ctrl+N)
+
+**Component:** `<notification-center></notification-center>`
+
+---
+
+### ⌨️ Command Palette
+
+**File:** `assets/js/features/command-palette-enhanced.js`
+
+**Features:**
+- Ctrl+K keyboard shortcut
+- Search pages, actions, settings
+- Fuzzy search với 15+ default commands
+- Keyboard navigation (↑↓ Enter ESC)
+- Custom commands support
+- Recent searches (localStorage)
+
+**Component:** `<command-palette></command-palette>`
+
+**Default Commands:**
+- Pages: Dashboard, Pipeline, Analytics, Pricing, Features
+- Actions: New Project, Dark Mode, Export Data, Clear Cache
+- Settings: Profile, Notifications
+- Tools: AI Generator, Calendar
+- Help: Help Tour, Keyboard Shortcuts, Changelog
+
+---
+
+### 🏥 Project Health Monitor
+
+**File:** `assets/js/features/project-health-monitor.js`
+
+**Features:**
+- Real-time health score calculation
+- Visual gauge/meter display
+- 6 metrics: Completion, Engagement, Performance, SEO, Accessibility, Content
+- Trend indicators (up/down)
+- Actionable recommendations
+- Auto-refresh every 30s
+
+**Component:** `<project-health-monitor project-id="demo"></project-health-monitor>`
+
+---
+
+### 🎨 CSS Styles
+
+**File:** `assets/css/new-features-2027.css`
+
+**Classes:**
+- Notification styles (bell, panel, items)
+- Command Palette styles (overlay, items, search)
+- Health Monitor styles (gauge, metrics, recommendations)
+- Dark mode support
+- Responsive design
+
+---
+
+### 📄 Demo Page
+
+**File:** `admin/features-demo-2027.html`
+
+Interactive demo cho tất cả features mới.
+
+---
+
+### 🧪 Tests
+
+**File:** `tests/new-features-2027.spec.ts`
+
+**Test Coverage:** 25 E2E tests
+- Notification Center: 7 tests
+- Command Palette: 8 tests
+- Project Health Monitor: 6 tests
+- Integration Tests: 4 tests
+
+---
+
 ## [v4.34.1] - 2026-03-14 — Accessibility Fix
 
 ### 🎯 Summary
