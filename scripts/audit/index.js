@@ -13,6 +13,9 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
+const { Logger, ProgressBar, formatDuration } = require('../utils/cli-utils.js');
+
+const log = new Logger('audit', process.argv.includes('--verbose'));
 
 // Import scanners
 const { scanLinks } = require('./scanners/links.js');
@@ -87,10 +90,10 @@ async function audit(options = {}) {
         verbose = false
     } = options;
 
-    console.log('🔍 Sa Đéc Marketing Hub — Audit Framework\n');
-    console.log(`Mode: ${fix ? '🔧 Auto-Fix' : '📊 Scan Only'}`);
-    console.log(`Scan: ${scan === 'all' ? 'All checks' : scan}`);
-    console.log(`Output: ${output}\n`);
+    log.progress('Sa Đéc Marketing Hub — Audit Framework\n');
+    log.info(`Mode: ${fix ? '🔧 Auto-Fix' : '📊 Scan Only'}`);
+    log.info(`Scan: ${scan === 'all' ? 'All checks' : scan}`);
+    log.info(`Output: ${output}\n`);
 
     // Get all HTML files
     const htmlFiles = [];
@@ -101,7 +104,7 @@ async function audit(options = {}) {
         }
     }
 
-    console.log(`📁 Found ${htmlFiles.length} HTML files to scan\n`);
+    log.success(`Found ${htmlFiles.length} HTML files to scan\n`);
 
     // Initialize results
     const results = {
@@ -115,75 +118,76 @@ async function audit(options = {}) {
 
     // Run scanners
     if (scan === 'all' || scan === 'links') {
-        console.log('⏳ Scanning links...');
+        log.progress('Scanning links...');
         results.links = await scanLinks(htmlFiles, ROOT_DIR);
-        console.log(`   Found ${results.links.broken.length} broken links\n`);
+        log.info(`Found ${results.links.broken.length} broken links\n`);
     }
 
     if (scan === 'all' || scan === 'meta') {
-        console.log('⏳ Scanning meta tags...');
+        log.progress('Scanning meta tags...');
         results.meta = await scanMeta(htmlFiles, ROOT_DIR);
-        console.log(`   Found ${results.meta.missing.length} missing meta tags\n`);
+        log.info(`Found ${results.meta.missing.length} missing meta tags\n`);
     }
 
     if (scan === 'all' || scan === 'a11y') {
-        console.log('⏳ Scanning accessibility...');
+        log.progress('Scanning accessibility...');
         results.a11y = await scanA11y(htmlFiles, ROOT_DIR);
-        console.log(`   Found ${results.a11y.issues.length} accessibility issues\n`);
+        log.info(`Found ${results.a11y.issues.length} accessibility issues\n`);
     }
 
     if (scan === 'all' || scan === 'ids') {
-        console.log('⏳ Scanning duplicate IDs...');
+        log.progress('Scanning duplicate IDs...');
         results.ids = await scanIDs(htmlFiles, ROOT_DIR);
-        console.log(`   Found ${results.ids.duplicates.length} duplicate IDs\n`);
+        log.info(`Found ${results.ids.duplicates.length} duplicate IDs\n`);
     }
 
     // Auto-fix if requested
     if (fix) {
-        console.log('🔧 Applying fixes...\n');
+        log.progress('Applying fixes...\n');
 
         if (scan === 'all' || scan === 'links') {
             const fixed = await fixLinks(results.links);
-            console.log(`   ✅ Fixed ${fixed} link issues`);
+            log.success(`Fixed ${fixed} link issues`);
         }
 
         if (scan === 'all' || scan === 'meta') {
             const fixed = await fixMeta(results.meta);
-            console.log(`   ✅ Fixed ${fixed} meta tag issues`);
+            log.success(`Fixed ${fixed} meta tag issues`);
         }
 
         if (scan === 'all' || scan === 'a11y') {
             const fixed = await fixA11y(results.a11y);
-            console.log(`   ✅ Fixed ${fixed} accessibility issues`);
+            log.success(`Fixed ${fixed} accessibility issues`);
         }
 
         console.log('');
     }
 
     // Generate report
-    console.log(`📄 Generating ${output} report...\n`);
+    log.progress(`Generating ${output} report...\n`);
 
     let report;
     if (output === 'json') {
         report = generateJSONReport(results);
         const reportPath = path.join(ROOT_DIR, 'audit-report.json');
         fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-        console.log(`📊 Report saved to: ${reportPath}`);
+        log.success(`Report saved to: ${reportPath}`);
     } else {
         report = generateMarkdownReport(results);
         const reportPath = path.join(ROOT_DIR, 'audit-report.md');
         fs.writeFileSync(reportPath, report);
-        console.log(`📄 Report saved to: ${reportPath}`);
+        log.success(`Report saved to: ${reportPath}`);
     }
 
     // Summary
-    console.log('\n✅ Audit Complete!\n');
-    console.log('📊 Summary:');
-    console.log(`   Files Scanned: ${results.filesScanned}`);
-    console.log(`   Broken Links: ${results.links.broken.length}`);
-    console.log(`   Missing Meta: ${results.meta.missing.length}`);
-    console.log(`   A11y Issues: ${results.a11y.issues.length}`);
-    console.log(`   Duplicate IDs: ${results.ids.duplicates.length}`);
+    log.success('Audit Complete!\n');
+    log.summary({
+        'Files Scanned': results.filesScanned,
+        'Broken Links': results.links.broken.length,
+        'Missing Meta': results.meta.missing.length,
+        'A11y Issues': results.a11y.issues.length,
+        'Duplicate IDs': results.ids.duplicates.length
+    });
 
     const totalIssues =
         results.links.broken.length +
