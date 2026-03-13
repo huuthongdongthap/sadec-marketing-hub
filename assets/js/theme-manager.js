@@ -13,12 +13,7 @@
  *   document.addEventListener('themechange', (e) => Logger.debug('Theme:', e.detail.theme));
  */
 
-const Logger = {
-  debug: (...args) => { /* Silent in production */ },
-  log: (...args) => { /* Silent in production */ },
-  warn: (...args) => console.warn('[ThemeManager]', ...args),
-  error: (...args) => console.error('[ThemeManager]', ...args)
-};
+import { Logger } from './shared/logger.js';
 
 class ThemeManagerClass {
   constructor() {

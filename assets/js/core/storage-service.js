@@ -5,6 +5,7 @@
 
 import { supabase } from './supabase-client.js';
 import { auth } from './auth-service.js';
+import { Logger } from '../shared/logger.js';
 
 // ================================================
 // ASSETS API (DAM - Digital Asset Management)
@@ -93,7 +94,7 @@ export const assets = {
             await supabase.storage.from('client-assets').remove([path]);
         } catch (e) {
             // Storage delete is optional
-            console.warn('Storage delete failed:', e);
+            Logger.warn('Storage delete failed', { error: e });
         }
 
         return { error: null };
@@ -353,7 +354,7 @@ export const fileUtils = {
             document.body.removeChild(link);
             URL.revokeObjectURL(blobUrl);
         } catch (error) {
-            console.error('Download failed:', error);
+            Logger.error('Download failed', { error });
             throw error;
         }
     }
