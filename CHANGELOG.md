@@ -2,7 +2,30 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
-## [v4.35.0] - 2026-03-14 — New Features 2027
+## [v4.37.0] - 2026-03-14 — Widget Fixes
+
+### 🎯 Summary
+
+Fix meta viewport cho các widget files để cải thiện mobile responsiveness.
+
+**Health Score:** 100/100 ✅
+
+### 📝 Changes
+
+| File | Change | Description |
+|------|--------|-------------|
+| `admin/widgets/conversion-funnel.html` | Add meta viewport | Mobile responsive |
+| `admin/widgets/global-search.html` | Add meta viewport | Mobile responsive |
+| `admin/widgets/notification-bell.html` | Add meta viewport | Mobile responsive |
+| `admin/widgets/theme-toggle.html` | Add meta viewport | Mobile responsive |
+| `admin/features-demo-2027.html` | Minor fixes | Demo improvements |
+| `admin/features-demo.html` | Minor fixes | Demo improvements |
+| `admin/ux-components-demo.html` | Minor fixes | Demo improvements |
+| `assets/js/features/notification-center.js` | Bug fixes | Stability improvements |
+
+---
+
+## [v4.36.0] - 2026-03-14 — Features & UX Enhancements
 
 ### 🎯 Summary
 
