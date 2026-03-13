@@ -20,6 +20,7 @@ export { initQuickNotes } from './quick-notes.js';
 export { AISearchEnhancement } from './ai-search-enhancement.js';
 export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from './widget-customizer.js';
 export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
+export { QuickToolsPanel, QuickToolsPanelInstance, initQuickToolsPanel } from './quick-tools-panel.js';
 
 /**
  * Initialize all features
@@ -52,6 +53,7 @@ window.MekongFeatures = {
     AISearchEnhancement: window.AISearchEnhancement,
     WidgetCustomizer: window.WidgetCustomizer,
     AIContentPanel: window.AIContentPanel,
+    QuickToolsPanel: window.QuickToolsPanel,
     initQuickNotes: window.initQuickNotes,
     init: initializeFeatures
 };

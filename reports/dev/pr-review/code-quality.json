@@ -2387,6 +2387,48 @@
     "line": 0
   },
   {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "naming",
+    "severity": "info",
+    "issue": "1 single-character variable names - use descriptive names",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "7 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 140
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "3 duplicate code patterns found - consider extracting to functions",
+    "line": 1
+  },
+  {
     "file": "assets/js/features/ai-search-enhancement.js",
     "type": "dead-code",
     "severity": "warning",
@@ -7544,6 +7586,48 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "naming",
+    "severity": "info",
+    "issue": "1 single-character variable names - use descriptive names",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "7 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 140
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "3 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/features/ai-search-enhancement.js",
