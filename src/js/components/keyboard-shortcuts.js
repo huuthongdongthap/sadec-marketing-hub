@@ -74,8 +74,6 @@ class ShortcutsManager {
     document.addEventListener('keydown', (e) => {
       this.handleKeydown(e);
     });
-
-    console.log('[Shortcuts] Initialized');
   }
 
   /**

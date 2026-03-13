@@ -221,9 +221,9 @@ export class ModalManager {
 
 // Stub Toast for now
 const Toast = {
-    success: (msg) => console.log('[Toast success]', msg),
-    error: (msg) => console.log('[Toast error]', msg),
-    info: (msg) => console.log('[Toast info]', msg)
+    success: (msg) => {},
+    error: (msg) => {},
+    info: (msg) => {}
 };
 const ToastManager = class ToastManager {
     constructor() {}
