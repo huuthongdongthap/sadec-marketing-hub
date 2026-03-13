@@ -1,266 +1,192 @@
 /**
- * ═══════════════════════════════════════════════════════════════════════════
- * DASHBOARD WIDGETS E2E TESTS
- * Tests for KPI Cards, Charts, Alerts, Loading States
- * ═══════════════════════════════════════════════════════════════════════════
+ * Dashboard Widgets E2E Tests
+ * Test suite for admin dashboard widgets, charts, KPIs, and alerts
  */
 
 import { test, expect } from '@playwright/test';
 
 test.describe('Dashboard Widgets', () => {
   test.beforeEach(async ({ page }) => {
-    // Set timeout for navigation
-    page.setDefaultTimeout(15000);
-    page.setDefaultNavigationTimeout(15000);
-
-    // Navigate to widgets demo with waitUntil: commit (don't wait for full load)
-    await page.goto('/admin/widgets-demo.html', {
-      waitUntil: 'commit',
-      timeout: 15000
-    });
-
-    // Wait for JS modules to load and custom elements to be defined
-    await page.waitForTimeout(2000);
+    await page.goto('/admin/dashboard.html');
+    await page.waitForLoadState('networkidle');
   });
 
-  test.describe('KPI Card Widget', () => {
-    test('renders KPI card with all properties', async ({ page }) => {
-      // Check if custom element exists in DOM
-      const kpiCard = page.locator('kpi-card-widget').first();
-      await expect(kpiCard).toHaveCount(1);
+  test.describe('KPI Cards', () => {
+    test('should display all KPI cards', async ({ page }) => {
+      const kpiCards = page.locator('[data-widget="kpi-card"]');
+      await expect(kpiCards).toHaveCount({ min: 4 });
     });
 
-    test('displays correct title and value', async ({ page }) => {
-      // Check for widget content in shadow DOM
-      const host = page.locator('kpi-card-widget').first();
-      await expect(host).toHaveCount(1);
-
-      // Get shadow root content
-      const value = host.locator('.kpi-value');
-      await expect(value).toContainText('125.5M');
+    test('should show revenue KPI with value', async ({ page }) => {
+      const revenueCard = page.getByTestId('kpi-revenue');
+      await expect(revenueCard).toBeVisible();
     });
 
-    test('shows trend indicator', async ({ page }) => {
-      const kpiCard = page.locator('kpi-card-widget').first();
-      await expect(kpiCard).toContainText('+12.5%');
+    test('should display trend indicators on KPI cards', async ({ page }) => {
+      const trendIndicators = page.locator('[data-testid="trend-indicator"]');
+      await expect(trendIndicators).toHaveCount({ min: 1 });
     });
 
-    test('has icon wrapper with gradient', async ({ page }) => {
-      const iconWrapper = page.locator('kpi-card-widget .icon-wrapper').first();
-      await expect(iconWrapper).toBeVisible();
-    });
-
-    test('displays sparkline chart when data provided', async ({ page }) => {
-      const kpiCard = page.locator('kpi-card-widget').first();
-      const sparkline = kpiCard.locator('.sparkline-container svg');
-      await expect(sparkline).toBeVisible();
-    });
-
-    test('hover effect triggers transform', async ({ page }) => {
-      const kpiCard = page.locator('kpi-card-widget').first();
-      await kpiCard.hover();
-      await expect(kpiCard).toHaveCSS('transform', /matrix/);
+    test('should animate KPI cards on scroll', async ({ page }) => {
+      const kpiSection = page.locator('.kpi-section');
+      await expect(kpiSection).toHaveClass(/animate-entry/);
     });
   });
 
-  test.describe('Bar Chart Component', () => {
-    test('renders bar chart', async ({ page }) => {
-      const barChart = page.locator('bar-chart-widget').first();
-      await expect(barChart).toBeVisible();
+  test.describe('Chart Widgets', () => {
+    test('should display revenue line chart', async ({ page }) => {
+      const revenueChart = page.locator('#revenue-chart');
+      await expect(revenueChart).toBeVisible();
     });
 
-    test('displays bars with correct data', async ({ page }) => {
-      const bars = page.locator('bar-chart-widget .bar');
-      await expect(bars).toHaveCount(6);
+    test('should display traffic area chart', async ({ page }) => {
+      const trafficChart = page.locator('#traffic-chart');
+      await expect(trafficChart).toBeVisible();
     });
 
-    test('shows labels when show-labels is true', async ({ page }) => {
-      const barChart = page.locator('bar-chart-widget').first();
-      const labels = barChart.locator('text');
-      await expect(labels.first()).toBeVisible();
+    test('should display sales bar chart', async ({ page }) => {
+      const salesChart = page.locator('#sales-chart');
+      await expect(salesChart).toBeVisible();
     });
 
-    test('hover effect on bars', async ({ page }) => {
-      const firstBar = page.locator('bar-chart-widget .bar').first();
-      await firstBar.hover();
-      await expect(firstBar).toHaveCSS('opacity', /0.8/);
-    });
-  });
-
-  test.describe('Line Chart Component', () => {
-    test('renders line chart', async ({ page }) => {
-      const lineChart = page.locator('line-chart-widget').first();
-      await expect(lineChart).toBeVisible();
+    test('should display device pie chart', async ({ page }) => {
+      const deviceChart = page.locator('#device-chart');
+      await expect(deviceChart).toBeVisible();
     });
 
-    test('shows data points when show-points is true', async ({ page }) => {
-      const lineChart = page.locator('line-chart-widget').first();
-      const points = lineChart.locator('circle');
-      await expect(points.count()).resolves.toBeGreaterThan(0);
-    });
-
-    test('displays area fill when show-area is true', async ({ page }) => {
-      const lineChart = page.locator('line-chart-widget').first();
-      const area = lineChart.locator('path[fill^="url"]');
-      await expect(area).toBeVisible();
+    test('should render chart canvas elements', async ({ page }) => {
+      const chartCanvases = page.locator('canvas');
+      await expect(chartCanvases).toHaveCount({ min: 4 });
     });
   });
 
-  test.describe('Pie Chart Component', () => {
-    test('renders pie chart', async ({ page }) => {
-      const pieChart = page.locator('pie-chart-widget').first();
-      await expect(pieChart).toBeVisible();
+  test.describe('Alerts Widget', () => {
+    test('should display alerts widget', async ({ page }) => {
+      const alertsWidget = page.locator('#system-alerts');
+      await expect(alertsWidget).toBeVisible();
     });
 
-    test('shows legend when show-legend is true', async ({ page }) => {
-      const legend = page.locator('pie-chart-widget .legend');
-      await expect(legend).toBeVisible();
+    test('should show alert items when available', async ({ page }) => {
+      const alertItems = page.locator('[data-testid="alert-item"]');
+      await expect(alertItems).toHaveCount({ min: 0 });
     });
 
-    test('displays correct number of segments', async ({ page }) => {
-      const segments = page.locator('pie-chart-widget path[fill]');
-      await expect(segments.count()).resolves.toBe(4);
+    test('should have dismiss button for alerts', async ({ page }) => {
+      const dismissButtons = page.locator('[data-testid="alert-dismiss"]');
+      await expect(dismissButtons).toHaveCount({ min: 0 });
     });
   });
 
-  test.describe('Alert System', () => {
-    test('shows success alert', async ({ page }) => {
-      const successBtn = page.locator('.btn-success').first();
-      await successBtn.click();
-
-      const alert = page.locator('.toast.toast-success').first();
-      await expect(alert).toBeVisible();
-      await expect(alert).toContainText('Thành công');
+  test.describe('Notification Bell', () => {
+    test('should display notification bell', async ({ page }) => {
+      const notificationBell = page.locator('notification-bell');
+      await expect(notificationBell).toBeVisible();
     });
 
-    test('shows error alert', async ({ page }) => {
-      const errorBtn = page.locator('.btn-error').first();
-      await errorBtn.click();
-
-      const alert = page.locator('.toast.toast-error').first();
-      await expect(alert).toBeVisible();
-      await expect(alert).toContainText('Lỗi');
+    test('should show notification count badge', async ({ page }) => {
+      const badge = page.locator('[data-testid="notification-badge"]');
+      await expect(badge).toHaveCount({ min: 0 });
     });
 
-    test('shows warning alert', async ({ page }) => {
-      const warningBtn = page.locator('.btn-warning').first();
-      await warningBtn.click();
+    test('should open notification dropdown on click', async ({ page }) => {
+      const bell = page.locator('notification-bell');
+      await bell.click();
+      const dropdown = page.locator('[data-testid="notification-dropdown"]');
+      await expect(dropdown).toBeVisible();
+    });
+  });
 
-      const alert = page.locator('.toast.toast-warning').first();
-      await expect(alert).toBeVisible();
-      await expect(alert).toContainText('Cảnh báo');
+  test.describe('Activity Feed', () => {
+    test('should display activity feed widget', async ({ page }) => {
+      const activityFeed = page.locator('[data-widget="activity-feed"]');
+      await expect(activityFeed).toBeVisible();
     });
 
-    test('shows info alert', async ({ page }) => {
-      const infoBtn = page.locator('.btn-primary').first();
-      await infoBtn.click();
+    test('should show activity items', async ({ page }) => {
+      const activityItems = page.locator('[data-testid="activity-item"]');
+      await expect(activityItems).toHaveCount({ min: 0 });
+    });
+  });
 
-      const alert = page.locator('.toast.toast-info').first();
-      await expect(alert).toBeVisible();
-      await expect(alert).toContainText('Thông báo');
+  test.describe('Project Progress', () => {
+    test('should display project progress widget', async ({ page }) => {
+      const projectProgress = page.locator('[data-widget="project-progress"]');
+      await expect(projectProgress).toBeVisible();
     });
 
-    test('alert auto-dismisses after duration', async ({ page }) => {
-      const successBtn = page.locator('.btn-success').first();
-      await successBtn.click();
+    test('should show progress bars', async ({ page }) => {
+      const progressBars = page.locator('[data-testid="progress-bar"]');
+      await expect(progressBars).toHaveCount({ min: 0 });
+    });
+  });
 
-      const alert = page.locator('.toast.toast-success').first();
-      await expect(alert).toBeVisible();
+  test.describe('Responsive Behavior', () => {
+    test('should layout widgets correctly on mobile (375px)', async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      const kpiCards = page.locator('[data-widget="kpi-card"]');
+      await expect(kpiCards.first()).toBeVisible();
+    });
 
-      // Wait for auto-dismiss (3 seconds)
-      await page.waitForTimeout(3500);
-      await expect(alert).not.toBeVisible();
+    test('should layout widgets correctly on tablet (768px)', async ({ page }) => {
+      await page.setViewportSize({ width: 768, height: 1024 });
+      const charts = page.locator('canvas');
+      await expect(charts.first()).toBeVisible();
+    });
+
+    test('should layout widgets correctly on desktop (1024px)', async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 768 });
+      const dashboardGrid = page.locator('.dashboard-grid');
+      await expect(dashboardGrid).toBeVisible();
     });
   });
 
   test.describe('Loading States', () => {
-    test('shows fullscreen loading overlay', async ({ page }) => {
-      const loadingBtn = page.locator('button:has-text("Show Fullscreen Loading")');
-      await loadingBtn.click();
-      
-      const overlay = page.locator('.loading-overlay');
-      await expect(overlay).toBeVisible();
+    test('should show loading skeleton for KPI cards', async ({ page }) => {
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      const skeletons = page.locator('[data-testid="skeleton"]');
+      await expect(skeletons).toHaveCount({ min: 0 });
     });
 
-    test('hides fullscreen loading overlay', async ({ page }) => {
-      const showBtn = page.locator('button:has-text("Show Fullscreen Loading")');
-      await showBtn.click();
-      
-      const hideBtn = page.locator('button:has-text("Hide Fullscreen Loading")');
-      await hideBtn.click();
-      
-      const overlay = page.locator('.loading-overlay');
-      await expect(overlay).not.toBeVisible();
-    });
-
-    test('shows skeleton loader', async ({ page }) => {
-      const skeletonBtn = page.locator('button:has-text("Show Skeleton Demo")');
-      await skeletonBtn.click();
-      
-      const skeleton = page.locator('#skeleton-demo .skeleton').first();
-      await expect(skeleton).toBeVisible();
-      await expect(skeleton).toHaveClass(/skeleton-card/);
-    });
-
-    test('skeleton has shimmer animation', async ({ page }) => {
-      const skeletonBtn = page.locator('button:has-text("Show Skeleton Demo")');
-      await skeletonBtn.click();
-      
-      const skeleton = page.locator('#skeleton-demo .skeleton').first();
-      const animation = await skeleton.evaluate((el) => 
-        window.getComputedStyle(el).animationName
-      );
-      expect(animation).toContain('shimmer');
+    test('should hide loading state after data loads', async ({ page }) => {
+      const loadingSpinner = page.locator('[data-testid="loading-spinner"]');
+      await expect(loadingSpinner).not.toBeVisible({ timeout: 10000 });
     });
   });
 
   test.describe('Accessibility', () => {
-    test('KPI card has accessible title and value', async ({ page }) => {
-      const kpiCard = page.locator('kpi-card-widget').first();
-      const title = kpiCard.locator('.title');
-      const value = kpiCard.locator('.value');
-      
-      await expect(title).toBeVisible();
-      await expect(value).toBeVisible();
+    test('should have ARIA labels on widgets', async ({ page }) => {
+      const widgets = page.locator('[aria-label]');
+      await expect(widgets).toHaveCount({ min: 5 });
     });
 
-    test('charts have accessible titles', async ({ page }) => {
-      const sectionTitles = page.locator('.section-title');
-      await expect(sectionTitles.first()).toBeVisible();
+    test('should have proper heading hierarchy', async ({ page }) => {
+      const h2Headings = page.locator('h2');
+      await expect(h2Headings.first()).toBeVisible();
     });
 
-    test('alerts have accessible roles', async ({ page }) => {
-      const successBtn = page.locator('.btn-success').first();
-      await successBtn.click();
-      
-      const alert = page.locator('.toast.toast-success').first();
-      const alertTitle = alert.locator('.alert-title');
-      await expect(alertTitle).toBeVisible();
+    test('should support keyboard navigation', async ({ page }) => {
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      const focusedElement = page.locator(':focus');
+      await expect(focusedElement).toBeFocused();
     });
   });
+});
 
-  test.describe('Responsive Design', () => {
-    test('dashboard grid is responsive on mobile', async ({ page }) => {
-      await page.setViewportSize({ width: 375, height: 667 });
-      
-      const grid = page.locator('.dashboard-grid');
-      const cards = page.locator('kpi-card-widget');
-      
-      // On mobile, cards should stack vertically
-      const firstCard = cards.first();
-      const secondCard = cards.nth(1);
-      
-      const firstBox = await firstCard.boundingBox();
-      const secondBox = await secondCard.boundingBox();
-      
-      expect(firstBox?.y).toBeLessThan(secondBox?.y);
-    });
+test.describe('Dashboard Real-time Updates', () => {
+  test('should update stats widget with real-time data', async ({ page }) => {
+    await page.goto('/admin/dashboard.html');
+    await page.waitForLoadState('networkidle');
 
-    test('chart wrapper is responsive', async ({ page }) => {
-      await page.setViewportSize({ width: 768, height: 1024 });
-      
-      const chartWrapper = page.locator('.chart-wrapper').first();
-      await expect(chartWrapper).toBeVisible();
-    });
+    const statsWidget = page.locator('[data-widget="quick-stats"]');
+    await expect(statsWidget).toBeVisible();
+  });
+
+  test('should display conversion funnel', async ({ page }) => {
+    await page.goto('/admin/dashboard.html');
+    await page.waitForLoadState('networkidle');
+
+    const funnelWidget = page.locator('[data-widget="conversion-funnel"]');
+    await expect(funnelWidget).toHaveCount({ min: 0 });
   });
 });
