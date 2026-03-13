@@ -1,15 +1,22 @@
 /**
- * Payment Status Chip Component
- * Material Design 3 Status Indicator
+ * Payment Status Chip Component - Enhanced with Animations
+ * Material Design 3 Status Indicator with micro-animations
+ *
+ * Features:
+ *   - Processing: Rotating icon animation
+ *   - Overdue: Pulsing animation
+ *   - Paid: Success pop on mount
+ *   - Hover: Lift + shadow effect
  */
 class PaymentStatusChip extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this._animationPlayed = false;
   }
 
   static get observedAttributes() {
-    return ['status'];
+    return ['status', 'animated'];
   }
 
   get status() {
@@ -20,17 +27,62 @@ class PaymentStatusChip extends HTMLElement {
     this.setAttribute('status', value);
   }
 
+  get animated() {
+    return this.getAttribute('animated') !== 'false';
+  }
+
   connectedCallback() {
     if (!this.shadowRoot.querySelector('style')) {
       this.render();
     } else {
       this.updateView();
     }
+
+    // Play entrance animation
+    if (this.animated && !this._animationPlayed) {
+      this.playEntranceAnimation();
+      this._animationPlayed = true;
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'status' && oldValue !== newValue) {
       this.updateView();
+
+      // Play status change animation
+      if (this.animated) {
+        this.playStatusChangeAnimation(newValue);
+      }
+    }
+  }
+
+  playEntranceAnimation() {
+    const chip = this.shadowRoot.querySelector('.status-chip');
+    if (!chip) return;
+
+    chip.style.animation = 'chipEntrance 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+  }
+
+  playStatusChangeAnimation(newStatus) {
+    const chip = this.shadowRoot.querySelector('.status-chip');
+    if (!chip) return;
+
+    // Reset animation
+    chip.style.animation = 'none';
+    chip.offsetHeight; // Trigger reflow
+
+    switch (newStatus) {
+      case 'paid':
+        chip.style.animation = 'statusSuccess 0.5s ease forwards';
+        break;
+      case 'overdue':
+        chip.style.animation = 'statusAlert 0.4s ease-in-out forwards';
+        break;
+      case 'processing':
+        chip.style.animation = 'statusPulse 0.6s ease forwards';
+        break;
+      default:
+        chip.style.animation = 'statusDefault 0.3s ease forwards';
     }
   }
 
@@ -40,7 +92,8 @@ class PaymentStatusChip extends HTMLElement {
         label: 'Paid',
         color: '#34C759',
         bgColor: 'rgba(52, 199, 89, 0.12)',
-        icon: '✓'
+        icon: '✓',
+        iconAnimation: 'checkmark-draw 0.3s ease-in-out forwards'
       },
       pending: {
         label: 'Pending',
@@ -52,13 +105,27 @@ class PaymentStatusChip extends HTMLElement {
         label: 'Overdue',
         color: '#FF3B30',
         bgColor: 'rgba(255, 59, 48, 0.12)',
-        icon: '!'
+        icon: '!',
+        iconAnimation: 'iconPulse 1.5s ease-in-out infinite'
       },
       processing: {
         label: 'Processing',
         color: '#007AFF',
         bgColor: 'rgba(0, 122, 255, 0.12)',
-        icon: '↻'
+        icon: '↻',
+        iconAnimation: 'rotate 1s linear infinite'
+      },
+      failed: {
+        label: 'Failed',
+        color: '#FF2D55',
+        bgColor: 'rgba(255, 45, 85, 0.12)',
+        icon: '✕'
+      },
+      refunded: {
+        label: 'Refunded',
+        color: '#AF52DE',
+        bgColor: 'rgba(175, 82, 222, 0.12)',
+        icon: '↺'
       }
     };
 
@@ -67,7 +134,7 @@ class PaymentStatusChip extends HTMLElement {
 
   updateView() {
     const chip = this.shadowRoot.querySelector('.status-chip');
-    if (!chip) return; // Not rendered yet
+    if (!chip) return;
 
     const config = this.getStatusConfig(this.status);
 
@@ -80,7 +147,10 @@ class PaymentStatusChip extends HTMLElement {
     const icon = this.shadowRoot.querySelector('.status-icon');
     const label = this.shadowRoot.querySelector('.status-label');
 
-    if (icon) icon.textContent = config.icon;
+    if (icon) {
+      icon.textContent = config.icon;
+      icon.style.animation = config.iconAnimation || 'none';
+    }
     if (label) label.textContent = config.label;
   }
 
@@ -103,7 +173,20 @@ class PaymentStatusChip extends HTMLElement {
           font-size: 13px;
           font-weight: 500;
           letter-spacing: 0.1px;
-          transition: all 0.2s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: default;
+          user-select: none;
+        }
+
+        /* Hover effect - Lift and shadow */
+        .status-chip:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Click effect - Scale down */
+        .status-chip:active {
+          transform: scale(0.95);
         }
 
         .status-icon {
@@ -112,36 +195,70 @@ class PaymentStatusChip extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
 
         .status-label {
           line-height: 1;
         }
 
-        /* Animation for processing status */
+        /* Animation keyframes */
         @keyframes rotate {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
 
+        @keyframes chipEntrance {
+          from {
+            opacity: 0;
+            transform: scale(0.8) translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        @keyframes statusSuccess {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); background-color: rgba(52, 199, 89, 0.2); }
+          100% { transform: scale(1); }
+        }
+
+        @keyframes statusAlert {
+          0%, 100% { transform: translateX(0); }
+          20%, 60% { transform: translateX(-4px); background-color: rgba(255, 59, 48, 0.2); }
+          40%, 80% { transform: translateX(4px); }
+        }
+
+        @keyframes statusPulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        @keyframes statusDefault {
+          0% { opacity: 0.7; }
+          100% { opacity: 1; }
+        }
+
+        @keyframes checkmark-draw {
+          0% { stroke-dasharray: 0 50; opacity: 0; }
+          100% { stroke-dasharray: 50 0; opacity: 1; }
+        }
+
+        @keyframes iconPulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        /* Processing status specific */
         .status-chip.processing .status-icon {
           animation: rotate 1s linear infinite;
         }
 
-        /* Pulse animation for overdue */
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-
-        .status-chip.overdue {
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        /* Hover effect */
-        .status-chip:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Overdue status specific */
+        .status-chip.overdue .status-icon {
+          animation: iconPulse 1.5s ease-in-out infinite;
         }
 
         /* Small variant */
@@ -163,6 +280,17 @@ class PaymentStatusChip extends HTMLElement {
         :host([size="large"]) .status-icon {
           font-size: 16px;
         }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .status-chip {
+            animation: none !important;
+            transition: none !important;
+          }
+          .status-chip:hover {
+            transform: none;
+          }
+        }
       </style>
 
       <div class="status-chip ${this.status}" style="
@@ -173,6 +301,38 @@ class PaymentStatusChip extends HTMLElement {
         <span class="status-label">${config.label}</span>
       </div>
     `;
+  }
+
+  /**
+   * Programmatically trigger attention animation
+   */
+  pulse() {
+    const chip = this.shadowRoot.querySelector('.status-chip');
+    if (!chip) return;
+
+    chip.style.animation = 'none';
+    chip.offsetHeight; // Reflow
+    chip.style.animation = 'statusPulse 0.6s ease forwards';
+  }
+
+  /**
+   * Flash to attract attention
+   */
+  flash(times = 3) {
+    const chip = this.shadowRoot.querySelector('.status-chip');
+    if (!chip) return;
+
+    let count = 0;
+    const flash = () => {
+      chip.style.transition = 'opacity 100ms ease';
+      chip.style.opacity = '0';
+      setTimeout(() => {
+        chip.style.opacity = '1';
+        count++;
+        if (count < times) setTimeout(flash, 200);
+      }, 100);
+    };
+    flash();
   }
 }
 

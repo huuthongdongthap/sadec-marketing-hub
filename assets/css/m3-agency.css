@@ -1258,9 +1258,9 @@ textarea.form-input {
 /* Data table base styles */
 .data-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
-  /* Ensures horizontal scroll on mobile */
+  overflow-x: auto;
 }
 
 .data-table th,

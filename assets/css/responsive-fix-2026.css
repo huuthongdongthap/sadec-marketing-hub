@@ -159,7 +159,9 @@ iframe {
   }
 
   .data-table {
-    min-width: 600px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   /* Card grid - 2 columns */

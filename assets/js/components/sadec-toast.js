@@ -274,3 +274,46 @@ window.SadecToast = SadecToast;
 
 // Also expose as MekongToast for legacy compatibility
 window.MekongToast = SadecToast;
+
+// Add CSS animations for toast effects
+if (!document.getElementById('sadec-toast-animations')) {
+    const style = document.createElement('style');
+    style.id = 'sadec-toast-animations';
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes success-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes error-shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes badge-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            sadec-toast {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
