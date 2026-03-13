@@ -4,13 +4,14 @@
  * @module services
  */
 
-// Core Utils
+// Core Utils - Single source of truth
 export * from './core-utils.js';
-export * from './enhanced-utils.js';
-export * from './ui-utils.js';
-export * from './utils.js';
 
-// Features
+// Default export for backward compatibility
+import * as coreUtils from './core-utils.js';
+export default coreUtils;
+
+// Features (named exports)
 export { default as AdminShared } from './admin-shared.js';
 export { default as Agents } from './agents.js';
 export { default as AIAssistant } from './ai-assistant.js';

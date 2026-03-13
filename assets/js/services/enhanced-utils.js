@@ -3,24 +3,12 @@
  * MEKONG AGENCY - ENHANCED UTILITIES
  * Comprehensive shared utility functions
  *
- * Note: Format functions re-exported from shared/format-utils.js
+ * Note: This file exports UI components, DOM utilities,
+ * string/array utilities, and classes.
+ * Format functions are in shared/format-utils.js
+ * and should be imported via core-utils.js
  * ==============================================
  */
-
-// ===== RE-EXPORTS FROM SHARED =====
-// All format functions are now in shared/format-utils.js
-export {
-    formatCurrency,
-    formatCurrencyCompact,
-    formatCurrencyVN,
-    formatNumber,
-    formatDate,
-    formatDateTime,
-    formatRelativeTime,
-    truncate,
-    debounce,
-    throttle
-} from '../shared/format-utils.js';
 
 // ===== ID GENERATION =====
 export function generateId(prefix = 'id') {
