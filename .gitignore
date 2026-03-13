@@ -22,10 +22,12 @@ env.js
 
 # Build scripts (allowed)
 !scripts/build/
+!scripts/perf/
 
 # Reports (generated)
 reports/
 !reports/audit/
+!reports/perf/
 
 # Temporary files
 *.tmp

@@ -30,7 +30,9 @@
     "test:report": "playwright show-report",
     "perf:audit": "node scripts/perf/audit.js",
     "perf:bundle-report": "node scripts/perf/bundle-report.js",
-    "perf:critical-css": "node scripts/perf/critical-css.js"
+    "perf:critical-css": "node scripts/perf/critical-css.js",
+    "perf:inject-critical": "node scripts/perf/inject-critical-css.js",
+    "build:critical": "npm run perf:critical-css && npm run perf:inject-critical"
   },
   "keywords": [
     "marketing",

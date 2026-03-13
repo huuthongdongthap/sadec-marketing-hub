@@ -69,10 +69,24 @@ function generateCriticalLinks(pagePath) {
     const allModules = [...GLOBAL_CSS, ...requiredModules];
 
     const links = [];
+    // Generate critical CSS filename from page path
     const criticalFileName = pagePath.replace(/\//g, '-').replace('.html', '.css');
+    const fileNameOnly = path.basename(pagePath, '.html');
+    const dirName = path.dirname(pagePath);
+
+    // For admin pages, add 'admin-' prefix to critical CSS filename
+    let cssFileName = fileNameOnly;
+    if (dirName === 'admin') {
+        cssFileName = 'admin-' + fileNameOnly;
+    } else if (dirName === 'portal') {
+        cssFileName = 'portal-' + fileNameOnly;
+    } else if (dirName === 'auth') {
+        cssFileName = 'auth-' + fileNameOnly;
+    }
+    const criticalCssFile = cssFileName + '.css';
 
     // Preload critical CSS
-    links.push(`<link rel="preload" href="/assets/css/critical/${criticalFileName}" as="style" onload="this.onload=null;this.rel='stylesheet'">`);
+    links.push(`<link rel="preload" href="/assets/css/critical/${criticalCssFile}" as="style" onload="this.onload=null;this.rel='stylesheet'">`);
 
     // Lazy bundles for on-demand loading
     const lazyBundles = ['admin-advanced.css', 'admin-business.css', 'admin-launch.css', 'admin-specialized.css'];
