@@ -1,486 +1,494 @@
 /**
- * Keyboard Shortcuts Manager - Sa Đéc Marketing Hub
- * Quản lý keyboard shortcuts cho thao tác nhanh
- *
- * Shortcuts:
- * - Ctrl/Cmd + K: Global search
- * - Ctrl/Cmd + H: Go to Home/Dashboard
- * - Ctrl/Cmd + ?: Show shortcuts help
- * - Escape: Close modals/dropdowns
- * - Ctrl/Cmd + S: Save (in forms)
- * - Ctrl/Cmd + Enter: Submit form
+ * Keyboard Shortcuts Manager
+ * Centralized shortcut registry with cheat sheet
+ * @version 1.0.0 | 2026-03-13
  */
 
-class ShortcutsManager {
+class KeyboardShortcuts {
   constructor() {
     this.shortcuts = new Map();
-    this.isInputFocused = false;
-    this.showHelpModal = false;
+    this.cheatSheet = [];
     this.init();
   }
 
   /**
-   * Initialize shortcuts manager
+   * Initialize keyboard shortcuts
    */
   init() {
-    // Register default shortcuts
-    this.register('ctrl+k', (e) => {
-      e.preventDefault();
-      this.openSearch();
+    this.registerDefaults();
+    this.bindKeys();
+    this.createCheatSheet();
+  }
+
+  /**
+   * Register default shortcuts
+   */
+  registerDefaults() {
+    // Global shortcuts
+    this.register({
+      key: 'k',
+      ctrl: true,
+      action: () => this.triggerCommandPalette(),
+      description: 'Mở Command Palette',
+      category: 'Global'
     });
 
-    this.register('ctrl+/', (e) => {
-      e.preventDefault();
-      this.toggleHelp();
+    this.register({
+      key: 'h',
+      ctrl: false,
+      action: () => this.triggerHelpTour(),
+      description: 'Mở Help Tour',
+      category: 'Global'
     });
 
-    this.register('ctrl+h', (e) => {
-      e.preventDefault();
-      this.goToDashboard();
+    this.register({
+      key: 'Escape',
+      ctrl: false,
+      action: () => this.closeModals(),
+      description: 'Đóng modals/palette',
+      category: 'Global'
     });
 
-    this.register('escape', (e) => {
-      this.closeModals();
+    this.register({
+      key: '?',
+      ctrl: false,
+      action: () => this.showCheatSheet(),
+      description: 'Hiển thị shortcut cheat sheet',
+      category: 'Global'
     });
 
-    this.register('ctrl+s', (e) => {
-      if (this.isInputFocused) {
+    // Navigation shortcuts
+    this.register({
+      key: 'g',
+      ctrl: false,
+      sequence: 'd',
+      action: () => this.navigateTo('/admin/dashboard.html'),
+      description: 'Go to Dashboard (g→d)',
+      category: 'Navigation'
+    });
+
+    this.register({
+      key: 'g',
+      ctrl: false,
+      sequence: 'c',
+      action: () => this.navigateTo('/admin/campaigns.html'),
+      description: 'Go to Campaigns (g→c)',
+      category: 'Navigation'
+    });
+
+    this.register({
+      key: 'g',
+      ctrl: false,
+      sequence: 'l',
+      action: () => this.navigateTo('/admin/leads.html'),
+      description: 'Go to Leads (g→l)',
+      category: 'Navigation'
+    });
+
+    this.register({
+      key: 'g',
+      ctrl: false,
+      sequence: 'f',
+      action: () => this.navigateTo('/admin/finance.html'),
+      description: 'Go to Finance (g→f)',
+      category: 'Navigation'
+    });
+
+    this.register({
+      key: 'g',
+      ctrl: false,
+      sequence: 'r',
+      action: () => this.navigateTo('/admin/reports.html'),
+      description: 'Go to Reports (g→r)',
+      category: 'Navigation'
+    });
+
+    // Action shortcuts
+    this.register({
+      key: 'n',
+      ctrl: true,
+      action: () => this.createNewItem(),
+      description: 'New item (context-aware)',
+      category: 'Actions'
+    });
+
+    this.register({
+      key: 'e',
+      ctrl: true,
+      action: () => this.exportData(),
+      description: 'Export data',
+      category: 'Actions'
+    });
+
+    this.register({
+      key: 's',
+      ctrl: true,
+      action: (e) => {
         e.preventDefault();
-        this.saveForm();
-      }
+        this.saveCurrent();
+      },
+      description: 'Save current',
+      category: 'Actions'
     });
 
-    this.register('ctrl+enter', (e) => {
-      if (this.isInputFocused) {
-        e.preventDefault();
-        this.submitForm();
-      }
+    // Search shortcuts
+    this.register({
+      key: '/',
+      ctrl: false,
+      action: () => this.focusSearch(),
+      description: 'Focus search input',
+      category: 'Search'
     });
 
-    // Track input focus state
-    document.addEventListener('focusin', (e) => {
-      if (e.target.matches('input, textarea, select')) {
-        this.isInputFocused = true;
-      }
+    this.register({
+      key: 'f',
+      ctrl: true,
+      action: () => this.focusSearch(),
+      description: 'Focus search input',
+      category: 'Search'
     });
 
-    document.addEventListener('focusout', (e) => {
-      if (e.target.matches('input, textarea, select')) {
-        this.isInputFocused = false;
-      }
+    // Theme shortcuts
+    this.register({
+      key: 't',
+      ctrl: true,
+      action: () => this.toggleTheme(),
+      description: 'Toggle dark/light theme',
+      category: 'Settings'
     });
 
-    // Listen for keyboard events
+    this.register({
+      key: 'd',
+      ctrl: true,
+      action: () => this.toggleDarkMode(),
+      description: 'Toggle dark mode',
+      category: 'Settings'
+    });
+  }
+
+  /**
+   * Register a shortcut
+   */
+  register(config) {
+    const key = this.makeKey(config);
+    this.shortcuts.set(key, config);
+    this.cheatSheet.push(config);
+  }
+
+  /**
+   * Make unique key for shortcut
+   */
+  makeKey(config) {
+    const modifiers = [];
+    if (config.ctrl) modifiers.push('ctrl');
+    if (config.shift) modifiers.push('shift');
+    if (config.alt) modifiers.push('alt');
+    return `${modifiers.join('+')}+${config.key.toLowerCase()}`;
+  }
+
+  /**
+   * Bind keyboard events
+   */
+  bindKeys() {
+    let keySequence = [];
+    let sequenceTimeout;
+
     document.addEventListener('keydown', (e) => {
-      this.handleKeydown(e);
+      // Skip if typing in input/textarea
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        // Except for Escape
+        if (e.key !== 'Escape') return;
+      }
+
+      // Check for sequence (g→d, g→c, etc.)
+      if (e.key === 'g') {
+        keySequence.push('g');
+        clearTimeout(sequenceTimeout);
+        sequenceTimeout = setTimeout(() => keySequence = [], 1000);
+        return;
+      }
+
+      if (keySequence.length > 0) {
+        keySequence.push(e.key.toLowerCase());
+        const sequenceKey = keySequence.join('+');
+        
+        for (const [key, config] of this.shortcuts) {
+          if (config.sequence && key.startsWith('g+')) {
+            const fullSequence = `g+${config.sequence}`;
+            if (sequenceKey === fullSequence.replace(/\+/g, '+')) {
+              e.preventDefault();
+              config.action(e);
+              keySequence = [];
+              return;
+            }
+          }
+        }
+      }
+
+      // Check for regular shortcuts
+      const eventKey = this.makeKey({
+        key: e.key,
+        ctrl: e.ctrlKey || e.metaKey,
+        shift: e.shiftKey,
+        alt: e.altKey
+      });
+
+      const shortcut = this.shortcuts.get(eventKey);
+      if (shortcut) {
+        e.preventDefault();
+        shortcut.action(e);
+      }
     });
   }
 
   /**
-   * Register a new shortcut
-   * @param {string} key - Key combination (e.g., 'ctrl+k', 'escape')
-   * @param {function} callback - Function to call when shortcut is triggered
+   * Trigger command palette
    */
-  register(key, callback) {
-    this.shortcuts.set(key.toLowerCase(), callback);
-  }
-
-  /**
-   * Unregister a shortcut
-   * @param {string} key - Key combination to remove
-   */
-  unregister(key) {
-    this.shortcuts.delete(key.toLowerCase());
-  }
-
-  /**
-   * Handle keydown event
-   */
-  handleKeydown(e) {
-    const key = this.normalizeKey(e);
-    const callback = this.shortcuts.get(key);
-
-    if (callback) {
-      callback(e);
+  triggerCommandPalette() {
+    const event = new CustomEvent('open-command-palette');
+    document.dispatchEvent(event);
+    
+    // Fallback: open command palette manually
+    if (window.CommandPalette) {
+      new CommandPalette();
     }
   }
 
   /**
-   * Normalize key combination to standard format
+   * Trigger help tour
    */
-  normalizeKey(e) {
-    const parts = [];
-
-    if (e.ctrlKey || e.metaKey) {
-      parts.push('ctrl');
+  triggerHelpTour() {
+    if (window.helpTour) {
+      helpTour.startTour();
     }
-    if (e.shiftKey) {
-      parts.push('shift');
-    }
-    if (e.altKey) {
-      parts.push('alt');
-    }
-
-    const keyName = e.key.toLowerCase();
-    if (!['control', 'meta', 'shift', 'alt'].includes(keyName)) {
-      parts.push(keyName);
-    }
-
-    return parts.join('+');
   }
 
   /**
-   * Open global search
+   * Close modals
    */
-  openSearch() {
-    const searchInput = document.querySelector('input[type="search"], #global-search');
+  closeModals() {
+    // Close command palette
+    const palette = document.querySelector('.command-palette');
+    if (palette) palette.remove();
+    
+    // Close tooltips
+    document.querySelectorAll('.tooltip').forEach(el => el.remove());
+    
+    // Close any open modals
+    document.querySelectorAll('[role="dialog"]').forEach(el => el.remove());
+  }
+
+  /**
+   * Navigate to URL
+   */
+  navigateTo(url) {
+    if (window.location.pathname !== url) {
+      window.location.href = url;
+    }
+  }
+
+  /**
+   * Create new item (context-aware)
+   */
+  createNewItem() {
+    const path = window.location.pathname;
+    
+    if (path.includes('leads')) {
+      this.navigateTo('/admin/leads.html?action=new');
+    } else if (path.includes('campaigns')) {
+      this.navigateTo('/admin/campaigns.html?action=new');
+    } else if (path.includes('projects')) {
+      this.navigateTo('/portal/projects.html?action=new');
+    } else {
+      this.showToast('No create action available on this page', 'info');
+    }
+  }
+
+  /**
+   * Export data
+   */
+  exportData() {
+    if (window.Loading) {
+      Loading.show('body', { message: 'Đang export dữ liệu...' });
+    }
+    
+    // Trigger export
+    const event = new CustomEvent('export-data');
+    document.dispatchEvent(event);
+    
+    setTimeout(() => {
+      if (window.Loading) Loading.hide('body');
+      this.showToast('Data exported successfully!', 'success');
+    }, 1000);
+  }
+
+  /**
+   * Save current
+   */
+  saveCurrent() {
+    // Trigger form save if on edit page
+    const saveBtn = document.querySelector('[type="submit"], .save-btn');
+    if (saveBtn) {
+      saveBtn.click();
+      this.showToast('Đã lưu!', 'success');
+    } else {
+      this.showToast('Nothing to save on this page', 'info');
+    }
+  }
+
+  /**
+   * Focus search
+   */
+  focusSearch() {
+    const searchInput = document.querySelector('input[type="search"], .search-input, #search');
     if (searchInput) {
       searchInput.focus();
       searchInput.select();
     } else {
-      // Create search modal if not exists
-      this.createSearchModal();
+      // Open command palette as fallback
+      this.triggerCommandPalette();
     }
   }
 
   /**
-   * Create search modal
+   * Toggle theme
    */
-  createSearchModal() {
-    let modal = document.getElementById('search-modal');
-    if (modal) {
-      modal.remove();
-    }
+  toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    this.showToast(`Theme: ${newTheme}`, 'info');
+  }
 
-    modal = document.createElement('div');
-    modal.id = 'search-modal';
-    modal.innerHTML = `
-      <style>
-        #search-modal {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
-          backdrop-filter: blur(4px);
-        }
-        #search-modal.hidden {
-          display: none;
-        }
-        .search-content {
-          background: var(--md-sys-color-surface, #fff);
-          border-radius: 12px;
-          padding: 24px;
-          width: 90%;
-          max-width: 600px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-        .search-input-wrapper {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 12px 16px;
-          background: var(--md-sys-color-surface-container, #f5f5f5);
-          border-radius: 8px;
-          border: 2px solid var(--md-sys-color-primary, #006A60);
-        }
-        .search-input-wrapper input {
-          flex: 1;
-          border: none;
-          background: transparent;
-          font-size: 16px;
-          outline: none;
-          color: var(--md-sys-color-on-surface, #333);
-        }
-        .search-hints {
-          margin-top: 16px;
-          font-size: 14px;
-          color: var(--md-sys-color-on-surface-variant, #666);
-        }
-        .search-hints kbd {
-          background: var(--md-sys-color-surface-container-highest, #eee);
-          padding: 2px 6px;
-          border-radius: 4px;
-          font-family: monospace;
-          font-size: 12px;
-        }
-      </style>
-      <div class="search-content">
-        <div class="search-input-wrapper">
-          <span class="material-symbols-outlined">search</span>
-          <input
-            type="text"
-            id="modal-search-input"
-            placeholder="Tìm kiếm trang, tính năng, cài đặt..."
-            autofocus
-          />
-          <kbd>ESC</kbd>
+  /**
+   * Toggle dark mode
+   */
+  toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    this.showToast(`Dark mode: ${isDark ? 'ON' : 'OFF'}`, 'info');
+  }
+
+  /**
+   * Show cheat sheet
+   */
+  showCheatSheet() {
+    // Remove existing cheat sheet
+    const existing = document.getElementById('shortcut-cheat-sheet');
+    if (existing) existing.remove();
+
+    // Group shortcuts by category
+    const grouped = {};
+    this.cheatSheet.forEach(shortcut => {
+      const cat = shortcut.category || 'Other';
+      if (!grouped[cat]) grouped[cat] = [];
+      grouped[cat].push(shortcut);
+    });
+
+    // Create cheat sheet HTML
+    const cheatSheet = document.createElement('div');
+    cheatSheet.id = 'shortcut-cheat-sheet';
+    cheatSheet.innerHTML = `
+      <div class="cheat-sheet-overlay" onclick="this.parentElement.remove()"></div>
+      <div class="cheat-sheet">
+        <div class="cheat-sheet-header">
+          <h2>⌨️ Keyboard Shortcuts</h2>
+          <button class="cheat-sheet-close" onclick="document.getElementById('shortcut-cheat-sheet').remove()">✕</button>
         </div>
-        <div class="search-hints">
-          <p><kbd>↑</kbd> <kbd>↓</kbd> Để chọn kết quả</p>
-          <p><kbd>Enter</kbd> Để mở kết quả đã chọn</p>
+        <div class="cheat-sheet-content">
+          ${Object.entries(grouped).map(([category, shortcuts]) => `
+            <div class="cheat-sheet-category">
+              <h3>${category}</h3>
+              <div class="cheat-sheet-list">
+                ${shortcuts.map(s => `
+                  <div class="cheat-sheet-item">
+                    <kbd class="cheat-sheet-key">${this.formatKey(s)}</kbd>
+                    <span class="cheat-sheet-desc">${s.description}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
     `;
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        this.closeSearchModal();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.closeSearchModal();
-      }
-    });
-
-    document.body.appendChild(modal);
-
-    const input = modal.querySelector('input');
-    input?.focus();
+    document.body.appendChild(cheatSheet);
   }
 
   /**
-   * Close search modal
+   * Format key for display
    */
-  closeSearchModal() {
-    const modal = document.getElementById('search-modal');
-    if (modal) {
-      modal.remove();
-    }
-  }
-
-  /**
-   * Toggle shortcuts help modal
-   */
-  toggleHelp() {
-    if (this.showHelpModal) {
-      this.closeHelpModal();
+  formatKey(shortcut) {
+    const parts = [];
+    if (shortcut.ctrl) parts.push('Ctrl');
+    if (shortcut.shift) parts.push('Shift');
+    if (shortcut.alt) parts.push('Alt');
+    if (shortcut.sequence) {
+      parts.push(`G`);
+      parts.push(shortcut.sequence.toUpperCase());
     } else {
-      this.openHelpModal();
+      parts.push(shortcut.key.toUpperCase());
     }
+    return parts.join(' + ');
   }
 
   /**
-   * Open shortcuts help modal
+   * Create cheat sheet button
    */
-  openHelpModal() {
-    this.showHelpModal = true;
-
-    let modal = document.getElementById('shortcuts-help-modal');
-    if (modal) {
-      modal.remove();
-    }
-
-    modal = document.createElement('div');
-    modal.id = 'shortcuts-help-modal';
-    modal.innerHTML = `
-      <style>
-        #shortcuts-help-modal {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
-          backdrop-filter: blur(4px);
-        }
-        .help-content {
-          background: var(--md-sys-color-surface, #fff);
-          border-radius: 12px;
-          padding: 24px;
-          width: 90%;
-          max-width: 500px;
-          max-height: 80vh;
-          overflow-y: auto;
-        }
-        .help-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-        .help-header h2 {
-          margin: 0;
-          font-size: 18px;
-          color: var(--md-sys-color-on-surface, #333);
-        }
-        .close-btn {
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          padding: 8px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .close-btn:hover {
-          background: var(--md-sys-color-surface-container-highest, #eee);
-        }
-        .shortcut-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 12px 0;
-          border-bottom: 1px solid var(--md-sys-color-outline-variant, #ddd);
-        }
-        .shortcut-item:last-child {
-          border-bottom: none;
-        }
-        .shortcut-desc {
-          color: var(--md-sys-color-on-surface, #333);
-        }
-        .shortcut-keys {
-          display: flex;
-          gap: 4px;
-        }
-        .shortcut-keys kbd {
-          background: var(--md-sys-color-surface-container-highest, #eee);
-          padding: 4px 8px;
-          border-radius: 6px;
-          font-family: monospace;
-          font-size: 13px;
-          border: 1px solid var(--md-sys-color-outline, #ccc);
-        }
-      </style>
-      <div class="help-content">
-        <div class="help-header">
-          <h2>⌨️ Phím Tắt</h2>
-          <button class="close-btn" aria-label="Đóng">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div class="shortcuts-list">
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Tìm kiếm</span>
-            <div class="shortcut-keys">
-              <kbd>Ctrl</kbd><kbd>K</kbd>
-            </div>
-          </div>
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Về Dashboard</span>
-            <div class="shortcut-keys">
-              <kbd>Ctrl</kbd><kbd>H</kbd>
-            </div>
-          </div>
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Hiển thị trợ giúp</span>
-            <div class="shortcut-keys">
-              <kbd>Ctrl</kbd><kbd>?</kbd>
-            </div>
-          </div>
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Đóng modal</span>
-            <div class="shortcut-keys">
-              <kbd>Esc</kbd>
-            </div>
-          </div>
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Lưu form</span>
-            <div class="shortcut-keys">
-              <kbd>Ctrl</kbd><kbd>S</kbd>
-            </div>
-          </div>
-          <div class="shortcut-item">
-            <span class="shortcut-desc">Gửi form</span>
-            <div class="shortcut-keys">
-              <kbd>Ctrl</kbd><kbd>Enter</kbd>
-            </div>
-          </div>
-        </div>
-      </div>
+  createCheatSheet() {
+    // Add floating cheat sheet button
+    const btn = document.createElement('button');
+    btn.className = 'shortcuts-help-btn';
+    btn.innerHTML = '⌨️';
+    btn.title = 'Keyboard Shortcuts (?)';
+    btn.onclick = () => this.showCheatSheet();
+    btn.style.cssText = `
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00e5ff, #006a60);
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+      z-index: 9997;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
     `;
-
-    modal.querySelector('.close-btn')?.addEventListener('click', () => {
-      this.closeHelpModal();
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        this.closeHelpModal();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.closeHelpModal();
-      }
-    }, { once: true });
-
-    document.body.appendChild(modal);
+    btn.onmouseenter = () => btn.style.transform = 'scale(1.1)';
+    btn.onmouseleave = () => btn.style.transform = 'scale(1)';
+    document.body.appendChild(btn);
   }
 
   /**
-   * Close help modal
+   * Show toast
    */
-  closeHelpModal() {
-    this.showHelpModal = false;
-    const modal = document.getElementById('shortcuts-help-modal');
-    if (modal) {
-      modal.remove();
-    }
-  }
-
-  /**
-   * Go to dashboard
-   */
-  goToDashboard() {
-    const dashboardPath = window.location.pathname.includes('/admin/')
-      ? '/admin/dashboard.html'
-      : '/portal/dashboard.html';
-    window.location.href = dashboardPath;
-  }
-
-  /**
-   * Close all modals
-   */
-  closeModals() {
-    this.closeSearchModal();
-    this.closeHelpModal();
-
-    // Close other modals
-    document.querySelectorAll('[role="dialog"], .modal').forEach(modal => {
-      modal.remove();
-    });
-  }
-
-  /**
-   * Save form (placeholder)
-   */
-  saveForm() {
-    // Dispatch custom event for form save
-    document.dispatchEvent(new CustomEvent('form-save'));
-  }
-
-  /**
-   * Submit form
-   */
-  submitForm() {
-    const form = document.querySelector('form :focus')?.closest('form');
-    if (form) {
-      form.requestSubmit();
+  showToast(message, type = 'info') {
+    if (window.Toast) {
+      Toast.show({ title: type === 'success' ? '✓' : 'ℹ', message, type, duration: 2000 });
+    } else {
+      console.log(`[${type.toUpperCase()}] ${message}`);
     }
   }
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
+// Initialize on DOM ready
+if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
-    window.shortcuts = new ShortcutsManager();
+    window.keyboardShortcuts = new KeyboardShortcuts();
   });
-} else {
-  window.shortcuts = new ShortcutsManager();
 }
 
-export { ShortcutsManager };
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = KeyboardShortcuts;
+}
