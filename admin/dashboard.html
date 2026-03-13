@@ -645,9 +645,23 @@
       <span class="material-symbols-outlined">settings</span>
       <span>Settings</span>
     </a>
+    <a href="#" class="quick-action-item" onclick="openUserPreferences(); return false;">
+      <span class="material-symbols-outlined">account_circle</span>
+      <span>User Preferences</span>
+    </a>
   </div>
 
+  <!-- User Preferences Component -->
+  <user-preferences></user-preferences>
+
   <script>
+    function openUserPreferences() {
+      const panel = document.querySelector('user-preferences');
+      if (panel) {
+        panel.open();
+      }
+    }
+
     function toggleQuickActions() {
       const menu = document.getElementById('quick-actions-menu');
       menu.classList.toggle('show');
@@ -662,6 +676,8 @@
       }
     });
   </script>
+
+  <script type="module" src="/assets/js/components/user-preferences.js?v=mmp5r1rf" defer></script>
 </body>
 
 </html>
