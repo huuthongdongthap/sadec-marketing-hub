@@ -196,7 +196,8 @@ async function audit(options = {}) {
         results.ids.duplicates.length;
 
     const score = Math.max(0, 100 - (totalIssues * 2));
-    console.log(`\n🏆 Health Score: ${score}/100 ${score >= 90 ? '✅' : score >= 70 ? '⚠️' : '❌'}`);
+    const scoreEmoji = score >= 90 ? '✅' : score >= 70 ? '⚠️' : '❌';
+    log.info(`\n🏆 Health Score: ${score}/100 ${scoreEmoji}`);
 
     return { results, report, score };
 }
