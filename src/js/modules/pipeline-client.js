@@ -155,86 +155,8 @@ const DEMO_DEALS = [
 ];
 
 // ================================================
-// MODAL SYSTEM
+// MODAL SYSTEM (using shared ModalManager)
 // ================================================
-
-class ModalManager {
-    constructor() {
-        this.overlay = null;
-        this.init();
-    }
-
-    init() {
-        if (!document.getElementById('modal-overlay')) {
-            this.overlay = document.createElement('div');
-            this.overlay.id = 'modal-overlay';
-            this.overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.4);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-                z-index: 9998;
-                display: none;
-                justify-content: center;
-                align-items: center;
-                padding: 24px;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
-            document.body.appendChild(this.overlay);
-        } else {
-            this.overlay = document.getElementById('modal-overlay');
-        }
-    }
-
-    open(content) {
-        const modal = document.createElement('div');
-        modal.className = 'modal-content';
-        modal.style.cssText = `
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 28px;
-            max-width: 560px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-        `;
-        modal.innerHTML = content;
-
-        this.overlay.innerHTML = '';
-        this.overlay.appendChild(modal);
-        this.overlay.style.display = 'flex';
-
-        requestAnimationFrame(() => {
-            this.overlay.style.opacity = '1';
-            modal.style.transform = 'scale(1)';
-        });
-
-        modal.querySelector('.modal-close')?.addEventListener('click', () => this.close());
-    }
-
-    close() {
-        if (!this.overlay) return;
-        const modal = this.overlay.querySelector('.modal-content');
-        this.overlay.style.opacity = '0';
-        if (modal) modal.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            this.overlay.style.display = 'none';
-            this.overlay.innerHTML = '';
-        }, 300);
-    }
-}
 
 const modal = new ModalManager();
 
