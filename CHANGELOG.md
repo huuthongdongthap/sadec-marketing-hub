@@ -2,6 +2,98 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.8.0] - 2026-03-13 — Performance Optimization & Lazy Loading Release
+
+### ⚡ Performance Optimization
+
+**Build Pipeline:**
+- HTML minification với `html-minifier-terser` (collapse whitespace, remove comments)
+- CSS minification với `clean-css` level 2 (25% reduction)
+- JS minification với `terser` ECMA 2020 (32-57% reduction)
+- Drop console.log for production builds
+
+**Size Reduction:**
+| Asset Type | Before | After | Savings |
+|------------|--------|-------|---------|
+| CSS Bundle | 904 KB | 680 KB | **25%** ⬇️ |
+| JS Bundle | 1.3 MB | 888 KB | **32%** ⬇️ |
+| Sample JS File | 7.3 KB | 3.1 KB | **57%** ⬇️ |
+
+### 🎯 Lazy Loading Implementation
+
+**Features:**
+- Native `loading="lazy"` cho images below fold
+- `decoding="async"` cho async image decoding
+- Lazy iframes cho YouTube embeds
+- Blur-up placeholders với `class="lazy-image"`
+- Auto preloading cho hero images
+- DNS prefetch cho external domains (fonts.googleapis.com, cdn.jsdelivr.net)
+- Preconnect cho Supabase CDN
+
+**Files Modified:**
+- All 85+ HTML pages with lazy loading attributes
+- `scripts/build/optimize-lazy.js` — Lazy loading automation
+
+### 🗂️ Cache Strategies
+
+**Service Worker v2.1.0-perf:**
+- Cache version: `vmmosy3bs.6b4583bfe651`
+- Static Assets (CSS/JS): Cache First, 1 year (immutable)
+- Images: Cache First với TTL 7 days
+- HTML Pages: Stale While Revalidate (5 min)
+- API Calls: Network First với cache fallback (5 min)
+- Fonts: Cache First với TTL 30 days
+
+**Vercel Cache Headers:**
+- `/assets/*`: `public, max-age=31536000, immutable`
+- `/images/*`: `public, max-age=2592000, stale-while-revalidate=604800`
+- `/*.html`: `public, max-age=0, must-revalidate, stale-while-revalidate=300`
+- `/api/*`: `private, no-store, no-cache, must-revalidate`
+
+### 🔒 Security Headers
+
+All HTML pages include:
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+- `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+- `Content-Security-Policy: default-src 'self'; ...`
+
+### 📊 Performance Budget
+
+| Metric | Target | Status |
+|--------|--------|--------|
+| CSS Bundle | < 700 KB | ✅ 680 KB |
+| JS Bundle | < 900 KB | ✅ 888 KB |
+| LCP | < 2.5s | 🎯 Target |
+| FID | < 100ms | 🎯 Target |
+| CLS | < 0.1 | 🎯 Target |
+
+### 📝 Files Changed
+
+- **89 files modified:** 2649 insertions(+), 23 deletions(-)
+- **New reports:** `reports/performance-optimization-report-2026-03-13.md`
+- **Key updates:** All HTML pages (lazy loading), sw.js, vercel.json
+
+### 📦 Build Commands
+
+```bash
+npm run build              # Full build pipeline
+npm run build:minify       # Minify HTML/CSS/JS
+npm run build:optimize     # Lazy loading optimization
+npm run optimize:full      # Full optimization + bundle report
+```
+
+### 🌐 Deployment
+
+- **Platform:** Vercel (auto-deploy from main)
+- **URL:** https://sadec-marketing-hub.vercel.app/
+- **Status:** ✅ Production Green
+
+---
+
 ## [v4.7.0] - 2026-03-13 — Feature & UX Build: Notifications, Dark Mode, Global Search
 
 ### 🎨 Feature Build (/dev-feature)
