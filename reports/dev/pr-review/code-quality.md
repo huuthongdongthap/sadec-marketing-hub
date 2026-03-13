@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-13T15:40:31.770Z
-**Files Scanned:** 637
-**Total Issues:** 1824
+**Generated:** 2026-03-13T16:33:29.245Z
+**Files Scanned:** 659
+**Total Issues:** 1885
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 312 |
-| 🟡 Warnings | 1216 |
-| ℹ️ Info | 296 |
+| 🔴 Errors | 327 |
+| 🟡 Warnings | 1252 |
+| ℹ️ Info | 306 |
 
 ---
 
@@ -20,12 +20,12 @@
 
 | Type | Count |
 |------|-------|
-| Dead Code | 85 |
+| Dead Code | 89 |
 | Tech Debt | 0 |
-| Code Smell | 271 |
-| Naming | 59 |
-| Security | 1302 |
-| Duplicate | 107 |
+| Code Smell | 274 |
+| Naming | 61 |
+| Security | 1349 |
+| Duplicate | 112 |
 
 ---
 
@@ -229,6 +229,15 @@
 ### assets/js/features/quick-actions.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/loading-states.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -254,9 +263,6 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-payments.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/portal/portal-ui.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-utils.js
@@ -410,6 +416,24 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/utils/function.js
@@ -616,6 +640,15 @@
 ### assets/js/features/quick-actions.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/loading-states.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -641,9 +674,6 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-payments.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/portal/portal-ui.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-utils.js
@@ -799,6 +829,24 @@
 ### assets/js/ui-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/ui-motion-controller.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -904,9 +952,6 @@
 ### src/js/modules/pipeline-client.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### src/js/modules/pipeline-client.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### src/js/modules/workflows.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -985,14 +1030,14 @@
 - **admin/widgets/bar-chart.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/index.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/index.js** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/widgets/kpi-card.js** (Line 44): 2 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/widgets/kpi-card.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/line-chart-widget.js** (Line 235): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/line-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/pie-chart-widget.js** (Line 153): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/pie-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/project-progress.js** (Line 29): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/project-progress.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 
-... and 1196 more warnings
+... and 1232 more warnings
 
 
 ---
@@ -1016,6 +1061,12 @@
 ### assets/js/ui-enhancements-controller.js (24 issues)
 - naming: 2
 - security: 22
+
+### assets/js/ui-motion-controller.js (22 issues)
+- dead-code: 2
+- naming: 2
+- security: 16
+- duplicate: 2
 
 ### assets/js/components/sadec-toast.js (20 issues)
 - dead-code: 2
@@ -1041,12 +1092,6 @@
 - code-smell: 2
 - naming: 2
 - security: 6
-- duplicate: 2
-
-### assets/js/micro-animations.js (14 issues)
-- dead-code: 2
-- naming: 2
-- security: 8
 - duplicate: 2
 
 ---
