@@ -1,0 +1,387 @@
+[
+  {
+    "file": "assets/js/admin/admin-campaigns.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 201
+  },
+  {
+    "file": "assets/js/admin/admin-clients.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 142
+  },
+  {
+    "file": "assets/js/admin/admin-leads.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 220
+  },
+  {
+    "file": "assets/js/admin/admin-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 148
+  },
+  {
+    "file": "assets/js/admin/menu-manager.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 190
+  },
+  {
+    "file": "assets/js/admin-guard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'adminGuard' appears unused",
+    "line": 14
+  },
+  {
+    "file": "assets/js/agency-2026-premium.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'update' appears unused",
+    "line": 80
+  },
+  {
+    "file": "assets/js/binh-phap-client.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 86
+  },
+  {
+    "file": "assets/js/binh-phap.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoAnalysis' appears unused",
+    "line": 86
+  },
+  {
+    "file": "assets/js/community.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoCommunity' appears unused",
+    "line": 348
+  },
+  {
+    "file": "assets/js/components/sadec-toast.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/core-utils.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/customer-success.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoCustomers' appears unused",
+    "line": 274
+  },
+  {
+    "file": "assets/js/dashboard-client.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'formatCurrency' appears unused",
+    "line": 13
+  },
+  {
+    "file": "assets/js/data-sync-init.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'check' appears unused",
+    "line": 60
+  },
+  {
+    "file": "assets/js/enhanced-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 42
+  },
+  {
+    "file": "assets/js/enhanced-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 51
+  },
+  {
+    "file": "assets/js/events.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoEvents' appears unused",
+    "line": 360
+  },
+  {
+    "file": "assets/js/events.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'formatEventDate' appears unused",
+    "line": 409
+  },
+  {
+    "file": "assets/js/features/ai-content-generator.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/finance.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoFinance' appears unused",
+    "line": 118
+  },
+  {
+    "file": "assets/js/hr-hiring.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoHR' appears unused",
+    "line": 115
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'allowDrop' appears unused",
+    "line": 16
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'drag' appears unused",
+    "line": 20
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'drop' appears unused",
+    "line": 24
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 80
+  },
+  {
+    "file": "assets/js/legal.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoLegal' appears unused",
+    "line": 122
+  },
+  {
+    "file": "assets/js/lms.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoLMS' appears unused",
+    "line": 140
+  },
+  {
+    "file": "assets/js/mekong-store.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'return' appears unused",
+    "line": 0
+  },
+  {
+    "file": "assets/js/micro-animations.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'easeOutQuart' appears unused",
+    "line": 225
+  },
+  {
+    "file": "assets/js/micro-animations.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'type' appears unused",
+    "line": 256
+  },
+  {
+    "file": "assets/js/mobile-navigation.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'toggleSidebar' appears unused",
+    "line": 125
+  },
+  {
+    "file": "assets/js/mobile-navigation.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateGrid' appears unused",
+    "line": 386
+  },
+  {
+    "file": "assets/js/mvp-launch.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoMVP' appears unused",
+    "line": 118
+  },
+  {
+    "file": "assets/js/pipeline-client.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'update' appears unused",
+    "line": 436
+  },
+  {
+    "file": "assets/js/pipeline-client.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'exportPipelineReport' appears unused",
+    "line": 576
+  },
+  {
+    "file": "assets/js/pipeline.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoPipeline' appears unused",
+    "line": 91
+  },
+  {
+    "file": "assets/js/portal/portal-auth.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 98
+  },
+  {
+    "file": "assets/js/portal/portal-dashboard.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 224
+  },
+  {
+    "file": "assets/js/portal-guard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'portalGuard' appears unused",
+    "line": 12
+  },
+  {
+    "file": "assets/js/pricing.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoPricing' appears unused",
+    "line": 104
+  },
+  {
+    "file": "assets/js/proposals.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoProposals' appears unused",
+    "line": 97
+  },
+  {
+    "file": "assets/js/realtime-dashboard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'return' appears unused",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'debounce' appears unused",
+    "line": 435
+  },
+  {
+    "file": "assets/js/ui-enhancements.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'later' appears unused",
+    "line": 438
+  },
+  {
+    "file": "assets/js/vc-readiness.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoVCReadiness' appears unused",
+    "line": 98
+  },
+  {
+    "file": "assets/js/video.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoVideo' appears unused",
+    "line": 122
+  },
+  {
+    "file": "admin/components/head-template.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'generateHeadMetadata' appears unused",
+    "line": 20
+  },
+  {
+    "file": "admin/widgets/alerts-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 167
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'selectPlan' appears unused",
+    "line": 31
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'selectIndustry' appears unused",
+    "line": 42
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'toggleChannel' appears unused",
+    "line": 53
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'prevStep' appears unused",
+    "line": 73
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'validateStep2' appears unused",
+    "line": 119
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'validateStep3' appears unused",
+    "line": 149
+  }
+]
