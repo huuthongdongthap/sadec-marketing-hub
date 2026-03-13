@@ -524,7 +524,8 @@ function main() {
   console.log('🔍 Sa Đéc Marketing Hub — SEO Metadata Auto-Fix\n');
   console.log('='.repeat(60));
 
-  const baseDir = path.join(__dirname, '../..');
+  // Use current working directory (the actual project dir)
+  const baseDir = process.cwd();
   let totalFiles = 0;
   let successCount = 0;
   let errorCount = 0;
