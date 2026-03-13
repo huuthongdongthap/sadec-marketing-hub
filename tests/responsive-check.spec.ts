@@ -218,3 +218,55 @@ test.describe('Responsive Audit - Tablet 768px', () => {
     });
   }
 });
+
+// Desktop/Tablet 1024px viewport
+const DESKTOP_VIEWPORT = { width: 1024, height: 768 };
+
+test.describe('Responsive Audit - Desktop 1024px', () => {
+  test.use({ viewport: DESKTOP_VIEWPORT });
+
+  for (const pagePath of ADMIN_PAGES) {
+    test(`Desktop: ${pagePath}`, async ({ page }) => {
+      await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+
+      // 1. No horizontal scroll
+      const hasHorizontalScroll = await page.evaluate(() => {
+        return document.documentElement.scrollWidth > document.documentElement.clientWidth;
+      });
+      expect(hasHorizontalScroll, `${pagePath}: Horizontal scroll detected`).toBe(false);
+
+      // 2. Check stats grid has appropriate columns
+      const statsGrid = await page.evaluate(() => {
+        const grid = document.querySelector('.stats-grid');
+        if (!grid) return 'not found';
+        const style = getComputedStyle(grid);
+        const columns = style.gridTemplateColumns;
+        return columns;
+      });
+
+      // Take screenshot
+      await page.screenshot({
+        path: `test-results/responsive/desktop-${pagePath.replace(/\//g, '-').replace('.html', '')}.png`,
+        fullPage: false
+      });
+    });
+  }
+
+  for (const pagePath of PORTAL_PAGES) {
+    test(`Desktop: ${pagePath}`, async ({ page }) => {
+      await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+
+      // 1. No horizontal scroll
+      const hasHorizontalScroll = await page.evaluate(() => {
+        return document.documentElement.scrollWidth > document.documentElement.clientWidth;
+      });
+      expect(hasHorizontalScroll, `${pagePath}: Horizontal scroll detected`).toBe(false);
+
+      // Take screenshot
+      await page.screenshot({
+        path: `test-results/responsive/desktop-${pagePath.replace(/\//g, '-').replace('.html', '')}.png`,
+        fullPage: false
+      });
+    });
+  }
+});
