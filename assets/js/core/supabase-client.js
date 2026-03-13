@@ -5,7 +5,13 @@
  * ═══════════════════════════════════════════════════════════════════════════
  *
  * Usage:
- *   import { getSupabaseClient, auth, db } from './core/supabase-client.js';
+ *   // Method 1: Direct imports (recommended)
+ *   import { auth } from './core/auth-service.js';
+ *   import { leads, clients, projects } from './core/database-service.js';
+ *   import { assets, realtime } from './core/storage-service.js';
+ *
+ *   // Method 2: Unified export (backward compatible)
+ *   import { auth, db, storage, realtime } from './core/supabase-client.js';
  *
  *   // Auth
  *   const { data, error } = await auth.signIn(email, password);
@@ -15,6 +21,27 @@
  */
 
 import { Logger } from '../shared/logger.js';
+
+// Re-export from modular services (recommended approach)
+export { auth, authGuards, AuthManager } from './auth-service.js';
+export {
+    leads,
+    clients,
+    projects,
+    campaigns,
+    invoices,
+    deals,
+    content,
+    budget,
+    activities,
+    strategic,
+    seo,
+    workflows,
+    agents,
+    analytics,
+    approvals
+} from './database-service.js';
+export { assets, realtime, automation, fileUtils } from './storage-service.js';
 
 const TAG = '[SupabaseClient]';
 
