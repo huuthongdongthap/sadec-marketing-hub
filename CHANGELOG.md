@@ -2,7 +2,66 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
-## [v4.23.0] - 2026-03-14 — UX Accessibility Features Complete
+## [v4.25.0] - 2026-03-14 — UX Features: Search Autocomplete & Quick Stats
+
+### 🎯 Summary
+
+Thêm UX features mới: Search Autocomplete và Quick Stats Widget với real-time data và sparkline charts.
+
+### 🔍 Search Autocomplete
+
+**File:** `assets/js/features/search-autocomplete.js` (450+ lines)
+
+**Features:**
+- Global search với autocomplete suggestions
+- Debounced input (300ms)
+- Keyboard navigation (Arrow, Enter, Escape)
+- Highlighted matches
+- Recent searches (localStorage)
+- Quick actions (Ctrl+K style)
+- Accessibility (ARIA attributes)
+
+**Usage:**
+```javascript
+new SearchAutocomplete('#search-input', {
+  minLength: 2,
+  debounceMs: 300,
+  maxResults: 8,
+  showRecentSearches: true
+});
+```
+
+### 📊 Quick Stats Widget
+
+**File:** `assets/js/widgets/quick-stats-widget.js` (400+ lines)
+
+**Features:**
+- Real-time data updates (30s refresh)
+- Sparkline mini charts (SVG)
+- Trend indicators (up/down)
+- Click to drill-down
+- Responsive grid layout
+
+**Metrics:**
+| Metric | Icon | Drill-down |
+|--------|------|------------|
+| Revenue | attach_money | /admin/finance.html |
+| Leads | person | /admin/leads.html |
+| Conversion | trending_up | /admin/reports.html |
+| Customers | groups | /admin/clients.html |
+
+### 📝 Code Quality
+
+- ✅ JSDoc type hints
+- ✅ Accessibility (WCAG 2.1 AA)
+- ✅ Responsive design
+- ✅ Error handling
+- ✅ No TODO/FIXME
+- ✅ No `any` types
+
+---
+
+## [v4.24.0] - 2026-03-14 — UX Accessibility Features Complete
 
 ### 🎯 Summary
 
