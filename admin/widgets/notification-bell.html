@@ -304,6 +304,57 @@ Usage: Include in admin layout header
 .view-all-link:hover {
   background-color: var(--md-sys-color-primary-container, rgba(0, 106, 96, 0.1));
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .notification-bell-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .notification-dropdown {
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    right: 8px;
+    max-height: 60vh;
+  }
+
+  .notification-dropdown-header {
+    padding: 10px 12px;
+  }
+
+  .notification-list {
+    padding: 4px;
+  }
+
+  .notification-item {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .notification-item-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .notification-item-title {
+    font-size: 13px;
+  }
+
+  .notification-item-message {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .notification-bell-widget {
+    transform: scale(0.9);
+  }
+
+  .notification-dropdown {
+    width: calc(100vw - 24px);
+  }
+}
 </style>
 
 <script>

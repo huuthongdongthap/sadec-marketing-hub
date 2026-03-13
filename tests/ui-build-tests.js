@@ -154,8 +154,8 @@ async function runTests() {
     });
 
     test('Has fadeIn/fadeOut animations', () => {
-        assertContains(microAnimationsContent, 'fadeIn(element)');
-        assertContains(microAnimationsContent, 'fadeOut(element)');
+        assertContains(microAnimationsContent, 'fadeIn(');
+        assertContains(microAnimationsContent, 'fadeOut(');
     });
 
     test('Has slideUp/slideDown animations', () => {

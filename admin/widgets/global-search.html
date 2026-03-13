@@ -446,6 +446,55 @@ Usage: Include in admin layout header
   border-radius: 3px;
   font-size: 10px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-trigger-btn {
+    max-width: 200px;
+    padding: 8px 12px;
+  }
+
+  .search-trigger-text {
+    font-size: 13px;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+
+  .search-modal-content {
+    max-width: calc(100% - 16px);
+    margin: 0 8px;
+  }
+
+  .search-modal {
+    padding-top: 60px;
+  }
+
+  .search-quick-nav {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .quick-nav-items {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .search-trigger-btn {
+    max-width: 160px;
+  }
+
+  .search-trigger-text {
+    font-size: 12px;
+  }
+
+  .search-input-wrapper {
+    padding: 8px;
+  }
+}
 </style>
 
 <script>

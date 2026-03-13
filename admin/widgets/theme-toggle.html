@@ -221,6 +221,30 @@ Usage: Include in admin layout header
   color: var(--md-sys-color-on-surface-variant, #888);
   cursor: default;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .theme-dropdown {
+    right: -8px;
+    min-width: 180px;
+  }
+
+  .theme-option {
+    padding: 10px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .theme-toggle-widget {
+    transform: scale(0.9);
+  }
+}
 </style>
 
 <script>
