@@ -8,8 +8,21 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Dashboard Widgets', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded' });
+  test.beforeEach(async ({ page, context }) => {
+    // Clear any cached state
+    await context.clearCookies();
+
+    // Block all external requests - only allow localhost
+    await page.route('**/*', (route) => {
+      const url = route.request().url();
+      if (url.startsWith('http://localhost:5502') || url.startsWith('http://127.0.0.1:5502')) {
+        route.continue();
+      } else {
+        route.abort();
+      }
+    });
+
+    await page.goto('/admin/widgets-demo.html', { waitUntil: 'domcontentloaded', timeout: 30000 });
   });
 
   test.describe('KPI Card Widget', () => {
