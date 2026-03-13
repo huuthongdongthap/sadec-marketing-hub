@@ -4,7 +4,7 @@
 // ================================================
 
 import { auth, leads, clients, deals, utils } from './supabase.js';
-import { formatCurrencyCompact, formatRelativeTime, Toast } from '../enhanced-utils.js';
+import { formatCurrencyCompact, formatRelativeTime, Toast } from './enhanced-utils.js';
 
 // ================================================
 // DEMO DEALS DATA
@@ -648,7 +648,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
     } catch (error) {
-        console.error('Error loading pipeline:', error);
+        // [DEV] 'Error loading pipeline:', error);
         renderPipeline(DEMO_DEALS);
         Toast.show('Đang hiển thị demo mode', 'warning');
     }

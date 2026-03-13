@@ -158,7 +158,7 @@ export async function loadCampaigns(tableBody) {
         updateCampaignStats(campaignData);
 
     } catch (error) {
-        console.error('Error loading campaigns:', error);
+        // [DEV] 'Error loading campaigns:', error);
         toast.error('Không thể tải danh sách chiến dịch');
 
         // Fallback to demo data

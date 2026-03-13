@@ -1,14 +1,28 @@
 /**
- * ==============================================
- * MEKONG AGENCY - UTILITIES
- * Shared utility functions
+ * ============================================================================
+ * MEKONG AGENCY - UTILITIES (Legacy Compatibility Layer)
+ * ============================================================================
  *
- * Note: Format functions re-exported from shared/format-utils.js
- * ==============================================
+ * BACKWARD COMPATIBILITY FILE - Re-exports from core-utils.js
+ *
+ * NEW CODE should import from './core-utils.js' instead.
+ * This file exists only to support legacy code that imports from './utils.js'.
+ *
+ * DEPRECATED: Do not use for new code. Use core-utils.js instead.
  */
 
-// ===== RE-EXPORTS FROM SHARED =====
-export {
+// Re-export everything from core-utils
+export * from './core-utils.js';
+
+// ===== ADDITIONAL LEGACY EXPORTS =====
+// These are kept here for backwards compatibility
+
+// ===== ID GENERATION (if different from core-utils) =====
+// Note: Now also exported from core-utils via enhanced-utils
+export { generateId } from './enhanced-utils.js';
+
+// ===== DEFAULT EXPORT FOR BACKWARDS COMPATIBILITY =====
+import {
     formatCurrency,
     formatCurrencyCompact,
     formatCurrencyVN,
@@ -18,15 +32,10 @@ export {
     formatRelativeTime,
     truncate,
     debounce,
-    throttle
-} from './shared/format-utils.js';
+    throttle,
+    generateId
+} from './core-utils.js';
 
-// ===== ID GENERATION =====
-export function generateId(prefix = 'id') {
-    return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-}
-
-// ===== DEFAULT EXPORT FOR BACKWARDS COMPATIBILITY =====
 export default {
     formatCurrency,
     formatCurrencyCompact,

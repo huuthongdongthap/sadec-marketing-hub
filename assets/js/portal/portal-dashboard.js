@@ -34,7 +34,7 @@ export async function loadDashboard() {
         await loadDeadlines();
 
     } catch (error) {
-        console.error('Dashboard load error:', error);
+        // [DEV] 'Dashboard load error:', error);
         // Show demo data in case of error
         loadDemoDashboard();
     }
@@ -144,7 +144,7 @@ export async function loadActivityFeed() {
         // No activities or error - show demo
         loadDemoActivityFeed();
     } catch (error) {
-        console.error('Activity feed load error:', error);
+        // [DEV] 'Activity feed load error:', error);
         loadDemoActivityFeed();
     }
 }
@@ -207,7 +207,7 @@ export async function loadDeadlines() {
 
         loadDemoDeadlines();
     } catch (error) {
-        console.error('Deadlines load error:', error);
+        // [DEV] 'Deadlines load error:', error);
         loadDemoDeadlines();
     }
 }

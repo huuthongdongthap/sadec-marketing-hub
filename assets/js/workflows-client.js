@@ -30,7 +30,7 @@ async function loadWorkflowsData() {
             }
         };
     } catch (error) {
-        console.error('Workflows data error:', error);
+        // [DEV] 'Workflows data error:', error);
         return getDemoWorkflowsData();
     }
 }

@@ -33,7 +33,7 @@ class CommunityBus {
                 try {
                     cb(data);
                 } catch (err) {
-                    console.error(`Error in event listener for ${event}:`, err);
+                    // [DEV] `Error in event listener for ${event}:`, err);
                 }
             });
         }

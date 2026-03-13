@@ -2237,30 +2237,77 @@ button,
 
 /* ---- Responsive Overrides ---- */
 
+/* ============================================
+   TABLET: 1024px
+   ============================================ */
+@media (max-width: 1024px) {
+    .portal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 24px;
+    }
+
+    .stats-grid,
+    .content-grid,
+    .charts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-section {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .search-glass {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   MOBILE: 768px
+   ============================================ */
 @media (max-width: 768px) {
     .main-content {
         padding: 16px;
+        padding-top: 60px;
     }
 
     .btn {
-        padding: 10px 16px;
-        font-size: 13px;
+        padding: 12px 16px;
+        font-size: 14px;
+        min-height: 44px;
     }
 
     .modal-content {
         margin: 16px;
         max-height: calc(100vh - 32px);
+        width: calc(100% - 32px);
     }
 
     .page-header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .page-header .flex-between {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .page-header .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .stats-grid,
     .content-grid,
     .charts-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .payment-layout {
@@ -2269,6 +2316,133 @@ button,
 
     .pricing-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Card styling */
+    .card,
+    .card-elevated,
+    .card-outlined {
+        border-radius: 12px;
+        padding: 16px;
+    }
+
+    /* Typography */
+    h1, .h1 {
+        font-size: clamp(24px, 5vw, 32px);
+    }
+
+    h2, .h2 {
+        font-size: clamp(20px, 4vw, 28px);
+    }
+
+    h3, .h3 {
+        font-size: clamp(18px, 3.5vw, 24px);
+    }
+
+    /* Table responsive */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table {
+        min-width: 600px;
+    }
+
+    /* Form inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    textarea,
+    select {
+        min-height: 48px;
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+}
+
+/* ============================================
+   MOBILE SMALL: 375px
+   ============================================ */
+@media (max-width: 375px) {
+    .main-content {
+        padding: 12px;
+        padding-top: 56px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .modal-content {
+        margin: 12px;
+        width: calc(100% - 24px);
+    }
+
+    .stats-grid,
+    .content-grid,
+    .charts-grid {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    h1, .h1 {
+        font-size: 24px;
+    }
+
+    h2, .h2 {
+        font-size: 20px;
+    }
+
+    h3, .h3 {
+        font-size: 18px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    /* Smaller touch targets */
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Compact spacing */
+    .card-section {
+        padding: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .gap-small {
+        gap: 8px !important;
+    }
+
+    .gap-medium {
+        gap: 12px !important;
     }
 }
 
@@ -2290,13 +2464,49 @@ button,
     grid-template-columns: 1fr 1fr;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .login-page {
         grid-template-columns: 1fr;
     }
 
     .login-hero {
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-form-container {
+        padding: 20px 16px;
+    }
+
+    .login-title {
+        font-size: 24px;
+    }
+
+    .login-subtitle {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    .login-form-container {
+        padding: 16px 12px;
+    }
+
+    .login-title {
+        font-size: 22px;
+    }
+
+    .login-subtitle {
+        font-size: 13px;
+    }
+
+    .social-login {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 100%;
     }
 }
 

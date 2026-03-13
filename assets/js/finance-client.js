@@ -57,7 +57,7 @@ async function loadFinanceData() {
             budgets: budgetData
         };
     } catch (error) {
-        console.error('Finance data error:', error);
+        // [DEV] 'Finance data error:', error);
         return getDemoFinanceData();
     }
 }

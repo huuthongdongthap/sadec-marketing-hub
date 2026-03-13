@@ -272,7 +272,7 @@ class SadecSidebar extends HTMLElement {
                         <span class="material-symbols-outlined">chevron_left</span>
                     </button>
                     <!-- Logout button for affiliate -->
-                    <a href="#" onclick="(async () => { try { await window.Auth?.Actions?.signOut(); } catch(e) { console.error('SignOut error:', e); } finally { window.location.href = '/auth/login.html'; } })();" class="nav-item logout-btn" style="color: #ff6b6b; margin-top: 8px;">
+                    <a href="#" onclick="(async () => { try { await window.Auth?.Actions?.signOut(); } catch(e) { // [DEV] 'SignOut error:', e); } finally { window.location.href = '/auth/login.html'; } })();" class="nav-item logout-btn" style="color: #ff6b6b; margin-top: 8px;">
                         <span class="material-symbols-outlined">logout</span>
                         <span class="nav-label">Đăng xuất</span>
                     </a>

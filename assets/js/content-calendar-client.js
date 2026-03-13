@@ -38,7 +38,7 @@ async function loadContentData(filters = {}) {
             stats: calculateStats(data)
         };
     } catch (error) {
-        console.error('Content data error:', error);
+        // [DEV] 'Content data error:', error);
         return getDemoContentData();
     }
 }

@@ -69,7 +69,7 @@ async function loadDashboardData() {
         };
 
     } catch (error) {
-        console.error('Dashboard data error:', error);
+        // [DEV] 'Dashboard data error:', error);
         return getDemoDashboardData();
     }
 }

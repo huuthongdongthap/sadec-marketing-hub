@@ -111,7 +111,7 @@ export function getCurrentUser() {
 
 export function requireAuth(redirectUrl) {
     if (!window.Auth?.Guards) {
-        console.warn('Auth system not loaded');
+        // [DEV] 'Auth system not loaded');
         return false;
     }
 

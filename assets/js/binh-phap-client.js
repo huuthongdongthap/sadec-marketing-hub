@@ -28,7 +28,7 @@ async function loadStrategicData() {
             }
         };
     } catch (error) {
-        console.error('Strategic data error:', error);
+        // [DEV] 'Strategic data error:', error);
         return getDemoStrategicData();
     }
 }

@@ -44,7 +44,7 @@ class EventBus {
                 try {
                     cb(data);
                 } catch (error) {
-                    console.error(`Error in event listener for ${event}:`, error);
+                    // [DEV] `Error in event listener for ${event}:`, error);
                 }
             });
         }
@@ -72,7 +72,7 @@ class BaseManager {
      */
     add(item) {
         if (!item || !item.id) {
-            console.error(`${this.name}: Cannot add item without ID`);
+            // [DEV] `${this.name}: Cannot add item without ID`);
             return null;
         }
         this.items.set(item.id, item);

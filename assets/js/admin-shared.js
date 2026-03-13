@@ -302,7 +302,7 @@ class GlobalSearch {
 
     static handleSearch(query) {
         // Could show dropdown results here
-        // console.debug('Search:', query, this.search(query));
+        // // [REMOVED] console.debug('Search:', query, this.search(query));
     }
 }
 
@@ -351,7 +351,7 @@ class LiveData {
                 wonDeals: deals.data?.filter(d => d.stage === 'won').length || 0
             };
         } catch (err) {
-            console.error('LiveData error:', err);
+            // [DEV] 'LiveData error:', err);
             return this.getMockStats();
         }
     }

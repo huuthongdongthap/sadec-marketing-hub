@@ -18,7 +18,7 @@ const CampaignOptimizer = {
 
             // If no real API key, use mock data locally to save Edge Function invocations during demo
             if (!this.ANON_KEY || this.ANON_KEY.includes('YOUR_')) {
-                console.warn('Using local optimization logic (Mock Mode)');
+                // [DEV] 'Using local optimization logic (Mock Mode)');
                 await new Promise(r => setTimeout(r, 1500));
                 return this.localOptimize(campaign);
             }
@@ -41,7 +41,7 @@ const CampaignOptimizer = {
             return result;
 
         } catch (error) {
-            console.error('Optimizer Error:', error);
+            // [DEV] 'Optimizer Error:', error);
             // Fallback to local optimization on error
             return this.localOptimize(campaign);
         } finally {

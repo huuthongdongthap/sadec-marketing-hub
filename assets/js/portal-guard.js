@@ -72,7 +72,7 @@ function waitForAuth(timeout = 5000) {
         });
 
     } catch (error) {
-        console.warn('[Portal Guard] Error:', error);
+        // [DEV] '[Portal Guard] Error:', error);
         // Don't block page on guard errors — graceful degradation
     }
 })();

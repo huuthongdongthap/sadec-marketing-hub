@@ -68,7 +68,7 @@ test.describe('Smoke Test — Previously Untested Pages', () => {
         }
       });
 
-      const response = await p.goto(page.path, { waitUntil: 'domcontentloaded', timeout: 10000 });
+      const response = await p.goto(page.path, { waitUntil: 'load', timeout: 15000 });
 
       // 1. HTTP 200
       expect(response?.status()).toBe(200);

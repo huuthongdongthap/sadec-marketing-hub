@@ -115,7 +115,7 @@ export function getStorageItem(key, defaultValue = null) {
         const item = localStorage.getItem(key);
         return item ? JSON.parse(item) : defaultValue;
     } catch (error) {
-        console.warn('localStorage get error:', error);
+        // [DEV] 'localStorage get error:', error);
         return defaultValue;
     }
 }
@@ -127,7 +127,7 @@ export function setStorageItem(key, value) {
     try {
         localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-        console.warn('localStorage set error:', error);
+        // [DEV] 'localStorage set error:', error);
     }
 }
 
@@ -138,6 +138,6 @@ export function removeStorageItem(key) {
     try {
         localStorage.removeItem(key);
     } catch (error) {
-        console.warn('localStorage remove error:', error);
+        // [DEV] 'localStorage remove error:', error);
     }
 }

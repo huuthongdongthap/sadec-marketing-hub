@@ -89,7 +89,7 @@ export async function payInvoiceOnline(invoice) {
                 toast.error(result.error || 'Thanh toán thất bại');
             }
         } catch (error) {
-            console.error('Payment error:', error);
+            // [DEV] 'Payment error:', error);
             toast.error('Có lỗi xảy ra khi thanh toán');
         }
     });
@@ -166,7 +166,7 @@ export async function downloadInvoicePDF(invoice) {
 
         toast.success('Đang mở hộp thoại in');
     } catch (error) {
-        console.error('Download PDF error:', error);
+        // [DEV] 'Download PDF error:', error);
         toast.error('Không thể tạo PDF');
     }
 }
@@ -201,7 +201,7 @@ export async function markInvoiceAsPaid(invoiceId) {
             setTimeout(() => window.location.reload(), 1000);
         }
     } catch (error) {
-        console.error('Mark as paid error:', error);
+        // [DEV] 'Mark as paid error:', error);
         toast.error('Không thể cập nhật trạng thái');
     }
 }

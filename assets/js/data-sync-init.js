@@ -61,7 +61,7 @@
                     if (window.SupabaseAPI && window.MekongStore) {
                         resolve();
                     } else if (attempts >= maxAttempts) {
-                        console.error('❌ DataSyncInit: Dependencies (SupabaseAPI, MekongStore) failed to load.');
+                        // [DEV] '❌ DataSyncInit: Dependencies (SupabaseAPI, MekongStore) failed to load.');
                         reject(new Error('Dependencies timeout'));
                     } else {
                         attempts++;
@@ -139,7 +139,7 @@
                     window.DataSync.fetch('posts', { limit: 20 })
                 ]);
             } catch (err) {
-                console.error('Failed to refresh data:', err);
+                // [DEV] 'Failed to refresh data:', err);
             }
         },
 
@@ -161,7 +161,7 @@
 
     // Auto-init when DOM ready
     document.addEventListener('DOMContentLoaded', () => {
-        DataSyncInit.init().catch(err => console.error('DataSync init failed:', err));
+        DataSyncInit.init().catch(err => // [DEV] 'DataSync init failed:', err));
     });
 
 })();

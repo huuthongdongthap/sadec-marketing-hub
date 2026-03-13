@@ -19,7 +19,7 @@ const RealtimeDashboard = {
     init() {
         const client = window.SupabaseAPI?.getClient();
         if (!client) {
-            // console.warn('Supabase client not available for Realtime');
+            // // [DEV] 'Supabase client not available for Realtime');
             return false;
         }
 
@@ -76,7 +76,7 @@ const RealtimeDashboard = {
      */
     attemptReconnect() {
         if (this.reconnectAttempts >= this.maxReconnectAttempts) {
-            console.error('📡 Realtime: Max reconnect attempts reached');
+            // [DEV] '📡 Realtime: Max reconnect attempts reached');
             return;
         }
 

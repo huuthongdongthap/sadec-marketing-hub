@@ -128,7 +128,7 @@ export async function loadProjects(gridElement, filterStatus = 'all') {
         renderProjects(gridElement, projects);
 
     } catch (error) {
-        console.error('Load projects error:', error);
+        // [DEV] 'Load projects error:', error);
         toast.error('Không thể tải danh sách dự án');
 
         // Fallback to demo data
@@ -159,7 +159,7 @@ async function loadProjectsFromSupabase(filterStatus) {
         if (error) throw error;
         return data;
     } catch (error) {
-        console.error('Supabase load projects error:', error);
+        // [DEV] 'Supabase load projects error:', error);
         return null;
     }
 }

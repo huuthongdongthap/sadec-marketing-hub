@@ -60,7 +60,7 @@ class Agent {
 
             return result;
         } catch (error) {
-            console.error(`${this.name} error:`, error);
+            // [DEV] `${this.name} error:`, error);
             this.state = 'error';
             this.log(`Error: ${error.message}`, 'error');
             agentBus.emit('agent:state-change', { agent: this.name, newState: 'error' });
@@ -215,7 +215,7 @@ class AgentSystem {
             return task;
 
         } catch (error) {
-            console.error('Task submission failed:', error);
+            // [DEV] 'Task submission failed:', error);
             agentBus.emit('agent:log', {
                 agent: 'System',
                 type: 'error',

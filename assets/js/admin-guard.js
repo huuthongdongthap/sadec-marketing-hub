@@ -14,7 +14,7 @@
 
     // Skip guard on localhost for demo mode
     if (isLocalhost) {
-        console.log('[Admin Guard] Skipping on localhost (demo mode)');
+        // [REMOVED] console.log('[Admin Guard] Skipping on localhost (demo mode)');
         return;
     }
 
@@ -64,7 +64,7 @@
         });
 
     } catch (error) {
-        console.error('[Admin Guard] Error:', error);
+        // [DEV] '[Admin Guard] Error:', error);
         // Don't block page on guard errors — graceful degradation
     }
 })();

@@ -23,7 +23,7 @@
     // Find sidebar element
     sidebarElement = document.querySelector('sadec-sidebar');
     if (!sidebarElement) {
-      console.warn('MobileNav: No sidebar found');
+      // [DEV] 'MobileNav: No sidebar found');
       return;
     }
 
@@ -39,7 +39,7 @@
     // Handle initial state
     handleResize();
 
-    console.log('MobileNav: Initialized');
+    // [REMOVED] console.log('MobileNav: Initialized');
   }
 
   /**
@@ -459,7 +459,7 @@
     initResponsiveGrids();
     initTouchButtons();
     initLazyLoading();
-    console.log('ResponsiveUtils: Initialized');
+    // [REMOVED] console.log('ResponsiveUtils: Initialized');
   }
 
   // Auto-initialize

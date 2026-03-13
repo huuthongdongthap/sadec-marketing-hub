@@ -291,7 +291,7 @@ class AIAssistant {
             const response = await this.callAI(text);
             this.messages.push({ role: 'assistant', text: response });
         } catch (error) {
-            console.error('AI Error:', error);
+            // [DEV] 'AI Error:', error);
             this.messages.push({ role: 'assistant', text: 'Xin lỗi, tôi đang gặp sự cố kết nối. Vui lòng thử lại sau.' });
         } finally {
             this.isTyping = false;
@@ -327,7 +327,7 @@ class AIAssistant {
             return data.content || 'Không nhận được phản hồi.';
 
         } catch (e) {
-            console.warn('API call failed, using mock response', e);
+            // [DEV] 'API call failed, using mock response', e);
             await new Promise(r => setTimeout(r, 1000));
             return this.getMockResponse(query);
         }

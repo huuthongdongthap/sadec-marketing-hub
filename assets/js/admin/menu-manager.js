@@ -78,7 +78,7 @@
                     this.saveItems();
                 }
             } catch (e) {
-                console.error('Error loading menu items:', e);
+                // [DEV] 'Error loading menu items:', e);
                 this.items = [...this.defaultItems];
             }
         },
@@ -90,7 +90,7 @@
             try {
                 localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
             } catch (e) {
-                console.error('Error saving menu items:', e);
+                // [DEV] 'Error saving menu items:', e);
             }
         },
 

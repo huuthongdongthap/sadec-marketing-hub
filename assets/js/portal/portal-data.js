@@ -136,7 +136,7 @@ export async function loadProjects(filterStatus = 'all') {
             : DEMO_PROJECTS.filter(p => p.status === filterStatus);
 
     } catch (error) {
-        console.error('Load projects error:', error);
+        // [DEV] 'Load projects error:', error);
         return filterStatus === 'all' ? DEMO_PROJECTS : [];
     }
 }
@@ -162,7 +162,7 @@ export async function loadInvoices() {
         return (await import('./portal-auth.js')).DEMO_INVOICES;
 
     } catch (error) {
-        console.error('Load invoices error:', error);
+        // [DEV] 'Load invoices error:', error);
         return [];
     }
 }
@@ -186,7 +186,7 @@ export async function getProjectById(id) {
         return DEMO_PROJECTS.find(p => p.id === id);
 
     } catch (error) {
-        console.error('Get project error:', error);
+        // [DEV] 'Get project error:', error);
         return null;
     }
 }
@@ -211,7 +211,7 @@ export async function getInvoiceById(id) {
         return invoices.find(inv => inv.id === id);
 
     } catch (error) {
-        console.error('Get invoice error:', error);
+        // [DEV] 'Get invoice error:', error);
         return null;
     }
 }

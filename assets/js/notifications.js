@@ -10,7 +10,7 @@ class NotificationManager {
 
     async requestPermission() {
         if (!('Notification' in window)) {
-            console.error('This browser does not support desktop notification');
+            // [DEV] 'This browser does not support desktop notification');
             return 'denied';
         }
 
@@ -19,7 +19,7 @@ class NotificationManager {
             this.permission = permission;
             return permission;
         } catch (error) {
-            console.error('[Notification] Error requesting permission:', error);
+            // [DEV] '[Notification] Error requesting permission:', error);
             return 'denied';
         }
     }

@@ -37,7 +37,7 @@ class PWAInstaller {
                         // Registration successful
                     })
                     .catch(err => {
-                        console.error('[PWA] ServiceWorker registration failed:', err);
+                        // [DEV] '[PWA] ServiceWorker registration failed:', err);
                     });
             });
         }

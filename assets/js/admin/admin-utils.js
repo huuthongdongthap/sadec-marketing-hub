@@ -19,12 +19,16 @@ export {
     formatRelativeTime,
     truncate,
     debounce,
-    throttle,
-    Toast
+    throttle
 } from '../shared/format-utils.js';
 
-// Re-export Toast from enhanced-utils for admin modules
-export { Toast } from '../enhanced-utils.js';
+// Re-export Toast, ThemeManager, ScrollProgress from enhanced-utils for admin modules
+export {
+    Toast,
+    ThemeManager,
+    ScrollProgress,
+    MobileSidebar
+} from '../enhanced-utils.js';
 
 // ================================================
 // MODAL MANAGER

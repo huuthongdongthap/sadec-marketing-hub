@@ -36,9 +36,9 @@ const AffiliateAPI = {
 
             return await response.json();
         } catch (error) {
-            console.error('Commission calculation failed:', error);
+            // [DEV] 'Commission calculation failed:', error);
             // Fallback to client-side calculation if Edge Function fails
-            console.warn('Edge Function failed, using fallback calculation');
+            // [DEV] 'Edge Function failed, using fallback calculation');
             return this.fallbackCalculation(sales, options);
         }
     },

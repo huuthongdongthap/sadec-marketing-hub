@@ -367,7 +367,7 @@ class PaymentModal extends HTMLElement {
       // Fallback: Reset loading state if redirection takes too long or fails silently
       setTimeout(() => this.setLoading(false), 10000);
     } catch (error) {
-      console.error('[payment-modal] Payment error:', error);
+      // [DEV] '[payment-modal] Payment error:', error);
       this.showError(error.message || 'Payment submission failed');
       this.setLoading(false);
     }

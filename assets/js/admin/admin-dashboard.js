@@ -3,7 +3,7 @@
  * Dashboard Stats Loading & Animation
  */
 
-import { formatNumber } from './admin-utils.js';
+import { formatNumber, formatCurrencyVN } from './admin-utils.js';
 
 // ================================================
 // DASHBOARD STATS LOADING
@@ -28,7 +28,7 @@ export async function loadDashboard() {
         }
 
     } catch (error) {
-        console.error('Dashboard load error:', error);
+        // [DEV] 'Dashboard load error:', error);
         loadDemoDashboard();
     }
 }
@@ -72,7 +72,7 @@ export function updateDashboardStats(stats) {
     const elRevenue = document.getElementById('stat-revenue');
     if (elRevenue) {
         const value = stats.pending_revenue || 0;
-        elRevenue.textContent = formatCurrency(value);
+        elRevenue.textContent = formatCurrencyVN(value);
     }
 
     // Active campaigns
@@ -177,12 +177,4 @@ export function createSparkline(data, trend = 'up') {
             />
         </svg>
     `;
-}
-
-// Helper for currency formatting
-function formatCurrency(amount) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(amount);
 }

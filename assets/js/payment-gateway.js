@@ -87,7 +87,7 @@ class VNPayGateway extends PaymentGateway {
                 const result = await response.json();
                 return result.checkoutUrl || result.paymentUrl;
             } catch (error) {
-                console.error('VNPay Error:', error);
+                // [DEV] 'VNPay Error:', error);
                 throw error;
             }
         } else {
@@ -188,7 +188,7 @@ class MoMoGateway extends PaymentGateway {
                 const result = await response.json();
                 return result.checkoutUrl || result.payUrl;
             } catch (error) {
-                console.error('MoMo Error:', error);
+                // [DEV] 'MoMo Error:', error);
                 throw error;
             }
         } else {
@@ -311,7 +311,7 @@ class PayOSGateway extends PaymentGateway {
                     throw new Error('No checkoutUrl in response');
                 }
             } catch (error) {
-                console.error('PayOS Error:', error);
+                // [DEV] 'PayOS Error:', error);
                 throw error;
             }
         } else {
@@ -386,7 +386,7 @@ class PaymentManager {
                 type: typeof result === 'string' ? 'redirect' : 'display'
             };
         } catch (error) {
-            console.error('Payment processing error:', error);
+            // [DEV] 'Payment processing error:', error);
             return {
                 success: false,
                 error: error.message

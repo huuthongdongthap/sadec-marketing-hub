@@ -38,7 +38,7 @@ async function loadPage() {
         document.title = data.title;
 
     } catch (err) {
-        console.error(err);
+        // [DEV] err);
         renderDemo(); // Fallback to demo for this exercise
     }
 }

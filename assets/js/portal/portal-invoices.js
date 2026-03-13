@@ -139,7 +139,7 @@ export async function loadInvoices(tableElement) {
         setupInvoiceRowHandlers(tableElement, invoices);
 
     } catch (error) {
-        console.error('Load invoices error:', error);
+        // [DEV] 'Load invoices error:', error);
         toast.error('Không thể tải danh sách hóa đơn');
 
         // Fallback to demo data
@@ -163,7 +163,7 @@ async function loadInvoicesFromSupabase() {
         if (error) throw error;
         return data;
     } catch (error) {
-        console.error('Supabase load invoices error:', error);
+        // [DEV] 'Supabase load invoices error:', error);
         return null;
     }
 }

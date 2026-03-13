@@ -112,7 +112,7 @@ export async function loadClients(tableBody) {
         }
 
     } catch (error) {
-        console.error('Error loading clients:', error);
+        // [DEV] 'Error loading clients:', error);
         toast.error('Không thể tải danh sách khách hàng');
         renderClients(tableBody, DEMO_CLIENTS);
     }

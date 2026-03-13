@@ -171,7 +171,7 @@ export async function loadLeads(gridElement, pipelineElement) {
         if (pipelineElement) renderPipeline(pipelineElement, leadData);
 
     } catch (error) {
-        console.error('Error loading leads:', error);
+        // [DEV] 'Error loading leads:', error);
         toast.error('Không thể tải danh sách leads');
 
         // Fallback to demo data

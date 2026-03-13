@@ -73,7 +73,7 @@ export const auth = {
             const { data: { session } } = await supabaseClient.auth.getSession();
             return session;
         } catch (error) {
-            console.error('Get session error:', error);
+            // [DEV] 'Get session error:', error);
             return null;
         }
     },
@@ -84,7 +84,7 @@ export const auth = {
             const { data: { user } } = await supabaseClient.auth.getUser();
             return user;
         } catch (error) {
-            console.error('Get user error:', error);
+            // [DEV] 'Get user error:', error);
             return null;
         }
     },

@@ -65,7 +65,7 @@ function loadImage(img) {
 
     fullImage.onerror = () => {
         img.classList.add('error');
-        console.warn(`Failed to load image: ${src}`);
+        // [DEV] `Failed to load image: ${src}`);
     };
 }
 
@@ -92,7 +92,7 @@ export async function lazyLoadModule(moduleName, modulePath) {
         loadedModules.set(moduleName, module);
         return module;
     } catch (error) {
-        console.error(`Failed to load module ${moduleName}:`, error);
+        // [DEV] `Failed to load module ${moduleName}:`, error);
         throw error;
     }
 }
