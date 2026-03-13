@@ -46,12 +46,12 @@
   "devDependencies": {
     "@playwright/test": "^1.40.0",
     "clean-css-cli": "^5.6.2",
+    "happy-dom": "^20.8.4",
     "html-minifier-terser": "^7.2.0",
     "http-server": "^14.1.1",
+    "jsdom": "^28.1.0",
     "pg": "^8.16.3",
-    "terser": "^5.26.0"
-  },
-  "dependencies": {
-    "jsdom": "^27.4.0"
+    "terser": "^5.26.0",
+    "vitest": "^4.1.0"
   }
 }
