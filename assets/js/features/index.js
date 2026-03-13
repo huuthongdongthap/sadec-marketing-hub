@@ -23,8 +23,10 @@ export { AISearchEnhancement } from './ai-search-enhancement.js';
  * Initialize all features
  */
 function initializeFeatures() {
-    // Auto-initialized modules
-    console.log('[Features] Initialized');
+    // Features auto-initialized in their constructors
+    if (typeof window !== 'undefined' && window.Logger) {
+        window.Logger.log('[Features] Initialized');
+    }
 }
 
 // Auto-initialize

@@ -142,16 +142,16 @@
       <p>Click buttons below to show different toast types:</p>
       
       <div class="button-group">
-        <button class="btn btn-primary" onclick="Toast.success('✅ Thao tác thành công!')">
+        <button type="button" class="btn btn-primary" onclick="Toast.success('✅ Thao tác thành công!')">
           Success Toast
         </button>
-        <button class="btn btn-error" onclick="Toast.error('❌ Có lỗi xảy ra!')">
+        <button type="button" class="btn btn-error" onclick="Toast.error('❌ Có lỗi xảy ra!')">
           Error Toast
         </button>
-        <button class="btn btn-warning" onclick="Toast.warning('⚠️ Vui lòng kiểm tra lại!')">
+        <button type="button" class="btn btn-warning" onclick="Toast.warning('⚠️ Vui lòng kiểm tra lại!')">
           Warning Toast
         </button>
-        <button class="btn btn-info" onclick="Toast.info('ℹ️ Thông báo mới')">
+        <button type="button" class="btn btn-info" onclick="Toast.info('ℹ️ Thông báo mới')">
           Info Toast
         </button>
       </div>
@@ -164,19 +164,19 @@
       
       <div class="button-group">
         <tooltip content="Đây là tooltip ở trên">
-          <button class="btn btn-primary">Tooltip Top</button>
+          <button type="button" class="btn btn-primary">Tooltip Top</button>
         </tooltip>
         
         <tooltip content="Đây là tooltip ở dưới" position="bottom">
-          <button class="btn btn-secondary">Tooltip Bottom</button>
+          <button type="button" class="btn btn-secondary">Tooltip Bottom</button>
         </tooltip>
         
         <tooltip content="Đây là tooltip bên trái" position="left">
-          <button class="btn btn-tertiary">Tooltip Left</button>
+          <button type="button" class="btn btn-tertiary">Tooltip Left</button>
         </tooltip>
         
         <tooltip content="Đây là tooltip bên phải" position="right">
-          <button class="btn btn-primary">Tooltip Right</button>
+          <button type="button" class="btn btn-primary">Tooltip Right</button>
         </tooltip>
       </div>
     </section>

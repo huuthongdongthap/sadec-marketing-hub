@@ -221,22 +221,22 @@
       <p>Real-time notification system với badge count, mark as read, và action buttons.</p>
 
       <div class="demo-buttons">
-        <button class="btn btn-primary" onclick="showNotification('info')">
+        <button type="button" class="btn btn-primary" onclick="showNotification('info')">
           📬 Info Notification
         </button>
-        <button class="btn btn-success" onclick="showNotification('success')">
+        <button type="button" class="btn btn-success" onclick="showNotification('success')">
           ✅ Success Notification
         </button>
-        <button class="btn btn-warning" onclick="showNotification('warning')">
+        <button type="button" class="btn btn-warning" onclick="showNotification('warning')">
           ⚠️ Warning Notification
         </button>
-        <button class="btn btn-error" onclick="showNotification('error')">
+        <button type="button" class="btn btn-error" onclick="showNotification('error')">
           ❌ Error Notification
         </button>
-        <button class="btn btn-secondary" onclick="window.NotificationCenter?.markAllAsRead()">
+        <button type="button" class="btn btn-secondary" onclick="window.NotificationCenter?.markAllAsRead()">
           📖 Mark All Read
         </button>
-        <button class="btn btn-secondary" onclick="window.NotificationCenter?.clearAll()">
+        <button type="button" class="btn btn-secondary" onclick="window.NotificationCenter?.clearAll()">
           🗑️ Clear All
         </button>
       </div>
@@ -255,10 +255,10 @@
       <p>Quick search & navigation với fuzzy search, keyboard navigation.</p>
 
       <div class="demo-buttons">
-        <button class="btn btn-primary" onclick="window.CommandPalette?.open()">
+        <button type="button" class="btn btn-primary" onclick="window.CommandPalette?.open()">
           🔍 Open Command Palette
         </button>
-        <button class="btn btn-secondary" onclick="addCustomCommand()">
+        <button type="button" class="btn btn-secondary" onclick="addCustomCommand()">
           ➕ Add Custom Command
         </button>
       </div>
@@ -284,10 +284,10 @@
       </div>
 
       <div class="demo-buttons" style="margin-top: 16px;">
-        <button class="btn btn-primary" onclick="refreshHealth()">
+        <button type="button" class="btn btn-primary" onclick="refreshHealth()">
           🔄 Refresh Health Data
         </button>
-        <button class="btn btn-secondary" onclick="toggleAutoRefresh()">
+        <button type="button" class="btn btn-secondary" onclick="toggleAutoRefresh()">
           ⏱️ Toggle Auto-Refresh
         </button>
       </div>
@@ -302,7 +302,7 @@
         <div class="demo-card">
           <h2>📊 Dashboard Widget</h2>
           <p>Health monitor widget trong dashboard</p>
-          <button class="btn btn-primary" onclick="showDashboardDemo()">
+          <button type="button" class="btn btn-primary" onclick="showDashboardDemo()">
             Xem Demo
           </button>
         </div>
@@ -310,7 +310,7 @@
         <div class="demo-card">
           <h2>🔍 Quick Actions</h2>
           <p>Command palette với custom actions</p>
-          <button class="btn btn-primary" onclick="showQuickActionsDemo()">
+          <button type="button" class="btn btn-primary" onclick="showQuickActionsDemo()">
             Xem Demo
           </button>
         </div>
@@ -318,7 +318,7 @@
         <div class="demo-card">
           <h2>📬 Real-time Updates</h2>
           <p>Notifications với Supabase Realtime</p>
-          <button class="btn btn-primary" onclick="showRealtimeDemo()">
+          <button type="button" class="btn btn-primary" onclick="showRealtimeDemo()">
             Xem Demo
           </button>
         </div>
