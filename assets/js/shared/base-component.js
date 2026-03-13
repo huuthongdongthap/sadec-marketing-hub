@@ -8,7 +8,7 @@
  * - Event binding utilities
  * - State management
  * - Error handling
- * - Logging utility
+ * - Logging utility (uses Logger)
  *
  * @example
  * class MyComponent extends BaseComponent {
@@ -21,6 +21,8 @@
  *   }
  * }
  */
+
+import { Logger } from './logger.js';
 
 export class BaseComponent {
   /**
@@ -156,7 +158,7 @@ export class BaseComponent {
    */
   debug(...args) {
     if (this.options.debug) {
-      console.log(`[${this.name}]`, ...args);
+      Logger.debug(`[${this.name}]`, ...args);
     }
   }
 
@@ -166,7 +168,7 @@ export class BaseComponent {
    */
   warn(...args) {
     if (this.options.debug) {
-      console.warn(`[${this.name}]`, ...args);
+      Logger.warn(`[${this.name}]`, ...args);
     }
   }
 
@@ -175,7 +177,7 @@ export class BaseComponent {
    * @param  {...any} args - Log arguments
    */
   error(...args) {
-    console.error(`[${this.name}]`, ...args);
+    Logger.error(`[${this.name}]`, ...args);
   }
 
   /**
@@ -360,7 +362,13 @@ export class BaseManager extends BaseComponent {
 }
 
 // Global utility for backward compatibility
+import { debounce, throttle, compose } from '../utils/function.js';
+
 export const ComponentUtils = {
+  debounce,
+  throttle,
+  compose,
+
   /**
    * Wrap async function with loading state
    * @param {Function} fn - Async function
@@ -393,37 +401,6 @@ export const ComponentUtils = {
       } catch (error) {
         if (onError) onError(error);
         return defaultValue;
-      }
-    };
-  },
-
-  /**
-   * Debounce function
-   * @param {Function} fn - Function to debounce
-   * @param {number} delay - Delay in ms
-   * @returns {Function}
-   */
-  debounce(fn, delay) {
-    let timeoutId;
-    return function(...args) {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => fn.apply(this, args), delay);
-    };
-  },
-
-  /**
-   * Throttle function
-   * @param {Function} fn - Function to throttle
-   * @param {number} limit - Time limit in ms
-   * @returns {Function}
-   */
-  throttle(fn, limit) {
-    let inThrottle;
-    return function(...args) {
-      if (!inThrottle) {
-        fn.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
       }
     };
   }

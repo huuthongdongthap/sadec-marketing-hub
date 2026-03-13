@@ -426,23 +426,8 @@
   // ============================================================================
   // DEBOUNCE UTILITY
   // ============================================================================
-
-  /**
-   * Debounce function
-   * @param {Function} func - Function to debounce
-   * @param {number} wait - Wait time in ms
-   */
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
+  // Note: Using centralized debounce from assets/js/utils/function.js
+  // This duplicate has been removed to avoid code duplication
 
   // ============================================================================
   // INITIALIZATION
