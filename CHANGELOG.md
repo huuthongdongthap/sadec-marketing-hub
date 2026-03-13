@@ -2,6 +2,59 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.4.0] - 2026-03-13 - UI Enhancements & SEO Release
+
+### 🎨 UI Enhancements
+- **Notification Bell Component:**
+  - Real-time notifications với badge indicator
+  - Notification panel dropdown
+  - Mark as read/unread functionality
+  - LocalStorage persistence
+  - Relative time display (5 phút trước, 1 giờ trước)
+  - Material Icons integration
+
+- **Micro-Animations Utilities:**
+  - `shake()` - Error feedback cho form validation
+  - `pop()` - Success feedback cho button clicks
+  - `pulse()` - Attention indicator cho notifications
+  - `countUp()` - Number counter animation cho KPI cards
+  - `fadeIn()`, `slideIn()` - Smooth page transitions
+
+- **Loading States Manager:**
+  - Spinner loaders (3 sizes: sm, md, lg)
+  - Skeleton loaders cho cards và content blocks
+  - Fullscreen loading overlay
+  - Nested loading counter (prevent duplicate loaders)
+  - ARIA accessibility support
+
+- **UI Animations CSS:**
+  - Page transitions (fade, slide, scale)
+  - Hover effects (card lift, glow, scale)
+  - Button shine và ripple effects
+  - Smooth transitions với cubic-bezier easing
+
+### 📈 SEO Improvements
+- **SEO Metadata cho tất cả HTML pages:**
+  - Title tags cho từng trang
+  - Meta descriptions
+  - Open Graph tags (og:title, og:description, og:image, og:url)
+  - Twitter Card tags
+  - Canonical URLs
+  - Schema.org JSON-LD structured data
+
+### 🔧 Audit Scripts
+- **New Scripts:**
+  - `auto-fix.js` - Auto-fix audit issues
+  - `comprehensive-audit.js` - Comprehensive audit tool
+  - `notification-bell.js` - Notification component
+
+### 📝 Files Changed
+- **Key updates:** notification-bell.js, micro-animations.js, loading-states.js
+- **SEO:** Tất cả HTML pages thêm metadata
+- **Audit:** Auto-fix và comprehensive audit scripts
+
+---
+
 ## [v4.3.0] - 2026-03-13 - Performance Optimization Release
 
 ### ⚡ Performance Optimization
