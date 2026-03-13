@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-13T21:40:20.374Z
-**Files Scanned:** 746
-**Total Issues:** 2224
+**Generated:** 2026-03-13T23:26:57.148Z
+**Files Scanned:** 783
+**Total Issues:** 2310
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 385 |
-| 🟡 Warnings | 1471 |
-| ℹ️ Info | 368 |
+| 🔴 Errors | 393 |
+| 🟡 Warnings | 1537 |
+| ℹ️ Info | 380 |
 
 ---
 
@@ -20,12 +20,12 @@
 
 | Type | Count |
 |------|-------|
-| Dead Code | 129 |
+| Dead Code | 133 |
 | Tech Debt | 0 |
-| Code Smell | 320 |
-| Naming | 67 |
-| Security | 1565 |
-| Duplicate | 143 |
+| Code Smell | 324 |
+| Naming | 69 |
+| Security | 1635 |
+| Duplicate | 149 |
 
 ---
 
@@ -130,6 +130,9 @@
 ### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/activity-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/data-table.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -412,6 +415,9 @@
 ### assets/js/services/payment-gateway.js
 - **Line 1:** Potential hardcoded secret detected (1 occurrences)
 
+### assets/js/services/service-worker.js
+- **Line 23:** eval() usage detected - potential security risk
+
 ### assets/js/services/toast-notification.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -443,6 +449,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/toast-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
@@ -625,6 +637,9 @@
 ### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/activity-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/data-table.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -907,6 +922,9 @@
 ### assets/js/services/payment-gateway.js
 - **Line 1:** Potential hardcoded secret detected (1 occurrences)
 
+### assets/js/services/service-worker.js
+- **Line 23:** eval() usage detected - potential security risk
+
 ### assets/js/services/toast-notification.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -938,6 +956,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/toast-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
@@ -1211,7 +1235,7 @@
 - **admin/widgets/index.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/index.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 
-... and 1451 more warnings
+... and 1517 more warnings
 
 
 ---
