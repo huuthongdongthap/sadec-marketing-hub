@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROIaaS Phase Tracker — OCOP Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           CYBER-GLASS 2026 DESIGN SYSTEM
+           ═══════════════════════════════════════════════════════════════ */
+        :root {
+            /* Core Palette */
+            --void-black: #0a0e1a;
+            --deep-space: #0f1425;
+            --slate-navy: #1a1f3a;
+            --electric-blue: #00f0ff;
+            --cyber-cyan: #00a8ff;
+            --neon-purple: #8b5cf6;
+            --plasma-pink: #f472b6;
+            --quantum-gold: #fbbf24;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --danger-red: #ef4444;
+
+            /* Glass Effects */
+            --glass-bg: rgba(15, 23, 42, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.12);
+            --glass-shadow: rgba(0, 0, 0, 0.3);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--void-black) 0%, var(--deep-space) 50%, var(--slate-navy) 100%);
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background Glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            animation: ambientPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes ambientPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            box-shadow:
+                0 8px 32px var(--glass-shadow),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue) 0%, var(--cyber-cyan) 50%, var(--neon-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-sm);
+            letter-spacing: -1px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Phase Tracker Grid */
+        .phase-tracker {
+            display: grid;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Phase Card */
+        .phase-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                var(--electric-blue),
+                var(--cyber-cyan),
+                var(--neon-purple),
+                var(--plasma-pink)
+            );
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .phase-card:hover {
+            border-color: var(--glass-highlight);
+            box-shadow:
+                0 12px 40px var(--glass-shadow),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+
+        .phase-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .phase-card.completed {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow:
+                0 12px 40px rgba(16, 185, 129, 0.1),
+                inset 0 1px 0 rgba(16, 185, 129, 0.1);
+        }
+
+        .phase-card.completed::before {
+            opacity: 1;
+            background: var(--success-green);
+        }
+
+        .phase-card.in-progress {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow:
+                0 12px 40px rgba(0, 240, 255, 0.1),
+                inset 0 1px 0 rgba(0, 240, 255, 0.1);
+        }
+
+        .phase-card.in-progress::before {
+            opacity: 1;
+            animation: phaseProgress 2s ease-in-out infinite;
+        }
+
+        @keyframes phaseProgress {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Phase Header */
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .phase-icon.default {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(0, 168, 255, 0.1));
+            color: var(--electric-blue);
+        }
+
+        .phase-icon.completed {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.1));
+            color: var(--success-green);
+        }
+
+        .phase-icon.in-progress {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.1));
+            color: var(--neon-purple);
+        }
+
+        .phase-icon.upcoming {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .phase-info {
+            flex: 1;
+        }
+
+        .phase-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 4px;
+        }
+
+        .phase-subtitle {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-status {
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-completed {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success-green);
+        }
+
+        .status-in-progress {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--neon-purple);
+        }
+
+        .status-upcoming {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Progress Section */
+        .phase-progress {
+            margin-top: var(--space-md);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .progress-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .progress-value {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--electric-blue);
+        }
+
+        /* Progress Bar Container */
+        .progress-bar-container {
+            position: relative;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Progress Bar Fill */
+        .progress-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+            transition: width var(--transition-slow);
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-bar-fill.default {
+            background: linear-gradient(90deg, var(--electric-blue), var(--cyber-cyan));
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .progress-bar-fill.completed {
+            background: linear-gradient(90deg, var(--success-green), #34d399);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .progress-bar-fill.in-progress {
+            background: linear-gradient(90deg, var(--neon-purple), #a78bfa);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Animated shimmer effect */
+        .progress-bar-fill.in-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Features List */
+        .features-list {
+            margin-top: var(--space-md);
+            display: grid;
+            gap: var(--space-sm);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            transition: all var(--transition-fast);
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--glass-border);
+        }
+
+        .feature-item.completed {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .feature-item.in-progress {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .feature-checkbox.checked {
+            background: var(--success-green);
+            color: white;
+        }
+
+        .feature-checkbox.indeterminate {
+            background: var(--neon-purple);
+            color: white;
+        }
+
+        .feature-checkbox.unchecked {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            flex: 1;
+        }
+
+        .feature-estimate {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--font-display);
+        }
+
+        /* Timeline Overview */
+        .timeline-overview {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .timeline-track {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-md);
+            position: relative;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+
+        .timeline-phase {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 auto var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: var(--deep-space);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all var(--transition-base);
+        }
+
+        .timeline-dot.completed {
+            background: var(--success-green);
+            border-color: var(--success-green);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .timeline-dot.in-progress {
+            background: var(--neon-purple);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            animation: timelinePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes timelinePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); }
+        }
+
+        .timeline-dot.upcoming {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2px;
+        }
+
+        .timeline-week {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--font-display);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timeline-track {
+                grid-template-columns: repeat(5, 1fr);
+                gap: var(--space-sm);
+            }
+
+            .timeline-track::before {
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md);
+            }
+
+            .timeline-track {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 4px;
+            }
+
+            .timeline-dot {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .timeline-label {
+                font-size: 10px;
+            }
+
+            .timeline-week {
+                font-size: 9px;
+            }
+
+            .phase-header {
+                flex-wrap: wrap;
+            }
+
+            .phase-status {
+                order: -1;
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">🚀 ROIaaS Phase Tracker</h1>
+            <p class="page-subtitle">Theo dõi tiến độ 5 phases triển khai OCOP Export Platform — Từ Sa Đéc ra thế giới</p>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="overall-progress">28%</div>
+                <div class="stat-label">Tổng Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="completed-phases">1/5</div>
+                <div class="stat-label">Phases Hoàn Thành</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value" id="current-phase">Phase 2</div>
+                <div class="stat-label">Phase Hiện Tại</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-value" id="weeks-remaining">16</div>
+                <div class="stat-label">Tuần Còn Lại</div>
+            </div>
+        </div>
+
+        <!-- Timeline Overview -->
+        <div class="timeline-overview">
+            <h2 class="timeline-title">
+                <span class="material-symbols-outlined">timeline</span>
+                Timeline Tổng Thể
+            </h2>
+            <div class="timeline-track">
+                <div class="timeline-phase">
+                    <div class="timeline-dot completed">✓</div>
+                    <div class="timeline-label">Export Agent</div>
+                    <div class="timeline-week">Q2/2026</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot in-progress">⚡</div>
+                    <div class="timeline-label">AI Match</div>
+                    <div class="timeline-week">Q3/2026</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot upcoming">3</div>
+                    <div class="timeline-label">ROI Dash</div>
+                    <div class="timeline-week">Q3/2026</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot upcoming">4</div>
+                    <div class="timeline-label">Multi-Market</div>
+                    <div class="timeline-week">Q4/2026</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot upcoming">5</div>
+                    <div class="timeline-label">Revenue</div>
+                    <div class="timeline-week">Q4/2026</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase Tracker -->
+        <div class="phase-tracker">
+            <!-- Phase 1: OCOP Export Agent (COMPLETED) -->
+            <div class="phase-card completed" data-phase="1">
+                <div class="phase-header">
+                    <div class="phase-icon completed">
+                        <span class="material-symbols-outlined">checked</span>
+                    </div>
+                    <div class="phase-info">
+                        <h3 class="phase-title">🌾 Phase 1: OCOP Export Agent</h3>
+                        <p class="phase-subtitle">始計 — Planning & Foundation</p>
+                    </div>
+                    <span class="phase-status status-completed">Hoàn Thành</span>
+                </div>
+
+                <div class="phase-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Tiến độ</span>
+                        <span class="progress-value">100%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill completed" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item completed">
+                        <div class="feature-checkbox checked">✓</div>
+                        <span class="feature-label">OCOP Exporter HTML</span>
+                        <span class="feature-estimate">✅</span>
+                    </div>
+                    <div class="feature-item completed">
+                        <div class="feature-checkbox checked">✓</div>
+                        <span class="feature-label">Edge Function: ocop-export-agent</span>
+                        <span class="feature-estimate">✅</span>
+                    </div>
+                    <div class="feature-item completed">
+                        <div class="feature-checkbox checked">✓</div>
+                        <span class="feature-label">Credit System (3 credits/lần)</span>
+                        <span class="feature-estimate">✅</span>
+                    </div>
+                    <div class="feature-item completed">
+                        <div class="feature-checkbox checked">✓</div>
+                        <span class="feature-label">Product Database</span>
+                        <span class="feature-estimate">✅</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: AI Matchmaking Engine (IN PROGRESS) -->
+            <div class="phase-card in-progress" data-phase="2">
+                <div class="phase-header">
+                    <div class="phase-icon in-progress">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <div class="phase-info">
+                        <h3 class="phase-title">🤖 Phase 2: AI Matchmaking Engine</h3>
+                        <p class="phase-subtitle">謀攻 — Strategic Matching</p>
+                    </div>
+                    <span class="phase-status status-in-progress">Đang Làm</span>
+                </div>
+
+                <div class="phase-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Tiến độ</span>
+                        <span class="progress-value">45%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill in-progress" style="width: 45%"></div>
+                    </div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item completed">
+                        <div class="feature-checkbox checked">✓</div>
+                        <span class="feature-label">Buyer Profile AI (NLP + Vector Search)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item in-progress">
+                        <div class="feature-checkbox indeterminate">◐</div>
+                        <span class="feature-label">Product-Buyer Matching (pgvector)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Auto-RFQ Generator</span>
+                        <span class="feature-estimate">1 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Smart Pricing Advisor</span>
+                        <span class="feature-estimate">1 tuần</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: ROI Dashboard & Analytics (UPCOMING) -->
+            <div class="phase-card" data-phase="3">
+                <div class="phase-header">
+                    <div class="phase-icon default">
+                        <span class="material-symbols-outlined">monitoring</span>
+                    </div>
+                    <div class="phase-info">
+                        <h3 class="phase-title">📊 Phase 3: ROI Dashboard & Analytics</h3>
+                        <p class="phase-subtitle">軍形 — Market Position & Visibility</p>
+                    </div>
+                    <span class="phase-status status-upcoming">Sắp Tới</span>
+                </div>
+
+                <div class="phase-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Tiến độ</span>
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill default" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Producer Dashboard (PWA + Chart.js)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">ROI Calculator (Real-time)</span>
+                        <span class="feature-estimate">1 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Market Intelligence Reports</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Multi-Market Expansion (UPCOMING) -->
+            <div class="phase-card" data-phase="4">
+                <div class="phase-header">
+                    <div class="phase-icon default">
+                        <span class="material-symbols-outlined">public</span>
+                    </div>
+                    <div class="phase-info">
+                        <h3 class="phase-title">🌐 Phase 4: Multi-Market Expansion</h3>
+                        <p class="phase-subtitle">兵勢 — Force Multipliers</p>
+                    </div>
+                    <span class="phase-status status-upcoming">Sắp Tới</span>
+                </div>
+
+                <div class="phase-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Tiến độ</span>
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill default" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Trung Quốc (1688.com, GACC)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">EU (EUR.1, Organic, PDO/PGI)</span>
+                        <span class="feature-estimate">3 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Nhật Bản (JAS certification)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Hàn Quốc (KFDA compliance)</span>
+                        <span class="feature-estimate">1 tuần</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 5: Revenue & Investment Platform (UPCOMING) -->
+            <div class="phase-card" data-phase="5">
+                <div class="phase-header">
+                    <div class="phase-icon default">
+                        <span class="material-symbols-outlined">account_balance</span>
+                    </div>
+                    <div class="phase-info">
+                        <h3 class="phase-title">💰 Phase 5: Revenue & Investment Platform</h3>
+                        <p class="phase-subtitle">虛實 — Capital & Investment</p>
+                    </div>
+                    <span class="phase-status status-upcoming">Sắp Tới</span>
+                </div>
+
+                <div class="phase-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Tiến độ</span>
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill default" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Investor Portal (15-25% APR)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Revenue Sharing (Smart Contract)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-checkbox unchecked">○</div>
+                        <span class="feature-label">Crowdfunding Campaigns (3-5% fee)</span>
+                        <span class="feature-estimate">2 tuần</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * ROIaaS Phase Tracker — Interactive Logic
+         * Cyber-Glass 2026
+         */
+        (function() {
+            'use strict';
+
+            // State management
+            const state = {
+                phases: [
+                    { id: 1, status: 'completed', progress: 100 },
+                    { id: 2, status: 'in-progress', progress: 45 },
+                    { id: 3, status: 'upcoming', progress: 0 },
+                    { id: 4, status: 'upcoming', progress: 0 },
+                    { id: 5, status: 'upcoming', progress: 0 }
+                ]
+            };
+
+            // Update stats
+            function updateStats() {
+                const totalProgress = state.phases.reduce((sum, p) => sum + p.progress, 0);
+                const overallProgress = Math.round(totalProgress / 5);
+                const completedPhases = state.phases.filter(p => p.status === 'completed').length;
+                const currentPhase = state.phases.find(p => p.status === 'in-progress');
+
+                document.getElementById('overall-progress').textContent = overallProgress + '%';
+                document.getElementById('completed-phases').textContent = completedPhases + '/5';
+                document.getElementById('current-phase').textContent = currentPhase ? 'Phase ' + currentPhase.id : 'Complete';
+                document.getElementById('weeks-remaining').textContent = '16';
+            }
+
+            // Animate progress bars on load
+            function animateProgressBars() {
+                const progressBars = document.querySelectorAll('.progress-bar-fill');
+                progressBars.forEach(bar => {
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = targetWidth;
+                    }, 100);
+                });
+            }
+
+            // Initialize
+            document.addEventListener('DOMContentLoaded', function() {
+                updateStats();
+                animateProgressBars();
+            });
+
+        })();
+    </script>
+</body>
+</html>
