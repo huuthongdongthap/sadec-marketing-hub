@@ -1,0 +1,400 @@
+{
+  "brokenLinks": [],
+  "metaIssues": [],
+  "accessibilityIssues": [],
+  "consoleStatements": [
+    {
+      "file": "js/admin/admin-campaigns.js",
+      "line": 161,
+      "statement": "console.error('Error loading campaigns:', error);"
+    },
+    {
+      "file": "js/admin/admin-clients.js",
+      "line": 115,
+      "statement": "console.error('Error loading clients:', error);"
+    },
+    {
+      "file": "js/admin/admin-dashboard.js",
+      "line": 31,
+      "statement": "console.error('Dashboard load error:', error);"
+    },
+    {
+      "file": "js/admin/admin-leads.js",
+      "line": 174,
+      "statement": "console.error('Error loading leads:', error);"
+    },
+    {
+      "file": "js/admin/menu-manager.js",
+      "line": 81,
+      "statement": "console.error('Error loading menu items:', e);"
+    },
+    {
+      "file": "js/admin/menu-manager.js",
+      "line": 93,
+      "statement": "console.error('Error saving menu items:', e);"
+    },
+    {
+      "file": "js/admin-guard.js",
+      "line": 17,
+      "statement": "console.log('[Admin Guard] Skipping on localhost (demo mode)');"
+    },
+    {
+      "file": "js/admin-guard.js",
+      "line": 67,
+      "statement": "console.error('[Admin Guard] Error:', error);"
+    },
+    {
+      "file": "js/admin-shared.js",
+      "line": 305,
+      "statement": "// console.debug('Search:', query, this.search(query));"
+    },
+    {
+      "file": "js/admin-shared.js",
+      "line": 354,
+      "statement": "console.error('LiveData error:', err);"
+    },
+    {
+      "file": "js/affiliate-api.js",
+      "line": 39,
+      "statement": "console.error('Commission calculation failed:', error);"
+    },
+    {
+      "file": "js/affiliate-api.js",
+      "line": 41,
+      "statement": "console.warn('Edge Function failed, using fallback calculation');"
+    },
+    {
+      "file": "js/agents.js",
+      "line": 63,
+      "statement": "console.error(`${this.name} error:`, error);"
+    },
+    {
+      "file": "js/agents.js",
+      "line": 218,
+      "statement": "console.error('Task submission failed:', error);"
+    },
+    {
+      "file": "js/ai-assistant.js",
+      "line": 294,
+      "statement": "console.error('AI Error:', error);"
+    },
+    {
+      "file": "js/ai-assistant.js",
+      "line": 330,
+      "statement": "console.warn('API call failed, using mock response', e);"
+    },
+    {
+      "file": "js/base-manager.js",
+      "line": 47,
+      "statement": "console.error(`Error in event listener for ${event}:`, error);"
+    },
+    {
+      "file": "js/base-manager.js",
+      "line": 75,
+      "statement": "console.error(`${this.name}: Cannot add item without ID`);"
+    },
+    {
+      "file": "js/binh-phap-client.js",
+      "line": 31,
+      "statement": "console.error('Strategic data error:', error);"
+    },
+    {
+      "file": "js/campaign-optimizer.js",
+      "line": 21,
+      "statement": "console.warn('Using local optimization logic (Mock Mode)');"
+    },
+    {
+      "file": "js/campaign-optimizer.js",
+      "line": 44,
+      "statement": "console.error('Optimizer Error:', error);"
+    },
+    {
+      "file": "js/community.js",
+      "line": 36,
+      "statement": "console.error(`Error in event listener for ${event}:`, err);"
+    },
+    {
+      "file": "js/components/payment-modal.js",
+      "line": 370,
+      "statement": "console.error('[payment-modal] Payment error:', error);"
+    },
+    {
+      "file": "js/components/sadec-sidebar.js",
+      "line": 275,
+      "statement": "<a href=\"#\" onclick=\"(async () => { try { await window.Auth?.Actions?.signOut();"
+    },
+    {
+      "file": "js/content-ai.js",
+      "line": 104,
+      "statement": "console.error('Content AI Error:', error);"
+    },
+    {
+      "file": "js/content-calendar-client.js",
+      "line": 41,
+      "statement": "console.error('Content data error:', error);"
+    },
+    {
+      "file": "js/dashboard-client.js",
+      "line": 72,
+      "statement": "console.error('Dashboard data error:', error);"
+    },
+    {
+      "file": "js/data-sync-init.js",
+      "line": 64,
+      "statement": "console.error('❌ DataSyncInit: Dependencies (SupabaseAPI, MekongStore) failed to"
+    },
+    {
+      "file": "js/data-sync-init.js",
+      "line": 142,
+      "statement": "console.error('Failed to refresh data:', err);"
+    },
+    {
+      "file": "js/data-sync-init.js",
+      "line": 164,
+      "statement": "DataSyncInit.init().catch(err => console.error('DataSync init failed:', err));"
+    },
+    {
+      "file": "js/finance-client.js",
+      "line": 60,
+      "statement": "console.error('Finance data error:', error);"
+    },
+    {
+      "file": "js/landing-renderer.js",
+      "line": 41,
+      "statement": "console.error(err);"
+    },
+    {
+      "file": "js/lazy-loader.js",
+      "line": 68,
+      "statement": "console.warn(`Failed to load image: ${src}`);"
+    },
+    {
+      "file": "js/lazy-loader.js",
+      "line": 95,
+      "statement": "console.error(`Failed to load module ${moduleName}:`, error);"
+    },
+    {
+      "file": "js/mekong-store.js",
+      "line": 205,
+      "statement": "console.error(`MekongStore: Subscriber error for ${key}:`, err);"
+    },
+    {
+      "file": "js/mekong-store.js",
+      "line": 240,
+      "statement": "console.warn(`MekongStore: Failed to persist ${key}:`, err);"
+    },
+    {
+      "file": "js/mekong-store.js",
+      "line": 262,
+      "statement": "console.warn(`MekongStore: Failed to restore ${key}:`, err);"
+    },
+    {
+      "file": "js/mekong-store.js",
+      "line": 361,
+      "statement": "console.error(`DataSync: Failed to fetch ${entity}:`, err);"
+    },
+    {
+      "file": "js/mekong-store.js",
+      "line": 408,
+      "statement": "console.error(`DataSync: Mutation failed for ${entity}:`, err);"
+    },
+    {
+      "file": "js/mobile-navigation.js",
+      "line": 26,
+      "statement": "console.warn('MobileNav: No sidebar found');"
+    },
+    {
+      "file": "js/mobile-navigation.js",
+      "line": 42,
+      "statement": "console.log('MobileNav: Initialized');"
+    },
+    {
+      "file": "js/mobile-navigation.js",
+      "line": 462,
+      "statement": "console.log('ResponsiveUtils: Initialized');"
+    },
+    {
+      "file": "js/notifications.js",
+      "line": 13,
+      "statement": "console.error('This browser does not support desktop notification');"
+    },
+    {
+      "file": "js/notifications.js",
+      "line": 22,
+      "statement": "console.error('[Notification] Error requesting permission:', error);"
+    },
+    {
+      "file": "js/payment-gateway.js",
+      "line": 90,
+      "statement": "console.error('VNPay Error:', error);"
+    },
+    {
+      "file": "js/payment-gateway.js",
+      "line": 191,
+      "statement": "console.error('MoMo Error:', error);"
+    },
+    {
+      "file": "js/payment-gateway.js",
+      "line": 314,
+      "statement": "console.error('PayOS Error:', error);"
+    },
+    {
+      "file": "js/payment-gateway.js",
+      "line": 389,
+      "statement": "console.error('Payment processing error:', error);"
+    },
+    {
+      "file": "js/pipeline-client.js",
+      "line": 651,
+      "statement": "console.error('Error loading pipeline:', error);"
+    },
+    {
+      "file": "js/portal/portal-auth.js",
+      "line": 114,
+      "statement": "console.warn('Auth system not loaded');"
+    },
+    {
+      "file": "js/portal/portal-dashboard.js",
+      "line": 37,
+      "statement": "console.error('Dashboard load error:', error);"
+    },
+    {
+      "file": "js/portal/portal-dashboard.js",
+      "line": 147,
+      "statement": "console.error('Activity feed load error:', error);"
+    },
+    {
+      "file": "js/portal/portal-dashboard.js",
+      "line": 210,
+      "statement": "console.error('Deadlines load error:', error);"
+    },
+    {
+      "file": "js/portal/portal-data.js",
+      "line": 139,
+      "statement": "console.error('Load projects error:', error);"
+    },
+    {
+      "file": "js/portal/portal-data.js",
+      "line": 165,
+      "statement": "console.error('Load invoices error:', error);"
+    },
+    {
+      "file": "js/portal/portal-data.js",
+      "line": 189,
+      "statement": "console.error('Get project error:', error);"
+    },
+    {
+      "file": "js/portal/portal-data.js",
+      "line": 214,
+      "statement": "console.error('Get invoice error:', error);"
+    },
+    {
+      "file": "js/portal/portal-invoices.js",
+      "line": 142,
+      "statement": "console.error('Load invoices error:', error);"
+    },
+    {
+      "file": "js/portal/portal-invoices.js",
+      "line": 166,
+      "statement": "console.error('Supabase load invoices error:', error);"
+    },
+    {
+      "file": "js/portal/portal-payments.js",
+      "line": 92,
+      "statement": "console.error('Payment error:', error);"
+    },
+    {
+      "file": "js/portal/portal-payments.js",
+      "line": 169,
+      "statement": "console.error('Download PDF error:', error);"
+    },
+    {
+      "file": "js/portal/portal-payments.js",
+      "line": 204,
+      "statement": "console.error('Mark as paid error:', error);"
+    },
+    {
+      "file": "js/portal/portal-projects.js",
+      "line": 131,
+      "statement": "console.error('Load projects error:', error);"
+    },
+    {
+      "file": "js/portal/portal-projects.js",
+      "line": 162,
+      "statement": "console.error('Supabase load projects error:', error);"
+    },
+    {
+      "file": "js/portal/portal-utils.js",
+      "line": 118,
+      "statement": "console.warn('localStorage get error:', error);"
+    },
+    {
+      "file": "js/portal/portal-utils.js",
+      "line": 130,
+      "statement": "console.warn('localStorage set error:', error);"
+    },
+    {
+      "file": "js/portal/portal-utils.js",
+      "line": 141,
+      "statement": "console.warn('localStorage remove error:', error);"
+    },
+    {
+      "file": "js/portal/supabase.js",
+      "line": 76,
+      "statement": "console.error('Get session error:', error);"
+    },
+    {
+      "file": "js/portal/supabase.js",
+      "line": 87,
+      "statement": "console.error('Get user error:', error);"
+    },
+    {
+      "file": "js/portal-guard.js",
+      "line": 75,
+      "statement": "console.warn('[Portal Guard] Error:', error);"
+    },
+    {
+      "file": "js/pwa-install.js",
+      "line": 40,
+      "statement": "console.error('[PWA] ServiceWorker registration failed:', err);"
+    },
+    {
+      "file": "js/realtime-dashboard.js",
+      "line": 22,
+      "statement": "// console.warn('Supabase client not available for Realtime');"
+    },
+    {
+      "file": "js/realtime-dashboard.js",
+      "line": 79,
+      "statement": "console.error('📡 Realtime: Max reconnect attempts reached');"
+    },
+    {
+      "file": "js/ui-enhancements.js",
+      "line": 457,
+      "statement": "console.log('Reduced motion enabled - animations disabled');"
+    },
+    {
+      "file": "js/ui-enhancements.js",
+      "line": 472,
+      "statement": "console.log('UI Enhancements initialized');"
+    },
+    {
+      "file": "js/ui-utils.js",
+      "line": 259,
+      "statement": "console.log('[MekongUI] Initialized');"
+    },
+    {
+      "file": "js/workflows-client.js",
+      "line": 33,
+      "statement": "console.error('Workflows data error:', error);"
+    }
+  ],
+  "summary": {
+    "totalBrokenLinks": 0,
+    "totalMetaIssues": 0,
+    "totalAccessibilityIssues": 0,
+    "totalConsoleStatements": 77,
+    "highSeverity": 0,
+    "mediumSeverity": 0
+  }
+}

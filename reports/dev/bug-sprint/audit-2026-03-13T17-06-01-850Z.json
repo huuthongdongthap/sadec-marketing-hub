@@ -1,0 +1,125 @@
+{
+  "brokenLinks": [],
+  "metaIssues": [],
+  "accessibilityIssues": [],
+  "consoleStatements": [
+    {
+      "file": "js/components/accordion.js",
+      "line": 341,
+      "statement": "console.error('[Accordion] Failed to load lazy content:', err);"
+    },
+    {
+      "file": "js/components/data-table.js",
+      "line": 51,
+      "statement": "console.error('[DataTable] Element not found');"
+    },
+    {
+      "file": "js/components/file-upload.js",
+      "line": 226,
+      "statement": "console.error(message);"
+    },
+    {
+      "file": "js/components/notification-bell.js",
+      "line": 397,
+      "statement": "console.error('Failed to fetch notifications:', error);"
+    },
+    {
+      "file": "js/components/search-autocomplete.js",
+      "line": 112,
+      "statement": "console.error('Search error:', error);"
+    },
+    {
+      "file": "js/components/tabs.js",
+      "line": 266,
+      "statement": "console.error('[Tabs] Failed to load lazy content:', err);"
+    },
+    {
+      "file": "js/empty-states.js",
+      "line": 134,
+      "statement": "console.warn(`Empty state container \"${container}\" not found`);"
+    },
+    {
+      "file": "js/features/data-export.js",
+      "line": 224,
+      "statement": "console.warn('[Export] Excel export using CSV format. Include SheetJS for true X"
+    },
+    {
+      "file": "js/landing-renderer.js",
+      "line": 14,
+      "statement": "console.error('[LandingRenderer] Missing Supabase configuration');"
+    },
+    {
+      "file": "js/lazy-load-component.js",
+      "line": 109,
+      "statement": "console.warn('[LazyLoad] Failed to load image:', src);"
+    },
+    {
+      "file": "js/lazy-load-component.js",
+      "line": 164,
+      "statement": "console.error('[LazyLoad] Failed to load component:', error);"
+    },
+    {
+      "file": "js/shared/logger.js",
+      "line": 30,
+      "statement": "console.error(`[Error] ${message}`, data || '');"
+    },
+    {
+      "file": "js/shared/logger.js",
+      "line": 39,
+      "statement": "console.warn(`[Warn] ${message}`, data || '');"
+    },
+    {
+      "file": "js/utils/api.js",
+      "line": 48,
+      "statement": "console.error('[API Error]', { endpoint, error: error.message });"
+    },
+    {
+      "file": "js/utils/api.js",
+      "line": 62,
+      "statement": "console.error('[API Error]', error.message);"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 20,
+      "statement": "console.error('No data to export');"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 74,
+      "statement": "console.error('Element not found');"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 119,
+      "statement": "console.error('Table not found');"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 160,
+      "statement": "console.error('Element not found');"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 166,
+      "statement": "console.error('html2canvas library required');"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 185,
+      "statement": "console.error('Export to image failed:', error);"
+    },
+    {
+      "file": "js/utils/export-utils.js",
+      "line": 248,
+      "statement": "console.error('Unknown export type:', type);"
+    }
+  ],
+  "summary": {
+    "totalBrokenLinks": 0,
+    "totalMetaIssues": 0,
+    "totalAccessibilityIssues": 0,
+    "totalConsoleStatements": 22,
+    "highSeverity": 0,
+    "mediumSeverity": 0
+  }
+}
