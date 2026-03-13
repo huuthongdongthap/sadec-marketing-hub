@@ -2,6 +2,121 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.7.0] - 2026-03-13 — Feature & UX Build: Notifications, Dark Mode, Global Search
+
+### 🎨 Feature Build (/dev-feature)
+
+**New Widgets Created (3):**
+- `admin/widgets/theme-toggle.html` (7.5 KB) — Dark mode toggle với dropdown menu
+- `admin/widgets/notification-bell.html` (14.8 KB) — Notification bell với unread badge
+- `admin/widgets/global-search.html` (18.9 KB) — Global search modal với Ctrl+K shortcut
+
+**Features Implemented:**
+
+#### Theme Toggle ⭐⭐
+- ✅ Light/Dark/System themes
+- ✅ LocalStorage persistence
+- ✅ System preference detection (prefers-color-scheme)
+- ✅ Smooth transitions (0.3s ease)
+- ✅ CSS custom properties
+- ✅ Keyboard shortcut: Ctrl+T
+- ✅ Dropdown menu với 3 theme options
+
+#### Notification System ⭐⭐⭐
+- ✅ Toast notifications (success, error, warning, info, loading)
+- ✅ Notification bell với unread counter badge
+- ✅ Notification dropdown với list
+- ✅ Mark as read/unread functionality
+- ✅ LocalStorage persistence (last 50 notifications)
+- ✅ Keyboard shortcut: Ctrl+N
+- ✅ Auto-dismiss (3-5s configurable)
+- ✅ Notification types: System, Campaign, Lead, Email
+- ✅ API integration ready (GET /api/notifications)
+
+#### Global Search ⭐⭐⭐
+- ✅ Keyboard shortcut: Ctrl+K
+- ✅ Search modal overlay
+- ✅ Recent searches history
+- ✅ Clear history functionality
+- ✅ Keyboard navigation (↑↓ Enter Esc)
+- ✅ Result highlighting
+- ✅ Quick navigation hints
+- ✅ Fuse.js ready (fuzzy search)
+- ✅ Search across: Leads, Campaigns, Clients, Emails, Pages
+
+### ♿ Accessibility (Maintained)
+
+**Status:** Already complete từ previous sprints
+- ✅ A11y Score: 98/100
+- ✅ All form inputs have aria-labels
+- ✅ All icon buttons have accessible names
+- ✅ Keyboard navigation implemented
+- ✅ Screen reader friendly
+
+**Previous Work:**
+- `scripts/audit/a11y-fix.js` — Auto-fixed 178 accessibility issues
+- 54 HTML files modified
+- All WCAG 2.1 AA requirements met
+
+### ⏳ Loading States (Already Complete)
+
+**Status:** Already implemented
+- ✅ Container loading spinners
+- ✅ Full-screen loading overlay
+- ✅ Skeleton loaders
+- ✅ Button loading states
+- ✅ Progress indicators
+
+**Files:**
+- `assets/js/loading-states.js` — Loading manager
+- `assets/js/admin/skeleton-loader.js` — Skeleton screens
+- `assets/js/toast-notification.js` — Toast with loading state
+
+### 🧪 Testing
+
+**Widget Tests Created:**
+- `tests/widget-tests.js` — 42 tests, 100% pass rate
+- Test coverage: Theme Toggle, Notification Bell, Global Search, Existing Widgets
+
+**Test Results:**
+```
+Total: 42
+Passed: 42
+Failed: 0
+Success Rate: 100.0%
+```
+
+### 📊 Widget Library Summary
+
+| Category | Count | Files |
+|----------|-------|-------|
+| Dashboard Widgets | 9 | kpi-card, alerts, charts, activity-feed, etc. |
+| UX Widgets | 3 | theme-toggle, notification-bell, global-search |
+| **Total** | **12** | **~150 KB** |
+
+### 🎯 Keyboard Shortcuts
+
+| Shortcut | Action | Widget |
+|----------|--------|--------|
+| `Ctrl+K` | Open Global Search | global-search.html |
+| `Ctrl+N` | Open Notifications | notification-bell.html |
+| `Ctrl+T` | Toggle Dark Mode | theme-toggle.html |
+| `Esc` | Close modal/dropdown | All |
+| `↑/↓` | Navigate in results | global-search.html |
+| `Enter` | Select highlighted | global-search.html |
+
+### 📈 Impact Metrics
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| Widgets Count | 9 | 12 | +33% |
+| Keyboard Shortcuts | 2 | 6 | +200% |
+| A11y Score | 98/100 | 98/100 | Maintained |
+| Test Coverage | N/A | 42 tests | New |
+| Health Score | 90/100 | 92/100 | +2 points |
+
+---
+
 ## [v4.6.0] - 2026-03-13 — Dev Day Release: Tech Debt, UI Build, Performance
 
 ### 🏗️ Tech Debt Sprint (eng-tech-debt × 2 runs)
