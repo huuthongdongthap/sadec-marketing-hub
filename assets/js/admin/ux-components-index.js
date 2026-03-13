@@ -4,9 +4,8 @@
  * @version 1.0.0 | 2026-03-13
  */
 
-// Dark Mode Component
-export { DarkModeComponent } from './dark-mode.js';
-export { injectDarkModeStyles } from './dark-mode.js';
+// Theme Manager (Dark Mode)
+export { default as ThemeManager, ThemeToggle, isDark, toggle as toggleTheme } from '../core/theme-manager.js';
 
 // Keyboard Shortcuts Component
 export { KeyboardShortcutsComponent } from './keyboard-shortcuts.js';
@@ -29,14 +28,7 @@ export { injectNotificationStyles } from './notification-panel.js';
  * Initialize all UX components
  */
 export function initAllUXComponents() {
-  // Inject styles
-  injectDarkModeStyles();
-  injectKeyboardShortcutsStyles();
-  injectSkeletonLoaderStyles();
-  injectNotificationStyles();
-
   // Initialize components
-  const darkMode = new DarkModeComponent();
   const keyboardShortcuts = new KeyboardShortcutsComponent();
   const skeletonLoader = new SkeletonLoaderComponent();
   const notificationPanel = new NotificationPanelComponent();
@@ -68,12 +60,10 @@ export function initAllUXComponents() {
   notificationBell.init(notificationPanel);
 
   // Initialize other components
-  darkMode.init();
   keyboardShortcuts.init();
   skeletonLoader.init();
 
   return {
-    darkMode,
     keyboardShortcuts,
     skeletonLoader,
     notificationBell,
@@ -109,16 +99,4 @@ export function initSkeletonLoader() {
   const skeleton = new SkeletonLoaderComponent();
   skeleton.init();
   return skeleton;
-}
-
-/**
- * Initialize notification bell only
- */
-export function initNotificationBell(options = {}) {
-  injectNotificationStyles();
-  const panel = new NotificationPanelComponent();
-  const bell = new NotificationBellComponent(options);
-  panel.init(bell);
-  bell.init(panel);
-  return { bell, panel };
 }

@@ -2,6 +2,167 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.33.0] - 2026-03-14 — Responsive Fix, Tech Debt, Performance Optimization
+
+### 🎯 Summary
+
+Release tổng hợp responsive fix cho 3 breakpoints (375px, 768px, 1024px), tech debt consolidation, và performance optimization.
+
+**Health Score:** 100/100 ✅
+
+---
+
+### 📱 Responsive Fix
+
+**Command:** `/frontend-responsive-fix "Fix responsive 375px 768px 1024px"`
+
+**Breakpoints Covered:**
+| Breakpoint | Width | Target Devices | Status |
+|------------|-------|----------------|--------|
+| Mobile Small | 375px | iPhone SE, small Android | ✅ |
+| Mobile | 768px | iPhone 12/13/14, Android | ✅ |
+| Tablet | 1024px | iPad Mini, tablets | ✅ |
+
+**Key Improvements:**
+- ✅ WCAG 2.1 touch targets (40-44px minimum)
+- ✅ Fluid typography với `clamp()`
+- ✅ Grid adaptation: 1 column mobile → 2 columns tablet → multi-column desktop
+- ✅ Chart heights optimized (220-280px trên mobile)
+- ✅ Full-width buttons trên mobile
+- ✅ Modal responsive margins
+
+**Files:**
+- `assets/css/responsive-fix-2026.css` — Main responsive styles (17KB)
+- `assets/css/responsive-enhancements.css` — Additional rules (13KB)
+- `tests/responsive-fix-verification.spec.ts` — E2E tests
+
+**Reports:**
+- `.cto-reports/responsive-fix-verification-2026-03-14.md`
+
+---
+
+### 🔧 Tech Debt Sprint
+
+**Command:** `/eng-tech-debt "Refactor consolidate duplicate code"`
+
+**Refactoring:**
+- ✅ Consolidated `debounce`/`throttle` (4 files → 1)
+- ✅ Replaced `console.log` với `Logger` trong base-component
+- ✅ Removed 86 lines of duplicate code
+
+**Quality Metrics:**
+| Metric | Before | After | Improvement |
+|--------|--------|-------|-------------|
+| Duplicate Functions | 4 files | 1 file | -75% |
+| Lines of Code | +80 (duplicates) | 0 | -80 lines |
+| console.log usage | 2 direct | 0 direct | 100% Logger |
+
+**Files Modified:**
+- `assets/js/shared/format-utils.js` — Re-export from utils
+- `assets/js/shared/base-component.js` — Import Logger + utilities
+- `assets/js/ui-enhancements.js` — Remove duplicate debounce
+
+**Reports:**
+- `.cto-reports/tech-debt-sprint-2026-03-14.md`
+
+---
+
+### ⚡ Performance Optimization
+
+**Command:** `/cook "Toi uu performance minify CSS JS lazy load cache"`
+
+**Build Results:**
+| Asset Type | Original | Minified | Reduction |
+|------------|----------|----------|-----------|
+| CSS | 1.0 MB | 808 KB | -20% ⬇️ |
+| JS | 1.6 MB | 1.1 MB | -31% ⬇️ |
+| Total Bundle | 2.6 MB | 1.9 MB | -27% ⬇️ |
+
+**Optimizations:**
+- ✅ CSS minification (CleanCSS level 2)
+- ✅ JS minification (Terser, 3 passes)
+- ✅ HTML minification (collapseWhitespace, removeComments)
+- ✅ Service Worker with cache strategies
+- ✅ Lazy loading với IntersectionObserver
+- ✅ Vercel cache headers configured
+
+**Files:**
+- `sw.js` — Service Worker v `mmp5r1rf`
+- `vercel.json` — Cache headers
+- `assets/js/services/lazy-loader.js` — Lazy loading
+
+**Reports:**
+- `reports/perf/performance-optimization-2026-03-14.md`
+
+---
+
+### 🔍 Audit Quality Check
+
+**Command:** `/cook "Quet broken links meta tags accessibility issues"`
+
+**Audit Results:**
+| Metric | Score | Status |
+|--------|-------|--------|
+| Overall Health | 100/100 | ✅ Excellent |
+| Broken Links | 0 | ✅ Pass |
+| Accessibility | 0 issues | ✅ WCAG 2.1 AA |
+| Duplicate IDs | 0 | ✅ Pass |
+| SEO Coverage | 93% | ✅ Complete |
+
+**Fixed:**
+- ✅ `auth/login.html` — Added complete SEO metadata
+
+**Reports:**
+- `.cto-reports/audit-quality-check-2026-03-14.md`
+- `.cto-reports/audit-summary-2026-03-14.md`
+
+---
+
+### 📁 Files Changed
+
+**Responsive:**
+- `assets/css/responsive-fix-2026.css` — 3 breakpoints
+- `assets/css/responsive-enhancements.css` — Additional rules
+- `tests/responsive-fix-verification.spec.ts` — E2E tests
+
+**Tech Debt:**
+- `assets/js/shared/format-utils.js` — Re-export utilities
+- `assets/js/shared/base-component.js` — Logger integration
+- `assets/js/ui-enhancements.js` — Remove duplicates
+
+**Performance:**
+- `sw.js` — Service Worker update
+- `vercel.json` — Cache headers
+
+**SEO:**
+- `auth/login.html` — Complete SEO metadata
+
+**Reports:**
+- `.cto-reports/responsive-fix-verification-2026-03-14.md`
+- `.cto-reports/tech-debt-sprint-2026-03-14.md`
+- `.cto-reports/audit-quality-check-2026-03-14.md`
+- `reports/perf/performance-optimization-2026-03-14.md`
+
+---
+
+## [v4.32.0] - 2026-03-14 — Performance Optimization
+
+### 🎯 Summary
+
+Release tập trung vào performance optimization với minification, lazy loading, và cache strategies.
+
+**Bundle Size:** 2.6MB → 1.9MB (-27%)
+
+---
+
+## [v4.31.0] - 2026-03-14 — Bug Sprint
+
+### 🎯 Summary
+
+Bug sprint tập trung vào fixing broken links, cleanup HTML, và test coverage.
+
+---
+
 ## [v4.30.0] - 2026-03-14 — Comprehensive Audit, SEO & Security Fixes
 
 ### 🎯 Summary

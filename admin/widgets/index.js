@@ -15,6 +15,11 @@ import './line-chart-widget.js';
 import './area-chart-widget.js';
 import './bar-chart-widget.js';
 
+// New advanced widgets
+import './realtime-stats-widget.js';
+import './performance-gauge-widget.js';
+import './data-table-widget.js';
+
 /**
  * Initialize all dashboard widgets
  * Call this after DOMContentLoaded

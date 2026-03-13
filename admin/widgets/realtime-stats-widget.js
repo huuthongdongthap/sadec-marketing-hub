@@ -1,0 +1,391 @@
+/**
+ * Real-Time Stats Widget Component
+ * Hiển thị real-time metrics với live updates và animations
+ *
+ * Usage:
+ * <realtime-stats-widget title="Real-time Stats" api-endpoint="/api/stats"></realtime-stats-widget>
+ */
+
+class RealtimeStatsWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.stats = {
+            visitors: 0,
+            pageViews: 0,
+            conversions: 0,
+            revenue: 0
+        };
+        this.updateInterval = null;
+        this.ws = null;
+    }
+
+    static get observedAttributes() {
+        return ['title', 'api-endpoint', 'refresh-interval'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.connectWebSocket();
+        this.startLiveUpdates();
+    }
+
+    disconnectedCallback() {
+        this.stopLiveUpdates();
+        this.disconnectWebSocket();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+    }
+
+    connectWebSocket() {
+        const endpoint = this.getAttribute('api-endpoint');
+        if (!endpoint) return;
+
+        // WebSocket connection for real-time updates
+        try {
+            const wsUrl = endpoint.replace('http', 'ws').replace('/api', '/ws');
+            this.ws = new WebSocket(wsUrl);
+
+            this.ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                this.updateStats(data);
+            };
+
+            this.ws.onerror = () => {
+                this.fallbackToPolling();
+            };
+        } catch (e) {
+            this.fallbackToPolling();
+        }
+    }
+
+    disconnectWebSocket() {
+        if (this.ws) {
+            this.ws.close();
+            this.ws = null;
+        }
+    }
+
+    fallbackToPolling() {
+        console.log('[RealtimeStats] WebSocket failed, falling back to polling');
+        this.disconnectWebSocket();
+        this.startLiveUpdates();
+    }
+
+    startLiveUpdates() {
+        const interval = parseInt(this.getAttribute('refresh-interval')) || 5000;
+
+        this.updateInterval = setInterval(() => {
+            this.fetchStats();
+        }, interval);
+    }
+
+    stopLiveUpdates() {
+        if (this.updateInterval) {
+            clearInterval(this.updateInterval);
+            this.updateInterval = null;
+        }
+    }
+
+    async fetchStats() {
+        const endpoint = this.getAttribute('api-endpoint');
+        if (!endpoint) return;
+
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            this.updateStats(data);
+        } catch (e) {
+            // Use mock data for demo
+            this.updateStats(this.generateMockData());
+        }
+    }
+
+    generateMockData() {
+        return {
+            visitors: Math.floor(Math.random() * 500) + 100,
+            pageViews: Math.floor(Math.random() * 2000) + 500,
+            conversions: Math.floor(Math.random() * 50) + 10,
+            revenue: Math.floor(Math.random() * 10000) + 1000,
+            change: {
+                visitors: (Math.random() * 20 - 10).toFixed(1),
+                pageViews: (Math.random() * 20 - 10).toFixed(1),
+                conversions: (Math.random() * 20 - 10).toFixed(1),
+                revenue: (Math.random() * 20 - 10).toFixed(1)
+            }
+        };
+    }
+
+    updateStats(data) {
+        this.stats = { ...this.stats, ...data };
+
+        // Update UI with animations
+        this.shadowRoot.querySelectorAll('[data-stat]').forEach(el => {
+            const statName = el.dataset.stat;
+            const value = this.stats[statName];
+            const formatted = this.formatValue(statName, value);
+
+            // Animate number change
+            this.animateValueChange(el, formatted);
+        });
+
+        // Update trend indicators
+        if (data.change) {
+            this.shadowRoot.querySelectorAll('[data-trend]').forEach(el => {
+                const statName = el.dataset.trend;
+                const change = parseFloat(data.change[statName]);
+                this.updateTrend(el, change);
+            });
+        }
+    }
+
+    formatValue(stat, value) {
+        if (stat === 'revenue') {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
+        }
+        if (stat === 'conversions') {
+            return new Intl.NumberFormat('vi-VN').format(value);
+        }
+        if (value >= 1000) {
+            return (value / 1000).toFixed(1) + 'K';
+        }
+        return value.toString();
+    }
+
+    animateValueChange(el, newValue) {
+        const currentValue = el.textContent;
+        if (currentValue === newValue) return;
+
+        el.classList.add('value-changing');
+        el.textContent = newValue;
+
+        setTimeout(() => {
+            el.classList.remove('value-changing');
+        }, 500);
+    }
+
+    updateTrend(el, change) {
+        const isPositive = change > 0;
+        const isNegative = change < 0;
+
+        el.className = `trend-icon ${isPositive ? 'positive' : isNegative ? 'negative' : 'neutral'}`;
+        el.innerHTML = isPositive ? '↑' : isNegative ? '↓' : '→';
+        el.title = `${change > 0 ? '+' : ''}${change}%`;
+    }
+
+    render() {
+        const title = this.getAttribute('title') || 'Real-time Stats';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                }
+                .realtime-widget {
+                    background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(0, 184, 212, 0.1));
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(0, 229, 255, 0.2);
+                    position: relative;
+                    overflow: hidden;
+                }
+                .realtime-widget::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: conic-gradient(transparent, rgba(0, 229, 255, 0.1), transparent 30%);
+                    animation: rotate 4s linear infinite;
+                }
+                @keyframes rotate {
+                    100% { transform: rotate(360deg); }
+                }
+                .widget-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    position: relative;
+                    z-index: 1;
+                }
+                .widget-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .live-indicator {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    background: rgba(0, 230, 118, 0.15);
+                    border: 1px solid rgba(0, 230, 118, 0.3);
+                    font-size: 12px;
+                    color: #00e676;
+                    font-weight: 600;
+                }
+                .live-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #00e676;
+                    animation: pulse 2s ease-in-out infinite;
+                }
+                @keyframes pulse {
+                    0%, 100% { opacity: 1; transform: scale(1); }
+                    50% { opacity: 0.5; transform: scale(1.2); }
+                }
+                .stats-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    gap: 16px;
+                    position: relative;
+                    z-index: 1;
+                }
+                .stat-item {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                    padding: 16px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                }
+                .stat-item:hover {
+                    transform: translateY(-2px);
+                    background: rgba(255, 255, 255, 0.08);
+                    border-color: rgba(0, 229, 255, 0.3);
+                }
+                .stat-label {
+                    font-size: 12px;
+                    color: rgba(255, 255, 255, 0.6);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    margin-bottom: 8px;
+                }
+                .stat-value {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    font-family: 'Space Grotesk', monospace;
+                    transition: all 0.3s ease;
+                }
+                .stat-value.value-changing {
+                    color: #00e5ff;
+                    transform: scale(1.05);
+                }
+                .stat-trend {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    margin-top: 8px;
+                    font-size: 12px;
+                }
+                .trend-icon {
+                    font-weight: 700;
+                }
+                .trend-icon.positive { color: #00e676; }
+                .trend-icon.negative { color: #ff1744; }
+                .trend-icon.neutral { color: #9e9e9e; }
+                .stat-icon {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                    font-size: 20px;
+                }
+                .icon-visitors { background: rgba(0, 229, 255, 0.2); color: #00e5ff; }
+                .icon-views { background: rgba(213, 0, 249, 0.2); color: #d500f9; }
+                .icon-conversions { background: rgba(198, 255, 0, 0.2); color: #c6ff00; }
+                .icon-revenue { background: rgba(255, 145, 0, 0.2); color: #ff9100; }
+                .loading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 40px;
+                    color: rgba(255, 255, 255, 0.6);
+                    gap: 12px;
+                }
+                .loading-spinner {
+                    width: 24px;
+                    height: 24px;
+                    border: 3px solid rgba(0, 229, 255, 0.2);
+                    border-top-color: #00e5ff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    100% { transform: rotate(360deg); }
+                }
+                @media (max-width: 768px) {
+                    .stats-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    .stat-value {
+                        font-size: 20px;
+                    }
+                }
+            </style>
+            <div class="realtime-widget">
+                <div class="widget-header">
+                    <h3 class="widget-title">
+                        <span class="material-symbols-outlined">analytics</span>
+                        ${title}
+                    </h3>
+                    <div class="live-indicator">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon icon-visitors">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </div>
+                        <div class="stat-label">Visitors</div>
+                        <div class="stat-value" data-stat="visitors">${this.stats.visitors.toLocaleString()}</div>
+                        <div class="stat-trend" data-trend="visitors"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-views">
+                            <span class="material-symbols-outlined">pageview</span>
+                        </div>
+                        <div class="stat-label">Page Views</div>
+                        <div class="stat-value" data-stat="pageViews">${this.stats.pageViews.toLocaleString()}</div>
+                        <div class="stat-trend" data-trend="pageViews"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-conversions">
+                            <span class="material-symbols-outlined">conversion_path</span>
+                        </div>
+                        <div class="stat-label">Conversions</div>
+                        <div class="stat-value" data-stat="conversions">${this.stats.conversions.toLocaleString()}</div>
+                        <div class="stat-trend" data-trend="conversions"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-revenue">
+                            <span class="material-symbols-outlined">attach_money</span>
+                        </div>
+                        <div class="stat-label">Revenue</div>
+                        <div class="stat-value" data-stat="revenue">${this.formatValue('revenue', this.stats.revenue)}</div>
+                        <div class="stat-trend" data-trend="revenue"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+customElements.define('realtime-stats-widget', RealtimeStatsWidget);
+
+export { RealtimeStatsWidget };

@@ -12,7 +12,7 @@
 export { AIGenerator, AIContentGenerator, AIContentPanel } from './ai-content-generator.js';
 export { AnalyticsDashboard } from './analytics-dashboard.js';
 export { ExportManager } from './data-export.js';
-export { UserPreferences } from './user-preferences.js';
+export { default as UserPreferences, UserPreferencesPanel } from '../core/user-preferences.js';
 export { QuickActions } from './quick-actions.js';
 
 /**
