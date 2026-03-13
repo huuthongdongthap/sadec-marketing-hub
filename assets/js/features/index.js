@@ -18,6 +18,7 @@ export { NotificationCenter } from './notification-center.js';
 export { CommandPalette } from './command-palette-enhanced.js';
 export { initQuickNotes } from './quick-notes.js';
 export { AISearchEnhancement } from './ai-search-enhancement.js';
+export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from './widget-customizer.js';
 
 /**
  * Initialize all features
@@ -48,6 +49,7 @@ window.MekongFeatures = {
     NotificationCenter: window.NotificationCenter,
     CommandPalette: window.CommandPalette,
     AISearchEnhancement: window.AISearchEnhancement,
+    WidgetCustomizer: window.WidgetCustomizer,
     initQuickNotes: window.initQuickNotes,
     init: initializeFeatures
 };
