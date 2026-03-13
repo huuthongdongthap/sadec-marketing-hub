@@ -10,7 +10,7 @@
  * - Fonts: Cache First with long TTL
  */
 
-const CACHE_VERSION = 'vmmp3owpr.b79ef1366015';
+const CACHE_VERSION = 'vmmp4c5ds.4c751cb45e6f';
 const CACHE_NAME = `mekong-os-static-${CACHE_VERSION}`;
 const CACHE_IMAGES = `mekong-os-images-${CACHE_VERSION}`;
 const CACHE_API = `mekong-os-api-${CACHE_VERSION}`;
