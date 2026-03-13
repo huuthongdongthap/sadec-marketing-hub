@@ -1,6 +1,6 @@
 {
-  "version": "vmmp5agmi.233e5006384d",
-  "timestamp": "2026-03-13T17:02:42.090Z",
+  "version": "vmmpaet1v.5d9f5a8dfd01",
+  "timestamp": "2026-03-13T19:26:02.899Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -287,6 +287,10 @@
       "hash": "edddce19"
     },
     {
+      "path": "assets/css/ux-enhancements-2026.css",
+      "hash": "08a94541"
+    },
+    {
       "path": "assets/css/widgets.css",
       "hash": "7b525056"
     },
@@ -388,11 +392,15 @@
     },
     {
       "path": "assets/js/components/accordion.js",
-      "hash": "b2ce2523"
+      "hash": "0c881818"
+    },
+    {
+      "path": "assets/js/components/advanced-filters.js",
+      "hash": "29af438e"
     },
     {
       "path": "assets/js/components/back-to-top.js",
-      "hash": "14246690"
+      "hash": "2e529636"
     },
     {
       "path": "assets/js/components/breadcrumbs.js",
@@ -404,7 +412,7 @@
     },
     {
       "path": "assets/js/components/data-table.js",
-      "hash": "ac335624"
+      "hash": "2a87b655"
     },
     {
       "path": "assets/js/components/empty-state.js",
@@ -415,8 +423,12 @@
       "hash": "7070ab1a"
     },
     {
+      "path": "assets/js/components/export-buttons.js",
+      "hash": "14dc13bb"
+    },
+    {
       "path": "assets/js/components/file-upload.js",
-      "hash": "92084a43"
+      "hash": "6d8f3642"
     },
     {
       "path": "assets/js/components/gateway-selector.js",
@@ -424,7 +436,7 @@
     },
     {
       "path": "assets/js/components/index.js",
-      "hash": "444f2611"
+      "hash": "f2e3f050"
     },
     {
       "path": "assets/js/components/kpi-card.js",
@@ -440,7 +452,7 @@
     },
     {
       "path": "assets/js/components/notification-bell.js",
-      "hash": "c410cbe3"
+      "hash": "195bd2e1"
     },
     {
       "path": "assets/js/components/payment-modal.js",
@@ -452,7 +464,7 @@
     },
     {
       "path": "assets/js/components/reading-progress.js",
-      "hash": "cb5abd26"
+      "hash": "3193a8ad"
     },
     {
       "path": "assets/js/components/sadec-navbar.js",
@@ -472,15 +484,15 @@
     },
     {
       "path": "assets/js/components/search-autocomplete.js",
-      "hash": "e002d1dd"
+      "hash": "4b1ff184"
     },
     {
       "path": "assets/js/components/skip-link.js",
-      "hash": "2b9d1eea"
+      "hash": "70db57bb"
     },
     {
       "path": "assets/js/components/tabs.js",
-      "hash": "1d464b73"
+      "hash": "7be208ae"
     },
     {
       "path": "assets/js/components/theme-manager.js",
@@ -495,8 +507,16 @@
       "hash": "86417533"
     },
     {
+      "path": "assets/js/components/toast.js",
+      "hash": "982c7067"
+    },
+    {
       "path": "assets/js/components/tooltip.js",
-      "hash": "54d263e0"
+      "hash": "7cf065b1"
+    },
+    {
+      "path": "assets/js/components/user-preferences.js",
+      "hash": "64f73b31"
     },
     {
       "path": "assets/js/content-calendar.js",
@@ -520,7 +540,7 @@
     },
     {
       "path": "assets/js/empty-states.js",
-      "hash": "a36ba0e5"
+      "hash": "4bea6092"
     },
     {
       "path": "assets/js/features/ai-content-generator.js",
@@ -532,7 +552,7 @@
     },
     {
       "path": "assets/js/features/data-export.js",
-      "hash": "ca0c85b0"
+      "hash": "1f0f5860"
     },
     {
       "path": "assets/js/features/index.js",
@@ -541,6 +561,10 @@
     {
       "path": "assets/js/features/quick-actions.js",
       "hash": "26622368"
+    },
+    {
+      "path": "assets/js/features/search-autocomplete.js",
+      "hash": "1373ef39"
     },
     {
       "path": "assets/js/features/user-preferences.js",
@@ -580,11 +604,11 @@
     },
     {
       "path": "assets/js/landing-renderer.js",
-      "hash": "f996ec69"
+      "hash": "153f887b"
     },
     {
       "path": "assets/js/lazy-load-component.js",
-      "hash": "003d276d"
+      "hash": "c46dbc15"
     },
     {
       "path": "assets/js/loading-states.js",
@@ -792,11 +816,15 @@
     },
     {
       "path": "assets/js/shared/api-client.js",
-      "hash": "23fc161e"
+      "hash": "663a54a6"
     },
     {
       "path": "assets/js/shared/api-utils.js",
-      "hash": "67518547"
+      "hash": "81c74f21"
+    },
+    {
+      "path": "assets/js/shared/base-component.js",
+      "hash": "dd9e2f01"
     },
     {
       "path": "assets/js/shared/dom-utils.js",
@@ -804,7 +832,7 @@
     },
     {
       "path": "assets/js/shared/format-utils.js",
-      "hash": "b5a7140d"
+      "hash": "00ff9f96"
     },
     {
       "path": "assets/js/shared/guard-utils.js",
@@ -812,7 +840,7 @@
     },
     {
       "path": "assets/js/shared/logger.js",
-      "hash": "70e8dab6"
+      "hash": "6e655858"
     },
     {
       "path": "assets/js/shared/modal-utils.js",
@@ -832,7 +860,7 @@
     },
     {
       "path": "assets/js/ui-enhancements.js",
-      "hash": "50b3a82e"
+      "hash": "416c49e7"
     },
     {
       "path": "assets/js/ui-motion-controller.js",
@@ -844,7 +872,7 @@
     },
     {
       "path": "assets/js/utils/api.js",
-      "hash": "f9fa4fbf"
+      "hash": "d8ef1fa0"
     },
     {
       "path": "assets/js/utils/dom.js",
@@ -856,7 +884,7 @@
     },
     {
       "path": "assets/js/utils/export-utils.js",
-      "hash": "0a57e456"
+      "hash": "b81e8ffe"
     },
     {
       "path": "assets/js/utils/function.js",
@@ -881,6 +909,10 @@
     {
       "path": "assets/js/widgets/index.js",
       "hash": "fdd3e0b7"
+    },
+    {
+      "path": "assets/js/widgets/quick-stats-widget.js",
+      "hash": "4e3aa82c"
     }
   ]
 }

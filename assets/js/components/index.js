@@ -38,6 +38,8 @@ export { Accordion, AccordionManager } from './accordion.js';
 export { DataTable } from './data-table.js';
 export { ScrollToTop, ScrollToTopManager } from './scroll-to-top.js';
 export { KpiCardWidget } from './kpi-card.js';
+export { AdvancedFilters } from './advanced-filters.js';
+export { ExportButtons } from './export-buttons.js';
 
 // Dashboard Widgets
 export { default as KpiCard } from './kpi-card.js';
@@ -88,6 +90,8 @@ window.MekongComponents = {
   DataTable: window.DataTable,
   ScrollToTop: window.ScrollToTop,
   KpiCardWidget: window.KpiCardWidget,
+  AdvancedFilters: window.AdvancedFilters,
+  ExportButtons: window.ExportButtons,
 
   // Initialize
   init: initializeComponents

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features Demo - Sa Đéc Marketing Hub</title>
+  <meta name="description" content="Demo các features mới: Export, Advanced Filters, Timeline">
+  
+  <!-- SEO Meta Tags -->
+  <meta property="og:title" content="Features Demo - Sa Đéc Marketing Hub">
+  <meta property="og:description" content="Demo các features mới: Export, Advanced Filters, Timeline">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/features-demo.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="stylesheet" href="/assets/css/m3-agency.css">
+  <link rel="stylesheet" href="/assets/css/admin-dashboard.css">
+  
+  <style>
+    .demo-section { padding: 40px 24px; max-width: 1200px; margin: 0 auto; }
+    .demo-card {
+      background: var(--md-sys-color-surface);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .demo-card h2 { margin-top: 0; color: var(--md-sys-color-on-surface); }
+    .demo-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .demo-table th, .demo-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .demo-table th {
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      font-weight: 600;
+    }
+    .demo-table tr:hover { background: var(--md-sys-color-surface-container); }
+    .feature-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    .badge-new { background: #4CAF50; color: white; }
+    .badge-updated { background: #2196F3; color: white; }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>🚀 Features Demo</h1>
+    <p>Các tính năng mới được thêm vào Sa Đéc Marketing Hub</p>
+  </header>
+
+  <main class="demo-section">
+    
+    <!-- Export Features -->
+    <section class="demo-card">
+      <h2>
+        <span class="feature-badge badge-new">MỚI</span>
+        📤 Export Functions
+      </h2>
+      <p>Xuất dữ liệu ra nhiều định dạng: CSV, PDF, Excel</p>
+      
+      <export-buttons target="#demo-table" filename="du-lieu-mau" show-csv="true" show-pdf="true" show-excel="true" show-print="true"></export-buttons>
+      
+      <table id="demo-table" class="demo-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên chiến dịch</th>
+            <th>Khách hàng</th>
+            <th>Ngân sách</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Marketing Tết 2026</td>
+            <td>Công ty ABC</td>
+            <td>50,000,000₫</td>
+            <td>Đang chạy</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>SEO Website</td>
+            <td>Cửa hàng XYZ</td>
+            <td>15,000,000₫</td>
+            <td>Hoàn thành</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Facebook Ads Q1</td>
+            <td>Shop 123</td>
+            <td>30,000,000₫</td>
+            <td>Chờ duyệt</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Advanced Filters -->
+    <section class="demo-card">
+      <h2>
+        <span class="feature-badge badge-new">MỚI</span>
+        🔍 Advanced Filters
+      </h2>
+      <p>Bộ lọc nâng cao với nhiều tiêu chí, lưu preset</p>
+      
+      <advanced-filters 
+        id="demo-filters"
+        target="#demo-table-2"
+        enable-presets="true"
+        filters-config='[
+          {"field":"search","type":"text","label":"Tìm kiếm","placeholder":"Nhập từ khóa..."},
+          {"field":"status","type":"select","label":"Trạng thái","options":[{"value":"active","label":"Đang chạy"},{"value":"completed","label":"Hoàn thành"},{"value":"pending","label":"Chờ duyệt"}]},
+          {"field":"date","type":"date","label":"Ngày bắt đầu"},
+          {"field":"budget","type":"range","label":"Ngân sách","min":0,"max":100000000}
+        ]'>
+      </advanced-filters>
+      
+      <table id="demo-table-2" class="demo-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên chiến dịch</th>
+            <th>Khách hàng</th>
+            <th>Ngân sách</th>
+            <th>Ngày</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Marketing Tết 2026</td>
+            <td>Công ty ABC</td>
+            <td>50,000,000₫</td>
+            <td>2026-01-15</td>
+            <td>active</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>SEO Website</td>
+            <td>Cửa hàng XYZ</td>
+            <td>15,000,000₫</td>
+            <td>2026-02-01</td>
+            <td>completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Keyboard Shortcuts -->
+    <section class="demo-card">
+      <h2>
+        <span class="feature-badge badge-updated">CẢI TIẾN</span>
+        ⌨️ Keyboard Shortcuts
+      </h2>
+      <p>Các phím tắt có sẵn:</p>
+      <ul>
+        <li><kbd>Ctrl + K</kbd> - Command Palette (tìm kiếm nhanh)</li>
+        <li><kbd>Ctrl + N</kbd> - Notification Bell (thông báo)</li>
+        <li><kbd>Ctrl + H</kbd> - Help Tour (hướng dẫn)</li>
+        <li><kbd>Ctrl + E</kbd> - Export current view</li>
+        <li><kbd>Escape</kbd> - Đóng modal/tooltip</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script type="module">
+    import '/assets/js/components/index.js';
+    
+    console.log('✅ Features Demo loaded');
+    
+    // Demo filter change event
+    document.getElementById('demo-filters')?.addEventListener('filters-change', (e) => {
+      console.log('Filters changed:', e.detail.filters);
+    });
+  </script>
+</body>
+</html>
