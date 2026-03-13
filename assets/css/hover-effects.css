@@ -1,0 +1,765 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SA ĐÉC MARKETING HUB - HOVER EFFECTS CSS
+ * Comprehensive hover effects library for buttons, cards, links, and more
+ *
+ * Categories:
+ *   - Button Hover Effects
+ *   - Card Hover Effects
+ *   - Link Hover Effects
+ *   - Image Hover Effects
+ *   - Icon Hover Effects
+ *   - Input Hover Effects
+ *
+ * Usage: Add utility classes to elements
+ * Example: <button class="btn btn-hover-glow">Click Me</button>
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Glow Effect - Button emits light on hover */
+.btn-hover-glow {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn-hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 106, 96, 0.4),
+                0 0 40px rgba(0, 106, 96, 0.2),
+                0 0 80px rgba(0, 106, 96, 0.1);
+}
+
+[data-theme="dark"] .btn-hover-glow:hover {
+    box-shadow: 0 4px 20px rgba(74, 221, 208, 0.4),
+                0 0 40px rgba(74, 221, 208, 0.2),
+                0 0 80px rgba(74, 221, 208, 0.1);
+}
+
+/* 2. Scale Effect - Button grows on hover */
+.btn-hover-scale {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Slide Effect - Background slides on hover */
+.btn-hover-slide {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-hover-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.btn-hover-slide:hover::before {
+    left: 100%;
+}
+
+/* 4. Ripple Effect - Ripple spreads from center */
+.btn-hover-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-hover-ripple:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 5. Border Draw Effect - Border draws around button */
+.btn-hover-border {
+    position: relative;
+}
+
+.btn-hover-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid currentColor;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-hover-border:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 6. Shine Effect - Light sweeps across button */
+.btn-hover-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+}
+
+.btn-hover-shine:hover::before {
+    left: 150%;
+}
+
+/* 7. Lift Effect - Button lifts with shadow */
+.btn-hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1),
+                box-shadow 0.3s ease;
+}
+
+.btn-hover-lift:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* 8. Pulse Effect - Button pulses on hover */
+.btn-hover-pulse {
+    animation: button-pulse 2s infinite;
+}
+
+.btn-hover-pulse:hover {
+    animation: button-pulse-fast 0.8s infinite;
+}
+
+@keyframes button-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 106, 96, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(0, 106, 96, 0);
+    }
+}
+
+@keyframes button-pulse-fast {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 106, 96, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(0, 106, 96, 0);
+    }
+}
+
+/* 9. Gradient Shift - Background gradient shifts */
+.btn-hover-gradient {
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    transition: background-position 0.4s ease;
+}
+
+.btn-hover-gradient:hover {
+    background-position: 100% 50%;
+}
+
+/* 10. Arrow Effect - Arrow appears on hover */
+.btn-hover-arrow {
+    position: relative;
+    padding-right: 24px;
+}
+
+.btn-hover-arrow::after {
+    content: '→';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-hover-arrow:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARD HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Lift Card - Card lifts with shadow */
+.card-hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Glow Border - Glowing border on hover */
+.card-hover-glow {
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #006A60, #00dbc1, #4ADDD0, #006A60);
+    background-size: 300% 300%;
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: gradient-rotate 3s ease infinite;
+}
+
+.card-hover-glow:hover::before {
+    opacity: 1;
+}
+
+@keyframes gradient-rotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 3. Scale Up - Card scales up uniformly */
+.card-hover-scale {
+    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+
+.card-hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* 4. Reveal Overlay - Overlay reveals on hover */
+.card-hover-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-hover-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 50%,
+        rgba(0, 106, 96, 0.8) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-hover-reveal:hover::after {
+    opacity: 1;
+}
+
+/* 5. Tilt Effect - Card tilts toward cursor (requires JS for full effect) */
+.card-hover-tilt {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.card-hover-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* 6. Slide Content - Content slides up on hover */
+.card-hover-slide .card-content {
+    transition: transform 0.3s ease;
+}
+
+.card-hover-slide:hover .card-content {
+    transform: translateY(-8px);
+}
+
+/* 7. Zoom Image - Image zooms inside card */
+.card-hover-zoom {
+    overflow: hidden;
+}
+
+.card-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.card-hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* 8. Border Expand - Border expands from center */
+.card-hover-border {
+    position: relative;
+}
+
+.card-hover-border::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid #006A60;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    pointer-events: none;
+}
+
+.card-hover-border:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LINK HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Underline Slide - Underline slides in from left */
+.link-hover-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-hover-underline:hover::after {
+    width: 100%;
+}
+
+/* 2. Underline Expand - Underline expands from center */
+.link-hover-expand {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover-expand::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.link-hover-expand:hover::after {
+    width: 100%;
+}
+
+/* 3. Strike Through - Text gets striked */
+.link-hover-strike:hover {
+    text-decoration: line-through;
+}
+
+/* 4. Letter Spacing - Letters spread on hover */
+.link-hover-space {
+    transition: letter-spacing 0.3s ease;
+}
+
+.link-hover-space:hover {
+    letter-spacing: 2px;
+}
+
+/* 5. Color Fill - Color fills from left */
+.link-hover-fill {
+    background: linear-gradient(to right, currentColor 0%, currentColor 0%) 0 100% / 0% 2px no-repeat;
+    transition: background-size 0.3s ease;
+}
+
+.link-hover-fill:hover {
+    background-size: 100% 2px;
+}
+
+/* 6. Double Underline - Two lines appear */
+.link-hover-double {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover-double::before,
+.link-hover-double::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-hover-double::before {
+    animation-delay: 0.1s;
+}
+
+.link-hover-double:hover::before,
+.link-hover-double:hover::after {
+    width: 50%;
+}
+
+.link-hover-double::after {
+    left: 50%;
+}
+
+/* 7. Dotted Underline - Dotted line appears */
+.link-hover-dotted {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover-dotted::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-bottom: 2px dotted currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.link-hover-dotted:hover::after {
+    transform: scaleX(1);
+}
+
+/* 8. Arrow Right - Arrow points right on hover */
+.link-hover-arrow::after {
+    content: ' →';
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.link-hover-arrow:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   IMAGE HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Grayscale - Image goes from grayscale to color */
+.img-hover-grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.img-hover-grayscale:hover {
+    filter: grayscale(0%);
+}
+
+/* 2. Sepia - Image goes from sepia to color */
+.img-hover-sepia {
+    filter: sepia(100%);
+    transition: filter 0.3s ease;
+}
+
+.img-hover-sepia:hover {
+    filter: sepia(0%);
+}
+
+/* 3. Blur - Image unblurs on hover */
+.img-hover-blur {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+
+.img-hover-blur:hover {
+    filter: blur(0);
+}
+
+/* 4. Brightness - Image brightens on hover */
+.img-hover-bright {
+    filter: brightness(80%);
+    transition: filter 0.3s ease;
+}
+
+.img-hover-bright:hover {
+    filter: brightness(100%);
+}
+
+/* 5. Zoom Crop - Image zooms while container crops */
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+    transform: scale(1.2);
+}
+
+/* 6. Rotate - Image rotates slightly */
+.img-hover-rotate img {
+    transition: transform 0.3s ease;
+}
+
+.img-hover-rotate:hover img {
+    transform: rotate(3deg) scale(1.05);
+}
+
+/* 7. Overlay Reveal - Overlay with text reveals */
+.img-hover-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-hover-overlay::after {
+    content: attr(data-caption);
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 106, 96, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-hover-overlay:hover::after {
+    opacity: 1;
+}
+
+/* 8. Slide Up - Image slides up */
+.img-hover-slide-up {
+    transition: transform 0.3s ease;
+}
+
+.img-hover-slide-up:hover {
+    transform: translateY(-8px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ICON HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Icon Bounce - Icon bounces on hover */
+.icon-hover-bounce {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+
+.icon-hover-bounce:hover {
+    transform: translateY(-4px) scale(1.2);
+}
+
+/* 2. Icon Rotate - Icon rotates */
+.icon-hover-rotate {
+    transition: transform 0.3s ease;
+}
+
+.icon-hover-rotate:hover {
+    transform: rotate(180deg);
+}
+
+/* 3. Icon Pulse - Icon pulses */
+.icon-hover-pulse {
+    animation: icon-pulse 2s infinite;
+}
+
+@keyframes icon-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* 4. Icon Glow - Icon glows */
+.icon-hover-glow {
+    transition: text-shadow 0.3s ease;
+}
+
+.icon-hover-glow:hover {
+    text-shadow: 0 0 10px currentColor,
+                 0 0 20px currentColor,
+                 0 0 30px currentColor;
+}
+
+/* 5. Icon Shake - Icon shakes side to side */
+.icon-hover-shake {
+    transition: transform 0.1s ease;
+}
+
+.icon-hover-shake:hover {
+    animation: icon-shake 0.5s;
+}
+
+@keyframes icon-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+/* 6. Icon Flip - Icon flips */
+.icon-hover-flip {
+    transition: transform 0.4s ease;
+}
+
+.icon-hover-flip:hover {
+    transform: scaleX(-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INPUT HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Border Color - Border changes color */
+.input-hover-border {
+    border: 2px solid #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-hover-border:hover {
+    border-color: #006A60;
+}
+
+.input-hover-border:focus {
+    border-color: #006A60;
+    box-shadow: 0 0 0 3px rgba(0, 106, 96, 0.1);
+}
+
+/* 2. Lift Input - Input lifts on hover */
+.input-hover-lift {
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Expand Input - Input expands on focus */
+.input-hover-expand {
+    width: 200px;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-hover-expand:hover,
+.input-hover-expand:focus {
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Underline Input - Underline grows */
+.input-hover-underline {
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 8px 0;
+    transition: border-color 0.3s ease;
+}
+
+.input-hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #006A60;
+    transition: width 0.3s ease;
+}
+
+.input-hover-underline:hover,
+.input-hover-underline:focus {
+    border-color: #006A60;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Smooth transitions for all interactive elements */
+.hover-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fast transitions for quick feedback */
+.hover-fast {
+    transition: all 0.15s ease;
+}
+
+/* Slow transitions for dramatic effect */
+.hover-slow {
+    transition: all 0.5s ease;
+}
+
+/* Disable hover effects on mobile */
+@media (hover: none) {
+    .btn-hover-glow:hover,
+    .btn-hover-scale:hover,
+    .btn-hover-lift:hover,
+    .card-hover-lift:hover,
+    .card-hover-scale:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .card-hover-lift:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .btn-hover-lift:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
