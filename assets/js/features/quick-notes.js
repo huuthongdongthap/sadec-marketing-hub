@@ -223,6 +223,84 @@ function attachNoteListeners(item, noteId) {
 
     // Click on note to edit
     item.addEventListener('click', () => editNote(noteId));
+
+    // Add drag-and-drop functionality
+    initDragAndDrop(item, noteId);
+}
+
+/**
+ * Initialize drag-and-drop for a note
+ */
+function initDragAndDrop(item, noteId) {
+    item.setAttribute('draggable', 'true');
+    item.style.cursor = 'grab';
+
+    item.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', noteId);
+        e.dataTransfer.effectAllowed = 'move';
+        item.classList.add('dragging');
+        item.style.opacity = '0.5';
+    });
+
+    item.addEventListener('dragend', () => {
+        item.classList.remove('dragging');
+        item.style.opacity = '1';
+        document.querySelectorAll('.quick-note-item').forEach(el => {
+            el.style.borderTop = '';
+        });
+    });
+
+    item.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+
+        const draggingEl = document.querySelector('.quick-note-item.dragging');
+        if (!draggingEl || draggingEl === item) return;
+
+        const rect = item.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+
+        if (e.clientY < midpoint) {
+            item.style.borderTop = '2px solid #00796b';
+        } else {
+            item.style.borderTop = '';
+        }
+    });
+
+    item.addEventListener('dragleave', () => {
+        item.style.borderTop = '';
+    });
+
+    item.addEventListener('drop', (e) => {
+        e.preventDefault();
+        item.style.borderTop = '';
+
+        const draggedNoteId = e.dataTransfer.getData('text/plain');
+        if (!draggedNoteId || draggedNoteId === noteId) return;
+
+        const draggedIndex = notes.findIndex(n => n.id === draggedNoteId);
+        const targetIndex = notes.findIndex(n => n.id === noteId);
+
+        if (draggedIndex === -1 || targetIndex === -1) return;
+
+        const rect = item.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+        const insertBefore = e.clientY < midpoint;
+
+        // Remove dragged note
+        const [draggedNote] = notes.splice(draggedIndex, 1);
+
+        // Insert at new position
+        const newTargetIndex = notes.findIndex(n => n.id === noteId);
+        const insertIndex = insertBefore ? newTargetIndex : newTargetIndex + 1;
+
+        notes.splice(insertIndex, 0, draggedNote);
+
+        saveNotes();
+        renderNotes();
+
+        Logger.info('[QuickNotes] Reordered notes:', draggedNoteId, '->', insertIndex);
+    });
 }
 
 /**
@@ -546,14 +624,23 @@ function addStyles() {
             padding: 12px;
             border-radius: 8px;
             min-height: 120px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            user-select: none;
         }
 
         .quick-note-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .quick-note-item.dragging {
+            cursor: grabbing;
+            opacity: 0.5;
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
 
         .quick-note-header {

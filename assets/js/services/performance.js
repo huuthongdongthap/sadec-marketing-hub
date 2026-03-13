@@ -143,8 +143,11 @@ const PerformanceMonitor = {
     },
 
     log() {
-        console.table(this.getReport());
-        console.table(this.getWebVitals());
+        // Only log in dev mode
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.table(this.getReport());
+            console.table(this.getWebVitals());
+        }
     }
 };
 

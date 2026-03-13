@@ -43,6 +43,19 @@ const Priority = {
 };
 
 /**
+ * Sound URLs for notification alerts
+ */
+const SOUND_URLS = {
+  [Priority.HIGH]: 'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU',
+  [Priority.URGENT]: 'data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU'
+};
+
+/**
+ * Audio context for playing notification sounds
+ */
+let audioContext = null;
+
+/**
  * Notification Center Class
  */
 class NotificationCenter {
@@ -187,9 +200,49 @@ class NotificationCenter {
     // Show toast for high priority notifications
     if (data.priority === Priority.HIGH || data.priority === Priority.URGENT) {
       this.showNotificationToast(notification);
+      this.playSound(data.priority);
     }
 
     Logger.info(TAG, `Added notification: ${notification.title}`);
+  }
+
+  /**
+   * Play notification sound
+   */
+  playSound(priority) {
+    try {
+      // Use Web Audio API for notification sound
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      // Different sounds for different priorities
+      if (priority === Priority.URGENT) {
+        // Urgent: Double beep
+        oscillator.frequency.setValueAtTime(880, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(880, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(1100, audioContext.currentTime + 0.2);
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.4);
+      } else {
+        // High: Single beep
+        oscillator.frequency.setValueAtTime(880, audioContext.currentTime);
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.2);
+      }
+    } catch (error) {
+      Logger.warn(TAG, 'Failed to play sound:', error);
+    }
   }
 
   /**

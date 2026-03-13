@@ -363,12 +363,15 @@ class KeyboardShortcuts {
    * List all shortcuts
    */
   listShortcuts() {
-    console.table(
-      Array.from(this.shortcuts.entries()).map(([combo, { description }]) => ({
-        'Phím': combo,
-        'Chức năng': description
-      }))
-    );
+    const shortcuts = Array.from(this.shortcuts.entries()).map(([combo, { description }]) => ({
+      'Phím': combo,
+      'Chức năng': description
+    }));
+    // Only log in dev mode
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.table(shortcuts);
+    }
+    return shortcuts;
   }
 }
 
