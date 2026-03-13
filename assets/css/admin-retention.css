@@ -341,15 +341,7 @@
             color: var(--md-sys-color-on-surface-variant);
         }
 /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Note: fadeInUp and pulse keyframes removed - uses micro-animations.css */
 .health-card, .playbook-card, .alert-card {
             animation: fadeInUp 0.4s ease-out backwards;
         }
@@ -365,15 +357,6 @@ to {
 .health-card:nth-child(4) {
             animation-delay: 0.25s;
         }
-@keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-50% {
-                opacity: 0.5;
-            }
 .health-percentage {
             animation: pulse 2s ease-in-out infinite;
         }
