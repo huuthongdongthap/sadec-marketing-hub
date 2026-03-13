@@ -1,18 +1,7 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
  * SA ĐÉC MARKETING HUB - HOVER EFFECTS CSS
- * Comprehensive hover effects library for buttons, cards, links, and more
- *
- * Categories:
- *   - Button Hover Effects
- *   - Card Hover Effects
- *   - Link Hover Effects
- *   - Image Hover Effects
- *   - Icon Hover Effects
- *   - Input Hover Effects
- *
- * Usage: Add utility classes to elements
- * Example: <button class="btn btn-hover-glow">Click Me</button>
+ * Interactive hover states for buttons, cards, and links
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -20,42 +9,31 @@
    BUTTON HOVER EFFECTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Glow Effect - Button emits light on hover */
+/* Glow effect */
 .btn-hover-glow {
-    position: relative;
-    transition: all 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .btn-hover-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 106, 96, 0.4),
-                0 0 40px rgba(0, 106, 96, 0.2),
-                0 0 80px rgba(0, 106, 96, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 106, 96, 0.4);
 }
 
-[data-theme="dark"] .btn-hover-glow:hover {
-    box-shadow: 0 4px 20px rgba(74, 221, 208, 0.4),
-                0 0 40px rgba(74, 221, 208, 0.2),
-                0 0 80px rgba(74, 221, 208, 0.1);
-}
-
-/* 2. Scale Effect - Button grows on hover */
+/* Scale effect */
 .btn-hover-scale {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .btn-hover-scale:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* 3. Slide Effect - Background slides on hover */
+/* Slide background effect */
 .btn-hover-slide {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    transition: color 0.3s;
 }
-
 .btn-hover-slide::before {
     content: '';
     position: absolute;
@@ -64,20 +42,43 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
+    transition: left 0.5s;
     z-index: -1;
 }
-
 .btn-hover-slide:hover::before {
     left: 100%;
 }
 
-/* 4. Ripple Effect - Ripple spreads from center */
+/* Shine effect */
+.btn-hover-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-hover-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: transform 0.6s;
+}
+.btn-hover-shine:hover::after {
+    transform: rotate(45deg) translate(100%, 100%);
+}
+
+/* Ripple effect */
 .btn-hover-ripple {
     position: relative;
     overflow: hidden;
 }
-
 .btn-hover-ripple::after {
     content: '';
     position: absolute;
@@ -85,281 +86,144 @@
     left: 50%;
     width: 0;
     height: 0;
+    background: rgba(255,255,255,0.3);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    transition: width 0.6s, height 0.6s;
 }
-
 .btn-hover-ripple:hover::after {
     width: 300px;
     height: 300px;
 }
 
-/* 5. Border Draw Effect - Border draws around button */
+/* Border animate effect */
 .btn-hover-border {
     position: relative;
+    z-index: 1;
+    transition: color 0.3s;
 }
-
 .btn-hover-border::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid currentColor;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #00e5ff, #d500f9) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s;
 }
-
 .btn-hover-border:hover::before {
     opacity: 1;
-    transform: scale(1);
 }
 
-/* 6. Shine Effect - Light sweeps across button */
-.btn-hover-shine {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-hover-shine::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    transform: skewX(-25deg);
-    transition: left 0.7s ease;
-}
-
-.btn-hover-shine:hover::before {
-    left: 150%;
-}
-
-/* 7. Lift Effect - Button lifts with shadow */
-.btn-hover-lift {
-    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1),
-                box-shadow 0.3s ease;
-}
-
-.btn-hover-lift:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* 8. Pulse Effect - Button pulses on hover */
-.btn-hover-pulse {
-    animation: button-pulse 2s infinite;
-}
-
-.btn-hover-pulse:hover {
-    animation: button-pulse-fast 0.8s infinite;
-}
-
-@keyframes button-pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(0, 106, 96, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(0, 106, 96, 0);
-    }
-}
-
-@keyframes button-pulse-fast {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(0, 106, 96, 0.6);
-    }
-    50% {
-        box-shadow: 0 0 0 6px rgba(0, 106, 96, 0);
-    }
-}
-
-/* 9. Gradient Shift - Background gradient shifts */
-.btn-hover-gradient {
-    background-size: 200% 200%;
-    background-position: 0% 50%;
-    transition: background-position 0.4s ease;
-}
-
-.btn-hover-gradient:hover {
-    background-position: 100% 50%;
-}
-
-/* 10. Arrow Effect - Arrow appears on hover */
+/* Arrow effect */
 .btn-hover-arrow {
-    position: relative;
-    padding-right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.btn-hover-arrow::after {
-    content: '→';
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%) translateX(-4px);
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.btn-hover-arrow:hover::after {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+.btn-hover-arrow:hover {
+    gap: 12px;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    CARD HOVER EFFECTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Lift Card - Card lifts with shadow */
+/* Lift effect */
 .card-hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .card-hover-lift:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* 2. Glow Border - Glowing border on hover */
+/* Glow border effect */
 .card-hover-glow {
-    position: relative;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.3),
+                0 0 60px rgba(0, 229, 255, 0.1);
 }
 
-.card-hover-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, #006A60, #00dbc1, #4ADDD0, #006A60);
-    background-size: 300% 300%;
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
-    animation: gradient-rotate 3s ease infinite;
-}
-
-.card-hover-glow:hover::before {
-    opacity: 1;
-}
-
-@keyframes gradient-rotate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* 3. Scale Up - Card scales up uniformly */
+/* Scale effect */
 .card-hover-scale {
-    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .card-hover-scale:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
-/* 4. Reveal Overlay - Overlay reveals on hover */
+/* Reveal overlay effect */
 .card-hover-reveal {
     position: relative;
     overflow: hidden;
 }
-
-.card-hover-reveal::after {
+.card-hover-reveal::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        transparent 50%,
-        rgba(0, 106, 96, 0.8) 100%
-    );
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 229, 255, 0.1) 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
-
-.card-hover-reveal:hover::after {
+.card-hover-reveal:hover::before {
     opacity: 1;
 }
 
-/* 5. Tilt Effect - Card tilts toward cursor (requires JS for full effect) */
+/* Tilt effect (3D) */
 .card-hover-tilt {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
-
 .card-hover-tilt:hover {
     transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
 }
 
-/* 6. Slide Content - Content slides up on hover */
+/* Slide up content effect */
+.card-hover-slide {
+    position: relative;
+    overflow: hidden;
+}
 .card-hover-slide .card-content {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .card-hover-slide:hover .card-content {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 }
 
-/* 7. Zoom Image - Image zooms inside card */
+/* Image zoom effect */
 .card-hover-zoom {
     overflow: hidden;
 }
-
 .card-hover-zoom img {
-    transition: transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .card-hover-zoom:hover img {
     transform: scale(1.1);
-}
-
-/* 8. Border Expand - Border expands from center */
-.card-hover-border {
-    position: relative;
-}
-
-.card-hover-border::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 2px solid #006A60;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-    pointer-events: none;
-}
-
-.card-hover-border:hover::after {
-    width: 100%;
-    height: 100%;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    LINK HOVER EFFECTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Underline Slide - Underline slides in from left */
+/* Underline slide */
 .link-hover-underline {
     position: relative;
     display: inline-block;
+    text-decoration: none;
 }
-
 .link-hover-underline::after {
     content: '';
     position: absolute;
@@ -368,398 +232,267 @@
     width: 0;
     height: 2px;
     background: currentColor;
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .link-hover-underline:hover::after {
     width: 100%;
 }
 
-/* 2. Underline Expand - Underline expands from center */
+/* Expand background */
 .link-hover-expand {
     position: relative;
     display: inline-block;
+    padding: 4px 8px;
+    z-index: 1;
 }
-
-.link-hover-expand::after {
+.link-hover-expand::before {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
+    inset: 0;
+    background: rgba(0, 229, 255, 0.1);
+    border-radius: 4px;
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+.link-hover-expand:hover::before {
+    transform: scale(1);
 }
 
-.link-hover-expand:hover::after {
-    width: 100%;
-}
-
-/* 3. Strike Through - Text gets striked */
-.link-hover-strike:hover {
-    text-decoration: line-through;
-}
-
-/* 4. Letter Spacing - Letters spread on hover */
+/* Letter spacing */
 .link-hover-space {
-    transition: letter-spacing 0.3s ease;
+    transition: letter-spacing 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .link-hover-space:hover {
     letter-spacing: 2px;
 }
 
-/* 5. Color Fill - Color fills from left */
-.link-hover-fill {
-    background: linear-gradient(to right, currentColor 0%, currentColor 0%) 0 100% / 0% 2px no-repeat;
-    transition: background-size 0.3s ease;
+/* Arrow append */
+.link-hover-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
-
-.link-hover-fill:hover {
-    background-size: 100% 2px;
-}
-
-/* 6. Double Underline - Two lines appear */
-.link-hover-double {
-    position: relative;
-    display: inline-block;
-}
-
-.link-hover-double::before,
-.link-hover-double::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transition: width 0.3s ease;
-}
-
-.link-hover-double::before {
-    animation-delay: 0.1s;
-}
-
-.link-hover-double:hover::before,
-.link-hover-double:hover::after {
-    width: 50%;
-}
-
-.link-hover-double::after {
-    left: 50%;
-}
-
-/* 7. Dotted Underline - Dotted line appears */
-.link-hover-dotted {
-    position: relative;
-    display: inline-block;
-}
-
-.link-hover-dotted::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 0;
-    border-bottom: 2px dotted currentColor;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.link-hover-dotted:hover::after {
-    transform: scaleX(1);
-}
-
-/* 8. Arrow Right - Arrow points right on hover */
 .link-hover-arrow::after {
-    content: ' →';
+    content: '→';
     opacity: 0;
     transform: translateX(-4px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .link-hover-arrow:hover::after {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   IMAGE HOVER EFFECTS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* 1. Grayscale - Image goes from grayscale to color */
-.img-hover-grayscale {
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.img-hover-grayscale:hover {
-    filter: grayscale(0%);
-}
-
-/* 2. Sepia - Image goes from sepia to color */
-.img-hover-sepia {
-    filter: sepia(100%);
-    transition: filter 0.3s ease;
-}
-
-.img-hover-sepia:hover {
-    filter: sepia(0%);
-}
-
-/* 3. Blur - Image unblurs on hover */
-.img-hover-blur {
-    filter: blur(4px);
-    transition: filter 0.3s ease;
-}
-
-.img-hover-blur:hover {
-    filter: blur(0);
-}
-
-/* 4. Brightness - Image brightens on hover */
-.img-hover-bright {
-    filter: brightness(80%);
-    transition: filter 0.3s ease;
-}
-
-.img-hover-bright:hover {
-    filter: brightness(100%);
-}
-
-/* 5. Zoom Crop - Image zooms while container crops */
-.img-hover-zoom {
-    overflow: hidden;
-}
-
-.img-hover-zoom img {
-    transition: transform 0.5s ease;
-}
-
-.img-hover-zoom:hover img {
-    transform: scale(1.2);
-}
-
-/* 6. Rotate - Image rotates slightly */
-.img-hover-rotate img {
-    transition: transform 0.3s ease;
-}
-
-.img-hover-rotate:hover img {
-    transform: rotate(3deg) scale(1.05);
-}
-
-/* 7. Overlay Reveal - Overlay with text reveals */
-.img-hover-overlay {
+/* Dotted underline */
+.link-hover-dotted {
     position: relative;
-    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
 }
-
-.img-hover-overlay::after {
-    content: attr(data-caption);
+.link-hover-dotted::after {
+    content: '';
     position: absolute;
-    inset: 0;
-    background: rgba(0, 106, 96, 0.8);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 4px 2px;
+    background-repeat: repeat-x;
+    transition: opacity 0.3s;
     opacity: 0;
-    transition: opacity 0.3s ease;
 }
-
-.img-hover-overlay:hover::after {
+.link-hover-dotted:hover::after {
     opacity: 1;
 }
 
-/* 8. Slide Up - Image slides up */
-.img-hover-slide-up {
-    transition: transform 0.3s ease;
+/* Double underline */
+.link-hover-double {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
 }
-
-.img-hover-slide-up:hover {
-    transform: translateY(-8px);
+.link-hover-double::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-hover-double:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    ICON HOVER EFFECTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Icon Bounce - Icon bounces on hover */
-.icon-hover-bounce {
-    display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.34, 1.61, 0.7, 1);
-}
-
-.icon-hover-bounce:hover {
-    transform: translateY(-4px) scale(1.2);
-}
-
-/* 2. Icon Rotate - Icon rotates */
+/* Icon rotate */
 .icon-hover-rotate {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .icon-hover-rotate:hover {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
 }
 
-/* 3. Icon Pulse - Icon pulses */
-.icon-hover-pulse {
-    animation: icon-pulse 2s infinite;
+/* Icon scale */
+.icon-hover-pop {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.icon-hover-pop:hover {
+    transform: scale(1.2);
 }
 
-@keyframes icon-pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+/* Icon bounce */
+.icon-hover-bounce {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.icon-hover-bounce:hover {
+    transform: translateY(-4px);
 }
 
-/* 4. Icon Glow - Icon glows */
-.icon-hover-glow {
-    transition: text-shadow 0.3s ease;
+/* Icon color shift */
+.icon-hover-color {
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.icon-hover-glow:hover {
-    text-shadow: 0 0 10px currentColor,
-                 0 0 20px currentColor,
-                 0 0 30px currentColor;
-}
-
-/* 5. Icon Shake - Icon shakes side to side */
-.icon-hover-shake {
-    transition: transform 0.1s ease;
-}
-
-.icon-hover-shake:hover {
-    animation: icon-shake 0.5s;
-}
-
-@keyframes icon-shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-15deg); }
-    50% { transform: rotate(15deg); }
-    75% { transform: rotate(-15deg); }
-}
-
-/* 6. Icon Flip - Icon flips */
-.icon-hover-flip {
-    transition: transform 0.4s ease;
-}
-
-.icon-hover-flip:hover {
-    transform: scaleX(-1);
+.icon-hover-color:hover {
+    color: #00e5ff;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    INPUT HOVER EFFECTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Border Color - Border changes color */
-.input-hover-border {
-    border: 2px solid #e0e0e0;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* Input border glow */
+.input-hover-glow {
+    transition: border-color 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.input-hover-glow:hover,
+.input-hover-glow:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
 }
 
-.input-hover-border:hover {
-    border-color: #006A60;
-}
-
-.input-hover-border:focus {
-    border-color: #006A60;
-    box-shadow: 0 0 0 3px rgba(0, 106, 96, 0.1);
-}
-
-/* 2. Lift Input - Input lifts on hover */
-.input-hover-lift {
-    border: 2px solid transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* 3. Expand Input - Input expands on focus */
-.input-hover-expand {
-    width: 200px;
-    transition: width 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-hover-expand:hover,
-.input-hover-expand:focus {
-    width: 280px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* 4. Underline Input - Underline grows */
-.input-hover-underline {
+/* Input underline expand */
+.input-hover-line {
     border: none;
-    border-bottom: 2px solid #e0e0e0;
-    padding: 8px 0;
-    transition: border-color 0.3s ease;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    transition: border-color 0.3s;
 }
-
-.input-hover-underline::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #006A60;
-    transition: width 0.3s ease;
-}
-
-.input-hover-underline:hover,
-.input-hover-underline:focus {
-    border-color: #006A60;
+.input-hover-line:hover,
+.input-hover-line:focus {
+    border-bottom-color: #00e5ff;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   UTILITY CLASSES
+   TABLE ROW HOVER
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Smooth transitions for all interactive elements */
-.hover-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Table row highlight */
+.table-hover-row tr {
+    transition: background-color 0.2s;
+}
+.table-hover-row tr:hover {
+    background-color: rgba(0, 229, 255, 0.05);
 }
 
-/* Fast transitions for quick feedback */
-.hover-fast {
-    transition: all 0.15s ease;
+/* Table cell slide */
+.table-hover-cell td {
+    position: relative;
+    transition: color 0.3s;
+}
+.table-hover-cell td::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(0, 229, 255, 0.05);
+    transition: width 0.3s;
+    z-index: -1;
+}
+.table-hover-row:hover td::before,
+.table-hover-cell:hover td::before {
+    width: 100%;
 }
 
-/* Slow transitions for dramatic effect */
-.hover-slow {
-    transition: all 0.5s ease;
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE/TAG HOVER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge-hover-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s;
+}
+.badge-hover-fill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 229, 255, 0.2);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+.badge-hover-fill:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
-/* Disable hover effects on mobile */
-@media (hover: none) {
-    .btn-hover-glow:hover,
-    .btn-hover-scale:hover,
-    .btn-hover-lift:hover,
-    .card-hover-lift:hover,
-    .card-hover-scale:hover {
-        transform: none;
-        box-shadow: none;
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-hover-glow,
+    .btn-hover-scale,
+    .btn-hover-slide,
+    .btn-hover-shine,
+    .btn-hover-ripple,
+    .btn-hover-border,
+    .btn-hover-arrow,
+    .card-hover-lift,
+    .card-hover-glow,
+    .card-hover-scale,
+    .card-hover-reveal,
+    .card-hover-tilt,
+    .card-hover-slide,
+    .card-hover-zoom,
+    .link-hover-underline,
+    .link-hover-expand,
+    .link-hover-space,
+    .link-hover-arrow,
+    .link-hover-dotted,
+    .link-hover-double,
+    .icon-hover-rotate,
+    .icon-hover-pop,
+    .icon-hover-bounce,
+    .icon-hover-color {
+        transition: none !important;
     }
-}
 
-/* Dark mode adjustments */
-[data-theme="dark"] .card-hover-lift:hover {
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .btn-hover-lift:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    .btn-hover-slide::before,
+    .btn-hover-shine::after,
+    .btn-hover-ripple::after,
+    .btn-hover-border::before,
+    .link-hover-underline::after,
+    .link-hover-expand::before,
+    .link-hover-arrow::after,
+    .link-hover-dotted::after,
+    .link-hover-double::after,
+    .card-hover-reveal::before,
+    .badge-hover-fill::before {
+        display: none;
+    }
 }

@@ -1,485 +1,255 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * SA ĐÉC MARKETING HUB - MICRO ANIMATIONS
- * Small, delightful animations for enhanced user experience
- *
- * Categories:
- *   - Attention Animations (subtle cues to draw attention)
- *   - Feedback Animations (user interaction responses)
- *   - State Transition Animations (smooth state changes)
- *   - Loading Micro-animations (small loading indicators)
- *
- * Usage: Add utility classes to elements
- * Example: <div class="micro-pulse">Important</div>
+ * SA ĐÉC MARKETING HUB - MICRO ANIMATIONS CSS
+ * Keyframe animations and utility classes
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ATTENTION ANIMATIONS
+   KEYFRAME DEFINITIONS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Subtle Pulse - Gentle breathing effect for notifications */
-@keyframes micro-pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
-}
-
-.micro-pulse {
-    animation: micro-pulse 2s ease-in-out infinite;
-}
-
-/* 2. Shimmer Effect - Light sweep across element */
-@keyframes micro-shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
-}
-
-.micro-shimmer {
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent 100%
-    );
-    background-size: 1000px 100%;
-    animation: micro-shimmer 3s ease-in-out infinite;
-}
-
-/* 3. Dot Bounce - Three bouncing dots (typing indicator style) */
-@keyframes micro-dot-bounce {
-    0%, 80%, 100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    40% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.micro-dot-bounce {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-}
-
-.micro-dot-bounce::before,
-.micro-dot-bounce::after,
-.micro-dot-bounce span {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-    animation: micro-dot-bounce 1.4s ease-in-out infinite;
-}
-
-.micro-dot-bounce::before { animation-delay: 0s; }
-.micro-dot-bounce span { animation-delay: 0.2s; }
-.micro-dot-bounce::after { animation-delay: 0.4s; }
-
-/* 4. Attention Shake - Gentle shake to get attention */
-@keyframes micro-shake {
+@keyframes shake {
     0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
-    20%, 40%, 60%, 80% { transform: translateX(3px); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+    20%, 40%, 60%, 80% { transform: translateX(8px); }
 }
 
-.micro-shake {
-    animation: micro-shake 0.5s ease-in-out;
-}
-
-/* 5. Attention Bounce - Three quick bounces */
-@keyframes micro-bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-8px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    75% {
-        transform: translateY(-4px);
-    }
-}
-
-.micro-bounce {
-    animation: micro-bounce 0.6s ease-in-out;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   FEEDBACK ANIMATIONS (Button/Interactive Element Responses)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* 6. Button Press - Button depresses on click */
-@keyframes micro-press {
+@keyframes pop {
     0% { transform: scale(1); }
-    50% { transform: scale(0.95); }
+    50% { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 
-.micro-press {
-    animation: micro-press 0.15s ease-out;
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
 }
 
-/* 7. Success Pop - Celebratory pop for success states */
-@keyframes micro-success-pop {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+@keyframes bounce {
+    0% { transform: translateY(-30px); opacity: 0; }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
-.micro-success-pop {
-    animation: micro-success-pop 0.4s ease-out forwards;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* 8. Error Vibrate - Rapid vibration for errors */
-@keyframes micro-vibrate {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-4px); }
-    40% { transform: translateX(4px); }
-    60% { transform: translateX(-4px); }
-    80% { transform: translateX(4px); }
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-.micro-error {
-    animation: micro-vibrate 0.3s ease-in-out;
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-/* 9. Toggle Switch - Smooth toggle transition */
-@keyframes micro-toggle-slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(20px); }
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-.micro-toggle {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   STATE TRANSITION ANIMATIONS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* 10. Fade + Slide - Combined fade and slide transition */
-@keyframes micro-fade-slide-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-@keyframes micro-fade-slide-out {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.micro-fade-in {
-    animation: micro-fade-slide-in 0.3s ease-out forwards;
+@keyframes zoomOut {
+    from { transform: scale(1.2); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.micro-fade-out {
-    animation: micro-fade-slide-out 0.3s ease-in forwards;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* 11. Expand/Collapse - Smooth height transition */
-@keyframes micro-expand {
-    from {
-        max-height: 0;
-        opacity: 0;
-    }
-    to {
-        max-height: 1000px;
-        opacity: 1;
-    }
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-@keyframes micro-collapse {
-    from {
-        max-height: 1000px;
-        opacity: 1;
-    }
-    to {
-        max-height: 0;
-        opacity: 0;
-    }
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 229, 255, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.6); }
 }
 
-.micro-expand {
-    animation: micro-expand 0.3s ease-out forwards;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-/* 12. Zoom In - Subtle zoom for modals/popups */
-@keyframes micro-zoom-in {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+@keyframes elastic {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
 }
 
-.micro-zoom-in {
-    animation: micro-zoom-in 0.2s ease-out forwards;
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes textReveal {
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LOADING MICRO-ANIMATIONS
+   UTILITY CLASSES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* 13. Progress Bar Indeterminate */
-@keyframes micro-progress-indeterminate {
-    0% {
-        left: -30%;
-        width: 30%;
-    }
-    50% {
-        left: 35%;
-        width: 30%;
-    }
-    100% {
-        left: 100%;
-        width: 30%;
-    }
+.animate { animation-fill-mode: both; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-shake { animation: shake 0.5s cubic-bezier(0.4, 0, 0.6, 1); }
+.animate-pop { animation: pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.animate-pulse { animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-bounce { animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.animate-fade-in { animation: fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+.animate-fade-out { animation: fadeOut 0.3s cubic-bezier(0.4, 0, 1, 1); }
+.animate-slide-up { animation: slideUp 0.4s cubic-bezier(0, 0, 0.2, 1); }
+.animate-slide-down { animation: slideDown 0.4s cubic-bezier(0, 0, 0.2, 1); }
+.animate-slide-in-left { animation: slideInLeft 0.3s cubic-bezier(0, 0, 0.2, 1); }
+.animate-slide-in-right { animation: slideInRight 0.3s cubic-bezier(0, 0, 0.2, 1); }
+.animate-zoom-in { animation: zoomIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+.animate-zoom-out { animation: zoomOut 0.3s cubic-bezier(0, 0, 0.2, 1); }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-gradient { background-size: 200% 200%; animation: gradientShift 3s ease infinite; }
+.animate-glow { animation: glow 1.5s ease-in-out infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-elastic { animation: elastic 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+/* Duration variants */
+.animate-fast { animation-duration: 150ms !important; }
+.animate-normal { animation-duration: 300ms !important; }
+.animate-slow { animation-duration: 500ms !important; }
+.animate-slower { animation-duration: 800ms !important; }
+
+/* Delay utilities */
+.animate-delay-1 { animation-delay: 100ms !important; }
+.animate-delay-2 { animation-delay: 200ms !important; }
+.animate-delay-3 { animation-delay: 300ms !important; }
+.animate-delay-4 { animation-delay: 400ms !important; }
+.animate-delay-5 { animation-delay: 500ms !important; }
+
+/* Stagger container */
+.animate-stagger > * {
+    opacity: 0;
+    animation: slideUp 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
+.animate-stagger > *:nth-child(1) { animation-delay: 50ms; }
+.animate-stagger > *:nth-child(2) { animation-delay: 100ms; }
+.animate-stagger > *:nth-child(3) { animation-delay: 150ms; }
+.animate-stagger > *:nth-child(4) { animation-delay: 200ms; }
+.animate-stagger > *:nth-child(5) { animation-delay: 250ms; }
+.animate-stagger > *:nth-child(6) { animation-delay: 300ms; }
+.animate-stagger > *:nth-child(7) { animation-delay: 350ms; }
+.animate-stagger > *:nth-child(8) { animation-delay: 400ms; }
+.animate-stagger > *:nth-child(9) { animation-delay: 450ms; }
+.animate-stagger > *:nth-child(10) { animation-delay: 500ms; }
 
-.micro-progress-bar {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
+/* Entry animations */
+.animate-entry {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0, 0, 0.2, 1), transform 0.6s cubic-bezier(0, 0, 0.2, 1);
 }
+.animate-entry.visible { opacity: 1; transform: translateY(0); }
+.animate-entry.delay-1 { transition-delay: 50ms; }
+.animate-entry.delay-2 { transition-delay: 100ms; }
+.animate-entry.delay-3 { transition-delay: 150ms; }
+.animate-entry.delay-4 { transition-delay: 200ms; }
+.animate-entry.delay-5 { transition-delay: 250ms; }
 
-.micro-progress-bar::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    background: linear-gradient(90deg, #006A60, #4ADD0);
-    animation: micro-progress-indeterminate 1.5s ease-in-out infinite;
+/* Hover animations */
+.animate-on-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* 14. Ring Loader - Spinning ring */
-@keyframes micro-ring-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.micro-ring-loader {
-    width: 24px;
-    height: 24px;
-    border: 3px solid rgba(0, 106, 96, 0.2);
-    border-top-color: #006A60;
-    border-radius: 50%;
-    animation: micro-ring-spin 0.8s linear infinite;
-}
-
-/* 15. Square Wave - Pulsing squares */
-@keyframes micro-square-wave {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.7;
-    }
-}
-
-.micro-square-loader {
-    display: inline-flex;
-    gap: 4px;
-}
-
-.micro-square-loader span {
-    width: 8px;
-    height: 8px;
-    background: #006A60;
-    animation: micro-square-wave 1s ease-in-out infinite;
-}
-
-.micro-square-loader span:nth-child(2) { animation-delay: 0.2s; }
-.micro-square-loader span:nth-child(3) { animation-delay: 0.4s; }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   UTILITY CLASSES FOR ICONS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Icon Rotates */
-.micro-icon-rotate {
-    display: inline-block;
-    animation: micro-ring-spin 1s linear infinite;
-}
-
-/* Icon Pulse */
-.micro-icon-pulse {
-    display: inline-block;
-    animation: micro-pulse 1.5s ease-in-out infinite;
-}
-
-/* Icon Bounce */
-.micro-icon-bounce {
-    display: inline-block;
-    animation: micro-bounce 0.6s ease-in-out;
-}
-
-/* Icon Shake */
-.micro-icon-shake {
-    display: inline-block;
-    animation: micro-shake 0.5s ease-in-out;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CARD MICRO-ANIMATIONS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Card Subtle Lift */
-.micro-card-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.micro-card-lift:hover {
+.animate-on-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+.animate-hover-scale { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-hover-scale:hover { transform: scale(1.05); }
+.animate-hover-rotate { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-hover-rotate:hover { transform: rotate(5deg); }
 
-/* Card Glow Border */
-@keyframes micro-border-glow {
-    0%, 100% {
-        border-color: rgba(0, 106, 96, 0.3);
-    }
-    50% {
-        border-color: rgba(0, 106, 96, 0.8);
-    }
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 8px;
 }
+.skeleton-text { height: 16px; margin-bottom: 8px; }
+.skeleton-title { height: 24px; margin-bottom: 12px; }
+.skeleton-avatar { width: 48px; height: 48px; border-radius: 50%; }
+.skeleton-image { width: 100%; height: 200px; }
+.skeleton-card { padding: 16px; margin-bottom: 16px; }
 
-.micro-card-glow {
-    border: 2px solid transparent;
-    animation: micro-border-glow 2s ease-in-out infinite;
-}
-
-/* Card Shimmer on Hover */
-.micro-card-shimmer {
+/* Button animations */
+.btn-animate {
     position: relative;
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.micro-card-shimmer::before {
+.btn-animate::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.2) 50%,
-        transparent 100%
-    );
-    transition: left 0.5s ease;
-    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+.btn-animate:active::after {
+    width: 300px;
+    height: 300px;
+    transition: width 0s, height 0s;
 }
 
-.micro-card-shimmer:hover::before {
-    left: 100%;
+/* Text reveal */
+.text-reveal { display: inline-block; overflow: hidden; }
+.text-reveal span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: textReveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   TEXT MICRO-ANIMATIONS
-   ═══════════════════════════════════════════════════════════════════════════ */
+/* Counter */
+.counter { font-variant-numeric: tabular-nums; }
+.counter.animating { animation: pulse 0.3s ease-in-out; }
 
-/* Text Gradient Shimmer */
-@keyframes micro-text-shimmer {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
-}
-
-.micro-text-gradient {
-    background: linear-gradient(
-        90deg,
-        #006A60 0%,
-        #4ADD 50%,
-        #006A60 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: micro-text-shimmer 3s linear infinite;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   RESPONSIVE REDUCTIONS
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .micro-pulse,
-    .micro-shimmer,
-    .micro-dot-bounce,
-    .micro-dot-bounce::before,
-    .micro-dot-bounce span,
-    .micro-dot-bounce::after,
-    .micro-shake,
-    .micro-bounce,
-    .micro-press,
-    .micro-success-pop,
-    .micro-error,
-    .micro-fade-in,
-    .micro-fade-out,
-    .micro-expand,
-    .micro-zoom-in,
-    .micro-ring-loader,
-    .micro-square-wave,
-    .micro-square-loader span,
-    .micro-icon-rotate,
-    .micro-icon-pulse,
-    .micro-icon-bounce,
-    .micro-icon-shake,
-    .micro-card-glow,
-    .micro-text-gradient {
-        animation: none !important;
-        transition: none !important;
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
-
-    .micro-card-lift:hover {
-        transform: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .animate-pulse, .animate-glow, .animate-float, .animate-gradient {
+        animation: none !important;
     }
 }
