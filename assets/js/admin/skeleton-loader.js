@@ -65,7 +65,6 @@ export class SkeletonLoaderComponent {
       skeleton.removeAttribute('data-skeleton');
       skeleton.innerHTML = html;
     } catch (error) {
-      console.warn('[SkeletonLoader] Load error:', error.message);
       skeleton.classList.add('skeleton-error');
       skeleton.innerHTML = `
         <div class="skeleton-error-message">

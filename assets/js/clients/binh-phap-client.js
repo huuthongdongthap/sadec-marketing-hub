@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { strategic, seo, utils } from './supabase.js';
+import { strategic, seo, utils } from '../portal/supabase.js';
 
 // Load strategic data
 async function loadStrategicData() {

@@ -25,12 +25,18 @@ export { PaymentStatusChip } from './payment-status-chip.js';
 export { AIGenerator, AIContentGenerator, AIContentPanel } from '../features/ai-content-generator.js';
 export { AnalyticsDashboard } from '../features/analytics-dashboard.js';
 
+// New UI Components (2026-03-13)
+export { Tooltip, TooltipManager } from './tooltip.js';
+export { Tabs, TabsManager } from './tabs.js';
+export { Accordion, AccordionManager } from './accordion.js';
+export { DataTable } from './data-table.js';
+export { ScrollToTop, ScrollToTopManager } from './scroll-to-top.js';
+
 /**
  * Auto-initialize all components
  */
 function initializeComponents() {
   // Components are auto-initialized in their constructors
-  console.log('[UI Components] Initialized');
 }
 
 // Initialize on DOMContentLoaded
@@ -59,6 +65,13 @@ window.MekongComponents = {
   AIGenerator: window.AIGenerator,
   AnalyticsDashboard: window.AnalyticsDashboard,
 
+  // New Components (2026-03-13)
+  Tooltip: window.Tooltip,
+  Tabs: window.Tabs,
+  Accordion: window.Accordion,
+  DataTable: window.DataTable,
+  ScrollToTop: window.ScrollToTop,
+
   // Initialize
   init: initializeComponents
 };
@@ -68,11 +81,7 @@ window.MekongComponents = {
  * Use in browser: MekongComponents.demoAnimations()
  */
 window.MekongComponents.demoAnimations = () => {
-  console.log('🎨 UI Animation Demo');
-  console.log('===================\n');
-
   // Demo Toast
-  console.log('1. Toast Notifications:');
   setTimeout(() => SadecToast?.success('✅ Action completed successfully!'), 500);
   setTimeout(() => SadecToast?.error('❌ Something went wrong'), 1500);
   setTimeout(() => SadecToast?.warning('⚠️ Please review this field'), 2500);
@@ -80,14 +89,12 @@ window.MekongComponents.demoAnimations = () => {
 
   // Demo Loading
   setTimeout(() => {
-    console.log('2. Loading States:');
     Loading?.fullscreen?.show('Đang tải...');
     setTimeout(() => Loading?.fullscreen?.hide(), 2000);
   }, 500);
 
   // Demo MicroAnimations
   setTimeout(() => {
-    console.log('3. Micro-animations:');
     const demoEl = document.createElement('div');
     demoEl.textContent = 'Animation Demo';
     demoEl.style.cssText = 'position:fixed;bottom:20px;right:20px;padding:20px;background:#006A60;color:white;border-radius:8px;z-index:9999;';
@@ -98,6 +105,4 @@ window.MekongComponents.demoAnimations = () => {
     setTimeout(() => MicroAnimations?.shake(demoEl), 2000);
     setTimeout(() => demoEl.remove(), 3000);
   }, 1000);
-
-  console.log('Check browser for animations demo');
 };

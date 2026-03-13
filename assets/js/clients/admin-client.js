@@ -9,7 +9,7 @@
  */
 
 // Re-export everything from modular admin system
-export * from './admin/index.js';
+export * from '../admin/index.js';
 
 // Default export for backwards compatibility
 import {
@@ -28,7 +28,7 @@ import {
     exportToCSV,
     DEMO_CAMPAIGNS,
     DEMO_LEADS
-} from './admin/index.js';
+} from '../admin/index.js';
 
 export default {
     toast,

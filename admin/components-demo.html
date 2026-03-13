@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Components Demo — Sa Đéc Marketing Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/m3-agency.css">
+    <link rel="stylesheet" href="/assets/css/components/tooltip.css">
+    <link rel="stylesheet" href="/assets/css/components/tabs.css">
+    <link rel="stylesheet" href="/assets/css/components/accordion.css">
+    <link rel="stylesheet" href="/assets/css/components/data-table.css">
+    <link rel="stylesheet" href="/assets/css/bundle/animations.css">
+    <link rel="stylesheet" href="/assets/css/hover-effects.css">
+
+    <style>
+        body {
+            font-family: var(--md-sys-font-body, -apple-system, BlinkMacSystemFont, sans-serif);
+            background: var(--md-sys-color-surface, #f5f5f5);
+            color: var(--md-sys-color-on-surface, #1f2937);
+            padding: 40px 20px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: var(--md-sys-color-surface, #fff);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .demo-section h2 {
+            margin-top: 0;
+            color: var(--md-sys-color-primary, #006A60);
+            border-bottom: 2px solid var(--md-sys-color-outline, #e5e7eb);
+            padding-bottom: 12px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .demo-item {
+            padding: 16px;
+            border: 1px solid var(--md-sys-color-outline-variant, #f3f4f6);
+            border-radius: 8px;
+        }
+
+        .demo-item h3 {
+            margin-top: 0;
+            font-size: 14px;
+            color: var(--md-sys-color-on-surface-variant, #6b7280);
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+    </style>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle-fixed btn btn-primary btn-hover-glow" onclick="Theme.toggle()">
+        🌓 Toggle Theme
+    </button>
+
+    <div class="demo-container">
+        <h1 style="text-align: center; color: var(--md-sys-color-primary, #006A60); margin-bottom: 40px;">
+            🎨 Sa Đéc Marketing Hub — UI Components Demo
+        </h1>
+
+        <!-- TOOLTIP SECTION -->
+        <div class="demo-section">
+            <h2>1. Tooltip Component</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>Basic Tooltip (Top)</h3>
+                    <button class="btn btn-primary" data-tooltip="This is helpful information!" data-tooltip-position="top">
+                        Hover me (top)
+                    </button>
+                </div>
+                <div class="demo-item">
+                    <h3>Bottom Position</h3>
+                    <button class="btn btn-secondary" data-tooltip="Tooltip appears below" data-tooltip-position="bottom">
+                        Hover me (bottom)
+                    </button>
+                </div>
+                <div class="demo-item">
+                    <h3>Left Position</h3>
+                    <button class="btn btn-outline" data-tooltip="Tooltip on left side" data-tooltip-position="left">
+                        Hover me (left)
+                    </button>
+                </div>
+                <div class="demo-item">
+                    <h3>Right Position</h3>
+                    <button class="btn btn-primary btn-hover-glow" data-tooltip="Tooltip on right side" data-tooltip-position="right">
+                        Hover me (right)
+                    </button>
+                </div>
+                <div class="demo-item">
+                    <h3>Auto Position</h3>
+                    <button class="btn btn-secondary" data-tooltip="Auto-detects best position based on viewport">
+                        Hover me (auto)
+                    </button>
+                </div>
+                <div class="demo-item">
+                    <h3>HTML Content</h3>
+                    <button class="btn btn-outline" data-tooltip-html="<strong>Bold text</strong><br><em>Italic text</em>" data-tooltip-allow-html>
+                        Hover me (HTML)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABS SECTION -->
+        <div class="demo-section">
+            <h2>2. Tabs Component</h2>
+
+            <div class="demo-item" style="margin-top: 16px;">
+                <h3>Basic Tabs</h3>
+                <div class="mekong-tabs" data-tabs="demo-tabs-1">
+                    <div role="tablist" class="mekong-tabs__list">
+                        <button role="tab" data-tab="overview" class="mekong-tabs__tab" aria-selected="true">
+                            Overview
+                        </button>
+                        <button role="tab" data-tab="features" class="mekong-tabs__tab">
+                            Features
+                        </button>
+                        <button role="tab" data-tab="pricing" class="mekong-tabs__tab">
+                            Pricing
+                        </button>
+                        <button role="tab" data-tab="reviews" class="mekong-tabs__tab">
+                            Reviews
+                        </button>
+                    </div>
+                    <div class="mekong-tabs__panels">
+                        <div role="tabpanel" data-panel="overview" class="mekong-tabs__panel">
+                            <h3>Overview Tab</h3>
+                            <p>Welcome to our product overview. This tab shows the main information about our offering.</p>
+                            <p>The tabs component supports keyboard navigation, URL hash sync, and smooth animations.</p>
+                        </div>
+                        <div role="tabpanel" data-panel="features" class="mekong-tabs__panel" hidden>
+                            <h3>Features Tab</h3>
+                            <ul>
+                                <li>✅ Animated tab switching</li>
+                                <li>✅ Keyboard navigation (Arrow keys, Home, End)</li>
+                                <li>✅ URL hash synchronization</li>
+                                <li>✅ Lazy content loading support</li>
+                                <li>✅ ARIA attributes for accessibility</li>
+                                <li>✅ Auto-scroll for overflowing tabs</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" data-panel="pricing" class="mekong-tabs__panel" hidden>
+                            <h3>Pricing Tab</h3>
+                            <p>Our pricing plans start at $49/month for the Starter plan, $149/month for Pro, and $499/month for Enterprise.</p>
+                        </div>
+                        <div role="tabpanel" data-panel="reviews" class="mekong-tabs__panel" hidden>
+                            <h3>Reviews Tab</h3>
+                            <p>Customers love our product! "Best solution we've ever used" - John D., CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-item" style="margin-top: 16px;">
+                <h3>Pills Variant</h3>
+                <div class="mekong-tabs mekong-tabs--pills" data-tabs="demo-tabs-2">
+                    <div role="tablist" class="mekong-tabs__list">
+                        <button role="tab" data-tab="daily" class="mekong-tabs__tab" aria-selected="true">Daily</button>
+                        <button role="tab" data-tab="weekly" class="mekong-tabs__tab">Weekly</button>
+                        <button role="tab" data-tab="monthly" class="mekong-tabs__tab">Monthly</button>
+                    </div>
+                    <div class="mekong-tabs__panels">
+                        <div role="tabpanel" data-panel="daily" class="mekong-tabs__panel">
+                            <p>Daily view content</p>
+                        </div>
+                        <div role="tabpanel" data-panel="weekly" class="mekong-tabs__panel" hidden>
+                            <p>Weekly view content</p>
+                        </div>
+                        <div role="tabpanel" data-panel="monthly" class="mekong-tabs__panel" hidden>
+                            <p>Monthly view content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION SECTION -->
+        <div class="demo-section">
+            <h2>3. Accordion Component</h2>
+
+            <div class="demo-item" style="margin-top: 16px;">
+                <h3>FAQ Accordion</h3>
+                <div class="mekong-accordion" data-accordion="faq-accordion">
+                    <div class="mekong-accordion__item">
+                        <button class="mekong-accordion__header" aria-expanded="true">
+                            <span class="mekong-accordion__title">What is Sa Đéc Marketing Hub?</span>
+                        </button>
+                        <div class="mekong-accordion__panel">
+                            <div class="mekong-accordion__content">
+                                <p>Sa Đéc Marketing Hub is a comprehensive marketing automation platform designed for businesses of all sizes. It includes features like campaign management, analytics, customer segmentation, and more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mekong-accordion__item">
+                        <button class="mekong-accordion__header" aria-expanded="false">
+                            <span class="mekong-accordion__title">How do I get started?</span>
+                        </button>
+                        <div class="mekong-accordion__panel">
+                            <div class="mekong-accordion__content">
+                                <p>Getting started is easy! Simply sign up for an account, complete your profile, and you'll have access to all the features. Our onboarding wizard will guide you through the setup process.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mekong-accordion__item">
+                        <button class="mekong-accordion__header" aria-expanded="false">
+                            <span class="mekong-accordion__title">What payment methods do you accept?</span>
+                        </button>
+                        <div class="mekong-accordion__panel">
+                            <div class="mekong-accordion__content">
+                                <p>We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and popular e-wallets like MoMo, VNPay, and ZaloPay.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mekong-accordion__item">
+                        <button class="mekong-accordion__header" aria-expanded="false">
+                            <span class="mekong-accordion__title">Can I upgrade my plan later?</span>
+                        </button>
+                        <div class="mekong-accordion__panel">
+                            <div class="mekong-accordion__content">
+                                <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate the billing accordingly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DATA TABLE SECTION -->
+        <div class="demo-section">
+            <h2>4. DataTable Component</h2>
+            <div id="demo-data-table"></div>
+        </div>
+
+        <!-- SCROLL TO TOP SECTION -->
+        <div class="demo-section">
+            <h2>5. ScrollToTop Component</h2>
+            <p>Scroll down the page to see the ScrollToTop button appear in the bottom-right corner. Click it or press <kbd>Ctrl</kbd> + <kbd>Home</kbd> to smoothly scroll back to the top.</p>
+            <div style="height: 500px;"></div>
+            <p style="text-align: center; color: var(--md-sys-color-on-surface-variant, #9ca3af);">
+                ↓ Scroll down to see the button ↓
+            </p>
+            <div style="height: 500px;"></div>
+            <p style="text-align: center;">
+                🎉 The ScrollToTop button should be visible now!
+            </p>
+            <div style="height: 300px;"></div>
+        </div>
+
+        <!-- COMBINED DEMO -->
+        <div class="demo-section">
+            <h2>6. Combined Demo — All Components Together</h2>
+            <div class="mekong-tabs" data-tabs="combined-tabs">
+                <div role="tablist" class="mekong-tabs__list">
+                    <button role="tab" data-tab="users" class="mekong-tabs__tab" aria-selected="true">
+                        👥 Users
+                    </button>
+                    <button role="tab" data-tab="settings" class="mekong-tabs__tab">
+                        ⚙️ Settings
+                    </button>
+                    <button role="tab" data-tab="help" class="mekong-tabs__tab">
+                        ❓ Help
+                    </button>
+                </div>
+                <div class="mekong-tabs__panels">
+                    <div role="tabpanel" data-panel="users" class="mekong-tabs__panel">
+                        <p>User management interface with DataTable</p>
+                        <div id="users-table"></div>
+                    </div>
+                    <div role="tabpanel" data-panel="settings" class="mekong-tabs__panel" hidden>
+                        <h3>Settings</h3>
+                        <div class="mekong-accordion" data-accordion="settings-accordion">
+                            <div class="mekong-accordion__item">
+                                <button class="mekong-accordion__header" aria-expanded="true">
+                                    <span class="mekong-accordion__title">Profile Settings</span>
+                                </button>
+                                <div class="mekong-accordion__panel">
+                                    <div class="mekong-accordion__content">
+                                        <p>Update your profile information here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mekong-accordion__item">
+                                <button class="mekong-accordion__header" aria-expanded="false">
+                                    <span class="mekong-accordion__title">Notification Settings</span>
+                                </button>
+                                <div class="mekong-accordion__panel">
+                                    <div class="mekong-accordion__content">
+                                        <p>Configure your notification preferences.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" data-panel="help" class="mekong-tabs__panel" hidden>
+                        <h3>Help & Support</h3>
+                        <p>Hover over the buttons below for tooltips:</p>
+                        <div style="display: flex; gap: 12px; margin-top: 16px;">
+                            <button class="btn btn-primary" data-tooltip="Create a new item">
+                                ➕ Create New
+                            </button>
+                            <button class="btn btn-secondary" data-tooltip="Save your changes">
+                                💾 Save
+                            </button>
+                            <button class="btn btn-outline" data-tooltip="Delete selected items" data-tooltip-position="bottom">
+                                🗑️ Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/assets/js/components/index.js"></script>
+    <script type="module">
+        // Initialize DataTable with sample data
+        import DataTable from '/assets/js/components/data-table.js';
+
+        const sampleData = [
+            { id: 1, name: 'Nguyễn Văn A', email: 'a@example.com', role: 'Admin', status: 'Active', joined: '2026-01-15' },
+            { id: 2, name: 'Trần Thị B', email: 'b@example.com', role: 'Editor', status: 'Active', joined: '2026-01-20' },
+            { id: 3, name: 'Lê Văn C', email: 'c@example.com', role: 'Viewer', status: 'Inactive', joined: '2026-02-01' },
+            { id: 4, name: 'Phạm Thị D', email: 'd@example.com', role: 'Editor', status: 'Active', joined: '2026-02-10' },
+            { id: 5, name: 'Hoàng Văn E', email: 'e@example.com', role: 'Admin', status: 'Active', joined: '2026-02-15' },
+            { id: 6, name: 'Đặng Thị F', email: 'f@example.com', role: 'Viewer', status: 'Pending', joined: '2026-02-20' },
+            { id: 7, name: 'Vũ Văn G', email: 'g@example.com', role: 'Editor', status: 'Active', joined: '2026-02-25' },
+            { id: 8, name: 'Đỗ Thị H', email: 'h@example.com', role: 'Viewer', status: 'Active', joined: '2026-03-01' },
+            { id: 9, name: 'Ngô Văn I', email: 'i@example.com', role: 'Editor', status: 'Inactive', joined: '2026-03-05' },
+            { id: 10, name: 'Lý Thị K', email: 'k@example.com', role: 'Admin', status: 'Active', joined: '2026-03-10' },
+            { id: 11, name: 'Trương Văn L', email: 'l@example.com', role: 'Viewer', status: 'Pending', joined: '2026-03-12' },
+            { id: 12, name: 'Lưu Thị M', email: 'm@example.com', role: 'Editor', status: 'Active', joined: '2026-03-13' }
+        ];
+
+        const usersTable = new DataTable('#users-table', {
+            id: 'users-table',
+            data: sampleData,
+            columns: [
+                { header: 'ID', field: 'id', type: 'number', class: 'mekong-data-table__cell--numeric' },
+                { header: 'Name', field: 'name' },
+                { header: 'Email', field: 'email' },
+                { header: 'Role', field: 'role' },
+                {
+                    header: 'Status',
+                    field: 'status',
+                    type: 'status',
+                    statusClass: (value) => `mekong-badge--${value.toLowerCase()}`
+                },
+                { header: 'Joined', field: 'joined', type: 'date' }
+            ],
+            sortable: true,
+            searchable: true,
+            selectable: true,
+            exportable: true,
+            filterable: true,
+            pageSize: 5
+        });
+
+        // Also initialize the demo data table
+        const demoTable = new DataTable('#demo-data-table', {
+            id: 'demo-table',
+            data: sampleData,
+            columns: [
+                { header: 'ID', field: 'id', type: 'number' },
+                { header: 'Name', field: 'name' },
+                { header: 'Email', field: 'email' },
+                {
+                    header: 'Role',
+                    field: 'role',
+                    formatter: (value) => `<span style="font-weight: 500; color: var(--md-sys-color-primary, #006A60);">${value}</span>`
+                },
+                {
+                    header: 'Status',
+                    field: 'status',
+                    type: 'status',
+                    statusClass: (value) => `mekong-badge--${value.toLowerCase()}`
+                },
+                { header: 'Joined', field: 'joined', type: 'date' }
+            ],
+            sortable: true,
+            searchable: true,
+            selectable: true,
+            exportable: true,
+            filterable: true,
+            pageSize: 10
+        });
+
+        console.log('✅ UI Components Demo initialized');
+        console.log('📦 Available components:');
+        console.log('   - Tooltip:', typeof Tooltip);
+        console.log('   - Tabs:', typeof Tabs);
+        console.log('   - Accordion:', typeof Accordion);
+        console.log('   - DataTable:', typeof DataTable);
+        console.log('   - ScrollToTop:', typeof ScrollToTop);
+    </script>
+</body>
+</html>

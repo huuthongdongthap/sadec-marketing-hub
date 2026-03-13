@@ -1,24 +1,15 @@
 /**
  * Dashboard Widgets Index
- * Imports all chart and widget components
+ * Re-exports widget modules from their actual locations
+ *
+ * Note: Widgets are now loaded from their respective modules:
+ * - Charts: assets/js/components/charts/
+ * - Loading states: assets/js/services/loading-states.js
+ * - Micro animations: assets/js/services/micro-animations.js
+ * - Alert system: assets/js/services/alert-system.js
  */
 
-// Chart components
-import './charts/bar-chart.js';
-import './charts/line-chart.js';
-import './charts/doughnut-chart.js';
+// This file is kept for backwards compatibility
+// New code should import directly from the source modules
 
-// Widget components
-import './components/loading-button.js';
-import './components/sadec-toast.js';
-import './components/payment-status-chip.js';
-import '../widgets/kpi-card.html';
-
-// Alert system
-import './alert-system.js';
-
-// Loading states manager
-import './loading-states.js';
-
-// Micro animations
-import './micro-animations.js';
+export {};

@@ -5,8 +5,8 @@
  * ==============================================
  */
 
-import { invoices, budget, utils } from './supabase.js';
-import { formatCurrency } from './shared/format-utils.js';
+import { invoices, budget, utils } from '../portal/supabase.js';
+import { formatCurrency } from '../shared/format-utils.js';
 
 // Finance Dashboard Data
 async function loadFinanceData() {

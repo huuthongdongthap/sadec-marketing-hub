@@ -31,7 +31,7 @@ export { payInvoiceOnline, downloadInvoicePDF, markInvoiceAsPaid } from './porta
 export { loadDashboard, loadActivityFeed, loadDeadlines } from './portal-dashboard.js';
 
 // Toast & Modal instances (for backwards compatibility)
-import { Toast } from '../enhanced-utils.js';
+import { Toast } from '../services/enhanced-utils.js';
 import { ModalManager } from './portal-ui.js';
 
 export const toast = Toast;

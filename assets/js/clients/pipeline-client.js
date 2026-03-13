@@ -3,8 +3,8 @@
 // Max Level Kanban Pipeline with Drag & Drop
 // ================================================
 
-import { auth, leads, clients, deals, utils } from './supabase.js';
-import { formatCurrencyCompact, formatRelativeTime, Toast } from './enhanced-utils.js';
+import { auth, leads, clients, deals, utils } from '../portal/supabase.js';
+import { formatCurrencyCompact, formatRelativeTime, Toast } from '../services/enhanced-utils.js';
 
 // ================================================
 // DEMO DEALS DATA

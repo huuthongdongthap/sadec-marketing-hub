@@ -5,8 +5,8 @@
  * ==============================================
  */
 
-import { invoices, clients, campaigns, deals, activities, utils } from './supabase.js';
-import { formatNumber, formatCurrencyVN } from './enhanced-utils.js';
+import { invoices, clients, campaigns, deals, activities, utils } from '../portal/supabase.js';
+import { formatNumber, formatCurrencyVN } from '../services/enhanced-utils.js';
 
 // Format currency
 // Using the enhanced utils version that formats with B/M VNĐ suffixes

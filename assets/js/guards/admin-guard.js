@@ -9,7 +9,7 @@
  * Skips guard on localhost for demo mode.
  */
 
-import { waitForAuth, isAdmin, isStaff, getCurrentUser } from './shared/guard-utils.js';
+import { waitForAuth, isAdmin, isStaff, getCurrentUser } from '../shared/guard-utils.js';
 
 (async function adminGuard() {
     const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);

@@ -6,7 +6,7 @@
  * Skip guard on localhost for demo mode.
  */
 
-import { waitForAuth, getCurrentUser } from './shared/guard-utils.js';
+import { waitForAuth, getCurrentUser } from '../shared/guard-utils.js';
 
 // Main guard logic
 (async function portalGuard() {

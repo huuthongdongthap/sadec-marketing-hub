@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { workflows } from './supabase.js';
+import { workflows } from '../portal/supabase.js';
 
 // Load workflows data
 async function loadWorkflowsData() {

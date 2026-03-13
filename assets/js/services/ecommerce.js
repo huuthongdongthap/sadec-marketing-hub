@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { formatCurrency, formatNumber } from './shared/format-utils.js';
+import { formatCurrency, formatNumber } from '../shared/format-utils.js';
 
 // ===== EVENT BUS =====
 class EcommerceEventBus {

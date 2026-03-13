@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { supabase, agents as agentsApi } from './supabase.js';
+import { supabase, agents as agentsApi } from '../portal/supabase.js';
 
 // ===== AGENT EVENT SYSTEM =====
 class AgentEventBus {

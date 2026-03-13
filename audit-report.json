@@ -1,648 +1,3332 @@
 {
+  "timestamp": "2026-03-13T12:49:25.863Z",
+  "filesScanned": 168,
+  "healthScore": 0,
+  "healthRating": "Poor",
   "summary": {
-    "total_files_audited": 29,
-    "total_issues": 106,
-    "broken_links": 3,
-    "missing_alt": 0,
-    "missing_labels": 105,
-    "heading_issues": 11
+    "brokenLinks": 14,
+    "missingMetaTags": 108,
+    "accessibilityIssues": 12,
+    "duplicateIDs": 0,
+    "totalIssues": 134
   },
-  "files": [
-    {
-      "path": "admin/notifications.html",
-      "total_issues": 13,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 13,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/notifications.html",
-      "total_issues": 10,
-      "meta_score": 9,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": false
-      },
-      "broken_links": [
+  "details": {
+    "links": {
+      "files": [
         {
-          "file": "portal/notifications.html",
-          "line": 0,
-          "link_type": "href",
-          "current_path": "../assets/css/main.css",
-          "suggested_path": "/assets/css/main.css",
-          "reason": "Should use root-relative path"
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/agents.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "../dashboard.html",
+            "brand-guide.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
+          "links": [
+            "#main",
+            "https://aistudio.google.com/api-keys"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/api-builder.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/approvals.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/binh-phap.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/brand-guide.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/admin/dashboard.html",
+            "/assets/images/logo-primary.png",
+            "/assets/images/logo-icon.png",
+            "/assets/images/logo-dark.png",
+            "/assets/images/logo-light.png"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/campaigns.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/community.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "events.html",
+            "lms.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/content-calendar.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/customer-success.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "community.html",
+            "events.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "pos.html",
+            "menu.html",
+            "inventory.html",
+            "shifts.html",
+            "quality.html",
+            "suppliers.html",
+            "loyalty.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/deploy.html",
+          "links": [
+            "#main",
+            "https://mekong-agency.vercel.app"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/docs.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ecommerce.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "approvals.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/finance.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/hr-hiring.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/inventory.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
+          "links": [
+            "#main",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/legal.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/lms.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/loyalty.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/menu.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/mvp-launch.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pipeline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pos.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pricing.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/proposals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/quality.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/raas-overview.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/retention.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/roiaas-admin.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/shifts.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/suppliers.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
+          "links": [
+            "#",
+            "#",
+            "#",
+            "#",
+            "#",
+            "#"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/vc-readiness.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/video-workflow.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/kpi-card.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/notification-bell.html",
+          "links": [
+            "/portal/notifications.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/workflows.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/approve.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/assets.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/credits.html",
+          "links": [
+            "#main",
+            "missions.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/dashboard.html",
+          "links": [
+            "#main",
+            "payments.html",
+            "javascript:void(0)",
+            "payments.html",
+            "projects.html",
+            "projects.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/invoices.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/login.html",
+          "links": [
+            "#main",
+            "../index.html",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/missions.html",
+          "links": [
+            "#main",
+            "credits.html",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-catalog.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-exporter.html",
+          "links": [
+            "#main",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/onboarding.html",
+          "links": [
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/projects.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/reports.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-analytics.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-report.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-dashboard.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscription-plans.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscriptions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/commissions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/dashboard.html",
+          "links": [
+            "#main",
+            "referrals.html",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/links.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/media.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/profile.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/referrals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/settings.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html",
+          "links": [
+            "#main",
+            "../index.html",
+            "/forgot-password.html",
+            "/register.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/agents.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "../dashboard.html",
+            "brand-guide.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
+          "links": [
+            "#main",
+            "https://aistudio.google.com/api-keys"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/api-builder.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/approvals.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/binh-phap.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/brand-guide.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/admin/dashboard.html",
+            "/assets/images/logo-primary.png",
+            "/assets/images/logo-icon.png",
+            "/assets/images/logo-dark.png",
+            "/assets/images/logo-light.png"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/campaigns.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/community.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "events.html",
+            "lms.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/content-calendar.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/customer-success.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "community.html",
+            "events.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "pos.html",
+            "menu.html",
+            "inventory.html",
+            "shifts.html",
+            "quality.html",
+            "suppliers.html",
+            "loyalty.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/deploy.html",
+          "links": [
+            "#main",
+            "https://mekong-agency.vercel.app"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/docs.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ecommerce.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "approvals.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/finance.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/hr-hiring.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/inventory.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
+          "links": [
+            "#main",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/legal.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/lms.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/loyalty.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/menu.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/mvp-launch.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pipeline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pos.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pricing.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/proposals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/quality.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/raas-overview.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/retention.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/roiaas-admin.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/shifts.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/suppliers.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
+          "links": [
+            "#",
+            "#",
+            "#",
+            "#",
+            "#",
+            "#"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/vc-readiness.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/video-workflow.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/kpi-card.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/notification-bell.html",
+          "links": [
+            "/portal/notifications.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/workflows.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/commissions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/dashboard.html",
+          "links": [
+            "#main",
+            "referrals.html",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/links.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/media.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/profile.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/referrals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/settings.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html",
+          "links": [
+            "#main",
+            "../index.html",
+            "/forgot-password.html",
+            "/register.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/forgot-password.html",
+          "links": [
+            "#main",
+            "/login.html",
+            "/login.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/index.html",
+          "links": [
+            "#main",
+            "/",
+            "#services",
+            "#case-study",
+            "#pricing",
+            "#testimonials",
+            "#contact",
+            "auth/login.html?role=admin",
+            "auth/login.html?role=client",
+            "auth/login.html?role=affiliate",
+            "#contact",
+            "#contact",
+            "#case-study",
+            "#contact",
+            "#contact",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "#services",
+            "#testimonials",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "tel:0915997989",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/login.html",
+          "links": [
+            "#main",
+            "forgot-password.html",
+            "register.html",
+            "index.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/offline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/approve.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/assets.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/credits.html",
+          "links": [
+            "#main",
+            "missions.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/dashboard.html",
+          "links": [
+            "#main",
+            "payments.html",
+            "javascript:void(0)",
+            "payments.html",
+            "projects.html",
+            "projects.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/invoices.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/login.html",
+          "links": [
+            "#main",
+            "../index.html",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/missions.html",
+          "links": [
+            "#main",
+            "credits.html",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-catalog.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-exporter.html",
+          "links": [
+            "#main",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/onboarding.html",
+          "links": [
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/projects.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/reports.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-analytics.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-report.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-dashboard.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscription-plans.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscriptions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/privacy.html",
+          "links": [
+            "#main",
+            "index.html",
+            "index.html",
+            "mailto:hello@mekongmarketing.com",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/register.html",
+          "links": [
+            "#main",
+            "/login.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/terms.html",
+          "links": [
+            "#main",
+            "index.html",
+            "index.html",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/verify-email.html",
+          "links": [
+            "#main",
+            "login.html",
+            "register.html",
+            "login.html",
+            "login.html"
+          ],
+          "broken": []
         }
       ],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 7,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/suppliers.html",
-      "total_issues": 8,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 9,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/loyalty.html",
-      "total_issues": 8,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 9,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/landing-builder.html",
-      "total_issues": 6,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 6,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/inventory.html",
-      "total_issues": 6,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 6,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/events.html",
-      "total_issues": 6,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 6,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "register.html",
-      "total_issues": 4,
-      "meta_score": 11,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/subscription-plans.html",
-      "total_issues": 4,
-      "meta_score": 11,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/roi-analytics.html",
-      "total_issues": 4,
-      "meta_score": 9,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": false
-      },
-      "broken_links": [
+      "broken": [
         {
-          "file": "portal/roi-analytics.html",
-          "line": 0,
-          "link_type": "href",
-          "current_path": "../assets/css/main.css",
-          "suggested_path": "/assets/css/main.css",
-          "reason": "Should use root-relative path"
+          "file": "admin/agents.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 204
+        },
+        {
+          "file": "admin/approvals.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 206
+        },
+        {
+          "file": "admin/community.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
+        },
+        {
+          "file": "admin/customer-success.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
+        },
+        {
+          "file": "admin/ecommerce.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 206
+        },
+        {
+          "file": "admin/landing-builder.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 198
+        },
+        {
+          "file": "admin/workflows.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
+        },
+        {
+          "file": "admin/agents.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 204
+        },
+        {
+          "file": "admin/approvals.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 206
+        },
+        {
+          "file": "admin/community.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
+        },
+        {
+          "file": "admin/customer-success.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
+        },
+        {
+          "file": "admin/ecommerce.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 206
+        },
+        {
+          "file": "admin/landing-builder.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 198
+        },
+        {
+          "file": "admin/workflows.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 205
         }
       ],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 0,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "index.html",
-      "total_issues": 3,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/ocop-exporter.html",
-      "total_issues": 3,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/menu.html",
-      "total_issues": 3,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/proposals.html",
-      "total_issues": 3,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/workflows.html",
-      "total_issues": 3,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 4,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/components/phase-tracker.html",
-      "total_issues": 3,
-      "meta_score": 9,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": false
-      },
-      "broken_links": [
+      "external": [
         {
-          "file": "admin/components/phase-tracker.html",
-          "line": 0,
-          "link_type": "href",
-          "current_path": "../../assets/css/main.css",
-          "suggested_path": "/assets/css/main.css",
-          "reason": "Should use root-relative path"
+          "file": "admin/ai-analysis.html",
+          "href": "https://aistudio.google.com/api-keys",
+          "text": "key\n                    Get API Key"
+        },
+        {
+          "file": "admin/deploy.html",
+          "href": "https://mekong-agency.vercel.app",
+          "text": "https://mekong-agency.vercel.app"
+        },
+        {
+          "file": "admin/ai-analysis.html",
+          "href": "https://aistudio.google.com/api-keys",
+          "text": "key\n                    Get API Key"
+        },
+        {
+          "file": "admin/deploy.html",
+          "href": "https://mekong-agency.vercel.app",
+          "text": "https://mekong-agency.vercel.app"
+        }
+      ]
+    },
+    "meta": {
+      "files": [
+        {
+          "file": "admin/ui-demo.html",
+          "missing": [
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "viewport",
+            "charset"
+          ]
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "missing": [
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "missing": [
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "missing": [
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "missing": [
+            {
+              "file": "affiliate/commissions.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/commissions.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "missing": [
+            {
+              "file": "affiliate/dashboard.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/dashboard.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/links.html",
+          "missing": [
+            {
+              "file": "affiliate/links.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/links.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/media.html",
+          "missing": [
+            {
+              "file": "affiliate/media.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/media.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/profile.html",
+          "missing": [
+            {
+              "file": "affiliate/profile.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/profile.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "missing": [
+            {
+              "file": "affiliate/referrals.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/referrals.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/settings.html",
+          "missing": [
+            {
+              "file": "affiliate/settings.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/settings.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "auth/login.html",
+          "missing": [
+            {
+              "file": "auth/login.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "auth/login.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "missing": [
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "viewport",
+            "charset"
+          ]
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "missing": [
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/global-search.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "missing": [
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/notification-bell.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "missing": [
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "title",
+              "severity": "error",
+              "message": "Missing required meta tag: title"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "admin/widgets/theme-toggle.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": []
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "missing": [
+            {
+              "file": "affiliate/commissions.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/commissions.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "missing": [
+            {
+              "file": "affiliate/dashboard.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/dashboard.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/links.html",
+          "missing": [
+            {
+              "file": "affiliate/links.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/links.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/media.html",
+          "missing": [
+            {
+              "file": "affiliate/media.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/media.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/profile.html",
+          "missing": [
+            {
+              "file": "affiliate/profile.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/profile.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "missing": [
+            {
+              "file": "affiliate/referrals.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/referrals.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "affiliate/settings.html",
+          "missing": [
+            {
+              "file": "affiliate/settings.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "affiliate/settings.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "auth/login.html",
+          "missing": [
+            {
+              "file": "auth/login.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "auth/login.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "forgot-password.html",
+          "missing": [
+            {
+              "file": "forgot-password.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "forgot-password.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "login.html",
+          "missing": [
+            {
+              "file": "login.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "login.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "offline.html",
+          "missing": [
+            {
+              "file": "offline.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "offline.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "playwright-report/index.html",
+          "missing": [
+            {
+              "file": "playwright-report/index.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "viewport",
+            "charset"
+          ]
         }
       ],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 0,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
+      "missing": [
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/links.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/links.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/media.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/media.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/profile.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/profile.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/settings.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/settings.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "auth/login.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "auth/login.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/global-search.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/notification-bell.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "title",
+          "severity": "error",
+          "message": "Missing required meta tag: title"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "admin/widgets/theme-toggle.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/commissions.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/dashboard.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/links.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/links.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/media.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/media.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/profile.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/profile.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/referrals.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "affiliate/settings.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "affiliate/settings.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "auth/login.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "auth/login.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "forgot-password.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "forgot-password.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "login.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "login.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "offline.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "offline.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        }
+      ],
+      "summary": {
+        "totalFiles": 168,
+        "filesWithMissingMeta": 28,
+        "missingRequired": 63,
+        "missingRecommended": 45
       }
     },
-    {
-      "path": "login.html",
-      "total_issues": 2,
-      "meta_score": 11,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
+    "a11y": {
+      "files": [
+        {
+          "file": "admin/ui-demo.html",
+          "issues": [
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            }
+          ]
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "issues": [
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            }
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        }
+      ],
+      "summary": {
+        "totalIssues": 12,
+        "byType": {
+          "link-empty-href": 12
+        },
+        "bySeverity": {
+          "error": 0,
+          "warning": 12
+        }
       }
     },
-    {
-      "path": "admin/community.html",
-      "total_issues": 2,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/approvals.html",
-      "total_issues": 2,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/ecommerce.html",
-      "total_issues": 2,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/shifts.html",
-      "total_issues": 2,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 3,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/onboarding.html",
-      "total_issues": 2,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "forgot-password.html",
-      "total_issues": 1,
-      "meta_score": 11,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 1,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/login.html",
-      "total_issues": 1,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/ocop-catalog.html",
-      "total_issues": 1,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 1,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "portal/invoices.html",
-      "total_issues": 1,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/roiaas-admin.html",
-      "total_issues": 1,
-      "meta_score": 11,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 0,
-        "heading_issues": 1,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/zalo.html",
-      "total_issues": 1,
-      "meta_score": 12,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": true
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 2,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
-      }
-    },
-    {
-      "path": "admin/widgets/kpi-card.html",
-      "total_issues": 1,
-      "meta_score": 10,
-      "meta_tags": {
-        "has_title": true,
-        "has_description": true,
-        "has_og_title": true,
-        "has_og_description": true,
-        "has_og_image": true,
-        "has_canonical": false
-      },
-      "broken_links": [],
-      "accessibility": {
-        "images_without_alt": 0,
-        "inputs_without_label": 0,
-        "heading_issues": 0,
-        "missing_lang": false,
-        "missing_skip_link": true
+    "ids": {
+      "files": [],
+      "duplicates": [],
+      "summary": {
+        "totalFiles": 168,
+        "filesWithDuplicates": 0,
+        "totalDuplicates": 0,
+        "totalIDs": 1435
       }
     }
-  ]
+  }
 }

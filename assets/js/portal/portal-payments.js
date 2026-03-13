@@ -4,7 +4,7 @@
  */
 
 import { supabase } from './supabase.js';
-import { paymentManager } from '../payment-gateway.js';
+import { paymentManager } from '../services/payment-gateway.js';
 import { toast, modal } from './portal-ui.js';
 import { formatCurrency } from '../shared/format-utils.js';
 
