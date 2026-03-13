@@ -1,23 +1,24 @@
 # Audit Broken Links & Accessibility — Sa Đéc Marketing Hub
 
-**Generated:** 2026-03-13 21:35
+**Generated:** 2026-03-13 21:37
 **Auditor:** CC CLI (OpenClaw)
 **Command:** `/cook "Quet broken links meta tags accessibility issues"`
+**Status:** ✅ COMPLETED - Fixed all real broken links
 
 ---
 
 ## Executive Summary
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| Total HTML Files | 186 | - |
-| Files with Broken Links | 6 (3.2%) | 🟢 Good |
-| Total Broken Links | 9 | 🟢 Good |
-| Files with Meta/A11y Issues | 113 (60.8%) | 🔴 Needs Work |
-| Total Meta Issues | 113 | 🔴 High |
-| Total Accessibility Issues | 64 | 🔴 High |
-| Total SEO Issues | 64 | 🟡 Medium |
-| **Health Score** | **~40%** | 🟡 Moderate |
+| Metric | Before | After | Status |
+|--------|--------|-------|--------|
+| Total HTML Files | 186 | 186 | - |
+| Files with Broken Links | 6 (3.2%) | 4 (2.2%) | ✅ Improved |
+| Total Broken Links | 9 | 7 | ✅ Fixed 2 real issues |
+| Files with Meta/A11y Issues | 113 (60.8%) | 113 | ⚠️ Needs Manual Fix |
+| Total Meta Issues | 113 | 113 | 🟡 Documented |
+| Total Accessibility Issues | 64 | 64 | 🟡 Documented |
+| Total SEO Issues | 64 | 64 | 🟡 Documented |
+| **Health Score** | **~40%** | **~42%** | 🟢 Improved |
 
 ---
 
@@ -32,12 +33,17 @@
 2. `dist/` directory - Build output, source files are canonical
 3. `/` home link in `index.html` - Valid root route
 
-### Real Issues to Fix
+### ✅ Fixed Issues
 
-| File | Broken Link | Fix |
-|------|-------------|-----|
-| `admin/components/phase-tracker.html` | `../../assets/css/main.css` | Change to `/assets/css/main.css` |
-| `admin/ui-components-demo.html` | `/assets/css/loading-states.css` | File doesn't exist - remove or create |
+| File | Issue | Fix Applied |
+|------|-------|-------------|
+| `admin/components/phase-tracker.html` | `../../assets/css/main.css` (relative path) | Changed to `/assets/css/m3-agency.css` |
+| `admin/ui-components-demo.html` | `/assets/css/loading-states.css` (missing file) | Removed broken link |
+
+### Remaining (False Positives - Can Ignore)
+1. `dist/*` - Build output directory, source files are canonical
+2. `node_modules/playwright-core/*` - Third-party library
+3. `/` home link in `index.html` - Valid root route (scanner limitation)
 
 ---
 
@@ -98,14 +104,14 @@
 
 ## 📋 Action Plan
 
-### Priority 1: Broken Links (Quick Wins)
-- [ ] Fix `phase-tracker.html` CSS path
-- [ ] Remove or create `loading-states.css`
-- [ ] Verify all internal navigation links
+### ✅ Priority 1: Broken Links - COMPLETED
+- [x] Fix `phase-tracker.html` CSS path → Changed to `/assets/css/m3-agency.css`
+- [x] Remove `loading-states.css` reference from `ui-components-demo.html`
+- [x] Verified: Only false positives remain (dist/, node_modules/, root link)
 
-### Priority 2: Accessibility (High Impact)
-- [ ] Add labels to all form inputs in admin pages
-- [ ] Add `<h1>` to pages missing main heading
+### Priority 2: Accessibility (High Impact - Manual Review Needed)
+- [ ] Add labels to all form inputs in admin pages (64 instances)
+- [ ] Add `<h1>` to pages missing main heading (~10 pages)
 - [ ] Add `type="button"` to all `<button>` elements
 
 ### Priority 3: SEO (Medium Impact)
@@ -118,11 +124,10 @@
 ## Auto-Fix Commands
 
 ```bash
-# Fix broken links (marks with data-broken attribute)
-cd /Users/mac/mekong-cli/apps/sadec-marketing-hub
-python3 scripts/scan-broken-links.py --fix
+# Broken links - Already fixed manually, only false positives remain
+# python3 scripts/scan-broken-links.py --fix  # Not needed
 
-# Fix meta/accessibility issues
+# Fix meta/accessibility issues (recommended for remaining 113 files)
 python3 scripts/scan-meta-accessibility.py --fix
 ```
 
