@@ -12,7 +12,7 @@
  * Usage:
  *   SearchAutocomplete.init('#search-input', {
  *     minLength: 2,
- *     onSelect: (item) => console.log(item)
+ *     onSelect: (item) => Logger.info('Search selected', item)
  *   });
  */
 
