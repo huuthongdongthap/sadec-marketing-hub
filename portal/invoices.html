@@ -325,16 +325,16 @@
             <!-- Filter Chips -->
             <div class="filter-chips" style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
                 <button type="button" class="filter-chip active" data-filter="all" onclick="filterInvoices('all', this)">
-                    <span class="material-symbols-outlined" style="font-size:16px">list</span> Tất cả
+                    <span class="material-symbols-outlined" style="font-size:16px" aria-label="List" role="img">list</span> Tất cả
                 </button>
                 <button type="button" class="filter-chip" data-filter="pending" onclick="filterInvoices('pending', this)">
-                    <span class="material-symbols-outlined" style="font-size:16px">schedule</span> Chờ thanh toán
+                    <span class="material-symbols-outlined" style="font-size:16px" aria-label="Lịch trình" role="img">schedule</span> Chờ thanh toán
                 </button>
                 <button type="button" class="filter-chip" data-filter="paid" onclick="filterInvoices('paid', this)">
-                    <span class="material-symbols-outlined" style="font-size:16px">check_circle</span> Đã thanh toán
+                    <span class="material-symbols-outlined" style="font-size:16px" aria-label="Hoàn thành" role="img">check_circle</span> Đã thanh toán
                 </button>
                 <button type="button" class="filter-chip" data-filter="overdue" onclick="filterInvoices('overdue', this)">
-                    <span class="material-symbols-outlined" style="font-size:16px">warning</span> Quá hạn
+                    <span class="material-symbols-outlined" style="font-size:16px" aria-label="Cảnh báo" role="img">warning</span> Quá hạn
                 </button>
             </div>
 
@@ -436,7 +436,7 @@
                 </table>
                 <!-- Empty state (hidden by default) -->
                 <div id="invoice-empty" class="invoice-empty-state" style="display:none;">
-                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="material-symbols-outlined" aria-label="Receipt Long" role="img">receipt_long</span>
                     <div style="font:var(--md-sys-typescale-title-medium)">Chưa có hóa đơn nào</div>
                     <div style="margin-top:4px">Hóa đơn sẽ xuất hiện khi dự án được triển khai</div>
                 </div>
@@ -448,7 +448,7 @@
     <div class="floating-action-bar" id="floatingActionBar">
         <span class="count" id="selectedCount">0 hóa đơn được chọn</span>
         <button type="button" class="btn btn-filled" onclick="handleBulkPayment()">
-            <span class="material-symbols-outlined">payment</span>
+            <span class="material-symbols-outlined" aria-label="Thanh toán" role="img">payment</span>
             Thanh toán
         </button>
     </div>
@@ -527,8 +527,8 @@
                     <td>${payBtn}</td>
                     <td>
                         <div class="invoice-actions">
-                            <button type="button" class="action-btn" title="Xem chi tiết"><span class="material-symbols-outlined">visibility</span></button>
-                            <button type="button" class="action-btn" title="Tải PDF"><span class="material-symbols-outlined">download</span></button>
+                            <button type="button" class="action-btn" title="Xem chi tiết" aria-label="Xem"<span class="material-symbols-outlined" aria-label="Xem" role="img">visibility</span></button>
+                            <button type="button" class="action-btn" title="Tải PDF" aria-label="Tải xuống"<span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span></button>
                         </div>
                     </td>
                 </tr>`;

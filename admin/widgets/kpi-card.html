@@ -373,10 +373,10 @@ class KPICardWidget extends HTMLElement {
             <div class="kpi-card">
                 <div class="kpi-header">
                     <div class="kpi-icon" style="--kpi-color-rgb: ${this.hexToRgb(colorMap[color])}">
-                        <span class="material-symbols-outlined">${icon}</span>
+                        <span class="material-symbols-outlined" aria-label="${Icon}" role="img">${icon}</span>
                     </div>
                     <div class="kpi-trend ${trendClass}">
-                        <span class="material-symbols-outlined" style="font-size: 16px;">${trendIcon}</span>
+                        <span class="material-symbols-outlined" style="font-size: 16px;" aria-label="${Trendicon}" role="img">${trendIcon}</span>
                         <span>${trendValue}</span>
                     </div>
                 </div>

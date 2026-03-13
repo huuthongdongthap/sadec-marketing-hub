@@ -932,7 +932,7 @@
                 </div>
                 <div class="flex">
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm NCC..." id="searchInput" aria-label="Search suppliers">
                     </div>
                 </div>
@@ -964,16 +964,16 @@
                 <div class="suppliers-table-card">
                     <div class="table-header">
                         <div class="table-title">
-                            <span class="material-symbols-outlined">local_shipping</span>
+                            <span class="material-symbols-outlined" aria-label="Local Shipping" role="img">local_shipping</span>
                             Danh sách NCC
                         </div>
                         <div class="table-actions">
                             <button type="button" class="btn-cyber-sm" onclick="openCategoryFilter()">
-                                <span class="material-symbols-outlined">filter_list</span>
+                                <span class="material-symbols-outlined" aria-label="Bộ lọc" role="img">filter_list</span>
                                 Lọc
                             </button>
                             <button type="button" class="btn-cyber-sm" onclick="openAddSupplierModal()">
-                                <span class="material-symbols-outlined">add</span>
+                                <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                                 Thêm NCC
                             </button>
                         </div>
@@ -1000,7 +1000,7 @@
                 <div class="po-panel">
                     <div class="po-header">
                         <div class="po-title">
-                            <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                            <span class="material-symbols-outlined" aria-label="Shopping Cart Checkout" role="img">shopping_cart_checkout</span>
                             Purchase Orders
                         </div>
                     </div>
@@ -1034,7 +1034,7 @@
                         </div>
                         <div class="po-items-list" id="poItemsList"></div>
                         <button type="button" class="btn-add-item" onclick="addPOItem()">
-                            <span class="material-symbols-outlined">add</span>
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                             Thêm hàng
                         </button>
 
@@ -1054,7 +1054,7 @@
                         </div>
 
                         <button type="button" class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled="">
-                            <span class="material-symbols-outlined">check_circle</span>
+                            <span class="material-symbols-outlined" aria-label="Hoàn thành" role="img">check_circle</span>
                             Tạo Đơn Hàng
                         </button>
                     </div>
@@ -1073,8 +1073,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="modalTitle">🚛 Thêm Nhà Cung Cấp</h2>
-                <button type="button" class="modal-close" onclick="closeSupplierModal()">
-                    <span class="material-symbols-outlined">close</span>
+                <button type="button" class="modal-close" onclick="closeSupplierModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -1139,8 +1139,8 @@
         <div class="modal-content" style="max-width: 400px;">
             <div class="modal-header">
                 <h2 class="modal-title">🔍 Lọc theo loại</h2>
-                <button type="button" class="modal-close" onclick="closeCategoryFilter()">
-                    <span class="material-symbols-outlined">close</span>
+                <button type="button" class="modal-close" onclick="closeCategoryFilter()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
                 </button>
             </div>
             <div class="modal-body">
@@ -1263,7 +1263,7 @@
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3);">
-                            <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;">inbox</span>
+                            <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;" aria-label="Inbox" role="img">inbox</span>
                             Không tìm thấy NCC nào
                         </td>
                     </tr>
@@ -1291,11 +1291,11 @@
                     </td>
                     <td>
                         <div class="action-btns">
-                            <button type="button" class="action-btn edit" onclick="openEditSupplierModal('${s.id}')" title="Sửa">
-                                <span class="material-symbols-outlined">edit</span>
+                            <button type="button" class="action-btn edit" onclick="openEditSupplierModal('${s.id}')" title="Sửa" aria-label="Chỉnh sửa"
+                                <span class="material-symbols-outlined" aria-label="Chỉnh sửa" role="img">edit</span>
                             </button>
-                            <button type="button" class="action-btn delete" onclick="deleteSupplier('${s.id}')" title="Xóa">
-                                <span class="material-symbols-outlined">delete</span>
+                            <button type="button" class="action-btn delete" onclick="deleteSupplier('${s.id}')" title="Xóa" aria-label="Xóa"
+                                <span class="material-symbols-outlined" aria-label="Xóa" role="img">delete</span>
                             </button>
                         </div>
                     </td>
@@ -1363,11 +1363,11 @@
             const container = document.getElementById('poItemsList');
             container.innerHTML = poItems.map((item, idx) => `
                 <div class="po-item-row">
-                    <input type="text" placeholder="Tên hàng" value="${item.name}" onchange="updatePOItem(${idx}, 'name', this.value)">
-                    <input type="number" placeholder="SL" value="${item.qty}" min="1" onchange="updatePOItem(${idx}, 'qty', this.value)">
-                    <input type="number" placeholder="Đơn giá" value="${item.unitPrice}" min="0" onchange="updatePOItem(${idx}, 'unitPrice', this.value)">
-                    <button type="button" class="btn-remove-item" onclick="removePOItem(${idx})">
-                        <span class="material-symbols-outlined">remove</span>
+                    <input type="text" placeholder="Tên hàng" value="${item.name}" onchange="updatePOItem(${idx}, 'name', this.value)" aria-label="Tên hàng">
+                    <input type="number" placeholder="SL" value="${item.qty}" min="1" onchange="updatePOItem(${idx}, 'qty', this.value)" aria-label="SL">
+                    <input type="number" placeholder="Đơn giá" value="${item.unitPrice}" min="0" onchange="updatePOItem(${idx}, 'unitPrice', this.value)" aria-label="Đơn giá">
+                    <button type="button" class="btn-remove-item" onclick="removePOItem(${idx})" aria-label="Remove"
+                        <span class="material-symbols-outlined" aria-label="Remove" role="img">remove</span>
                     </button>
                 </div>
             `).join('');
@@ -1456,7 +1456,7 @@
             if (purchaseOrders.length === 0) {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3);">
-                        <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;">receipt_long</span>
+                        <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;" aria-label="Receipt Long" role="img">receipt_long</span>
                         Chưa có đơn hàng nào
                     </div>
                 `;

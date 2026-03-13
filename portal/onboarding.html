@@ -312,19 +312,19 @@
 
             <ul class="feature-list">
                 <li>
-                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="material-symbols-outlined" aria-label="Bảng điều khiển" role="img">dashboard</span>
                     Dashboard theo dõi chiến dịch real-time
                 </li>
                 <li>
-                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="material-symbols-outlined" aria-label="Receipt Long" role="img">receipt_long</span>
                     Quản lý hóa đơn & thanh toán
                 </li>
                 <li>
-                    <span class="material-symbols-outlined">analytics</span>
+                    <span class="material-symbols-outlined" aria-label="Phân tích" role="img">analytics</span>
                     Báo cáo hiệu quả marketing chi tiết
                 </li>
                 <li>
-                    <span class="material-symbols-outlined">support_agent</span>
+                    <span class="material-symbols-outlined" aria-label="Support Agent" role="img">support_agent</span>
                     Hỗ trợ chuyên gia 24/7
                 </li>
             </ul>
@@ -332,7 +332,7 @@
             <div class="btn-row">
                 <button type="button" class="btn-primary" onclick="goToStep(2)">
                     Bắt đầu
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <span class="material-symbols-outlined" aria-label="Chuyển tiếp" role="img">arrow_forward</span>
                 </button>
             </div>
         </div>
@@ -357,7 +357,7 @@
                 <button type="button" class="btn-secondary" onclick="goToStep(1)">Quay lại</button>
                 <button type="button" class="btn-primary" id="pw-btn" onclick="changePassword()">
                     Đổi mật khẩu
-                    <span class="material-symbols-outlined">lock</span>
+                    <span class="material-symbols-outlined" aria-label="Khóa" role="img">lock</span>
                 </button>
             </div>
             <div style="text-align: center; margin-top: 12px;">
@@ -401,7 +401,7 @@
                 <button type="button" class="btn-secondary" onclick="goToStep(2)">Quay lại</button>
                 <button type="button" class="btn-primary" id="biz-btn" onclick="saveBusinessInfo()">
                     Tiếp tục
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <span class="material-symbols-outlined" aria-label="Chuyển tiếp" role="img">arrow_forward</span>
                 </button>
             </div>
             <div style="text-align: center; margin-top: 12px;">
@@ -414,28 +414,28 @@
         <!-- Step 4: Complete -->
         <div class="step-content" id="step-4">
             <div class="success-check">
-                <span class="material-symbols-outlined">check_circle</span>
+                <span class="material-symbols-outlined" aria-label="Hoàn thành" role="img">check_circle</span>
             </div>
             <h1 class="step-title">Hoàn tất!</h1>
             <p class="step-subtitle">Tài khoản của bạn đã sẵn sàng. Bắt đầu khám phá Mekong Marketing Hub ngay.</p>
 
             <ul class="feature-list">
                 <li>
-                    <span class="material-symbols-outlined">check</span>
+                    <span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
                     Tài khoản đã kích hoạt
                 </li>
                 <li>
-                    <span class="material-symbols-outlined">check</span>
+                    <span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
                     Gói dịch vụ đã được áp dụng
                 </li>
                 <li>
-                    <span class="material-symbols-outlined">check</span>
+                    <span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
                     Sẵn sàng sử dụng
                 </li>
             </ul>
 
             <button type="button" class="dashboard-btn" onclick="window.location.href='dashboard.html'">
-                <span class="material-symbols-outlined">rocket_launch</span>
+                <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
                 Vào Dashboard
             </button>
         </div>
@@ -468,7 +468,7 @@
             // Mark previous steps as done
             for (let i = 1; i < step; i++) {
                 document.getElementById(`dot-${i}`).className = 'step-dot done';
-                document.getElementById(`dot-${i}`).innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">check</span>';
+                document.getElementById(`dot-${i}`).innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-label="Xác nhận" role="img">check</span>';
                 if (i < 4) document.getElementById(`line-${i}`).className = 'step-line done';
             }
             // Show new step
@@ -517,7 +517,7 @@
                 errorEl.textContent = err.message || 'Lỗi đổi mật khẩu.';
                 errorEl.style.display = 'block';
                 btn.disabled = false;
-                btn.innerHTML = 'Đổi mật khẩu <span class="material-symbols-outlined">lock</span>';
+                btn.innerHTML = 'Đổi mật khẩu <span class="material-symbols-outlined" aria-label="Khóa" role="img">lock</span>';
             }
         };
 

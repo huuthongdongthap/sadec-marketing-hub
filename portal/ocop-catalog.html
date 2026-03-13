@@ -758,16 +758,16 @@
         <div class="header-content">
             <div class="header-top">
                 <div class="logo">
-                    <span class="material-symbols-outlined logo-icon">agriculture</span>
+                    <span class="material-symbols-outlined logo-icon" aria-label="Agriculture" role="img">agriculture</span>
                     OCOP Đồng Tháp
                 </div>
                 <div class="header-actions">
                     <button type="button" class="header-btn outline" onclick="window.location.href='dashboard.html'">
-                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="material-symbols-outlined" aria-label="Bảng điều khiển" role="img">dashboard</span>
                         Dashboard
                     </button>
                     <button type="button" class="header-btn filled" onclick="window.location.href='missions.html'">
-                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="material-symbols-outlined" aria-label="Giỏ hàng" role="img">shopping_cart</span>
                         Giỏ hàng
                     </button>
                 </div>
@@ -781,24 +781,24 @@
     <div class="search-filter-bar">
         <div class="search-filter-container">
             <div class="search-box">
-                <span class="material-symbols-outlined search-icon">search</span>
+                <span class="material-symbols-outlined search-icon" aria-label="Tìm kiếm" role="img">search</span>
                 <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm OCOP..." oninput="handleSearch()" aria-label="Tìm kiếm sản phẩm OCOP...">
             </div>
             <div class="filter-controls">
                 <div class="filter-chip" data-filter="all" onclick="toggleFilter(this, 'all')">
-                    <span class="material-symbols-outlined">filter_list</span>
+                    <span class="material-symbols-outlined" aria-label="Bộ lọc" role="img">filter_list</span>
                     Tất cả
                 </div>
                 <div class="filter-chip" data-filter="sale" onclick="toggleFilter(this, 'sale')">
-                    <span class="material-symbols-outlined">local_offer</span>
+                    <span class="material-symbols-outlined" aria-label="Local Offer" role="img">local_offer</span>
                     Đang giảm
                 </div>
                 <div class="filter-chip" data-filter="bestseller" onclick="toggleFilter(this, 'bestseller')">
-                    <span class="material-symbols-outlined">trending_up</span>
+                    <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                     Bán chạy
                 </div>
                 <div class="filter-chip" data-filter="rating" onclick="toggleFilter(this, 'rating')">
-                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined" aria-label="Đánh giá" role="img">star</span>
                     4.5+ sao
                 </div>
             </div>
@@ -825,7 +825,7 @@
             <div class="sort-dropdown">
                 <span>Sắp xếp:</span>
                 <span id="sortText">Phổ biến</span>
-                <span class="material-symbols-outlined">expand_more</span>
+                <span class="material-symbols-outlined" aria-label="Mở rộng" role="img">expand_more</span>
             </div>
         </div>
 
@@ -836,7 +836,7 @@
 
         <!-- Empty State -->
         <div class="empty-state" id="emptyState">
-            <span class="material-symbols-outlined empty-icon">search_off</span>
+            <span class="material-symbols-outlined empty-icon" aria-label="Search Off" role="img">search_off</span>
             <h3 class="empty-title">Không tìm thấy sản phẩm</h3>
             <p class="empty-text">Thử thay đổi từ khóa tìm kiếm hoặc bộ lọc</p>
         </div>
@@ -1115,11 +1115,11 @@
 
             for (let i = 0; i < 5; i++) {
                 if (i < fullStars) {
-                    stars += '<span class="star material-symbols-outlined">star</span>';
+                    stars += '<span class="star material-symbols-outlined" aria-label="Đánh giá" role="img">star</span>';
                 } else if (i === fullStars && hasHalf) {
-                    stars += '<span class="star material-symbols-outlined">star_half</span>';
+                    stars += '<span class="star material-symbols-outlined" aria-label="Star Half" role="img">star_half</span>';
                 } else {
-                    stars += '<span class="star empty material-symbols-outlined">star_border</span>';
+                    stars += '<span class="star empty material-symbols-outlined" aria-label="Chưa đánh giá" role="img">star_border</span>';
                 }
             }
             return stars;
@@ -1147,15 +1147,15 @@
                     <div class="product-image">
                         <img src="${product.image}" alt="${product.name}" loading="lazy">
                         ${product.badge ? `<span class="product-badge ${product.badge}">${product.badgeText}</span>` : ''}
-                        <button type="button" class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this, ${product.id})">
-                            <span class="material-symbols-outlined">favorite</span>
+                        <button type="button" class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this, ${product.id})" aria-label="Yêu thích"
+                            <span class="material-symbols-outlined" aria-label="Yêu thích" role="img">favorite</span>
                         </button>
                     </div>
                     <div class="product-info">
                         <div class="product-category">${product.categoryName}</div>
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-origin">
-                            <span class="material-symbols-outlined">location_on</span>
+                            <span class="material-symbols-outlined" aria-label="Location On" role="img">location_on</span>
                             ${product.origin}
                         </div>
                         <div class="product-rating">
@@ -1170,7 +1170,7 @@
                                 ${product.originalPrice ? `<span class="price-original">${formatCurrency(product.originalPrice)}</span>` : ''}
                             </div>
                             <button type="button" class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">
-                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                <span class="material-symbols-outlined" aria-label="Add Shopping Cart" role="img">add_shopping_cart</span>
                                 Thêm
                             </button>
                         </div>

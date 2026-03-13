@@ -1003,18 +1003,18 @@
             <div class="dashboard-header">
                 <div>
                     <h1 class="dashboard-title">
-                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="material-symbols-outlined" aria-label="Thông báo" role="img">notifications</span>
                         Notification Center
                     </h1>
                     <p class="dashboard-subtitle">Quản lý notification templates, broadcast, và logs</p>
                 </div>
                 <div class="header-actions">
                     <button type="button" class="btn-cyber outline" onclick="testNotification()">
-                        <span class="material-symbols-outlined">send</span>
+                        <span class="material-symbols-outlined" aria-label="Send" role="img">send</span>
                         Test
                     </button>
                     <button type="button" class="btn-cyber" onclick="showSection('broadcast')">
-                        <span class="material-symbols-outlined">campaign</span>
+                        <span class="material-symbols-outlined" aria-label="Chiến dịch" role="img">campaign</span>
                         New Broadcast
                     </button>
                 </div>
@@ -1023,23 +1023,23 @@
             <!-- Tabs -->
             <div class="tabs-container">
                 <button type="button" class="tab-btn active" onclick="showSection('overview')">
-                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="material-symbols-outlined" aria-label="Bảng điều khiển" role="img">dashboard</span>
                     Overview
                 </button>
                 <button type="button" class="tab-btn" onclick="showSection('templates')">
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-label="Description" role="img">description</span>
                     Templates
                 </button>
                 <button type="button" class="tab-btn" onclick="showSection('logs')">
-                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="material-symbols-outlined" aria-label="Receipt Long" role="img">receipt_long</span>
                     Logs
                 </button>
                 <button type="button" class="tab-btn" onclick="showSection('broadcast')">
-                    <span class="material-symbols-outlined">campaign</span>
+                    <span class="material-symbols-outlined" aria-label="Chiến dịch" role="img">campaign</span>
                     Broadcast
                 </button>
                 <button type="button" class="tab-btn" onclick="showSection('settings')">
-                    <span class="material-symbols-outlined">settings</span>
+                    <span class="material-symbols-outlined" aria-label="Cài đặt" role="img">settings</span>
                     Settings
                 </button>
             </div>
@@ -1050,7 +1050,7 @@
                 <div class="stats-grid">
                     <div class="stat-card success">
                         <div class="stat-icon">
-                            <span class="material-symbols-outlined">check_circle</span>
+                            <span class="material-symbols-outlined" aria-label="Hoàn thành" role="img">check_circle</span>
                         </div>
                         <div class="stat-label">Sent Today</div>
                         <div class="stat-value" id="statSentToday">1,247</div>
@@ -1058,7 +1058,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <span class="material-symbols-outlined">mail</span>
+                            <span class="material-symbols-outlined" aria-label="Email" role="img">mail</span>
                         </div>
                         <div class="stat-label">Email Delivered</div>
                         <div class="stat-value" id="statEmail">892</div>
@@ -1066,7 +1066,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <span class="material-symbols-outlined">chat</span>
+                            <span class="material-symbols-outlined" aria-label="Chat" role="img">chat</span>
                         </div>
                         <div class="stat-label">Zalo Sent</div>
                         <div class="stat-value" id="statZalo">234</div>
@@ -1074,7 +1074,7 @@
                     </div>
                     <div class="stat-card warning">
                         <div class="stat-icon">
-                            <span class="material-symbols-outlined">warning</span>
+                            <span class="material-symbols-outlined" aria-label="Cảnh báo" role="img">warning</span>
                         </div>
                         <div class="stat-label">Failed</div>
                         <div class="stat-value" id="statFailed">23</div>
@@ -1086,7 +1086,7 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">history</span>
+                            <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                             Recent Activity
                         </h3>
                         <button type="button" class="btn-cyber outline" onclick="showSection('logs')">
@@ -1152,11 +1152,11 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">description</span>
+                            <span class="material-symbols-outlined" aria-label="Description" role="img">description</span>
                             Notification Templates
                         </h3>
                         <button type="button" class="btn-cyber" onclick="createNewTemplate()">
-                            <span class="material-symbols-outlined">add</span>
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                             New Template
                         </button>
                     </div>
@@ -1171,7 +1171,7 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">receipt_long</span>
+                            <span class="material-symbols-outlined" aria-label="Receipt Long" role="img">receipt_long</span>
                             Notification Logs
                         </h3>
                         <div style="display: flex; gap: 12px;">
@@ -1183,7 +1183,7 @@
                                 <option value="low_credits">Low Credits</option>
                             </select>
                             <button type="button" class="btn-cyber outline">
-                                <span class="material-symbols-outlined">download</span>
+                                <span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span>
                                 Export
                             </button>
                         </div>
@@ -1210,7 +1210,7 @@
                 <div class="cyber-card" style="max-width: 800px;">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">campaign</span>
+                            <span class="material-symbols-outlined" aria-label="Chiến dịch" role="img">campaign</span>
                             Create Broadcast
                         </h3>
                     </div>
@@ -1259,17 +1259,17 @@
                             <div class="channel-toggles">
                                 <label class="channel-toggle active" onclick="toggleChannel(this)">
                                     <input type="checkbox" checked="" value="email" aria-label="Toggle option">
-                                    <span class="material-symbols-outlined">mail</span>
+                                    <span class="material-symbols-outlined" aria-label="Email" role="img">mail</span>
                                     Email
                                 </label>
                                 <label class="channel-toggle active" onclick="toggleChannel(this)">
                                     <input type="checkbox" checked="" value="zalo" aria-label="Toggle option">
-                                    <span class="material-symbols-outlined">chat</span>
+                                    <span class="material-symbols-outlined" aria-label="Chat" role="img">chat</span>
                                     Zalo
                                 </label>
                                 <label class="channel-toggle" onclick="toggleChannel(this)">
                                     <input type="checkbox" value="push" aria-label="Toggle option">
-                                    <span class="material-symbols-outlined">notifications</span>
+                                    <span class="material-symbols-outlined" aria-label="Thông báo" role="img">notifications</span>
                                     Push
                                 </label>
                             </div>
@@ -1285,11 +1285,11 @@
 
                         <div style="display: flex; gap: 12px; margin-top: 24px;">
                             <button type="submit" class="btn-cyber">
-                                <span class="material-symbols-outlined">send</span>
+                                <span class="material-symbols-outlined" aria-label="Send" role="img">send</span>
                                 Send Broadcast
                             </button>
                             <button type="button" class="btn-cyber outline" onclick="previewBroadcast()">
-                                <span class="material-symbols-outlined">visibility</span>
+                                <span class="material-symbols-outlined" aria-label="Xem" role="img">visibility</span>
                                 Preview
                             </button>
                         </div>
@@ -1300,7 +1300,7 @@
                 <div class="cyber-card" style="margin-top: 24px;">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">history</span>
+                            <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                             Broadcast History
                         </h3>
                     </div>
@@ -1345,7 +1345,7 @@
                 <div class="cyber-card" style="max-width: 800px;">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">settings</span>
+                            <span class="material-symbols-outlined" aria-label="Cài đặt" role="img">settings</span>
                             Notification Settings
                         </h3>
                     </div>
@@ -1391,11 +1391,11 @@
 
                     <div style="display: flex; gap: 12px; margin-top: 24px;">
                         <button type="button" class="btn-cyber" onclick="saveSettings()">
-                            <span class="material-symbols-outlined">save</span>
+                            <span class="material-symbols-outlined" aria-label="Lưu" role="img">save</span>
                             Save Settings
                         </button>
                         <button type="button" class="btn-cyber outline" onclick="testConnection()">
-                            <span class="material-symbols-outlined">link</span>
+                            <span class="material-symbols-outlined" aria-label="Liên kết" role="img">link</span>
                             Test Connection
                         </button>
                     </div>
@@ -1679,7 +1679,7 @@
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.innerHTML = `
-                <span class="material-symbols-outlined toast-icon">${type === 'success' ? 'check_circle' : 'error'}</span>
+                <span class="material-symbols-outlined toast-icon" aria-label="${Type === 'Success' ? 'Check Circle' : 'Error'}" role="img">${type === 'success' ? 'check_circle' : 'error'}</span>
                 <span>${message}</span>
             `;
             container.appendChild(toast);

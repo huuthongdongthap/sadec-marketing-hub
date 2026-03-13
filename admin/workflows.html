@@ -301,7 +301,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/index.html" class="nav-logo">
-                <span class="material-symbols-outlined">water_drop</span>
+                <span class="material-symbols-outlined" aria-label="Water Drop" role="img">water_drop</span>
                 Mekong Agency
             </a>
             <div class="nav-actions">
@@ -352,14 +352,14 @@
         <section class="execution-section">
             <div class="execution-header">
                 <h2>
-                    <span class="material-symbols-outlined">history</span>
+                    <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                     Execution Log
                 </h2>
                 <button type="button" class="btn btn-text" onclick="clearLog()">Clear</button>
             </div>
             <div class="execution-log" id="executionLog">
                 <div class="empty-log">
-                    <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;">inbox</span>
+                    <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;" aria-label="Inbox" role="img">inbox</span>
                     <p>No executions yet. Run a workflow to see activity.</p>
                 </div>
             </div>
@@ -378,7 +378,7 @@
             <div class="modal-footer">
                 <button type="button" class="modal-btn secondary" onclick="closeModal()">Cancel</button>
                 <button type="button" class="modal-btn primary" onclick="executeWorkflow()">
-                    <span class="material-symbols-outlined" style="font-size: 18px;">play_arrow</span>
+                    <span class="material-symbols-outlined" style="font-size: 18px;" aria-label="Phát" role="img">play_arrow</span>
                     Run
                 </button>
             </div>
@@ -404,7 +404,7 @@
         <div class="workflow-card" data-workflow="${wf.id}" id="wf-${wf.id}">
           <div class="workflow-header">
             <div class="workflow-title">
-              <span class="material-symbols-outlined">${getWorkflowIcon(wf.id)}</span>
+              <span class="material-symbols-outlined" aria-label="${Getworkflowicon(Wf.Id)}" role="img">${getWorkflowIcon(wf.id)}</span>
               ${wf.name}
             </div>
             <div class="workflow-description">${wf.description}</div>
@@ -421,7 +421,7 @@
             </div>
             <div class="workflow-actions">
               <button type="button" class="run-btn" onclick="openModal('${wf.id}')" id="run-${wf.id}">
-                <span class="material-symbols-outlined">play_arrow</span>
+                <span class="material-symbols-outlined" aria-label="Phát" role="img">play_arrow</span>
                 Run Workflow
               </button>
             </div>
@@ -537,7 +537,7 @@
             entry.className = 'log-entry';
             entry.innerHTML = `
         <div class="log-icon ${type}">
-          <span class="material-symbols-outlined">${getLogIcon(type)}</span>
+          <span class="material-symbols-outlined" aria-label="${Getlogicon(Type)}" role="img">${getLogIcon(type)}</span>
         </div>
         <div class="log-content">
           <div class="log-message">${message}</div>
@@ -561,7 +561,7 @@
         function clearLog() {
             executionLog.innerHTML = `
         <div class="empty-log">
-          <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;">inbox</span>
+          <span class="material-symbols-outlined" style="font-size: 48px; opacity: 0.5;" aria-label="Inbox" role="img">inbox</span>
           <p>No executions yet. Run a workflow to see activity.</p>
         </div>
       `;

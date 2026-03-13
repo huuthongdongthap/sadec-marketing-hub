@@ -1334,11 +1334,11 @@
             <header class="dashboard-header animate-entry">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <button type="button" class="mobile-menu-toggle" onclick="toggleMobileSidebar()" aria-label="Toggle menu">
-                        <span class="material-symbols-outlined">menu</span>
+                        <span class="material-symbols-outlined" aria-label="Menu" role="img">menu</span>
                     </button>
                     <div>
                         <h1 class="dashboard-title">
-                            <span class="material-symbols-outlined">trending_up</span>
+                            <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                             ROIaaS Dashboard
                         </h1>
                         <p class="dashboard-subtitle">Theo dõi ROI, tiến độ phase & hiệu suất campaign</p>
@@ -1346,11 +1346,11 @@
                 </div>
                 <div class="flex" style="display: flex; gap: 12px; align-items: center;">
                     <div class="cyber-btn">
-                        <span class="material-symbols-outlined">calendar_today</span>
+                        <span class="material-symbols-outlined" aria-label="Lịch" role="img">calendar_today</span>
                         <span id="dateRange">Tháng 3/2026</span>
                     </div>
                     <button type="button" class="cyber-btn primary" onclick="exportReport()">
-                        <span class="material-symbols-outlined">download</span>
+                        <span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span>
                         Export
                     </button>
                 </div>
@@ -1363,7 +1363,7 @@
                     <div class="stat-value" id="statRoi">324%</div>
                     <div class="stat-label">ROI Tổng thể</div>
                     <div class="stat-change positive">
-                        <span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span>
+                        <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Lên trên" role="img">arrow_upward</span>
                         +47% so với tháng trước
                     </div>
                 </div>
@@ -1372,7 +1372,7 @@
                     <div class="stat-value" id="statRevenue">2.4T</div>
                     <div class="stat-label">Doanh thu</div>
                     <div class="stat-change positive">
-                        <span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span>
+                        <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Lên trên" role="img">arrow_upward</span>
                         +23% so với tháng trước
                     </div>
                 </div>
@@ -1381,7 +1381,7 @@
                     <div class="stat-value" id="statSpend">580M</div>
                     <div class="stat-label">Chi tiêu Ads</div>
                     <div class="stat-change negative">
-                        <span class="material-symbols-outlined" style="font-size: 14px;">arrow_downward</span>
+                        <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Xuống dưới" role="img">arrow_downward</span>
                         -8% so với tháng trước
                     </div>
                 </div>
@@ -1390,7 +1390,7 @@
                     <div class="stat-value" id="statConversion">4.8%</div>
                     <div class="stat-label">Tỷ lệ chuyển đổi</div>
                     <div class="stat-change positive">
-                        <span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span>
+                        <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Lên trên" role="img">arrow_upward</span>
                         +12% so với tháng trước
                     </div>
                 </div>
@@ -1402,12 +1402,12 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <span class="material-symbols-outlined">show_chart</span>
+                            <span class="material-symbols-outlined" aria-label="Show Chart" role="img">show_chart</span>
                             ROI Theo Tuần
                         </h2>
                         <div class="card-actions">
                             <button type="button" class="cyber-btn" onclick="refreshChart()">
-                                <span class="material-symbols-outlined">refresh</span>
+                                <span class="material-symbols-outlined" aria-label="Làm mới" role="img">refresh</span>
                                 Refresh
                             </button>
                         </div>
@@ -1433,12 +1433,12 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <span class="material-symbols-outlined">flag</span>
+                            <span class="material-symbols-outlined" aria-label="Flag" role="img">flag</span>
                             Tiến độ Phase
                         </h2>
                         <div class="card-actions">
                             <button type="button" class="cyber-btn" onclick="viewAllPhases()">
-                                <span class="material-symbols-outlined">visibility</span>
+                                <span class="material-symbols-outlined" aria-label="Xem" role="img">visibility</span>
                                 Xem tất cả
                             </button>
                         </div>
@@ -1454,12 +1454,12 @@
                 <div class="cyber-card">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <span class="material-symbols-outlined">campaign</span>
+                            <span class="material-symbols-outlined" aria-label="Chiến dịch" role="img">campaign</span>
                             Hiệu suất Campaign
                         </h2>
                         <div class="card-actions">
                             <button type="button" class="cyber-btn" onclick="createCampaign()">
-                                <span class="material-symbols-outlined">add</span>
+                                <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                                 Tạo Campaign
                             </button>
                         </div>
@@ -1487,19 +1487,19 @@
             <!-- Quick Actions -->
             <div class="quick-actions animate-entry delay-4">
                 <button type="button" class="action-btn primary" onclick="createNewCampaign()">
-                    <span class="material-symbols-outlined">add_circle</span>
+                    <span class="material-symbols-outlined" aria-label="Add Circle" role="img">add_circle</span>
                     Tạo Campaign Mới
                 </button>
                 <button type="button" class="action-btn" onclick="viewAnalytics()">
-                    <span class="material-symbols-outlined">analytics</span>
+                    <span class="material-symbols-outlined" aria-label="Phân tích" role="img">analytics</span>
                     Xem Analytics Chi Tiết
                 </button>
                 <button type="button" class="action-btn" onclick="optimizeBudget()">
-                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span class="material-symbols-outlined" aria-label="Auto Awesome" role="img">auto_awesome</span>
                     AI Tối ưu Ngân sách
                 </button>
                 <button type="button" class="action-btn" onclick="downloadReport()">
-                    <span class="material-symbols-outlined">file_download</span>
+                    <span class="material-symbols-outlined" aria-label="Tải xuống" role="img">file_download</span>
                     Tải Báo Cáo
                 </button>
             </div>
@@ -1578,7 +1578,7 @@
                 <div class="phase-item">
                     <div class="phase-header">
                         <div class="phase-name">
-                            <span class="material-symbols-outlined" style="font-size: 18px; color: ${phase.status === 'completed' ? 'var(--neon-green)' : phase.status === 'active' ? 'var(--neon-cyan)' : 'rgba(255,255,255,0.3)'}">
+                            <span class="material-symbols-outlined" style="font-size: 18px; color: ${phase.status === 'completed' ? 'var(--neon-green)' : phase.status === 'active' ? 'var(--neon-cyan)' : 'rgba(255,255,255,0.3)'}" aria-hidden="true">
                                 ${phase.status === 'completed' ? 'check_circle' : phase.status === 'active' ? 'play_circle' : 'pending'}
                             </span>
                             ${phase.name}

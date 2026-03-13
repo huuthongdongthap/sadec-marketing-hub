@@ -531,7 +531,7 @@
                 </div>
                 <div class="flex-between gap-12">
                     <a href="credits.html" class="btn btn-tonal">
-                        <span class="material-symbols-outlined">account_balance_wallet</span>
+                        <span class="material-symbols-outlined" aria-label="Account Balance Wallet" role="img">account_balance_wallet</span>
                         Quản lý Credits
                     </a>
                 </div>
@@ -540,7 +540,7 @@
             <!-- Credit Balance Bar -->
             <div class="credit-bar">
                 <div class="credit-bar-icon">
-                    <span class="material-symbols-outlined">toll</span>
+                    <span class="material-symbols-outlined" aria-label="Toll" role="img">toll</span>
                 </div>
                 <div>
                     <div class="credit-bar-value" id="credit-balance">--</div>
@@ -548,7 +548,7 @@
                 </div>
                 <div class="credit-bar-actions">
                     <a href="credits.html" class="btn btn-filled btn-sm">
-                        <span class="material-symbols-outlined">add</span>
+                        <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                         Mua thêm
                     </a>
                 </div>
@@ -557,7 +557,7 @@
             <!-- Mission Submission Form -->
             <div class="mission-form">
                 <div class="section-title" style="margin-bottom: 16px;">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 8px;">rocket_launch</span>
+                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 8px;" aria-label="Rocket Launch" role="img">rocket_launch</span>
                     Gửi nhiệm vụ mới
                 </div>
                 <textarea id="mission-goal"
@@ -583,7 +583,7 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-filled" onclick="submitMission()" id="submit-btn">
-                        <span class="material-symbols-outlined">send</span>
+                        <span class="material-symbols-outlined" aria-label="Send" role="img">send</span>
                         Gửi nhiệm vụ
                     </button>
                 </div>
@@ -601,7 +601,7 @@
             <!-- Mission List -->
             <div class="mission-list" id="mission-list">
                 <div class="empty-state" id="empty-state">
-                    <span class="material-symbols-outlined">smart_toy</span>
+                    <span class="material-symbols-outlined" aria-label="Smart Toy" role="img">smart_toy</span>
                     <div class="title-medium">Chưa có nhiệm vụ nào</div>
                     <div class="body-medium" style="margin-top: 8px;">Gửi nhiệm vụ đầu tiên để AI Agent bắt đầu làm việc</div>
                 </div>
@@ -647,7 +647,7 @@
             const cost = MISSION_COSTS[selectedComplexity];
             const btn = document.getElementById('submit-btn');
             btn.disabled = true;
-            btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Đang gửi...';
+            btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Hourglass Empty" role="img">hourglass_empty</span> Đang gửi...';
 
             try {
                 // Create mission via Supabase Edge Function
@@ -694,7 +694,7 @@
                 setTimeout(() => updateMissionStatus(mockMission.id, 'done'), 12000);
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<span class="material-symbols-outlined">send</span> Gửi nhiệm vụ';
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Send" role="img">send</span> Gửi nhiệm vụ';
             }
         }
 
@@ -725,15 +725,15 @@
                         <div class="mission-goal">${escapeHtml(m.goal)}</div>
                         <div class="mission-meta">
                             <span>
-                                <span class="material-symbols-outlined">toll</span>
+                                <span class="material-symbols-outlined" aria-label="Toll" role="img">toll</span>
                                 ${m.credits_cost} credits
                             </span>
                             <span>
-                                <span class="material-symbols-outlined">schedule</span>
+                                <span class="material-symbols-outlined" aria-label="Lịch trình" role="img">schedule</span>
                                 ${timeAgo(m.created_at)}
                             </span>
                             <span>
-                                <span class="material-symbols-outlined">speed</span>
+                                <span class="material-symbols-outlined" aria-label="Speed" role="img">speed</span>
                                 ${m.complexity}
                             </span>
                         </div>

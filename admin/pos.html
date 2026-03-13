@@ -804,11 +804,11 @@
                 </div>
                 <div class="flex">
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm món..." id="searchInput" aria-label="Search menu">
                     </div>
-                    <button type="button" class="btn-cyber" title="Order History" onclick="showOrderHistory()">
-                        <span class="material-symbols-outlined">receipt_long</span>
+                    <button type="button" class="btn-cyber" title="Order History" onclick="showOrderHistory()" aria-label="Receipt Long"
+                        <span class="material-symbols-outlined" aria-label="Receipt Long" role="img">receipt_long</span>
                     </button>
                 </div>
             </div>
@@ -861,7 +861,7 @@
                 <div class="cart-panel">
                     <div class="cart-header">
                         <div class="cart-title">
-                            <span class="material-symbols-outlined">shopping_cart</span>
+                            <span class="material-symbols-outlined" aria-label="Giỏ hàng" role="img">shopping_cart</span>
                             Đơn hàng
                             <span class="cart-count" id="cartCount">0</span>
                         </div>
@@ -870,7 +870,7 @@
 
                     <div class="cart-items" id="cartItems">
                         <div class="cart-empty">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                            <span class="material-symbols-outlined" aria-label="Add Shopping Cart" role="img">add_shopping_cart</span>
                             <p>Chọn món để bắt đầu</p>
                         </div>
                     </div>
@@ -891,25 +891,25 @@
 
                         <div class="payment-methods">
                             <button type="button" class="payment-btn active" data-method="cash" onclick="selectPayment('cash')">
-                                <span class="material-symbols-outlined">payments</span>
+                                <span class="material-symbols-outlined" aria-label="Payments" role="img">payments</span>
                                 Tiền mặt
                             </button>
                             <button type="button" class="payment-btn" data-method="transfer" onclick="selectPayment('transfer')">
-                                <span class="material-symbols-outlined">account_balance</span>
+                                <span class="material-symbols-outlined" aria-label="Số dư" role="img">account_balance</span>
                                 Chuyển khoản
                             </button>
                             <button type="button" class="payment-btn" data-method="momo" onclick="selectPayment('momo')">
-                                <span class="material-symbols-outlined">phone_android</span>
+                                <span class="material-symbols-outlined" aria-label="Phone Android" role="img">phone_android</span>
                                 MoMo
                             </button>
                             <button type="button" class="payment-btn" data-method="vnpay" onclick="selectPayment('vnpay')">
-                                <span class="material-symbols-outlined">credit_card</span>
+                                <span class="material-symbols-outlined" aria-label="Thẻ thanh toán" role="img">credit_card</span>
                                 VNPay
                             </button>
                         </div>
 
                         <button type="button" class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
-                            <span class="material-symbols-outlined">point_of_sale</span>
+                            <span class="material-symbols-outlined" aria-label="Point Of Sale" role="img">point_of_sale</span>
                             THANH TOÁN
                         </button>
                     </div>
@@ -998,7 +998,7 @@
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="cart-empty">
-                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        <span class="material-symbols-outlined" aria-label="Add Shopping Cart" role="img">add_shopping_cart</span>
                         <p>Chọn món để bắt đầu</p>
                     </div>`;
                 countEl.textContent = '0';

@@ -471,7 +471,7 @@
                 </div>
                 <div class="flex-between gap-12">
                     <a href="credits.html" class="btn btn-tonal">
-                        <span class="material-symbols-outlined">toll</span>
+                        <span class="material-symbols-outlined" aria-label="Toll" role="img">toll</span>
                         <span id="credit-display">-- credits</span>
                     </a>
                 </div>
@@ -486,7 +486,7 @@
             <!-- Input Form -->
             <div class="ocop-form">
                 <div class="section-title" style="margin-bottom: 16px;">
-                    <span class="material-symbols-outlined" style="vertical-align:middle;margin-right:8px;">inventory_2</span>
+                    <span class="material-symbols-outlined" style="vertical-align:middle;margin-right:8px;" aria-label="Inventory 2" role="img">inventory_2</span>
                     Thông tin sản phẩm
                 </div>
                 <div class="form-grid">
@@ -527,7 +527,7 @@
                 </div>
 
                 <button type="button" class="generate-btn" id="generate-btn" onclick="generateExport()">
-                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span class="material-symbols-outlined" aria-label="Auto Awesome" role="img">auto_awesome</span>
                     Tạo Export Package — 3 credits
                 </button>
             </div>
@@ -542,19 +542,19 @@
 
                 <div class="output-panel active" id="panel-alibaba">
                     <button type="button" class="copy-btn" onclick="copyPanel('alibaba')">
-                        <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
+                        <span class="material-symbols-outlined" style="font-size:14px" aria-label="Sao chép" role="img">content_copy</span> Copy
                     </button>
                     <div id="content-alibaba"></div>
                 </div>
                 <div class="output-panel" id="panel-email">
                     <button type="button" class="copy-btn" onclick="copyPanel('email')">
-                        <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
+                        <span class="material-symbols-outlined" style="font-size:14px" aria-label="Sao chép" role="img">content_copy</span> Copy
                     </button>
                     <div id="content-email"></div>
                 </div>
                 <div class="output-panel" id="panel-compliance">
                     <button type="button" class="copy-btn" onclick="copyPanel('compliance')">
-                        <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
+                        <span class="material-symbols-outlined" style="font-size:14px" aria-label="Sao chép" role="img">content_copy</span> Copy
                     </button>
                     <div id="content-compliance"></div>
                 </div>
@@ -674,8 +674,8 @@
             const text = document.getElementById('content-' + panel).innerText;
             navigator.clipboard.writeText(text).then(() => {
                 const btn = event.target.closest('.copy-btn');
-                btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px">check</span> Copied!';
-                setTimeout(() => { btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy'; }, 2000);
+                btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px" aria-label="Xác nhận" role="img">check</span> Copied!';
+                setTimeout(() => { btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px" aria-label="Sao chép" role="img">content_copy</span> Copy'; }, 2000);
             });
         }
 

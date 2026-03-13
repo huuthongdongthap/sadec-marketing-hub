@@ -311,16 +311,16 @@
             <div class="animate-entry delay-2">
                 <div class="tabs">
                     <button type="button" class="tab active" onclick="switchTab('events')">
-                        <span class="material-symbols-outlined">event</span> Events
+                        <span class="material-symbols-outlined" aria-label="Sự kiện" role="img">event</span> Events
                     </button>
                     <button type="button" class="tab" onclick="switchTab('registrations')">
-                        <span class="material-symbols-outlined">people</span> Registrations
+                        <span class="material-symbols-outlined" aria-label="Khách hàng" role="img">people</span> Registrations
                     </button>
                     <button type="button" class="tab" onclick="switchTab('emails')">
-                        <span class="material-symbols-outlined">mail</span> Emails
+                        <span class="material-symbols-outlined" aria-label="Email" role="img">mail</span> Emails
                     </button>
                     <button type="button" class="tab" onclick="switchTab('create')">
-                        <span class="material-symbols-outlined">add</span> Create
+                        <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span> Create
                     </button>
                 </div>
 
@@ -328,23 +328,23 @@
                 <div class="tab-content active" id="tab-events">
                     <div class="metrics-grid">
                         <div class="metric-card">
-                            <div class="metric-icon events"><span class="material-symbols-outlined">event</span></div>
+                            <div class="metric-icon events"><span class="material-symbols-outlined" aria-label="Sự kiện" role="img">event</span></div>
                             <div class="metric-value" id="metricEvents">0</div>
                             <div class="metric-label">Total Events</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon live"><span class="material-symbols-outlined">stream</span></div>
+                            <div class="metric-icon live"><span class="material-symbols-outlined" aria-label="Stream" role="img">stream</span></div>
                             <div class="metric-value" id="metricLive">0</div>
                             <div class="metric-label">Live Now</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon registrations"><span class="material-symbols-outlined">person_add</span>
+                            <div class="metric-icon registrations"><span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
                             </div>
                             <div class="metric-value" id="metricRegistrations">0</div>
                             <div class="metric-label">Registrations</div>
                         </div>
                         <div class="metric-card">
-                            <div class="metric-icon rate"><span class="material-symbols-outlined">trending_up</span>
+                            <div class="metric-icon rate"><span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                             </div>
                             <div class="metric-value" id="metricRate">0%</div>
                             <div class="metric-label">Attendance Rate</div>
@@ -409,7 +409,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="create-btn">
-                                <span class="material-symbols-outlined">add</span>
+                                <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                                 Create Event
                             </button>
                         </form>
@@ -435,7 +435,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="create-btn" style="background: #10b981;">
-                                <span class="material-symbols-outlined">person_add</span>
+                                <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
                                 Register
                             </button>
                         </form>
@@ -472,14 +472,14 @@
                 return `
           <div class="event-card">
             <div class="event-thumbnail">
-              <span class="material-symbols-outlined">${type.icon}</span>
+              <span class="material-symbols-outlined" aria-label="${Type.Icon}" role="img">${type.icon}</span>
               <span class="event-badge ${e.status}">${e.status}</span>
             </div>
             <div class="event-body">
               <div class="event-type">${type.name}</div>
               <div class="event-title">${e.title}</div>
               <div class="event-datetime">
-                <span class="material-symbols-outlined" style="font-size:18px">calendar_today</span>
+                <span class="material-symbols-outlined" style="font-size:18px" aria-label="Lịch" role="img">calendar_today</span>
                 ${formatEventDate(e.date, e.time)}
               </div>
               <div class="event-stats">
@@ -489,19 +489,19 @@
               <div class="event-actions">
                 ${e.status === 'scheduled' ? `
                   <button type="button" class="event-btn live" onclick="startEvent('${e.id}')">
-                    <span class="material-symbols-outlined">stream</span> Go Live
+                    <span class="material-symbols-outlined" aria-label="Stream" role="img">stream</span> Go Live
                   </button>
                 ` : e.status === 'live' ? `
                   <button type="button" class="event-btn secondary" onclick="endEvent('${e.id}')">
-                    <span class="material-symbols-outlined">stop</span> End
+                    <span class="material-symbols-outlined" aria-label="Dừng" role="img">stop</span> End
                   </button>
                 ` : e.status === 'draft' ? `
                   <button type="button" class="event-btn primary" onclick="publishEvent('${e.id}')">
-                    <span class="material-symbols-outlined">publish</span> Publish
+                    <span class="material-symbols-outlined" aria-label="Publish" role="img">publish</span> Publish
                   </button>
                 ` : ''}
-                <button type="button" class="event-btn secondary" onclick="viewRegistrations('${e.id}')">
-                  <span class="material-symbols-outlined">people</span>
+                <button type="button" class="event-btn secondary" onclick="viewRegistrations('${e.id}')" aria-label="Khách hàng"
+                  <span class="material-symbols-outlined" aria-label="Khách hàng" role="img">people</span>
                 </button>
               </div>
             </div>

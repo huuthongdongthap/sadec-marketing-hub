@@ -8,7 +8,6 @@ import './kpi-card.html';
 import './revenue-chart.js';
 import './activity-feed.js';
 import './project-progress.js';
-import './bar-chart.js';
 import './alerts-widget.js';
 import './pie-chart-widget.js';
 import './line-chart-widget.js';

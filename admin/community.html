@@ -300,7 +300,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/index.html" class="nav-logo">
-                <span class="material-symbols-outlined">water_drop</span>
+                <span class="material-symbols-outlined" aria-label="Water Drop" role="img">water_drop</span>
                 Mekong Agency
             </a>
             <div class="nav-actions">
@@ -321,16 +321,16 @@
     <div class="container dashboard-content">
         <div class="tabs">
             <button type="button" class="tab active" onclick="switchTab('overview')">
-                <span class="material-symbols-outlined">dashboard</span> Overview
+                <span class="material-symbols-outlined" aria-label="Bảng điều khiển" role="img">dashboard</span> Overview
             </button>
             <button type="button" class="tab" onclick="switchTab('members')">
-                <span class="material-symbols-outlined">people</span> Members
+                <span class="material-symbols-outlined" aria-label="Khách hàng" role="img">people</span> Members
             </button>
             <button type="button" class="tab" onclick="switchTab('channels')">
-                <span class="material-symbols-outlined">forum</span> Channels
+                <span class="material-symbols-outlined" aria-label="Forum" role="img">forum</span> Channels
             </button>
             <button type="button" class="tab" onclick="switchTab('gamification')">
-                <span class="material-symbols-outlined">emoji_events</span> Gamification
+                <span class="material-symbols-outlined" aria-label="Emoji Events" role="img">emoji_events</span> Gamification
             </button>
         </div>
 
@@ -338,22 +338,22 @@
         <div class="tab-content active" id="tab-overview">
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-icon members"><span class="material-symbols-outlined">groups</span></div>
+                    <div class="metric-icon members"><span class="material-symbols-outlined" aria-label="Groups" role="img">groups</span></div>
                     <div class="metric-value" id="metricMembers">0</div>
                     <div class="metric-label">Total Members</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-icon active"><span class="material-symbols-outlined">trending_up</span></div>
+                    <div class="metric-icon active"><span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span></div>
                     <div class="metric-value" id="metricActive">0%</div>
                     <div class="metric-label">Monthly Active</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-icon posts"><span class="material-symbols-outlined">forum</span></div>
+                    <div class="metric-icon posts"><span class="material-symbols-outlined" aria-label="Forum" role="img">forum</span></div>
                     <div class="metric-value" id="metricPosts">0</div>
                     <div class="metric-label">Total Posts</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-icon points"><span class="material-symbols-outlined">stars</span></div>
+                    <div class="metric-icon points"><span class="material-symbols-outlined" aria-label="Stars" role="img">stars</span></div>
                     <div class="metric-value" id="metricPoints">0</div>
                     <div class="metric-label">Total Points</div>
                 </div>
@@ -379,7 +379,7 @@
                         </div>
                     </div>
                     <button type="submit" class="action-btn">
-                        <span class="material-symbols-outlined">person_add</span> Add Member
+                        <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span> Add Member
                     </button>
                 </form>
             </div>
@@ -416,7 +416,7 @@
                         </div>
                     </div>
                     <button type="submit" class="action-btn">
-                        <span class="material-symbols-outlined">add</span> Award Points
+                        <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span> Award Points
                     </button>
                 </form>
             </div>
@@ -478,7 +478,7 @@
             const metrics = communityManager.getMetrics();
             document.getElementById('tiersGrid').innerHTML = Object.values(MemberTiers).map(t => `
         <div class="tier-card" style="border-color:${t.color}">
-          <div class="tier-icon"><span class="material-symbols-outlined" style="font-size:48px;color:${t.color}">${t.icon}</span></div>
+          <div class="tier-icon"><span class="material-symbols-outlined" style="font-size:48px;color:${t.color}" aria-label="${T.Icon}" role="img">${t.icon}</span></div>
           <div class="tier-name" style="color:${t.color}">${t.name}</div>
           <div class="tier-requirement">${t.pointsRequired}+ points</div>
           <div class="tier-count">${metrics.tierDistribution[t.id] || 0}</div>
@@ -489,7 +489,7 @@
         function renderChannels() {
             document.getElementById('channelList').innerHTML = Object.values(Channels).map(c => `
         <div class="channel-card">
-          <div class="channel-icon"><span class="material-symbols-outlined">${c.icon}</span></div>
+          <div class="channel-icon"><span class="material-symbols-outlined" aria-label="${C.Icon}" role="img">${c.icon}</span></div>
           <div>
             <div class="channel-name">${c.name}</div>
             <div class="channel-type">${c.type}</div>

@@ -301,7 +301,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/index.html" class="nav-logo">
-                <span class="material-symbols-outlined">water_drop</span>
+                <span class="material-symbols-outlined" aria-label="Water Drop" role="img">water_drop</span>
                 Mekong Agency
             </a>
             <div class="nav-actions">
@@ -326,7 +326,7 @@
             <div class="flow-diagram" id="flowDiagram">
                 <div class="flow-node">
                     <div class="flow-node-icon user" id="flowUser">
-                        <span class="material-symbols-outlined">person</span>
+                        <span class="material-symbols-outlined" aria-label="Person" role="img">person</span>
                     </div>
                     <span class="flow-node-label">User</span>
                 </div>
@@ -335,7 +335,7 @@
 
                 <div class="flow-node">
                     <div class="flow-node-icon supervisor" id="flowSupervisor">
-                        <span class="material-symbols-outlined">hub</span>
+                        <span class="material-symbols-outlined" aria-label="Hub" role="img">hub</span>
                     </div>
                     <span class="flow-node-label">Supervisor</span>
                 </div>
@@ -344,7 +344,7 @@
 
                 <div class="flow-node">
                     <div class="flow-node-icon agent" id="flowAgent">
-                        <span class="material-symbols-outlined">smart_toy</span>
+                        <span class="material-symbols-outlined" aria-label="Smart Toy" role="img">smart_toy</span>
                     </div>
                     <span class="flow-node-label" id="flowAgentLabel">Agent</span>
                 </div>
@@ -353,7 +353,7 @@
 
                 <div class="flow-node">
                     <div class="flow-node-icon user" id="flowResult">
-                        <span class="material-symbols-outlined">task_alt</span>
+                        <span class="material-symbols-outlined" aria-label="Task Alt" role="img">task_alt</span>
                     </div>
                     <span class="flow-node-label">Result</span>
                 </div>
@@ -363,14 +363,14 @@
         <!-- Task Input -->
         <section class="task-input-section">
             <div class="task-input-header">
-                <span class="material-symbols-outlined" style="color: var(--md-sys-color-primary);">send</span>
+                <span class="material-symbols-outlined" style="color: var(--md-sys-color-primary);" aria-label="Send" role="img">send</span>
                 <h2>Gửi tác vụ mới</h2>
             </div>
 
             <form class="task-form" id="taskForm">
                 <input type="text" class="task-input" id="taskInput" placeholder="Nhập mô tả tác vụ... (VD: Nghiên cứu đối thủ, Viết bài blog, Lên kịch bản video)" autocomplete="off" aria-label="Nhập mô tả tác vụ... (VD: Nghiên cứu đối thủ, Viết bài blog, Lên kịch bản video)">
                 <button type="submit" class="submit-btn" id="submitBtn">
-                    <span class="material-symbols-outlined">rocket_launch</span>
+                    <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
                     Gửi tác vụ
                 </button>
             </form>
@@ -397,18 +397,18 @@
         <section class="activity-section">
             <div class="activity-header">
                 <h2>
-                    <span class="material-symbols-outlined">history</span>
+                    <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                     Activity Log
                 </h2>
                 <button type="button" class="clear-btn" onclick="clearLogs()">
-                    <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                    <span class="material-symbols-outlined" style="font-size: 16px;" aria-label="Xóa" role="img">delete</span>
                     Xóa log
                 </button>
             </div>
 
             <div class="activity-log" id="activityLog">
                 <div class="empty-log" id="emptyLog">
-                    <span class="material-symbols-outlined">inbox</span>
+                    <span class="material-symbols-outlined" aria-label="Inbox" role="img">inbox</span>
                     <p>Chưa có hoạt động nào. Gửi tác vụ để bắt đầu!</p>
                 </div>
             </div>
@@ -443,7 +443,7 @@
         <div class="agent-card ${agent.name.toLowerCase()}" id="card-${agent.name.toLowerCase()}">
           <div class="agent-header">
             <div class="agent-icon">
-              <span class="material-symbols-outlined">${getAgentIcon(agent.name)}</span>
+              <span class="material-symbols-outlined" aria-label="${Getagenticon(Agent.Name)}" role="img">${getAgentIcon(agent.name)}</span>
             </div>
             <div class="agent-info">
               <h3>${agent.name}</h3>
@@ -499,7 +499,7 @@
 
             logEntry.innerHTML = `
         <div class="log-icon ${iconClass}">
-          <span class="material-symbols-outlined">${icon}</span>
+          <span class="material-symbols-outlined" aria-label="${Icon}" role="img">${icon}</span>
         </div>
         <div class="log-content">
           <div class="log-message">${entry.message}</div>
@@ -535,7 +535,7 @@
         function clearLogs() {
             activityLog.innerHTML = `
         <div class="empty-log" id="emptyLog">
-          <span class="material-symbols-outlined">inbox</span>
+          <span class="material-symbols-outlined" aria-label="Inbox" role="img">inbox</span>
           <p>Chưa có hoạt động nào. Gửi tác vụ để bắt đầu!</p>
         </div>
       `;

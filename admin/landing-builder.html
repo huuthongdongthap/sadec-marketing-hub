@@ -299,8 +299,8 @@
     <!-- Header -->
     <header class="builder-header">
         <div style="display: flex; align-items: center; gap: 16px;">
-            <a href="dashboard.html" class="btn-icon">
-                <span class="material-symbols-outlined">arrow_back</span>
+            <a href="dashboard.html" class="btn-icon" aria-label="Quay lại"
+                <span class="material-symbols-outlined" aria-label="Quay lại" role="img">arrow_back</span>
             </a>
             <div contenteditable="true" style="font-weight: 700; font-size: 18px; padding: 4px 8px; border: 1px dashed transparent; border-radius: 4px;">
                 Untitled Landing Page
@@ -308,14 +308,14 @@
         </div>
 
         <div class="device-toggles">
-            <button type="button" class="device-btn active" onclick="setDevice('desktop')">
-                <span class="material-symbols-outlined">desktop_windows</span>
+            <button type="button" class="device-btn active" onclick="setDevice('desktop')" aria-label="Desktop Windows"
+                <span class="material-symbols-outlined" aria-label="Desktop Windows" role="img">desktop_windows</span>
             </button>
-            <button type="button" class="device-btn" onclick="setDevice('tablet')">
-                <span class="material-symbols-outlined">tablet_mac</span>
+            <button type="button" class="device-btn" onclick="setDevice('tablet')" aria-label="Tablet Mac"
+                <span class="material-symbols-outlined" aria-label="Tablet Mac" role="img">tablet_mac</span>
             </button>
-            <button type="button" class="device-btn" onclick="setDevice('mobile')">
-                <span class="material-symbols-outlined">smartphone</span>
+            <button type="button" class="device-btn" onclick="setDevice('mobile')" aria-label="Smartphone"
+                <span class="material-symbols-outlined" aria-label="Smartphone" role="img">smartphone</span>
             </button>
         </div>
 
@@ -332,15 +332,15 @@
                 <div class="block-category-title">Basic</div>
                 <div class="block-grid">
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="hero">
-                        <span class="material-symbols-outlined block-icon">web_asset</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Web Asset" role="img">web_asset</span>
                         <span class="block-name">Hero Section</span>
                     </div>
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="features">
-                        <span class="material-symbols-outlined block-icon">grid_view</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Xem dạng lưới" role="img">grid_view</span>
                         <span class="block-name">Features</span>
                     </div>
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="content">
-                        <span class="material-symbols-outlined block-icon">article</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Article" role="img">article</span>
                         <span class="block-name">Content</span>
                     </div>
                 </div>
@@ -350,15 +350,15 @@
                 <div class="block-category-title">Conversion</div>
                 <div class="block-grid">
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="form">
-                        <span class="material-symbols-outlined block-icon">contact_page</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Contact Page" role="img">contact_page</span>
                         <span class="block-name">Lead Form</span>
                     </div>
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="cta">
-                        <span class="material-symbols-outlined block-icon">call_to_action</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Call To Action" role="img">call_to_action</span>
                         <span class="block-name">Call to Action</span>
                     </div>
                     <div class="block-item" draggable="true" ondragstart="drag(event)" data-type="testimonials">
-                        <span class="material-symbols-outlined block-icon">format_quote</span>
+                        <span class="material-symbols-outlined block-icon" aria-label="Format Quote" role="img">format_quote</span>
                         <span class="block-name">Testimonials</span>
                     </div>
                 </div>
@@ -456,9 +456,9 @@
         function getBlockTemplate(type) {
             const actions = `
                 <div class="block-actions">
-                    <button type="button" class="btn-icon small"><span class="material-symbols-outlined">arrow_upward</span></button>
-                    <button type="button" class="btn-icon small"><span class="material-symbols-outlined">arrow_downward</span></button>
-                    <button type="button" class="btn-icon small" onclick="this.closest('.canvas-block').remove()"><span class="material-symbols-outlined">delete</span></button>
+                    <button type="button" class="btn-icon small" aria-label="Lên trên"<span class="material-symbols-outlined" aria-label="Lên trên" role="img">arrow_upward</span></button>
+                    <button type="button" class="btn-icon small" aria-label="Xuống dưới"<span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span></button>
+                    <button type="button" class="btn-icon small" onclick="this.closest('.canvas-block').remove()" aria-label="Xóa"<span class="material-symbols-outlined" aria-label="Xóa" role="img">delete</span></button>
                 </div>
             `;
 

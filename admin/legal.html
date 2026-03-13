@@ -349,7 +349,7 @@
             document.getElementById('mPending').textContent = m.pending;
             document.getElementById('mExpiring').textContent = m.expiringSoon;
             document.getElementById('mValue').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', notation: 'compact' }).format(m.totalValue);
-            document.getElementById('contractList').innerHTML = legalManager.getAllContracts().map(c => { const type = ContractTypes[c.type]; return `<div class="contract-item"><div class="contract-icon"><span class="material-symbols-outlined">description</span></div><div class="contract-info"><div class="contract-title">${c.title}</div><div class="contract-meta">${type?.name || c.type} • ${c.party}</div></div><div class="contract-value">${c.value > 0 ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.value) : '-'}</div><span class="contract-status status-${c.status}">${ContractStatus[c.status]?.name || c.status}</span></div>` }).join('');
+            document.getElementById('contractList').innerHTML = legalManager.getAllContracts().map(c => { const type = ContractTypes[c.type]; return `<div class="contract-item"><div class="contract-icon"><span class="material-symbols-outlined" aria-label="Description" role="img">description</span></div><div class="contract-info"><div class="contract-title">${c.title}</div><div class="contract-meta">${type?.name || c.type} • ${c.party}</div></div><div class="contract-value">${c.value > 0 ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.value) : '-'}</div><span class="contract-status status-${c.status}">${ContractStatus[c.status]?.name || c.status}</span></div>` }).join('');
         }
         render();
     </script>

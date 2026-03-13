@@ -822,11 +822,11 @@
             </div>
             <div class="report-actions">
                 <button type="button" class="btn btn-secondary" onclick="window.print()">
-                    <span class="material-symbols-outlined">print</span>
+                    <span class="material-symbols-outlined" aria-label="In" role="img">print</span>
                     Print
                 </button>
                 <button type="button" class="btn btn-primary" onclick="exportPDF()">
-                    <span class="material-symbols-outlined">download</span>
+                    <span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span>
                     Export PDF
                 </button>
             </div>
@@ -838,7 +838,7 @@
             <!-- ROI Summary -->
             <section class="report-section">
                 <h2 class="section-title">
-                    <span class="material-symbols-outlined">analytics</span>
+                    <span class="material-symbols-outlined" aria-label="Phân tích" role="img">analytics</span>
                     Tổng Quan ROI
                 </h2>
                 <div class="roi-summary">
@@ -847,7 +847,7 @@
                         <div class="roi-card-value" id="total-revenue">₫0</div>
                         <div class="roi-card-label">Tổng Doanh Thu</div>
                         <div class="roi-card-trend trend-up">
-                            <span class="material-symbols-outlined">trending_up</span>
+                            <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                             <span>+32% vs tháng trước</span>
                         </div>
                     </div>
@@ -856,7 +856,7 @@
                         <div class="roi-card-value" id="roi-percentage">0%</div>
                         <div class="roi-card-label">ROI (%)</div>
                         <div class="roi-card-trend trend-up">
-                            <span class="material-symbols-outlined">trending_up</span>
+                            <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                             <span>+8.5% vs tháng trước</span>
                         </div>
                     </div>
@@ -865,7 +865,7 @@
                         <div class="roi-card-value" id="deals-closed">0</div>
                         <div class="roi-card-label">Đơn Hàng XK</div>
                         <div class="roi-card-trend trend-up">
-                            <span class="material-symbols-outlined">trending_up</span>
+                            <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                             <span>+12 deals</span>
                         </div>
                     </div>
@@ -883,7 +883,7 @@
             <!-- Charts -->
             <section class="report-section">
                 <h2 class="section-title">
-                    <span class="material-symbols-outlined">bar_chart</span>
+                    <span class="material-symbols-outlined" aria-label="Bar Chart" role="img">bar_chart</span>
                     Biểu Đồ Hiệu Suất
                 </h2>
                 <div class="charts-grid">
@@ -925,7 +925,7 @@
             <!-- Phase Status -->
             <section class="report-section">
                 <h2 class="section-title">
-                    <span class="material-symbols-outlined">track_changes</span>
+                    <span class="material-symbols-outlined" aria-label="Track Changes" role="img">track_changes</span>
                     Tiến Độ Triển Khai
                 </h2>
                 <table class="table-responsive" class="phase-table">
@@ -947,14 +947,14 @@
             <!-- Recommendations -->
             <section class="report-section">
                 <h2 class="section-title">
-                    <span class="material-symbols-outlined">lightbulb</span>
+                    <span class="material-symbols-outlined" aria-label="Lightbulb" role="img">lightbulb</span>
                     Đề Xuất Tối Ưu
                 </h2>
                 <div class="recommendations-list" id="recommendations-list">
                     <!-- Populated by JS -->
                     <div class="recommendation-item">
                         <div class="recommendation-icon high">
-                            <span class="material-symbols-outlined">priority_high</span>
+                            <span class="material-symbols-outlined" aria-label="Priority High" role="img">priority_high</span>
                         </div>
                         <div class="recommendation-content">
                             <div class="recommendation-title">Tăng ngân sách Export Agent</div>
@@ -969,7 +969,7 @@
                     </div>
                     <div class="recommendation-item">
                         <div class="recommendation-icon medium">
-                            <span class="material-symbols-outlined">auto_awesome</span>
+                            <span class="material-symbols-outlined" aria-label="Auto Awesome" role="img">auto_awesome</span>
                         </div>
                         <div class="recommendation-content">
                             <div class="recommendation-title">Kích hoạt AI Matchmaking sớm</div>
@@ -984,7 +984,7 @@
                     </div>
                     <div class="recommendation-item">
                         <div class="recommendation-icon low">
-                            <span class="material-symbols-outlined">trending_up</span>
+                            <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                         </div>
                         <div class="recommendation-content">
                             <div class="recommendation-title">Mở rộng sang thị trường EU</div>
@@ -1257,7 +1257,7 @@
                 // Add loading state
                 const btn = document.querySelector('.btn-primary');
                 const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> Generating...';
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Hourglass Empty" role="img">hourglass_empty</span> Generating...';
                 btn.disabled = true;
 
                 html2pdf().set(opt).from(element).save().then(() => {

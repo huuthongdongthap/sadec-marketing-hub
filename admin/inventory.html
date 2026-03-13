@@ -786,14 +786,14 @@
             <div class="header-section animate-entry delay-1">
                 <div class="inventory-header-section">
                     <div class="inventory-title">
-                        <span class="material-symbols-outlined" style="font-size: 32px; color: #00e5ff;">inventory_2</span>
+                        <span class="material-symbols-outlined" style="font-size: 32px; color: #00e5ff;" aria-label="Inventory 2" role="img">inventory_2</span>
                         <div>
                             <h1 class="dashboard-title">📦 Quản Lý Tồn Kho</h1>
                             <p class="text-secondary">Theo dõi nguyên liệu, vật tư và cảnh báo hết hàng</p>
                         </div>
                     </div>
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm nguyên liệu..." id="searchInput" aria-label="Search inventory">
                     </div>
                 </div>
@@ -840,7 +840,7 @@
                     </button>
                 </div>
                 <button type="button" class="add-inventory-btn" onclick="openModal()">
-                    <span class="material-symbols-outlined">add</span>
+                    <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                     Thêm mới
                 </button>
             </div>
@@ -865,7 +865,7 @@
                     </tbody>
                 </table>
                 <div class="inventory-empty" id="emptyState" style="display: none;">
-                    <span class="material-symbols-outlined">inventory_2</span>
+                    <span class="material-symbols-outlined" aria-label="Inventory 2" role="img">inventory_2</span>
                     <h3>Chưa có nguyên liệu nào</h3>
                     <p>Nhấn "Thêm mới" để thêm nguyên liệu đầu tiên</p>
                 </div>
@@ -878,11 +878,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">
-                    <span class="material-symbols-outlined">inventory</span>
+                    <span class="material-symbols-outlined" aria-label="Inventory" role="img">inventory</span>
                     <span id="modalTitle">Thêm Nguyên Liệu</span>
                 </div>
-                <button type="button" class="modal-close" onclick="closeModal()">
-                    <span class="material-symbols-outlined">close</span>
+                <button type="button" class="modal-close" onclick="closeModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
                 </button>
             </div>
             <form id="inventoryForm" onsubmit="return handleFormSubmit(event)">
@@ -1067,14 +1067,14 @@
                         <td>
                             <div style="display: flex; gap: 6px;">
                                 <button type="button" class="restock-btn" onclick="openRestockModal('${item.id}')" ${item.quantity > 0 && item.quantity > item.threshold ? 'disabled' : ''}>
-                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    <span class="material-symbols-outlined" aria-label="Add Shopping Cart" role="img">add_shopping_cart</span>
                                     Nhập
                                 </button>
-                                <button type="button" class="action-btn" onclick="editItem('${item.id}')" title="Sửa">
-                                    <span class="material-symbols-outlined">edit</span>
+                                <button type="button" class="action-btn" onclick="editItem('${item.id}')" title="Sửa" aria-label="Chỉnh sửa"
+                                    <span class="material-symbols-outlined" aria-label="Chỉnh sửa" role="img">edit</span>
                                 </button>
-                                <button type="button" class="action-btn delete" onclick="deleteItem('${item.id}')" title="Xóa">
-                                    <span class="material-symbols-outlined">delete</span>
+                                <button type="button" class="action-btn delete" onclick="deleteItem('${item.id}')" title="Xóa" aria-label="Xóa"
+                                    <span class="material-symbols-outlined" aria-label="Xóa" role="img">delete</span>
                                 </button>
                             </div>
                         </td>

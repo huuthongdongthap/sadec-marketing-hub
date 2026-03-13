@@ -926,7 +926,7 @@
                 </div>
                 <div class="flex">
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm nhân viên..." id="searchStaff" aria-label="Search staff">
                     </div>
                 </div>
@@ -958,18 +958,18 @@
                 <div class="calendar-wrapper">
                     <div class="calendar-header">
                         <div class="calendar-title">
-                            <span class="material-symbols-outlined">calendar_month</span>
+                            <span class="material-symbols-outlined" aria-label="Calendar Month" role="img">calendar_month</span>
                             <span id="currentWeekLabel">Tuần này</span>
                         </div>
                         <div class="calendar-nav">
-                            <button type="button" class="calendar-nav-btn" onclick="prevWeek()" title="Tuần trước">
-                                <span class="material-symbols-outlined">chevron_left</span>
+                            <button type="button" class="calendar-nav-btn" onclick="prevWeek()" title="Tuần trước" aria-label="Trái"
+                                <span class="material-symbols-outlined" aria-label="Trái" role="img">chevron_left</span>
                             </button>
-                            <button type="button" class="calendar-nav-btn" onclick="goToToday()" title="Về tuần hiện tại">
-                                <span class="material-symbols-outlined">today</span>
+                            <button type="button" class="calendar-nav-btn" onclick="goToToday()" title="Về tuần hiện tại" aria-label="Today"
+                                <span class="material-symbols-outlined" aria-label="Today" role="img">today</span>
                             </button>
-                            <button type="button" class="calendar-nav-btn" onclick="nextWeek()" title="Tuần sau">
-                                <span class="material-symbols-outlined">chevron_right</span>
+                            <button type="button" class="calendar-nav-btn" onclick="nextWeek()" title="Tuần sau" aria-label="Phải"
+                                <span class="material-symbols-outlined" aria-label="Phải" role="img">chevron_right</span>
                             </button>
                         </div>
                     </div>
@@ -982,11 +982,11 @@
                 <div class="staff-panel">
                     <div class="staff-header">
                         <div class="staff-title">
-                            <span class="material-symbols-outlined">groups</span>
+                            <span class="material-symbols-outlined" aria-label="Groups" role="img">groups</span>
                             Nhân viên
                         </div>
-                        <button type="button" class="add-staff-btn" onclick="openAddStaffModal()" title="Thêm nhân viên">
-                            <span class="material-symbols-outlined">add</span>
+                        <button type="button" class="add-staff-btn" onclick="openAddStaffModal()" title="Thêm nhân viên" aria-label="Thêm mới"
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                         </button>
                     </div>
                     <div class="staff-list" id="staffList">
@@ -1002,8 +1002,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="staffModalTitle">Thêm nhân viên</h2>
-                <button type="button" class="modal-close" onclick="closeStaffModal()">
-                    <span class="material-symbols-outlined">close</span>
+                <button type="button" class="modal-close" onclick="closeStaffModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
                 </button>
             </div>
             <form id="staffForm" onsubmit="saveStaff(event)">
@@ -1042,8 +1042,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">Phân ca</h2>
-                <button type="button" class="modal-close" onclick="closeAssignModal()">
-                    <span class="material-symbols-outlined">close</span>
+                <button type="button" class="modal-close" onclick="closeAssignModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
                 </button>
             </div>
             <div id="assignModalContent">
@@ -1054,7 +1054,7 @@
                     <!-- Rendered by JS -->
                 </div>
                 <button type="button" class="clear-shift-btn" onclick="clearShiftAssignment()" id="clearShiftBtn">
-                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 4px;">clear</span>
+                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 4px;" aria-label="Clear" role="img">clear</span>
                     Bỏ phân ca
                 </button>
             </div>
@@ -1158,8 +1158,8 @@
                     </div>
                     <div class="staff-status ${s.status === 'inactive' ? 'inactive' : ''}"></div>
                     <div class="staff-actions">
-                        <button type="button" class="staff-action-btn" onclick="editStaff('${s.id}')" title="Sửa">
-                            <span class="material-symbols-outlined">edit</span>
+                        <button type="button" class="staff-action-btn" onclick="editStaff('${s.id}')" title="Sửa" aria-label="Chỉnh sửa"
+                            <span class="material-symbols-outlined" aria-label="Chỉnh sửa" role="img">edit</span>
                         </button>
                     </div>
                 </div>

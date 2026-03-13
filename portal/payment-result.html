@@ -94,7 +94,7 @@
         <!-- Result State (hidden by default) -->
         <div id="result-state" style="display: none;">
             <div class="result-icon" id="result-icon">
-                <span class="material-symbols-outlined" id="result-icon-symbol">check_circle</span>
+                <span class="material-symbols-outlined" id="result-icon-symbol" aria-label="Hoàn thành" role="img">check_circle</span>
             </div>
             <h1 class="result-title" id="result-title">Thanh toán thành công!</h1>
             <p class="result-message" id="result-message">Cảm ơn bạn đã thanh toán.</p>
@@ -121,7 +121,7 @@
             <!-- Activation Form (PayOS success only) -->
             <div id="activation-section" class="activation-section" style="display: none;">
                 <h2>
-                    <span class="material-symbols-outlined">person_add</span>
+                    <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
                     Hoàn tất đăng ký
                 </h2>
                 <div class="subtitle">Nhập thông tin để nhận tài khoản Client Portal</div>
@@ -142,7 +142,7 @@
                     </select>
                 </div>
                 <button type="button" class="activate-btn" id="activate-btn" onclick="activateAccount()">
-                    <span class="material-symbols-outlined">rocket_launch</span>
+                    <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
                     Kích hoạt tài khoản
                 </button>
                 <div class="error-msg" id="activation-error"></div>
@@ -151,7 +151,7 @@
             <!-- Credentials Card (shown after activation) -->
             <div id="credentials-card" class="credentials-card" style="display: none;">
                 <h2>
-                    <span class="material-symbols-outlined">verified</span>
+                    <span class="material-symbols-outlined" aria-label="Đã xác minh" role="img">verified</span>
                     Tài khoản đã tạo!
                 </h2>
                 <div class="credential-row">
@@ -163,11 +163,11 @@
                     <span class="cred-value" id="cred-password">--</span>
                 </div>
                 <div class="cred-warning">
-                    <span class="material-symbols-outlined">warning</span>
+                    <span class="material-symbols-outlined" aria-label="Cảnh báo" role="img">warning</span>
                     Hãy đổi mật khẩu ngay khi đăng nhập lần đầu
                 </div>
                 <button type="button" class="portal-btn" onclick="window.location.href='onboarding.html'">
-                    <span class="material-symbols-outlined">login</span>
+                    <span class="material-symbols-outlined" aria-label="Đăng nhập" role="img">login</span>
                     Vào Portal ngay
                 </button>
             </div>
@@ -180,11 +180,11 @@
 
             <div class="actions" id="default-actions">
                 <md-filled-button onclick="window.location.href='dashboard.html'">
-                    <span class="material-symbols-outlined" slot="icon">home</span>
+                    <span class="material-symbols-outlined" slot="icon" aria-label="Trang chủ" role="img">home</span>
                     Về Dashboard
                 </md-filled-button>
                 <md-outlined-button onclick="window.location.href='invoices.html'">
-                    <span class="material-symbols-outlined" slot="icon">receipt_long</span>
+                    <span class="material-symbols-outlined" slot="icon" aria-label="Receipt Long" role="img">receipt_long</span>
                     Xem hóa đơn
                 </md-outlined-button>
             </div>
@@ -509,7 +509,7 @@
                 errorDiv.textContent = err.message || 'Lỗi kích hoạt. Vui lòng thử lại.';
                 errorDiv.style.display = 'block';
                 btn.disabled = false;
-                btn.innerHTML = '<span class="material-symbols-outlined">rocket_launch</span> Kích hoạt tài khoản';
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span> Kích hoạt tài khoản';
             }
         };
     </script>

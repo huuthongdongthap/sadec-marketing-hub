@@ -313,11 +313,11 @@
                 </div>
                 <div style="display: flex; gap: 12px;">
                     <button type="button" class="btn btn-secondary" id="syncBtn">
-                        <span class="material-symbols-outlined">sync</span>
+                        <span class="material-symbols-outlined" aria-label="Sync" role="img">sync</span>
                         Đồng bộ
                     </button>
                     <button type="button" class="btn btn-primary" id="generateBtn">
-                        <span class="material-symbols-outlined">auto_awesome</span>
+                        <span class="material-symbols-outlined" aria-label="Auto Awesome" role="img">auto_awesome</span>
                         Tạo Docs
                     </button>
                 </div>
@@ -348,7 +348,7 @@
                 <!-- API Documentation -->
                 <div class="doc-type-card" onclick="navigateToSection('api')">
                     <div class="doc-type-icon api">
-                        <span class="material-symbols-outlined">api</span>
+                        <span class="material-symbols-outlined" aria-label="Api" role="img">api</span>
                     </div>
                     <div class="doc-type-title">API Documentation</div>
                     <div class="doc-type-desc">REST endpoints, request/response specs, error handling</div>
@@ -362,7 +362,7 @@
                 <!-- User Guides -->
                 <div class="doc-type-card" onclick="navigateToSection('user')">
                     <div class="doc-type-icon user">
-                        <span class="material-symbols-outlined">menu_book</span>
+                        <span class="material-symbols-outlined" aria-label="Menu Book" role="img">menu_book</span>
                     </div>
                     <div class="doc-type-title">User Guides</div>
                     <div class="doc-type-desc">Hướng dẫn sử dụng, tutorials, best practices</div>
@@ -376,7 +376,7 @@
                 <!-- Developer Documentation -->
                 <div class="doc-type-card" onclick="navigateToSection('dev')">
                     <div class="doc-type-icon dev">
-                        <span class="material-symbols-outlined">code</span>
+                        <span class="material-symbols-outlined" aria-label="Code" role="img">code</span>
                     </div>
                     <div class="doc-type-title">Developer Docs</div>
                     <div class="doc-type-desc">Setup, contribution guidelines, testing</div>
@@ -390,7 +390,7 @@
                 <!-- Architecture Documentation -->
                 <div class="doc-type-card" onclick="navigateToSection('arch')">
                     <div class="doc-type-icon arch">
-                        <span class="material-symbols-outlined">architecture</span>
+                        <span class="material-symbols-outlined" aria-label="Architecture" role="img">architecture</span>
                     </div>
                     <div class="doc-type-title">Architecture</div>
                     <div class="doc-type-desc">System design, data flow, security</div>
@@ -405,34 +405,34 @@
             <!-- Workflow Steps -->
             <div class="workflow-section">
                 <div class="section-title">
-                    <span class="material-symbols-outlined">construction</span>
+                    <span class="material-symbols-outlined" aria-label="Construction" role="img">construction</span>
                     Quy trình Documentation
                 </div>
                 <div class="workflow-steps">
                     <div class="workflow-step" onclick="runCommand('init')">
                         <div class="step-icon">
-                            <span class="material-symbols-outlined">rocket_launch</span>
+                            <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
                         </div>
                         <div class="step-title">1. Khởi tạo</div>
                         <div class="step-command">/docs:init</div>
                     </div>
                     <div class="workflow-step" onclick="runCommand('generate')">
                         <div class="step-icon">
-                            <span class="material-symbols-outlined">auto_awesome</span>
+                            <span class="material-symbols-outlined" aria-label="Auto Awesome" role="img">auto_awesome</span>
                         </div>
                         <div class="step-title">2. Tạo Docs</div>
                         <div class="step-command">/docs:generate</div>
                     </div>
                     <div class="workflow-step" onclick="runCommand('update')">
                         <div class="step-icon">
-                            <span class="material-symbols-outlined">edit_document</span>
+                            <span class="material-symbols-outlined" aria-label="Edit Document" role="img">edit_document</span>
                         </div>
                         <div class="step-title">3. Cập nhật</div>
                         <div class="step-command">/docs:update</div>
                     </div>
                     <div class="workflow-step" onclick="runCommand('review')">
                         <div class="step-icon">
-                            <span class="material-symbols-outlined">checklist</span>
+                            <span class="material-symbols-outlined" aria-label="Checklist" role="img">checklist</span>
                         </div>
                         <div class="step-title">4. Review</div>
                         <div class="step-command">/docs:summarize</div>
@@ -443,13 +443,13 @@
             <!-- Recent Documents -->
             <div class="workflow-section">
                 <div class="section-title">
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" aria-label="Lịch trình" role="img">schedule</span>
                     Tài liệu gần đây
                 </div>
                 <div class="docs-list" id="docsList">
                     <div class="doc-item">
                         <div class="doc-item-icon md">
-                            <span class="material-symbols-outlined">description</span>
+                            <span class="material-symbols-outlined" aria-label="Description" role="img">description</span>
                         </div>
                         <div class="doc-item-info">
                             <div class="doc-item-name">README.md</div>
@@ -459,7 +459,7 @@
                     </div>
                     <div class="doc-item">
                         <div class="doc-item-icon api">
-                            <span class="material-symbols-outlined">api</span>
+                            <span class="material-symbols-outlined" aria-label="Api" role="img">api</span>
                         </div>
                         <div class="doc-item-info">
                             <div class="doc-item-name">API Reference</div>
@@ -469,7 +469,7 @@
                     </div>
                     <div class="doc-item">
                         <div class="doc-item-icon guide">
-                            <span class="material-symbols-outlined">school</span>
+                            <span class="material-symbols-outlined" aria-label="School" role="img">school</span>
                         </div>
                         <div class="doc-item-info">
                             <div class="doc-item-name">Getting Started</div>
@@ -479,7 +479,7 @@
                     </div>
                     <div class="doc-item">
                         <div class="doc-item-icon md">
-                            <span class="material-symbols-outlined">folder</span>
+                            <span class="material-symbols-outlined" aria-label="Folder" role="img">folder</span>
                         </div>
                         <div class="doc-item-info">
                             <div class="doc-item-name">Architecture Overview</div>
@@ -489,7 +489,7 @@
                     </div>
                     <div class="doc-item">
                         <div class="doc-item-icon guide">
-                            <span class="material-symbols-outlined">build</span>
+                            <span class="material-symbols-outlined" aria-label="Build" role="img">build</span>
                         </div>
                         <div class="doc-item-info">
                             <div class="doc-item-name">Contributing Guide</div>

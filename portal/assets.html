@@ -95,14 +95,14 @@
                 </div>
                 <div class="header-actions flex-between gap-12">
                     <md-outlined-text-field placeholder="Tìm kiếm..." style="width: 240px;">
-                        <span class="material-symbols-outlined" slot="leading-icon">search</span>
+                        <span class="material-symbols-outlined" slot="leading-icon" aria-label="Tìm kiếm" role="img">search</span>
                     </md-outlined-text-field>
                 </div>
             </div>
 
             <!-- Upload Zone -->
             <div class="upload-zone" onclick="document.getElementById('file-input').click()">
-                <span class="material-symbols-outlined">cloud_upload</span>
+                <span class="material-symbols-outlined" aria-label="Cloud Upload" role="img">cloud_upload</span>
                 <div class="upload-label">Kéo thả file vào đây hoặc click để upload</div>
                 <div class="upload-hint">Hỗ trợ: PNG, JPG, PDF, DOCX, XLSX, MP4 (tối đa 50MB)</div>
                 <input type="file" id="file-input" hidden="" multiple="" aria-label="file input">
@@ -111,27 +111,27 @@
             <!-- Folder Tabs -->
             <div class="folder-tabs">
                 <button type="button" class="folder-tab active" data-folder="all">
-                    <span class="material-symbols-outlined">folder</span>
+                    <span class="material-symbols-outlined" aria-label="Folder" role="img">folder</span>
                     Tất cả
                     <span class="folder-count">12</span>
                 </button>
                 <button type="button" class="folder-tab" data-folder="logos">
-                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined" aria-label="Đánh giá" role="img">star</span>
                     Logo
                     <span class="folder-count">3</span>
                 </button>
                 <button type="button" class="folder-tab" data-folder="banners">
-                    <span class="material-symbols-outlined">image</span>
+                    <span class="material-symbols-outlined" aria-label="Image" role="img">image</span>
                     Banners
                     <span class="folder-count">4</span>
                 </button>
                 <button type="button" class="folder-tab" data-folder="docs">
-                    <span class="material-symbols-outlined">description</span>
+                    <span class="material-symbols-outlined" aria-label="Description" role="img">description</span>
                     Tài liệu
                     <span class="folder-count">3</span>
                 </button>
                 <button type="button" class="folder-tab" data-folder="videos">
-                    <span class="material-symbols-outlined">videocam</span>
+                    <span class="material-symbols-outlined" aria-label="Videocam" role="img">videocam</span>
                     Video
                     <span class="folder-count">2</span>
                 </button>
@@ -153,11 +153,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chia sẻ" role="img">share</span>
                             Chia sẻ
                         </md-text-button>
                     </div>
@@ -165,7 +165,7 @@
 
                 <div class="asset-card" data-type="logos">
                     <div class="asset-preview">
-                        <span class="material-symbols-outlined file-icon">star</span>
+                        <span class="material-symbols-outlined file-icon" aria-label="Đánh giá" role="img">star</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">Logo Chính (Light)</div>
@@ -176,11 +176,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chia sẻ" role="img">share</span>
                             Chia sẻ
                         </md-text-button>
                     </div>
@@ -200,11 +200,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chia sẻ" role="img">share</span>
                             Chia sẻ
                         </md-text-button>
                     </div>
@@ -223,11 +223,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">share</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chia sẻ" role="img">share</span>
                             Chia sẻ
                         </md-text-button>
                     </div>
@@ -236,7 +236,7 @@
                 <!-- Document Assets -->
                 <div class="asset-card" data-type="docs">
                     <div class="asset-preview">
-                        <span class="material-symbols-outlined file-icon pdf">picture_as_pdf</span>
+                        <span class="material-symbols-outlined file-icon pdf" aria-label="Picture As Pdf" role="img">picture_as_pdf</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">Brand Guidelines v2.0</div>
@@ -247,11 +247,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">visibility</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xem" role="img">visibility</span>
                             Xem
                         </md-text-button>
                     </div>
@@ -259,7 +259,7 @@
 
                 <div class="asset-card" data-type="docs">
                     <div class="asset-preview">
-                        <span class="material-symbols-outlined file-icon xls">table_chart</span>
+                        <span class="material-symbols-outlined file-icon xls" aria-label="Table Chart" role="img">table_chart</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">Báo cáo Q4 2025</div>
@@ -270,11 +270,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">visibility</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xem" role="img">visibility</span>
                             Xem
                         </md-text-button>
                     </div>
@@ -283,7 +283,7 @@
                 <!-- Video Assets -->
                 <div class="asset-card" data-type="videos">
                     <div class="asset-preview video-bg">
-                        <span class="material-symbols-outlined file-icon video">play_circle</span>
+                        <span class="material-symbols-outlined file-icon video" aria-label="Play Circle" role="img">play_circle</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">Video Giới Thiệu 30s</div>
@@ -294,11 +294,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">play_arrow</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Phát" role="img">play_arrow</span>
                             Xem
                         </md-text-button>
                     </div>
@@ -306,7 +306,7 @@
 
                 <div class="asset-card" data-type="videos">
                     <div class="asset-preview video-bg">
-                        <span class="material-symbols-outlined file-icon video">play_circle</span>
+                        <span class="material-symbols-outlined file-icon video" aria-label="Play Circle" role="img">play_circle</span>
                     </div>
                     <div class="asset-info">
                         <div class="asset-name">TVC Tết 2026</div>
@@ -317,11 +317,11 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                         <md-text-button>
-                            <span class="material-symbols-outlined" slot="icon">play_arrow</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Phát" role="img">play_arrow</span>
                             Xem
                         </md-text-button>
                     </div>
@@ -452,7 +452,7 @@
             if (isImage) {
                 previewHtml = `<img src="${asset.url}" alt="${asset.name}" loading="lazy" onerror="this.outerHTML='<span class=\\'material-symbols-outlined file-icon\\'>image</span>'">`;
             } else {
-                previewHtml = `<span class="material-symbols-outlined file-icon ${iconClass}">${getIconName(iconClass)}</span>`;
+                previewHtml = `<span class="material-symbols-outlined file-icon ${iconClass}" aria-label="${Geticonname(Iconclass)}" role="img">${getIconName(iconClass)}</span>`;
             }
 
             return `
@@ -469,7 +469,7 @@
                     </div>
                     <div class="asset-actions">
                         <md-text-button href="javascript:void(0)" target="_blank">
-                            <span class="material-symbols-outlined" slot="icon">download</span>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
                             Tải về
                         </md-text-button>
                     </div>

@@ -1,0 +1,120 @@
+<!--
+Conversion Funnel Widget - Sa Đéc Marketing Hub
+Visualization của conversion funnel với nhiều stages
+
+Usage: Include trong dashboard.html
+-->
+<div class="conversion-funnel-widget" role="figure" aria-label="Biểu đồ chuyển đổi">
+  <div class="funnel-header">
+    <h3 class="funnel-title">Tỷ Lệ Chuyển Đổi</h3>
+    <span class="funnel-period" id="funnel-period">7 ngày qua</span>
+  </div>
+
+  <div class="funnel-container">
+    <!-- Funnel stages -->
+    <div class="funnel-stage" data-stage="1" role="listitem">
+      <div class="stage-bar" style="width: 100%;">
+        <span class="stage-label">Khách truy cập</span>
+        <span class="stage-value" id="stage-1-value">10,000</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">100%</span>
+        <span class="convert-rate" id="stage-1-rate">-</span>
+      </div>
+    </div>
+
+    <div class="funnel-connector" aria-hidden="true">
+      <span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span>
+    </div>
+
+    <div class="funnel-stage" data-stage="2" role="listitem">
+      <div class="stage-bar" style="width: 75%;">
+        <span class="stage-label">Khách tiềm năng</span>
+        <span class="stage-value" id="stage-2-value">7,500</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">75%</span>
+        <span class="convert-rate" id="stage-2-rate">-25%</span>
+      </div>
+    </div>
+
+    <div class="funnel-connector" aria-hidden="true">
+      <span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span>
+    </div>
+
+    <div class="funnel-stage" data-stage="3" role="listitem">
+      <div class="stage-bar" style="width: 50%;">
+        <span class="stage-label">Khách quan tâm</span>
+        <span class="stage-value" id="stage-3-value">5,000</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">50%</span>
+        <span class="convert-rate" id="stage-3-rate">-33%</span>
+      </div>
+    </div>
+
+    <div class="funnel-connector" aria-hidden="true">
+      <span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span>
+    </div>
+
+    <div class="funnel-stage" data-stage="4" role="listitem">
+      <div class="stage-bar" style="width: 30%;">
+        <span class="stage-label">Khách liên hệ</span>
+        <span class="stage-value" id="stage-4-value">3,000</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">30%</span>
+        <span class="convert-rate" id="stage-4-rate">-40%</span>
+      </div>
+    </div>
+
+    <div class="funnel-connector" aria-hidden="true">
+      <span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span>
+    </div>
+
+    <div class="funnel-stage" data-stage="5" role="listitem">
+      <div class="stage-bar" style="width: 15%;">
+        <span class="stage-label">Khách hàng</span>
+        <span class="stage-value" id="stage-5-value">1,500</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">15%</span>
+        <span class="convert-rate" id="stage-5-rate">-50%</span>
+      </div>
+    </div>
+
+    <div class="funnel-connector" aria-hidden="true">
+      <span class="material-symbols-outlined" aria-label="Xuống dưới" role="img">arrow_downward</span>
+    </div>
+
+    <div class="funnel-stage" data-stage="6" role="listitem">
+      <div class="stage-bar" style="width: 5%;">
+        <span class="stage-label">Khách trung thành</span>
+        <span class="stage-value" id="stage-6-value">500</span>
+      </div>
+      <div class="stage-convert">
+        <span class="convert-label">5%</span>
+        <span class="convert-rate" id="stage-6-rate">-67%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funnel summary -->
+  <div class="funnel-summary">
+    <div class="summary-item">
+      <span class="summary-label">Tổng chuyển đổi</span>
+      <span class="summary-value" id="total-conversion">5.0%</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">Tỷ lệ trung bình</span>
+      <span class="summary-value" id="avg-conversion">35.8%</span>
+    </div>
+  </div>
+
+  <!-- Time filter -->
+  <div class="funnel-filters">
+    <button class="filter-btn" data-period="7" aria-label="7 ngày">7N</button>
+    <button class="filter-btn" data-period="30" aria-label="30 ngày">30N</button>
+    <button class="filter-btn" data-period="90" aria-label="90 ngày">90N</button>
+  </div>
+</div>

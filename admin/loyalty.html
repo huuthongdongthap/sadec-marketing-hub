@@ -740,7 +740,7 @@
                 </div>
                 <div class="flex">
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm thành viên..." id="searchInput" aria-label="Search member">
                     </div>
                 </div>
@@ -772,11 +772,11 @@
                 <div class="members-panel">
                     <div class="panel-header">
                         <div class="panel-title">
-                            <span class="material-symbols-outlined">groups</span>
+                            <span class="material-symbols-outlined" aria-label="Groups" role="img">groups</span>
                             Danh sách thành viên
                         </div>
                         <button type="button" class="btn-add-member" onclick="openAddMemberModal()">
-                            <span class="material-symbols-outlined">add</span>
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
                             Thêm thành viên
                         </button>
                     </div>
@@ -800,7 +800,7 @@
                 <!-- Rewards Sidebar -->
                 <div class="rewards-sidebar">
                     <div class="rewards-title">
-                        <span class="material-symbols-outlined">card_giftcard</span>
+                        <span class="material-symbols-outlined" aria-label="Card Giftcard" role="img">card_giftcard</span>
                         Đổi Thưởng
                     </div>
                     <div id="rewardsList"></div>
@@ -813,7 +813,7 @@
     <div class="modal-overlay" id="addMemberModal">
         <div class="modal-content">
             <div class="modal-title">
-                <span class="material-symbols-outlined">person_add</span>
+                <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
                 Thêm Thành Viên Mới
             </div>
             <div class="form-group">
@@ -839,7 +839,7 @@
     <div class="modal-overlay" id="addPointsModal">
         <div class="modal-content">
             <div class="modal-title">
-                <span class="material-symbols-outlined">add_circle</span>
+                <span class="material-symbols-outlined" aria-label="Add Circle" role="img">add_circle</span>
                 Cộng Điểm
             </div>
             <div class="form-group">
@@ -866,7 +866,7 @@
     <div class="modal-overlay" id="redeemModal">
         <div class="modal-content">
             <div class="modal-title">
-                <span class="material-symbols-outlined">redeem</span>
+                <span class="material-symbols-outlined" aria-label="Redeem" role="img">redeem</span>
                 Đổi Thưởng
             </div>
             <div class="form-group">
@@ -982,10 +982,10 @@
                     <td>${member.lastVisit}</td>
                     <td>
                         <button type="button" class="action-btn btn-add-points" onclick="openAddPointsModal('${member.id}')">
-                            <span class="material-symbols-outlined" style="font-size: 14px;">add</span> Điểm
+                            <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Thêm mới" role="img">add</span> Điểm
                         </button>
                         <button type="button" class="action-btn btn-redeem" onclick="openRedeemModal('${member.id}')">
-                            <span class="material-symbols-outlined" style="font-size: 14px;">card_giftcard</span> Đổi
+                            <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Card Giftcard" role="img">card_giftcard</span> Đổi
                         </button>
                     </td>
                 </tr>

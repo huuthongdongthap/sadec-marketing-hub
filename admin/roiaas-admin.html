@@ -888,8 +888,8 @@
                 <span style="font-size: 13px; color: rgba(255,255,255,0.5);">
                     Last updated: <span id="last-update">Just now</span>
                 </span>
-                <button type="button" class="refresh-btn" onclick="refreshData()" title="Refresh data">
-                    <span class="material-symbols-outlined">refresh</span>
+                <button type="button" class="refresh-btn" onclick="refreshData()" title="Refresh data" aria-label="Làm mới"
+                    <span class="material-symbols-outlined" aria-label="Làm mới" role="img">refresh</span>
                 </button>
             </div>
         </header>
@@ -901,7 +901,7 @@
                 <div class="stat-card-value" id="total-revenue">₫0</div>
                 <div class="stat-card-label">Total Revenue (MTD)</div>
                 <div class="stat-card-trend trend-up">
-                    <span class="material-symbols-outlined">trending_up</span>
+                    <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                     <span>+42% vs last month</span>
                 </div>
             </div>
@@ -910,7 +910,7 @@
                 <div class="stat-card-value" id="total-clients">0</div>
                 <div class="stat-card-label">Active Clients</div>
                 <div class="stat-card-trend trend-up">
-                    <span class="material-symbols-outlined">group_add</span>
+                    <span class="material-symbols-outlined" aria-label="Group Add" role="img">group_add</span>
                     <span>+8 this month</span>
                 </div>
             </div>
@@ -919,7 +919,7 @@
                 <div class="stat-card-value" id="avg-roi">0%</div>
                 <div class="stat-card-label">Avg Client ROI</div>
                 <div class="stat-card-trend trend-up">
-                    <span class="material-symbols-outlined">trending_up</span>
+                    <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                     <span>+5.2% avg increase</span>
                 </div>
             </div>
@@ -928,7 +928,7 @@
                 <div class="stat-card-value" id="total-deals">0</div>
                 <div class="stat-card-label">Export Deals Closed</div>
                 <div class="stat-card-trend trend-up">
-                    <span class="material-symbols-outlined">trending_up</span>
+                    <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                     <span>+24 deals</span>
                 </div>
             </div>
@@ -939,7 +939,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <span class="material-symbols-outlined">trending_up</span>
+                        <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                         Revenue Trend (6 Months)
                     </h3>
                 </div>
@@ -950,7 +950,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <span class="material-symbols-outlined">donut_large</span>
+                        <span class="material-symbols-outlined" aria-label="Donut Large" role="img">donut_large</span>
                         Revenue by Tier
                     </h3>
                 </div>
@@ -966,11 +966,11 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <span class="material-symbols-outlined">people</span>
+                        <span class="material-symbols-outlined" aria-label="Khách hàng" role="img">people</span>
                         All Clients ROI
                     </h3>
-                    <button type="button" class="refresh-btn" style="width: 32px; height: 32px;" onclick="refreshClients()">
-                        <span class="material-symbols-outlined">refresh</span>
+                    <button type="button" class="refresh-btn" style="width: 32px; height: 32px;" onclick="refreshClients()" aria-label="Làm mới"
+                        <span class="material-symbols-outlined" aria-label="Làm mới" role="img">refresh</span>
                     </button>
                 </div>
                 <table class="table-responsive" class="clients-table">
@@ -996,7 +996,7 @@
                 <div class="card sidebar-section">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">layers</span>
+                            <span class="material-symbols-outlined" aria-label="Layers" role="img">layers</span>
                             Subscription Tiers
                         </h3>
                     </div>
@@ -1009,7 +1009,7 @@
                 <div class="card sidebar-section">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <span class="material-symbols-outlined">history</span>
+                            <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                             Recent Activity
                         </h3>
                     </div>
@@ -1297,7 +1297,7 @@
                     return `
                         <div class="activity-item">
                             <div class="activity-icon ${iconClass}">
-                                <span class="material-symbols-outlined">${icon}</span>
+                                <span class="material-symbols-outlined" aria-label="${Icon}" role="img">${icon}</span>
                             </div>
                             <div class="activity-content">
                                 <div class="activity-title">${item.title}</div>

@@ -316,15 +316,15 @@
 
                 <div class="flex">
                     <div class="search-glass" onclick="document.querySelector('command-palette').open()">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Search system... (Ctrl+K)" aria-label="Search system" readonly>
                     </div>
                     <notification-bell></notification-bell>
-                    <button type="button" class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme">
-                        <span class="material-symbols-outlined">dark_mode</span>
+                    <button type="button" class="btn-cyber" onclick="MekongAdmin.ThemeManager.toggle()" title="Toggle Theme" aria-label="Chế độ tối"
+                        <span class="material-symbols-outlined" aria-label="Chế độ tối" role="img">dark_mode</span>
                     </button>
                     <a href="/admin/pipeline.html?action=new" class="btn-cyber" id="new-project-btn">
-                        <span class="material-symbols-outlined">add</span> NEW PROJECT
+                        <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span> NEW PROJECT
                     </a>
                 </div>
             </div>
@@ -628,33 +628,33 @@
   <help-tour></help-tour>
 
   <!-- Quick Actions FAB -->
-  <button class="quick-actions-fab" id="quick-actions-fab" title="Quick Actions" onclick="toggleQuickActions()">
-    <span class="material-symbols-outlined">add</span>
+  <button class="quick-actions-fab" id="quick-actions-fab" title="Quick Actions" onclick="toggleQuickActions()" aria-label="Thêm mới"
+    <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
   </button>
   <div class="quick-actions-menu" id="quick-actions-menu">
     <a href="/admin/pipeline.html?action=new" class="quick-action-item">
-      <span class="material-symbols-outlined">add_circle</span>
+      <span class="material-symbols-outlined" aria-label="Add Circle" role="img">add_circle</span>
       <span>New Project</span>
     </a>
     <a href="/admin/campaigns.html?action=new" class="quick-action-item">
-      <span class="material-symbols-outlined">campaign</span>
+      <span class="material-symbols-outlined" aria-label="Chiến dịch" role="img">campaign</span>
       <span>New Campaign</span>
     </a>
     <a href="/admin/leads.html" class="quick-action-item">
-      <span class="material-symbols-outlined">ads_click</span>
+      <span class="material-symbols-outlined" aria-label="Ads Click" role="img">ads_click</span>
       <span>View Leads</span>
     </a>
     <a href="/admin/ai-analysis.html" class="quick-action-item">
-      <span class="material-symbols-outlined">analytics</span>
+      <span class="material-symbols-outlined" aria-label="Phân tích" role="img">analytics</span>
       <span>Analytics</span>
     </a>
     <div style="border-top: 1px solid var(--border, #e5e7eb); margin: 8px 0;"></div>
     <a href="/admin/pricing.html" class="quick-action-item">
-      <span class="material-symbols-outlined">settings</span>
+      <span class="material-symbols-outlined" aria-label="Cài đặt" role="img">settings</span>
       <span>Settings</span>
     </a>
     <a href="#" class="quick-action-item" onclick="openUserPreferences(); return false;">
-      <span class="material-symbols-outlined">account_circle</span>
+      <span class="material-symbols-outlined" aria-label="Tài khoản" role="img">account_circle</span>
       <span>User Preferences</span>
     </a>
   </div>

@@ -301,7 +301,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/index.html" class="nav-logo">
-                <span class="material-symbols-outlined">water_drop</span>
+                <span class="material-symbols-outlined" aria-label="Water Drop" role="img">water_drop</span>
                 Mekong Agency
             </a>
             <div class="nav-actions">
@@ -325,19 +325,19 @@
         <!-- Tabs -->
         <div class="tabs">
             <button type="button" class="tab active" onclick="switchTab('audit')">
-                <span class="material-symbols-outlined">search</span>
+                <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                 Store Audit
             </button>
             <button type="button" class="tab" onclick="switchTab('analytics')">
-                <span class="material-symbols-outlined">analytics</span>
+                <span class="material-symbols-outlined" aria-label="Phân tích" role="img">analytics</span>
                 Analytics
             </button>
             <button type="button" class="tab" onclick="switchTab('cart')">
-                <span class="material-symbols-outlined">shopping_cart</span>
+                <span class="material-symbols-outlined" aria-label="Giỏ hàng" role="img">shopping_cart</span>
                 Abandoned Cart
             </button>
             <button type="button" class="tab" onclick="switchTab('retarget')">
-                <span class="material-symbols-outlined">ads_click</span>
+                <span class="material-symbols-outlined" aria-label="Ads Click" role="img">ads_click</span>
                 Retargeting
             </button>
         </div>
@@ -349,7 +349,7 @@
                 <form class="form-row" id="auditForm">
                     <input type="url" class="form-input" id="storeUrl" placeholder="https://store.example.com" value="https://demo-store.vn" aria-label="https://store.example.com">
                     <button type="submit" class="audit-btn">
-                        <span class="material-symbols-outlined">play_arrow</span>
+                        <span class="material-symbols-outlined" aria-label="Phát" role="img">play_arrow</span>
                         Run Audit
                     </button>
                 </form>
@@ -376,28 +376,28 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-icon revenue">
-                        <span class="material-symbols-outlined">payments</span>
+                        <span class="material-symbols-outlined" aria-label="Payments" role="img">payments</span>
                     </div>
                     <div class="metric-value" id="totalRevenue">0₫</div>
                     <div class="metric-label">Total Revenue</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon conversion">
-                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span class="material-symbols-outlined" aria-label="Shopping Bag" role="img">shopping_bag</span>
                     </div>
                     <div class="metric-value" id="totalOrders">0</div>
                     <div class="metric-label">Total Orders</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon traffic">
-                        <span class="material-symbols-outlined">attach_money</span>
+                        <span class="material-symbols-outlined" aria-label="Attach Money" role="img">attach_money</span>
                     </div>
                     <div class="metric-value" id="aov">0₫</div>
                     <div class="metric-label">Average Order Value</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon cart">
-                        <span class="material-symbols-outlined">remove_shopping_cart</span>
+                        <span class="material-symbols-outlined" aria-label="Remove Shopping Cart" role="img">remove_shopping_cart</span>
                     </div>
                     <div class="metric-value" id="cartAbandonment">0%</div>
                     <div class="metric-label">Cart Abandonment</div>
@@ -408,11 +408,11 @@
                 <h3>📊 Simulate E-commerce Events</h3>
                 <div class="form-row">
                     <button type="button" class="audit-btn" onclick="simulatePurchase()">
-                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                        <span class="material-symbols-outlined" aria-label="Shopping Cart Checkout" role="img">shopping_cart_checkout</span>
                         Simulate Purchase
                     </button>
                     <button type="button" class="audit-btn" style="background: #f59e0b;" onclick="simulateAbandon()">
-                        <span class="material-symbols-outlined">remove_shopping_cart</span>
+                        <span class="material-symbols-outlined" aria-label="Remove Shopping Cart" role="img">remove_shopping_cart</span>
                         Simulate Cart Abandon
                     </button>
                 </div>
@@ -424,28 +424,28 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-icon cart">
-                        <span class="material-symbols-outlined">production_quantity_limits</span>
+                        <span class="material-symbols-outlined" aria-label="Production Quantity Limits" role="img">production_quantity_limits</span>
                     </div>
                     <div class="metric-value" id="abandonedCount">0</div>
                     <div class="metric-label">Abandoned Carts</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon conversion">
-                        <span class="material-symbols-outlined">redo</span>
+                        <span class="material-symbols-outlined" aria-label="Làm lại" role="img">redo</span>
                     </div>
                     <div class="metric-value" id="recoveredCount">0</div>
                     <div class="metric-label">Recovered</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon revenue">
-                        <span class="material-symbols-outlined">trending_up</span>
+                        <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
                     </div>
                     <div class="metric-value" id="recoveryRate">0%</div>
                     <div class="metric-label">Recovery Rate</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon traffic">
-                        <span class="material-symbols-outlined">mail</span>
+                        <span class="material-symbols-outlined" aria-label="Email" role="img">mail</span>
                     </div>
                     <div class="metric-value" id="emailsSent">0</div>
                     <div class="metric-label">Emails Sent</div>
@@ -461,28 +461,28 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-icon traffic">
-                        <span class="material-symbols-outlined">visibility</span>
+                        <span class="material-symbols-outlined" aria-label="Xem" role="img">visibility</span>
                     </div>
                     <div class="metric-value" id="impressions">0</div>
                     <div class="metric-label">Impressions</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon conversion">
-                        <span class="material-symbols-outlined">ads_click</span>
+                        <span class="material-symbols-outlined" aria-label="Ads Click" role="img">ads_click</span>
                     </div>
                     <div class="metric-value" id="clicks">0</div>
                     <div class="metric-label">Clicks</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon revenue">
-                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                        <span class="material-symbols-outlined" aria-label="Shopping Cart Checkout" role="img">shopping_cart_checkout</span>
                     </div>
                     <div class="metric-value" id="conversions">0</div>
                     <div class="metric-label">Conversions</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-icon cart">
-                        <span class="material-symbols-outlined">show_chart</span>
+                        <span class="material-symbols-outlined" aria-label="Show Chart" role="img">show_chart</span>
                     </div>
                     <div class="metric-value" id="roas">0x</div>
                     <div class="metric-label">ROAS</div>
@@ -508,7 +508,7 @@
                         <input type="number" id="budget" value="500000" placeholder="500000" aria-label="500000">
                     </div>
                     <button type="submit" class="launch-btn">
-                        <span class="material-symbols-outlined">rocket_launch</span>
+                        <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
                         Launch Campaign
                     </button>
                 </form>
@@ -552,22 +552,22 @@
             const m = report.metrics;
             document.getElementById('auditMetrics').innerHTML = `
         <div class="metric-card">
-          <div class="metric-icon conversion"><span class="material-symbols-outlined">percent</span></div>
+          <div class="metric-icon conversion"><span class="material-symbols-outlined" aria-label="Percent" role="img">percent</span></div>
           <div class="metric-value">${m.conversionRate}%</div>
           <div class="metric-label">Conversion Rate</div>
         </div>
         <div class="metric-card">
-          <div class="metric-icon revenue"><span class="material-symbols-outlined">payments</span></div>
+          <div class="metric-icon revenue"><span class="material-symbols-outlined" aria-label="Payments" role="img">payments</span></div>
           <div class="metric-value">${formatCurrency(m.averageOrderValue)}</div>
           <div class="metric-label">Average Order Value</div>
         </div>
         <div class="metric-card">
-          <div class="metric-icon cart"><span class="material-symbols-outlined">remove_shopping_cart</span></div>
+          <div class="metric-icon cart"><span class="material-symbols-outlined" aria-label="Remove Shopping Cart" role="img">remove_shopping_cart</span></div>
           <div class="metric-value">${m.cartAbandonmentRate}%</div>
           <div class="metric-label">Cart Abandonment</div>
         </div>
         <div class="metric-card">
-          <div class="metric-icon traffic"><span class="material-symbols-outlined">devices</span></div>
+          <div class="metric-icon traffic"><span class="material-symbols-outlined" aria-label="Devices" role="img">devices</span></div>
           <div class="metric-value">${m.mobileTrafficShare}%</div>
           <div class="metric-label">Mobile Traffic</div>
         </div>
@@ -655,7 +655,7 @@
             document.getElementById('audiencesGrid').innerHTML = audiences.map(aud => `
         <div class="audience-card" onclick="selectAudience('${aud.id}')" id="aud-${aud.id}">
           <div class="audience-icon">
-            <span class="material-symbols-outlined">${getAudienceIcon(aud.type)}</span>
+            <span class="material-symbols-outlined" aria-label="${Getaudienceicon(Aud.Type)}" role="img">${getAudienceIcon(aud.type)}</span>
           </div>
           <div class="audience-name">${aud.name}</div>
           <div class="audience-description">${aud.description}</div>

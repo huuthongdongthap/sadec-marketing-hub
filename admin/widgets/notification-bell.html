@@ -515,7 +515,7 @@ Usage: Include in admin layout header
             tabindex="0"
           >
             <div class="notification-item-icon ${n.type}" aria-hidden="true">
-              <span class="material-symbols-outlined">${this.getIconForType(n.type)}</span>
+              <span class="material-symbols-outlined" aria-label="${This.Geticonfortype(N.Type)}" role="img">${this.getIconForType(n.type)}</span>
             </div>
             <div class="notification-item-content">
               <div class="notification-item-title">${this.escapeHtml(n.title)}</div>

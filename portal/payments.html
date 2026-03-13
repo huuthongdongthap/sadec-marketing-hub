@@ -433,7 +433,7 @@
                                     <div class="method-name">VNPay</div>
                                     <div class="method-desc">Thẻ ATM, Visa, MasterCard</div>
                                 </div>
-                                <span class="material-symbols-outlined method-check-icon">check_circle</span>
+                                <span class="material-symbols-outlined method-check-icon" aria-label="Hoàn thành" role="img">check_circle</span>
                             </div>
 
                             <div class="method-option" data-method="momo">
@@ -472,7 +472,7 @@
                             <span class="label">Số tài khoản</span>
                             <span class="value">
                                 1234567890
-                                <span class="copy-btn material-symbols-outlined copy-icon-sm">content_copy</span>
+                                <span class="copy-btn material-symbols-outlined copy-icon-sm" aria-label="Sao chép" role="img">content_copy</span>
                             </span>
                         </div>
                         <div class="bank-row">
@@ -483,7 +483,7 @@
                             <span class="label">Nội dung CK</span>
                             <span class="value">
                                 INV2026001
-                                <span class="copy-btn material-symbols-outlined copy-icon-sm">content_copy</span>
+                                <span class="copy-btn material-symbols-outlined copy-icon-sm" aria-label="Sao chép" role="img">content_copy</span>
                             </span>
                         </div>
                     </div>
@@ -497,7 +497,7 @@
                     </div>
 
                     <md-filled-button class="pay-action-btn" id="pay-btn">
-                        <span class="material-symbols-outlined" slot="icon">lock</span>
+                        <span class="material-symbols-outlined" slot="icon" aria-label="Khóa" role="img">lock</span>
                         Thanh toán 8,500,000 ₫
                     </md-filled-button>
 
@@ -578,7 +578,7 @@
                     o.querySelector('.material-symbols-outlined')?.remove();
                 });
                 option.classList.add('selected');
-                option.insertAdjacentHTML('beforeend', '<span class="material-symbols-outlined method-check-icon">check_circle</span>');
+                option.insertAdjacentHTML('beforeend', '<span class="material-symbols-outlined method-check-icon" aria-label="Hoàn thành" role="img">check_circle</span>');
 
                 const method = option.dataset.method;
                 const bankInfo = document.getElementById('bank-info');

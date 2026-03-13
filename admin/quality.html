@@ -707,7 +707,7 @@
                 </div>
                 <div class="flex">
                     <div class="search-glass">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
                         <input type="text" placeholder="Tìm kiếm..." id="searchInput" aria-label="Search">
                     </div>
                 </div>
@@ -736,19 +736,19 @@
             <!-- Tabs -->
             <div class="quality-tabs animate-entry delay-3" id="qualityTabs">
                 <button type="button" class="quality-tab active" data-tab="hourly" onclick="switchTab('hourly')">
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" aria-label="Lịch trình" role="img">schedule</span>
                     Hàng giờ
                 </button>
                 <button type="button" class="quality-tab" data-tab="daily" onclick="switchTab('daily')">
-                    <span class="material-symbols-outlined">today</span>
+                    <span class="material-symbols-outlined" aria-label="Today" role="img">today</span>
                     Hàng ngày
                 </button>
                 <button type="button" class="quality-tab" data-tab="weekly" onclick="switchTab('weekly')">
-                    <span class="material-symbols-outlined">calendar_view_week</span>
+                    <span class="material-symbols-outlined" aria-label="Calendar View Week" role="img">calendar_view_week</span>
                     Hàng tuần
                 </button>
                 <button type="button" class="quality-tab" data-tab="monthly" onclick="switchTab('monthly')">
-                    <span class="material-symbols-outlined">calendar_month</span>
+                    <span class="material-symbols-outlined" aria-label="Calendar Month" role="img">calendar_month</span>
                     Hàng tháng
                 </button>
             </div>
@@ -757,7 +757,7 @@
             <div class="checklist-panel animate-entry delay-4">
                 <div class="checklist-header">
                     <div class="checklist-title">
-                        <span class="material-symbols-outlined">assignment</span>
+                        <span class="material-symbols-outlined" aria-label="Assignment" role="img">assignment</span>
                         <span id="checklistTitle">Kiểm tra hàng giờ</span>
                     </div>
                     <div class="checklist-progress">
@@ -777,7 +777,7 @@
             <div class="history-panel animate-entry delay-5">
                 <div class="history-header">
                     <div class="history-title">
-                        <span class="material-symbols-outlined">history</span>
+                        <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                         Lịch sử kiểm tra
                     </div>
                     <button type="button" class="btn-clear-history" onclick="clearHistory()">Xóa lịch sử</button>
@@ -895,19 +895,19 @@
                 html += `
                     <div class="checklist-item ${isChecked ? 'checked' : ''}">
                         <div class="checklist-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck('${key}', '${item.name}')">
-                            <span class="material-symbols-outlined">check</span>
+                            <span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
                         </div>
                         <span style="font-size: 24px;">${item.emoji}</span>
                         <div class="checklist-content">
                             <div class="checklist-name">${item.name}</div>
                             <div class="checklist-meta">
-                                <span><span class="material-symbols-outlined" style="font-size:14px;">person</span> ${checker}</span>
-                                <span><span class="material-symbols-outlined" style="font-size:14px;">schedule</span> ${timeDisplay}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;" aria-label="Person" role="img">person</span> ${checker}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;" aria-label="Lịch trình" role="img">schedule</span> ${timeDisplay}</span>
                             </div>
                         </div>
                         <div class="checklist-actions">
                             <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
-                                <span class="material-symbols-outlined">done</span>
+                                <span class="material-symbols-outlined" aria-label="Done" role="img">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>
                         </div>
@@ -917,7 +917,7 @@
 
             container.innerHTML = html || `
                 <div class="empty-state">
-                    <span class="material-symbols-outlined">assignment_turned_in</span>
+                    <span class="material-symbols-outlined" aria-label="Assignment Turned In" role="img">assignment_turned_in</span>
                     <p>Không có mục kiểm tra</p>
                 </div>
             `;
@@ -990,7 +990,7 @@
             if (qualityData.history.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
-                        <span class="material-symbols-outlined">history</span>
+                        <span class="material-symbols-outlined" aria-label="Lịch sử" role="img">history</span>
                         <p>Chưa có lịch sử kiểm tra</p>
                     </div>
                 `;
@@ -1072,7 +1072,7 @@
             if (filtered.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
-                        <span class="material-symbols-outlined">search_off</span>
+                        <span class="material-symbols-outlined" aria-label="Search Off" role="img">search_off</span>
                         <p>Không tìm thấy kết quả</p>
                     </div>
                 `;
@@ -1093,19 +1093,19 @@
                 html += `
                     <div class="checklist-item ${isChecked ? 'checked' : ''}">
                         <div class="checklist-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck('${key}', '${item.name}')">
-                            <span class="material-symbols-outlined">check</span>
+                            <span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
                         </div>
                         <span style="font-size: 24px;">${item.emoji}</span>
                         <div class="checklist-content">
                             <div class="checklist-name">${item.name}</div>
                             <div class="checklist-meta">
-                                <span><span class="material-symbols-outlined" style="font-size:14px;">person</span> ${checker}</span>
-                                <span><span class="material-symbols-outlined" style="font-size:14px;">schedule</span> ${timeDisplay}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;" aria-label="Person" role="img">person</span> ${checker}</span>
+                                <span><span class="material-symbols-outlined" style="font-size:14px;" aria-label="Lịch trình" role="img">schedule</span> ${timeDisplay}</span>
                             </div>
                         </div>
                         <div class="checklist-actions">
                             <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
-                                <span class="material-symbols-outlined">done</span>
+                                <span class="material-symbols-outlined" aria-label="Done" role="img">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>
                         </div>
