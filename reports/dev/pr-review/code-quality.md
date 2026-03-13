@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-13T19:43:20.316Z
-**Files Scanned:** 702
-**Total Issues:** 2020
+**Generated:** 2026-03-13T20:21:56.193Z
+**Files Scanned:** 724
+**Total Issues:** 2150
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 353 |
-| 🟡 Warnings | 1338 |
-| ℹ️ Info | 329 |
+| 🔴 Errors | 377 |
+| 🟡 Warnings | 1418 |
+| ℹ️ Info | 355 |
 
 ---
 
@@ -20,12 +20,12 @@
 
 | Type | Count |
 |------|-------|
-| Dead Code | 97 |
+| Dead Code | 116 |
 | Tech Debt | 0 |
-| Code Smell | 280 |
+| Code Smell | 310 |
 | Naming | 63 |
-| Security | 1457 |
-| Duplicate | 123 |
+| Security | 1525 |
+| Duplicate | 136 |
 
 ---
 
@@ -52,6 +52,9 @@
 ### admin/widgets/command-palette.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### admin/widgets/conversion-funnel.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### admin/widgets/help-tour.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -256,7 +259,25 @@
 ### assets/js/data-sync-init.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/activity-timeline.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/features/analytics-dashboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/quick-actions.js
@@ -289,6 +310,9 @@
 ### assets/js/micro-animations.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/micro-animations.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/mobile-menu.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -296,6 +320,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/mobile-navigation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/notification-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/notification-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-payments.js
@@ -395,6 +425,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/modal-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-component.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
@@ -505,6 +541,9 @@
 ### admin/widgets/command-palette.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### admin/widgets/conversion-funnel.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### admin/widgets/help-tour.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -703,7 +742,25 @@
 ### assets/js/data-sync-init.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/error-boundary.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/activity-timeline.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/features/analytics-dashboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/quick-actions.js
@@ -736,6 +793,9 @@
 ### assets/js/micro-animations.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/micro-animations.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/mobile-menu.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -743,6 +803,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/mobile-navigation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/notification-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/notification-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/portal/portal-payments.js
@@ -842,6 +908,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/modal-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-component.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/toast-component.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
@@ -1104,10 +1176,10 @@
 - **admin/widgets/area-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/bar-chart-widget.js** (Line 238): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/bar-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/bar-chart.js** (Line 32): 2 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/bar-chart.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/command-palette.js** (Line 142): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/command-palette.js** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/widgets/conversion-funnel.js** (Line 41): 2 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/widgets/conversion-funnel.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/data-table-widget.js** (Line 32): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/data-table-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/help-tour.js** (Line 208): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
@@ -1115,7 +1187,7 @@
 - **admin/widgets/index.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/index.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 
-... and 1318 more warnings
+... and 1398 more warnings
 
 
 ---
@@ -1156,19 +1228,21 @@
 - code-smell: 2
 - security: 16
 
-### assets/js/admin/keyboard-shortcuts.js (14 issues)
-- code-smell: 4
-- security: 10
-
-### assets/js/components/mobile-responsive.js (14 issues)
-- dead-code: 2
-- naming: 2
-- security: 10
-
-### assets/js/features/analytics-dashboard.js (14 issues)
+### assets/js/micro-animations.js (18 issues)
 - dead-code: 2
 - code-smell: 2
 - naming: 2
+- security: 10
+- duplicate: 2
+
+### assets/js/error-boundary.js (16 issues)
+- dead-code: 2
+- naming: 2
+- security: 12
+
+### assets/js/features/activity-timeline.js (16 issues)
+- dead-code: 2
+- code-smell: 6
 - security: 6
 - duplicate: 2
 

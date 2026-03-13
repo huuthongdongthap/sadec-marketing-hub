@@ -30,6 +30,9 @@ export { Tooltip } from './tooltip.js';
 // Features
 export { AIGenerator, AIContentGenerator, AIContentPanel } from '../features/ai-content-generator.js';
 export { AnalyticsDashboard } from '../features/analytics-dashboard.js';
+export { NotificationCenter, NotificationType, Priority } from '../features/notification-center.js';
+export { CommandPalette, CommandType, Category } from '../features/command-palette-enhanced.js';
+export { ProjectHealthMonitor, HealthStatus, MetricWeights } from '../features/project-health-monitor.js';
 
 // New UI Components (2026-03-13)
 export { Tooltip, TooltipManager } from './tooltip.js';
@@ -82,6 +85,9 @@ window.MekongComponents = {
   // Features
   AIGenerator: window.AIGenerator,
   AnalyticsDashboard: window.AnalyticsDashboard,
+  NotificationCenter: window.NotificationCenter,
+  CommandPalette: window.CommandPalette,
+  ProjectHealthMonitor: window.ProjectHealthMonitor,
 
   // New Components (2026-03-13)
   Tooltip: window.Tooltip,
