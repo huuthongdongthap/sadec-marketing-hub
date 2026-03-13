@@ -67,6 +67,15 @@ class SadecSidebar extends HTMLElement {
                 { id: 'credits', label: 'Credits', icon: 'toll', href: '/portal/credits.html' }
             ]
         },
+        ocop: {
+            label: '🌾 OCOP ROIaaS',
+            items: [
+                { id: 'roi-dashboard', label: 'ROI Dashboard', icon: 'monitoring', href: '/portal/ocop/roi-dashboard.html' },
+                { id: 'phase-tracker', label: 'Phase Tracker', icon: 'track_changes', href: '/portal/ocop/phase-tracker.html' },
+                { id: 'analytics', label: 'Analytics', icon: 'analytics', href: '/portal/ocop/analytics.html' },
+                { id: 'export-agent', label: 'Export Agent', icon: 'smart_toy', href: '/portal/ocop/export-agent.html' }
+            ]
+        },
         reports: {
             label: 'BÁO CÁO',
             items: [
