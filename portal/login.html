@@ -120,6 +120,7 @@
 </head>
 
 <body>
+    <main role="main" class="main-content">
     <div class="login-page">
         <!-- Hero Side -->
         <div class="login-hero">
@@ -211,12 +212,12 @@
                 <form id="loginForm" onsubmit="return false">
                     <div class="form-group">
                         <label class="form-label" for="email">Email</label>
-                        <input type="email" id="email" class="form-input" placeholder="email@company.com" required>
+                        <input type="email" id="email" class="form-input" placeholder="email@company.com" required aria-label="Email@company.com">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">Mật khẩu</label>
-                        <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                        <input type="password" id="password" class="form-input" placeholder="••••••••" required aria-label="••••••••">
                     </div>
 
                     <div class="flex-between mb-24">
@@ -329,6 +330,7 @@
 
   <!-- Mobile Navigation -->
   <script src="/assets/js/mobile-navigation.js" defer></script>
+    </main>
 </body>
 
 </html>

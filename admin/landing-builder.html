@@ -111,6 +111,7 @@
 </head>
 
 <body>
+    <main role="main" class="main-content">
     <!-- Header -->
     <header class="builder-header">
         <div style="display: flex; align-items: center; gap: 16px;">
@@ -313,8 +314,8 @@
                         ${actions}
                         <div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white;">
                             <h3 style="text-align: center; margin-bottom: 16px;">Đăng ký tư vấn</h3>
-                            <input type="text" placeholder="Họ tên" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;">
-                            <input type="text" placeholder="Số điện thoại" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            <input type="text" placeholder="Họ tên" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;" aria-label="Họ tên">
+                            <input type="text" placeholder="Số điện thoại" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;" aria-label="Số điện thoại">
                             <button class="btn btn-filled" style="width: 100%;">Gửi thông tin</button>
                         </div>
                     `;
@@ -336,4 +337,5 @@
   <script src="/assets/js/mobile-navigation.js" defer=""></script>
 
 
+    </main>
 </body></html>

@@ -234,6 +234,7 @@
 </head>
 
 <body>
+    <main role="main" class="main-content">
     <div class="gradient-mesh-exp"></div>
     <div class="hero-particles"></div>
 
@@ -280,7 +281,7 @@
                     </label>
                     <div class="role-selector">
                         <div class="role-option">
-                            <input type="radio" name="role" value="affiliate" id="roleAffiliate" checked="">
+                            <input type="radio" name="role" value="affiliate" id="roleAffiliate" checked="" aria-label="RoleAffiliate">
                             <label for="roleAffiliate">
                                 <span class="role-icon">🤝</span>
                                 <span class="role-name">Affiliate Partner</span>
@@ -288,7 +289,7 @@
                             </label>
                         </div>
                         <div class="role-option">
-                            <input type="radio" name="role" value="client" id="roleClient">
+                            <input type="radio" name="role" value="client" id="roleClient" aria-label="RoleClient">
                             <label for="roleClient">
                                 <span class="role-icon">🏢</span>
                                 <span class="role-name">Client</span>
@@ -457,4 +458,5 @@
   <script src="assets/js/mobile-navigation.js" defer=""></script>
 
 
+    </main>
 </body></html>

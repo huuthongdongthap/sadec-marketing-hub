@@ -112,6 +112,7 @@
 </head>
 
 <body>
+    <main role="main" class="main-content">
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -274,23 +275,23 @@
                 'client-onboarding': `
           <div class="form-group">
             <label class="form-label">Client Name</label>
-            <input type="text" class="form-input" id="input-clientName" placeholder="VD: ABC Company" value="Demo Client">
+            <input type="text" class="form-input" id="input-clientName" placeholder="VD: ABC Company" value="Demo Client" aria-label="VD: ABC Company">
           </div>
           <div class="form-group">
             <label class="form-label">Email</label>
-            <input type="email" class="form-input" id="input-email" placeholder="client@example.com" value="demo@example.com">
+            <input type="email" class="form-input" id="input-email" placeholder="client@example.com" value="demo@example.com" aria-label="Client@example.com">
           </div>
         `,
                 'content-publishing': `
           <div class="form-group">
             <label class="form-label">Topic</label>
-            <input type="text" class="form-input" id="input-topic" placeholder="VD: Marketing Tips 2026" value="SEO Local cho SME">
+            <input type="text" class="form-input" id="input-topic" placeholder="VD: Marketing Tips 2026" value="SEO Local cho SME" aria-label="VD: Marketing Tips 2026">
           </div>
         `,
                 'lead-nurturing': `
           <div class="form-group">
             <label class="form-label">Lead Name</label>
-            <input type="text" class="form-input" id="input-leadName" placeholder="VD: Nguyễn Văn A" value="Lead Demo">
+            <input type="text" class="form-input" id="input-leadName" placeholder="VD: Nguyễn Văn A" value="Lead Demo" aria-label="VD: Nguyễn Văn A">
           </div>
         `
             };
@@ -484,6 +485,7 @@
 
   <!-- Mobile Navigation -->
   <script src="/assets/js/mobile-navigation.js" defer></script>
+    </main>
 </body>
 
 </html>

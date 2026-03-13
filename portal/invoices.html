@@ -338,7 +338,7 @@
                         ? `<button class="btn btn-filled error small" onclick="handlePayment('${inv.id}')">Thanh toán ngay</button>`
                         : `<button class="btn btn-filled small" onclick="handlePayment('${inv.id}')">Thanh toán</button>`;
                 return `<tr data-status="${status}">
-                    <td><input type="checkbox" class="invoice-checkbox" data-invoice-id="${inv.id}" data-amount="${inv.amount}" ${isPaid ? 'disabled' : ''}></td>
+                    <td><input type="checkbox" class="invoice-checkbox" data-invoice-id="${inv.id}" data-amount="${inv.amount}" ${isPaid ? 'disabled' : ''} aria-label="${inv.id}"></td>
                     <td><span class="invoice-id">${inv.id}</span></td>
                     <td>${inv.project_name || inv.description || '--'}</td>
                     <td>${fmtDate(inv.created_at)}</td>

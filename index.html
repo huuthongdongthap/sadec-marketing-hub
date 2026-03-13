@@ -116,6 +116,7 @@
 </head>
 
 <body>
+    <main role="main" class="main-content">
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
     <div class="spinner-modern lg"></div>
@@ -505,22 +506,22 @@
           <div class="grid grid-2">
             <div class="form-group">
               <label class="form-label" for="contact-name">Họ tên *</label>
-              <input type="text" id="contact-name" class="form-input" placeholder="Nguyễn Văn A" required>
+              <input type="text" id="contact-name" class="form-input" placeholder="Nguyễn Văn A" required aria-label="Nguyễn Văn A">
             </div>
             <div class="form-group">
               <label class="form-label" for="contact-phone">Số điện thoại *</label>
-              <input type="tel" id="contact-phone" class="form-input" placeholder="0909 xxx xxx" required>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="0909 xxx xxx" required aria-label="0909 xxx xxx">
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="contact-email">Email</label>
-            <input type="email" id="contact-email" class="form-input" placeholder="email@company.com">
+            <input type="email" id="contact-email" class="form-input" placeholder="email@company.com" aria-label="Email@company.com">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="contact-company">Doanh nghiệp của bạn</label>
-            <input type="text" id="contact-company" class="form-input" placeholder="Tên công ty / cửa hàng">
+            <input type="text" id="contact-company" class="form-input" placeholder="Tên công ty / cửa hàng" aria-label="Tên công ty / cửa hàng">
           </div>
 
           <div class="form-group">
@@ -772,6 +773,7 @@
 
   <!-- Mobile Navigation -->
   <script src="assets/js/mobile-navigation.js" defer></script>
+    </main>
 </body>
 
 </html>
