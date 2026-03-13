@@ -193,7 +193,8 @@ test.describe('Error Handling Tests', () => {
     const response = await page.goto('/admin/nonexistent-page.html', { waitUntil: 'domcontentloaded' });
 
     // Should either 404 or redirect to existing page
-    expect(response?.status()).toMatch(/404|302|200/);
+    const status = response?.status() || 0;
+    expect([404, 302, 200]).toContain(status);
   });
 
   test('should not crash on missing data', async ({ page }) => {
