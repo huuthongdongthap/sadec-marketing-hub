@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-13T18:57:55.332Z
-**Files Scanned:** 693
-**Total Issues:** 2007
+**Generated:** 2026-03-13T19:43:20.316Z
+**Files Scanned:** 702
+**Total Issues:** 2020
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 359 |
-| 🟡 Warnings | 1324 |
-| ℹ️ Info | 324 |
+| 🔴 Errors | 353 |
+| 🟡 Warnings | 1338 |
+| ℹ️ Info | 329 |
 
 ---
 
@@ -22,10 +22,10 @@
 |------|-------|
 | Dead Code | 97 |
 | Tech Debt | 0 |
-| Code Smell | 281 |
-| Naming | 65 |
-| Security | 1445 |
-| Duplicate | 119 |
+| Code Smell | 280 |
+| Naming | 63 |
+| Security | 1457 |
+| Duplicate | 123 |
 
 ---
 
@@ -76,6 +76,12 @@
 ### admin/widgets/pie-chart-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### admin/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### portal/js/roiaas-onboarding.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -382,19 +388,7 @@
 ### assets/js/shared/api-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/shared/base-component.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/base-component.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/shared/dom-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/format-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/format-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/guard-utils.js
@@ -428,9 +422,6 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ui-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements.js
@@ -538,6 +529,12 @@
 ### admin/widgets/pie-chart-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### admin/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/admin/admin-ux-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -838,19 +835,7 @@
 ### assets/js/shared/api-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/shared/base-component.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/base-component.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/shared/dom-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/format-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/shared/format-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/guard-utils.js
@@ -884,9 +869,6 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements-controller.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ui-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/ui-enhancements.js
@@ -1126,14 +1108,14 @@
 - **admin/widgets/bar-chart.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/command-palette.js** (Line 142): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/command-palette.js** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/widgets/data-table-widget.js** (Line 32): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/widgets/data-table-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/help-tour.js** (Line 208): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/help-tour.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 - **admin/widgets/index.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/index.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/kpi-card.js** (Line 44): 2 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/kpi-card.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 
-... and 1304 more warnings
+... and 1318 more warnings
 
 
 ---
@@ -1145,11 +1127,6 @@
 - code-smell: 2
 - security: 24
 
-### assets/js/ui-enhancements.js (26 issues)
-- code-smell: 2
-- naming: 2
-- security: 22
-
 ### assets/js/admin/admin-ux-enhancements.js (24 issues)
 - code-smell: 4
 - security: 20
@@ -1157,6 +1134,11 @@
 ### assets/js/ui-enhancements-controller.js (24 issues)
 - naming: 2
 - security: 22
+
+### assets/js/ui-enhancements.js (24 issues)
+- code-smell: 2
+- naming: 2
+- security: 20
 
 ### assets/js/ui-motion-controller.js (22 issues)
 - dead-code: 2
