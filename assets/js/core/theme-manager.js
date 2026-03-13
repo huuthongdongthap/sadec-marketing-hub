@@ -17,6 +17,8 @@
 // THEME MANAGER (ES Module)
 // ============================================================================
 
+import { Logger } from '../shared/logger.js';
+
 /**
  * Theme modes
  */
@@ -92,7 +94,7 @@ export function applyTheme() {
  */
 export function setMode(mode) {
     if (!Object.values(ThemeMode).includes(mode)) {
-        console.warn('[ThemeManager] Invalid mode:', mode);
+        Logger.warn('[ThemeManager] Invalid mode:', mode);
         return;
     }
     _currentMode = mode;
@@ -146,7 +148,7 @@ export function save() {
     try {
         localStorage.setItem(STORAGE_KEY, _currentMode);
     } catch (e) {
-        console.warn('[ThemeManager] Failed to save:', e.message);
+        Logger.warn('[ThemeManager] Failed to save:', e.message);
     }
 }
 
@@ -161,7 +163,7 @@ export function load() {
             return saved;
         }
     } catch (e) {
-        console.warn('[ThemeManager] Failed to load:', e.message);
+        Logger.warn('[ThemeManager] Failed to load:', e.message);
     }
     return ThemeMode.AUTO;
 }
@@ -191,7 +193,7 @@ function notifyChange(mode, isDark) {
         try {
             callback({ mode, isDark });
         } catch (e) {
-            console.warn('[ThemeManager] Listener error:', e.message);
+            Logger.warn('[ThemeManager] Listener error:', e.message);
         }
     });
 }

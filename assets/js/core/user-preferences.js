@@ -18,6 +18,8 @@
 // USER PREFERENCES MANAGER (ES Module)
 // ============================================================================
 
+import { Logger } from '../shared/logger.js';
+
 /**
  * Default preferences
  */
@@ -93,7 +95,7 @@ export function load() {
             return { ...DEFAULTS, ...parsed };
         }
     } catch (e) {
-        console.warn('[UserPreferences] Failed to load:', e.message);
+        Logger.warn('[UserPreferences] Failed to load:', e.message);
     }
     return { ...DEFAULTS };
 }
@@ -105,7 +107,7 @@ export function save() {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(_preferences));
     } catch (e) {
-        console.warn('[UserPreferences] Failed to save:', e.message);
+        Logger.warn('[UserPreferences] Failed to save:', e.message);
     }
 }
 
@@ -272,7 +274,7 @@ function notifyChange(key, newValue, oldValue) {
         try {
             callback({ key, newValue, oldValue });
         } catch (e) {
-            console.warn('[UserPreferences] Listener error:', e.message);
+            Logger.warn('[UserPreferences] Listener error:', e.message);
         }
     });
 }
