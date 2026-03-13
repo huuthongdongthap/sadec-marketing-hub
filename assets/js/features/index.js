@@ -19,6 +19,7 @@ export { CommandPalette } from './command-palette-enhanced.js';
 export { initQuickNotes } from './quick-notes.js';
 export { AISearchEnhancement } from './ai-search-enhancement.js';
 export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from './widget-customizer.js';
+export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
 
 /**
  * Initialize all features
@@ -50,6 +51,7 @@ window.MekongFeatures = {
     CommandPalette: window.CommandPalette,
     AISearchEnhancement: window.AISearchEnhancement,
     WidgetCustomizer: window.WidgetCustomizer,
+    AIContentPanel: window.AIContentPanel,
     initQuickNotes: window.initQuickNotes,
     init: initializeFeatures
 };
