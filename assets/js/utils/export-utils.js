@@ -161,13 +161,13 @@ const ExportUtils = {
     const el = typeof element === 'string' ? document.querySelector(element) : element;
 
     if (!el) {
-      console.error('Element not found');
+      Logger.warn(LOG_TAG, 'Element not found');
       return;
     }
 
     // Check if html2canvas is available
     if (typeof html2canvas === 'undefined') {
-      console.error('html2canvas library required');
+      Logger.warn(LOG_TAG, 'html2canvas library required');
       return;
     }
 
@@ -186,7 +186,7 @@ const ExportUtils = {
         URL.revokeObjectURL(url);
       });
     } catch (error) {
-      console.error('Export to image failed:', error);
+      Logger.error(LOG_TAG, 'Export to image failed:', error);
     }
   },
 
@@ -249,7 +249,7 @@ const ExportUtils = {
           this.toImage(document.querySelector('[data-export-area]') || document.body, `${filename}.png`);
           break;
         default:
-          console.error('Unknown export type:', type);
+          Logger.error(LOG_TAG, 'Unknown export type:', type);
       }
     });
 
