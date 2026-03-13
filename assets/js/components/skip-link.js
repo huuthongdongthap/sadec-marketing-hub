@@ -1,120 +1,94 @@
 /**
- * Sa Đéc Marketing Hub - Skip Link Component
- * Accessibility feature: Skip to main content
- *
- * Usage: Automatically initialized on page load
+ * Skip Link Component - Accessibility Enhancement
+ * Cho phép users skip đến nội dung chính khi dùng keyboard
+ * @version 1.0.0 | 2026-03-14
  */
 
-(function() {
-  'use strict';
-
-  /**
-   * Create skip link element
-   */
-  function createSkipLink() {
-    // Check if skip link already exists
-    if (document.getElementById('skip-link')) return;
-
-    const skipLink = document.createElement('a');
-    skipLink.id = 'skip-link';
-    skipLink.href = '#main-content';
-    skipLink.className = 'skip-link';
-    skipLink.textContent = 'Skip to main content';
-    skipLink.setAttribute('aria-label', 'Skip to main content');
-
-    // Insert at the beginning of body
-    const body = document.body;
-    if (body.firstChild) {
-      body.insertBefore(skipLink, body.firstChild);
-    } else {
-      body.appendChild(skipLink);
-    }
-
-    // Add main content landmark if not exists
-    ensureMainContent();
+class SkipLink extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
   }
 
-  /**
-   * Ensure main content landmark exists
-   */
-  function ensureMainContent() {
-    let main = document.getElementById('main-content');
-    if (!main) {
-      // Try to find existing main element
-      main = document.querySelector('main');
-      if (!main) {
-        // Create main wrapper around content
-        const content = document.querySelector('.content') ||
-                       document.querySelector('.container') ||
-                       document.querySelector('#app') ||
-                       document.querySelector('body');
+  static get observedAttributes() {
+    return ['target', 'text'];
+  }
 
-        if (content && content !== document.body) {
-          main = document.createElement('main');
-          main.id = 'main-content';
-          main.setAttribute('role', 'main');
-          main.setAttribute('tabindex', '-1');
+  connectedCallback() {
+    this.render();
+    this.setupKeyboardNavigation();
+  }
 
-          // Move children to main
-          while (content.firstChild) {
-            main.appendChild(content.firstChild);
-          }
-          content.appendChild(main);
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
+
+  attributeChangedCallback() {
+    if (this.shadowRoot) {
+      this.render();
+    }
+  }
+
+  render() {
+    const target = this.getAttribute('target') || '#main-content';
+    const text = this.getAttribute('text') || 'Bỏ qua đến nội dung chính';
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          position: absolute;
+          left: -9999px;
+          z-index: 9999;
         }
-      }
-    }
 
-    if (main && !main.hasAttribute('tabindex')) {
-      main.setAttribute('tabindex', '-1');
-    }
-  }
-
-  /**
-   * Handle skip link click
-   */
-  function handleSkipClick(e) {
-    e.preventDefault();
-    const main = document.getElementById('main-content');
-    if (main) {
-      main.focus();
-      main.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      // Update URL without triggering scroll
-      history.pushState(null, '', '#main-content');
-    }
-  }
-
-  /**
-   * Initialize skip link
-   */
-  function init() {
-    createSkipLink();
-
-    // Add event listener
-    document.addEventListener('click', (e) => {
-      if (e.target.id === 'skip-link') {
-        handleSkipClick(e);
-      }
-    });
-
-    // Handle keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      // Alt + S to skip
-      if (e.altKey && e.key === 's') {
-        e.preventDefault();
-        const main = document.getElementById('main-content');
-        if (main) {
-          main.focus();
-          main.scrollIntoView({ behavior: 'smooth' });
+        :host(:focus-within) {
+          left: 0;
+          top: 0;
         }
-      }
-    });
+
+        a {
+          display: block;
+          padding: 16px 24px;
+          background: var(--md-sys-color-primary, #0061AB);
+          color: var(--md-sys-color-on-primary, white);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          border-radius: 0 0 8px 0;
+          transition: all 0.2s ease;
+        }
+
+        a:hover {
+          background: var(--md-sys-color-primary-container, #004A85);
+        }
+
+        a:focus {
+          outline: 3px solid var(--md-sys-color-primary, #0061AB);
+          outline-offset: 2px;
+        }
+      </style>
+      <a href="${target}" tabindex="0">${text}</a>
+    `;
   }
 
-  // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  setupKeyboardNavigation() {
+    this._handleKeyDown = (e) => {
+      if (e.key === 'Tab') {
+        this.shadowRoot.querySelector('a')?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', this._handleKeyDown);
   }
-})();
+
+  removeEventListeners() {
+    document.removeEventListener('keydown', this._handleKeyDown);
+  }
+}
+
+// Auto-register
+if (!customElements.get('skip-link')) {
+  customElements.define('skip-link', SkipLink);
+}
+
+export { SkipLink };
