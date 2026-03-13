@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-13
 **Files Scanned:** 160
-**Total Issues:** 1786
+**Total Issues:** 1597
 
 ---
 
@@ -10,7399 +10,2551 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 1145 |
-| 🟡 Warning | 327 |
+| 🔴 Critical | 1058 |
+| 🟡 Warning | 225 |
 | ℹ️ Info | 314 |
 
 ---
 
 ## 🔴 CRITICAL ISSUES (Must Fix)
 
-### 1. Missing charset meta tag
-
-- **File:** `admin/agents.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 2. Broken link: /assets/css/m3-agency.css
+### 1. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2846
 - **Fix:** Fix or remove the broken link
 
 ---
-### 3. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 4. Broken link: /assets/css/admin-agents.css
+### 2. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 701
+- **Line:** 2907
 - **Fix:** Fix or remove the broken link
 
 ---
-### 5. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 764
-- **Fix:** Fix or remove the broken link
-
----
-### 6. Broken link: /assets/css/responsive-fix-2026.css
+### 3. Broken link: /assets/css/admin-agents.css
 
 - **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 839
+- **Line:** 3088
 - **Fix:** Fix or remove the broken link
 
 ---
-### 7. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 910
-- **Fix:** Fix or remove the broken link
-
----
-### 8. Broken link: /assets/css/lazy-loading.css
+### 4. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 975
+- **Line:** 3151
 - **Fix:** Fix or remove the broken link
 
 ---
-### 9. Broken link: /index.html
+### 5. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 5297
+- **Line:** 3226
 - **Fix:** Fix or remove the broken link
 
 ---
-### 10. Missing charset meta tag
+### 6. Broken link: /assets/css/ui-animations.css
 
-- **File:** `admin/ai-analysis.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 11. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/ai-analysis.html`
+- **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 3297
 - **Fix:** Fix or remove the broken link
 
 ---
-### 12. Broken link: /assets/css/admin-unified.css
+### 7. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `admin/ai-analysis.html`
+- **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 3362
 - **Fix:** Fix or remove the broken link
 
 ---
-### 13. Broken link: /assets/css/admin-unified.css
+### 8. Broken link: /index.html
 
-- **File:** `admin/ai-analysis.html`
+- **File:** `admin/agents.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 6204
 - **Fix:** Fix or remove the broken link
 
 ---
-### 14. Broken link: /assets/css/admin-ai-analysis.css
+### 9. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 766
+- **Line:** 2719
 - **Fix:** Fix or remove the broken link
 
 ---
-### 15. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 834
-- **Fix:** Fix or remove the broken link
-
----
-### 16. Broken link: /assets/css/responsive-fix-2026.css
+### 10. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 909
+- **Line:** 2780
 - **Fix:** Fix or remove the broken link
 
 ---
-### 17. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 980
-- **Fix:** Fix or remove the broken link
-
----
-### 18. Broken link: /assets/css/lazy-loading.css
+### 11. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 1045
+- **Line:** 2780
 - **Fix:** Fix or remove the broken link
 
 ---
-### 19. Missing charset meta tag
+### 12. Broken link: /assets/css/admin-ai-analysis.css
 
-- **File:** `admin/api-builder.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 20. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/api-builder.html`
+- **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 3026
 - **Fix:** Fix or remove the broken link
 
 ---
-### 21. Broken link: /assets/css/admin-unified.css
+### 13. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `admin/api-builder.html`
+- **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 3094
 - **Fix:** Fix or remove the broken link
 
 ---
-### 22. Broken link: /assets/css/admin-unified.css
+### 14. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `admin/api-builder.html`
+- **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 3169
 - **Fix:** Fix or remove the broken link
 
 ---
-### 23. Broken link: /assets/css/admin-api-builder.css
+### 15. Broken link: /assets/css/ui-animations.css
 
-- **File:** `admin/api-builder.html`
+- **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 766
+- **Line:** 3240
 - **Fix:** Fix or remove the broken link
 
 ---
-### 24. Broken link: /assets/css/responsive-enhancements.css
+### 16. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `admin/api-builder.html`
+- **File:** `admin/ai-analysis.html`
 - **Category:** links
-- **Line:** 834
+- **Line:** 3305
 - **Fix:** Fix or remove the broken link
 
 ---
-### 25. Broken link: /assets/css/responsive-fix-2026.css
+### 17. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 909
+- **Line:** 2664
 - **Fix:** Fix or remove the broken link
 
 ---
-### 26. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 980
-- **Fix:** Fix or remove the broken link
-
----
-### 27. Broken link: /assets/css/lazy-loading.css
+### 18. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 1045
+- **Line:** 2725
 - **Fix:** Fix or remove the broken link
 
 ---
-### 28. Missing charset meta tag
+### 19. Broken link: /assets/css/admin-unified.css
 
-- **File:** `admin/approvals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 29. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2725
 - **Fix:** Fix or remove the broken link
 
 ---
-### 30. Broken link: /assets/css/admin-unified.css
+### 20. Broken link: /assets/css/admin-api-builder.css
 
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2971
 - **Fix:** Fix or remove the broken link
 
 ---
-### 31. Broken link: /assets/css/admin-approvals.css
+### 21. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 701
+- **Line:** 3039
 - **Fix:** Fix or remove the broken link
 
 ---
-### 32. Broken link: /assets/css/responsive-enhancements.css
+### 22. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 767
+- **Line:** 3114
 - **Fix:** Fix or remove the broken link
 
 ---
-### 33. Broken link: /assets/css/responsive-fix-2026.css
+### 23. Broken link: /assets/css/ui-animations.css
 
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 842
+- **Line:** 3185
 - **Fix:** Fix or remove the broken link
 
 ---
-### 34. Broken link: /assets/css/ui-animations.css
+### 24. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `admin/approvals.html`
+- **File:** `admin/api-builder.html`
 - **Category:** links
-- **Line:** 913
+- **Line:** 3250
 - **Fix:** Fix or remove the broken link
 
 ---
-### 35. Broken link: /assets/css/lazy-loading.css
+### 25. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 36. Broken link: /index.html
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 5362
-- **Fix:** Fix or remove the broken link
-
----
-### 37. Missing charset meta tag
-
-- **File:** `admin/auth.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 38. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 39. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 40. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 41. Broken link: /assets/css/admin-auth.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 42. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 43. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 44. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 45. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 46. Missing charset meta tag
-
-- **File:** `admin/binh-phap.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 47. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 48. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 49. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 50. Broken link: /assets/css/admin-binh-phap.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 51. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 52. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 53. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 54. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 55. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 2632
-- **Fix:** Fix or remove the broken link
-
----
-### 56. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 2693
-- **Fix:** Fix or remove the broken link
-
----
-### 57. Broken link: /assets/css/brand-colors.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 2758
-- **Fix:** Fix or remove the broken link
-
----
-### 58. Broken link: /assets/css/brand-typography.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 2822
-- **Fix:** Fix or remove the broken link
-
----
-### 59. Broken link: /assets/css/admin-brand-guide.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3006
-- **Fix:** Fix or remove the broken link
-
----
-### 60. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3074
-- **Fix:** Fix or remove the broken link
-
----
-### 61. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3149
-- **Fix:** Fix or remove the broken link
-
----
-### 62. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3220
-- **Fix:** Fix or remove the broken link
-
----
-### 63. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3285
-- **Fix:** Fix or remove the broken link
-
----
-### 64. Broken link: /index.html
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3482
-- **Fix:** Fix or remove the broken link
-
----
-### 65. Broken link: /admin/dashboard.html
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3697
-- **Fix:** Fix or remove the broken link
-
----
-### 66. Missing charset meta tag
-
-- **File:** `admin/campaigns.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 67. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 68. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 69. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 70. Broken link: /assets/css/admin-campaigns.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 71. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 72. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 73. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 74. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 75. Missing charset meta tag
-
-- **File:** `admin/community.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 76. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 77. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 78. Broken link: /assets/css/admin-community.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 79. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 80. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 81. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 82. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 83. Broken link: /index.html
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 5354
-- **Fix:** Fix or remove the broken link
-
----
-### 84. Missing charset meta tag
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 85. Broken link: ../../assets/css/main.css
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** links
-- **Line:** 1838
-- **Fix:** Fix or remove the broken link
-
----
-### 86. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** links
-- **Line:** 1899
-- **Fix:** Fix or remove the broken link
-
----
-### 87. Missing charset meta tag
-
-- **File:** `admin/content-calendar.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 88. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 89. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 90. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 91. Broken link: /assets/css/admin-content-calendar.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 92. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 839
-- **Fix:** Fix or remove the broken link
-
----
-### 93. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 914
-- **Fix:** Fix or remove the broken link
-
----
-### 94. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 985
-- **Fix:** Fix or remove the broken link
-
----
-### 95. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 1050
-- **Fix:** Fix or remove the broken link
-
----
-### 96. Missing charset meta tag
-
-- **File:** `admin/customer-success.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 97. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 98. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 99. Broken link: /assets/css/admin-customer-success.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 100. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 774
-- **Fix:** Fix or remove the broken link
-
----
-### 101. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 849
-- **Fix:** Fix or remove the broken link
-
----
-### 102. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 920
-- **Fix:** Fix or remove the broken link
-
----
-### 103. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 985
-- **Fix:** Fix or remove the broken link
-
----
-### 104. Broken link: /index.html
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 5359
-- **Fix:** Fix or remove the broken link
-
----
-### 105. Missing charset meta tag
-
-- **File:** `admin/dashboard.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 106. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 107. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 108. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 109. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 648
-- **Fix:** Fix or remove the broken link
-
----
-### 110. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 713
-- **Fix:** Fix or remove the broken link
-
----
-### 111. Broken link: /assets/css/admin-dashboard.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 777
-- **Fix:** Fix or remove the broken link
-
----
-### 112. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 844
-- **Fix:** Fix or remove the broken link
-
----
-### 113. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 919
-- **Fix:** Fix or remove the broken link
-
----
-### 114. Broken link: /assets/css/ui-enhancements-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 990
-- **Fix:** Fix or remove the broken link
-
----
-### 115. Missing charset meta tag
-
-- **File:** `admin/deploy.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 116. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 117. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 522
-- **Fix:** Fix or remove the broken link
-
----
-### 118. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 702
-- **Fix:** Fix or remove the broken link
-
----
-### 119. Broken link: /assets/css/admin-deploy.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 763
-- **Fix:** Fix or remove the broken link
-
----
-### 120. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 826
-- **Fix:** Fix or remove the broken link
-
----
-### 121. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 901
-- **Fix:** Fix or remove the broken link
-
----
-### 122. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 972
-- **Fix:** Fix or remove the broken link
-
----
-### 123. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 1037
-- **Fix:** Fix or remove the broken link
-
----
-### 124. Missing charset meta tag
-
-- **File:** `admin/docs.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 125. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 126. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 127. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 128. Broken link: /assets/css/admin-docs.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 129. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 130. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 131. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 132. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 133. Missing charset meta tag
-
-- **File:** `admin/ecommerce.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 134. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 135. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 136. Broken link: /assets/css/admin-ecommerce.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 137. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 138. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 139. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 140. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 141. Broken link: /index.html
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 5313
-- **Fix:** Fix or remove the broken link
-
----
-### 142. Missing charset meta tag
-
-- **File:** `admin/events.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 143. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 144. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 145. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 146. Broken link: /assets/css/admin-events.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 764
-- **Fix:** Fix or remove the broken link
-
----
-### 147. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 148. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 149. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 150. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 151. Missing charset meta tag
-
-- **File:** `admin/finance.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 152. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 153. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 154. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 155. Broken link: /assets/css/admin-finance.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 156. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 157. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 905
-- **Fix:** Fix or remove the broken link
-
----
-### 158. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 976
-- **Fix:** Fix or remove the broken link
-
----
-### 159. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 160. Missing charset meta tag
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 161. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 162. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 163. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 164. Broken link: /assets/css/admin-hr-hiring.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 165. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 166. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 167. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 168. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 169. Missing charset meta tag
-
-- **File:** `admin/inventory.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 170. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 171. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 172. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 173. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 174. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 175. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 176. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 177. Missing charset meta tag
-
-- **File:** `admin/landing-builder.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 178. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 179. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 180. Broken link: /assets/css/admin-landing-builder.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 591
-- **Fix:** Fix or remove the broken link
-
----
-### 181. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 663
-- **Fix:** Fix or remove the broken link
-
----
-### 182. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 738
-- **Fix:** Fix or remove the broken link
-
----
-### 183. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 809
-- **Fix:** Fix or remove the broken link
-
----
-### 184. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 874
-- **Fix:** Fix or remove the broken link
-
----
-### 185. Missing charset meta tag
-
-- **File:** `admin/leads.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 186. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 187. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 188. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 189. Broken link: /assets/css/admin-leads.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 190. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 828
-- **Fix:** Fix or remove the broken link
-
----
-### 191. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 903
-- **Fix:** Fix or remove the broken link
-
----
-### 192. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 974
-- **Fix:** Fix or remove the broken link
-
----
-### 193. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 1039
-- **Fix:** Fix or remove the broken link
-
----
-### 194. Missing charset meta tag
-
-- **File:** `admin/legal.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 195. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 196. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 197. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 198. Broken link: /assets/css/admin-legal.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 763
-- **Fix:** Fix or remove the broken link
-
----
-### 199. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 825
-- **Fix:** Fix or remove the broken link
-
----
-### 200. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 900
-- **Fix:** Fix or remove the broken link
-
----
-### 201. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 971
-- **Fix:** Fix or remove the broken link
-
----
-### 202. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 1036
-- **Fix:** Fix or remove the broken link
-
----
-### 203. Missing charset meta tag
-
-- **File:** `admin/lms.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 204. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 205. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 206. Broken link: /assets/css/admin-lms.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 700
-- **Fix:** Fix or remove the broken link
-
----
-### 207. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 760
-- **Fix:** Fix or remove the broken link
-
----
-### 208. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 835
-- **Fix:** Fix or remove the broken link
-
----
-### 209. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 906
-- **Fix:** Fix or remove the broken link
-
----
-### 210. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 971
-- **Fix:** Fix or remove the broken link
-
----
-### 211. Missing charset meta tag
-
-- **File:** `admin/loyalty.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 212. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 213. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 214. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 215. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 216. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 217. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 218. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 219. Missing charset meta tag
-
-- **File:** `admin/menu.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 220. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 221. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 222. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 223. Broken link: /assets/css/admin-menu.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 224. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 974
-- **Fix:** Fix or remove the broken link
-
----
-### 225. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1049
-- **Fix:** Fix or remove the broken link
-
----
-### 226. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1120
-- **Fix:** Fix or remove the broken link
-
----
-### 227. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1185
-- **Fix:** Fix or remove the broken link
-
----
-### 228. Missing charset meta tag
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 229. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 230. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 231. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 232. Broken link: /assets/css/admin-mvp-launch.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 233. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 833
-- **Fix:** Fix or remove the broken link
-
----
-### 234. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 908
-- **Fix:** Fix or remove the broken link
-
----
-### 235. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 979
-- **Fix:** Fix or remove the broken link
-
----
-### 236. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 1044
-- **Fix:** Fix or remove the broken link
-
----
-### 237. Missing charset meta tag
-
-- **File:** `admin/notifications.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 238. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 239. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 534
-- **Fix:** Fix or remove the broken link
-
----
-### 240. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 605
-- **Fix:** Fix or remove the broken link
-
----
-### 241. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 670
-- **Fix:** Fix or remove the broken link
-
----
-### 242. Missing charset meta tag
-
-- **File:** `admin/onboarding.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 243. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 244. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 245. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 246. Broken link: /assets/css/admin-onboarding.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 247. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 833
-- **Fix:** Fix or remove the broken link
-
----
-### 248. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 908
-- **Fix:** Fix or remove the broken link
-
----
-### 249. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 979
-- **Fix:** Fix or remove the broken link
-
----
-### 250. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 1044
-- **Fix:** Fix or remove the broken link
-
----
-### 251. Missing charset meta tag
-
-- **File:** `admin/payments.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 252. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 253. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 254. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 255. Broken link: /assets/css/admin-payments.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 256. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 831
-- **Fix:** Fix or remove the broken link
-
----
-### 257. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 906
-- **Fix:** Fix or remove the broken link
-
----
-### 258. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 977
-- **Fix:** Fix or remove the broken link
-
----
-### 259. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 1042
-- **Fix:** Fix or remove the broken link
-
----
-### 260. Missing charset meta tag
-
-- **File:** `admin/pipeline.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 261. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 262. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 263. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 264. Broken link: /assets/css/pipeline-pro.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 650
-- **Fix:** Fix or remove the broken link
-
----
-### 265. Broken link: /assets/css/admin-pipeline.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 266. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 895
-- **Fix:** Fix or remove the broken link
-
----
-### 267. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 970
-- **Fix:** Fix or remove the broken link
-
----
-### 268. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 269. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 1106
-- **Fix:** Fix or remove the broken link
-
----
-### 270. Missing charset meta tag
-
-- **File:** `admin/pos.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 271. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 272. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 273. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 274. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 275. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 276. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 277. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 278. Missing charset meta tag
-
-- **File:** `admin/pricing.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 279. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 280. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 281. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 282. Broken link: /assets/css/admin-pricing.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 283. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 284. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 905
-- **Fix:** Fix or remove the broken link
-
----
-### 285. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 976
-- **Fix:** Fix or remove the broken link
-
----
-### 286. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 287. Missing charset meta tag
-
-- **File:** `admin/proposals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 288. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 289. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 290. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 291. Broken link: /assets/css/admin-proposals.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 292. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 293. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 294. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 295. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 296. Missing charset meta tag
-
-- **File:** `admin/quality.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 297. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 298. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 299. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 300. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 301. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 302. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 303. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 304. Missing charset meta tag
-
-- **File:** `admin/raas-overview.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 305. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 306. Broken link: /assets/css/admin-dashboard.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 307. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 586
-- **Fix:** Fix or remove the broken link
-
----
-### 308. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 661
-- **Fix:** Fix or remove the broken link
-
----
-### 309. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 732
-- **Fix:** Fix or remove the broken link
-
----
-### 310. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 797
-- **Fix:** Fix or remove the broken link
-
----
-### 311. Missing charset meta tag
-
-- **File:** `admin/retention.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 312. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 313. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 314. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 315. Broken link: /assets/css/admin-retention.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 316. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 317. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 318. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 319. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 320. Missing charset meta tag
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 321. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 322. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** links
-- **Line:** 534
-- **Fix:** Fix or remove the broken link
-
----
-### 323. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** links
-- **Line:** 605
-- **Fix:** Fix or remove the broken link
-
----
-### 324. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** links
-- **Line:** 670
-- **Fix:** Fix or remove the broken link
-
----
-### 325. Missing charset meta tag
-
-- **File:** `admin/shifts.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 326. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 327. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 328. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 329. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 330. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 331. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 332. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/shifts.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 333. Missing charset meta tag
-
-- **File:** `admin/suppliers.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 334. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 335. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 336. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 337. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 338. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 339. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 340. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/suppliers.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 341. Missing charset meta tag
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 342. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 343. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 344. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 345. Broken link: /assets/css/admin-vc-readiness.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 346. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 835
-- **Fix:** Fix or remove the broken link
-
----
-### 347. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 910
-- **Fix:** Fix or remove the broken link
-
----
-### 348. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 981
-- **Fix:** Fix or remove the broken link
-
----
-### 349. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** links
-- **Line:** 1046
-- **Fix:** Fix or remove the broken link
-
----
-### 350. Missing charset meta tag
-
-- **File:** `admin/video-workflow.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 351. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 352. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 353. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 354. Broken link: /assets/css/admin-video-workflow.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 355. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 837
-- **Fix:** Fix or remove the broken link
-
----
-### 356. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 912
-- **Fix:** Fix or remove the broken link
-
----
-### 357. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 983
-- **Fix:** Fix or remove the broken link
-
----
-### 358. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/video-workflow.html`
-- **Category:** links
-- **Line:** 1048
-- **Fix:** Fix or remove the broken link
-
----
-### 359. Missing or incorrect DOCTYPE declaration
-
-- **File:** `admin/widgets/kpi-card.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 360. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/widgets/kpi-card.html`
-- **Category:** links
-- **Line:** 27
-- **Fix:** Fix or remove the broken link
-
----
-### 361. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/widgets-demo.html`
-- **Category:** links
-- **Line:** 1852
-- **Fix:** Fix or remove the broken link
-
----
-### 362. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/widgets-demo.html`
-- **Category:** links
-- **Line:** 1913
-- **Fix:** Fix or remove the broken link
-
----
-### 363. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/widgets-demo.html`
-- **Category:** links
-- **Line:** 1976
-- **Fix:** Fix or remove the broken link
-
----
-### 364. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/widgets-demo.html`
-- **Category:** links
-- **Line:** 2096
-- **Fix:** Fix or remove the broken link
-
----
-### 365. Missing charset meta tag
-
-- **File:** `admin/workflows.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 366. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 367. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 368. Broken link: /assets/css/admin-workflows.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 369. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 370. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 371. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 372. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 373. Broken link: /index.html
-
-- **File:** `admin/workflows.html`
-- **Category:** links
-- **Line:** 5322
-- **Fix:** Fix or remove the broken link
-
----
-### 374. Missing charset meta tag
-
-- **File:** `admin/zalo.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 375. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 376. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 377. Broken link: /assets/css/admin-zalo.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 585
-- **Fix:** Fix or remove the broken link
-
----
-### 378. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 646
-- **Fix:** Fix or remove the broken link
-
----
-### 379. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 721
-- **Fix:** Fix or remove the broken link
-
----
-### 380. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 792
-- **Fix:** Fix or remove the broken link
-
----
-### 381. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/zalo.html`
-- **Category:** links
-- **Line:** 857
-- **Fix:** Fix or remove the broken link
-
----
-### 382. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2227
-- **Fix:** Fix or remove the broken link
-
----
-### 383. Broken link: /assets/css/portal.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2288
-- **Fix:** Fix or remove the broken link
-
----
-### 384. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2345
-- **Fix:** Fix or remove the broken link
-
----
-### 385. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2420
-- **Fix:** Fix or remove the broken link
-
----
-### 386. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2491
-- **Fix:** Fix or remove the broken link
-
----
-### 387. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/approve.html`
-- **Category:** links
-- **Line:** 2556
-- **Fix:** Fix or remove the broken link
-
----
-### 388. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2229
-- **Fix:** Fix or remove the broken link
-
----
-### 389. Broken link: /assets/css/portal.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2290
-- **Fix:** Fix or remove the broken link
-
----
-### 390. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2347
-- **Fix:** Fix or remove the broken link
-
----
-### 391. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2422
-- **Fix:** Fix or remove the broken link
-
----
-### 392. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2493
-- **Fix:** Fix or remove the broken link
-
----
-### 393. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/assets.html`
-- **Category:** links
-- **Line:** 2558
-- **Fix:** Fix or remove the broken link
-
----
-### 394. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2231
-- **Fix:** Fix or remove the broken link
-
----
-### 395. Broken link: /assets/css/portal.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2292
-- **Fix:** Fix or remove the broken link
-
----
-### 396. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2349
-- **Fix:** Fix or remove the broken link
-
----
-### 397. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2424
-- **Fix:** Fix or remove the broken link
-
----
-### 398. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2495
-- **Fix:** Fix or remove the broken link
-
----
-### 399. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/credits.html`
-- **Category:** links
-- **Line:** 2560
-- **Fix:** Fix or remove the broken link
-
----
-### 400. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/dashboard.html`
-- **Category:** links
-- **Line:** 2420
-- **Fix:** Fix or remove the broken link
-
----
-### 401. Broken link: /assets/css/portal.css
-
-- **File:** `portal/dashboard.html`
-- **Category:** links
-- **Line:** 2481
-- **Fix:** Fix or remove the broken link
-
----
-### 402. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/dashboard.html`
-- **Category:** links
-- **Line:** 2539
-- **Fix:** Fix or remove the broken link
-
----
-### 403. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/dashboard.html`
-- **Category:** links
-- **Line:** 2604
-- **Fix:** Fix or remove the broken link
-
----
-### 404. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/dashboard.html`
-- **Category:** links
-- **Line:** 2668
-- **Fix:** Fix or remove the broken link
-
----
-### 405. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/dashboard.html`
 - **Category:** links
 - **Line:** 2743
 - **Fix:** Fix or remove the broken link
 
 ---
-### 406. Broken link: /assets/css/m3-agency.css
+### 26. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2211
+- **Line:** 2804
 - **Fix:** Fix or remove the broken link
 
 ---
-### 407. Broken link: /assets/css/portal.css
+### 27. Broken link: /assets/css/admin-approvals.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2272
+- **Line:** 2985
 - **Fix:** Fix or remove the broken link
 
 ---
-### 408. Broken link: /assets/css/responsive-enhancements.css
+### 28. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2329
+- **Line:** 3051
 - **Fix:** Fix or remove the broken link
 
 ---
-### 409. Broken link: /assets/css/responsive-fix-2026.css
+### 29. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2404
+- **Line:** 3126
 - **Fix:** Fix or remove the broken link
 
 ---
-### 410. Broken link: /assets/css/ui-animations.css
+### 30. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2475
+- **Line:** 3197
 - **Fix:** Fix or remove the broken link
 
 ---
-### 411. Broken link: /assets/css/lazy-loading.css
+### 31. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/invoices.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2540
+- **Line:** 3262
 - **Fix:** Fix or remove the broken link
 
 ---
-### 412. Broken link: /assets/css/m3-agency.css
+### 32. Broken link: /index.html
 
-- **File:** `portal/login.html`
+- **File:** `admin/approvals.html`
 - **Category:** links
-- **Line:** 2389
+- **Line:** 6104
 - **Fix:** Fix or remove the broken link
 
 ---
-### 413. Broken link: /assets/css/portal.css
+### 33. Broken link: /assets/css/m3-agency.css
 
-- **File:** `portal/login.html`
+- **File:** `admin/auth.html`
 - **Category:** links
-- **Line:** 2450
+- **Line:** 2662
 - **Fix:** Fix or remove the broken link
 
 ---
-### 414. Broken link: /assets/css/responsive-enhancements.css
+### 34. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/login.html`
+- **File:** `admin/auth.html`
 - **Category:** links
-- **Line:** 2507
+- **Line:** 2723
 - **Fix:** Fix or remove the broken link
 
 ---
-### 415. Broken link: /assets/css/responsive-fix-2026.css
+### 35. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/login.html`
+- **File:** `admin/auth.html`
 - **Category:** links
-- **Line:** 2582
+- **Line:** 2723
 - **Fix:** Fix or remove the broken link
 
 ---
-### 416. Broken link: /assets/css/ui-animations.css
+### 36. Broken link: /assets/css/admin-auth.css
 
-- **File:** `portal/login.html`
+- **File:** `admin/auth.html`
 - **Category:** links
-- **Line:** 2653
+- **Line:** 2969
 - **Fix:** Fix or remove the broken link
 
 ---
-### 417. Broken link: /assets/css/lazy-loading.css
+### 37. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/login.html`
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3030
+- **Fix:** Fix or remove the broken link
+
+---
+### 38. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3105
+- **Fix:** Fix or remove the broken link
+
+---
+### 39. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3176
+- **Fix:** Fix or remove the broken link
+
+---
+### 40. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3241
+- **Fix:** Fix or remove the broken link
+
+---
+### 41. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2813
+- **Fix:** Fix or remove the broken link
+
+---
+### 42. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2874
+- **Fix:** Fix or remove the broken link
+
+---
+### 43. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2874
+- **Fix:** Fix or remove the broken link
+
+---
+### 44. Broken link: /assets/css/admin-binh-phap.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3120
+- **Fix:** Fix or remove the broken link
+
+---
+### 45. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3186
+- **Fix:** Fix or remove the broken link
+
+---
+### 46. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3261
+- **Fix:** Fix or remove the broken link
+
+---
+### 47. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3332
+- **Fix:** Fix or remove the broken link
+
+---
+### 48. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3397
+- **Fix:** Fix or remove the broken link
+
+---
+### 49. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3183
+- **Fix:** Fix or remove the broken link
+
+---
+### 50. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3244
+- **Fix:** Fix or remove the broken link
+
+---
+### 51. Broken link: /assets/css/brand-colors.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3309
+- **Fix:** Fix or remove the broken link
+
+---
+### 52. Broken link: /assets/css/brand-typography.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3373
+- **Fix:** Fix or remove the broken link
+
+---
+### 53. Broken link: /assets/css/admin-brand-guide.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3557
+- **Fix:** Fix or remove the broken link
+
+---
+### 54. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3625
+- **Fix:** Fix or remove the broken link
+
+---
+### 55. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3700
+- **Fix:** Fix or remove the broken link
+
+---
+### 56. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3771
+- **Fix:** Fix or remove the broken link
+
+---
+### 57. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3836
+- **Fix:** Fix or remove the broken link
+
+---
+### 58. Broken link: /index.html
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 4033
+- **Fix:** Fix or remove the broken link
+
+---
+### 59. Broken link: /admin/dashboard.html
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 4248
+- **Fix:** Fix or remove the broken link
+
+---
+### 60. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2857
+- **Fix:** Fix or remove the broken link
+
+---
+### 61. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2918
+- **Fix:** Fix or remove the broken link
+
+---
+### 62. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2918
+- **Fix:** Fix or remove the broken link
+
+---
+### 63. Broken link: /assets/css/admin-campaigns.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3164
+- **Fix:** Fix or remove the broken link
+
+---
+### 64. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3230
+- **Fix:** Fix or remove the broken link
+
+---
+### 65. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3305
+- **Fix:** Fix or remove the broken link
+
+---
+### 66. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3376
+- **Fix:** Fix or remove the broken link
+
+---
+### 67. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3441
+- **Fix:** Fix or remove the broken link
+
+---
+### 68. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2734
+- **Fix:** Fix or remove the broken link
+
+---
+### 69. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2795
+- **Fix:** Fix or remove the broken link
+
+---
+### 70. Broken link: /assets/css/admin-community.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2976
+- **Fix:** Fix or remove the broken link
+
+---
+### 71. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3042
+- **Fix:** Fix or remove the broken link
+
+---
+### 72. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3117
+- **Fix:** Fix or remove the broken link
+
+---
+### 73. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3188
+- **Fix:** Fix or remove the broken link
+
+---
+### 74. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3253
+- **Fix:** Fix or remove the broken link
+
+---
+### 75. Broken link: /index.html
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 6071
+- **Fix:** Fix or remove the broken link
+
+---
+### 76. Broken link: ../../assets/css/main.css
+
+- **File:** `admin/components/phase-tracker.html`
+- **Category:** links
+- **Line:** 1863
+- **Fix:** Fix or remove the broken link
+
+---
+### 77. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/components/phase-tracker.html`
+- **Category:** links
+- **Line:** 1924
+- **Fix:** Fix or remove the broken link
+
+---
+### 78. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2831
+- **Fix:** Fix or remove the broken link
+
+---
+### 79. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 80. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 81. Broken link: /assets/css/admin-content-calendar.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3138
+- **Fix:** Fix or remove the broken link
+
+---
+### 82. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3211
+- **Fix:** Fix or remove the broken link
+
+---
+### 83. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3286
+- **Fix:** Fix or remove the broken link
+
+---
+### 84. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 85. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3422
+- **Fix:** Fix or remove the broken link
+
+---
+### 86. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 2768
+- **Fix:** Fix or remove the broken link
+
+---
+### 87. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 2829
+- **Fix:** Fix or remove the broken link
+
+---
+### 88. Broken link: /assets/css/admin-customer-success.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3010
+- **Fix:** Fix or remove the broken link
+
+---
+### 89. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3083
+- **Fix:** Fix or remove the broken link
+
+---
+### 90. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3158
+- **Fix:** Fix or remove the broken link
+
+---
+### 91. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3229
+- **Fix:** Fix or remove the broken link
+
+---
+### 92. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3294
+- **Fix:** Fix or remove the broken link
+
+---
+### 93. Broken link: /index.html
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 6112
+- **Fix:** Fix or remove the broken link
+
+---
+### 94. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 2883
+- **Fix:** Fix or remove the broken link
+
+---
+### 95. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 2944
+- **Fix:** Fix or remove the broken link
+
+---
+### 96. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3007
+- **Fix:** Fix or remove the broken link
+
+---
+### 97. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3072
+- **Fix:** Fix or remove the broken link
+
+---
+### 98. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3137
+- **Fix:** Fix or remove the broken link
+
+---
+### 99. Broken link: /assets/css/admin-dashboard.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3201
+- **Fix:** Fix or remove the broken link
+
+---
+### 100. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3268
+- **Fix:** Fix or remove the broken link
+
+---
+### 101. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3343
+- **Fix:** Fix or remove the broken link
+
+---
+### 102. Broken link: /assets/css/ui-enhancements-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3414
+- **Fix:** Fix or remove the broken link
+
+---
+### 103. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2686
+- **Fix:** Fix or remove the broken link
+
+---
+### 104. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 105. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2929
+- **Fix:** Fix or remove the broken link
+
+---
+### 106. Broken link: /assets/css/admin-deploy.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2990
+- **Fix:** Fix or remove the broken link
+
+---
+### 107. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3053
+- **Fix:** Fix or remove the broken link
+
+---
+### 108. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3128
+- **Fix:** Fix or remove the broken link
+
+---
+### 109. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3199
+- **Fix:** Fix or remove the broken link
+
+---
+### 110. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3264
+- **Fix:** Fix or remove the broken link
+
+---
+### 111. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2689
+- **Fix:** Fix or remove the broken link
+
+---
+### 112. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 113. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 114. Broken link: /assets/css/admin-docs.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2996
+- **Fix:** Fix or remove the broken link
+
+---
+### 115. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3057
+- **Fix:** Fix or remove the broken link
+
+---
+### 116. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3132
+- **Fix:** Fix or remove the broken link
+
+---
+### 117. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3203
+- **Fix:** Fix or remove the broken link
+
+---
+### 118. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3268
+- **Fix:** Fix or remove the broken link
+
+---
+### 119. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 2800
+- **Fix:** Fix or remove the broken link
+
+---
+### 120. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 2861
+- **Fix:** Fix or remove the broken link
+
+---
+### 121. Broken link: /assets/css/admin-ecommerce.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3042
+- **Fix:** Fix or remove the broken link
+
+---
+### 122. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3108
+- **Fix:** Fix or remove the broken link
+
+---
+### 123. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3183
+- **Fix:** Fix or remove the broken link
+
+---
+### 124. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3254
+- **Fix:** Fix or remove the broken link
+
+---
+### 125. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3319
+- **Fix:** Fix or remove the broken link
+
+---
+### 126. Broken link: /index.html
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 6161
+- **Fix:** Fix or remove the broken link
+
+---
+### 127. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2663
+- **Fix:** Fix or remove the broken link
+
+---
+### 128. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2724
+- **Fix:** Fix or remove the broken link
+
+---
+### 129. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2787
+- **Fix:** Fix or remove the broken link
+
+---
+### 130. Broken link: /assets/css/admin-events.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2968
+- **Fix:** Fix or remove the broken link
+
+---
+### 131. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3031
+- **Fix:** Fix or remove the broken link
+
+---
+### 132. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3106
+- **Fix:** Fix or remove the broken link
+
+---
+### 133. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3177
+- **Fix:** Fix or remove the broken link
+
+---
+### 134. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3242
+- **Fix:** Fix or remove the broken link
+
+---
+### 135. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2724
+- **Fix:** Fix or remove the broken link
+
+---
+### 136. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2785
+- **Fix:** Fix or remove the broken link
+
+---
+### 137. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2785
+- **Fix:** Fix or remove the broken link
+
+---
+### 138. Broken link: /assets/css/admin-finance.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3031
+- **Fix:** Fix or remove the broken link
+
+---
+### 139. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3095
+- **Fix:** Fix or remove the broken link
+
+---
+### 140. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3170
+- **Fix:** Fix or remove the broken link
+
+---
+### 141. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3241
+- **Fix:** Fix or remove the broken link
+
+---
+### 142. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3306
+- **Fix:** Fix or remove the broken link
+
+---
+### 143. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2679
+- **Fix:** Fix or remove the broken link
+
+---
+### 144. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2740
+- **Fix:** Fix or remove the broken link
+
+---
+### 145. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2740
+- **Fix:** Fix or remove the broken link
+
+---
+### 146. Broken link: /assets/css/admin-hr-hiring.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2986
+- **Fix:** Fix or remove the broken link
+
+---
+### 147. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3052
+- **Fix:** Fix or remove the broken link
+
+---
+### 148. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3127
+- **Fix:** Fix or remove the broken link
+
+---
+### 149. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3198
+- **Fix:** Fix or remove the broken link
+
+---
+### 150. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3263
+- **Fix:** Fix or remove the broken link
+
+---
+### 151. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2739
+- **Fix:** Fix or remove the broken link
+
+---
+### 152. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2800
+- **Fix:** Fix or remove the broken link
+
+---
+### 153. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2863
+- **Fix:** Fix or remove the broken link
+
+---
+### 154. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2927
+- **Fix:** Fix or remove the broken link
+
+---
+### 155. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3002
+- **Fix:** Fix or remove the broken link
+
+---
+### 156. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3073
+- **Fix:** Fix or remove the broken link
+
+---
+### 157. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3138
+- **Fix:** Fix or remove the broken link
+
+---
+### 158. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 159. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2811
+- **Fix:** Fix or remove the broken link
+
+---
+### 160. Broken link: /assets/css/admin-landing-builder.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2882
+- **Fix:** Fix or remove the broken link
+
+---
+### 161. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2954
+- **Fix:** Fix or remove the broken link
+
+---
+### 162. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3029
+- **Fix:** Fix or remove the broken link
+
+---
+### 163. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3100
+- **Fix:** Fix or remove the broken link
+
+---
+### 164. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3165
+- **Fix:** Fix or remove the broken link
+
+---
+### 165. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2777
+- **Fix:** Fix or remove the broken link
+
+---
+### 166. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2838
+- **Fix:** Fix or remove the broken link
+
+---
+### 167. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2838
+- **Fix:** Fix or remove the broken link
+
+---
+### 168. Broken link: /assets/css/admin-leads.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3084
+- **Fix:** Fix or remove the broken link
+
+---
+### 169. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3146
+- **Fix:** Fix or remove the broken link
+
+---
+### 170. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3221
+- **Fix:** Fix or remove the broken link
+
+---
+### 171. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3292
+- **Fix:** Fix or remove the broken link
+
+---
+### 172. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 173. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2673
+- **Fix:** Fix or remove the broken link
+
+---
+### 174. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2734
+- **Fix:** Fix or remove the broken link
+
+---
+### 175. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2797
+- **Fix:** Fix or remove the broken link
+
+---
+### 176. Broken link: /assets/css/admin-legal.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2977
+- **Fix:** Fix or remove the broken link
+
+---
+### 177. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3039
+- **Fix:** Fix or remove the broken link
+
+---
+### 178. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3114
+- **Fix:** Fix or remove the broken link
+
+---
+### 179. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3185
+- **Fix:** Fix or remove the broken link
+
+---
+### 180. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3250
+- **Fix:** Fix or remove the broken link
+
+---
+### 181. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/lms.html`
 - **Category:** links
 - **Line:** 2718
 - **Fix:** Fix or remove the broken link
 
 ---
-### 418. Broken link: /assets/css/m3-agency.css
+### 182. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2384
+- **Line:** 2779
 - **Fix:** Fix or remove the broken link
 
 ---
-### 419. Broken link: /assets/css/portal.css
+### 183. Broken link: /assets/css/admin-lms.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2445
+- **Line:** 2959
 - **Fix:** Fix or remove the broken link
 
 ---
-### 420. Broken link: /assets/css/responsive-enhancements.css
+### 184. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2502
+- **Line:** 3019
 - **Fix:** Fix or remove the broken link
 
 ---
-### 421. Broken link: /assets/css/responsive-fix-2026.css
+### 185. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2577
+- **Line:** 3094
 - **Fix:** Fix or remove the broken link
 
 ---
-### 422. Broken link: /assets/css/ui-animations.css
+### 186. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2648
+- **Line:** 3165
 - **Fix:** Fix or remove the broken link
 
 ---
-### 423. Broken link: /assets/css/lazy-loading.css
+### 187. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/missions.html`
+- **File:** `admin/lms.html`
 - **Category:** links
-- **Line:** 2713
+- **Line:** 3230
 - **Fix:** Fix or remove the broken link
 
 ---
-### 424. Broken link: ../assets/css/main.css
+### 188. Broken link: /assets/css/m3-agency.css
 
-- **File:** `portal/notifications.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 1357
+- **Line:** 2735
 - **Fix:** Fix or remove the broken link
 
 ---
-### 425. Broken link: /assets/css/responsive-fix-2026.css
+### 189. Broken link: /assets/css/agency-2026.css
 
-- **File:** `portal/notifications.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 1415
+- **Line:** 2796
 - **Fix:** Fix or remove the broken link
 
 ---
-### 426. Broken link: /assets/css/responsive-enhancements.css
+### 190. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/ocop-catalog.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 2140
+- **Line:** 2859
 - **Fix:** Fix or remove the broken link
 
 ---
-### 427. Broken link: /assets/css/responsive-fix-2026.css
+### 191. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/ocop-catalog.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 2215
+- **Line:** 2923
 - **Fix:** Fix or remove the broken link
 
 ---
-### 428. Broken link: /assets/css/ui-animations.css
+### 192. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/ocop-catalog.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 2286
+- **Line:** 2998
 - **Fix:** Fix or remove the broken link
 
 ---
-### 429. Broken link: /assets/css/lazy-loading.css
+### 193. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/ocop-catalog.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 2351
+- **Line:** 3069
 - **Fix:** Fix or remove the broken link
 
 ---
-### 430. Broken link: /assets/css/m3-agency.css
+### 194. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/loyalty.html`
 - **Category:** links
-- **Line:** 2337
+- **Line:** 3134
 - **Fix:** Fix or remove the broken link
 
 ---
-### 431. Broken link: /assets/css/portal.css
+### 195. Broken link: /assets/css/m3-agency.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2398
+- **Line:** 2714
 - **Fix:** Fix or remove the broken link
 
 ---
-### 432. Broken link: /assets/css/responsive-enhancements.css
+### 196. Broken link: /assets/css/agency-2026.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2455
+- **Line:** 2775
 - **Fix:** Fix or remove the broken link
 
 ---
-### 433. Broken link: /assets/css/responsive-fix-2026.css
+### 197. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2530
+- **Line:** 2838
 - **Fix:** Fix or remove the broken link
 
 ---
-### 434. Broken link: /assets/css/ui-animations.css
+### 198. Broken link: /assets/css/admin-menu.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2601
+- **Line:** 3168
 - **Fix:** Fix or remove the broken link
 
 ---
-### 435. Broken link: /assets/css/lazy-loading.css
+### 199. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/ocop-exporter.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2666
+- **Line:** 3229
 - **Fix:** Fix or remove the broken link
 
 ---
-### 436. Broken link: /assets/css/m3-agency.css
+### 200. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2311
+- **Line:** 3304
 - **Fix:** Fix or remove the broken link
 
 ---
-### 437. Broken link: /assets/css/portal.css
+### 201. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2372
+- **Line:** 3375
 - **Fix:** Fix or remove the broken link
 
 ---
-### 438. Broken link: /assets/css/responsive-enhancements.css
+### 202. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/menu.html`
 - **Category:** links
-- **Line:** 2429
+- **Line:** 3440
 - **Fix:** Fix or remove the broken link
 
 ---
-### 439. Broken link: /assets/css/responsive-fix-2026.css
+### 203. Broken link: /assets/css/m3-agency.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2504
+- **Line:** 2669
 - **Fix:** Fix or remove the broken link
 
 ---
-### 440. Broken link: /assets/css/ui-animations.css
+### 204. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2575
+- **Line:** 2730
 - **Fix:** Fix or remove the broken link
 
 ---
-### 441. Broken link: /assets/css/lazy-loading.css
+### 205. Broken link: /assets/css/admin-unified.css
 
-- **File:** `portal/onboarding.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2640
+- **Line:** 2730
 - **Fix:** Fix or remove the broken link
 
 ---
-### 442. Broken link: /assets/css/m3-agency.css
+### 206. Broken link: /assets/css/admin-mvp-launch.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2260
+- **Line:** 2976
 - **Fix:** Fix or remove the broken link
 
 ---
-### 443. Broken link: /assets/css/portal.css
+### 207. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2321
+- **Line:** 3043
 - **Fix:** Fix or remove the broken link
 
 ---
-### 444. Broken link: /assets/css/responsive-enhancements.css
+### 208. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2378
+- **Line:** 3118
 - **Fix:** Fix or remove the broken link
 
 ---
-### 445. Broken link: /assets/css/responsive-fix-2026.css
+### 209. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2453
+- **Line:** 3189
 - **Fix:** Fix or remove the broken link
 
 ---
-### 446. Broken link: /assets/css/ui-animations.css
+### 210. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/mvp-launch.html`
 - **Category:** links
-- **Line:** 2524
+- **Line:** 3254
 - **Fix:** Fix or remove the broken link
 
 ---
-### 447. Broken link: /assets/css/lazy-loading.css
+### 211. Broken link: /assets/css/responsive-enhancements.css
 
-- **File:** `portal/payment-result.html`
+- **File:** `admin/notifications.html`
 - **Category:** links
-- **Line:** 2589
+- **Line:** 2794
 - **Fix:** Fix or remove the broken link
 
 ---
-### 448. Broken link: /assets/css/m3-agency.css
+### 212. Broken link: /assets/css/responsive-fix-2026.css
 
-- **File:** `portal/payments.html`
+- **File:** `admin/notifications.html`
 - **Category:** links
-- **Line:** 2285
+- **Line:** 2869
 - **Fix:** Fix or remove the broken link
 
 ---
-### 449. Broken link: /assets/css/portal.css
+### 213. Broken link: /assets/css/ui-animations.css
 
-- **File:** `portal/payments.html`
+- **File:** `admin/notifications.html`
 - **Category:** links
-- **Line:** 2346
+- **Line:** 2940
 - **Fix:** Fix or remove the broken link
 
 ---
-### 450. Broken link: /assets/css/responsive-enhancements.css
+### 214. Broken link: /assets/css/lazy-loading.css
 
-- **File:** `portal/payments.html`
+- **File:** `admin/notifications.html`
 - **Category:** links
-- **Line:** 2403
+- **Line:** 3005
 - **Fix:** Fix or remove the broken link
 
 ---
-### 451. Broken link: /assets/css/responsive-fix-2026.css
+### 215. Broken link: /assets/css/m3-agency.css
 
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2478
-- **Fix:** Fix or remove the broken link
-
----
-### 452. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2549
-- **Fix:** Fix or remove the broken link
-
----
-### 453. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2614
-- **Fix:** Fix or remove the broken link
-
----
-### 454. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2272
-- **Fix:** Fix or remove the broken link
-
----
-### 455. Broken link: /assets/css/portal.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2333
-- **Fix:** Fix or remove the broken link
-
----
-### 456. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2390
-- **Fix:** Fix or remove the broken link
-
----
-### 457. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2465
-- **Fix:** Fix or remove the broken link
-
----
-### 458. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2536
-- **Fix:** Fix or remove the broken link
-
----
-### 459. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2601
-- **Fix:** Fix or remove the broken link
-
----
-### 460. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2497
-- **Fix:** Fix or remove the broken link
-
----
-### 461. Broken link: /assets/css/portal.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2558
-- **Fix:** Fix or remove the broken link
-
----
-### 462. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2615
-- **Fix:** Fix or remove the broken link
-
----
-### 463. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2690
-- **Fix:** Fix or remove the broken link
-
----
-### 464. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2761
-- **Fix:** Fix or remove the broken link
-
----
-### 465. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2826
-- **Fix:** Fix or remove the broken link
-
----
-### 466. Broken link: ../assets/css/main.css
-
-- **File:** `portal/roi-analytics.html`
-- **Category:** links
-- **Line:** 1645
-- **Fix:** Fix or remove the broken link
-
----
-### 467. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/roi-analytics.html`
-- **Category:** links
-- **Line:** 1703
-- **Fix:** Fix or remove the broken link
-
----
-### 468. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/roi-report.html`
-- **Category:** links
-- **Line:** 2256
-- **Fix:** Fix or remove the broken link
-
----
-### 469. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/roi-report.html`
-- **Category:** links
-- **Line:** 2331
-- **Fix:** Fix or remove the broken link
-
----
-### 470. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/roi-report.html`
-- **Category:** links
-- **Line:** 2402
-- **Fix:** Fix or remove the broken link
-
----
-### 471. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/roi-report.html`
-- **Category:** links
-- **Line:** 2467
-- **Fix:** Fix or remove the broken link
-
----
-### 472. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/roiaas-dashboard.html`
-- **Category:** links
-- **Line:** 2125
-- **Fix:** Fix or remove the broken link
-
----
-### 473. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/roiaas-dashboard.html`
-- **Category:** links
-- **Line:** 2200
-- **Fix:** Fix or remove the broken link
-
----
-### 474. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/roiaas-dashboard.html`
-- **Category:** links
-- **Line:** 2271
-- **Fix:** Fix or remove the broken link
-
----
-### 475. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/roiaas-dashboard.html`
-- **Category:** links
-- **Line:** 2336
-- **Fix:** Fix or remove the broken link
-
----
-### 476. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2443
-- **Fix:** Fix or remove the broken link
-
----
-### 477. Broken link: /portal/css/roiaas-onboarding.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2504
-- **Fix:** Fix or remove the broken link
-
----
-### 478. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2572
-- **Fix:** Fix or remove the broken link
-
----
-### 479. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2647
-- **Fix:** Fix or remove the broken link
-
----
-### 480. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2718
-- **Fix:** Fix or remove the broken link
-
----
-### 481. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/roiaas-onboarding.html`
-- **Category:** links
-- **Line:** 2783
-- **Fix:** Fix or remove the broken link
-
----
-### 482. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/subscription-plans.html`
-- **Category:** links
-- **Line:** 2271
-- **Fix:** Fix or remove the broken link
-
----
-### 483. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/subscription-plans.html`
-- **Category:** links
-- **Line:** 2346
-- **Fix:** Fix or remove the broken link
-
----
-### 484. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/subscription-plans.html`
-- **Category:** links
-- **Line:** 2417
-- **Fix:** Fix or remove the broken link
-
----
-### 485. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/subscription-plans.html`
-- **Category:** links
-- **Line:** 2482
-- **Fix:** Fix or remove the broken link
-
----
-### 486. Broken link: /portal/roiaas-onboarding.html
-
-- **File:** `portal/subscription-plans.html`
-- **Category:** links
-- **Line:** 51409
-- **Fix:** Fix or remove the broken link
-
----
-### 487. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2309
-- **Fix:** Fix or remove the broken link
-
----
-### 488. Broken link: /assets/css/portal.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2370
-- **Fix:** Fix or remove the broken link
-
----
-### 489. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2427
-- **Fix:** Fix or remove the broken link
-
----
-### 490. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2502
-- **Fix:** Fix or remove the broken link
-
----
-### 491. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2573
-- **Fix:** Fix or remove the broken link
-
----
-### 492. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/subscriptions.html`
-- **Category:** links
-- **Line:** 2638
-- **Fix:** Fix or remove the broken link
-
----
-### 493. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/commissions.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 494. Missing lang attribute on <html> element
-
-- **File:** `affiliate/commissions.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 495. Missing charset meta tag
-
-- **File:** `affiliate/commissions.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 496. Missing viewport meta tag
-
-- **File:** `affiliate/commissions.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 497. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/commissions.html`
-- **Category:** links
-- **Line:** 1692
-- **Fix:** Fix or remove the broken link
-
----
-### 498. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/commissions.html`
-- **Category:** links
-- **Line:** 1753
-- **Fix:** Fix or remove the broken link
-
----
-### 499. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/commissions.html`
-- **Category:** links
-- **Line:** 1810
-- **Fix:** Fix or remove the broken link
-
----
-### 500. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/commissions.html`
-- **Category:** links
-- **Line:** 1885
-- **Fix:** Fix or remove the broken link
-
----
-### 501. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/commissions.html`
-- **Category:** links
-- **Line:** 1950
-- **Fix:** Fix or remove the broken link
-
----
-### 502. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 503. Missing lang attribute on <html> element
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 504. Missing charset meta tag
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 505. Missing viewport meta tag
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 506. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** links
-- **Line:** 1778
-- **Fix:** Fix or remove the broken link
-
----
-### 507. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** links
-- **Line:** 1839
-- **Fix:** Fix or remove the broken link
-
----
-### 508. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** links
-- **Line:** 1896
-- **Fix:** Fix or remove the broken link
-
----
-### 509. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** links
-- **Line:** 1971
-- **Fix:** Fix or remove the broken link
-
----
-### 510. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/dashboard.html`
-- **Category:** links
-- **Line:** 2036
-- **Fix:** Fix or remove the broken link
-
----
-### 511. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/links.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 512. Missing lang attribute on <html> element
-
-- **File:** `affiliate/links.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 513. Missing charset meta tag
-
-- **File:** `affiliate/links.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 514. Missing viewport meta tag
-
-- **File:** `affiliate/links.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 515. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/links.html`
-- **Category:** links
-- **Line:** 1662
-- **Fix:** Fix or remove the broken link
-
----
-### 516. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/links.html`
-- **Category:** links
-- **Line:** 1723
-- **Fix:** Fix or remove the broken link
-
----
-### 517. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/links.html`
-- **Category:** links
-- **Line:** 1780
-- **Fix:** Fix or remove the broken link
-
----
-### 518. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/links.html`
-- **Category:** links
-- **Line:** 1855
-- **Fix:** Fix or remove the broken link
-
----
-### 519. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/links.html`
-- **Category:** links
-- **Line:** 1920
-- **Fix:** Fix or remove the broken link
-
----
-### 520. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/media.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 521. Missing lang attribute on <html> element
-
-- **File:** `affiliate/media.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 522. Missing charset meta tag
-
-- **File:** `affiliate/media.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 523. Missing viewport meta tag
-
-- **File:** `affiliate/media.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 524. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/media.html`
-- **Category:** links
-- **Line:** 1705
-- **Fix:** Fix or remove the broken link
-
----
-### 525. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/media.html`
-- **Category:** links
-- **Line:** 1766
-- **Fix:** Fix or remove the broken link
-
----
-### 526. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/media.html`
-- **Category:** links
-- **Line:** 1823
-- **Fix:** Fix or remove the broken link
-
----
-### 527. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/media.html`
-- **Category:** links
-- **Line:** 1898
-- **Fix:** Fix or remove the broken link
-
----
-### 528. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/media.html`
-- **Category:** links
-- **Line:** 1963
-- **Fix:** Fix or remove the broken link
-
----
-### 529. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/profile.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 530. Missing lang attribute on <html> element
-
-- **File:** `affiliate/profile.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 531. Missing charset meta tag
-
-- **File:** `affiliate/profile.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 532. Missing viewport meta tag
-
-- **File:** `affiliate/profile.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 533. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/profile.html`
-- **Category:** links
-- **Line:** 1716
-- **Fix:** Fix or remove the broken link
-
----
-### 534. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/profile.html`
-- **Category:** links
-- **Line:** 1777
-- **Fix:** Fix or remove the broken link
-
----
-### 535. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/profile.html`
-- **Category:** links
-- **Line:** 1834
-- **Fix:** Fix or remove the broken link
-
----
-### 536. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/profile.html`
-- **Category:** links
-- **Line:** 1909
-- **Fix:** Fix or remove the broken link
-
----
-### 537. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/profile.html`
-- **Category:** links
-- **Line:** 1974
-- **Fix:** Fix or remove the broken link
-
----
-### 538. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/referrals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 539. Missing lang attribute on <html> element
-
-- **File:** `affiliate/referrals.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 540. Missing charset meta tag
-
-- **File:** `affiliate/referrals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 541. Missing viewport meta tag
-
-- **File:** `affiliate/referrals.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 542. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/referrals.html`
-- **Category:** links
-- **Line:** 1693
-- **Fix:** Fix or remove the broken link
-
----
-### 543. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/referrals.html`
-- **Category:** links
-- **Line:** 1754
-- **Fix:** Fix or remove the broken link
-
----
-### 544. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/referrals.html`
-- **Category:** links
-- **Line:** 1811
-- **Fix:** Fix or remove the broken link
-
----
-### 545. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/referrals.html`
-- **Category:** links
-- **Line:** 1886
-- **Fix:** Fix or remove the broken link
-
----
-### 546. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/referrals.html`
-- **Category:** links
-- **Line:** 1951
-- **Fix:** Fix or remove the broken link
-
----
-### 547. Missing or incorrect DOCTYPE declaration
-
-- **File:** `affiliate/settings.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 548. Missing lang attribute on <html> element
-
-- **File:** `affiliate/settings.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 549. Missing charset meta tag
-
-- **File:** `affiliate/settings.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 550. Missing viewport meta tag
-
-- **File:** `affiliate/settings.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 551. Broken link: /assets/css/m3-agency.css
-
-- **File:** `affiliate/settings.html`
-- **Category:** links
-- **Line:** 1624
-- **Fix:** Fix or remove the broken link
-
----
-### 552. Broken link: /assets/css/portal.css
-
-- **File:** `affiliate/settings.html`
-- **Category:** links
-- **Line:** 1685
-- **Fix:** Fix or remove the broken link
-
----
-### 553. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `affiliate/settings.html`
-- **Category:** links
-- **Line:** 1742
-- **Fix:** Fix or remove the broken link
-
----
-### 554. Broken link: /assets/css/ui-animations.css
-
-- **File:** `affiliate/settings.html`
-- **Category:** links
-- **Line:** 1817
-- **Fix:** Fix or remove the broken link
-
----
-### 555. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `affiliate/settings.html`
-- **Category:** links
-- **Line:** 1882
-- **Fix:** Fix or remove the broken link
-
----
-### 556. Missing or incorrect DOCTYPE declaration
-
-- **File:** `auth/login.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <!DOCTYPE html> at the beginning of the file
-
----
-### 557. Missing lang attribute on <html> element
-
-- **File:** `auth/login.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 558. Missing charset meta tag
-
-- **File:** `auth/login.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 559. Missing viewport meta tag
-
-- **File:** `auth/login.html`
-- **Category:** responsive
-- **Line:** 1
-- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
----
-### 560. Broken link: /assets/css/m3-agency.css
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 307
-- **Fix:** Fix or remove the broken link
-
----
-### 561. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 367
-- **Fix:** Fix or remove the broken link
-
----
-### 562. Broken link: /assets/css/ui-animations.css
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 442
-- **Fix:** Fix or remove the broken link
-
----
-### 563. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 507
-- **Fix:** Fix or remove the broken link
-
----
-### 564. Broken link: /forgot-password.html
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 13976
-- **Fix:** Fix or remove the broken link
-
----
-### 565. Broken link: /register.html
-
-- **File:** `auth/login.html`
-- **Category:** links
-- **Line:** 14614
-- **Fix:** Fix or remove the broken link
-
----
-### 566. Missing charset meta tag
-
-- **File:** `admin/agents.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 567. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 568. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 569. Broken link: /assets/css/admin-agents.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 570. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 764
-- **Fix:** Fix or remove the broken link
-
----
-### 571. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 839
-- **Fix:** Fix or remove the broken link
-
----
-### 572. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 910
-- **Fix:** Fix or remove the broken link
-
----
-### 573. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 975
-- **Fix:** Fix or remove the broken link
-
----
-### 574. Broken link: /index.html
-
-- **File:** `admin/agents.html`
-- **Category:** links
-- **Line:** 5297
-- **Fix:** Fix or remove the broken link
-
----
-### 575. Missing charset meta tag
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 576. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 577. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 578. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 579. Broken link: /assets/css/admin-ai-analysis.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 580. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 834
-- **Fix:** Fix or remove the broken link
-
----
-### 581. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 909
-- **Fix:** Fix or remove the broken link
-
----
-### 582. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 980
-- **Fix:** Fix or remove the broken link
-
----
-### 583. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/ai-analysis.html`
-- **Category:** links
-- **Line:** 1045
-- **Fix:** Fix or remove the broken link
-
----
-### 584. Missing charset meta tag
-
-- **File:** `admin/api-builder.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 585. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 586. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 587. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 588. Broken link: /assets/css/admin-api-builder.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 589. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 834
-- **Fix:** Fix or remove the broken link
-
----
-### 590. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 909
-- **Fix:** Fix or remove the broken link
-
----
-### 591. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 980
-- **Fix:** Fix or remove the broken link
-
----
-### 592. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/api-builder.html`
-- **Category:** links
-- **Line:** 1045
-- **Fix:** Fix or remove the broken link
-
----
-### 593. Missing charset meta tag
-
-- **File:** `admin/approvals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 594. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 595. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 596. Broken link: /assets/css/admin-approvals.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 597. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 598. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 599. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 600. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 601. Broken link: /index.html
-
-- **File:** `admin/approvals.html`
-- **Category:** links
-- **Line:** 5362
-- **Fix:** Fix or remove the broken link
-
----
-### 602. Missing charset meta tag
-
-- **File:** `admin/auth.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 603. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 604. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 605. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 606. Broken link: /assets/css/admin-auth.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 607. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 608. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 609. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 610. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/auth.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 611. Missing charset meta tag
-
-- **File:** `admin/binh-phap.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 612. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 613. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 614. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 615. Broken link: /assets/css/admin-binh-phap.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 616. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 617. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 618. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 619. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/binh-phap.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 620. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 2632
-- **Fix:** Fix or remove the broken link
-
----
-### 621. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/brand-guide.html`
+- **File:** `admin/onboarding.html`
 - **Category:** links
 - **Line:** 2693
 - **Fix:** Fix or remove the broken link
 
 ---
-### 622. Broken link: /assets/css/brand-colors.css
+### 216. Broken link: /assets/css/admin-unified.css
 
-- **File:** `admin/brand-guide.html`
+- **File:** `admin/onboarding.html`
 - **Category:** links
-- **Line:** 2758
+- **Line:** 2754
 - **Fix:** Fix or remove the broken link
 
 ---
-### 623. Broken link: /assets/css/brand-typography.css
+### 217. Broken link: /assets/css/admin-unified.css
 
-- **File:** `admin/brand-guide.html`
+- **File:** `admin/onboarding.html`
 - **Category:** links
-- **Line:** 2822
+- **Line:** 2754
 - **Fix:** Fix or remove the broken link
 
 ---
-### 624. Broken link: /assets/css/admin-brand-guide.css
+### 218. Broken link: /assets/css/admin-onboarding.css
 
-- **File:** `admin/brand-guide.html`
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3000
+- **Fix:** Fix or remove the broken link
+
+---
+### 219. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3067
+- **Fix:** Fix or remove the broken link
+
+---
+### 220. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3142
+- **Fix:** Fix or remove the broken link
+
+---
+### 221. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3213
+- **Fix:** Fix or remove the broken link
+
+---
+### 222. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3278
+- **Fix:** Fix or remove the broken link
+
+---
+### 223. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 224. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 225. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 226. Broken link: /assets/css/admin-payments.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3056
+- **Fix:** Fix or remove the broken link
+
+---
+### 227. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3121
+- **Fix:** Fix or remove the broken link
+
+---
+### 228. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3196
+- **Fix:** Fix or remove the broken link
+
+---
+### 229. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3267
+- **Fix:** Fix or remove the broken link
+
+---
+### 230. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3332
+- **Fix:** Fix or remove the broken link
+
+---
+### 231. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2769
+- **Fix:** Fix or remove the broken link
+
+---
+### 232. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2830
+- **Fix:** Fix or remove the broken link
+
+---
+### 233. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2830
+- **Fix:** Fix or remove the broken link
+
+---
+### 234. Broken link: /assets/css/pipeline-pro.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2960
+- **Fix:** Fix or remove the broken link
+
+---
+### 235. Broken link: /assets/css/admin-pipeline.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3140
+- **Fix:** Fix or remove the broken link
+
+---
+### 236. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3205
+- **Fix:** Fix or remove the broken link
+
+---
+### 237. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3280
+- **Fix:** Fix or remove the broken link
+
+---
+### 238. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3351
+- **Fix:** Fix or remove the broken link
+
+---
+### 239. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3416
+- **Fix:** Fix or remove the broken link
+
+---
+### 240. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2797
+- **Fix:** Fix or remove the broken link
+
+---
+### 241. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2858
+- **Fix:** Fix or remove the broken link
+
+---
+### 242. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2921
+- **Fix:** Fix or remove the broken link
+
+---
+### 243. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2985
+- **Fix:** Fix or remove the broken link
+
+---
+### 244. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3060
+- **Fix:** Fix or remove the broken link
+
+---
+### 245. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3131
+- **Fix:** Fix or remove the broken link
+
+---
+### 246. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3196
+- **Fix:** Fix or remove the broken link
+
+---
+### 247. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2744
+- **Fix:** Fix or remove the broken link
+
+---
+### 248. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2805
+- **Fix:** Fix or remove the broken link
+
+---
+### 249. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2805
+- **Fix:** Fix or remove the broken link
+
+---
+### 250. Broken link: /assets/css/admin-pricing.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3051
+- **Fix:** Fix or remove the broken link
+
+---
+### 251. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3115
+- **Fix:** Fix or remove the broken link
+
+---
+### 252. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3190
+- **Fix:** Fix or remove the broken link
+
+---
+### 253. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3261
+- **Fix:** Fix or remove the broken link
+
+---
+### 254. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3326
+- **Fix:** Fix or remove the broken link
+
+---
+### 255. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2660
+- **Fix:** Fix or remove the broken link
+
+---
+### 256. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2721
+- **Fix:** Fix or remove the broken link
+
+---
+### 257. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2721
+- **Fix:** Fix or remove the broken link
+
+---
+### 258. Broken link: /assets/css/admin-proposals.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2967
+- **Fix:** Fix or remove the broken link
+
+---
+### 259. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3033
+- **Fix:** Fix or remove the broken link
+
+---
+### 260. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3108
+- **Fix:** Fix or remove the broken link
+
+---
+### 261. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3179
+- **Fix:** Fix or remove the broken link
+
+---
+### 262. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3244
+- **Fix:** Fix or remove the broken link
+
+---
+### 263. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2764
+- **Fix:** Fix or remove the broken link
+
+---
+### 264. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2825
+- **Fix:** Fix or remove the broken link
+
+---
+### 265. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2888
+- **Fix:** Fix or remove the broken link
+
+---
+### 266. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2952
+- **Fix:** Fix or remove the broken link
+
+---
+### 267. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3027
+- **Fix:** Fix or remove the broken link
+
+---
+### 268. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3098
+- **Fix:** Fix or remove the broken link
+
+---
+### 269. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3163
+- **Fix:** Fix or remove the broken link
+
+---
+### 270. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 271. Broken link: /assets/css/admin-dashboard.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 272. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2876
+- **Fix:** Fix or remove the broken link
+
+---
+### 273. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2951
+- **Fix:** Fix or remove the broken link
+
+---
+### 274. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 3022
+- **Fix:** Fix or remove the broken link
+
+---
+### 275. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 3087
+- **Fix:** Fix or remove the broken link
+
+---
+### 276. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2699
+- **Fix:** Fix or remove the broken link
+
+---
+### 277. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2760
+- **Fix:** Fix or remove the broken link
+
+---
+### 278. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2760
+- **Fix:** Fix or remove the broken link
+
+---
+### 279. Broken link: /assets/css/admin-retention.css
+
+- **File:** `admin/retention.html`
 - **Category:** links
 - **Line:** 3006
 - **Fix:** Fix or remove the broken link
 
 ---
-### 625. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3074
-- **Fix:** Fix or remove the broken link
-
----
-### 626. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3149
-- **Fix:** Fix or remove the broken link
-
----
-### 627. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3220
-- **Fix:** Fix or remove the broken link
-
----
-### 628. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3285
-- **Fix:** Fix or remove the broken link
-
----
-### 629. Broken link: /index.html
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3482
-- **Fix:** Fix or remove the broken link
-
----
-### 630. Broken link: /admin/dashboard.html
-
-- **File:** `admin/brand-guide.html`
-- **Category:** links
-- **Line:** 3697
-- **Fix:** Fix or remove the broken link
-
----
-### 631. Missing charset meta tag
-
-- **File:** `admin/campaigns.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 632. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 633. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 634. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 635. Broken link: /assets/css/admin-campaigns.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 636. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 637. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 638. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 639. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/campaigns.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 640. Missing charset meta tag
-
-- **File:** `admin/community.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 641. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 642. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 643. Broken link: /assets/css/admin-community.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 644. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 645. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 646. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 647. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 648. Broken link: /index.html
-
-- **File:** `admin/community.html`
-- **Category:** links
-- **Line:** 5354
-- **Fix:** Fix or remove the broken link
-
----
-### 649. Missing charset meta tag
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 650. Broken link: ../../assets/css/main.css
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** links
-- **Line:** 1838
-- **Fix:** Fix or remove the broken link
-
----
-### 651. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/components/phase-tracker.html`
-- **Category:** links
-- **Line:** 1899
-- **Fix:** Fix or remove the broken link
-
----
-### 652. Missing charset meta tag
-
-- **File:** `admin/content-calendar.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 653. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 654. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 655. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 656. Broken link: /assets/css/admin-content-calendar.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 657. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 839
-- **Fix:** Fix or remove the broken link
-
----
-### 658. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 914
-- **Fix:** Fix or remove the broken link
-
----
-### 659. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 985
-- **Fix:** Fix or remove the broken link
-
----
-### 660. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/content-calendar.html`
-- **Category:** links
-- **Line:** 1050
-- **Fix:** Fix or remove the broken link
-
----
-### 661. Missing charset meta tag
-
-- **File:** `admin/customer-success.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 662. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 663. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 664. Broken link: /assets/css/admin-customer-success.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 665. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 774
-- **Fix:** Fix or remove the broken link
-
----
-### 666. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 849
-- **Fix:** Fix or remove the broken link
-
----
-### 667. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 920
-- **Fix:** Fix or remove the broken link
-
----
-### 668. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 985
-- **Fix:** Fix or remove the broken link
-
----
-### 669. Broken link: /index.html
-
-- **File:** `admin/customer-success.html`
-- **Category:** links
-- **Line:** 5359
-- **Fix:** Fix or remove the broken link
-
----
-### 670. Missing charset meta tag
-
-- **File:** `admin/dashboard.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 671. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 672. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 673. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 674. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 648
-- **Fix:** Fix or remove the broken link
-
----
-### 675. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 713
-- **Fix:** Fix or remove the broken link
-
----
-### 676. Broken link: /assets/css/admin-dashboard.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 777
-- **Fix:** Fix or remove the broken link
-
----
-### 677. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 844
-- **Fix:** Fix or remove the broken link
-
----
-### 678. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 919
-- **Fix:** Fix or remove the broken link
-
----
-### 679. Broken link: /assets/css/ui-enhancements-2026.css
-
-- **File:** `admin/dashboard.html`
-- **Category:** links
-- **Line:** 990
-- **Fix:** Fix or remove the broken link
-
----
-### 680. Missing charset meta tag
-
-- **File:** `admin/deploy.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 681. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 682. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 522
-- **Fix:** Fix or remove the broken link
-
----
-### 683. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 702
-- **Fix:** Fix or remove the broken link
-
----
-### 684. Broken link: /assets/css/admin-deploy.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 763
-- **Fix:** Fix or remove the broken link
-
----
-### 685. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 826
-- **Fix:** Fix or remove the broken link
-
----
-### 686. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 901
-- **Fix:** Fix or remove the broken link
-
----
-### 687. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 972
-- **Fix:** Fix or remove the broken link
-
----
-### 688. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/deploy.html`
-- **Category:** links
-- **Line:** 1037
-- **Fix:** Fix or remove the broken link
-
----
-### 689. Missing charset meta tag
-
-- **File:** `admin/docs.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 690. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 691. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 692. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 693. Broken link: /assets/css/admin-docs.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 694. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 695. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 696. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 697. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/docs.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 698. Missing charset meta tag
-
-- **File:** `admin/ecommerce.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 699. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 700. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 701. Broken link: /assets/css/admin-ecommerce.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 701
-- **Fix:** Fix or remove the broken link
-
----
-### 702. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 767
-- **Fix:** Fix or remove the broken link
-
----
-### 703. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 842
-- **Fix:** Fix or remove the broken link
-
----
-### 704. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 705. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 706. Broken link: /index.html
-
-- **File:** `admin/ecommerce.html`
-- **Category:** links
-- **Line:** 5313
-- **Fix:** Fix or remove the broken link
-
----
-### 707. Missing charset meta tag
-
-- **File:** `admin/events.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 708. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 709. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 710. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 711. Broken link: /assets/css/admin-events.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 764
-- **Fix:** Fix or remove the broken link
-
----
-### 712. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 827
-- **Fix:** Fix or remove the broken link
-
----
-### 713. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 902
-- **Fix:** Fix or remove the broken link
-
----
-### 714. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 973
-- **Fix:** Fix or remove the broken link
-
----
-### 715. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/events.html`
-- **Category:** links
-- **Line:** 1038
-- **Fix:** Fix or remove the broken link
-
----
-### 716. Missing charset meta tag
-
-- **File:** `admin/finance.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 717. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 718. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 719. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 720. Broken link: /assets/css/admin-finance.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 721. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 722. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 905
-- **Fix:** Fix or remove the broken link
-
----
-### 723. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 976
-- **Fix:** Fix or remove the broken link
-
----
-### 724. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/finance.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 725. Missing charset meta tag
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 726. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 727. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 728. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 729. Broken link: /assets/css/admin-hr-hiring.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 730. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 731. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 732. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 733. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/hr-hiring.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 734. Missing charset meta tag
-
-- **File:** `admin/inventory.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 735. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 736. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 737. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 738. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 739. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 740. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 741. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/inventory.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 742. Missing charset meta tag
-
-- **File:** `admin/landing-builder.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 743. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 744. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 745. Broken link: /assets/css/admin-landing-builder.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 591
-- **Fix:** Fix or remove the broken link
-
----
-### 746. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 663
-- **Fix:** Fix or remove the broken link
-
----
-### 747. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 738
-- **Fix:** Fix or remove the broken link
-
----
-### 748. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 809
-- **Fix:** Fix or remove the broken link
-
----
-### 749. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/landing-builder.html`
-- **Category:** links
-- **Line:** 874
-- **Fix:** Fix or remove the broken link
-
----
-### 750. Missing charset meta tag
-
-- **File:** `admin/leads.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 751. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 752. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 753. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 754. Broken link: /assets/css/admin-leads.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 755. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 828
-- **Fix:** Fix or remove the broken link
-
----
-### 756. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 903
-- **Fix:** Fix or remove the broken link
-
----
-### 757. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 974
-- **Fix:** Fix or remove the broken link
-
----
-### 758. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/leads.html`
-- **Category:** links
-- **Line:** 1039
-- **Fix:** Fix or remove the broken link
-
----
-### 759. Missing charset meta tag
-
-- **File:** `admin/legal.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 760. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 761. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 762. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 763. Broken link: /assets/css/admin-legal.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 763
-- **Fix:** Fix or remove the broken link
-
----
-### 764. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 825
-- **Fix:** Fix or remove the broken link
-
----
-### 765. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 900
-- **Fix:** Fix or remove the broken link
-
----
-### 766. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 971
-- **Fix:** Fix or remove the broken link
-
----
-### 767. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/legal.html`
-- **Category:** links
-- **Line:** 1036
-- **Fix:** Fix or remove the broken link
-
----
-### 768. Missing charset meta tag
-
-- **File:** `admin/lms.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 769. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 770. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 771. Broken link: /assets/css/admin-lms.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 700
-- **Fix:** Fix or remove the broken link
-
----
-### 772. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 760
-- **Fix:** Fix or remove the broken link
-
----
-### 773. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 835
-- **Fix:** Fix or remove the broken link
-
----
-### 774. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 906
-- **Fix:** Fix or remove the broken link
-
----
-### 775. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/lms.html`
-- **Category:** links
-- **Line:** 971
-- **Fix:** Fix or remove the broken link
-
----
-### 776. Missing charset meta tag
-
-- **File:** `admin/loyalty.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 777. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 778. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 779. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 780. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 781. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 782. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 783. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/loyalty.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 784. Missing charset meta tag
-
-- **File:** `admin/menu.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 785. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 786. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 787. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 788. Broken link: /assets/css/admin-menu.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 913
-- **Fix:** Fix or remove the broken link
-
----
-### 789. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 974
-- **Fix:** Fix or remove the broken link
-
----
-### 790. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1049
-- **Fix:** Fix or remove the broken link
-
----
-### 791. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1120
-- **Fix:** Fix or remove the broken link
-
----
-### 792. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/menu.html`
-- **Category:** links
-- **Line:** 1185
-- **Fix:** Fix or remove the broken link
-
----
-### 793. Missing charset meta tag
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 794. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 795. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 796. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 797. Broken link: /assets/css/admin-mvp-launch.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 798. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 833
-- **Fix:** Fix or remove the broken link
-
----
-### 799. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 908
-- **Fix:** Fix or remove the broken link
-
----
-### 800. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 979
-- **Fix:** Fix or remove the broken link
-
----
-### 801. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/mvp-launch.html`
-- **Category:** links
-- **Line:** 1044
-- **Fix:** Fix or remove the broken link
-
----
-### 802. Missing charset meta tag
-
-- **File:** `admin/notifications.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 803. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 804. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 534
-- **Fix:** Fix or remove the broken link
-
----
-### 805. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 605
-- **Fix:** Fix or remove the broken link
-
----
-### 806. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/notifications.html`
-- **Category:** links
-- **Line:** 670
-- **Fix:** Fix or remove the broken link
-
----
-### 807. Missing charset meta tag
-
-- **File:** `admin/onboarding.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 808. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 809. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 810. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 811. Broken link: /assets/css/admin-onboarding.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 812. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 833
-- **Fix:** Fix or remove the broken link
-
----
-### 813. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 908
-- **Fix:** Fix or remove the broken link
-
----
-### 814. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 979
-- **Fix:** Fix or remove the broken link
-
----
-### 815. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/onboarding.html`
-- **Category:** links
-- **Line:** 1044
-- **Fix:** Fix or remove the broken link
-
----
-### 816. Missing charset meta tag
-
-- **File:** `admin/payments.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 817. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 818. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 819. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 820. Broken link: /assets/css/admin-payments.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 821. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 831
-- **Fix:** Fix or remove the broken link
-
----
-### 822. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 906
-- **Fix:** Fix or remove the broken link
-
----
-### 823. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 977
-- **Fix:** Fix or remove the broken link
-
----
-### 824. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/payments.html`
-- **Category:** links
-- **Line:** 1042
-- **Fix:** Fix or remove the broken link
-
----
-### 825. Missing charset meta tag
-
-- **File:** `admin/pipeline.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 826. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 827. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 828. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 829. Broken link: /assets/css/pipeline-pro.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 650
-- **Fix:** Fix or remove the broken link
-
----
-### 830. Broken link: /assets/css/admin-pipeline.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 831. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 895
-- **Fix:** Fix or remove the broken link
-
----
-### 832. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 970
-- **Fix:** Fix or remove the broken link
-
----
-### 833. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 834. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pipeline.html`
-- **Category:** links
-- **Line:** 1106
-- **Fix:** Fix or remove the broken link
-
----
-### 835. Missing charset meta tag
-
-- **File:** `admin/pos.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 836. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 837. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 838. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 839. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 840. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 841. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 842. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pos.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 843. Missing charset meta tag
-
-- **File:** `admin/pricing.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 844. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 845. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 846. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 847. Broken link: /assets/css/admin-pricing.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 848. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 830
-- **Fix:** Fix or remove the broken link
-
----
-### 849. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 905
-- **Fix:** Fix or remove the broken link
-
----
-### 850. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 976
-- **Fix:** Fix or remove the broken link
-
----
-### 851. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/pricing.html`
-- **Category:** links
-- **Line:** 1041
-- **Fix:** Fix or remove the broken link
-
----
-### 852. Missing charset meta tag
-
-- **File:** `admin/proposals.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 853. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 854. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 855. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 856. Broken link: /assets/css/admin-proposals.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 766
-- **Fix:** Fix or remove the broken link
-
----
-### 857. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 858. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 859. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 860. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/proposals.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 861. Missing charset meta tag
-
-- **File:** `admin/quality.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 862. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 863. Broken link: /assets/css/agency-2026.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 864. Broken link: /assets/css/admin-unified.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 583
-- **Fix:** Fix or remove the broken link
-
----
-### 865. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 647
-- **Fix:** Fix or remove the broken link
-
----
-### 866. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 722
-- **Fix:** Fix or remove the broken link
-
----
-### 867. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 793
-- **Fix:** Fix or remove the broken link
-
----
-### 868. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/quality.html`
-- **Category:** links
-- **Line:** 858
-- **Fix:** Fix or remove the broken link
-
----
-### 869. Missing charset meta tag
-
-- **File:** `admin/raas-overview.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 870. Broken link: /assets/css/m3-agency.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 459
-- **Fix:** Fix or remove the broken link
-
----
-### 871. Broken link: /assets/css/admin-dashboard.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 520
-- **Fix:** Fix or remove the broken link
-
----
-### 872. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 586
-- **Fix:** Fix or remove the broken link
-
----
-### 873. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 661
-- **Fix:** Fix or remove the broken link
-
----
-### 874. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 732
-- **Fix:** Fix or remove the broken link
-
----
-### 875. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/raas-overview.html`
-- **Category:** links
-- **Line:** 797
-- **Fix:** Fix or remove the broken link
-
----
-### 876. Missing charset meta tag
-
-- **File:** `admin/retention.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 877. Broken link: /assets/css/m3-agency.css
+### 280. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/retention.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 3072
 - **Fix:** Fix or remove the broken link
 
 ---
-### 878. Broken link: /assets/css/admin-unified.css
+### 281. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/retention.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 3147
 - **Fix:** Fix or remove the broken link
 
 ---
-### 879. Broken link: /assets/css/admin-unified.css
+### 282. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/retention.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 3218
 - **Fix:** Fix or remove the broken link
 
 ---
-### 880. Broken link: /assets/css/admin-retention.css
+### 283. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/retention.html`
 - **Category:** links
-- **Line:** 766
+- **Line:** 3283
 - **Fix:** Fix or remove the broken link
 
 ---
-### 881. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 832
-- **Fix:** Fix or remove the broken link
-
----
-### 882. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 907
-- **Fix:** Fix or remove the broken link
-
----
-### 883. Broken link: /assets/css/ui-animations.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 978
-- **Fix:** Fix or remove the broken link
-
----
-### 884. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `admin/retention.html`
-- **Category:** links
-- **Line:** 1043
-- **Fix:** Fix or remove the broken link
-
----
-### 885. Missing charset meta tag
-
-- **File:** `admin/roiaas-admin.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 886. Broken link: /assets/css/responsive-enhancements.css
+### 284. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/roiaas-admin.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2785
 - **Fix:** Fix or remove the broken link
 
 ---
-### 887. Broken link: /assets/css/responsive-fix-2026.css
+### 285. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/roiaas-admin.html`
 - **Category:** links
-- **Line:** 534
+- **Line:** 2860
 - **Fix:** Fix or remove the broken link
 
 ---
-### 888. Broken link: /assets/css/ui-animations.css
+### 286. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/roiaas-admin.html`
 - **Category:** links
-- **Line:** 605
+- **Line:** 2931
 - **Fix:** Fix or remove the broken link
 
 ---
-### 889. Broken link: /assets/css/lazy-loading.css
+### 287. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/roiaas-admin.html`
 - **Category:** links
-- **Line:** 670
+- **Line:** 2996
 - **Fix:** Fix or remove the broken link
 
 ---
-### 890. Missing charset meta tag
-
-- **File:** `admin/shifts.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 891. Broken link: /assets/css/m3-agency.css
+### 288. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2658
 - **Fix:** Fix or remove the broken link
 
 ---
-### 892. Broken link: /assets/css/agency-2026.css
+### 289. Broken link: /assets/css/agency-2026.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2719
 - **Fix:** Fix or remove the broken link
 
 ---
-### 893. Broken link: /assets/css/admin-unified.css
+### 290. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 583
+- **Line:** 2782
 - **Fix:** Fix or remove the broken link
 
 ---
-### 894. Broken link: /assets/css/responsive-enhancements.css
+### 291. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 647
+- **Line:** 2846
 - **Fix:** Fix or remove the broken link
 
 ---
-### 895. Broken link: /assets/css/responsive-fix-2026.css
+### 292. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 722
+- **Line:** 2921
 - **Fix:** Fix or remove the broken link
 
 ---
-### 896. Broken link: /assets/css/ui-animations.css
+### 293. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 793
+- **Line:** 2992
 - **Fix:** Fix or remove the broken link
 
 ---
-### 897. Broken link: /assets/css/lazy-loading.css
+### 294. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/shifts.html`
 - **Category:** links
-- **Line:** 858
+- **Line:** 3057
 - **Fix:** Fix or remove the broken link
 
 ---
-### 898. Missing charset meta tag
-
-- **File:** `admin/suppliers.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 899. Broken link: /assets/css/m3-agency.css
+### 295. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2744
 - **Fix:** Fix or remove the broken link
 
 ---
-### 900. Broken link: /assets/css/agency-2026.css
+### 296. Broken link: /assets/css/agency-2026.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2805
 - **Fix:** Fix or remove the broken link
 
 ---
-### 901. Broken link: /assets/css/admin-unified.css
+### 297. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 583
+- **Line:** 2868
 - **Fix:** Fix or remove the broken link
 
 ---
-### 902. Broken link: /assets/css/responsive-enhancements.css
+### 298. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 647
+- **Line:** 2932
 - **Fix:** Fix or remove the broken link
 
 ---
-### 903. Broken link: /assets/css/responsive-fix-2026.css
+### 299. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 722
+- **Line:** 3007
 - **Fix:** Fix or remove the broken link
 
 ---
-### 904. Broken link: /assets/css/ui-animations.css
+### 300. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 793
+- **Line:** 3078
 - **Fix:** Fix or remove the broken link
 
 ---
-### 905. Broken link: /assets/css/lazy-loading.css
+### 301. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/suppliers.html`
 - **Category:** links
-- **Line:** 858
+- **Line:** 3143
 - **Fix:** Fix or remove the broken link
 
 ---
-### 906. Missing charset meta tag
-
-- **File:** `admin/vc-readiness.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 907. Broken link: /assets/css/m3-agency.css
+### 302. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2726
 - **Fix:** Fix or remove the broken link
 
 ---
-### 908. Broken link: /assets/css/admin-unified.css
+### 303. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2787
 - **Fix:** Fix or remove the broken link
 
 ---
-### 909. Broken link: /assets/css/admin-unified.css
+### 304. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2787
 - **Fix:** Fix or remove the broken link
 
 ---
-### 910. Broken link: /assets/css/admin-vc-readiness.css
+### 305. Broken link: /assets/css/admin-vc-readiness.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 766
+- **Line:** 3033
 - **Fix:** Fix or remove the broken link
 
 ---
-### 911. Broken link: /assets/css/responsive-enhancements.css
+### 306. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 835
+- **Line:** 3102
 - **Fix:** Fix or remove the broken link
 
 ---
-### 912. Broken link: /assets/css/responsive-fix-2026.css
+### 307. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 910
+- **Line:** 3177
 - **Fix:** Fix or remove the broken link
 
 ---
-### 913. Broken link: /assets/css/ui-animations.css
+### 308. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 981
+- **Line:** 3248
 - **Fix:** Fix or remove the broken link
 
 ---
-### 914. Broken link: /assets/css/lazy-loading.css
+### 309. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/vc-readiness.html`
 - **Category:** links
-- **Line:** 1046
+- **Line:** 3313
 - **Fix:** Fix or remove the broken link
 
 ---
-### 915. Missing charset meta tag
-
-- **File:** `admin/video-workflow.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 916. Broken link: /assets/css/m3-agency.css
+### 310. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2715
 - **Fix:** Fix or remove the broken link
 
 ---
-### 917. Broken link: /assets/css/admin-unified.css
+### 311. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2776
 - **Fix:** Fix or remove the broken link
 
 ---
-### 918. Broken link: /assets/css/admin-unified.css
+### 312. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2776
 - **Fix:** Fix or remove the broken link
 
 ---
-### 919. Broken link: /assets/css/admin-video-workflow.css
+### 313. Broken link: /assets/css/admin-video-workflow.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 766
+- **Line:** 3022
 - **Fix:** Fix or remove the broken link
 
 ---
-### 920. Broken link: /assets/css/responsive-enhancements.css
+### 314. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 837
+- **Line:** 3093
 - **Fix:** Fix or remove the broken link
 
 ---
-### 921. Broken link: /assets/css/responsive-fix-2026.css
+### 315. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 912
+- **Line:** 3168
 - **Fix:** Fix or remove the broken link
 
 ---
-### 922. Broken link: /assets/css/ui-animations.css
+### 316. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 983
+- **Line:** 3239
 - **Fix:** Fix or remove the broken link
 
 ---
-### 923. Broken link: /assets/css/lazy-loading.css
+### 317. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/video-workflow.html`
 - **Category:** links
-- **Line:** 1048
+- **Line:** 3304
 - **Fix:** Fix or remove the broken link
 
 ---
-### 924. Missing or incorrect DOCTYPE declaration
+### 318. Missing or incorrect DOCTYPE declaration
 
 - **File:** `admin/widgets/kpi-card.html`
 - **Category:** html
@@ -7410,7 +2562,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 925. Broken link: /assets/css/responsive-fix-2026.css
+### 319. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/widgets/kpi-card.html`
 - **Category:** links
@@ -7418,175 +2570,1047 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 926. Broken link: /assets/css/m3-agency.css
+### 320. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/widgets-demo.html`
 - **Category:** links
-- **Line:** 1852
+- **Line:** 3197
 - **Fix:** Fix or remove the broken link
 
 ---
-### 927. Broken link: /assets/css/agency-2026.css
+### 321. Broken link: /assets/css/agency-2026.css
 
 - **File:** `admin/widgets-demo.html`
 - **Category:** links
-- **Line:** 1913
+- **Line:** 3258
 - **Fix:** Fix or remove the broken link
 
 ---
-### 928. Broken link: /assets/css/admin-unified.css
+### 322. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/widgets-demo.html`
 - **Category:** links
-- **Line:** 1976
+- **Line:** 3321
 - **Fix:** Fix or remove the broken link
 
 ---
-### 929. Broken link: /assets/css/responsive-fix-2026.css
+### 323. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/widgets-demo.html`
 - **Category:** links
-- **Line:** 2096
+- **Line:** 3441
 - **Fix:** Fix or remove the broken link
 
 ---
-### 930. Missing charset meta tag
-
-- **File:** `admin/workflows.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 931. Broken link: /assets/css/m3-agency.css
+### 324. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2720
 - **Fix:** Fix or remove the broken link
 
 ---
-### 932. Broken link: /assets/css/admin-unified.css
+### 325. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2781
 - **Fix:** Fix or remove the broken link
 
 ---
-### 933. Broken link: /assets/css/admin-workflows.css
+### 326. Broken link: /assets/css/admin-workflows.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 701
+- **Line:** 2962
 - **Fix:** Fix or remove the broken link
 
 ---
-### 934. Broken link: /assets/css/responsive-enhancements.css
+### 327. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 767
+- **Line:** 3028
 - **Fix:** Fix or remove the broken link
 
 ---
-### 935. Broken link: /assets/css/responsive-fix-2026.css
+### 328. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 842
+- **Line:** 3103
 - **Fix:** Fix or remove the broken link
 
 ---
-### 936. Broken link: /assets/css/ui-animations.css
+### 329. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 913
+- **Line:** 3174
 - **Fix:** Fix or remove the broken link
 
 ---
-### 937. Broken link: /assets/css/lazy-loading.css
+### 330. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 978
+- **Line:** 3239
 - **Fix:** Fix or remove the broken link
 
 ---
-### 938. Broken link: /index.html
+### 331. Broken link: /index.html
 
 - **File:** `admin/workflows.html`
 - **Category:** links
-- **Line:** 5322
+- **Line:** 6081
 - **Fix:** Fix or remove the broken link
 
 ---
-### 939. Missing charset meta tag
-
-- **File:** `admin/zalo.html`
-- **Category:** html
-- **Line:** 1
-- **Fix:** Add <meta charset="UTF-8">
-
----
-### 940. Broken link: /assets/css/m3-agency.css
+### 332. Broken link: /assets/css/m3-agency.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 459
+- **Line:** 2786
 - **Fix:** Fix or remove the broken link
 
 ---
-### 941. Broken link: /assets/css/admin-unified.css
+### 333. Broken link: /assets/css/admin-unified.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 520
+- **Line:** 2847
 - **Fix:** Fix or remove the broken link
 
 ---
-### 942. Broken link: /assets/css/admin-zalo.css
+### 334. Broken link: /assets/css/admin-zalo.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 585
+- **Line:** 2912
 - **Fix:** Fix or remove the broken link
 
 ---
-### 943. Broken link: /assets/css/responsive-enhancements.css
+### 335. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 646
+- **Line:** 2973
 - **Fix:** Fix or remove the broken link
 
 ---
-### 944. Broken link: /assets/css/responsive-fix-2026.css
+### 336. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 721
+- **Line:** 3048
 - **Fix:** Fix or remove the broken link
 
 ---
-### 945. Broken link: /assets/css/ui-animations.css
+### 337. Broken link: /assets/css/ui-animations.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 792
+- **Line:** 3119
 - **Fix:** Fix or remove the broken link
 
 ---
-### 946. Broken link: /assets/css/lazy-loading.css
+### 338. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `admin/zalo.html`
 - **Category:** links
-- **Line:** 857
+- **Line:** 3184
 - **Fix:** Fix or remove the broken link
 
 ---
-### 947. Missing or incorrect DOCTYPE declaration
+### 339. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 2778
+- **Fix:** Fix or remove the broken link
+
+---
+### 340. Broken link: /assets/css/portal.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 2839
+- **Fix:** Fix or remove the broken link
+
+---
+### 341. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 2896
+- **Fix:** Fix or remove the broken link
+
+---
+### 342. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 2971
+- **Fix:** Fix or remove the broken link
+
+---
+### 343. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 3042
+- **Fix:** Fix or remove the broken link
+
+---
+### 344. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/approve.html`
+- **Category:** links
+- **Line:** 3107
+- **Fix:** Fix or remove the broken link
+
+---
+### 345. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 2780
+- **Fix:** Fix or remove the broken link
+
+---
+### 346. Broken link: /assets/css/portal.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 2841
+- **Fix:** Fix or remove the broken link
+
+---
+### 347. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 2898
+- **Fix:** Fix or remove the broken link
+
+---
+### 348. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 2973
+- **Fix:** Fix or remove the broken link
+
+---
+### 349. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 3044
+- **Fix:** Fix or remove the broken link
+
+---
+### 350. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/assets.html`
+- **Category:** links
+- **Line:** 3109
+- **Fix:** Fix or remove the broken link
+
+---
+### 351. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 2851
+- **Fix:** Fix or remove the broken link
+
+---
+### 352. Broken link: /assets/css/portal.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 2912
+- **Fix:** Fix or remove the broken link
+
+---
+### 353. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 2969
+- **Fix:** Fix or remove the broken link
+
+---
+### 354. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 3044
+- **Fix:** Fix or remove the broken link
+
+---
+### 355. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 3115
+- **Fix:** Fix or remove the broken link
+
+---
+### 356. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/credits.html`
+- **Category:** links
+- **Line:** 3180
+- **Fix:** Fix or remove the broken link
+
+---
+### 357. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 2938
+- **Fix:** Fix or remove the broken link
+
+---
+### 358. Broken link: /assets/css/portal.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 2999
+- **Fix:** Fix or remove the broken link
+
+---
+### 359. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 3057
+- **Fix:** Fix or remove the broken link
+
+---
+### 360. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 3122
+- **Fix:** Fix or remove the broken link
+
+---
+### 361. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 3186
+- **Fix:** Fix or remove the broken link
+
+---
+### 362. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/dashboard.html`
+- **Category:** links
+- **Line:** 3261
+- **Fix:** Fix or remove the broken link
+
+---
+### 363. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 2816
+- **Fix:** Fix or remove the broken link
+
+---
+### 364. Broken link: /assets/css/portal.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 2877
+- **Fix:** Fix or remove the broken link
+
+---
+### 365. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 2934
+- **Fix:** Fix or remove the broken link
+
+---
+### 366. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 3009
+- **Fix:** Fix or remove the broken link
+
+---
+### 367. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 3080
+- **Fix:** Fix or remove the broken link
+
+---
+### 368. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/invoices.html`
+- **Category:** links
+- **Line:** 3145
+- **Fix:** Fix or remove the broken link
+
+---
+### 369. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 2831
+- **Fix:** Fix or remove the broken link
+
+---
+### 370. Broken link: /assets/css/portal.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 371. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 2949
+- **Fix:** Fix or remove the broken link
+
+---
+### 372. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 3024
+- **Fix:** Fix or remove the broken link
+
+---
+### 373. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 3095
+- **Fix:** Fix or remove the broken link
+
+---
+### 374. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/login.html`
+- **Category:** links
+- **Line:** 3160
+- **Fix:** Fix or remove the broken link
+
+---
+### 375. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 2829
+- **Fix:** Fix or remove the broken link
+
+---
+### 376. Broken link: /assets/css/portal.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 2890
+- **Fix:** Fix or remove the broken link
+
+---
+### 377. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 2947
+- **Fix:** Fix or remove the broken link
+
+---
+### 378. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 3022
+- **Fix:** Fix or remove the broken link
+
+---
+### 379. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 3093
+- **Fix:** Fix or remove the broken link
+
+---
+### 380. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/missions.html`
+- **Category:** links
+- **Line:** 3158
+- **Fix:** Fix or remove the broken link
+
+---
+### 381. Broken link: ../assets/css/main.css
+
+- **File:** `portal/notifications.html`
+- **Category:** links
+- **Line:** 2737
+- **Fix:** Fix or remove the broken link
+
+---
+### 382. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/notifications.html`
+- **Category:** links
+- **Line:** 2795
+- **Fix:** Fix or remove the broken link
+
+---
+### 383. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/ocop-catalog.html`
+- **Category:** links
+- **Line:** 2746
+- **Fix:** Fix or remove the broken link
+
+---
+### 384. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/ocop-catalog.html`
+- **Category:** links
+- **Line:** 2821
+- **Fix:** Fix or remove the broken link
+
+---
+### 385. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/ocop-catalog.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 386. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/ocop-catalog.html`
+- **Category:** links
+- **Line:** 2957
+- **Fix:** Fix or remove the broken link
+
+---
+### 387. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 2901
+- **Fix:** Fix or remove the broken link
+
+---
+### 388. Broken link: /assets/css/portal.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 2962
+- **Fix:** Fix or remove the broken link
+
+---
+### 389. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 3019
+- **Fix:** Fix or remove the broken link
+
+---
+### 390. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 3094
+- **Fix:** Fix or remove the broken link
+
+---
+### 391. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 3165
+- **Fix:** Fix or remove the broken link
+
+---
+### 392. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/ocop-exporter.html`
+- **Category:** links
+- **Line:** 3230
+- **Fix:** Fix or remove the broken link
+
+---
+### 393. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 2762
+- **Fix:** Fix or remove the broken link
+
+---
+### 394. Broken link: /assets/css/portal.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 2823
+- **Fix:** Fix or remove the broken link
+
+---
+### 395. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 2880
+- **Fix:** Fix or remove the broken link
+
+---
+### 396. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 2955
+- **Fix:** Fix or remove the broken link
+
+---
+### 397. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 3026
+- **Fix:** Fix or remove the broken link
+
+---
+### 398. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/onboarding.html`
+- **Category:** links
+- **Line:** 3091
+- **Fix:** Fix or remove the broken link
+
+---
+### 399. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 2826
+- **Fix:** Fix or remove the broken link
+
+---
+### 400. Broken link: /assets/css/portal.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 2887
+- **Fix:** Fix or remove the broken link
+
+---
+### 401. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 2944
+- **Fix:** Fix or remove the broken link
+
+---
+### 402. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3019
+- **Fix:** Fix or remove the broken link
+
+---
+### 403. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3090
+- **Fix:** Fix or remove the broken link
+
+---
+### 404. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3155
+- **Fix:** Fix or remove the broken link
+
+---
+### 405. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2850
+- **Fix:** Fix or remove the broken link
+
+---
+### 406. Broken link: /assets/css/portal.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2911
+- **Fix:** Fix or remove the broken link
+
+---
+### 407. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2968
+- **Fix:** Fix or remove the broken link
+
+---
+### 408. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3043
+- **Fix:** Fix or remove the broken link
+
+---
+### 409. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3114
+- **Fix:** Fix or remove the broken link
+
+---
+### 410. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3179
+- **Fix:** Fix or remove the broken link
+
+---
+### 411. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2827
+- **Fix:** Fix or remove the broken link
+
+---
+### 412. Broken link: /assets/css/portal.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2888
+- **Fix:** Fix or remove the broken link
+
+---
+### 413. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2945
+- **Fix:** Fix or remove the broken link
+
+---
+### 414. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3020
+- **Fix:** Fix or remove the broken link
+
+---
+### 415. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3091
+- **Fix:** Fix or remove the broken link
+
+---
+### 416. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3156
+- **Fix:** Fix or remove the broken link
+
+---
+### 417. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3093
+- **Fix:** Fix or remove the broken link
+
+---
+### 418. Broken link: /assets/css/portal.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3154
+- **Fix:** Fix or remove the broken link
+
+---
+### 419. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3211
+- **Fix:** Fix or remove the broken link
+
+---
+### 420. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3286
+- **Fix:** Fix or remove the broken link
+
+---
+### 421. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 422. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3422
+- **Fix:** Fix or remove the broken link
+
+---
+### 423. Broken link: ../assets/css/main.css
+
+- **File:** `portal/roi-analytics.html`
+- **Category:** links
+- **Line:** 2942
+- **Fix:** Fix or remove the broken link
+
+---
+### 424. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/roi-analytics.html`
+- **Category:** links
+- **Line:** 3000
+- **Fix:** Fix or remove the broken link
+
+---
+### 425. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/roi-report.html`
+- **Category:** links
+- **Line:** 2761
+- **Fix:** Fix or remove the broken link
+
+---
+### 426. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/roi-report.html`
+- **Category:** links
+- **Line:** 2836
+- **Fix:** Fix or remove the broken link
+
+---
+### 427. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/roi-report.html`
+- **Category:** links
+- **Line:** 2907
+- **Fix:** Fix or remove the broken link
+
+---
+### 428. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/roi-report.html`
+- **Category:** links
+- **Line:** 2972
+- **Fix:** Fix or remove the broken link
+
+---
+### 429. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/roiaas-dashboard.html`
+- **Category:** links
+- **Line:** 2632
+- **Fix:** Fix or remove the broken link
+
+---
+### 430. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/roiaas-dashboard.html`
+- **Category:** links
+- **Line:** 2707
+- **Fix:** Fix or remove the broken link
+
+---
+### 431. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/roiaas-dashboard.html`
+- **Category:** links
+- **Line:** 2778
+- **Fix:** Fix or remove the broken link
+
+---
+### 432. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/roiaas-dashboard.html`
+- **Category:** links
+- **Line:** 2843
+- **Fix:** Fix or remove the broken link
+
+---
+### 433. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 2914
+- **Fix:** Fix or remove the broken link
+
+---
+### 434. Broken link: /portal/css/roiaas-onboarding.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 2975
+- **Fix:** Fix or remove the broken link
+
+---
+### 435. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 3043
+- **Fix:** Fix or remove the broken link
+
+---
+### 436. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 3118
+- **Fix:** Fix or remove the broken link
+
+---
+### 437. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 3189
+- **Fix:** Fix or remove the broken link
+
+---
+### 438. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/roiaas-onboarding.html`
+- **Category:** links
+- **Line:** 3254
+- **Fix:** Fix or remove the broken link
+
+---
+### 439. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/subscription-plans.html`
+- **Category:** links
+- **Line:** 2807
+- **Fix:** Fix or remove the broken link
+
+---
+### 440. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/subscription-plans.html`
+- **Category:** links
+- **Line:** 2882
+- **Fix:** Fix or remove the broken link
+
+---
+### 441. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/subscription-plans.html`
+- **Category:** links
+- **Line:** 2953
+- **Fix:** Fix or remove the broken link
+
+---
+### 442. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/subscription-plans.html`
+- **Category:** links
+- **Line:** 3018
+- **Fix:** Fix or remove the broken link
+
+---
+### 443. Broken link: /portal/roiaas-onboarding.html
+
+- **File:** `portal/subscription-plans.html`
+- **Category:** links
+- **Line:** 51945
+- **Fix:** Fix or remove the broken link
+
+---
+### 444. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 2890
+- **Fix:** Fix or remove the broken link
+
+---
+### 445. Broken link: /assets/css/portal.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 2951
+- **Fix:** Fix or remove the broken link
+
+---
+### 446. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 3008
+- **Fix:** Fix or remove the broken link
+
+---
+### 447. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 3083
+- **Fix:** Fix or remove the broken link
+
+---
+### 448. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 3154
+- **Fix:** Fix or remove the broken link
+
+---
+### 449. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/subscriptions.html`
+- **Category:** links
+- **Line:** 3219
+- **Fix:** Fix or remove the broken link
+
+---
+### 450. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/commissions.html`
 - **Category:** html
@@ -7594,7 +3618,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 948. Missing lang attribute on <html> element
+### 451. Missing lang attribute on <html> element
 
 - **File:** `affiliate/commissions.html`
 - **Category:** accessibility
@@ -7602,7 +3626,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 949. Missing charset meta tag
+### 452. Missing charset meta tag
 
 - **File:** `affiliate/commissions.html`
 - **Category:** html
@@ -7610,7 +3634,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 950. Missing viewport meta tag
+### 453. Missing viewport meta tag
 
 - **File:** `affiliate/commissions.html`
 - **Category:** responsive
@@ -7618,7 +3642,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 951. Broken link: /assets/css/m3-agency.css
+### 454. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/commissions.html`
 - **Category:** links
@@ -7626,7 +3650,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 952. Broken link: /assets/css/portal.css
+### 455. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/commissions.html`
 - **Category:** links
@@ -7634,7 +3658,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 953. Broken link: /assets/css/responsive-enhancements.css
+### 456. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/commissions.html`
 - **Category:** links
@@ -7642,7 +3666,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 954. Broken link: /assets/css/ui-animations.css
+### 457. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/commissions.html`
 - **Category:** links
@@ -7650,7 +3674,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 955. Broken link: /assets/css/lazy-loading.css
+### 458. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/commissions.html`
 - **Category:** links
@@ -7658,7 +3682,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 956. Missing or incorrect DOCTYPE declaration
+### 459. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** html
@@ -7666,7 +3690,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 957. Missing lang attribute on <html> element
+### 460. Missing lang attribute on <html> element
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** accessibility
@@ -7674,7 +3698,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 958. Missing charset meta tag
+### 461. Missing charset meta tag
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** html
@@ -7682,7 +3706,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 959. Missing viewport meta tag
+### 462. Missing viewport meta tag
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** responsive
@@ -7690,7 +3714,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 960. Broken link: /assets/css/m3-agency.css
+### 463. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** links
@@ -7698,7 +3722,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 961. Broken link: /assets/css/portal.css
+### 464. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** links
@@ -7706,7 +3730,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 962. Broken link: /assets/css/responsive-enhancements.css
+### 465. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** links
@@ -7714,7 +3738,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 963. Broken link: /assets/css/ui-animations.css
+### 466. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** links
@@ -7722,7 +3746,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 964. Broken link: /assets/css/lazy-loading.css
+### 467. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/dashboard.html`
 - **Category:** links
@@ -7730,7 +3754,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 965. Missing or incorrect DOCTYPE declaration
+### 468. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/links.html`
 - **Category:** html
@@ -7738,7 +3762,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 966. Missing lang attribute on <html> element
+### 469. Missing lang attribute on <html> element
 
 - **File:** `affiliate/links.html`
 - **Category:** accessibility
@@ -7746,7 +3770,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 967. Missing charset meta tag
+### 470. Missing charset meta tag
 
 - **File:** `affiliate/links.html`
 - **Category:** html
@@ -7754,7 +3778,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 968. Missing viewport meta tag
+### 471. Missing viewport meta tag
 
 - **File:** `affiliate/links.html`
 - **Category:** responsive
@@ -7762,7 +3786,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 969. Broken link: /assets/css/m3-agency.css
+### 472. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/links.html`
 - **Category:** links
@@ -7770,7 +3794,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 970. Broken link: /assets/css/portal.css
+### 473. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/links.html`
 - **Category:** links
@@ -7778,7 +3802,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 971. Broken link: /assets/css/responsive-enhancements.css
+### 474. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/links.html`
 - **Category:** links
@@ -7786,7 +3810,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 972. Broken link: /assets/css/ui-animations.css
+### 475. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/links.html`
 - **Category:** links
@@ -7794,7 +3818,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 973. Broken link: /assets/css/lazy-loading.css
+### 476. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/links.html`
 - **Category:** links
@@ -7802,7 +3826,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 974. Missing or incorrect DOCTYPE declaration
+### 477. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/media.html`
 - **Category:** html
@@ -7810,7 +3834,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 975. Missing lang attribute on <html> element
+### 478. Missing lang attribute on <html> element
 
 - **File:** `affiliate/media.html`
 - **Category:** accessibility
@@ -7818,7 +3842,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 976. Missing charset meta tag
+### 479. Missing charset meta tag
 
 - **File:** `affiliate/media.html`
 - **Category:** html
@@ -7826,7 +3850,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 977. Missing viewport meta tag
+### 480. Missing viewport meta tag
 
 - **File:** `affiliate/media.html`
 - **Category:** responsive
@@ -7834,7 +3858,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 978. Broken link: /assets/css/m3-agency.css
+### 481. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/media.html`
 - **Category:** links
@@ -7842,7 +3866,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 979. Broken link: /assets/css/portal.css
+### 482. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/media.html`
 - **Category:** links
@@ -7850,7 +3874,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 980. Broken link: /assets/css/responsive-enhancements.css
+### 483. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/media.html`
 - **Category:** links
@@ -7858,7 +3882,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 981. Broken link: /assets/css/ui-animations.css
+### 484. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/media.html`
 - **Category:** links
@@ -7866,7 +3890,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 982. Broken link: /assets/css/lazy-loading.css
+### 485. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/media.html`
 - **Category:** links
@@ -7874,7 +3898,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 983. Missing or incorrect DOCTYPE declaration
+### 486. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/profile.html`
 - **Category:** html
@@ -7882,7 +3906,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 984. Missing lang attribute on <html> element
+### 487. Missing lang attribute on <html> element
 
 - **File:** `affiliate/profile.html`
 - **Category:** accessibility
@@ -7890,7 +3914,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 985. Missing charset meta tag
+### 488. Missing charset meta tag
 
 - **File:** `affiliate/profile.html`
 - **Category:** html
@@ -7898,7 +3922,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 986. Missing viewport meta tag
+### 489. Missing viewport meta tag
 
 - **File:** `affiliate/profile.html`
 - **Category:** responsive
@@ -7906,7 +3930,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 987. Broken link: /assets/css/m3-agency.css
+### 490. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/profile.html`
 - **Category:** links
@@ -7914,7 +3938,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 988. Broken link: /assets/css/portal.css
+### 491. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/profile.html`
 - **Category:** links
@@ -7922,7 +3946,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 989. Broken link: /assets/css/responsive-enhancements.css
+### 492. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/profile.html`
 - **Category:** links
@@ -7930,7 +3954,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 990. Broken link: /assets/css/ui-animations.css
+### 493. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/profile.html`
 - **Category:** links
@@ -7938,7 +3962,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 991. Broken link: /assets/css/lazy-loading.css
+### 494. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/profile.html`
 - **Category:** links
@@ -7946,7 +3970,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 992. Missing or incorrect DOCTYPE declaration
+### 495. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/referrals.html`
 - **Category:** html
@@ -7954,7 +3978,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 993. Missing lang attribute on <html> element
+### 496. Missing lang attribute on <html> element
 
 - **File:** `affiliate/referrals.html`
 - **Category:** accessibility
@@ -7962,7 +3986,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 994. Missing charset meta tag
+### 497. Missing charset meta tag
 
 - **File:** `affiliate/referrals.html`
 - **Category:** html
@@ -7970,7 +3994,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 995. Missing viewport meta tag
+### 498. Missing viewport meta tag
 
 - **File:** `affiliate/referrals.html`
 - **Category:** responsive
@@ -7978,7 +4002,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 996. Broken link: /assets/css/m3-agency.css
+### 499. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/referrals.html`
 - **Category:** links
@@ -7986,7 +4010,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 997. Broken link: /assets/css/portal.css
+### 500. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/referrals.html`
 - **Category:** links
@@ -7994,7 +4018,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 998. Broken link: /assets/css/responsive-enhancements.css
+### 501. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/referrals.html`
 - **Category:** links
@@ -8002,7 +4026,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 999. Broken link: /assets/css/ui-animations.css
+### 502. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/referrals.html`
 - **Category:** links
@@ -8010,7 +4034,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1000. Broken link: /assets/css/lazy-loading.css
+### 503. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/referrals.html`
 - **Category:** links
@@ -8018,7 +4042,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1001. Missing or incorrect DOCTYPE declaration
+### 504. Missing or incorrect DOCTYPE declaration
 
 - **File:** `affiliate/settings.html`
 - **Category:** html
@@ -8026,7 +4050,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1002. Missing lang attribute on <html> element
+### 505. Missing lang attribute on <html> element
 
 - **File:** `affiliate/settings.html`
 - **Category:** accessibility
@@ -8034,7 +4058,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 1003. Missing charset meta tag
+### 506. Missing charset meta tag
 
 - **File:** `affiliate/settings.html`
 - **Category:** html
@@ -8042,7 +4066,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 1004. Missing viewport meta tag
+### 507. Missing viewport meta tag
 
 - **File:** `affiliate/settings.html`
 - **Category:** responsive
@@ -8050,7 +4074,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 1005. Broken link: /assets/css/m3-agency.css
+### 508. Broken link: /assets/css/m3-agency.css
 
 - **File:** `affiliate/settings.html`
 - **Category:** links
@@ -8058,7 +4082,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1006. Broken link: /assets/css/portal.css
+### 509. Broken link: /assets/css/portal.css
 
 - **File:** `affiliate/settings.html`
 - **Category:** links
@@ -8066,7 +4090,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1007. Broken link: /assets/css/responsive-enhancements.css
+### 510. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `affiliate/settings.html`
 - **Category:** links
@@ -8074,7 +4098,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1008. Broken link: /assets/css/ui-animations.css
+### 511. Broken link: /assets/css/ui-animations.css
 
 - **File:** `affiliate/settings.html`
 - **Category:** links
@@ -8082,7 +4106,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1009. Broken link: /assets/css/lazy-loading.css
+### 512. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `affiliate/settings.html`
 - **Category:** links
@@ -8090,7 +4114,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1010. Missing or incorrect DOCTYPE declaration
+### 513. Missing or incorrect DOCTYPE declaration
 
 - **File:** `auth/login.html`
 - **Category:** html
@@ -8098,7 +4122,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1011. Missing lang attribute on <html> element
+### 514. Missing lang attribute on <html> element
 
 - **File:** `auth/login.html`
 - **Category:** accessibility
@@ -8106,7 +4130,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 1012. Missing charset meta tag
+### 515. Missing charset meta tag
 
 - **File:** `auth/login.html`
 - **Category:** html
@@ -8114,7 +4138,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 1013. Missing viewport meta tag
+### 516. Missing viewport meta tag
 
 - **File:** `auth/login.html`
 - **Category:** responsive
@@ -8122,7 +4146,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 1014. Broken link: /assets/css/m3-agency.css
+### 517. Broken link: /assets/css/m3-agency.css
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8130,7 +4154,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1015. Broken link: /assets/css/responsive-enhancements.css
+### 518. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8138,7 +4162,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1016. Broken link: /assets/css/ui-animations.css
+### 519. Broken link: /assets/css/ui-animations.css
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8146,7 +4170,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1017. Broken link: /assets/css/lazy-loading.css
+### 520. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8154,7 +4178,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1018. Broken link: /forgot-password.html
+### 521. Broken link: /forgot-password.html
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8162,7 +4186,7 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1019. Broken link: /register.html
+### 522. Broken link: /register.html
 
 - **File:** `auth/login.html`
 - **Category:** links
@@ -8170,7 +4194,3295 @@
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1020. Missing or incorrect DOCTYPE declaration
+### 523. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 2846
+- **Fix:** Fix or remove the broken link
+
+---
+### 524. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 2907
+- **Fix:** Fix or remove the broken link
+
+---
+### 525. Broken link: /assets/css/admin-agents.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 3088
+- **Fix:** Fix or remove the broken link
+
+---
+### 526. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 3151
+- **Fix:** Fix or remove the broken link
+
+---
+### 527. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 3226
+- **Fix:** Fix or remove the broken link
+
+---
+### 528. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 3297
+- **Fix:** Fix or remove the broken link
+
+---
+### 529. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 3362
+- **Fix:** Fix or remove the broken link
+
+---
+### 530. Broken link: /index.html
+
+- **File:** `admin/agents.html`
+- **Category:** links
+- **Line:** 6204
+- **Fix:** Fix or remove the broken link
+
+---
+### 531. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 2719
+- **Fix:** Fix or remove the broken link
+
+---
+### 532. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 2780
+- **Fix:** Fix or remove the broken link
+
+---
+### 533. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 2780
+- **Fix:** Fix or remove the broken link
+
+---
+### 534. Broken link: /assets/css/admin-ai-analysis.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 3026
+- **Fix:** Fix or remove the broken link
+
+---
+### 535. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 3094
+- **Fix:** Fix or remove the broken link
+
+---
+### 536. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 3169
+- **Fix:** Fix or remove the broken link
+
+---
+### 537. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 3240
+- **Fix:** Fix or remove the broken link
+
+---
+### 538. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/ai-analysis.html`
+- **Category:** links
+- **Line:** 3305
+- **Fix:** Fix or remove the broken link
+
+---
+### 539. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 2664
+- **Fix:** Fix or remove the broken link
+
+---
+### 540. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 2725
+- **Fix:** Fix or remove the broken link
+
+---
+### 541. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 2725
+- **Fix:** Fix or remove the broken link
+
+---
+### 542. Broken link: /assets/css/admin-api-builder.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 2971
+- **Fix:** Fix or remove the broken link
+
+---
+### 543. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 3039
+- **Fix:** Fix or remove the broken link
+
+---
+### 544. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 3114
+- **Fix:** Fix or remove the broken link
+
+---
+### 545. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 3185
+- **Fix:** Fix or remove the broken link
+
+---
+### 546. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/api-builder.html`
+- **Category:** links
+- **Line:** 3250
+- **Fix:** Fix or remove the broken link
+
+---
+### 547. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 2743
+- **Fix:** Fix or remove the broken link
+
+---
+### 548. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 2804
+- **Fix:** Fix or remove the broken link
+
+---
+### 549. Broken link: /assets/css/admin-approvals.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 2985
+- **Fix:** Fix or remove the broken link
+
+---
+### 550. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 3051
+- **Fix:** Fix or remove the broken link
+
+---
+### 551. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 3126
+- **Fix:** Fix or remove the broken link
+
+---
+### 552. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 3197
+- **Fix:** Fix or remove the broken link
+
+---
+### 553. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 3262
+- **Fix:** Fix or remove the broken link
+
+---
+### 554. Broken link: /index.html
+
+- **File:** `admin/approvals.html`
+- **Category:** links
+- **Line:** 6104
+- **Fix:** Fix or remove the broken link
+
+---
+### 555. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 2662
+- **Fix:** Fix or remove the broken link
+
+---
+### 556. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 2723
+- **Fix:** Fix or remove the broken link
+
+---
+### 557. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 2723
+- **Fix:** Fix or remove the broken link
+
+---
+### 558. Broken link: /assets/css/admin-auth.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 2969
+- **Fix:** Fix or remove the broken link
+
+---
+### 559. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3030
+- **Fix:** Fix or remove the broken link
+
+---
+### 560. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3105
+- **Fix:** Fix or remove the broken link
+
+---
+### 561. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3176
+- **Fix:** Fix or remove the broken link
+
+---
+### 562. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/auth.html`
+- **Category:** links
+- **Line:** 3241
+- **Fix:** Fix or remove the broken link
+
+---
+### 563. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2813
+- **Fix:** Fix or remove the broken link
+
+---
+### 564. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2874
+- **Fix:** Fix or remove the broken link
+
+---
+### 565. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 2874
+- **Fix:** Fix or remove the broken link
+
+---
+### 566. Broken link: /assets/css/admin-binh-phap.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3120
+- **Fix:** Fix or remove the broken link
+
+---
+### 567. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3186
+- **Fix:** Fix or remove the broken link
+
+---
+### 568. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3261
+- **Fix:** Fix or remove the broken link
+
+---
+### 569. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3332
+- **Fix:** Fix or remove the broken link
+
+---
+### 570. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/binh-phap.html`
+- **Category:** links
+- **Line:** 3397
+- **Fix:** Fix or remove the broken link
+
+---
+### 571. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3183
+- **Fix:** Fix or remove the broken link
+
+---
+### 572. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3244
+- **Fix:** Fix or remove the broken link
+
+---
+### 573. Broken link: /assets/css/brand-colors.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3309
+- **Fix:** Fix or remove the broken link
+
+---
+### 574. Broken link: /assets/css/brand-typography.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3373
+- **Fix:** Fix or remove the broken link
+
+---
+### 575. Broken link: /assets/css/admin-brand-guide.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3557
+- **Fix:** Fix or remove the broken link
+
+---
+### 576. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3625
+- **Fix:** Fix or remove the broken link
+
+---
+### 577. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3700
+- **Fix:** Fix or remove the broken link
+
+---
+### 578. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3771
+- **Fix:** Fix or remove the broken link
+
+---
+### 579. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 3836
+- **Fix:** Fix or remove the broken link
+
+---
+### 580. Broken link: /index.html
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 4033
+- **Fix:** Fix or remove the broken link
+
+---
+### 581. Broken link: /admin/dashboard.html
+
+- **File:** `admin/brand-guide.html`
+- **Category:** links
+- **Line:** 4248
+- **Fix:** Fix or remove the broken link
+
+---
+### 582. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2857
+- **Fix:** Fix or remove the broken link
+
+---
+### 583. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2918
+- **Fix:** Fix or remove the broken link
+
+---
+### 584. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 2918
+- **Fix:** Fix or remove the broken link
+
+---
+### 585. Broken link: /assets/css/admin-campaigns.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3164
+- **Fix:** Fix or remove the broken link
+
+---
+### 586. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3230
+- **Fix:** Fix or remove the broken link
+
+---
+### 587. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3305
+- **Fix:** Fix or remove the broken link
+
+---
+### 588. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3376
+- **Fix:** Fix or remove the broken link
+
+---
+### 589. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/campaigns.html`
+- **Category:** links
+- **Line:** 3441
+- **Fix:** Fix or remove the broken link
+
+---
+### 590. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2734
+- **Fix:** Fix or remove the broken link
+
+---
+### 591. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2795
+- **Fix:** Fix or remove the broken link
+
+---
+### 592. Broken link: /assets/css/admin-community.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 2976
+- **Fix:** Fix or remove the broken link
+
+---
+### 593. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3042
+- **Fix:** Fix or remove the broken link
+
+---
+### 594. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3117
+- **Fix:** Fix or remove the broken link
+
+---
+### 595. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3188
+- **Fix:** Fix or remove the broken link
+
+---
+### 596. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 3253
+- **Fix:** Fix or remove the broken link
+
+---
+### 597. Broken link: /index.html
+
+- **File:** `admin/community.html`
+- **Category:** links
+- **Line:** 6071
+- **Fix:** Fix or remove the broken link
+
+---
+### 598. Broken link: ../../assets/css/main.css
+
+- **File:** `admin/components/phase-tracker.html`
+- **Category:** links
+- **Line:** 1863
+- **Fix:** Fix or remove the broken link
+
+---
+### 599. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/components/phase-tracker.html`
+- **Category:** links
+- **Line:** 1924
+- **Fix:** Fix or remove the broken link
+
+---
+### 600. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2831
+- **Fix:** Fix or remove the broken link
+
+---
+### 601. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 602. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 2892
+- **Fix:** Fix or remove the broken link
+
+---
+### 603. Broken link: /assets/css/admin-content-calendar.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3138
+- **Fix:** Fix or remove the broken link
+
+---
+### 604. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3211
+- **Fix:** Fix or remove the broken link
+
+---
+### 605. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3286
+- **Fix:** Fix or remove the broken link
+
+---
+### 606. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 607. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/content-calendar.html`
+- **Category:** links
+- **Line:** 3422
+- **Fix:** Fix or remove the broken link
+
+---
+### 608. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 2768
+- **Fix:** Fix or remove the broken link
+
+---
+### 609. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 2829
+- **Fix:** Fix or remove the broken link
+
+---
+### 610. Broken link: /assets/css/admin-customer-success.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3010
+- **Fix:** Fix or remove the broken link
+
+---
+### 611. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3083
+- **Fix:** Fix or remove the broken link
+
+---
+### 612. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3158
+- **Fix:** Fix or remove the broken link
+
+---
+### 613. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3229
+- **Fix:** Fix or remove the broken link
+
+---
+### 614. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 3294
+- **Fix:** Fix or remove the broken link
+
+---
+### 615. Broken link: /index.html
+
+- **File:** `admin/customer-success.html`
+- **Category:** links
+- **Line:** 6112
+- **Fix:** Fix or remove the broken link
+
+---
+### 616. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 2883
+- **Fix:** Fix or remove the broken link
+
+---
+### 617. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 2944
+- **Fix:** Fix or remove the broken link
+
+---
+### 618. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3007
+- **Fix:** Fix or remove the broken link
+
+---
+### 619. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3072
+- **Fix:** Fix or remove the broken link
+
+---
+### 620. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3137
+- **Fix:** Fix or remove the broken link
+
+---
+### 621. Broken link: /assets/css/admin-dashboard.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3201
+- **Fix:** Fix or remove the broken link
+
+---
+### 622. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3268
+- **Fix:** Fix or remove the broken link
+
+---
+### 623. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3343
+- **Fix:** Fix or remove the broken link
+
+---
+### 624. Broken link: /assets/css/ui-enhancements-2026.css
+
+- **File:** `admin/dashboard.html`
+- **Category:** links
+- **Line:** 3414
+- **Fix:** Fix or remove the broken link
+
+---
+### 625. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2686
+- **Fix:** Fix or remove the broken link
+
+---
+### 626. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 627. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2929
+- **Fix:** Fix or remove the broken link
+
+---
+### 628. Broken link: /assets/css/admin-deploy.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 2990
+- **Fix:** Fix or remove the broken link
+
+---
+### 629. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3053
+- **Fix:** Fix or remove the broken link
+
+---
+### 630. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3128
+- **Fix:** Fix or remove the broken link
+
+---
+### 631. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3199
+- **Fix:** Fix or remove the broken link
+
+---
+### 632. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/deploy.html`
+- **Category:** links
+- **Line:** 3264
+- **Fix:** Fix or remove the broken link
+
+---
+### 633. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2689
+- **Fix:** Fix or remove the broken link
+
+---
+### 634. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 635. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 636. Broken link: /assets/css/admin-docs.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 2996
+- **Fix:** Fix or remove the broken link
+
+---
+### 637. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3057
+- **Fix:** Fix or remove the broken link
+
+---
+### 638. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3132
+- **Fix:** Fix or remove the broken link
+
+---
+### 639. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3203
+- **Fix:** Fix or remove the broken link
+
+---
+### 640. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/docs.html`
+- **Category:** links
+- **Line:** 3268
+- **Fix:** Fix or remove the broken link
+
+---
+### 641. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 2800
+- **Fix:** Fix or remove the broken link
+
+---
+### 642. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 2861
+- **Fix:** Fix or remove the broken link
+
+---
+### 643. Broken link: /assets/css/admin-ecommerce.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3042
+- **Fix:** Fix or remove the broken link
+
+---
+### 644. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3108
+- **Fix:** Fix or remove the broken link
+
+---
+### 645. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3183
+- **Fix:** Fix or remove the broken link
+
+---
+### 646. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3254
+- **Fix:** Fix or remove the broken link
+
+---
+### 647. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 3319
+- **Fix:** Fix or remove the broken link
+
+---
+### 648. Broken link: /index.html
+
+- **File:** `admin/ecommerce.html`
+- **Category:** links
+- **Line:** 6161
+- **Fix:** Fix or remove the broken link
+
+---
+### 649. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2663
+- **Fix:** Fix or remove the broken link
+
+---
+### 650. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2724
+- **Fix:** Fix or remove the broken link
+
+---
+### 651. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2787
+- **Fix:** Fix or remove the broken link
+
+---
+### 652. Broken link: /assets/css/admin-events.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 2968
+- **Fix:** Fix or remove the broken link
+
+---
+### 653. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3031
+- **Fix:** Fix or remove the broken link
+
+---
+### 654. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3106
+- **Fix:** Fix or remove the broken link
+
+---
+### 655. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3177
+- **Fix:** Fix or remove the broken link
+
+---
+### 656. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/events.html`
+- **Category:** links
+- **Line:** 3242
+- **Fix:** Fix or remove the broken link
+
+---
+### 657. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2724
+- **Fix:** Fix or remove the broken link
+
+---
+### 658. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2785
+- **Fix:** Fix or remove the broken link
+
+---
+### 659. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 2785
+- **Fix:** Fix or remove the broken link
+
+---
+### 660. Broken link: /assets/css/admin-finance.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3031
+- **Fix:** Fix or remove the broken link
+
+---
+### 661. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3095
+- **Fix:** Fix or remove the broken link
+
+---
+### 662. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3170
+- **Fix:** Fix or remove the broken link
+
+---
+### 663. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3241
+- **Fix:** Fix or remove the broken link
+
+---
+### 664. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/finance.html`
+- **Category:** links
+- **Line:** 3306
+- **Fix:** Fix or remove the broken link
+
+---
+### 665. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2679
+- **Fix:** Fix or remove the broken link
+
+---
+### 666. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2740
+- **Fix:** Fix or remove the broken link
+
+---
+### 667. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2740
+- **Fix:** Fix or remove the broken link
+
+---
+### 668. Broken link: /assets/css/admin-hr-hiring.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 2986
+- **Fix:** Fix or remove the broken link
+
+---
+### 669. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3052
+- **Fix:** Fix or remove the broken link
+
+---
+### 670. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3127
+- **Fix:** Fix or remove the broken link
+
+---
+### 671. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3198
+- **Fix:** Fix or remove the broken link
+
+---
+### 672. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/hr-hiring.html`
+- **Category:** links
+- **Line:** 3263
+- **Fix:** Fix or remove the broken link
+
+---
+### 673. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2739
+- **Fix:** Fix or remove the broken link
+
+---
+### 674. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2800
+- **Fix:** Fix or remove the broken link
+
+---
+### 675. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2863
+- **Fix:** Fix or remove the broken link
+
+---
+### 676. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 2927
+- **Fix:** Fix or remove the broken link
+
+---
+### 677. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3002
+- **Fix:** Fix or remove the broken link
+
+---
+### 678. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3073
+- **Fix:** Fix or remove the broken link
+
+---
+### 679. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/inventory.html`
+- **Category:** links
+- **Line:** 3138
+- **Fix:** Fix or remove the broken link
+
+---
+### 680. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2750
+- **Fix:** Fix or remove the broken link
+
+---
+### 681. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2811
+- **Fix:** Fix or remove the broken link
+
+---
+### 682. Broken link: /assets/css/admin-landing-builder.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2882
+- **Fix:** Fix or remove the broken link
+
+---
+### 683. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 2954
+- **Fix:** Fix or remove the broken link
+
+---
+### 684. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3029
+- **Fix:** Fix or remove the broken link
+
+---
+### 685. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3100
+- **Fix:** Fix or remove the broken link
+
+---
+### 686. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/landing-builder.html`
+- **Category:** links
+- **Line:** 3165
+- **Fix:** Fix or remove the broken link
+
+---
+### 687. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2777
+- **Fix:** Fix or remove the broken link
+
+---
+### 688. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2838
+- **Fix:** Fix or remove the broken link
+
+---
+### 689. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 2838
+- **Fix:** Fix or remove the broken link
+
+---
+### 690. Broken link: /assets/css/admin-leads.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3084
+- **Fix:** Fix or remove the broken link
+
+---
+### 691. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3146
+- **Fix:** Fix or remove the broken link
+
+---
+### 692. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3221
+- **Fix:** Fix or remove the broken link
+
+---
+### 693. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3292
+- **Fix:** Fix or remove the broken link
+
+---
+### 694. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/leads.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 695. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2673
+- **Fix:** Fix or remove the broken link
+
+---
+### 696. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2734
+- **Fix:** Fix or remove the broken link
+
+---
+### 697. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2797
+- **Fix:** Fix or remove the broken link
+
+---
+### 698. Broken link: /assets/css/admin-legal.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 2977
+- **Fix:** Fix or remove the broken link
+
+---
+### 699. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3039
+- **Fix:** Fix or remove the broken link
+
+---
+### 700. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3114
+- **Fix:** Fix or remove the broken link
+
+---
+### 701. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3185
+- **Fix:** Fix or remove the broken link
+
+---
+### 702. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/legal.html`
+- **Category:** links
+- **Line:** 3250
+- **Fix:** Fix or remove the broken link
+
+---
+### 703. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 2718
+- **Fix:** Fix or remove the broken link
+
+---
+### 704. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 2779
+- **Fix:** Fix or remove the broken link
+
+---
+### 705. Broken link: /assets/css/admin-lms.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 2959
+- **Fix:** Fix or remove the broken link
+
+---
+### 706. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 3019
+- **Fix:** Fix or remove the broken link
+
+---
+### 707. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 3094
+- **Fix:** Fix or remove the broken link
+
+---
+### 708. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 3165
+- **Fix:** Fix or remove the broken link
+
+---
+### 709. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/lms.html`
+- **Category:** links
+- **Line:** 3230
+- **Fix:** Fix or remove the broken link
+
+---
+### 710. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 2735
+- **Fix:** Fix or remove the broken link
+
+---
+### 711. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 2796
+- **Fix:** Fix or remove the broken link
+
+---
+### 712. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 2859
+- **Fix:** Fix or remove the broken link
+
+---
+### 713. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 2923
+- **Fix:** Fix or remove the broken link
+
+---
+### 714. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 2998
+- **Fix:** Fix or remove the broken link
+
+---
+### 715. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 3069
+- **Fix:** Fix or remove the broken link
+
+---
+### 716. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/loyalty.html`
+- **Category:** links
+- **Line:** 3134
+- **Fix:** Fix or remove the broken link
+
+---
+### 717. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 2714
+- **Fix:** Fix or remove the broken link
+
+---
+### 718. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 2775
+- **Fix:** Fix or remove the broken link
+
+---
+### 719. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 2838
+- **Fix:** Fix or remove the broken link
+
+---
+### 720. Broken link: /assets/css/admin-menu.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 3168
+- **Fix:** Fix or remove the broken link
+
+---
+### 721. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 3229
+- **Fix:** Fix or remove the broken link
+
+---
+### 722. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 3304
+- **Fix:** Fix or remove the broken link
+
+---
+### 723. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 3375
+- **Fix:** Fix or remove the broken link
+
+---
+### 724. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/menu.html`
+- **Category:** links
+- **Line:** 3440
+- **Fix:** Fix or remove the broken link
+
+---
+### 725. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 2669
+- **Fix:** Fix or remove the broken link
+
+---
+### 726. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 2730
+- **Fix:** Fix or remove the broken link
+
+---
+### 727. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 2730
+- **Fix:** Fix or remove the broken link
+
+---
+### 728. Broken link: /assets/css/admin-mvp-launch.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 2976
+- **Fix:** Fix or remove the broken link
+
+---
+### 729. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 3043
+- **Fix:** Fix or remove the broken link
+
+---
+### 730. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 3118
+- **Fix:** Fix or remove the broken link
+
+---
+### 731. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 3189
+- **Fix:** Fix or remove the broken link
+
+---
+### 732. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/mvp-launch.html`
+- **Category:** links
+- **Line:** 3254
+- **Fix:** Fix or remove the broken link
+
+---
+### 733. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/notifications.html`
+- **Category:** links
+- **Line:** 2794
+- **Fix:** Fix or remove the broken link
+
+---
+### 734. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/notifications.html`
+- **Category:** links
+- **Line:** 2869
+- **Fix:** Fix or remove the broken link
+
+---
+### 735. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/notifications.html`
+- **Category:** links
+- **Line:** 2940
+- **Fix:** Fix or remove the broken link
+
+---
+### 736. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/notifications.html`
+- **Category:** links
+- **Line:** 3005
+- **Fix:** Fix or remove the broken link
+
+---
+### 737. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 2693
+- **Fix:** Fix or remove the broken link
+
+---
+### 738. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 2754
+- **Fix:** Fix or remove the broken link
+
+---
+### 739. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 2754
+- **Fix:** Fix or remove the broken link
+
+---
+### 740. Broken link: /assets/css/admin-onboarding.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3000
+- **Fix:** Fix or remove the broken link
+
+---
+### 741. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3067
+- **Fix:** Fix or remove the broken link
+
+---
+### 742. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3142
+- **Fix:** Fix or remove the broken link
+
+---
+### 743. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3213
+- **Fix:** Fix or remove the broken link
+
+---
+### 744. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/onboarding.html`
+- **Category:** links
+- **Line:** 3278
+- **Fix:** Fix or remove the broken link
+
+---
+### 745. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 746. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 747. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 748. Broken link: /assets/css/admin-payments.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3056
+- **Fix:** Fix or remove the broken link
+
+---
+### 749. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3121
+- **Fix:** Fix or remove the broken link
+
+---
+### 750. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3196
+- **Fix:** Fix or remove the broken link
+
+---
+### 751. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3267
+- **Fix:** Fix or remove the broken link
+
+---
+### 752. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/payments.html`
+- **Category:** links
+- **Line:** 3332
+- **Fix:** Fix or remove the broken link
+
+---
+### 753. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2769
+- **Fix:** Fix or remove the broken link
+
+---
+### 754. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2830
+- **Fix:** Fix or remove the broken link
+
+---
+### 755. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2830
+- **Fix:** Fix or remove the broken link
+
+---
+### 756. Broken link: /assets/css/pipeline-pro.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 2960
+- **Fix:** Fix or remove the broken link
+
+---
+### 757. Broken link: /assets/css/admin-pipeline.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3140
+- **Fix:** Fix or remove the broken link
+
+---
+### 758. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3205
+- **Fix:** Fix or remove the broken link
+
+---
+### 759. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3280
+- **Fix:** Fix or remove the broken link
+
+---
+### 760. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3351
+- **Fix:** Fix or remove the broken link
+
+---
+### 761. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pipeline.html`
+- **Category:** links
+- **Line:** 3416
+- **Fix:** Fix or remove the broken link
+
+---
+### 762. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2797
+- **Fix:** Fix or remove the broken link
+
+---
+### 763. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2858
+- **Fix:** Fix or remove the broken link
+
+---
+### 764. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2921
+- **Fix:** Fix or remove the broken link
+
+---
+### 765. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 2985
+- **Fix:** Fix or remove the broken link
+
+---
+### 766. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3060
+- **Fix:** Fix or remove the broken link
+
+---
+### 767. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3131
+- **Fix:** Fix or remove the broken link
+
+---
+### 768. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pos.html`
+- **Category:** links
+- **Line:** 3196
+- **Fix:** Fix or remove the broken link
+
+---
+### 769. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2744
+- **Fix:** Fix or remove the broken link
+
+---
+### 770. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2805
+- **Fix:** Fix or remove the broken link
+
+---
+### 771. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 2805
+- **Fix:** Fix or remove the broken link
+
+---
+### 772. Broken link: /assets/css/admin-pricing.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3051
+- **Fix:** Fix or remove the broken link
+
+---
+### 773. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3115
+- **Fix:** Fix or remove the broken link
+
+---
+### 774. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3190
+- **Fix:** Fix or remove the broken link
+
+---
+### 775. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3261
+- **Fix:** Fix or remove the broken link
+
+---
+### 776. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/pricing.html`
+- **Category:** links
+- **Line:** 3326
+- **Fix:** Fix or remove the broken link
+
+---
+### 777. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2660
+- **Fix:** Fix or remove the broken link
+
+---
+### 778. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2721
+- **Fix:** Fix or remove the broken link
+
+---
+### 779. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2721
+- **Fix:** Fix or remove the broken link
+
+---
+### 780. Broken link: /assets/css/admin-proposals.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 2967
+- **Fix:** Fix or remove the broken link
+
+---
+### 781. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3033
+- **Fix:** Fix or remove the broken link
+
+---
+### 782. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3108
+- **Fix:** Fix or remove the broken link
+
+---
+### 783. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3179
+- **Fix:** Fix or remove the broken link
+
+---
+### 784. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/proposals.html`
+- **Category:** links
+- **Line:** 3244
+- **Fix:** Fix or remove the broken link
+
+---
+### 785. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2764
+- **Fix:** Fix or remove the broken link
+
+---
+### 786. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2825
+- **Fix:** Fix or remove the broken link
+
+---
+### 787. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2888
+- **Fix:** Fix or remove the broken link
+
+---
+### 788. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 2952
+- **Fix:** Fix or remove the broken link
+
+---
+### 789. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3027
+- **Fix:** Fix or remove the broken link
+
+---
+### 790. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3098
+- **Fix:** Fix or remove the broken link
+
+---
+### 791. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/quality.html`
+- **Category:** links
+- **Line:** 3163
+- **Fix:** Fix or remove the broken link
+
+---
+### 792. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2749
+- **Fix:** Fix or remove the broken link
+
+---
+### 793. Broken link: /assets/css/admin-dashboard.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2810
+- **Fix:** Fix or remove the broken link
+
+---
+### 794. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2876
+- **Fix:** Fix or remove the broken link
+
+---
+### 795. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 2951
+- **Fix:** Fix or remove the broken link
+
+---
+### 796. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 3022
+- **Fix:** Fix or remove the broken link
+
+---
+### 797. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/raas-overview.html`
+- **Category:** links
+- **Line:** 3087
+- **Fix:** Fix or remove the broken link
+
+---
+### 798. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2699
+- **Fix:** Fix or remove the broken link
+
+---
+### 799. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2760
+- **Fix:** Fix or remove the broken link
+
+---
+### 800. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 2760
+- **Fix:** Fix or remove the broken link
+
+---
+### 801. Broken link: /assets/css/admin-retention.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 3006
+- **Fix:** Fix or remove the broken link
+
+---
+### 802. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 3072
+- **Fix:** Fix or remove the broken link
+
+---
+### 803. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 3147
+- **Fix:** Fix or remove the broken link
+
+---
+### 804. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 3218
+- **Fix:** Fix or remove the broken link
+
+---
+### 805. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/retention.html`
+- **Category:** links
+- **Line:** 3283
+- **Fix:** Fix or remove the broken link
+
+---
+### 806. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/roiaas-admin.html`
+- **Category:** links
+- **Line:** 2785
+- **Fix:** Fix or remove the broken link
+
+---
+### 807. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/roiaas-admin.html`
+- **Category:** links
+- **Line:** 2860
+- **Fix:** Fix or remove the broken link
+
+---
+### 808. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/roiaas-admin.html`
+- **Category:** links
+- **Line:** 2931
+- **Fix:** Fix or remove the broken link
+
+---
+### 809. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/roiaas-admin.html`
+- **Category:** links
+- **Line:** 2996
+- **Fix:** Fix or remove the broken link
+
+---
+### 810. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2658
+- **Fix:** Fix or remove the broken link
+
+---
+### 811. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2719
+- **Fix:** Fix or remove the broken link
+
+---
+### 812. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2782
+- **Fix:** Fix or remove the broken link
+
+---
+### 813. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2846
+- **Fix:** Fix or remove the broken link
+
+---
+### 814. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2921
+- **Fix:** Fix or remove the broken link
+
+---
+### 815. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 2992
+- **Fix:** Fix or remove the broken link
+
+---
+### 816. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/shifts.html`
+- **Category:** links
+- **Line:** 3057
+- **Fix:** Fix or remove the broken link
+
+---
+### 817. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 2744
+- **Fix:** Fix or remove the broken link
+
+---
+### 818. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 2805
+- **Fix:** Fix or remove the broken link
+
+---
+### 819. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 2868
+- **Fix:** Fix or remove the broken link
+
+---
+### 820. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 2932
+- **Fix:** Fix or remove the broken link
+
+---
+### 821. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 3007
+- **Fix:** Fix or remove the broken link
+
+---
+### 822. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 3078
+- **Fix:** Fix or remove the broken link
+
+---
+### 823. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/suppliers.html`
+- **Category:** links
+- **Line:** 3143
+- **Fix:** Fix or remove the broken link
+
+---
+### 824. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 2726
+- **Fix:** Fix or remove the broken link
+
+---
+### 825. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 2787
+- **Fix:** Fix or remove the broken link
+
+---
+### 826. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 2787
+- **Fix:** Fix or remove the broken link
+
+---
+### 827. Broken link: /assets/css/admin-vc-readiness.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 3033
+- **Fix:** Fix or remove the broken link
+
+---
+### 828. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 3102
+- **Fix:** Fix or remove the broken link
+
+---
+### 829. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 3177
+- **Fix:** Fix or remove the broken link
+
+---
+### 830. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 3248
+- **Fix:** Fix or remove the broken link
+
+---
+### 831. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/vc-readiness.html`
+- **Category:** links
+- **Line:** 3313
+- **Fix:** Fix or remove the broken link
+
+---
+### 832. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 2715
+- **Fix:** Fix or remove the broken link
+
+---
+### 833. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 2776
+- **Fix:** Fix or remove the broken link
+
+---
+### 834. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 2776
+- **Fix:** Fix or remove the broken link
+
+---
+### 835. Broken link: /assets/css/admin-video-workflow.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 3022
+- **Fix:** Fix or remove the broken link
+
+---
+### 836. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 3093
+- **Fix:** Fix or remove the broken link
+
+---
+### 837. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 3168
+- **Fix:** Fix or remove the broken link
+
+---
+### 838. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 3239
+- **Fix:** Fix or remove the broken link
+
+---
+### 839. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/video-workflow.html`
+- **Category:** links
+- **Line:** 3304
+- **Fix:** Fix or remove the broken link
+
+---
+### 840. Missing or incorrect DOCTYPE declaration
+
+- **File:** `admin/widgets/kpi-card.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 841. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/widgets/kpi-card.html`
+- **Category:** links
+- **Line:** 27
+- **Fix:** Fix or remove the broken link
+
+---
+### 842. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/widgets-demo.html`
+- **Category:** links
+- **Line:** 3197
+- **Fix:** Fix or remove the broken link
+
+---
+### 843. Broken link: /assets/css/agency-2026.css
+
+- **File:** `admin/widgets-demo.html`
+- **Category:** links
+- **Line:** 3258
+- **Fix:** Fix or remove the broken link
+
+---
+### 844. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/widgets-demo.html`
+- **Category:** links
+- **Line:** 3321
+- **Fix:** Fix or remove the broken link
+
+---
+### 845. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/widgets-demo.html`
+- **Category:** links
+- **Line:** 3441
+- **Fix:** Fix or remove the broken link
+
+---
+### 846. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 2720
+- **Fix:** Fix or remove the broken link
+
+---
+### 847. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 2781
+- **Fix:** Fix or remove the broken link
+
+---
+### 848. Broken link: /assets/css/admin-workflows.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 2962
+- **Fix:** Fix or remove the broken link
+
+---
+### 849. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 3028
+- **Fix:** Fix or remove the broken link
+
+---
+### 850. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 3103
+- **Fix:** Fix or remove the broken link
+
+---
+### 851. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 3174
+- **Fix:** Fix or remove the broken link
+
+---
+### 852. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 3239
+- **Fix:** Fix or remove the broken link
+
+---
+### 853. Broken link: /index.html
+
+- **File:** `admin/workflows.html`
+- **Category:** links
+- **Line:** 6081
+- **Fix:** Fix or remove the broken link
+
+---
+### 854. Broken link: /assets/css/m3-agency.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 2786
+- **Fix:** Fix or remove the broken link
+
+---
+### 855. Broken link: /assets/css/admin-unified.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 2847
+- **Fix:** Fix or remove the broken link
+
+---
+### 856. Broken link: /assets/css/admin-zalo.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 2912
+- **Fix:** Fix or remove the broken link
+
+---
+### 857. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 2973
+- **Fix:** Fix or remove the broken link
+
+---
+### 858. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 3048
+- **Fix:** Fix or remove the broken link
+
+---
+### 859. Broken link: /assets/css/ui-animations.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 3119
+- **Fix:** Fix or remove the broken link
+
+---
+### 860. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `admin/zalo.html`
+- **Category:** links
+- **Line:** 3184
+- **Fix:** Fix or remove the broken link
+
+---
+### 861. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/commissions.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 862. Missing lang attribute on <html> element
+
+- **File:** `affiliate/commissions.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 863. Missing charset meta tag
+
+- **File:** `affiliate/commissions.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 864. Missing viewport meta tag
+
+- **File:** `affiliate/commissions.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 865. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/commissions.html`
+- **Category:** links
+- **Line:** 1692
+- **Fix:** Fix or remove the broken link
+
+---
+### 866. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/commissions.html`
+- **Category:** links
+- **Line:** 1753
+- **Fix:** Fix or remove the broken link
+
+---
+### 867. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/commissions.html`
+- **Category:** links
+- **Line:** 1810
+- **Fix:** Fix or remove the broken link
+
+---
+### 868. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/commissions.html`
+- **Category:** links
+- **Line:** 1885
+- **Fix:** Fix or remove the broken link
+
+---
+### 869. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/commissions.html`
+- **Category:** links
+- **Line:** 1950
+- **Fix:** Fix or remove the broken link
+
+---
+### 870. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 871. Missing lang attribute on <html> element
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 872. Missing charset meta tag
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 873. Missing viewport meta tag
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 874. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** links
+- **Line:** 1778
+- **Fix:** Fix or remove the broken link
+
+---
+### 875. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** links
+- **Line:** 1839
+- **Fix:** Fix or remove the broken link
+
+---
+### 876. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** links
+- **Line:** 1896
+- **Fix:** Fix or remove the broken link
+
+---
+### 877. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** links
+- **Line:** 1971
+- **Fix:** Fix or remove the broken link
+
+---
+### 878. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/dashboard.html`
+- **Category:** links
+- **Line:** 2036
+- **Fix:** Fix or remove the broken link
+
+---
+### 879. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/links.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 880. Missing lang attribute on <html> element
+
+- **File:** `affiliate/links.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 881. Missing charset meta tag
+
+- **File:** `affiliate/links.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 882. Missing viewport meta tag
+
+- **File:** `affiliate/links.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 883. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/links.html`
+- **Category:** links
+- **Line:** 1662
+- **Fix:** Fix or remove the broken link
+
+---
+### 884. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/links.html`
+- **Category:** links
+- **Line:** 1723
+- **Fix:** Fix or remove the broken link
+
+---
+### 885. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/links.html`
+- **Category:** links
+- **Line:** 1780
+- **Fix:** Fix or remove the broken link
+
+---
+### 886. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/links.html`
+- **Category:** links
+- **Line:** 1855
+- **Fix:** Fix or remove the broken link
+
+---
+### 887. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/links.html`
+- **Category:** links
+- **Line:** 1920
+- **Fix:** Fix or remove the broken link
+
+---
+### 888. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/media.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 889. Missing lang attribute on <html> element
+
+- **File:** `affiliate/media.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 890. Missing charset meta tag
+
+- **File:** `affiliate/media.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 891. Missing viewport meta tag
+
+- **File:** `affiliate/media.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 892. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/media.html`
+- **Category:** links
+- **Line:** 1705
+- **Fix:** Fix or remove the broken link
+
+---
+### 893. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/media.html`
+- **Category:** links
+- **Line:** 1766
+- **Fix:** Fix or remove the broken link
+
+---
+### 894. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/media.html`
+- **Category:** links
+- **Line:** 1823
+- **Fix:** Fix or remove the broken link
+
+---
+### 895. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/media.html`
+- **Category:** links
+- **Line:** 1898
+- **Fix:** Fix or remove the broken link
+
+---
+### 896. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/media.html`
+- **Category:** links
+- **Line:** 1963
+- **Fix:** Fix or remove the broken link
+
+---
+### 897. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/profile.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 898. Missing lang attribute on <html> element
+
+- **File:** `affiliate/profile.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 899. Missing charset meta tag
+
+- **File:** `affiliate/profile.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 900. Missing viewport meta tag
+
+- **File:** `affiliate/profile.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 901. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/profile.html`
+- **Category:** links
+- **Line:** 1716
+- **Fix:** Fix or remove the broken link
+
+---
+### 902. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/profile.html`
+- **Category:** links
+- **Line:** 1777
+- **Fix:** Fix or remove the broken link
+
+---
+### 903. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/profile.html`
+- **Category:** links
+- **Line:** 1834
+- **Fix:** Fix or remove the broken link
+
+---
+### 904. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/profile.html`
+- **Category:** links
+- **Line:** 1909
+- **Fix:** Fix or remove the broken link
+
+---
+### 905. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/profile.html`
+- **Category:** links
+- **Line:** 1974
+- **Fix:** Fix or remove the broken link
+
+---
+### 906. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/referrals.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 907. Missing lang attribute on <html> element
+
+- **File:** `affiliate/referrals.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 908. Missing charset meta tag
+
+- **File:** `affiliate/referrals.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 909. Missing viewport meta tag
+
+- **File:** `affiliate/referrals.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 910. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/referrals.html`
+- **Category:** links
+- **Line:** 1693
+- **Fix:** Fix or remove the broken link
+
+---
+### 911. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/referrals.html`
+- **Category:** links
+- **Line:** 1754
+- **Fix:** Fix or remove the broken link
+
+---
+### 912. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/referrals.html`
+- **Category:** links
+- **Line:** 1811
+- **Fix:** Fix or remove the broken link
+
+---
+### 913. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/referrals.html`
+- **Category:** links
+- **Line:** 1886
+- **Fix:** Fix or remove the broken link
+
+---
+### 914. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/referrals.html`
+- **Category:** links
+- **Line:** 1951
+- **Fix:** Fix or remove the broken link
+
+---
+### 915. Missing or incorrect DOCTYPE declaration
+
+- **File:** `affiliate/settings.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 916. Missing lang attribute on <html> element
+
+- **File:** `affiliate/settings.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 917. Missing charset meta tag
+
+- **File:** `affiliate/settings.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 918. Missing viewport meta tag
+
+- **File:** `affiliate/settings.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 919. Broken link: /assets/css/m3-agency.css
+
+- **File:** `affiliate/settings.html`
+- **Category:** links
+- **Line:** 1624
+- **Fix:** Fix or remove the broken link
+
+---
+### 920. Broken link: /assets/css/portal.css
+
+- **File:** `affiliate/settings.html`
+- **Category:** links
+- **Line:** 1685
+- **Fix:** Fix or remove the broken link
+
+---
+### 921. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `affiliate/settings.html`
+- **Category:** links
+- **Line:** 1742
+- **Fix:** Fix or remove the broken link
+
+---
+### 922. Broken link: /assets/css/ui-animations.css
+
+- **File:** `affiliate/settings.html`
+- **Category:** links
+- **Line:** 1817
+- **Fix:** Fix or remove the broken link
+
+---
+### 923. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `affiliate/settings.html`
+- **Category:** links
+- **Line:** 1882
+- **Fix:** Fix or remove the broken link
+
+---
+### 924. Missing or incorrect DOCTYPE declaration
+
+- **File:** `auth/login.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <!DOCTYPE html> at the beginning of the file
+
+---
+### 925. Missing lang attribute on <html> element
+
+- **File:** `auth/login.html`
+- **Category:** accessibility
+- **Line:** 1
+- **Fix:** Add lang="vi" or appropriate language to <html> tag
+
+---
+### 926. Missing charset meta tag
+
+- **File:** `auth/login.html`
+- **Category:** html
+- **Line:** 1
+- **Fix:** Add <meta charset="UTF-8">
+
+---
+### 927. Missing viewport meta tag
+
+- **File:** `auth/login.html`
+- **Category:** responsive
+- **Line:** 1
+- **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+---
+### 928. Broken link: /assets/css/m3-agency.css
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 307
+- **Fix:** Fix or remove the broken link
+
+---
+### 929. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 367
+- **Fix:** Fix or remove the broken link
+
+---
+### 930. Broken link: /assets/css/ui-animations.css
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 442
+- **Fix:** Fix or remove the broken link
+
+---
+### 931. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 507
+- **Fix:** Fix or remove the broken link
+
+---
+### 932. Broken link: /forgot-password.html
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 13976
+- **Fix:** Fix or remove the broken link
+
+---
+### 933. Broken link: /register.html
+
+- **File:** `auth/login.html`
+- **Category:** links
+- **Line:** 14614
+- **Fix:** Fix or remove the broken link
+
+---
+### 934. Missing or incorrect DOCTYPE declaration
 
 - **File:** `forgot-password.html`
 - **Category:** html
@@ -8178,7 +7490,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1021. Missing lang attribute on <html> element
+### 935. Missing lang attribute on <html> element
 
 - **File:** `forgot-password.html`
 - **Category:** accessibility
@@ -8186,7 +7498,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 1022. Missing charset meta tag
+### 936. Missing charset meta tag
 
 - **File:** `forgot-password.html`
 - **Category:** html
@@ -8194,7 +7506,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 1023. Missing viewport meta tag
+### 937. Missing viewport meta tag
 
 - **File:** `forgot-password.html`
 - **Category:** responsive
@@ -8202,7 +7514,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 1024. Missing or incorrect DOCTYPE declaration
+### 938. Missing or incorrect DOCTYPE declaration
 
 - **File:** `login.html`
 - **Category:** html
@@ -8210,7 +7522,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1025. Missing lang attribute on <html> element
+### 939. Missing lang attribute on <html> element
 
 - **File:** `login.html`
 - **Category:** accessibility
@@ -8218,7 +7530,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 1026. Missing charset meta tag
+### 940. Missing charset meta tag
 
 - **File:** `login.html`
 - **Category:** html
@@ -8226,7 +7538,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 1027. Missing viewport meta tag
+### 941. Missing viewport meta tag
 
 - **File:** `login.html`
 - **Category:** responsive
@@ -8234,7 +7546,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 1028. Missing or incorrect DOCTYPE declaration
+### 942. Missing or incorrect DOCTYPE declaration
 
 - **File:** `offline.html`
 - **Category:** html
@@ -8242,7 +7554,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1029. Missing lang attribute on <html> element
+### 943. Missing lang attribute on <html> element
 
 - **File:** `offline.html`
 - **Category:** accessibility
@@ -8250,7 +7562,7 @@
 - **Fix:** Add lang="vi" or appropriate language to <html> tag
 
 ---
-### 1030. Missing charset meta tag
+### 944. Missing charset meta tag
 
 - **File:** `offline.html`
 - **Category:** html
@@ -8258,7 +7570,7 @@
 - **Fix:** Add <meta charset="UTF-8">
 
 ---
-### 1031. Missing viewport meta tag
+### 945. Missing viewport meta tag
 
 - **File:** `offline.html`
 - **Category:** responsive
@@ -8266,7 +7578,7 @@
 - **Fix:** Add <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ---
-### 1032. Missing or incorrect DOCTYPE declaration
+### 946. Missing or incorrect DOCTYPE declaration
 
 - **File:** `playwright-report/index.html`
 - **Category:** html
@@ -8274,15 +7586,7 @@
 - **Fix:** Add <!DOCTYPE html> at the beginning of the file
 
 ---
-### 1033. Missing lang attribute on <html> element
-
-- **File:** `playwright-report/index.html`
-- **Category:** accessibility
-- **Line:** 1
-- **Fix:** Add lang="vi" or appropriate language to <html> tag
-
----
-### 1034. Missing meta description
+### 947. Missing meta description
 
 - **File:** `playwright-report/index.html`
 - **Category:** seo
@@ -8290,1549 +7594,1345 @@
 - **Fix:** Add <meta name="description" content="..."> (150-160 characters)
 
 ---
-### 1035. Broken link: /assets/css/m3-agency.css
+### 948. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2227
+- **Line:** 2778
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1036. Broken link: /assets/css/portal.css
+### 949. Broken link: /assets/css/portal.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2288
+- **Line:** 2839
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1037. Broken link: /assets/css/responsive-enhancements.css
+### 950. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2345
+- **Line:** 2896
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1038. Broken link: /assets/css/responsive-fix-2026.css
+### 951. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2420
+- **Line:** 2971
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1039. Broken link: /assets/css/ui-animations.css
+### 952. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2491
+- **Line:** 3042
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1040. Broken link: /assets/css/lazy-loading.css
+### 953. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/approve.html`
 - **Category:** links
-- **Line:** 2556
+- **Line:** 3107
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1041. Broken link: /assets/css/m3-agency.css
+### 954. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2229
+- **Line:** 2780
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1042. Broken link: /assets/css/portal.css
+### 955. Broken link: /assets/css/portal.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2290
+- **Line:** 2841
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1043. Broken link: /assets/css/responsive-enhancements.css
+### 956. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2347
+- **Line:** 2898
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1044. Broken link: /assets/css/responsive-fix-2026.css
+### 957. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2422
+- **Line:** 2973
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1045. Broken link: /assets/css/ui-animations.css
+### 958. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2493
+- **Line:** 3044
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1046. Broken link: /assets/css/lazy-loading.css
+### 959. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/assets.html`
 - **Category:** links
-- **Line:** 2558
+- **Line:** 3109
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1047. Broken link: /assets/css/m3-agency.css
+### 960. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2231
+- **Line:** 2851
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1048. Broken link: /assets/css/portal.css
+### 961. Broken link: /assets/css/portal.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2292
+- **Line:** 2912
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1049. Broken link: /assets/css/responsive-enhancements.css
+### 962. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2349
+- **Line:** 2969
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1050. Broken link: /assets/css/responsive-fix-2026.css
+### 963. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2424
+- **Line:** 3044
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1051. Broken link: /assets/css/ui-animations.css
+### 964. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2495
+- **Line:** 3115
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1052. Broken link: /assets/css/lazy-loading.css
+### 965. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/credits.html`
 - **Category:** links
-- **Line:** 2560
+- **Line:** 3180
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1053. Broken link: /assets/css/m3-agency.css
+### 966. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2420
+- **Line:** 2938
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1054. Broken link: /assets/css/portal.css
+### 967. Broken link: /assets/css/portal.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2481
+- **Line:** 2999
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1055. Broken link: /assets/css/ui-animations.css
+### 968. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2539
+- **Line:** 3057
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1056. Broken link: /assets/css/lazy-loading.css
+### 969. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2604
+- **Line:** 3122
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1057. Broken link: /assets/css/responsive-enhancements.css
+### 970. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2668
+- **Line:** 3186
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1058. Broken link: /assets/css/responsive-fix-2026.css
+### 971. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/dashboard.html`
 - **Category:** links
-- **Line:** 2743
+- **Line:** 3261
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1059. Broken link: /assets/css/m3-agency.css
+### 972. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2211
+- **Line:** 2816
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1060. Broken link: /assets/css/portal.css
+### 973. Broken link: /assets/css/portal.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2272
+- **Line:** 2877
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1061. Broken link: /assets/css/responsive-enhancements.css
+### 974. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2329
+- **Line:** 2934
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1062. Broken link: /assets/css/responsive-fix-2026.css
+### 975. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2404
+- **Line:** 3009
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1063. Broken link: /assets/css/ui-animations.css
+### 976. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2475
+- **Line:** 3080
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1064. Broken link: /assets/css/lazy-loading.css
+### 977. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/invoices.html`
 - **Category:** links
-- **Line:** 2540
+- **Line:** 3145
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1065. Broken link: /assets/css/m3-agency.css
+### 978. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2389
+- **Line:** 2831
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1066. Broken link: /assets/css/portal.css
+### 979. Broken link: /assets/css/portal.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2450
+- **Line:** 2892
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1067. Broken link: /assets/css/responsive-enhancements.css
+### 980. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2507
+- **Line:** 2949
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1068. Broken link: /assets/css/responsive-fix-2026.css
+### 981. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2582
+- **Line:** 3024
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1069. Broken link: /assets/css/ui-animations.css
+### 982. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2653
+- **Line:** 3095
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1070. Broken link: /assets/css/lazy-loading.css
+### 983. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/login.html`
 - **Category:** links
-- **Line:** 2718
+- **Line:** 3160
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1071. Broken link: /assets/css/m3-agency.css
+### 984. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2384
+- **Line:** 2829
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1072. Broken link: /assets/css/portal.css
+### 985. Broken link: /assets/css/portal.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2445
+- **Line:** 2890
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1073. Broken link: /assets/css/responsive-enhancements.css
+### 986. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2502
+- **Line:** 2947
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1074. Broken link: /assets/css/responsive-fix-2026.css
+### 987. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2577
+- **Line:** 3022
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1075. Broken link: /assets/css/ui-animations.css
+### 988. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2648
+- **Line:** 3093
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1076. Broken link: /assets/css/lazy-loading.css
+### 989. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/missions.html`
 - **Category:** links
-- **Line:** 2713
+- **Line:** 3158
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1077. Broken link: ../assets/css/main.css
+### 990. Broken link: ../assets/css/main.css
 
 - **File:** `portal/notifications.html`
 - **Category:** links
-- **Line:** 1357
+- **Line:** 2737
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1078. Broken link: /assets/css/responsive-fix-2026.css
+### 991. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/notifications.html`
 - **Category:** links
-- **Line:** 1415
+- **Line:** 2795
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1079. Broken link: /assets/css/responsive-enhancements.css
+### 992. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/ocop-catalog.html`
 - **Category:** links
-- **Line:** 2140
+- **Line:** 2746
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1080. Broken link: /assets/css/responsive-fix-2026.css
+### 993. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/ocop-catalog.html`
 - **Category:** links
-- **Line:** 2215
+- **Line:** 2821
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1081. Broken link: /assets/css/ui-animations.css
+### 994. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/ocop-catalog.html`
 - **Category:** links
-- **Line:** 2286
+- **Line:** 2892
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1082. Broken link: /assets/css/lazy-loading.css
+### 995. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/ocop-catalog.html`
 - **Category:** links
-- **Line:** 2351
+- **Line:** 2957
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1083. Broken link: /assets/css/m3-agency.css
+### 996. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2337
+- **Line:** 2901
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1084. Broken link: /assets/css/portal.css
+### 997. Broken link: /assets/css/portal.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2398
+- **Line:** 2962
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1085. Broken link: /assets/css/responsive-enhancements.css
+### 998. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2455
+- **Line:** 3019
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1086. Broken link: /assets/css/responsive-fix-2026.css
+### 999. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2530
+- **Line:** 3094
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1087. Broken link: /assets/css/ui-animations.css
+### 1000. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2601
+- **Line:** 3165
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1088. Broken link: /assets/css/lazy-loading.css
+### 1001. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/ocop-exporter.html`
 - **Category:** links
-- **Line:** 2666
+- **Line:** 3230
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1089. Broken link: /assets/css/m3-agency.css
+### 1002. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2311
+- **Line:** 2762
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1090. Broken link: /assets/css/portal.css
+### 1003. Broken link: /assets/css/portal.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2372
+- **Line:** 2823
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1091. Broken link: /assets/css/responsive-enhancements.css
+### 1004. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2429
+- **Line:** 2880
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1092. Broken link: /assets/css/responsive-fix-2026.css
+### 1005. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2504
+- **Line:** 2955
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1093. Broken link: /assets/css/ui-animations.css
+### 1006. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2575
+- **Line:** 3026
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1094. Broken link: /assets/css/lazy-loading.css
+### 1007. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/onboarding.html`
 - **Category:** links
-- **Line:** 2640
+- **Line:** 3091
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1095. Broken link: /assets/css/m3-agency.css
+### 1008. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2260
-- **Fix:** Fix or remove the broken link
-
----
-### 1096. Broken link: /assets/css/portal.css
-
-- **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2321
-- **Fix:** Fix or remove the broken link
-
----
-### 1097. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2378
-- **Fix:** Fix or remove the broken link
-
----
-### 1098. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2453
-- **Fix:** Fix or remove the broken link
-
----
-### 1099. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2524
-- **Fix:** Fix or remove the broken link
-
----
-### 1100. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/payment-result.html`
-- **Category:** links
-- **Line:** 2589
-- **Fix:** Fix or remove the broken link
-
----
-### 1101. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2285
-- **Fix:** Fix or remove the broken link
-
----
-### 1102. Broken link: /assets/css/portal.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2346
-- **Fix:** Fix or remove the broken link
-
----
-### 1103. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2403
-- **Fix:** Fix or remove the broken link
-
----
-### 1104. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2478
-- **Fix:** Fix or remove the broken link
-
----
-### 1105. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2549
-- **Fix:** Fix or remove the broken link
-
----
-### 1106. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/payments.html`
-- **Category:** links
-- **Line:** 2614
-- **Fix:** Fix or remove the broken link
-
----
-### 1107. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2272
-- **Fix:** Fix or remove the broken link
-
----
-### 1108. Broken link: /assets/css/portal.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2333
-- **Fix:** Fix or remove the broken link
-
----
-### 1109. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2390
-- **Fix:** Fix or remove the broken link
-
----
-### 1110. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2465
-- **Fix:** Fix or remove the broken link
-
----
-### 1111. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2536
-- **Fix:** Fix or remove the broken link
-
----
-### 1112. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/projects.html`
-- **Category:** links
-- **Line:** 2601
-- **Fix:** Fix or remove the broken link
-
----
-### 1113. Broken link: /assets/css/m3-agency.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2497
-- **Fix:** Fix or remove the broken link
-
----
-### 1114. Broken link: /assets/css/portal.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2558
-- **Fix:** Fix or remove the broken link
-
----
-### 1115. Broken link: /assets/css/responsive-enhancements.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2615
-- **Fix:** Fix or remove the broken link
-
----
-### 1116. Broken link: /assets/css/responsive-fix-2026.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2690
-- **Fix:** Fix or remove the broken link
-
----
-### 1117. Broken link: /assets/css/ui-animations.css
-
-- **File:** `portal/reports.html`
-- **Category:** links
-- **Line:** 2761
-- **Fix:** Fix or remove the broken link
-
----
-### 1118. Broken link: /assets/css/lazy-loading.css
-
-- **File:** `portal/reports.html`
 - **Category:** links
 - **Line:** 2826
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1119. Broken link: ../assets/css/main.css
+### 1009. Broken link: /assets/css/portal.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 2887
+- **Fix:** Fix or remove the broken link
+
+---
+### 1010. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 2944
+- **Fix:** Fix or remove the broken link
+
+---
+### 1011. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3019
+- **Fix:** Fix or remove the broken link
+
+---
+### 1012. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3090
+- **Fix:** Fix or remove the broken link
+
+---
+### 1013. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/payment-result.html`
+- **Category:** links
+- **Line:** 3155
+- **Fix:** Fix or remove the broken link
+
+---
+### 1014. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2850
+- **Fix:** Fix or remove the broken link
+
+---
+### 1015. Broken link: /assets/css/portal.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2911
+- **Fix:** Fix or remove the broken link
+
+---
+### 1016. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 2968
+- **Fix:** Fix or remove the broken link
+
+---
+### 1017. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3043
+- **Fix:** Fix or remove the broken link
+
+---
+### 1018. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3114
+- **Fix:** Fix or remove the broken link
+
+---
+### 1019. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/payments.html`
+- **Category:** links
+- **Line:** 3179
+- **Fix:** Fix or remove the broken link
+
+---
+### 1020. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2827
+- **Fix:** Fix or remove the broken link
+
+---
+### 1021. Broken link: /assets/css/portal.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2888
+- **Fix:** Fix or remove the broken link
+
+---
+### 1022. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 2945
+- **Fix:** Fix or remove the broken link
+
+---
+### 1023. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3020
+- **Fix:** Fix or remove the broken link
+
+---
+### 1024. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3091
+- **Fix:** Fix or remove the broken link
+
+---
+### 1025. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/projects.html`
+- **Category:** links
+- **Line:** 3156
+- **Fix:** Fix or remove the broken link
+
+---
+### 1026. Broken link: /assets/css/m3-agency.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3093
+- **Fix:** Fix or remove the broken link
+
+---
+### 1027. Broken link: /assets/css/portal.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3154
+- **Fix:** Fix or remove the broken link
+
+---
+### 1028. Broken link: /assets/css/responsive-enhancements.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3211
+- **Fix:** Fix or remove the broken link
+
+---
+### 1029. Broken link: /assets/css/responsive-fix-2026.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3286
+- **Fix:** Fix or remove the broken link
+
+---
+### 1030. Broken link: /assets/css/ui-animations.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3357
+- **Fix:** Fix or remove the broken link
+
+---
+### 1031. Broken link: /assets/css/lazy-loading.css
+
+- **File:** `portal/reports.html`
+- **Category:** links
+- **Line:** 3422
+- **Fix:** Fix or remove the broken link
+
+---
+### 1032. Broken link: ../assets/css/main.css
 
 - **File:** `portal/roi-analytics.html`
 - **Category:** links
-- **Line:** 1645
+- **Line:** 2942
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1120. Broken link: /assets/css/responsive-fix-2026.css
+### 1033. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/roi-analytics.html`
 - **Category:** links
-- **Line:** 1703
+- **Line:** 3000
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1121. Broken link: /assets/css/responsive-enhancements.css
+### 1034. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/roi-report.html`
 - **Category:** links
-- **Line:** 2256
+- **Line:** 2761
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1122. Broken link: /assets/css/responsive-fix-2026.css
+### 1035. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/roi-report.html`
 - **Category:** links
-- **Line:** 2331
+- **Line:** 2836
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1123. Broken link: /assets/css/ui-animations.css
+### 1036. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/roi-report.html`
 - **Category:** links
-- **Line:** 2402
+- **Line:** 2907
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1124. Broken link: /assets/css/lazy-loading.css
+### 1037. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/roi-report.html`
 - **Category:** links
-- **Line:** 2467
+- **Line:** 2972
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1125. Broken link: /assets/css/responsive-enhancements.css
+### 1038. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/roiaas-dashboard.html`
 - **Category:** links
-- **Line:** 2125
+- **Line:** 2632
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1126. Broken link: /assets/css/responsive-fix-2026.css
+### 1039. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/roiaas-dashboard.html`
 - **Category:** links
-- **Line:** 2200
+- **Line:** 2707
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1127. Broken link: /assets/css/ui-animations.css
+### 1040. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/roiaas-dashboard.html`
 - **Category:** links
-- **Line:** 2271
+- **Line:** 2778
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1128. Broken link: /assets/css/lazy-loading.css
+### 1041. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/roiaas-dashboard.html`
 - **Category:** links
-- **Line:** 2336
+- **Line:** 2843
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1129. Broken link: /assets/css/m3-agency.css
+### 1042. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2443
+- **Line:** 2914
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1130. Broken link: /portal/css/roiaas-onboarding.css
+### 1043. Broken link: /portal/css/roiaas-onboarding.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2504
+- **Line:** 2975
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1131. Broken link: /assets/css/responsive-enhancements.css
+### 1044. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2572
+- **Line:** 3043
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1132. Broken link: /assets/css/responsive-fix-2026.css
+### 1045. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2647
+- **Line:** 3118
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1133. Broken link: /assets/css/ui-animations.css
+### 1046. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2718
+- **Line:** 3189
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1134. Broken link: /assets/css/lazy-loading.css
+### 1047. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/roiaas-onboarding.html`
 - **Category:** links
-- **Line:** 2783
+- **Line:** 3254
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1135. Broken link: /assets/css/responsive-enhancements.css
+### 1048. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/subscription-plans.html`
 - **Category:** links
-- **Line:** 2271
+- **Line:** 2807
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1136. Broken link: /assets/css/responsive-fix-2026.css
+### 1049. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/subscription-plans.html`
 - **Category:** links
-- **Line:** 2346
+- **Line:** 2882
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1137. Broken link: /assets/css/ui-animations.css
+### 1050. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/subscription-plans.html`
 - **Category:** links
-- **Line:** 2417
+- **Line:** 2953
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1138. Broken link: /assets/css/lazy-loading.css
+### 1051. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/subscription-plans.html`
 - **Category:** links
-- **Line:** 2482
+- **Line:** 3018
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1139. Broken link: /portal/roiaas-onboarding.html
+### 1052. Broken link: /portal/roiaas-onboarding.html
 
 - **File:** `portal/subscription-plans.html`
 - **Category:** links
-- **Line:** 51409
+- **Line:** 51945
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1140. Broken link: /assets/css/m3-agency.css
+### 1053. Broken link: /assets/css/m3-agency.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2309
+- **Line:** 2890
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1141. Broken link: /assets/css/portal.css
+### 1054. Broken link: /assets/css/portal.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2370
+- **Line:** 2951
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1142. Broken link: /assets/css/responsive-enhancements.css
+### 1055. Broken link: /assets/css/responsive-enhancements.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2427
+- **Line:** 3008
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1143. Broken link: /assets/css/responsive-fix-2026.css
+### 1056. Broken link: /assets/css/responsive-fix-2026.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2502
+- **Line:** 3083
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1144. Broken link: /assets/css/ui-animations.css
+### 1057. Broken link: /assets/css/ui-animations.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2573
+- **Line:** 3154
 - **Fix:** Fix or remove the broken link
 
 ---
-### 1145. Broken link: /assets/css/lazy-loading.css
+### 1058. Broken link: /assets/css/lazy-loading.css
 
 - **File:** `portal/subscriptions.html`
 - **Category:** links
-- **Line:** 2638
+- **Line:** 3219
 - **Fix:** Fix or remove the broken link
 
 ---
 ## 🟡 WARNINGS
 
-1. **Title length is 21 characters (recommended: 30-60)** — `admin/agents.html` (seo)
+1. **Description length is 104 characters (recommended: 120-160)** — `admin/agents.html` (seo)
 
-2. **Description length is 26 characters (recommended: 120-160)** — `admin/agents.html` (seo)
+2. **Description length is 76 characters (recommended: 120-160)** — `admin/ai-analysis.html` (seo)
 
-3. **Title length is 26 characters (recommended: 30-60)** — `admin/ai-analysis.html` (seo)
+3. **Description length is 69 characters (recommended: 120-160)** — `admin/api-builder.html` (seo)
 
-4. **Description length is 26 characters (recommended: 120-160)** — `admin/ai-analysis.html` (seo)
+4. **Description length is 85 characters (recommended: 120-160)** — `admin/approvals.html` (seo)
 
-5. **Title length is 26 characters (recommended: 30-60)** — `admin/api-builder.html` (seo)
+5. **Description length is 66 characters (recommended: 120-160)** — `admin/auth.html` (seo)
 
-6. **Description length is 28 characters (recommended: 120-160)** — `admin/api-builder.html` (seo)
+6. **Description length is 92 characters (recommended: 120-160)** — `admin/binh-phap.html` (seo)
 
-7. **Title length is 24 characters (recommended: 30-60)** — `admin/approvals.html` (seo)
+7. **Description length is 82 characters (recommended: 120-160)** — `admin/brand-guide.html` (seo)
 
-8. **Description length is 37 characters (recommended: 120-160)** — `admin/approvals.html` (seo)
+8. **Description length is 103 characters (recommended: 120-160)** — `admin/campaigns.html` (seo)
 
-9. **Title length is 23 characters (recommended: 30-60)** — `admin/auth.html` (seo)
+9. **Description length is 84 characters (recommended: 120-160)** — `admin/community.html` (seo)
 
-10. **Description length is 31 characters (recommended: 120-160)** — `admin/auth.html` (seo)
+10. **Title length is 28 characters (recommended: 30-60)** — `admin/components/phase-tracker.html` (seo)
 
-11. **Title length is 24 characters (recommended: 30-60)** — `admin/binh-phap.html` (seo)
+11. **Description length is 33 characters (recommended: 120-160)** — `admin/components/phase-tracker.html` (seo)
 
-12. **Description length is 42 characters (recommended: 120-160)** — `admin/binh-phap.html` (seo)
+12. **Description length is 98 characters (recommended: 120-160)** — `admin/content-calendar.html` (seo)
 
-13. **Description length is 72 characters (recommended: 120-160)** — `admin/brand-guide.html` (seo)
+13. **Description length is 75 characters (recommended: 120-160)** — `admin/customer-success.html` (seo)
 
-14. **Title length is 25 characters (recommended: 30-60)** — `admin/campaigns.html` (seo)
+14. **Description length is 109 characters (recommended: 120-160)** — `admin/dashboard.html` (seo)
 
-15. **Description length is 37 characters (recommended: 120-160)** — `admin/campaigns.html` (seo)
+15. **Description length is 80 characters (recommended: 120-160)** — `admin/deploy.html` (seo)
 
-16. **Title length is 24 characters (recommended: 30-60)** — `admin/community.html` (seo)
+16. **Description length is 74 characters (recommended: 120-160)** — `admin/docs.html` (seo)
 
-17. **Description length is 41 characters (recommended: 120-160)** — `admin/community.html` (seo)
+17. **Description length is 102 characters (recommended: 120-160)** — `admin/ecommerce.html` (seo)
 
-18. **Title length is 28 characters (recommended: 30-60)** — `admin/components/phase-tracker.html` (seo)
+18. **Description length is 75 characters (recommended: 120-160)** — `admin/events.html` (seo)
 
-19. **Description length is 33 characters (recommended: 120-160)** — `admin/components/phase-tracker.html` (seo)
+19. **Description length is 84 characters (recommended: 120-160)** — `admin/finance.html` (seo)
 
-20. **Description length is 30 characters (recommended: 120-160)** — `admin/content-calendar.html` (seo)
+20. **Description length is 78 characters (recommended: 120-160)** — `admin/hr-hiring.html` (seo)
 
-21. **Description length is 30 characters (recommended: 120-160)** — `admin/customer-success.html` (seo)
+21. **Description length is 82 characters (recommended: 120-160)** — `admin/inventory.html` (seo)
 
-22. **Title length is 24 characters (recommended: 30-60)** — `admin/dashboard.html` (seo)
+22. **Description length is 82 characters (recommended: 120-160)** — `admin/landing-builder.html` (seo)
 
-23. **Description length is 35 characters (recommended: 120-160)** — `admin/dashboard.html` (seo)
+23. **Description length is 92 characters (recommended: 120-160)** — `admin/leads.html` (seo)
 
-24. **Title length is 21 characters (recommended: 30-60)** — `admin/deploy.html` (seo)
+24. **Description length is 79 characters (recommended: 120-160)** — `admin/legal.html` (seo)
 
-25. **Description length is 28 characters (recommended: 120-160)** — `admin/deploy.html` (seo)
+25. **Description length is 83 characters (recommended: 120-160)** — `admin/lms.html` (seo)
 
-26. **Title length is 23 characters (recommended: 30-60)** — `admin/docs.html` (seo)
+26. **Description length is 75 characters (recommended: 120-160)** — `admin/loyalty.html` (seo)
 
-27. **Description length is 27 characters (recommended: 120-160)** — `admin/docs.html` (seo)
+27. **Description length is 82 characters (recommended: 120-160)** — `admin/menu.html` (seo)
 
-28. **Title length is 25 characters (recommended: 30-60)** — `admin/ecommerce.html` (seo)
+28. **Description length is 71 characters (recommended: 120-160)** — `admin/mvp-launch.html` (seo)
 
-29. **Description length is 24 characters (recommended: 120-160)** — `admin/ecommerce.html` (seo)
+29. **Description length is 97 characters (recommended: 120-160)** — `admin/notifications.html` (seo)
 
-30. **Title length is 22 characters (recommended: 30-60)** — `admin/events.html` (seo)
+30. **Description length is 76 characters (recommended: 120-160)** — `admin/onboarding.html` (seo)
 
-31. **Description length is 27 characters (recommended: 120-160)** — `admin/events.html` (seo)
+31. **Description length is 91 characters (recommended: 120-160)** — `admin/payments.html` (seo)
 
-32. **Title length is 24 characters (recommended: 30-60)** — `admin/finance.html` (seo)
+32. **Description length is 92 characters (recommended: 120-160)** — `admin/pipeline.html` (seo)
 
-33. **Description length is 40 characters (recommended: 120-160)** — `admin/finance.html` (seo)
+33. **Description length is 96 characters (recommended: 120-160)** — `admin/pos.html` (seo)
 
-34. **Title length is 25 characters (recommended: 30-60)** — `admin/hr-hiring.html` (seo)
+34. **Description length is 92 characters (recommended: 120-160)** — `admin/pricing.html` (seo)
 
-35. **Description length is 30 characters (recommended: 120-160)** — `admin/hr-hiring.html` (seo)
+35. **Description length is 72 characters (recommended: 120-160)** — `admin/proposals.html` (seo)
 
-36. **Title length is 23 characters (recommended: 30-60)** — `admin/inventory.html` (seo)
+36. **Description length is 85 characters (recommended: 120-160)** — `admin/quality.html` (seo)
 
-37. **Description length is 28 characters (recommended: 120-160)** — `admin/inventory.html` (seo)
+37. **Description length is 84 characters (recommended: 120-160)** — `admin/raas-overview.html` (seo)
 
-38. **Description length is 46 characters (recommended: 120-160)** — `admin/landing-builder.html` (seo)
+38. **Description length is 72 characters (recommended: 120-160)** — `admin/retention.html` (seo)
 
-39. **Title length is 20 characters (recommended: 30-60)** — `admin/leads.html` (seo)
+39. **Description length is 89 characters (recommended: 120-160)** — `admin/roiaas-admin.html` (seo)
 
-40. **Description length is 38 characters (recommended: 120-160)** — `admin/leads.html` (seo)
+40. **Description length is 69 characters (recommended: 120-160)** — `admin/shifts.html` (seo)
 
-41. **Title length is 22 characters (recommended: 30-60)** — `admin/legal.html` (seo)
+41. **Description length is 84 characters (recommended: 120-160)** — `admin/suppliers.html` (seo)
 
-42. **Description length is 34 characters (recommended: 120-160)** — `admin/legal.html` (seo)
+42. **Description length is 81 characters (recommended: 120-160)** — `admin/vc-readiness.html` (seo)
 
-43. **Title length is 18 characters (recommended: 30-60)** — `admin/lms.html` (seo)
+43. **Description length is 76 characters (recommended: 120-160)** — `admin/video-workflow.html` (seo)
 
-44. **Description length is 28 characters (recommended: 120-160)** — `admin/lms.html` (seo)
+44. **Description length is 79 characters (recommended: 120-160)** — `admin/widgets/kpi-card.html` (seo)
 
-45. **Title length is 22 characters (recommended: 30-60)** — `admin/loyalty.html` (seo)
+45. **Missing canonical URL** — `admin/widgets/kpi-card.html` (seo)
 
-46. **Description length is 35 characters (recommended: 120-160)** — `admin/loyalty.html` (seo)
+46. **Description length is 75 characters (recommended: 120-160)** — `admin/widgets-demo.html` (seo)
 
-47. **Title length is 19 characters (recommended: 30-60)** — `admin/menu.html` (seo)
+47. **Description length is 76 characters (recommended: 120-160)** — `admin/workflows.html` (seo)
 
-48. **Description length is 26 characters (recommended: 120-160)** — `admin/menu.html` (seo)
+48. **Description length is 86 characters (recommended: 120-160)** — `admin/zalo.html` (seo)
 
-49. **Title length is 25 characters (recommended: 30-60)** — `admin/mvp-launch.html` (seo)
+49. **Description length is 69 characters (recommended: 120-160)** — `portal/approve.html` (seo)
 
-50. **Description length is 20 characters (recommended: 120-160)** — `admin/mvp-launch.html` (seo)
+50. **Invalid ARIA role: "client"** — `portal/approve.html` (accessibility)
 
-51. **Title length is 24 characters (recommended: 30-60)** — `admin/notifications.html` (seo)
+51. **Description length is 68 characters (recommended: 120-160)** — `portal/assets.html` (seo)
 
-52. **Description length is 28 characters (recommended: 120-160)** — `admin/notifications.html` (seo)
+52. **Invalid ARIA role: "client"** — `portal/assets.html` (accessibility)
 
-53. **Title length is 25 characters (recommended: 30-60)** — `admin/onboarding.html` (seo)
+53. **Description length is 70 characters (recommended: 120-160)** — `portal/credits.html` (seo)
 
-54. **Description length is 25 characters (recommended: 120-160)** — `admin/onboarding.html` (seo)
+54. **Invalid ARIA role: "client"** — `portal/credits.html` (accessibility)
 
-55. **Title length is 25 characters (recommended: 30-60)** — `admin/payments.html` (seo)
+55. **Description length is 80 characters (recommended: 120-160)** — `portal/dashboard.html` (seo)
 
-56. **Description length is 30 characters (recommended: 120-160)** — `admin/payments.html` (seo)
+56. **Invalid ARIA role: "client"** — `portal/dashboard.html` (accessibility)
 
-57. **Title length is 23 characters (recommended: 30-60)** — `admin/pipeline.html` (seo)
+57. **Description length is 69 characters (recommended: 120-160)** — `portal/invoices.html` (seo)
 
-58. **Description length is 27 characters (recommended: 120-160)** — `admin/pipeline.html` (seo)
+58. **Invalid ARIA role: "client"** — `portal/invoices.html` (accessibility)
 
-59. **Title length is 18 characters (recommended: 30-60)** — `admin/pos.html` (seo)
+59. **Description length is 53 characters (recommended: 120-160)** — `portal/login.html` (seo)
 
-60. **Description length is 23 characters (recommended: 120-160)** — `admin/pos.html` (seo)
+60. **Description length is 67 characters (recommended: 120-160)** — `portal/missions.html` (seo)
 
-61. **Title length is 23 characters (recommended: 30-60)** — `admin/pricing.html` (seo)
+61. **Invalid ARIA role: "client"** — `portal/missions.html` (accessibility)
 
-62. **Description length is 32 characters (recommended: 120-160)** — `admin/pricing.html` (seo)
+62. **Description length is 66 characters (recommended: 120-160)** — `portal/notifications.html` (seo)
 
-63. **Title length is 24 characters (recommended: 30-60)** — `admin/proposals.html` (seo)
+63. **Description length is 66 characters (recommended: 120-160)** — `portal/ocop-catalog.html` (seo)
 
-64. **Description length is 23 characters (recommended: 120-160)** — `admin/proposals.html` (seo)
+64. **Description length is 71 characters (recommended: 120-160)** — `portal/ocop-exporter.html` (seo)
 
-65. **Title length is 22 characters (recommended: 30-60)** — `admin/quality.html` (seo)
+65. **Invalid ARIA role: "client"** — `portal/ocop-exporter.html` (accessibility)
 
-66. **Description length is 28 characters (recommended: 120-160)** — `admin/quality.html` (seo)
+66. **Description length is 63 characters (recommended: 120-160)** — `portal/onboarding.html` (seo)
 
-67. **Description length is 39 characters (recommended: 120-160)** — `admin/raas-overview.html` (seo)
+67. **Missing <main> landmark** — `portal/onboarding.html` (accessibility)
 
-68. **Title length is 24 characters (recommended: 30-60)** — `admin/retention.html` (seo)
+68. **Description length is 58 characters (recommended: 120-160)** — `portal/payment-result.html` (seo)
 
-69. **Description length is 31 characters (recommended: 120-160)** — `admin/retention.html` (seo)
+69. **Missing <main> landmark** — `portal/payment-result.html` (accessibility)
 
-70. **Title length is 27 characters (recommended: 30-60)** — `admin/roiaas-admin.html` (seo)
+70. **Description length is 76 characters (recommended: 120-160)** — `portal/payments.html` (seo)
 
-71. **Description length is 35 characters (recommended: 120-160)** — `admin/roiaas-admin.html` (seo)
+71. **Invalid ARIA role: "client"** — `portal/payments.html` (accessibility)
 
-72. **Title length is 26 characters (recommended: 30-60)** — `admin/shifts.html` (seo)
+72. **Description length is 75 characters (recommended: 120-160)** — `portal/projects.html` (seo)
 
-73. **Description length is 31 characters (recommended: 120-160)** — `admin/shifts.html` (seo)
+73. **Invalid ARIA role: "client"** — `portal/projects.html` (accessibility)
 
-74. **Title length is 27 characters (recommended: 30-60)** — `admin/suppliers.html` (seo)
+74. **Description length is 76 characters (recommended: 120-160)** — `portal/reports.html` (seo)
 
-75. **Description length is 32 characters (recommended: 120-160)** — `admin/suppliers.html` (seo)
+75. **Invalid ARIA role: "client"** — `portal/reports.html` (accessibility)
 
-76. **Title length is 27 characters (recommended: 30-60)** — `admin/vc-readiness.html` (seo)
+76. **Description length is 69 characters (recommended: 120-160)** — `portal/roi-analytics.html` (seo)
 
-77. **Description length is 37 characters (recommended: 120-160)** — `admin/vc-readiness.html` (seo)
+77. **Description length is 60 characters (recommended: 120-160)** — `portal/roi-report.html` (seo)
 
-78. **Title length is 29 characters (recommended: 30-60)** — `admin/video-workflow.html` (seo)
+78. **Description length is 62 characters (recommended: 120-160)** — `portal/roiaas-dashboard.html` (seo)
 
-79. **Description length is 41 characters (recommended: 120-160)** — `admin/video-workflow.html` (seo)
+79. **Invalid ARIA role: "client"** — `portal/roiaas-dashboard.html` (accessibility)
 
-80. **Description length is 79 characters (recommended: 120-160)** — `admin/widgets/kpi-card.html` (seo)
+80. **Description length is 60 characters (recommended: 120-160)** — `portal/roiaas-onboarding.html` (seo)
 
-81. **Missing canonical URL** — `admin/widgets/kpi-card.html` (seo)
+81. **Description length is 62 characters (recommended: 120-160)** — `portal/subscription-plans.html` (seo)
 
-82. **Description length is 41 characters (recommended: 120-160)** — `admin/widgets-demo.html` (seo)
+82. **Description length is 67 characters (recommended: 120-160)** — `portal/subscriptions.html` (seo)
 
-83. **Title length is 24 characters (recommended: 30-60)** — `admin/workflows.html` (seo)
+83. **Invalid ARIA role: "client"** — `portal/subscriptions.html` (accessibility)
 
-84. **Description length is 27 characters (recommended: 120-160)** — `admin/workflows.html` (seo)
+84. **Title length is 27 characters (recommended: 30-60)** — `affiliate/commissions.html` (seo)
 
-85. **Title length is 22 characters (recommended: 30-60)** — `admin/zalo.html` (seo)
+85. **Description length is 42 characters (recommended: 120-160)** — `affiliate/commissions.html` (seo)
 
-86. **Description length is 30 characters (recommended: 120-160)** — `admin/zalo.html` (seo)
+86. **Invalid ARIA role: "affiliate"** — `affiliate/commissions.html` (accessibility)
 
-87. **Title length is 27 characters (recommended: 30-60)** — `portal/approve.html` (seo)
+87. **Description length is 59 characters (recommended: 120-160)** — `affiliate/dashboard.html` (seo)
 
-88. **Description length is 50 characters (recommended: 120-160)** — `portal/approve.html` (seo)
+88. **Invalid ARIA role: "affiliate"** — `affiliate/dashboard.html` (accessibility)
 
-89. **Invalid ARIA role: "client"** — `portal/approve.html` (accessibility)
+89. **Description length is 36 characters (recommended: 120-160)** — `affiliate/links.html` (seo)
 
-90. **Title length is 19 characters (recommended: 30-60)** — `portal/assets.html` (seo)
+90. **Invalid ARIA role: "affiliate"** — `affiliate/links.html` (accessibility)
 
-91. **Description length is 57 characters (recommended: 120-160)** — `portal/assets.html` (seo)
+91. **Title length is 28 characters (recommended: 30-60)** — `affiliate/media.html` (seo)
 
-92. **Invalid ARIA role: "client"** — `portal/assets.html` (accessibility)
+92. **Description length is 49 characters (recommended: 120-160)** — `affiliate/media.html` (seo)
 
-93. **Title length is 21 characters (recommended: 30-60)** — `portal/credits.html` (seo)
+93. **Invalid ARIA role: "affiliate"** — `affiliate/media.html` (accessibility)
 
-94. **Description length is 47 characters (recommended: 120-160)** — `portal/credits.html` (seo)
+94. **Description length is 48 characters (recommended: 120-160)** — `affiliate/profile.html` (seo)
 
-95. **Invalid ARIA role: "client"** — `portal/credits.html` (accessibility)
+95. **Invalid ARIA role: "affiliate"** — `affiliate/profile.html` (accessibility)
 
-96. **Description length is 80 characters (recommended: 120-160)** — `portal/dashboard.html` (seo)
+96. **Title length is 28 characters (recommended: 30-60)** — `affiliate/referrals.html` (seo)
 
-97. **Invalid ARIA role: "client"** — `portal/dashboard.html` (accessibility)
+97. **Description length is 43 characters (recommended: 120-160)** — `affiliate/referrals.html` (seo)
 
-98. **Title length is 18 characters (recommended: 30-60)** — `portal/invoices.html` (seo)
+98. **Invalid ARIA role: "affiliate"** — `affiliate/referrals.html` (accessibility)
 
-99. **Description length is 52 characters (recommended: 120-160)** — `portal/invoices.html` (seo)
+99. **Title length is 26 characters (recommended: 30-60)** — `affiliate/settings.html` (seo)
 
-100. **Invalid ARIA role: "client"** — `portal/invoices.html` (accessibility)
+100. **Description length is 28 characters (recommended: 120-160)** — `affiliate/settings.html` (seo)
 
-101. **Description length is 64 characters (recommended: 120-160)** — `portal/login.html` (seo)
+101. **Invalid ARIA role: "affiliate"** — `affiliate/settings.html` (accessibility)
 
-102. **Title length is 27 characters (recommended: 30-60)** — `portal/missions.html` (seo)
+102. **Title length is 25 characters (recommended: 30-60)** — `auth/login.html` (seo)
 
-103. **Description length is 80 characters (recommended: 120-160)** — `portal/missions.html` (seo)
+103. **Description length is 41 characters (recommended: 120-160)** — `auth/login.html` (seo)
 
-104. **Invalid ARIA role: "client"** — `portal/missions.html` (accessibility)
+104. **Description length is 104 characters (recommended: 120-160)** — `admin/agents.html` (seo)
 
-105. **Description length is 52 characters (recommended: 120-160)** — `portal/notifications.html` (seo)
+105. **Description length is 76 characters (recommended: 120-160)** — `admin/ai-analysis.html` (seo)
 
-106. **Missing canonical URL** — `portal/notifications.html` (seo)
+106. **Description length is 69 characters (recommended: 120-160)** — `admin/api-builder.html` (seo)
 
-107. **Description length is 44 characters (recommended: 120-160)** — `portal/ocop-catalog.html` (seo)
+107. **Description length is 85 characters (recommended: 120-160)** — `admin/approvals.html` (seo)
 
-108. **Description length is 61 characters (recommended: 120-160)** — `portal/ocop-exporter.html` (seo)
+108. **Description length is 66 characters (recommended: 120-160)** — `admin/auth.html` (seo)
 
-109. **Invalid ARIA role: "client"** — `portal/ocop-exporter.html` (accessibility)
+109. **Description length is 92 characters (recommended: 120-160)** — `admin/binh-phap.html` (seo)
 
-110. **Title length is 28 characters (recommended: 30-60)** — `portal/onboarding.html` (seo)
+110. **Description length is 82 characters (recommended: 120-160)** — `admin/brand-guide.html` (seo)
 
-111. **Description length is 68 characters (recommended: 120-160)** — `portal/onboarding.html` (seo)
+111. **Description length is 103 characters (recommended: 120-160)** — `admin/campaigns.html` (seo)
 
-112. **Missing <main> landmark** — `portal/onboarding.html` (accessibility)
+112. **Description length is 84 characters (recommended: 120-160)** — `admin/community.html` (seo)
 
-113. **Description length is 47 characters (recommended: 120-160)** — `portal/payment-result.html` (seo)
+113. **Title length is 28 characters (recommended: 30-60)** — `admin/components/phase-tracker.html` (seo)
 
-114. **Missing <main> landmark** — `portal/payment-result.html` (accessibility)
+114. **Description length is 33 characters (recommended: 120-160)** — `admin/components/phase-tracker.html` (seo)
 
-115. **Title length is 28 characters (recommended: 30-60)** — `portal/payments.html` (seo)
+115. **Description length is 98 characters (recommended: 120-160)** — `admin/content-calendar.html` (seo)
 
-116. **Description length is 63 characters (recommended: 120-160)** — `portal/payments.html` (seo)
+116. **Description length is 75 characters (recommended: 120-160)** — `admin/customer-success.html` (seo)
 
-117. **Invalid ARIA role: "client"** — `portal/payments.html` (accessibility)
+117. **Description length is 109 characters (recommended: 120-160)** — `admin/dashboard.html` (seo)
 
-118. **Title length is 24 characters (recommended: 30-60)** — `portal/projects.html` (seo)
+118. **Description length is 80 characters (recommended: 120-160)** — `admin/deploy.html` (seo)
 
-119. **Description length is 63 characters (recommended: 120-160)** — `portal/projects.html` (seo)
+119. **Description length is 74 characters (recommended: 120-160)** — `admin/docs.html` (seo)
 
-120. **Invalid ARIA role: "client"** — `portal/projects.html` (accessibility)
+120. **Description length is 102 characters (recommended: 120-160)** — `admin/ecommerce.html` (seo)
 
-121. **Title length is 26 characters (recommended: 30-60)** — `portal/reports.html` (seo)
+121. **Description length is 75 characters (recommended: 120-160)** — `admin/events.html` (seo)
 
-122. **Description length is 54 characters (recommended: 120-160)** — `portal/reports.html` (seo)
+122. **Description length is 84 characters (recommended: 120-160)** — `admin/finance.html` (seo)
 
-123. **Invalid ARIA role: "client"** — `portal/reports.html` (accessibility)
+123. **Description length is 78 characters (recommended: 120-160)** — `admin/hr-hiring.html` (seo)
 
-124. **Description length is 84 characters (recommended: 120-160)** — `portal/roi-analytics.html` (seo)
+124. **Description length is 82 characters (recommended: 120-160)** — `admin/inventory.html` (seo)
 
-125. **Missing canonical URL** — `portal/roi-analytics.html` (seo)
+125. **Description length is 82 characters (recommended: 120-160)** — `admin/landing-builder.html` (seo)
 
-126. **Title length is 29 characters (recommended: 30-60)** — `portal/roi-report.html` (seo)
+126. **Description length is 92 characters (recommended: 120-160)** — `admin/leads.html` (seo)
 
-127. **Description length is 56 characters (recommended: 120-160)** — `portal/roi-report.html` (seo)
+127. **Description length is 79 characters (recommended: 120-160)** — `admin/legal.html` (seo)
 
-128. **Description length is 57 characters (recommended: 120-160)** — `portal/roiaas-dashboard.html` (seo)
+128. **Description length is 83 characters (recommended: 120-160)** — `admin/lms.html` (seo)
 
-129. **Invalid ARIA role: "client"** — `portal/roiaas-dashboard.html` (accessibility)
+129. **Description length is 75 characters (recommended: 120-160)** — `admin/loyalty.html` (seo)
 
-130. **Description length is 59 characters (recommended: 120-160)** — `portal/roiaas-onboarding.html` (seo)
+130. **Description length is 82 characters (recommended: 120-160)** — `admin/menu.html` (seo)
 
-131. **Description length is 57 characters (recommended: 120-160)** — `portal/subscription-plans.html` (seo)
+131. **Description length is 71 characters (recommended: 120-160)** — `admin/mvp-launch.html` (seo)
 
-132. **Title length is 27 characters (recommended: 30-60)** — `portal/subscriptions.html` (seo)
+132. **Description length is 97 characters (recommended: 120-160)** — `admin/notifications.html` (seo)
 
-133. **Description length is 53 characters (recommended: 120-160)** — `portal/subscriptions.html` (seo)
+133. **Description length is 76 characters (recommended: 120-160)** — `admin/onboarding.html` (seo)
 
-134. **Invalid ARIA role: "client"** — `portal/subscriptions.html` (accessibility)
+134. **Description length is 91 characters (recommended: 120-160)** — `admin/payments.html` (seo)
 
-135. **Title length is 27 characters (recommended: 30-60)** — `affiliate/commissions.html` (seo)
+135. **Description length is 92 characters (recommended: 120-160)** — `admin/pipeline.html` (seo)
 
-136. **Description length is 42 characters (recommended: 120-160)** — `affiliate/commissions.html` (seo)
+136. **Description length is 96 characters (recommended: 120-160)** — `admin/pos.html` (seo)
 
-137. **Invalid ARIA role: "affiliate"** — `affiliate/commissions.html` (accessibility)
+137. **Description length is 92 characters (recommended: 120-160)** — `admin/pricing.html` (seo)
 
-138. **Description length is 59 characters (recommended: 120-160)** — `affiliate/dashboard.html` (seo)
+138. **Description length is 72 characters (recommended: 120-160)** — `admin/proposals.html` (seo)
 
-139. **Invalid ARIA role: "affiliate"** — `affiliate/dashboard.html` (accessibility)
+139. **Description length is 85 characters (recommended: 120-160)** — `admin/quality.html` (seo)
 
-140. **Description length is 36 characters (recommended: 120-160)** — `affiliate/links.html` (seo)
+140. **Description length is 84 characters (recommended: 120-160)** — `admin/raas-overview.html` (seo)
 
-141. **Invalid ARIA role: "affiliate"** — `affiliate/links.html` (accessibility)
+141. **Description length is 72 characters (recommended: 120-160)** — `admin/retention.html` (seo)
 
-142. **Title length is 28 characters (recommended: 30-60)** — `affiliate/media.html` (seo)
+142. **Description length is 89 characters (recommended: 120-160)** — `admin/roiaas-admin.html` (seo)
 
-143. **Description length is 49 characters (recommended: 120-160)** — `affiliate/media.html` (seo)
+143. **Description length is 69 characters (recommended: 120-160)** — `admin/shifts.html` (seo)
 
-144. **Invalid ARIA role: "affiliate"** — `affiliate/media.html` (accessibility)
+144. **Description length is 84 characters (recommended: 120-160)** — `admin/suppliers.html` (seo)
 
-145. **Description length is 48 characters (recommended: 120-160)** — `affiliate/profile.html` (seo)
+145. **Description length is 81 characters (recommended: 120-160)** — `admin/vc-readiness.html` (seo)
 
-146. **Invalid ARIA role: "affiliate"** — `affiliate/profile.html` (accessibility)
+146. **Description length is 76 characters (recommended: 120-160)** — `admin/video-workflow.html` (seo)
 
-147. **Title length is 28 characters (recommended: 30-60)** — `affiliate/referrals.html` (seo)
+147. **Description length is 79 characters (recommended: 120-160)** — `admin/widgets/kpi-card.html` (seo)
 
-148. **Description length is 43 characters (recommended: 120-160)** — `affiliate/referrals.html` (seo)
+148. **Missing canonical URL** — `admin/widgets/kpi-card.html` (seo)
 
-149. **Invalid ARIA role: "affiliate"** — `affiliate/referrals.html` (accessibility)
+149. **Description length is 75 characters (recommended: 120-160)** — `admin/widgets-demo.html` (seo)
 
-150. **Title length is 26 characters (recommended: 30-60)** — `affiliate/settings.html` (seo)
+150. **Description length is 76 characters (recommended: 120-160)** — `admin/workflows.html` (seo)
 
-151. **Description length is 28 characters (recommended: 120-160)** — `affiliate/settings.html` (seo)
+151. **Description length is 86 characters (recommended: 120-160)** — `admin/zalo.html` (seo)
 
-152. **Invalid ARIA role: "affiliate"** — `affiliate/settings.html` (accessibility)
+152. **Title length is 27 characters (recommended: 30-60)** — `affiliate/commissions.html` (seo)
 
-153. **Title length is 25 characters (recommended: 30-60)** — `auth/login.html` (seo)
+153. **Description length is 42 characters (recommended: 120-160)** — `affiliate/commissions.html` (seo)
 
-154. **Description length is 41 characters (recommended: 120-160)** — `auth/login.html` (seo)
+154. **Invalid ARIA role: "affiliate"** — `affiliate/commissions.html` (accessibility)
 
-155. **Title length is 21 characters (recommended: 30-60)** — `admin/agents.html` (seo)
+155. **Description length is 59 characters (recommended: 120-160)** — `affiliate/dashboard.html` (seo)
 
-156. **Description length is 26 characters (recommended: 120-160)** — `admin/agents.html` (seo)
+156. **Invalid ARIA role: "affiliate"** — `affiliate/dashboard.html` (accessibility)
 
-157. **Title length is 26 characters (recommended: 30-60)** — `admin/ai-analysis.html` (seo)
+157. **Description length is 36 characters (recommended: 120-160)** — `affiliate/links.html` (seo)
 
-158. **Description length is 26 characters (recommended: 120-160)** — `admin/ai-analysis.html` (seo)
+158. **Invalid ARIA role: "affiliate"** — `affiliate/links.html` (accessibility)
 
-159. **Title length is 26 characters (recommended: 30-60)** — `admin/api-builder.html` (seo)
+159. **Title length is 28 characters (recommended: 30-60)** — `affiliate/media.html` (seo)
 
-160. **Description length is 28 characters (recommended: 120-160)** — `admin/api-builder.html` (seo)
+160. **Description length is 49 characters (recommended: 120-160)** — `affiliate/media.html` (seo)
 
-161. **Title length is 24 characters (recommended: 30-60)** — `admin/approvals.html` (seo)
+161. **Invalid ARIA role: "affiliate"** — `affiliate/media.html` (accessibility)
 
-162. **Description length is 37 characters (recommended: 120-160)** — `admin/approvals.html` (seo)
+162. **Description length is 48 characters (recommended: 120-160)** — `affiliate/profile.html` (seo)
 
-163. **Title length is 23 characters (recommended: 30-60)** — `admin/auth.html` (seo)
+163. **Invalid ARIA role: "affiliate"** — `affiliate/profile.html` (accessibility)
 
-164. **Description length is 31 characters (recommended: 120-160)** — `admin/auth.html` (seo)
+164. **Title length is 28 characters (recommended: 30-60)** — `affiliate/referrals.html` (seo)
 
-165. **Title length is 24 characters (recommended: 30-60)** — `admin/binh-phap.html` (seo)
+165. **Description length is 43 characters (recommended: 120-160)** — `affiliate/referrals.html` (seo)
 
-166. **Description length is 42 characters (recommended: 120-160)** — `admin/binh-phap.html` (seo)
+166. **Invalid ARIA role: "affiliate"** — `affiliate/referrals.html` (accessibility)
 
-167. **Description length is 72 characters (recommended: 120-160)** — `admin/brand-guide.html` (seo)
+167. **Title length is 26 characters (recommended: 30-60)** — `affiliate/settings.html` (seo)
 
-168. **Title length is 25 characters (recommended: 30-60)** — `admin/campaigns.html` (seo)
+168. **Description length is 28 characters (recommended: 120-160)** — `affiliate/settings.html` (seo)
 
-169. **Description length is 37 characters (recommended: 120-160)** — `admin/campaigns.html` (seo)
+169. **Invalid ARIA role: "affiliate"** — `affiliate/settings.html` (accessibility)
 
-170. **Title length is 24 characters (recommended: 30-60)** — `admin/community.html` (seo)
+170. **Title length is 25 characters (recommended: 30-60)** — `auth/login.html` (seo)
 
-171. **Description length is 41 characters (recommended: 120-160)** — `admin/community.html` (seo)
+171. **Description length is 41 characters (recommended: 120-160)** — `auth/login.html` (seo)
 
-172. **Title length is 28 characters (recommended: 30-60)** — `admin/components/phase-tracker.html` (seo)
+172. **Title length is 29 characters (recommended: 30-60)** — `forgot-password.html` (seo)
 
-173. **Description length is 33 characters (recommended: 120-160)** — `admin/components/phase-tracker.html` (seo)
+173. **Description length is 49 characters (recommended: 120-160)** — `forgot-password.html` (seo)
 
-174. **Description length is 30 characters (recommended: 120-160)** — `admin/content-calendar.html` (seo)
+174. **Title length is 61 characters (recommended: 30-60)** — `index.html` (seo)
 
-175. **Description length is 30 characters (recommended: 120-160)** — `admin/customer-success.html` (seo)
+175. **Description length is 119 characters (recommended: 120-160)** — `index.html` (seo)
 
-176. **Title length is 24 characters (recommended: 30-60)** — `admin/dashboard.html` (seo)
+176. **Title length is 25 characters (recommended: 30-60)** — `login.html` (seo)
 
-177. **Description length is 35 characters (recommended: 120-160)** — `admin/dashboard.html` (seo)
+177. **Description length is 33 characters (recommended: 120-160)** — `login.html` (seo)
 
-178. **Title length is 21 characters (recommended: 30-60)** — `admin/deploy.html` (seo)
+178. **Title length is 28 characters (recommended: 30-60)** — `lp.html` (seo)
 
-179. **Description length is 28 characters (recommended: 120-160)** — `admin/deploy.html` (seo)
+179. **Description length is 65 characters (recommended: 120-160)** — `lp.html` (seo)
 
-180. **Title length is 23 characters (recommended: 30-60)** — `admin/docs.html` (seo)
+180. **Missing <main> landmark** — `lp.html` (accessibility)
 
-181. **Description length is 27 characters (recommended: 120-160)** — `admin/docs.html` (seo)
+181. **Title length is 23 characters (recommended: 30-60)** — `offline.html` (seo)
 
-182. **Title length is 25 characters (recommended: 30-60)** — `admin/ecommerce.html` (seo)
+182. **Description length is 57 characters (recommended: 120-160)** — `offline.html` (seo)
 
-183. **Description length is 24 characters (recommended: 120-160)** — `admin/ecommerce.html` (seo)
+183. **Title length is 22 characters (recommended: 30-60)** — `playwright-report/index.html` (seo)
 
-184. **Title length is 22 characters (recommended: 30-60)** — `admin/events.html` (seo)
+184. **Missing Open Graph tags: og:title, og:description, og:type, og:url, og:image** — `playwright-report/index.html` (social)
 
-185. **Description length is 27 characters (recommended: 120-160)** — `admin/events.html` (seo)
+185. **Missing canonical URL** — `playwright-report/index.html` (seo)
 
-186. **Title length is 24 characters (recommended: 30-60)** — `admin/finance.html` (seo)
+186. **Missing <main> landmark** — `playwright-report/index.html` (accessibility)
 
-187. **Description length is 40 characters (recommended: 120-160)** — `admin/finance.html` (seo)
+187. **Description length is 69 characters (recommended: 120-160)** — `portal/approve.html` (seo)
 
-188. **Title length is 25 characters (recommended: 30-60)** — `admin/hr-hiring.html` (seo)
+188. **Invalid ARIA role: "client"** — `portal/approve.html` (accessibility)
 
-189. **Description length is 30 characters (recommended: 120-160)** — `admin/hr-hiring.html` (seo)
+189. **Description length is 68 characters (recommended: 120-160)** — `portal/assets.html` (seo)
 
-190. **Title length is 23 characters (recommended: 30-60)** — `admin/inventory.html` (seo)
+190. **Invalid ARIA role: "client"** — `portal/assets.html` (accessibility)
 
-191. **Description length is 28 characters (recommended: 120-160)** — `admin/inventory.html` (seo)
+191. **Description length is 70 characters (recommended: 120-160)** — `portal/credits.html` (seo)
 
-192. **Description length is 46 characters (recommended: 120-160)** — `admin/landing-builder.html` (seo)
+192. **Invalid ARIA role: "client"** — `portal/credits.html` (accessibility)
 
-193. **Title length is 20 characters (recommended: 30-60)** — `admin/leads.html` (seo)
+193. **Description length is 80 characters (recommended: 120-160)** — `portal/dashboard.html` (seo)
 
-194. **Description length is 38 characters (recommended: 120-160)** — `admin/leads.html` (seo)
+194. **Invalid ARIA role: "client"** — `portal/dashboard.html` (accessibility)
 
-195. **Title length is 22 characters (recommended: 30-60)** — `admin/legal.html` (seo)
+195. **Description length is 69 characters (recommended: 120-160)** — `portal/invoices.html` (seo)
 
-196. **Description length is 34 characters (recommended: 120-160)** — `admin/legal.html` (seo)
+196. **Invalid ARIA role: "client"** — `portal/invoices.html` (accessibility)
 
-197. **Title length is 18 characters (recommended: 30-60)** — `admin/lms.html` (seo)
+197. **Description length is 53 characters (recommended: 120-160)** — `portal/login.html` (seo)
 
-198. **Description length is 28 characters (recommended: 120-160)** — `admin/lms.html` (seo)
+198. **Description length is 67 characters (recommended: 120-160)** — `portal/missions.html` (seo)
 
-199. **Title length is 22 characters (recommended: 30-60)** — `admin/loyalty.html` (seo)
+199. **Invalid ARIA role: "client"** — `portal/missions.html` (accessibility)
 
-200. **Description length is 35 characters (recommended: 120-160)** — `admin/loyalty.html` (seo)
+200. **Description length is 66 characters (recommended: 120-160)** — `portal/notifications.html` (seo)
 
-201. **Title length is 19 characters (recommended: 30-60)** — `admin/menu.html` (seo)
+201. **Description length is 66 characters (recommended: 120-160)** — `portal/ocop-catalog.html` (seo)
 
-202. **Description length is 26 characters (recommended: 120-160)** — `admin/menu.html` (seo)
+202. **Description length is 71 characters (recommended: 120-160)** — `portal/ocop-exporter.html` (seo)
 
-203. **Title length is 25 characters (recommended: 30-60)** — `admin/mvp-launch.html` (seo)
+203. **Invalid ARIA role: "client"** — `portal/ocop-exporter.html` (accessibility)
 
-204. **Description length is 20 characters (recommended: 120-160)** — `admin/mvp-launch.html` (seo)
+204. **Description length is 63 characters (recommended: 120-160)** — `portal/onboarding.html` (seo)
 
-205. **Title length is 24 characters (recommended: 30-60)** — `admin/notifications.html` (seo)
+205. **Missing <main> landmark** — `portal/onboarding.html` (accessibility)
 
-206. **Description length is 28 characters (recommended: 120-160)** — `admin/notifications.html` (seo)
+206. **Description length is 58 characters (recommended: 120-160)** — `portal/payment-result.html` (seo)
 
-207. **Title length is 25 characters (recommended: 30-60)** — `admin/onboarding.html` (seo)
+207. **Missing <main> landmark** — `portal/payment-result.html` (accessibility)
 
-208. **Description length is 25 characters (recommended: 120-160)** — `admin/onboarding.html` (seo)
+208. **Description length is 76 characters (recommended: 120-160)** — `portal/payments.html` (seo)
 
-209. **Title length is 25 characters (recommended: 30-60)** — `admin/payments.html` (seo)
+209. **Invalid ARIA role: "client"** — `portal/payments.html` (accessibility)
 
-210. **Description length is 30 characters (recommended: 120-160)** — `admin/payments.html` (seo)
+210. **Description length is 75 characters (recommended: 120-160)** — `portal/projects.html` (seo)
 
-211. **Title length is 23 characters (recommended: 30-60)** — `admin/pipeline.html` (seo)
+211. **Invalid ARIA role: "client"** — `portal/projects.html` (accessibility)
 
-212. **Description length is 27 characters (recommended: 120-160)** — `admin/pipeline.html` (seo)
+212. **Description length is 76 characters (recommended: 120-160)** — `portal/reports.html` (seo)
 
-213. **Title length is 18 characters (recommended: 30-60)** — `admin/pos.html` (seo)
+213. **Invalid ARIA role: "client"** — `portal/reports.html` (accessibility)
 
-214. **Description length is 23 characters (recommended: 120-160)** — `admin/pos.html` (seo)
+214. **Description length is 69 characters (recommended: 120-160)** — `portal/roi-analytics.html` (seo)
 
-215. **Title length is 23 characters (recommended: 30-60)** — `admin/pricing.html` (seo)
+215. **Description length is 60 characters (recommended: 120-160)** — `portal/roi-report.html` (seo)
 
-216. **Description length is 32 characters (recommended: 120-160)** — `admin/pricing.html` (seo)
+216. **Description length is 62 characters (recommended: 120-160)** — `portal/roiaas-dashboard.html` (seo)
 
-217. **Title length is 24 characters (recommended: 30-60)** — `admin/proposals.html` (seo)
+217. **Invalid ARIA role: "client"** — `portal/roiaas-dashboard.html` (accessibility)
 
-218. **Description length is 23 characters (recommended: 120-160)** — `admin/proposals.html` (seo)
+218. **Description length is 60 characters (recommended: 120-160)** — `portal/roiaas-onboarding.html` (seo)
 
-219. **Title length is 22 characters (recommended: 30-60)** — `admin/quality.html` (seo)
+219. **Description length is 62 characters (recommended: 120-160)** — `portal/subscription-plans.html` (seo)
 
-220. **Description length is 28 characters (recommended: 120-160)** — `admin/quality.html` (seo)
+220. **Description length is 67 characters (recommended: 120-160)** — `portal/subscriptions.html` (seo)
 
-221. **Description length is 39 characters (recommended: 120-160)** — `admin/raas-overview.html` (seo)
+221. **Invalid ARIA role: "client"** — `portal/subscriptions.html` (accessibility)
 
-222. **Title length is 24 characters (recommended: 30-60)** — `admin/retention.html` (seo)
+222. **Description length is 87 characters (recommended: 120-160)** — `privacy.html` (seo)
 
-223. **Description length is 31 characters (recommended: 120-160)** — `admin/retention.html` (seo)
+223. **Description length is 90 characters (recommended: 120-160)** — `register.html` (seo)
 
-224. **Title length is 27 characters (recommended: 30-60)** — `admin/roiaas-admin.html` (seo)
+224. **Description length is 75 characters (recommended: 120-160)** — `terms.html` (seo)
 
-225. **Description length is 35 characters (recommended: 120-160)** — `admin/roiaas-admin.html` (seo)
-
-226. **Title length is 26 characters (recommended: 30-60)** — `admin/shifts.html` (seo)
-
-227. **Description length is 31 characters (recommended: 120-160)** — `admin/shifts.html` (seo)
-
-228. **Title length is 27 characters (recommended: 30-60)** — `admin/suppliers.html` (seo)
-
-229. **Description length is 32 characters (recommended: 120-160)** — `admin/suppliers.html` (seo)
-
-230. **Title length is 27 characters (recommended: 30-60)** — `admin/vc-readiness.html` (seo)
-
-231. **Description length is 37 characters (recommended: 120-160)** — `admin/vc-readiness.html` (seo)
-
-232. **Title length is 29 characters (recommended: 30-60)** — `admin/video-workflow.html` (seo)
-
-233. **Description length is 41 characters (recommended: 120-160)** — `admin/video-workflow.html` (seo)
-
-234. **Description length is 79 characters (recommended: 120-160)** — `admin/widgets/kpi-card.html` (seo)
-
-235. **Missing canonical URL** — `admin/widgets/kpi-card.html` (seo)
-
-236. **Description length is 41 characters (recommended: 120-160)** — `admin/widgets-demo.html` (seo)
-
-237. **Title length is 24 characters (recommended: 30-60)** — `admin/workflows.html` (seo)
-
-238. **Description length is 27 characters (recommended: 120-160)** — `admin/workflows.html` (seo)
-
-239. **Title length is 22 characters (recommended: 30-60)** — `admin/zalo.html` (seo)
-
-240. **Description length is 30 characters (recommended: 120-160)** — `admin/zalo.html` (seo)
-
-241. **Title length is 27 characters (recommended: 30-60)** — `affiliate/commissions.html` (seo)
-
-242. **Description length is 42 characters (recommended: 120-160)** — `affiliate/commissions.html` (seo)
-
-243. **Invalid ARIA role: "affiliate"** — `affiliate/commissions.html` (accessibility)
-
-244. **Description length is 59 characters (recommended: 120-160)** — `affiliate/dashboard.html` (seo)
-
-245. **Invalid ARIA role: "affiliate"** — `affiliate/dashboard.html` (accessibility)
-
-246. **Description length is 36 characters (recommended: 120-160)** — `affiliate/links.html` (seo)
-
-247. **Invalid ARIA role: "affiliate"** — `affiliate/links.html` (accessibility)
-
-248. **Title length is 28 characters (recommended: 30-60)** — `affiliate/media.html` (seo)
-
-249. **Description length is 49 characters (recommended: 120-160)** — `affiliate/media.html` (seo)
-
-250. **Invalid ARIA role: "affiliate"** — `affiliate/media.html` (accessibility)
-
-251. **Description length is 48 characters (recommended: 120-160)** — `affiliate/profile.html` (seo)
-
-252. **Invalid ARIA role: "affiliate"** — `affiliate/profile.html` (accessibility)
-
-253. **Title length is 28 characters (recommended: 30-60)** — `affiliate/referrals.html` (seo)
-
-254. **Description length is 43 characters (recommended: 120-160)** — `affiliate/referrals.html` (seo)
-
-255. **Invalid ARIA role: "affiliate"** — `affiliate/referrals.html` (accessibility)
-
-256. **Title length is 26 characters (recommended: 30-60)** — `affiliate/settings.html` (seo)
-
-257. **Description length is 28 characters (recommended: 120-160)** — `affiliate/settings.html` (seo)
-
-258. **Invalid ARIA role: "affiliate"** — `affiliate/settings.html` (accessibility)
-
-259. **Title length is 25 characters (recommended: 30-60)** — `auth/login.html` (seo)
-
-260. **Description length is 41 characters (recommended: 120-160)** — `auth/login.html` (seo)
-
-261. **Title length is 29 characters (recommended: 30-60)** — `forgot-password.html` (seo)
-
-262. **Description length is 49 characters (recommended: 120-160)** — `forgot-password.html` (seo)
-
-263. **Title length is 61 characters (recommended: 30-60)** — `index.html` (seo)
-
-264. **Description length is 119 characters (recommended: 120-160)** — `index.html` (seo)
-
-265. **Title length is 25 characters (recommended: 30-60)** — `login.html` (seo)
-
-266. **Description length is 33 characters (recommended: 120-160)** — `login.html` (seo)
-
-267. **Title length is 28 characters (recommended: 30-60)** — `lp.html` (seo)
-
-268. **Description length is 65 characters (recommended: 120-160)** — `lp.html` (seo)
-
-269. **Missing <main> landmark** — `lp.html` (accessibility)
-
-270. **Title length is 23 characters (recommended: 30-60)** — `offline.html` (seo)
-
-271. **Description length is 57 characters (recommended: 120-160)** — `offline.html` (seo)
-
-272. **Title length is 22 characters (recommended: 30-60)** — `playwright-report/index.html` (seo)
-
-273. **Missing Open Graph tags: og:title, og:description, og:type, og:url, og:image** — `playwright-report/index.html` (social)
-
-274. **Missing canonical URL** — `playwright-report/index.html` (seo)
-
-275. **Missing <main> landmark** — `playwright-report/index.html` (accessibility)
-
-276. **Title length is 27 characters (recommended: 30-60)** — `portal/approve.html` (seo)
-
-277. **Description length is 50 characters (recommended: 120-160)** — `portal/approve.html` (seo)
-
-278. **Invalid ARIA role: "client"** — `portal/approve.html` (accessibility)
-
-279. **Title length is 19 characters (recommended: 30-60)** — `portal/assets.html` (seo)
-
-280. **Description length is 57 characters (recommended: 120-160)** — `portal/assets.html` (seo)
-
-281. **Invalid ARIA role: "client"** — `portal/assets.html` (accessibility)
-
-282. **Title length is 21 characters (recommended: 30-60)** — `portal/credits.html` (seo)
-
-283. **Description length is 47 characters (recommended: 120-160)** — `portal/credits.html` (seo)
-
-284. **Invalid ARIA role: "client"** — `portal/credits.html` (accessibility)
-
-285. **Description length is 80 characters (recommended: 120-160)** — `portal/dashboard.html` (seo)
-
-286. **Invalid ARIA role: "client"** — `portal/dashboard.html` (accessibility)
-
-287. **Title length is 18 characters (recommended: 30-60)** — `portal/invoices.html` (seo)
-
-288. **Description length is 52 characters (recommended: 120-160)** — `portal/invoices.html` (seo)
-
-289. **Invalid ARIA role: "client"** — `portal/invoices.html` (accessibility)
-
-290. **Description length is 64 characters (recommended: 120-160)** — `portal/login.html` (seo)
-
-291. **Title length is 27 characters (recommended: 30-60)** — `portal/missions.html` (seo)
-
-292. **Description length is 80 characters (recommended: 120-160)** — `portal/missions.html` (seo)
-
-293. **Invalid ARIA role: "client"** — `portal/missions.html` (accessibility)
-
-294. **Description length is 52 characters (recommended: 120-160)** — `portal/notifications.html` (seo)
-
-295. **Missing canonical URL** — `portal/notifications.html` (seo)
-
-296. **Description length is 44 characters (recommended: 120-160)** — `portal/ocop-catalog.html` (seo)
-
-297. **Description length is 61 characters (recommended: 120-160)** — `portal/ocop-exporter.html` (seo)
-
-298. **Invalid ARIA role: "client"** — `portal/ocop-exporter.html` (accessibility)
-
-299. **Title length is 28 characters (recommended: 30-60)** — `portal/onboarding.html` (seo)
-
-300. **Description length is 68 characters (recommended: 120-160)** — `portal/onboarding.html` (seo)
-
-301. **Missing <main> landmark** — `portal/onboarding.html` (accessibility)
-
-302. **Description length is 47 characters (recommended: 120-160)** — `portal/payment-result.html` (seo)
-
-303. **Missing <main> landmark** — `portal/payment-result.html` (accessibility)
-
-304. **Title length is 28 characters (recommended: 30-60)** — `portal/payments.html` (seo)
-
-305. **Description length is 63 characters (recommended: 120-160)** — `portal/payments.html` (seo)
-
-306. **Invalid ARIA role: "client"** — `portal/payments.html` (accessibility)
-
-307. **Title length is 24 characters (recommended: 30-60)** — `portal/projects.html` (seo)
-
-308. **Description length is 63 characters (recommended: 120-160)** — `portal/projects.html` (seo)
-
-309. **Invalid ARIA role: "client"** — `portal/projects.html` (accessibility)
-
-310. **Title length is 26 characters (recommended: 30-60)** — `portal/reports.html` (seo)
-
-311. **Description length is 54 characters (recommended: 120-160)** — `portal/reports.html` (seo)
-
-312. **Invalid ARIA role: "client"** — `portal/reports.html` (accessibility)
-
-313. **Description length is 84 characters (recommended: 120-160)** — `portal/roi-analytics.html` (seo)
-
-314. **Missing canonical URL** — `portal/roi-analytics.html` (seo)
-
-315. **Title length is 29 characters (recommended: 30-60)** — `portal/roi-report.html` (seo)
-
-316. **Description length is 56 characters (recommended: 120-160)** — `portal/roi-report.html` (seo)
-
-317. **Description length is 57 characters (recommended: 120-160)** — `portal/roiaas-dashboard.html` (seo)
-
-318. **Invalid ARIA role: "client"** — `portal/roiaas-dashboard.html` (accessibility)
-
-319. **Description length is 59 characters (recommended: 120-160)** — `portal/roiaas-onboarding.html` (seo)
-
-320. **Description length is 57 characters (recommended: 120-160)** — `portal/subscription-plans.html` (seo)
-
-321. **Title length is 27 characters (recommended: 30-60)** — `portal/subscriptions.html` (seo)
-
-322. **Description length is 53 characters (recommended: 120-160)** — `portal/subscriptions.html` (seo)
-
-323. **Invalid ARIA role: "client"** — `portal/subscriptions.html` (accessibility)
-
-324. **Description length is 87 characters (recommended: 120-160)** — `privacy.html` (seo)
-
-325. **Description length is 90 characters (recommended: 120-160)** — `register.html` (seo)
-
-326. **Description length is 75 characters (recommended: 120-160)** — `terms.html` (seo)
-
-327. **Description length is 67 characters (recommended: 120-160)** — `verify-email.html` (seo)
+225. **Description length is 67 characters (recommended: 120-160)** — `verify-email.html` (seo)
 
 ## ℹ️ INFORMATION
 
@@ -11449,421 +10549,233 @@
 977. Broken link: /assets/css/ui-animations.css in `portal/subscriptions.html`
 978. Broken link: /assets/css/lazy-loading.css in `portal/subscriptions.html`
 
-### Meta Tags & SEO (411)
+### Meta Tags & SEO (223)
 
-1. Missing charset meta tag in `admin/agents.html`
-2. Title length is 21 characters (recommended: 30-60) in `admin/agents.html`
-3. Description length is 26 characters (recommended: 120-160) in `admin/agents.html`
-4. Missing charset meta tag in `admin/ai-analysis.html`
-5. Title length is 26 characters (recommended: 30-60) in `admin/ai-analysis.html`
-6. Description length is 26 characters (recommended: 120-160) in `admin/ai-analysis.html`
-7. Missing charset meta tag in `admin/api-builder.html`
-8. Title length is 26 characters (recommended: 30-60) in `admin/api-builder.html`
-9. Description length is 28 characters (recommended: 120-160) in `admin/api-builder.html`
-10. Missing charset meta tag in `admin/approvals.html`
-11. Title length is 24 characters (recommended: 30-60) in `admin/approvals.html`
-12. Description length is 37 characters (recommended: 120-160) in `admin/approvals.html`
-13. Missing charset meta tag in `admin/auth.html`
-14. Title length is 23 characters (recommended: 30-60) in `admin/auth.html`
-15. Description length is 31 characters (recommended: 120-160) in `admin/auth.html`
-16. Missing charset meta tag in `admin/binh-phap.html`
-17. Title length is 24 characters (recommended: 30-60) in `admin/binh-phap.html`
-18. Description length is 42 characters (recommended: 120-160) in `admin/binh-phap.html`
-19. Description length is 72 characters (recommended: 120-160) in `admin/brand-guide.html`
-20. Missing charset meta tag in `admin/campaigns.html`
-21. Title length is 25 characters (recommended: 30-60) in `admin/campaigns.html`
-22. Description length is 37 characters (recommended: 120-160) in `admin/campaigns.html`
-23. Missing charset meta tag in `admin/community.html`
-24. Title length is 24 characters (recommended: 30-60) in `admin/community.html`
-25. Description length is 41 characters (recommended: 120-160) in `admin/community.html`
-26. Missing charset meta tag in `admin/components/phase-tracker.html`
-27. Title length is 28 characters (recommended: 30-60) in `admin/components/phase-tracker.html`
-28. Description length is 33 characters (recommended: 120-160) in `admin/components/phase-tracker.html`
-29. Missing charset meta tag in `admin/content-calendar.html`
-30. Description length is 30 characters (recommended: 120-160) in `admin/content-calendar.html`
-31. Missing charset meta tag in `admin/customer-success.html`
-32. Description length is 30 characters (recommended: 120-160) in `admin/customer-success.html`
-33. Missing charset meta tag in `admin/dashboard.html`
-34. Title length is 24 characters (recommended: 30-60) in `admin/dashboard.html`
-35. Description length is 35 characters (recommended: 120-160) in `admin/dashboard.html`
-36. Missing charset meta tag in `admin/deploy.html`
-37. Title length is 21 characters (recommended: 30-60) in `admin/deploy.html`
-38. Description length is 28 characters (recommended: 120-160) in `admin/deploy.html`
-39. Missing charset meta tag in `admin/docs.html`
-40. Title length is 23 characters (recommended: 30-60) in `admin/docs.html`
-41. Description length is 27 characters (recommended: 120-160) in `admin/docs.html`
-42. Missing charset meta tag in `admin/ecommerce.html`
-43. Title length is 25 characters (recommended: 30-60) in `admin/ecommerce.html`
-44. Description length is 24 characters (recommended: 120-160) in `admin/ecommerce.html`
-45. Missing charset meta tag in `admin/events.html`
-46. Title length is 22 characters (recommended: 30-60) in `admin/events.html`
-47. Description length is 27 characters (recommended: 120-160) in `admin/events.html`
-48. Missing charset meta tag in `admin/finance.html`
-49. Title length is 24 characters (recommended: 30-60) in `admin/finance.html`
-50. Description length is 40 characters (recommended: 120-160) in `admin/finance.html`
-51. Missing charset meta tag in `admin/hr-hiring.html`
-52. Title length is 25 characters (recommended: 30-60) in `admin/hr-hiring.html`
-53. Description length is 30 characters (recommended: 120-160) in `admin/hr-hiring.html`
-54. Missing charset meta tag in `admin/inventory.html`
-55. Title length is 23 characters (recommended: 30-60) in `admin/inventory.html`
-56. Description length is 28 characters (recommended: 120-160) in `admin/inventory.html`
-57. Missing charset meta tag in `admin/landing-builder.html`
-58. Description length is 46 characters (recommended: 120-160) in `admin/landing-builder.html`
-59. Missing charset meta tag in `admin/leads.html`
-60. Title length is 20 characters (recommended: 30-60) in `admin/leads.html`
-61. Description length is 38 characters (recommended: 120-160) in `admin/leads.html`
-62. Missing charset meta tag in `admin/legal.html`
-63. Title length is 22 characters (recommended: 30-60) in `admin/legal.html`
-64. Description length is 34 characters (recommended: 120-160) in `admin/legal.html`
-65. Missing charset meta tag in `admin/lms.html`
-66. Title length is 18 characters (recommended: 30-60) in `admin/lms.html`
-67. Description length is 28 characters (recommended: 120-160) in `admin/lms.html`
-68. Missing charset meta tag in `admin/loyalty.html`
-69. Title length is 22 characters (recommended: 30-60) in `admin/loyalty.html`
-70. Description length is 35 characters (recommended: 120-160) in `admin/loyalty.html`
-71. Missing charset meta tag in `admin/menu.html`
-72. Title length is 19 characters (recommended: 30-60) in `admin/menu.html`
-73. Description length is 26 characters (recommended: 120-160) in `admin/menu.html`
-74. Missing charset meta tag in `admin/mvp-launch.html`
-75. Title length is 25 characters (recommended: 30-60) in `admin/mvp-launch.html`
-76. Description length is 20 characters (recommended: 120-160) in `admin/mvp-launch.html`
-77. Missing charset meta tag in `admin/notifications.html`
-78. Title length is 24 characters (recommended: 30-60) in `admin/notifications.html`
-79. Description length is 28 characters (recommended: 120-160) in `admin/notifications.html`
-80. Missing charset meta tag in `admin/onboarding.html`
-81. Title length is 25 characters (recommended: 30-60) in `admin/onboarding.html`
-82. Description length is 25 characters (recommended: 120-160) in `admin/onboarding.html`
-83. Missing charset meta tag in `admin/payments.html`
-84. Title length is 25 characters (recommended: 30-60) in `admin/payments.html`
-85. Description length is 30 characters (recommended: 120-160) in `admin/payments.html`
-86. Missing charset meta tag in `admin/pipeline.html`
-87. Title length is 23 characters (recommended: 30-60) in `admin/pipeline.html`
-88. Description length is 27 characters (recommended: 120-160) in `admin/pipeline.html`
-89. Missing charset meta tag in `admin/pos.html`
-90. Title length is 18 characters (recommended: 30-60) in `admin/pos.html`
-91. Description length is 23 characters (recommended: 120-160) in `admin/pos.html`
-92. Missing charset meta tag in `admin/pricing.html`
-93. Title length is 23 characters (recommended: 30-60) in `admin/pricing.html`
-94. Description length is 32 characters (recommended: 120-160) in `admin/pricing.html`
-95. Missing charset meta tag in `admin/proposals.html`
-96. Title length is 24 characters (recommended: 30-60) in `admin/proposals.html`
-97. Description length is 23 characters (recommended: 120-160) in `admin/proposals.html`
-98. Missing charset meta tag in `admin/quality.html`
-99. Title length is 22 characters (recommended: 30-60) in `admin/quality.html`
-100. Description length is 28 characters (recommended: 120-160) in `admin/quality.html`
-101. Missing charset meta tag in `admin/raas-overview.html`
-102. Description length is 39 characters (recommended: 120-160) in `admin/raas-overview.html`
-103. Missing charset meta tag in `admin/retention.html`
-104. Title length is 24 characters (recommended: 30-60) in `admin/retention.html`
-105. Description length is 31 characters (recommended: 120-160) in `admin/retention.html`
-106. Missing charset meta tag in `admin/roiaas-admin.html`
-107. Title length is 27 characters (recommended: 30-60) in `admin/roiaas-admin.html`
-108. Description length is 35 characters (recommended: 120-160) in `admin/roiaas-admin.html`
-109. Missing charset meta tag in `admin/shifts.html`
-110. Title length is 26 characters (recommended: 30-60) in `admin/shifts.html`
-111. Description length is 31 characters (recommended: 120-160) in `admin/shifts.html`
-112. Missing charset meta tag in `admin/suppliers.html`
-113. Title length is 27 characters (recommended: 30-60) in `admin/suppliers.html`
-114. Description length is 32 characters (recommended: 120-160) in `admin/suppliers.html`
-115. Missing charset meta tag in `admin/vc-readiness.html`
-116. Title length is 27 characters (recommended: 30-60) in `admin/vc-readiness.html`
-117. Description length is 37 characters (recommended: 120-160) in `admin/vc-readiness.html`
-118. Missing charset meta tag in `admin/video-workflow.html`
-119. Title length is 29 characters (recommended: 30-60) in `admin/video-workflow.html`
-120. Description length is 41 characters (recommended: 120-160) in `admin/video-workflow.html`
-121. Missing or incorrect DOCTYPE declaration in `admin/widgets/kpi-card.html`
-122. Description length is 79 characters (recommended: 120-160) in `admin/widgets/kpi-card.html`
-123. Missing canonical URL in `admin/widgets/kpi-card.html`
-124. Description length is 41 characters (recommended: 120-160) in `admin/widgets-demo.html`
-125. Missing charset meta tag in `admin/workflows.html`
-126. Title length is 24 characters (recommended: 30-60) in `admin/workflows.html`
-127. Description length is 27 characters (recommended: 120-160) in `admin/workflows.html`
-128. Missing charset meta tag in `admin/zalo.html`
-129. Title length is 22 characters (recommended: 30-60) in `admin/zalo.html`
-130. Description length is 30 characters (recommended: 120-160) in `admin/zalo.html`
-131. Title length is 27 characters (recommended: 30-60) in `portal/approve.html`
-132. Description length is 50 characters (recommended: 120-160) in `portal/approve.html`
-133. Title length is 19 characters (recommended: 30-60) in `portal/assets.html`
-134. Description length is 57 characters (recommended: 120-160) in `portal/assets.html`
-135. Title length is 21 characters (recommended: 30-60) in `portal/credits.html`
-136. Description length is 47 characters (recommended: 120-160) in `portal/credits.html`
-137. Description length is 80 characters (recommended: 120-160) in `portal/dashboard.html`
-138. Title length is 18 characters (recommended: 30-60) in `portal/invoices.html`
-139. Description length is 52 characters (recommended: 120-160) in `portal/invoices.html`
-140. Description length is 64 characters (recommended: 120-160) in `portal/login.html`
-141. Title length is 27 characters (recommended: 30-60) in `portal/missions.html`
-142. Description length is 80 characters (recommended: 120-160) in `portal/missions.html`
-143. Description length is 52 characters (recommended: 120-160) in `portal/notifications.html`
-144. Missing canonical URL in `portal/notifications.html`
-145. Description length is 44 characters (recommended: 120-160) in `portal/ocop-catalog.html`
-146. Description length is 61 characters (recommended: 120-160) in `portal/ocop-exporter.html`
-147. Title length is 28 characters (recommended: 30-60) in `portal/onboarding.html`
-148. Description length is 68 characters (recommended: 120-160) in `portal/onboarding.html`
-149. Description length is 47 characters (recommended: 120-160) in `portal/payment-result.html`
-150. Title length is 28 characters (recommended: 30-60) in `portal/payments.html`
-151. Description length is 63 characters (recommended: 120-160) in `portal/payments.html`
-152. Title length is 24 characters (recommended: 30-60) in `portal/projects.html`
-153. Description length is 63 characters (recommended: 120-160) in `portal/projects.html`
-154. Title length is 26 characters (recommended: 30-60) in `portal/reports.html`
-155. Description length is 54 characters (recommended: 120-160) in `portal/reports.html`
-156. Description length is 84 characters (recommended: 120-160) in `portal/roi-analytics.html`
-157. Missing canonical URL in `portal/roi-analytics.html`
-158. Title length is 29 characters (recommended: 30-60) in `portal/roi-report.html`
-159. Description length is 56 characters (recommended: 120-160) in `portal/roi-report.html`
-160. Description length is 57 characters (recommended: 120-160) in `portal/roiaas-dashboard.html`
-161. Description length is 59 characters (recommended: 120-160) in `portal/roiaas-onboarding.html`
-162. Description length is 57 characters (recommended: 120-160) in `portal/subscription-plans.html`
-163. Title length is 27 characters (recommended: 30-60) in `portal/subscriptions.html`
-164. Description length is 53 characters (recommended: 120-160) in `portal/subscriptions.html`
-165. Missing or incorrect DOCTYPE declaration in `affiliate/commissions.html`
-166. Missing charset meta tag in `affiliate/commissions.html`
-167. Title length is 27 characters (recommended: 30-60) in `affiliate/commissions.html`
-168. Description length is 42 characters (recommended: 120-160) in `affiliate/commissions.html`
-169. Missing or incorrect DOCTYPE declaration in `affiliate/dashboard.html`
-170. Missing charset meta tag in `affiliate/dashboard.html`
-171. Description length is 59 characters (recommended: 120-160) in `affiliate/dashboard.html`
-172. Missing or incorrect DOCTYPE declaration in `affiliate/links.html`
-173. Missing charset meta tag in `affiliate/links.html`
-174. Description length is 36 characters (recommended: 120-160) in `affiliate/links.html`
-175. Missing or incorrect DOCTYPE declaration in `affiliate/media.html`
-176. Missing charset meta tag in `affiliate/media.html`
-177. Title length is 28 characters (recommended: 30-60) in `affiliate/media.html`
-178. Description length is 49 characters (recommended: 120-160) in `affiliate/media.html`
-179. Missing or incorrect DOCTYPE declaration in `affiliate/profile.html`
-180. Missing charset meta tag in `affiliate/profile.html`
-181. Description length is 48 characters (recommended: 120-160) in `affiliate/profile.html`
-182. Missing or incorrect DOCTYPE declaration in `affiliate/referrals.html`
-183. Missing charset meta tag in `affiliate/referrals.html`
-184. Title length is 28 characters (recommended: 30-60) in `affiliate/referrals.html`
-185. Description length is 43 characters (recommended: 120-160) in `affiliate/referrals.html`
-186. Missing or incorrect DOCTYPE declaration in `affiliate/settings.html`
-187. Missing charset meta tag in `affiliate/settings.html`
-188. Title length is 26 characters (recommended: 30-60) in `affiliate/settings.html`
-189. Description length is 28 characters (recommended: 120-160) in `affiliate/settings.html`
-190. Missing or incorrect DOCTYPE declaration in `auth/login.html`
-191. Missing charset meta tag in `auth/login.html`
-192. Title length is 25 characters (recommended: 30-60) in `auth/login.html`
-193. Description length is 41 characters (recommended: 120-160) in `auth/login.html`
-194. Missing charset meta tag in `admin/agents.html`
-195. Title length is 21 characters (recommended: 30-60) in `admin/agents.html`
-196. Description length is 26 characters (recommended: 120-160) in `admin/agents.html`
-197. Missing charset meta tag in `admin/ai-analysis.html`
-198. Title length is 26 characters (recommended: 30-60) in `admin/ai-analysis.html`
-199. Description length is 26 characters (recommended: 120-160) in `admin/ai-analysis.html`
-200. Missing charset meta tag in `admin/api-builder.html`
-201. Title length is 26 characters (recommended: 30-60) in `admin/api-builder.html`
-202. Description length is 28 characters (recommended: 120-160) in `admin/api-builder.html`
-203. Missing charset meta tag in `admin/approvals.html`
-204. Title length is 24 characters (recommended: 30-60) in `admin/approvals.html`
-205. Description length is 37 characters (recommended: 120-160) in `admin/approvals.html`
-206. Missing charset meta tag in `admin/auth.html`
-207. Title length is 23 characters (recommended: 30-60) in `admin/auth.html`
-208. Description length is 31 characters (recommended: 120-160) in `admin/auth.html`
-209. Missing charset meta tag in `admin/binh-phap.html`
-210. Title length is 24 characters (recommended: 30-60) in `admin/binh-phap.html`
-211. Description length is 42 characters (recommended: 120-160) in `admin/binh-phap.html`
-212. Description length is 72 characters (recommended: 120-160) in `admin/brand-guide.html`
-213. Missing charset meta tag in `admin/campaigns.html`
-214. Title length is 25 characters (recommended: 30-60) in `admin/campaigns.html`
-215. Description length is 37 characters (recommended: 120-160) in `admin/campaigns.html`
-216. Missing charset meta tag in `admin/community.html`
-217. Title length is 24 characters (recommended: 30-60) in `admin/community.html`
-218. Description length is 41 characters (recommended: 120-160) in `admin/community.html`
-219. Missing charset meta tag in `admin/components/phase-tracker.html`
-220. Title length is 28 characters (recommended: 30-60) in `admin/components/phase-tracker.html`
-221. Description length is 33 characters (recommended: 120-160) in `admin/components/phase-tracker.html`
-222. Missing charset meta tag in `admin/content-calendar.html`
-223. Description length is 30 characters (recommended: 120-160) in `admin/content-calendar.html`
-224. Missing charset meta tag in `admin/customer-success.html`
-225. Description length is 30 characters (recommended: 120-160) in `admin/customer-success.html`
-226. Missing charset meta tag in `admin/dashboard.html`
-227. Title length is 24 characters (recommended: 30-60) in `admin/dashboard.html`
-228. Description length is 35 characters (recommended: 120-160) in `admin/dashboard.html`
-229. Missing charset meta tag in `admin/deploy.html`
-230. Title length is 21 characters (recommended: 30-60) in `admin/deploy.html`
-231. Description length is 28 characters (recommended: 120-160) in `admin/deploy.html`
-232. Missing charset meta tag in `admin/docs.html`
-233. Title length is 23 characters (recommended: 30-60) in `admin/docs.html`
-234. Description length is 27 characters (recommended: 120-160) in `admin/docs.html`
-235. Missing charset meta tag in `admin/ecommerce.html`
-236. Title length is 25 characters (recommended: 30-60) in `admin/ecommerce.html`
-237. Description length is 24 characters (recommended: 120-160) in `admin/ecommerce.html`
-238. Missing charset meta tag in `admin/events.html`
-239. Title length is 22 characters (recommended: 30-60) in `admin/events.html`
-240. Description length is 27 characters (recommended: 120-160) in `admin/events.html`
-241. Missing charset meta tag in `admin/finance.html`
-242. Title length is 24 characters (recommended: 30-60) in `admin/finance.html`
-243. Description length is 40 characters (recommended: 120-160) in `admin/finance.html`
-244. Missing charset meta tag in `admin/hr-hiring.html`
-245. Title length is 25 characters (recommended: 30-60) in `admin/hr-hiring.html`
-246. Description length is 30 characters (recommended: 120-160) in `admin/hr-hiring.html`
-247. Missing charset meta tag in `admin/inventory.html`
-248. Title length is 23 characters (recommended: 30-60) in `admin/inventory.html`
-249. Description length is 28 characters (recommended: 120-160) in `admin/inventory.html`
-250. Missing charset meta tag in `admin/landing-builder.html`
-251. Description length is 46 characters (recommended: 120-160) in `admin/landing-builder.html`
-252. Missing charset meta tag in `admin/leads.html`
-253. Title length is 20 characters (recommended: 30-60) in `admin/leads.html`
-254. Description length is 38 characters (recommended: 120-160) in `admin/leads.html`
-255. Missing charset meta tag in `admin/legal.html`
-256. Title length is 22 characters (recommended: 30-60) in `admin/legal.html`
-257. Description length is 34 characters (recommended: 120-160) in `admin/legal.html`
-258. Missing charset meta tag in `admin/lms.html`
-259. Title length is 18 characters (recommended: 30-60) in `admin/lms.html`
-260. Description length is 28 characters (recommended: 120-160) in `admin/lms.html`
-261. Missing charset meta tag in `admin/loyalty.html`
-262. Title length is 22 characters (recommended: 30-60) in `admin/loyalty.html`
-263. Description length is 35 characters (recommended: 120-160) in `admin/loyalty.html`
-264. Missing charset meta tag in `admin/menu.html`
-265. Title length is 19 characters (recommended: 30-60) in `admin/menu.html`
-266. Description length is 26 characters (recommended: 120-160) in `admin/menu.html`
-267. Missing charset meta tag in `admin/mvp-launch.html`
-268. Title length is 25 characters (recommended: 30-60) in `admin/mvp-launch.html`
-269. Description length is 20 characters (recommended: 120-160) in `admin/mvp-launch.html`
-270. Missing charset meta tag in `admin/notifications.html`
-271. Title length is 24 characters (recommended: 30-60) in `admin/notifications.html`
-272. Description length is 28 characters (recommended: 120-160) in `admin/notifications.html`
-273. Missing charset meta tag in `admin/onboarding.html`
-274. Title length is 25 characters (recommended: 30-60) in `admin/onboarding.html`
-275. Description length is 25 characters (recommended: 120-160) in `admin/onboarding.html`
-276. Missing charset meta tag in `admin/payments.html`
-277. Title length is 25 characters (recommended: 30-60) in `admin/payments.html`
-278. Description length is 30 characters (recommended: 120-160) in `admin/payments.html`
-279. Missing charset meta tag in `admin/pipeline.html`
-280. Title length is 23 characters (recommended: 30-60) in `admin/pipeline.html`
-281. Description length is 27 characters (recommended: 120-160) in `admin/pipeline.html`
-282. Missing charset meta tag in `admin/pos.html`
-283. Title length is 18 characters (recommended: 30-60) in `admin/pos.html`
-284. Description length is 23 characters (recommended: 120-160) in `admin/pos.html`
-285. Missing charset meta tag in `admin/pricing.html`
-286. Title length is 23 characters (recommended: 30-60) in `admin/pricing.html`
-287. Description length is 32 characters (recommended: 120-160) in `admin/pricing.html`
-288. Missing charset meta tag in `admin/proposals.html`
-289. Title length is 24 characters (recommended: 30-60) in `admin/proposals.html`
-290. Description length is 23 characters (recommended: 120-160) in `admin/proposals.html`
-291. Missing charset meta tag in `admin/quality.html`
-292. Title length is 22 characters (recommended: 30-60) in `admin/quality.html`
-293. Description length is 28 characters (recommended: 120-160) in `admin/quality.html`
-294. Missing charset meta tag in `admin/raas-overview.html`
-295. Description length is 39 characters (recommended: 120-160) in `admin/raas-overview.html`
-296. Missing charset meta tag in `admin/retention.html`
-297. Title length is 24 characters (recommended: 30-60) in `admin/retention.html`
-298. Description length is 31 characters (recommended: 120-160) in `admin/retention.html`
-299. Missing charset meta tag in `admin/roiaas-admin.html`
-300. Title length is 27 characters (recommended: 30-60) in `admin/roiaas-admin.html`
-301. Description length is 35 characters (recommended: 120-160) in `admin/roiaas-admin.html`
-302. Missing charset meta tag in `admin/shifts.html`
-303. Title length is 26 characters (recommended: 30-60) in `admin/shifts.html`
-304. Description length is 31 characters (recommended: 120-160) in `admin/shifts.html`
-305. Missing charset meta tag in `admin/suppliers.html`
-306. Title length is 27 characters (recommended: 30-60) in `admin/suppliers.html`
-307. Description length is 32 characters (recommended: 120-160) in `admin/suppliers.html`
-308. Missing charset meta tag in `admin/vc-readiness.html`
-309. Title length is 27 characters (recommended: 30-60) in `admin/vc-readiness.html`
-310. Description length is 37 characters (recommended: 120-160) in `admin/vc-readiness.html`
-311. Missing charset meta tag in `admin/video-workflow.html`
-312. Title length is 29 characters (recommended: 30-60) in `admin/video-workflow.html`
-313. Description length is 41 characters (recommended: 120-160) in `admin/video-workflow.html`
-314. Missing or incorrect DOCTYPE declaration in `admin/widgets/kpi-card.html`
-315. Description length is 79 characters (recommended: 120-160) in `admin/widgets/kpi-card.html`
-316. Missing canonical URL in `admin/widgets/kpi-card.html`
-317. Description length is 41 characters (recommended: 120-160) in `admin/widgets-demo.html`
-318. Missing charset meta tag in `admin/workflows.html`
-319. Title length is 24 characters (recommended: 30-60) in `admin/workflows.html`
-320. Description length is 27 characters (recommended: 120-160) in `admin/workflows.html`
-321. Missing charset meta tag in `admin/zalo.html`
-322. Title length is 22 characters (recommended: 30-60) in `admin/zalo.html`
-323. Description length is 30 characters (recommended: 120-160) in `admin/zalo.html`
-324. Missing or incorrect DOCTYPE declaration in `affiliate/commissions.html`
-325. Missing charset meta tag in `affiliate/commissions.html`
-326. Title length is 27 characters (recommended: 30-60) in `affiliate/commissions.html`
-327. Description length is 42 characters (recommended: 120-160) in `affiliate/commissions.html`
-328. Missing or incorrect DOCTYPE declaration in `affiliate/dashboard.html`
-329. Missing charset meta tag in `affiliate/dashboard.html`
-330. Description length is 59 characters (recommended: 120-160) in `affiliate/dashboard.html`
-331. Missing or incorrect DOCTYPE declaration in `affiliate/links.html`
-332. Missing charset meta tag in `affiliate/links.html`
-333. Description length is 36 characters (recommended: 120-160) in `affiliate/links.html`
-334. Missing or incorrect DOCTYPE declaration in `affiliate/media.html`
-335. Missing charset meta tag in `affiliate/media.html`
-336. Title length is 28 characters (recommended: 30-60) in `affiliate/media.html`
-337. Description length is 49 characters (recommended: 120-160) in `affiliate/media.html`
-338. Missing or incorrect DOCTYPE declaration in `affiliate/profile.html`
-339. Missing charset meta tag in `affiliate/profile.html`
-340. Description length is 48 characters (recommended: 120-160) in `affiliate/profile.html`
-341. Missing or incorrect DOCTYPE declaration in `affiliate/referrals.html`
-342. Missing charset meta tag in `affiliate/referrals.html`
-343. Title length is 28 characters (recommended: 30-60) in `affiliate/referrals.html`
-344. Description length is 43 characters (recommended: 120-160) in `affiliate/referrals.html`
-345. Missing or incorrect DOCTYPE declaration in `affiliate/settings.html`
-346. Missing charset meta tag in `affiliate/settings.html`
-347. Title length is 26 characters (recommended: 30-60) in `affiliate/settings.html`
-348. Description length is 28 characters (recommended: 120-160) in `affiliate/settings.html`
-349. Missing or incorrect DOCTYPE declaration in `auth/login.html`
-350. Missing charset meta tag in `auth/login.html`
-351. Title length is 25 characters (recommended: 30-60) in `auth/login.html`
-352. Description length is 41 characters (recommended: 120-160) in `auth/login.html`
-353. Missing or incorrect DOCTYPE declaration in `forgot-password.html`
-354. Missing charset meta tag in `forgot-password.html`
-355. Title length is 29 characters (recommended: 30-60) in `forgot-password.html`
-356. Description length is 49 characters (recommended: 120-160) in `forgot-password.html`
-357. Title length is 61 characters (recommended: 30-60) in `index.html`
-358. Description length is 119 characters (recommended: 120-160) in `index.html`
-359. Missing or incorrect DOCTYPE declaration in `login.html`
-360. Missing charset meta tag in `login.html`
-361. Title length is 25 characters (recommended: 30-60) in `login.html`
-362. Description length is 33 characters (recommended: 120-160) in `login.html`
-363. Title length is 28 characters (recommended: 30-60) in `lp.html`
-364. Description length is 65 characters (recommended: 120-160) in `lp.html`
-365. Missing or incorrect DOCTYPE declaration in `offline.html`
-366. Missing charset meta tag in `offline.html`
-367. Title length is 23 characters (recommended: 30-60) in `offline.html`
-368. Description length is 57 characters (recommended: 120-160) in `offline.html`
-369. Missing or incorrect DOCTYPE declaration in `playwright-report/index.html`
-370. Title length is 22 characters (recommended: 30-60) in `playwright-report/index.html`
-371. Missing meta description in `playwright-report/index.html`
-372. Missing Open Graph tags: og:title, og:description, og:type, og:url, og:image in `playwright-report/index.html`
-373. Missing canonical URL in `playwright-report/index.html`
-374. Title length is 27 characters (recommended: 30-60) in `portal/approve.html`
-375. Description length is 50 characters (recommended: 120-160) in `portal/approve.html`
-376. Title length is 19 characters (recommended: 30-60) in `portal/assets.html`
-377. Description length is 57 characters (recommended: 120-160) in `portal/assets.html`
-378. Title length is 21 characters (recommended: 30-60) in `portal/credits.html`
-379. Description length is 47 characters (recommended: 120-160) in `portal/credits.html`
-380. Description length is 80 characters (recommended: 120-160) in `portal/dashboard.html`
-381. Title length is 18 characters (recommended: 30-60) in `portal/invoices.html`
-382. Description length is 52 characters (recommended: 120-160) in `portal/invoices.html`
-383. Description length is 64 characters (recommended: 120-160) in `portal/login.html`
-384. Title length is 27 characters (recommended: 30-60) in `portal/missions.html`
-385. Description length is 80 characters (recommended: 120-160) in `portal/missions.html`
-386. Description length is 52 characters (recommended: 120-160) in `portal/notifications.html`
-387. Missing canonical URL in `portal/notifications.html`
-388. Description length is 44 characters (recommended: 120-160) in `portal/ocop-catalog.html`
-389. Description length is 61 characters (recommended: 120-160) in `portal/ocop-exporter.html`
-390. Title length is 28 characters (recommended: 30-60) in `portal/onboarding.html`
-391. Description length is 68 characters (recommended: 120-160) in `portal/onboarding.html`
-392. Description length is 47 characters (recommended: 120-160) in `portal/payment-result.html`
-393. Title length is 28 characters (recommended: 30-60) in `portal/payments.html`
-394. Description length is 63 characters (recommended: 120-160) in `portal/payments.html`
-395. Title length is 24 characters (recommended: 30-60) in `portal/projects.html`
-396. Description length is 63 characters (recommended: 120-160) in `portal/projects.html`
-397. Title length is 26 characters (recommended: 30-60) in `portal/reports.html`
-398. Description length is 54 characters (recommended: 120-160) in `portal/reports.html`
-399. Description length is 84 characters (recommended: 120-160) in `portal/roi-analytics.html`
-400. Missing canonical URL in `portal/roi-analytics.html`
-401. Title length is 29 characters (recommended: 30-60) in `portal/roi-report.html`
-402. Description length is 56 characters (recommended: 120-160) in `portal/roi-report.html`
-403. Description length is 57 characters (recommended: 120-160) in `portal/roiaas-dashboard.html`
-404. Description length is 59 characters (recommended: 120-160) in `portal/roiaas-onboarding.html`
-405. Description length is 57 characters (recommended: 120-160) in `portal/subscription-plans.html`
-406. Title length is 27 characters (recommended: 30-60) in `portal/subscriptions.html`
-407. Description length is 53 characters (recommended: 120-160) in `portal/subscriptions.html`
-408. Description length is 87 characters (recommended: 120-160) in `privacy.html`
-409. Description length is 90 characters (recommended: 120-160) in `register.html`
-410. Description length is 75 characters (recommended: 120-160) in `terms.html`
-411. Description length is 67 characters (recommended: 120-160) in `verify-email.html`
+1. Description length is 104 characters (recommended: 120-160) in `admin/agents.html`
+2. Description length is 76 characters (recommended: 120-160) in `admin/ai-analysis.html`
+3. Description length is 69 characters (recommended: 120-160) in `admin/api-builder.html`
+4. Description length is 85 characters (recommended: 120-160) in `admin/approvals.html`
+5. Description length is 66 characters (recommended: 120-160) in `admin/auth.html`
+6. Description length is 92 characters (recommended: 120-160) in `admin/binh-phap.html`
+7. Description length is 82 characters (recommended: 120-160) in `admin/brand-guide.html`
+8. Description length is 103 characters (recommended: 120-160) in `admin/campaigns.html`
+9. Description length is 84 characters (recommended: 120-160) in `admin/community.html`
+10. Title length is 28 characters (recommended: 30-60) in `admin/components/phase-tracker.html`
+11. Description length is 33 characters (recommended: 120-160) in `admin/components/phase-tracker.html`
+12. Description length is 98 characters (recommended: 120-160) in `admin/content-calendar.html`
+13. Description length is 75 characters (recommended: 120-160) in `admin/customer-success.html`
+14. Description length is 109 characters (recommended: 120-160) in `admin/dashboard.html`
+15. Description length is 80 characters (recommended: 120-160) in `admin/deploy.html`
+16. Description length is 74 characters (recommended: 120-160) in `admin/docs.html`
+17. Description length is 102 characters (recommended: 120-160) in `admin/ecommerce.html`
+18. Description length is 75 characters (recommended: 120-160) in `admin/events.html`
+19. Description length is 84 characters (recommended: 120-160) in `admin/finance.html`
+20. Description length is 78 characters (recommended: 120-160) in `admin/hr-hiring.html`
+21. Description length is 82 characters (recommended: 120-160) in `admin/inventory.html`
+22. Description length is 82 characters (recommended: 120-160) in `admin/landing-builder.html`
+23. Description length is 92 characters (recommended: 120-160) in `admin/leads.html`
+24. Description length is 79 characters (recommended: 120-160) in `admin/legal.html`
+25. Description length is 83 characters (recommended: 120-160) in `admin/lms.html`
+26. Description length is 75 characters (recommended: 120-160) in `admin/loyalty.html`
+27. Description length is 82 characters (recommended: 120-160) in `admin/menu.html`
+28. Description length is 71 characters (recommended: 120-160) in `admin/mvp-launch.html`
+29. Description length is 97 characters (recommended: 120-160) in `admin/notifications.html`
+30. Description length is 76 characters (recommended: 120-160) in `admin/onboarding.html`
+31. Description length is 91 characters (recommended: 120-160) in `admin/payments.html`
+32. Description length is 92 characters (recommended: 120-160) in `admin/pipeline.html`
+33. Description length is 96 characters (recommended: 120-160) in `admin/pos.html`
+34. Description length is 92 characters (recommended: 120-160) in `admin/pricing.html`
+35. Description length is 72 characters (recommended: 120-160) in `admin/proposals.html`
+36. Description length is 85 characters (recommended: 120-160) in `admin/quality.html`
+37. Description length is 84 characters (recommended: 120-160) in `admin/raas-overview.html`
+38. Description length is 72 characters (recommended: 120-160) in `admin/retention.html`
+39. Description length is 89 characters (recommended: 120-160) in `admin/roiaas-admin.html`
+40. Description length is 69 characters (recommended: 120-160) in `admin/shifts.html`
+41. Description length is 84 characters (recommended: 120-160) in `admin/suppliers.html`
+42. Description length is 81 characters (recommended: 120-160) in `admin/vc-readiness.html`
+43. Description length is 76 characters (recommended: 120-160) in `admin/video-workflow.html`
+44. Missing or incorrect DOCTYPE declaration in `admin/widgets/kpi-card.html`
+45. Description length is 79 characters (recommended: 120-160) in `admin/widgets/kpi-card.html`
+46. Missing canonical URL in `admin/widgets/kpi-card.html`
+47. Description length is 75 characters (recommended: 120-160) in `admin/widgets-demo.html`
+48. Description length is 76 characters (recommended: 120-160) in `admin/workflows.html`
+49. Description length is 86 characters (recommended: 120-160) in `admin/zalo.html`
+50. Description length is 69 characters (recommended: 120-160) in `portal/approve.html`
+51. Description length is 68 characters (recommended: 120-160) in `portal/assets.html`
+52. Description length is 70 characters (recommended: 120-160) in `portal/credits.html`
+53. Description length is 80 characters (recommended: 120-160) in `portal/dashboard.html`
+54. Description length is 69 characters (recommended: 120-160) in `portal/invoices.html`
+55. Description length is 53 characters (recommended: 120-160) in `portal/login.html`
+56. Description length is 67 characters (recommended: 120-160) in `portal/missions.html`
+57. Description length is 66 characters (recommended: 120-160) in `portal/notifications.html`
+58. Description length is 66 characters (recommended: 120-160) in `portal/ocop-catalog.html`
+59. Description length is 71 characters (recommended: 120-160) in `portal/ocop-exporter.html`
+60. Description length is 63 characters (recommended: 120-160) in `portal/onboarding.html`
+61. Description length is 58 characters (recommended: 120-160) in `portal/payment-result.html`
+62. Description length is 76 characters (recommended: 120-160) in `portal/payments.html`
+63. Description length is 75 characters (recommended: 120-160) in `portal/projects.html`
+64. Description length is 76 characters (recommended: 120-160) in `portal/reports.html`
+65. Description length is 69 characters (recommended: 120-160) in `portal/roi-analytics.html`
+66. Description length is 60 characters (recommended: 120-160) in `portal/roi-report.html`
+67. Description length is 62 characters (recommended: 120-160) in `portal/roiaas-dashboard.html`
+68. Description length is 60 characters (recommended: 120-160) in `portal/roiaas-onboarding.html`
+69. Description length is 62 characters (recommended: 120-160) in `portal/subscription-plans.html`
+70. Description length is 67 characters (recommended: 120-160) in `portal/subscriptions.html`
+71. Missing or incorrect DOCTYPE declaration in `affiliate/commissions.html`
+72. Missing charset meta tag in `affiliate/commissions.html`
+73. Title length is 27 characters (recommended: 30-60) in `affiliate/commissions.html`
+74. Description length is 42 characters (recommended: 120-160) in `affiliate/commissions.html`
+75. Missing or incorrect DOCTYPE declaration in `affiliate/dashboard.html`
+76. Missing charset meta tag in `affiliate/dashboard.html`
+77. Description length is 59 characters (recommended: 120-160) in `affiliate/dashboard.html`
+78. Missing or incorrect DOCTYPE declaration in `affiliate/links.html`
+79. Missing charset meta tag in `affiliate/links.html`
+80. Description length is 36 characters (recommended: 120-160) in `affiliate/links.html`
+81. Missing or incorrect DOCTYPE declaration in `affiliate/media.html`
+82. Missing charset meta tag in `affiliate/media.html`
+83. Title length is 28 characters (recommended: 30-60) in `affiliate/media.html`
+84. Description length is 49 characters (recommended: 120-160) in `affiliate/media.html`
+85. Missing or incorrect DOCTYPE declaration in `affiliate/profile.html`
+86. Missing charset meta tag in `affiliate/profile.html`
+87. Description length is 48 characters (recommended: 120-160) in `affiliate/profile.html`
+88. Missing or incorrect DOCTYPE declaration in `affiliate/referrals.html`
+89. Missing charset meta tag in `affiliate/referrals.html`
+90. Title length is 28 characters (recommended: 30-60) in `affiliate/referrals.html`
+91. Description length is 43 characters (recommended: 120-160) in `affiliate/referrals.html`
+92. Missing or incorrect DOCTYPE declaration in `affiliate/settings.html`
+93. Missing charset meta tag in `affiliate/settings.html`
+94. Title length is 26 characters (recommended: 30-60) in `affiliate/settings.html`
+95. Description length is 28 characters (recommended: 120-160) in `affiliate/settings.html`
+96. Missing or incorrect DOCTYPE declaration in `auth/login.html`
+97. Missing charset meta tag in `auth/login.html`
+98. Title length is 25 characters (recommended: 30-60) in `auth/login.html`
+99. Description length is 41 characters (recommended: 120-160) in `auth/login.html`
+100. Description length is 104 characters (recommended: 120-160) in `admin/agents.html`
+101. Description length is 76 characters (recommended: 120-160) in `admin/ai-analysis.html`
+102. Description length is 69 characters (recommended: 120-160) in `admin/api-builder.html`
+103. Description length is 85 characters (recommended: 120-160) in `admin/approvals.html`
+104. Description length is 66 characters (recommended: 120-160) in `admin/auth.html`
+105. Description length is 92 characters (recommended: 120-160) in `admin/binh-phap.html`
+106. Description length is 82 characters (recommended: 120-160) in `admin/brand-guide.html`
+107. Description length is 103 characters (recommended: 120-160) in `admin/campaigns.html`
+108. Description length is 84 characters (recommended: 120-160) in `admin/community.html`
+109. Title length is 28 characters (recommended: 30-60) in `admin/components/phase-tracker.html`
+110. Description length is 33 characters (recommended: 120-160) in `admin/components/phase-tracker.html`
+111. Description length is 98 characters (recommended: 120-160) in `admin/content-calendar.html`
+112. Description length is 75 characters (recommended: 120-160) in `admin/customer-success.html`
+113. Description length is 109 characters (recommended: 120-160) in `admin/dashboard.html`
+114. Description length is 80 characters (recommended: 120-160) in `admin/deploy.html`
+115. Description length is 74 characters (recommended: 120-160) in `admin/docs.html`
+116. Description length is 102 characters (recommended: 120-160) in `admin/ecommerce.html`
+117. Description length is 75 characters (recommended: 120-160) in `admin/events.html`
+118. Description length is 84 characters (recommended: 120-160) in `admin/finance.html`
+119. Description length is 78 characters (recommended: 120-160) in `admin/hr-hiring.html`
+120. Description length is 82 characters (recommended: 120-160) in `admin/inventory.html`
+121. Description length is 82 characters (recommended: 120-160) in `admin/landing-builder.html`
+122. Description length is 92 characters (recommended: 120-160) in `admin/leads.html`
+123. Description length is 79 characters (recommended: 120-160) in `admin/legal.html`
+124. Description length is 83 characters (recommended: 120-160) in `admin/lms.html`
+125. Description length is 75 characters (recommended: 120-160) in `admin/loyalty.html`
+126. Description length is 82 characters (recommended: 120-160) in `admin/menu.html`
+127. Description length is 71 characters (recommended: 120-160) in `admin/mvp-launch.html`
+128. Description length is 97 characters (recommended: 120-160) in `admin/notifications.html`
+129. Description length is 76 characters (recommended: 120-160) in `admin/onboarding.html`
+130. Description length is 91 characters (recommended: 120-160) in `admin/payments.html`
+131. Description length is 92 characters (recommended: 120-160) in `admin/pipeline.html`
+132. Description length is 96 characters (recommended: 120-160) in `admin/pos.html`
+133. Description length is 92 characters (recommended: 120-160) in `admin/pricing.html`
+134. Description length is 72 characters (recommended: 120-160) in `admin/proposals.html`
+135. Description length is 85 characters (recommended: 120-160) in `admin/quality.html`
+136. Description length is 84 characters (recommended: 120-160) in `admin/raas-overview.html`
+137. Description length is 72 characters (recommended: 120-160) in `admin/retention.html`
+138. Description length is 89 characters (recommended: 120-160) in `admin/roiaas-admin.html`
+139. Description length is 69 characters (recommended: 120-160) in `admin/shifts.html`
+140. Description length is 84 characters (recommended: 120-160) in `admin/suppliers.html`
+141. Description length is 81 characters (recommended: 120-160) in `admin/vc-readiness.html`
+142. Description length is 76 characters (recommended: 120-160) in `admin/video-workflow.html`
+143. Missing or incorrect DOCTYPE declaration in `admin/widgets/kpi-card.html`
+144. Description length is 79 characters (recommended: 120-160) in `admin/widgets/kpi-card.html`
+145. Missing canonical URL in `admin/widgets/kpi-card.html`
+146. Description length is 75 characters (recommended: 120-160) in `admin/widgets-demo.html`
+147. Description length is 76 characters (recommended: 120-160) in `admin/workflows.html`
+148. Description length is 86 characters (recommended: 120-160) in `admin/zalo.html`
+149. Missing or incorrect DOCTYPE declaration in `affiliate/commissions.html`
+150. Missing charset meta tag in `affiliate/commissions.html`
+151. Title length is 27 characters (recommended: 30-60) in `affiliate/commissions.html`
+152. Description length is 42 characters (recommended: 120-160) in `affiliate/commissions.html`
+153. Missing or incorrect DOCTYPE declaration in `affiliate/dashboard.html`
+154. Missing charset meta tag in `affiliate/dashboard.html`
+155. Description length is 59 characters (recommended: 120-160) in `affiliate/dashboard.html`
+156. Missing or incorrect DOCTYPE declaration in `affiliate/links.html`
+157. Missing charset meta tag in `affiliate/links.html`
+158. Description length is 36 characters (recommended: 120-160) in `affiliate/links.html`
+159. Missing or incorrect DOCTYPE declaration in `affiliate/media.html`
+160. Missing charset meta tag in `affiliate/media.html`
+161. Title length is 28 characters (recommended: 30-60) in `affiliate/media.html`
+162. Description length is 49 characters (recommended: 120-160) in `affiliate/media.html`
+163. Missing or incorrect DOCTYPE declaration in `affiliate/profile.html`
+164. Missing charset meta tag in `affiliate/profile.html`
+165. Description length is 48 characters (recommended: 120-160) in `affiliate/profile.html`
+166. Missing or incorrect DOCTYPE declaration in `affiliate/referrals.html`
+167. Missing charset meta tag in `affiliate/referrals.html`
+168. Title length is 28 characters (recommended: 30-60) in `affiliate/referrals.html`
+169. Description length is 43 characters (recommended: 120-160) in `affiliate/referrals.html`
+170. Missing or incorrect DOCTYPE declaration in `affiliate/settings.html`
+171. Missing charset meta tag in `affiliate/settings.html`
+172. Title length is 26 characters (recommended: 30-60) in `affiliate/settings.html`
+173. Description length is 28 characters (recommended: 120-160) in `affiliate/settings.html`
+174. Missing or incorrect DOCTYPE declaration in `auth/login.html`
+175. Missing charset meta tag in `auth/login.html`
+176. Title length is 25 characters (recommended: 30-60) in `auth/login.html`
+177. Description length is 41 characters (recommended: 120-160) in `auth/login.html`
+178. Missing or incorrect DOCTYPE declaration in `forgot-password.html`
+179. Missing charset meta tag in `forgot-password.html`
+180. Title length is 29 characters (recommended: 30-60) in `forgot-password.html`
+181. Description length is 49 characters (recommended: 120-160) in `forgot-password.html`
+182. Title length is 61 characters (recommended: 30-60) in `index.html`
+183. Description length is 119 characters (recommended: 120-160) in `index.html`
+184. Missing or incorrect DOCTYPE declaration in `login.html`
+185. Missing charset meta tag in `login.html`
+186. Title length is 25 characters (recommended: 30-60) in `login.html`
+187. Description length is 33 characters (recommended: 120-160) in `login.html`
+188. Title length is 28 characters (recommended: 30-60) in `lp.html`
+189. Description length is 65 characters (recommended: 120-160) in `lp.html`
+190. Missing or incorrect DOCTYPE declaration in `offline.html`
+191. Missing charset meta tag in `offline.html`
+192. Title length is 23 characters (recommended: 30-60) in `offline.html`
+193. Description length is 57 characters (recommended: 120-160) in `offline.html`
+194. Missing or incorrect DOCTYPE declaration in `playwright-report/index.html`
+195. Title length is 22 characters (recommended: 30-60) in `playwright-report/index.html`
+196. Missing meta description in `playwright-report/index.html`
+197. Missing Open Graph tags: og:title, og:description, og:type, og:url, og:image in `playwright-report/index.html`
+198. Missing canonical URL in `playwright-report/index.html`
+199. Description length is 69 characters (recommended: 120-160) in `portal/approve.html`
+200. Description length is 68 characters (recommended: 120-160) in `portal/assets.html`
+201. Description length is 70 characters (recommended: 120-160) in `portal/credits.html`
+202. Description length is 80 characters (recommended: 120-160) in `portal/dashboard.html`
+203. Description length is 69 characters (recommended: 120-160) in `portal/invoices.html`
+204. Description length is 53 characters (recommended: 120-160) in `portal/login.html`
+205. Description length is 67 characters (recommended: 120-160) in `portal/missions.html`
+206. Description length is 66 characters (recommended: 120-160) in `portal/notifications.html`
+207. Description length is 66 characters (recommended: 120-160) in `portal/ocop-catalog.html`
+208. Description length is 71 characters (recommended: 120-160) in `portal/ocop-exporter.html`
+209. Description length is 63 characters (recommended: 120-160) in `portal/onboarding.html`
+210. Description length is 58 characters (recommended: 120-160) in `portal/payment-result.html`
+211. Description length is 76 characters (recommended: 120-160) in `portal/payments.html`
+212. Description length is 75 characters (recommended: 120-160) in `portal/projects.html`
+213. Description length is 76 characters (recommended: 120-160) in `portal/reports.html`
+214. Description length is 69 characters (recommended: 120-160) in `portal/roi-analytics.html`
+215. Description length is 60 characters (recommended: 120-160) in `portal/roi-report.html`
+216. Description length is 62 characters (recommended: 120-160) in `portal/roiaas-dashboard.html`
+217. Description length is 60 characters (recommended: 120-160) in `portal/roiaas-onboarding.html`
+218. Description length is 62 characters (recommended: 120-160) in `portal/subscription-plans.html`
+219. Description length is 67 characters (recommended: 120-160) in `portal/subscriptions.html`
+220. Description length is 87 characters (recommended: 120-160) in `privacy.html`
+221. Description length is 90 characters (recommended: 120-160) in `register.html`
+222. Description length is 75 characters (recommended: 120-160) in `terms.html`
+223. Description length is 67 characters (recommended: 120-160) in `verify-email.html`
 
-### Accessibility (224)
+### Accessibility (223)
 
 1. Missing skip-to-content link in `admin/agents.html`
 2. Missing skip-to-content link in `admin/ai-analysis.html`
@@ -12047,48 +10959,47 @@
 180. Missing <main> landmark in `lp.html`
 181. Missing lang attribute on <html> element in `offline.html`
 182. Missing skip-to-content link in `offline.html`
-183. Missing lang attribute on <html> element in `playwright-report/index.html`
-184. Missing skip-to-content link in `playwright-report/index.html`
-185. Missing <main> landmark in `playwright-report/index.html`
-186. Missing skip-to-content link in `portal/approve.html`
-187. Invalid ARIA role: "client" in `portal/approve.html`
-188. Missing skip-to-content link in `portal/assets.html`
-189. Invalid ARIA role: "client" in `portal/assets.html`
-190. Missing skip-to-content link in `portal/credits.html`
-191. Invalid ARIA role: "client" in `portal/credits.html`
-192. Missing skip-to-content link in `portal/dashboard.html`
-193. Invalid ARIA role: "client" in `portal/dashboard.html`
-194. Missing skip-to-content link in `portal/invoices.html`
-195. Invalid ARIA role: "client" in `portal/invoices.html`
-196. Missing skip-to-content link in `portal/login.html`
-197. Missing skip-to-content link in `portal/missions.html`
-198. Invalid ARIA role: "client" in `portal/missions.html`
-199. Missing skip-to-content link in `portal/notifications.html`
-200. Missing skip-to-content link in `portal/ocop-catalog.html`
-201. Missing skip-to-content link in `portal/ocop-exporter.html`
-202. Invalid ARIA role: "client" in `portal/ocop-exporter.html`
-203. Missing skip-to-content link in `portal/onboarding.html`
-204. Missing <main> landmark in `portal/onboarding.html`
-205. Missing skip-to-content link in `portal/payment-result.html`
-206. Missing <main> landmark in `portal/payment-result.html`
-207. Missing skip-to-content link in `portal/payments.html`
-208. Invalid ARIA role: "client" in `portal/payments.html`
-209. Missing skip-to-content link in `portal/projects.html`
-210. Invalid ARIA role: "client" in `portal/projects.html`
-211. Missing skip-to-content link in `portal/reports.html`
-212. Invalid ARIA role: "client" in `portal/reports.html`
-213. Missing skip-to-content link in `portal/roi-analytics.html`
-214. Missing skip-to-content link in `portal/roi-report.html`
-215. Missing skip-to-content link in `portal/roiaas-dashboard.html`
-216. Invalid ARIA role: "client" in `portal/roiaas-dashboard.html`
-217. Missing skip-to-content link in `portal/roiaas-onboarding.html`
-218. Missing skip-to-content link in `portal/subscription-plans.html`
-219. Missing skip-to-content link in `portal/subscriptions.html`
-220. Invalid ARIA role: "client" in `portal/subscriptions.html`
-221. Missing skip-to-content link in `privacy.html`
-222. Missing skip-to-content link in `register.html`
-223. Missing skip-to-content link in `terms.html`
-224. Missing skip-to-content link in `verify-email.html`
+183. Missing skip-to-content link in `playwright-report/index.html`
+184. Missing <main> landmark in `playwright-report/index.html`
+185. Missing skip-to-content link in `portal/approve.html`
+186. Invalid ARIA role: "client" in `portal/approve.html`
+187. Missing skip-to-content link in `portal/assets.html`
+188. Invalid ARIA role: "client" in `portal/assets.html`
+189. Missing skip-to-content link in `portal/credits.html`
+190. Invalid ARIA role: "client" in `portal/credits.html`
+191. Missing skip-to-content link in `portal/dashboard.html`
+192. Invalid ARIA role: "client" in `portal/dashboard.html`
+193. Missing skip-to-content link in `portal/invoices.html`
+194. Invalid ARIA role: "client" in `portal/invoices.html`
+195. Missing skip-to-content link in `portal/login.html`
+196. Missing skip-to-content link in `portal/missions.html`
+197. Invalid ARIA role: "client" in `portal/missions.html`
+198. Missing skip-to-content link in `portal/notifications.html`
+199. Missing skip-to-content link in `portal/ocop-catalog.html`
+200. Missing skip-to-content link in `portal/ocop-exporter.html`
+201. Invalid ARIA role: "client" in `portal/ocop-exporter.html`
+202. Missing skip-to-content link in `portal/onboarding.html`
+203. Missing <main> landmark in `portal/onboarding.html`
+204. Missing skip-to-content link in `portal/payment-result.html`
+205. Missing <main> landmark in `portal/payment-result.html`
+206. Missing skip-to-content link in `portal/payments.html`
+207. Invalid ARIA role: "client" in `portal/payments.html`
+208. Missing skip-to-content link in `portal/projects.html`
+209. Invalid ARIA role: "client" in `portal/projects.html`
+210. Missing skip-to-content link in `portal/reports.html`
+211. Invalid ARIA role: "client" in `portal/reports.html`
+212. Missing skip-to-content link in `portal/roi-analytics.html`
+213. Missing skip-to-content link in `portal/roi-report.html`
+214. Missing skip-to-content link in `portal/roiaas-dashboard.html`
+215. Invalid ARIA role: "client" in `portal/roiaas-dashboard.html`
+216. Missing skip-to-content link in `portal/roiaas-onboarding.html`
+217. Missing skip-to-content link in `portal/subscription-plans.html`
+218. Missing skip-to-content link in `portal/subscriptions.html`
+219. Invalid ARIA role: "client" in `portal/subscriptions.html`
+220. Missing skip-to-content link in `privacy.html`
+221. Missing skip-to-content link in `register.html`
+222. Missing skip-to-content link in `terms.html`
+223. Missing skip-to-content link in `verify-email.html`
 
 ### Performance (41)
 
