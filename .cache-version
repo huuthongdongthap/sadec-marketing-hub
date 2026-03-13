@@ -1,6 +1,6 @@
 {
-  "version": "vmmosy3bs.6b4583bfe651",
-  "timestamp": "2026-03-13T11:17:09.592Z",
+  "version": "vmmoyhk4v.73d7effbf4b0",
+  "timestamp": "2026-03-13T13:52:15.919Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -172,11 +172,51 @@
     },
     {
       "path": "assets/css/bundle/animations.css",
-      "hash": "18170692"
+      "hash": "1b961efb"
     },
     {
       "path": "assets/css/bundle/portal-common.css",
       "hash": "03779ade"
+    },
+    {
+      "path": "assets/css/components/accordion.css",
+      "hash": "eff99e08"
+    },
+    {
+      "path": "assets/css/components/command-palette.css",
+      "hash": "a73cd187"
+    },
+    {
+      "path": "assets/css/components/data-table.css",
+      "hash": "5aa7a5e3"
+    },
+    {
+      "path": "assets/css/components/error-boundary.css",
+      "hash": "d63b91f2"
+    },
+    {
+      "path": "assets/css/components/keyboard-shortcuts.css",
+      "hash": "f8ad3380"
+    },
+    {
+      "path": "assets/css/components/notification-bell.css",
+      "hash": "416027f1"
+    },
+    {
+      "path": "assets/css/components/tabs.css",
+      "hash": "16c0e8e3"
+    },
+    {
+      "path": "assets/css/components/theme-toggle.css",
+      "hash": "a99b0b0c"
+    },
+    {
+      "path": "assets/css/components/tooltip.css",
+      "hash": "076e8e5a"
+    },
+    {
+      "path": "assets/css/hover-effects.css",
+      "hash": "b2e8b452"
     },
     {
       "path": "assets/css/lazy-loading.css",
@@ -207,6 +247,10 @@
       "hash": "9ebc89a6"
     },
     {
+      "path": "assets/css/responsive-table-layout.css",
+      "hash": "01dd745b"
+    },
+    {
       "path": "assets/css/ui-animations.css",
       "hash": "8e538e8d"
     },
@@ -220,7 +264,7 @@
     },
     {
       "path": "assets/css/widgets.css",
-      "hash": "429468bb"
+      "hash": "7b525056"
     },
     {
       "path": "assets/js/admin/admin-campaigns.js",
@@ -244,11 +288,11 @@
     },
     {
       "path": "assets/js/admin/admin-utils.js",
-      "hash": "60b33aa6"
+      "hash": "3ef4d316"
     },
     {
       "path": "assets/js/admin/admin-ux-enhancements.js",
-      "hash": "31834355"
+      "hash": "2b553c44"
     },
     {
       "path": "assets/js/admin/bell-component.js",
@@ -284,7 +328,7 @@
     },
     {
       "path": "assets/js/admin/notification-bell.js",
-      "hash": "3cbbf302"
+      "hash": "693ee4da"
     },
     {
       "path": "assets/js/admin/notification-panel.js",
@@ -292,23 +336,11 @@
     },
     {
       "path": "assets/js/admin/skeleton-loader.js",
-      "hash": "6b92dbe6"
+      "hash": "78d8404f"
     },
     {
       "path": "assets/js/admin/ux-components-index.js",
       "hash": "e364fdea"
-    },
-    {
-      "path": "assets/js/admin-client.js",
-      "hash": "320e9a9d"
-    },
-    {
-      "path": "assets/js/admin-guard.js",
-      "hash": "c07e8b1d"
-    },
-    {
-      "path": "assets/js/admin-shared.js",
-      "hash": "5530d87a"
     },
     {
       "path": "assets/js/affiliate-api.js",
@@ -319,36 +351,16 @@
       "hash": "4670c2fa"
     },
     {
-      "path": "assets/js/agents.js",
-      "hash": "2f12b908"
-    },
-    {
-      "path": "assets/js/ai-assistant.js",
-      "hash": "d79fa444"
-    },
-    {
       "path": "assets/js/alert-system.js",
       "hash": "73c38b85"
-    },
-    {
-      "path": "assets/js/approvals.js",
-      "hash": "a5ff9b75"
     },
     {
       "path": "assets/js/base-manager.js",
       "hash": "a8b5d482"
     },
     {
-      "path": "assets/js/binh-phap-client.js",
-      "hash": "99ac0ff0"
-    },
-    {
       "path": "assets/js/binh-phap.js",
       "hash": "bafd3275"
-    },
-    {
-      "path": "assets/js/campaign-optimizer.js",
-      "hash": "7ee03f51"
     },
     {
       "path": "assets/js/charts/bar-chart.js",
@@ -363,8 +375,52 @@
       "hash": "263efd6e"
     },
     {
-      "path": "assets/js/community.js",
-      "hash": "212e34c6"
+      "path": "assets/js/clients/admin-client.js",
+      "hash": "f3844cab"
+    },
+    {
+      "path": "assets/js/clients/binh-phap-client.js",
+      "hash": "a88d1450"
+    },
+    {
+      "path": "assets/js/clients/campaign-optimizer.js",
+      "hash": "7ee03f51"
+    },
+    {
+      "path": "assets/js/clients/content-calendar-client.js",
+      "hash": "05ed28b4"
+    },
+    {
+      "path": "assets/js/clients/dashboard-client.js",
+      "hash": "b9fd217f"
+    },
+    {
+      "path": "assets/js/clients/finance-client.js",
+      "hash": "35b2a6d9"
+    },
+    {
+      "path": "assets/js/clients/index.js",
+      "hash": "31adb51e"
+    },
+    {
+      "path": "assets/js/clients/pipeline-client.js",
+      "hash": "7e827aec"
+    },
+    {
+      "path": "assets/js/clients/workflows-client.js",
+      "hash": "6d34f0e3"
+    },
+    {
+      "path": "assets/js/components/accordion.js",
+      "hash": "b2ce2523"
+    },
+    {
+      "path": "assets/js/components/command-palette.js",
+      "hash": "0687b499"
+    },
+    {
+      "path": "assets/js/components/data-table.js",
+      "hash": "ac335624"
     },
     {
       "path": "assets/js/components/error-boundary.js",
@@ -376,7 +432,11 @@
     },
     {
       "path": "assets/js/components/index.js",
-      "hash": "4af04cc5"
+      "hash": "ce73713d"
+    },
+    {
+      "path": "assets/js/components/kpi-card.js",
+      "hash": "f5399027"
     },
     {
       "path": "assets/js/components/loading-button.js",
@@ -385,6 +445,10 @@
     {
       "path": "assets/js/components/mobile-responsive.js",
       "hash": "11f78dd0"
+    },
+    {
+      "path": "assets/js/components/notification-bell.js",
+      "hash": "c410cbe3"
     },
     {
       "path": "assets/js/components/payment-modal.js",
@@ -407,60 +471,44 @@
       "hash": "a4b30b1a"
     },
     {
+      "path": "assets/js/components/scroll-to-top.js",
+      "hash": "a6e22158"
+    },
+    {
+      "path": "assets/js/components/tabs.js",
+      "hash": "1d464b73"
+    },
+    {
       "path": "assets/js/components/theme-manager.js",
       "hash": "48a6d282"
+    },
+    {
+      "path": "assets/js/components/theme-toggle.js",
+      "hash": "33d948a5"
     },
     {
       "path": "assets/js/components/toast-manager.js",
       "hash": "86417533"
     },
     {
-      "path": "assets/js/content-ai.js",
-      "hash": "cb8db109"
-    },
-    {
-      "path": "assets/js/content-calendar-client.js",
-      "hash": "080ead9c"
+      "path": "assets/js/components/tooltip.js",
+      "hash": "54d263e0"
     },
     {
       "path": "assets/js/content-calendar.js",
       "hash": "dac91325"
     },
     {
-      "path": "assets/js/core-utils.js",
-      "hash": "962474b2"
-    },
-    {
       "path": "assets/js/core-utils.test.js",
-      "hash": "e43497e4"
-    },
-    {
-      "path": "assets/js/customer-success.js",
-      "hash": "640bb561"
+      "hash": "9fa54131"
     },
     {
       "path": "assets/js/dark-mode.js",
       "hash": "3d1411cf"
     },
     {
-      "path": "assets/js/dashboard-client.js",
-      "hash": "f25d974b"
-    },
-    {
       "path": "assets/js/data-sync-init.js",
       "hash": "e019c6a0"
-    },
-    {
-      "path": "assets/js/ecommerce.js",
-      "hash": "454089cf"
-    },
-    {
-      "path": "assets/js/enhanced-utils.js",
-      "hash": "28114880"
-    },
-    {
-      "path": "assets/js/events.js",
-      "hash": "856eea35"
     },
     {
       "path": "assets/js/features/ai-content-generator.js",
@@ -471,24 +519,24 @@
       "hash": "7b74070b"
     },
     {
-      "path": "assets/js/finance-client.js",
-      "hash": "f6d0f11f"
-    },
-    {
       "path": "assets/js/finance.js",
       "hash": "5842b65f"
     },
     {
-      "path": "assets/js/form-validation.js",
-      "hash": "4bb97be4"
+      "path": "assets/js/guards/admin-guard.js",
+      "hash": "dc4400b2"
     },
     {
-      "path": "assets/js/hr-hiring.js",
-      "hash": "9c48cf34"
+      "path": "assets/js/guards/index.js",
+      "hash": "7ff98afb"
+    },
+    {
+      "path": "assets/js/guards/portal-guard.js",
+      "hash": "8dd09f64"
     },
     {
       "path": "assets/js/keyboard-shortcuts.js",
-      "hash": "1db046fc"
+      "hash": "05f27ecd"
     },
     {
       "path": "assets/js/landing-builder.js",
@@ -499,24 +547,8 @@
       "hash": "6c084f52"
     },
     {
-      "path": "assets/js/lazy-loader.js",
-      "hash": "74b039a0"
-    },
-    {
-      "path": "assets/js/legal.js",
-      "hash": "36ffbc3c"
-    },
-    {
-      "path": "assets/js/lms.js",
-      "hash": "d1ef36b4"
-    },
-    {
       "path": "assets/js/loading-states.js",
       "hash": "1db6066b"
-    },
-    {
-      "path": "assets/js/mekong-store.js",
-      "hash": "fee2e954"
     },
     {
       "path": "assets/js/micro-animations.js",
@@ -535,24 +567,8 @@
       "hash": "b9bbc296"
     },
     {
-      "path": "assets/js/notifications.js",
-      "hash": "b4aa01a2"
-    },
-    {
       "path": "assets/js/onboarding.js",
       "hash": "c2b07e48"
-    },
-    {
-      "path": "assets/js/payment-gateway.js",
-      "hash": "4e0bacae"
-    },
-    {
-      "path": "assets/js/performance.js",
-      "hash": "1dffdca7"
-    },
-    {
-      "path": "assets/js/pipeline-client.js",
-      "hash": "7d6f0783"
     },
     {
       "path": "assets/js/pipeline.js",
@@ -560,7 +576,7 @@
     },
     {
       "path": "assets/js/portal/index.js",
-      "hash": "ca1ae80f"
+      "hash": "2d51d887"
     },
     {
       "path": "assets/js/portal/portal-auth.js",
@@ -580,7 +596,7 @@
     },
     {
       "path": "assets/js/portal/portal-payments.js",
-      "hash": "9f544989"
+      "hash": "2b2730c8"
     },
     {
       "path": "assets/js/portal/portal-projects.js",
@@ -588,7 +604,7 @@
     },
     {
       "path": "assets/js/portal/portal-ui.js",
-      "hash": "02c64ac9"
+      "hash": "21e48a10"
     },
     {
       "path": "assets/js/portal/portal-utils.js",
@@ -603,36 +619,144 @@
       "hash": "723dee3b"
     },
     {
-      "path": "assets/js/portal-guard.js",
-      "hash": "48723d3f"
-    },
-    {
       "path": "assets/js/pricing.js",
       "hash": "e00b57ce"
-    },
-    {
-      "path": "assets/js/proposals.js",
-      "hash": "9c01c6f1"
-    },
-    {
-      "path": "assets/js/pwa-install.js",
-      "hash": "80f2777f"
     },
     {
       "path": "assets/js/realtime-dashboard.js",
       "hash": "2050e30b"
     },
     {
-      "path": "assets/js/report-generator.js",
+      "path": "assets/js/services/admin-shared.js",
+      "hash": "5530d87a"
+    },
+    {
+      "path": "assets/js/services/agents.js",
+      "hash": "4c8c1c4c"
+    },
+    {
+      "path": "assets/js/services/ai-assistant.js",
+      "hash": "d79fa444"
+    },
+    {
+      "path": "assets/js/services/approvals.js",
+      "hash": "c317d29f"
+    },
+    {
+      "path": "assets/js/services/community.js",
+      "hash": "212e34c6"
+    },
+    {
+      "path": "assets/js/services/content-ai.js",
+      "hash": "cb8db109"
+    },
+    {
+      "path": "assets/js/services/core-utils.js",
+      "hash": "762602cd"
+    },
+    {
+      "path": "assets/js/services/customer-success.js",
+      "hash": "974a2a49"
+    },
+    {
+      "path": "assets/js/services/ecommerce.js",
+      "hash": "e745ee3f"
+    },
+    {
+      "path": "assets/js/services/enhanced-utils.js",
+      "hash": "28114880"
+    },
+    {
+      "path": "assets/js/services/events.js",
+      "hash": "856eea35"
+    },
+    {
+      "path": "assets/js/services/form-validation.js",
+      "hash": "e5fc9a1e"
+    },
+    {
+      "path": "assets/js/services/hr-hiring.js",
+      "hash": "9c48cf34"
+    },
+    {
+      "path": "assets/js/services/index.js",
+      "hash": "f6149bb2"
+    },
+    {
+      "path": "assets/js/services/lazy-loader.js",
+      "hash": "74b039a0"
+    },
+    {
+      "path": "assets/js/services/legal.js",
+      "hash": "36ffbc3c"
+    },
+    {
+      "path": "assets/js/services/lms.js",
+      "hash": "d1ef36b4"
+    },
+    {
+      "path": "assets/js/services/mekong-store.js",
+      "hash": "fee2e954"
+    },
+    {
+      "path": "assets/js/services/notifications.js",
+      "hash": "b4aa01a2"
+    },
+    {
+      "path": "assets/js/services/payment-gateway.js",
+      "hash": "4e0bacae"
+    },
+    {
+      "path": "assets/js/services/performance.js",
+      "hash": "1dffdca7"
+    },
+    {
+      "path": "assets/js/services/proposals.js",
+      "hash": "9c01c6f1"
+    },
+    {
+      "path": "assets/js/services/pwa-install.js",
+      "hash": "80f2777f"
+    },
+    {
+      "path": "assets/js/services/report-generator.js",
       "hash": "cf51e04b"
     },
     {
-      "path": "assets/js/retention.js",
+      "path": "assets/js/services/retention.js",
       "hash": "0351c328"
     },
     {
+      "path": "assets/js/services/toast-notification.js",
+      "hash": "0012a570"
+    },
+    {
+      "path": "assets/js/services/ui-utils.js",
+      "hash": "f8106fc6"
+    },
+    {
+      "path": "assets/js/services/utils.js",
+      "hash": "e5017f26"
+    },
+    {
+      "path": "assets/js/services/vc-readiness.js",
+      "hash": "627a890a"
+    },
+    {
+      "path": "assets/js/services/video.js",
+      "hash": "e3a3c9e7"
+    },
+    {
+      "path": "assets/js/services/workflows.js",
+      "hash": "6943a8f8"
+    },
+    {
+      "path": "assets/js/services/zalo-chat.js",
+      "hash": "5f7a3e6d"
+    },
+    {
       "path": "assets/js/shared/api-client.js",
-      "hash": "78a132ed"
+      "hash": "23fc161e"
     },
     {
       "path": "assets/js/shared/api-utils.js",
@@ -660,11 +784,7 @@
     },
     {
       "path": "assets/js/supabase.js",
-      "hash": "b3c7a492"
-    },
-    {
-      "path": "assets/js/toast-notification.js",
-      "hash": "350971f6"
+      "hash": "a294bf4d"
     },
     {
       "path": "assets/js/ui-enhancements-controller.js",
@@ -675,40 +795,16 @@
       "hash": "50b3a82e"
     },
     {
-      "path": "assets/js/ui-utils.js",
-      "hash": "f8106fc6"
-    },
-    {
       "path": "assets/js/unified-login.js",
       "hash": "806b0482"
     },
     {
-      "path": "assets/js/utils.js",
-      "hash": "e5017f26"
-    },
-    {
-      "path": "assets/js/vc-readiness.js",
-      "hash": "627a890a"
-    },
-    {
-      "path": "assets/js/video.js",
-      "hash": "e3a3c9e7"
+      "path": "assets/js/utils/keyboard-shortcuts.js",
+      "hash": "e2c25d61"
     },
     {
       "path": "assets/js/widgets/index.js",
-      "hash": "e4895fb6"
-    },
-    {
-      "path": "assets/js/workflows-client.js",
-      "hash": "630c857e"
-    },
-    {
-      "path": "assets/js/workflows.js",
-      "hash": "6943a8f8"
-    },
-    {
-      "path": "assets/js/zalo-chat.js",
-      "hash": "5f7a3e6d"
+      "hash": "fdd3e0b7"
     }
   ]
 }

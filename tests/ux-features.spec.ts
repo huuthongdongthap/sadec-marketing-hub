@@ -19,13 +19,16 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('New UX Features', () => {
+  // Use menu.html where UX features are integrated
+  const TEST_PAGE = '/admin/menu.html';
+
   // ============================================================================
   // COMMAND PALETTE (Ctrl+K)
   // ============================================================================
 
   test.describe('Command Palette', () => {
     test('command palette exists in DOM', async ({ page }) => {
-      await page.goto('/admin/dashboard.html');
+      await page.goto(TEST_PAGE);
 
       // Command palette should exist
       const palette = page.locator('#command-palette, [role="dialog"][aria-label="Command Palette"]');
