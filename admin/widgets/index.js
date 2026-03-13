@@ -4,10 +4,16 @@
  */
 
 // Export widget classes for programmatic use
-export { default as KPICardWidget } from './kpi-card.html';
-export { default as RevenueChartWidget } from './revenue-chart.js';
-export { default as ActivityFeedWidget } from './activity-feed.js';
-export { default as ProjectProgressWidget } from './project-progress.js';
+import './kpi-card.html';
+import './revenue-chart.js';
+import './activity-feed.js';
+import './project-progress.js';
+import './bar-chart.js';
+import './alerts-widget.js';
+import './pie-chart-widget.js';
+import './line-chart-widget.js';
+import './area-chart-widget.js';
+import './bar-chart-widget.js';
 
 /**
  * Initialize all dashboard widgets
@@ -52,9 +58,28 @@ export function refreshAllWidgets() {
         new CustomEvent('kpi-refresh'),
         new CustomEvent('revenue-refresh'),
         new CustomEvent('activity-refresh'),
-        new CustomEvent('project-refresh')
+        new CustomEvent('project-refresh'),
+        new CustomEvent('alerts-refresh'),
+        new CustomEvent('pie-chart-refresh'),
+        new CustomEvent('line-chart-refresh'),
+        new CustomEvent('area-chart-refresh'),
+        new CustomEvent('bar-chart-refresh')
     ];
 
     events.forEach(event => window.dispatchEvent(event));
     console.log('[Dashboard Widgets] Refresh triggered');
+}
+
+/**
+ * Register widgets manually (if needed)
+ */
+export function registerWidgets() {
+    console.log('[Dashboard Widgets] Manual registration called');
+}
+
+// Auto-initialize on DOM ready
+if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+        initializeWidgets();
+    });
 }

@@ -403,3 +403,393 @@
         transform: scale(1);
     }
 }
+
+/* ================================================
+   ALERTS WIDGET STYLES
+   ================================================ */
+
+.alerts-widget-wrapper {
+    position: relative;
+}
+
+@keyframes alertSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.alert-item-animated {
+    animation: alertSlideInRight 0.4s ease forwards;
+}
+
+.alert-critical .alert-icon {
+    box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+}
+
+.alert-warning .alert-icon {
+    box-shadow: 0 4px 12px rgba(255, 145, 0, 0.3);
+}
+
+.alert-info .alert-icon {
+    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+}
+
+.alert-success .alert-icon {
+    box-shadow: 0 4px 12px rgba(0, 230, 118, 0.3);
+}
+
+@keyframes alertPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 23, 68, 0);
+    }
+}
+
+.alert-critical {
+    animation: alertPulse 2s ease-in-out infinite;
+}
+
+/* Alert dismiss animation */
+@keyframes alertDismiss {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.alert-dismissing {
+    animation: alertDismiss 0.3s ease forwards;
+}
+
+/* ================================================
+   CHART WIDGETS COMMON STYLES
+   ================================================ */
+
+.chart-widget-base {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-widget-base:hover {
+    transform: translateY(-4px);
+}
+
+/* Chart gradient fills */
+.chart-gradient-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 229, 255, 0.2) 0%,
+        rgba(0, 229, 255, 0) 100%
+    );
+}
+
+/* Chart bar animations */
+@keyframes barGrow {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.chart-bar-animated {
+    transform-origin: bottom;
+    animation: barGrow 0.6s ease forwards;
+}
+
+/* Pie chart rotation */
+@keyframes pieRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pie-chart-loading {
+    animation: pieRotate 1s linear infinite;
+}
+
+/* ================================================
+   AREA CHART WIDGET STYLES
+   ================================================ */
+
+.area-fill-gradient {
+    fill: url(#areaGradient);
+}
+
+.area-stroke-glow {
+    filter: drop-shadow(0 2px 4px rgba(0, 229, 255, 0.3));
+}
+
+/* Area chart hover effect */
+.area-point {
+    transition: all 0.2s ease;
+}
+
+.area-point:hover {
+    r: 8;
+    fill-opacity: 1;
+}
+
+/* ================================================
+   LINE CHART WIDGET STYLES
+   ================================================ */
+
+.line-glow {
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+.line-dashed {
+    stroke-dasharray: 5, 5;
+}
+
+/* Line chart intersection point */
+@keyframes pointPulse {
+    0%, 100% {
+        r: 4;
+        opacity: 1;
+    }
+    50% {
+        r: 8;
+        opacity: 0.5;
+    }
+}
+
+.line-point-highlight {
+    animation: pointPulse 1.5s ease-in-out infinite;
+}
+
+/* ================================================
+   BAR CHART WIDGET STYLES
+   ================================================ */
+
+.bar-gradient {
+    fill: url(#barGradient);
+}
+
+/* Bar chart stagger animation */
+@keyframes barRise {
+    from {
+        height: 0;
+        y: 100%;
+    }
+    to {
+        height: var(--bar-height);
+        y: var(--bar-y);
+    }
+}
+
+.bar-stagger-1 { animation-delay: 0s; }
+.bar-stagger-2 { animation-delay: 0.1s; }
+.bar-stagger-3 { animation-delay: 0.2s; }
+.bar-stagger-4 { animation-delay: 0.3s; }
+.bar-stagger-5 { animation-delay: 0.4s; }
+
+/* Bar hover effect */
+.bar-hover {
+    transition: filter 0.2s ease;
+}
+
+.bar-hover:hover {
+    filter: brightness(1.2);
+}
+
+/* ================================================
+   PIE CHART WIDGET STYLES
+   ================================================ */
+
+.pie-segment {
+    transition: all 0.3s ease;
+}
+
+.pie-segment:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Pie chart center hole for doughnut */
+.doughnut-hole {
+    fill: rgba(0, 0, 0, 0.3);
+}
+
+/* Pie segment explode animation */
+@keyframes segmentExplode {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(5px, -5px);
+    }
+}
+
+.pie-segment-exploded {
+    animation: segmentExplode 2s ease-in-out infinite;
+}
+
+/* ================================================
+   KPI CARD ENHANCED STYLES
+   ================================================ */
+
+.kpi-glow-effect {
+    box-shadow:
+        0 0 20px rgba(0, 229, 255, 0.3),
+        0 0 40px rgba(0, 229, 255, 0.1),
+        inset 0 0 20px rgba(0, 229, 255, 0.05);
+}
+
+.kpi-color-cyan { --kpi-glow: rgba(0, 229, 255, 0.4); }
+.kpi-color-purple { --kpi-glow: rgba(213, 0, 249, 0.4); }
+.kpi-color-lime { --kpi-glow: rgba(198, 255, 0, 0.4); }
+.kpi-color-orange { --kpi-glow: rgba(255, 145, 0, 0.4); }
+.kpi-color-green { --kpi-glow: rgba(0, 230, 118, 0.4); }
+.kpi-color-red { --kpi-glow: rgba(255, 23, 68, 0.4); }
+
+/* Sparkline animation */
+@keyframes sparklineDraw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.sparkline-animated {
+    stroke-dasharray: 1000;
+    animation: sparklineDraw 1.5s ease forwards;
+}
+
+/* ================================================
+   TOAST NOTIFICATIONS
+   ================================================ */
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.toast-notification {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 4px solid;
+    animation: toastEnter 0.3s ease forwards;
+}
+
+.toast-success { border-color: #00e676; }
+.toast-error { border-color: #ff1744; }
+.toast-warning { border-color: #ff9100; }
+.toast-info { border-color: #00e5ff; }
+
+@keyframes toastEnter {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastExit {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.toast-exit {
+    animation: toastExit 0.3s ease forwards;
+}
+
+/* ================================================
+   WIDGET GRID LAYOUTS
+   ================================================ */
+
+.widgets-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.widgets-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.widgets-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .widgets-grid-3,
+    .widgets-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .widgets-grid-2,
+    .widgets-grid-3,
+    .widgets-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================================================
+   WIDGET HEADER ACTIONS
+   ================================================ */
+
+.widget-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.widget-action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: rotate(15deg);
+}
+
+.widget-action-btn.active {
+    background: linear-gradient(135deg, #00e5ff, #00b8d4);
+    color: #000;
+    border-color: transparent;
+}
