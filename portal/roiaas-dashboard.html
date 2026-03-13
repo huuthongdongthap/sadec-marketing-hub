@@ -1261,7 +1261,7 @@
             <!-- Header -->
             <header class="dashboard-header animate-entry">
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()" aria-label="Toggle menu">
+                    <button type="button" class="mobile-menu-toggle" onclick="toggleMobileSidebar()" aria-label="Toggle menu">
                         <span class="material-symbols-outlined">menu</span>
                     </button>
                     <div>
@@ -1277,7 +1277,7 @@
                         <span class="material-symbols-outlined">calendar_today</span>
                         <span id="dateRange">Tháng 3/2026</span>
                     </div>
-                    <button class="cyber-btn primary" onclick="exportReport()">
+                    <button type="button" class="cyber-btn primary" onclick="exportReport()">
                         <span class="material-symbols-outlined">download</span>
                         Export
                     </button>
@@ -1334,7 +1334,7 @@
                             ROI Theo Tuần
                         </h2>
                         <div class="card-actions">
-                            <button class="cyber-btn" onclick="refreshChart()">
+                            <button type="button" class="cyber-btn" onclick="refreshChart()">
                                 <span class="material-symbols-outlined">refresh</span>
                                 Refresh
                             </button>
@@ -1365,7 +1365,7 @@
                             Tiến độ Phase
                         </h2>
                         <div class="card-actions">
-                            <button class="cyber-btn" onclick="viewAllPhases()">
+                            <button type="button" class="cyber-btn" onclick="viewAllPhases()">
                                 <span class="material-symbols-outlined">visibility</span>
                                 Xem tất cả
                             </button>
@@ -1386,7 +1386,7 @@
                             Hiệu suất Campaign
                         </h2>
                         <div class="card-actions">
-                            <button class="cyber-btn" onclick="createCampaign()">
+                            <button type="button" class="cyber-btn" onclick="createCampaign()">
                                 <span class="material-symbols-outlined">add</span>
                                 Tạo Campaign
                             </button>
@@ -1414,19 +1414,19 @@
 
             <!-- Quick Actions -->
             <div class="quick-actions animate-entry delay-4">
-                <button class="action-btn primary" onclick="createNewCampaign()">
+                <button type="button" class="action-btn primary" onclick="createNewCampaign()">
                     <span class="material-symbols-outlined">add_circle</span>
                     Tạo Campaign Mới
                 </button>
-                <button class="action-btn" onclick="viewAnalytics()">
+                <button type="button" class="action-btn" onclick="viewAnalytics()">
                     <span class="material-symbols-outlined">analytics</span>
                     Xem Analytics Chi Tiết
                 </button>
-                <button class="action-btn" onclick="optimizeBudget()">
+                <button type="button" class="action-btn" onclick="optimizeBudget()">
                     <span class="material-symbols-outlined">auto_awesome</span>
                     AI Tối ưu Ngân sách
                 </button>
-                <button class="action-btn" onclick="downloadReport()">
+                <button type="button" class="action-btn" onclick="downloadReport()">
                     <span class="material-symbols-outlined">file_download</span>
                     Tải Báo Cáo
                 </button>

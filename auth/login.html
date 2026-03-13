@@ -342,6 +342,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://esm.run">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -401,15 +402,15 @@
                 </a>
 
                 <div class="role-tabs">
-                    <button class="role-tab" onclick="switchRole('admin')" id="tab-admin">
+                    <button type="button" class="role-tab" onclick="switchRole('admin')" id="tab-admin">
                         <span class="material-symbols-outlined role-icon">admin_panel_settings</span>
                         <span class="role-label">Admin</span>
                     </button>
-                    <button class="role-tab" onclick="switchRole('client')" id="tab-client">
+                    <button type="button" class="role-tab" onclick="switchRole('client')" id="tab-client">
                         <span class="material-symbols-outlined role-icon">business</span>
                         <span class="role-label">Client</span>
                     </button>
-                    <button class="role-tab active" onclick="switchRole('affiliate')" id="tab-affiliate">
+                    <button type="button" class="role-tab active" onclick="switchRole('affiliate')" id="tab-affiliate">
                         <span class="material-symbols-outlined role-icon">handshake</span>
                         <span class="role-label">Affiliate</span>
                     </button>

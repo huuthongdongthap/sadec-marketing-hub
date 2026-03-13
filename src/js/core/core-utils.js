@@ -31,7 +31,7 @@ export {
     truncate,
     debounce,
     throttle
-} from './shared/format-utils.js';
+} from '../shared/format-utils.js';
 
 // ============================================================================
 // UI COMPONENTS (Toast, Theme, Scroll, Sidebar)

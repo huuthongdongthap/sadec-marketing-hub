@@ -15,7 +15,8 @@ function processFile(filePath) {
     const originalContent = content;
     
     // Skip if file already has logger import
-    if (content.includes("import { logger }") || content.includes("from './logger'")) {
+    // if (content.includes("import { logger }") || content.includes("from './logger'")) {
+    if (content.includes("import { logger }")) {
         return;
     }
     

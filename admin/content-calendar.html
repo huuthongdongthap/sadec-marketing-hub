@@ -240,11 +240,11 @@
                     <div class="page-subtitle">January 2026 • Week 2</div>
                 </div>
                 <div style="display: flex; gap: 12px;">
-                    <button class="btn btn-secondary" onclick="generateContent()">
+                    <button type="button" class="btn btn-secondary" onclick="generateContent()">
                         <span class="material-symbols-outlined">auto_awesome</span>
                         AI Generate
                     </button>
-                    <button class="btn btn-primary" onclick="showToast('Creating new content...', 'info')">
+                    <button type="button" class="btn btn-primary" onclick="showToast('Creating new content...', 'info')">
                         <span class="material-symbols-outlined">add</span>
                         New Content
                     </button>
@@ -337,13 +337,13 @@
                         Weekly Schedule
                     </div>
                     <div style="display: flex; gap: 8px; align-items: center;">
-                        <button onclick="showToast('Previous week', 'info')"
+                        <button type="button" onclick="showToast('Previous week', 'info')"
                             style="background: none; border: none; color: #fff; cursor: pointer;">
                             <span class="material-symbols-outlined">chevron_left</span>
                         </button>
                         <span style="color: rgba(255,255,255,0.6); font: var(--md-sys-typescale-label-medium);">Jan 6 -
                             10</span>
-                        <button onclick="showToast('Next week', 'info')"
+                        <button type="button" onclick="showToast('Next week', 'info')"
                             style="background: none; border: none; color: #fff; cursor: pointer;">
                             <span class="material-symbols-outlined">chevron_right</span>
                         </button>

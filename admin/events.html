@@ -238,16 +238,16 @@
 
             <div class="animate-entry delay-2">
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('events')">
+                    <button type="button" class="tab active" onclick="switchTab('events')">
                         <span class="material-symbols-outlined">event</span> Events
                     </button>
-                    <button class="tab" onclick="switchTab('registrations')">
+                    <button type="button" class="tab" onclick="switchTab('registrations')">
                         <span class="material-symbols-outlined">people</span> Registrations
                     </button>
-                    <button class="tab" onclick="switchTab('emails')">
+                    <button type="button" class="tab" onclick="switchTab('emails')">
                         <span class="material-symbols-outlined">mail</span> Emails
                     </button>
-                    <button class="tab" onclick="switchTab('create')">
+                    <button type="button" class="tab" onclick="switchTab('create')">
                         <span class="material-symbols-outlined">add</span> Create
                     </button>
                 </div>
@@ -416,19 +416,19 @@
               </div>
               <div class="event-actions">
                 ${e.status === 'scheduled' ? `
-                  <button class="event-btn live" onclick="startEvent('${e.id}')">
+                  <button type="button" class="event-btn live" onclick="startEvent('${e.id}')">
                     <span class="material-symbols-outlined">stream</span> Go Live
                   </button>
                 ` : e.status === 'live' ? `
-                  <button class="event-btn secondary" onclick="endEvent('${e.id}')">
+                  <button type="button" class="event-btn secondary" onclick="endEvent('${e.id}')">
                     <span class="material-symbols-outlined">stop</span> End
                   </button>
                 ` : e.status === 'draft' ? `
-                  <button class="event-btn primary" onclick="publishEvent('${e.id}')">
+                  <button type="button" class="event-btn primary" onclick="publishEvent('${e.id}')">
                     <span class="material-symbols-outlined">publish</span> Publish
                   </button>
                 ` : ''}
-                <button class="event-btn secondary" onclick="viewRegistrations('${e.id}')">
+                <button type="button" class="event-btn secondary" onclick="viewRegistrations('${e.id}')">
                   <span class="material-symbols-outlined">people</span>
                 </button>
               </div>

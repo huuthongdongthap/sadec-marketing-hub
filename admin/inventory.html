@@ -754,20 +754,20 @@
             <!-- Toolbar -->
             <div class="inventory-toolbar animate-entry delay-3">
                 <div class="filter-chips" id="filterChips">
-                    <button class="filter-chip active" data-filter="all" onclick="filterInventory('all')">
+                    <button type="button" class="filter-chip active" data-filter="all" onclick="filterInventory('all')">
                         📋 Tất cả
                     </button>
-                    <button class="filter-chip" data-filter="nguyen-lieu" onclick="filterInventory('nguyen-lieu')">
+                    <button type="button" class="filter-chip" data-filter="nguyen-lieu" onclick="filterInventory('nguyen-lieu')">
                         🫘 Nguyên liệu
                     </button>
-                    <button class="filter-chip" data-filter="dong-goi" onclick="filterInventory('dong-goi')">
+                    <button type="button" class="filter-chip" data-filter="dong-goi" onclick="filterInventory('dong-goi')">
                         📦 Đóng gói
                     </button>
-                    <button class="filter-chip" data-filter="thiet-bi" onclick="filterInventory('thiet-bi')">
+                    <button type="button" class="filter-chip" data-filter="thiet-bi" onclick="filterInventory('thiet-bi')">
                         🔧 Thiết bị
                     </button>
                 </div>
-                <button class="add-inventory-btn" onclick="openModal()">
+                <button type="button" class="add-inventory-btn" onclick="openModal()">
                     <span class="material-symbols-outlined">add</span>
                     Thêm mới
                 </button>
@@ -809,7 +809,7 @@
                     <span class="material-symbols-outlined">inventory</span>
                     <span id="modalTitle">Thêm Nguyên Liệu</span>
                 </div>
-                <button class="modal-close" onclick="closeModal()">
+                <button type="button" class="modal-close" onclick="closeModal()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -994,14 +994,14 @@
                         <td><span class="status-badge ${status.class}">${status.label}</span></td>
                         <td>
                             <div style="display: flex; gap: 6px;">
-                                <button class="restock-btn" onclick="openRestockModal('${item.id}')" ${item.quantity > 0 && item.quantity > item.threshold ? 'disabled' : ''}>
+                                <button type="button" class="restock-btn" onclick="openRestockModal('${item.id}')" ${item.quantity > 0 && item.quantity > item.threshold ? 'disabled' : ''}>
                                     <span class="material-symbols-outlined">add_shopping_cart</span>
                                     Nhập
                                 </button>
-                                <button class="action-btn" onclick="editItem('${item.id}')" title="Sửa">
+                                <button type="button" class="action-btn" onclick="editItem('${item.id}')" title="Sửa">
                                     <span class="material-symbols-outlined">edit</span>
                                 </button>
-                                <button class="action-btn delete" onclick="deleteItem('${item.id}')" title="Xóa">
+                                <button type="button" class="action-btn delete" onclick="deleteItem('${item.id}')" title="Xóa">
                                     <span class="material-symbols-outlined">delete</span>
                                 </button>
                             </div>

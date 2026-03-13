@@ -3,7 +3,7 @@
  * UI Components: Modal, Render Functions
  */
 
-import { Toast } from '../enhanced-utils.js';
+import { Toast } from '../core/enhanced-utils.js';
 import { formatCurrency } from './portal-utils.js';
 
 // ================================================

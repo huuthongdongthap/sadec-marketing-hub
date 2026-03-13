@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { content, utils } from './supabase.js';
+import { content, utils } from '../api/supabase.js';
 
 // Platform colors & icons
 const PLATFORMS = {

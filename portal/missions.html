@@ -510,7 +510,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button class="btn btn-filled" onclick="submitMission()" id="submit-btn">
+                    <button type="button" class="btn btn-filled" onclick="submitMission()" id="submit-btn">
                         <span class="material-symbols-outlined">send</span>
                         Gửi nhiệm vụ
                     </button>
@@ -519,11 +519,11 @@
 
             <!-- Filter Tabs -->
             <div class="filter-tabs">
-                <button class="filter-tab active" onclick="filterMissions('all', this)">Tất cả</button>
-                <button class="filter-tab" onclick="filterMissions('running', this)">Đang chạy</button>
-                <button class="filter-tab" onclick="filterMissions('queued', this)">Chờ xử lý</button>
-                <button class="filter-tab" onclick="filterMissions('done', this)">Hoàn thành</button>
-                <button class="filter-tab" onclick="filterMissions('failed', this)">Thất bại</button>
+                <button type="button" class="filter-tab active" onclick="filterMissions('all', this)">Tất cả</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('running', this)">Đang chạy</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('queued', this)">Chờ xử lý</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('done', this)">Hoàn thành</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('failed', this)">Thất bại</button>
             </div>
 
             <!-- Mission List -->

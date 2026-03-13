@@ -652,7 +652,7 @@ Usage: Include in admin layout header
         <div class="recent-search-item" role="option" data-query="${this.escapeHtml(query)}">
           <span class="material-symbols-outlined" aria-hidden="true">history</span>
           <span class="recent-search-text">${this.escapeHtml(query)}</span>
-          <button class="recent-search-remove" aria-label="Xóa" data-query="${this.escapeHtml(query)}">
+          <button type="button" class="recent-search-remove" aria-label="Xóa" data-query="${this.escapeHtml(query)}">
             <span class="material-symbols-outlined" aria-hidden="true">close</span>
           </button>
         </div>

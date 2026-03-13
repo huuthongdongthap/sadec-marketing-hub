@@ -159,7 +159,7 @@
 </head>
 <body>
     <!-- Theme Toggle -->
-    <button class="theme-toggle-fixed btn btn-primary btn-hover-glow" onclick="Theme.toggle()">
+    <button type="button" class="theme-toggle-fixed btn btn-primary btn-hover-glow" onclick="Theme.toggle()">
         🌓 Toggle Theme
     </button>
 
@@ -174,37 +174,37 @@
             <div class="demo-grid">
                 <div class="demo-item">
                     <h3>Basic Tooltip (Top)</h3>
-                    <button class="btn btn-primary" data-tooltip="This is helpful information!" data-tooltip-position="top">
+                    <button type="button" class="btn btn-primary" data-tooltip="This is helpful information!" data-tooltip-position="top">
                         Hover me (top)
                     </button>
                 </div>
                 <div class="demo-item">
                     <h3>Bottom Position</h3>
-                    <button class="btn btn-secondary" data-tooltip="Tooltip appears below" data-tooltip-position="bottom">
+                    <button type="button" class="btn btn-secondary" data-tooltip="Tooltip appears below" data-tooltip-position="bottom">
                         Hover me (bottom)
                     </button>
                 </div>
                 <div class="demo-item">
                     <h3>Left Position</h3>
-                    <button class="btn btn-outline" data-tooltip="Tooltip on left side" data-tooltip-position="left">
+                    <button type="button" class="btn btn-outline" data-tooltip="Tooltip on left side" data-tooltip-position="left">
                         Hover me (left)
                     </button>
                 </div>
                 <div class="demo-item">
                     <h3>Right Position</h3>
-                    <button class="btn btn-primary btn-hover-glow" data-tooltip="Tooltip on right side" data-tooltip-position="right">
+                    <button type="button" class="btn btn-primary btn-hover-glow" data-tooltip="Tooltip on right side" data-tooltip-position="right">
                         Hover me (right)
                     </button>
                 </div>
                 <div class="demo-item">
                     <h3>Auto Position</h3>
-                    <button class="btn btn-secondary" data-tooltip="Auto-detects best position based on viewport">
+                    <button type="button" class="btn btn-secondary" data-tooltip="Auto-detects best position based on viewport">
                         Hover me (auto)
                     </button>
                 </div>
                 <div class="demo-item">
                     <h3>HTML Content</h3>
-                    <button class="btn btn-outline" data-tooltip-html="<strong>Bold text</strong><br><em>Italic text</em>" data-tooltip-allow-html>
+                    <button type="button" class="btn btn-outline" data-tooltip-html="<strong>Bold text</strong><br><em>Italic text</em>" data-tooltip-allow-html>
                         Hover me (HTML)
                     </button>
                 </div>
@@ -219,16 +219,16 @@
                 <h3>Basic Tabs</h3>
                 <div class="mekong-tabs" data-tabs="demo-tabs-1">
                     <div role="tablist" class="mekong-tabs__list">
-                        <button role="tab" data-tab="overview" class="mekong-tabs__tab" aria-selected="true">
+                        <button type="button" role="tab" data-tab="overview" class="mekong-tabs__tab" aria-selected="true">
                             Overview
                         </button>
-                        <button role="tab" data-tab="features" class="mekong-tabs__tab">
+                        <button type="button" role="tab" data-tab="features" class="mekong-tabs__tab">
                             Features
                         </button>
-                        <button role="tab" data-tab="pricing" class="mekong-tabs__tab">
+                        <button type="button" role="tab" data-tab="pricing" class="mekong-tabs__tab">
                             Pricing
                         </button>
-                        <button role="tab" data-tab="reviews" class="mekong-tabs__tab">
+                        <button type="button" role="tab" data-tab="reviews" class="mekong-tabs__tab">
                             Reviews
                         </button>
                     </div>
@@ -265,9 +265,9 @@
                 <h3>Pills Variant</h3>
                 <div class="mekong-tabs mekong-tabs--pills" data-tabs="demo-tabs-2">
                     <div role="tablist" class="mekong-tabs__list">
-                        <button role="tab" data-tab="daily" class="mekong-tabs__tab" aria-selected="true">Daily</button>
-                        <button role="tab" data-tab="weekly" class="mekong-tabs__tab">Weekly</button>
-                        <button role="tab" data-tab="monthly" class="mekong-tabs__tab">Monthly</button>
+                        <button type="button" role="tab" data-tab="daily" class="mekong-tabs__tab" aria-selected="true">Daily</button>
+                        <button type="button" role="tab" data-tab="weekly" class="mekong-tabs__tab">Weekly</button>
+                        <button type="button" role="tab" data-tab="monthly" class="mekong-tabs__tab">Monthly</button>
                     </div>
                     <div class="mekong-tabs__panels">
                         <div role="tabpanel" data-panel="daily" class="mekong-tabs__panel">
@@ -292,7 +292,7 @@
                 <h3>FAQ Accordion</h3>
                 <div class="mekong-accordion" data-accordion="faq-accordion">
                     <div class="mekong-accordion__item">
-                        <button class="mekong-accordion__header" aria-expanded="true">
+                        <button type="button" class="mekong-accordion__header" aria-expanded="true">
                             <span class="mekong-accordion__title">What is Sa Đéc Marketing Hub?</span>
                         </button>
                         <div class="mekong-accordion__panel">
@@ -302,7 +302,7 @@
                         </div>
                     </div>
                     <div class="mekong-accordion__item">
-                        <button class="mekong-accordion__header" aria-expanded="false">
+                        <button type="button" class="mekong-accordion__header" aria-expanded="false">
                             <span class="mekong-accordion__title">How do I get started?</span>
                         </button>
                         <div class="mekong-accordion__panel">
@@ -312,7 +312,7 @@
                         </div>
                     </div>
                     <div class="mekong-accordion__item">
-                        <button class="mekong-accordion__header" aria-expanded="false">
+                        <button type="button" class="mekong-accordion__header" aria-expanded="false">
                             <span class="mekong-accordion__title">What payment methods do you accept?</span>
                         </button>
                         <div class="mekong-accordion__panel">
@@ -322,7 +322,7 @@
                         </div>
                     </div>
                     <div class="mekong-accordion__item">
-                        <button class="mekong-accordion__header" aria-expanded="false">
+                        <button type="button" class="mekong-accordion__header" aria-expanded="false">
                             <span class="mekong-accordion__title">Can I upgrade my plan later?</span>
                         </button>
                         <div class="mekong-accordion__panel">
@@ -361,13 +361,13 @@
             <h2>6. Combined Demo — All Components Together</h2>
             <div class="mekong-tabs" data-tabs="combined-tabs">
                 <div role="tablist" class="mekong-tabs__list">
-                    <button role="tab" data-tab="users" class="mekong-tabs__tab" aria-selected="true">
+                    <button type="button" role="tab" data-tab="users" class="mekong-tabs__tab" aria-selected="true">
                         👥 Users
                     </button>
-                    <button role="tab" data-tab="settings" class="mekong-tabs__tab">
+                    <button type="button" role="tab" data-tab="settings" class="mekong-tabs__tab">
                         ⚙️ Settings
                     </button>
-                    <button role="tab" data-tab="help" class="mekong-tabs__tab">
+                    <button type="button" role="tab" data-tab="help" class="mekong-tabs__tab">
                         ❓ Help
                     </button>
                 </div>
@@ -380,7 +380,7 @@
                         <h3>Settings</h3>
                         <div class="mekong-accordion" data-accordion="settings-accordion">
                             <div class="mekong-accordion__item">
-                                <button class="mekong-accordion__header" aria-expanded="true">
+                                <button type="button" class="mekong-accordion__header" aria-expanded="true">
                                     <span class="mekong-accordion__title">Profile Settings</span>
                                 </button>
                                 <div class="mekong-accordion__panel">
@@ -390,7 +390,7 @@
                                 </div>
                             </div>
                             <div class="mekong-accordion__item">
-                                <button class="mekong-accordion__header" aria-expanded="false">
+                                <button type="button" class="mekong-accordion__header" aria-expanded="false">
                                     <span class="mekong-accordion__title">Notification Settings</span>
                                 </button>
                                 <div class="mekong-accordion__panel">
@@ -405,13 +405,13 @@
                         <h3>Help & Support</h3>
                         <p>Hover over the buttons below for tooltips:</p>
                         <div style="display: flex; gap: 12px; margin-top: 16px;">
-                            <button class="btn btn-primary" data-tooltip="Create a new item">
+                            <button type="button" class="btn btn-primary" data-tooltip="Create a new item">
                                 ➕ Create New
                             </button>
-                            <button class="btn btn-secondary" data-tooltip="Save your changes">
+                            <button type="button" class="btn btn-secondary" data-tooltip="Save your changes">
                                 💾 Save
                             </button>
-                            <button class="btn btn-outline" data-tooltip="Delete selected items" data-tooltip-position="bottom">
+                            <button type="button" class="btn btn-outline" data-tooltip="Delete selected items" data-tooltip-position="bottom">
                                 🗑️ Delete
                             </button>
                         </div>

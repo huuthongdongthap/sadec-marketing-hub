@@ -28,7 +28,7 @@ import {
     sortBy,
     sum,
     average
-} from './core-utils.js';
+} from './services/core-utils.js';
 
 describe('Format Utilities', () => {
     describe('formatCurrency', () => {

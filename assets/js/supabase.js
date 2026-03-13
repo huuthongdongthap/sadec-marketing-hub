@@ -4,7 +4,7 @@
 // ================================================
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-import MekongUtils from './enhanced-utils.js';
+import MekongUtils from './services/enhanced-utils.js';
 
 // Supabase Configuration
 const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';

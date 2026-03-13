@@ -31,6 +31,10 @@ export { Tabs, TabsManager } from './tabs.js';
 export { Accordion, AccordionManager } from './accordion.js';
 export { DataTable } from './data-table.js';
 export { ScrollToTop, ScrollToTopManager } from './scroll-to-top.js';
+export { KpiCardWidget } from './kpi-card.js';
+
+// Dashboard Widgets
+export { default as KpiCard } from './kpi-card.js';
 
 /**
  * Auto-initialize all components
@@ -71,6 +75,7 @@ window.MekongComponents = {
   Accordion: window.Accordion,
   DataTable: window.DataTable,
   ScrollToTop: window.ScrollToTop,
+  KpiCardWidget: window.KpiCardWidget,
 
   // Initialize
   init: initializeComponents

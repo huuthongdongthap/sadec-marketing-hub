@@ -896,11 +896,11 @@
                             Danh sách NCC
                         </div>
                         <div class="table-actions">
-                            <button class="btn-cyber-sm" onclick="openCategoryFilter()">
+                            <button type="button" class="btn-cyber-sm" onclick="openCategoryFilter()">
                                 <span class="material-symbols-outlined">filter_list</span>
                                 Lọc
                             </button>
-                            <button class="btn-cyber-sm" onclick="openAddSupplierModal()">
+                            <button type="button" class="btn-cyber-sm" onclick="openAddSupplierModal()">
                                 <span class="material-symbols-outlined">add</span>
                                 Thêm NCC
                             </button>
@@ -934,8 +934,8 @@
                     </div>
 
                     <div class="po-tabs">
-                        <button class="po-tab active" data-tab="create" onclick="switchTab('create')">Tạo mới</button>
-                        <button class="po-tab" data-tab="history" onclick="switchTab('history')">Lịch sử</button>
+                        <button type="button" class="po-tab active" data-tab="create" onclick="switchTab('create')">Tạo mới</button>
+                        <button type="button" class="po-tab" data-tab="history" onclick="switchTab('history')">Lịch sử</button>
                     </div>
 
                     <!-- Create PO Tab -->
@@ -961,7 +961,7 @@
                             <label class="form-label">Danh sách hàng</label>
                         </div>
                         <div class="po-items-list" id="poItemsList"></div>
-                        <button class="btn-add-item" onclick="addPOItem()">
+                        <button type="button" class="btn-add-item" onclick="addPOItem()">
                             <span class="material-symbols-outlined">add</span>
                             Thêm hàng
                         </button>
@@ -981,7 +981,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled="">
+                        <button type="button" class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled="">
                             <span class="material-symbols-outlined">check_circle</span>
                             Tạo Đơn Hàng
                         </button>
@@ -1001,7 +1001,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="modalTitle">🚛 Thêm Nhà Cung Cấp</h2>
-                <button class="modal-close" onclick="closeSupplierModal()">
+                <button type="button" class="modal-close" onclick="closeSupplierModal()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -1056,8 +1056,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-modal secondary" onclick="closeSupplierModal()">Hủy</button>
-                <button class="btn-modal primary" onclick="saveSupplier()">Lưu NCC</button>
+                <button type="button" class="btn-modal secondary" onclick="closeSupplierModal()">Hủy</button>
+                <button type="button" class="btn-modal primary" onclick="saveSupplier()">Lưu NCC</button>
             </div>
         </div>
     </div>
@@ -1067,7 +1067,7 @@
         <div class="modal-content" style="max-width: 400px;">
             <div class="modal-header">
                 <h2 class="modal-title">🔍 Lọc theo loại</h2>
-                <button class="modal-close" onclick="closeCategoryFilter()">
+                <button type="button" class="modal-close" onclick="closeCategoryFilter()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -1219,10 +1219,10 @@
                     </td>
                     <td>
                         <div class="action-btns">
-                            <button class="action-btn edit" onclick="openEditSupplierModal('${s.id}')" title="Sửa">
+                            <button type="button" class="action-btn edit" onclick="openEditSupplierModal('${s.id}')" title="Sửa">
                                 <span class="material-symbols-outlined">edit</span>
                             </button>
-                            <button class="action-btn delete" onclick="deleteSupplier('${s.id}')" title="Xóa">
+                            <button type="button" class="action-btn delete" onclick="deleteSupplier('${s.id}')" title="Xóa">
                                 <span class="material-symbols-outlined">delete</span>
                             </button>
                         </div>
@@ -1294,7 +1294,7 @@
                     <input type="text" placeholder="Tên hàng" value="${item.name}" onchange="updatePOItem(${idx}, 'name', this.value)">
                     <input type="number" placeholder="SL" value="${item.qty}" min="1" onchange="updatePOItem(${idx}, 'qty', this.value)">
                     <input type="number" placeholder="Đơn giá" value="${item.unitPrice}" min="0" onchange="updatePOItem(${idx}, 'unitPrice', this.value)">
-                    <button class="btn-remove-item" onclick="removePOItem(${idx})">
+                    <button type="button" class="btn-remove-item" onclick="removePOItem(${idx})">
                         <span class="material-symbols-outlined">remove</span>
                     </button>
                 </div>

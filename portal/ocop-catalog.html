@@ -762,11 +762,11 @@
                     OCOP Đồng Tháp
                 </div>
                 <div class="header-actions">
-                    <button class="header-btn outline" onclick="window.location.href='dashboard.html'">
+                    <button type="button" class="header-btn outline" onclick="window.location.href='dashboard.html'">
                         <span class="material-symbols-outlined">dashboard</span>
                         Dashboard
                     </button>
-                    <button class="header-btn filled" onclick="window.location.href='missions.html'">
+                    <button type="button" class="header-btn filled" onclick="window.location.href='missions.html'">
                         <span class="material-symbols-outlined">shopping_cart</span>
                         Giỏ hàng
                     </button>
@@ -808,12 +808,12 @@
     <!-- Category Tabs -->
     <nav class="category-tabs">
         <div class="tabs-container" id="categoryTabs">
-            <button class="category-tab active" data-category="all">Tất cả</button>
-            <button class="category-tab" data-category="food">Ẩm thực</button>
-            <button class="category-tab" data-category="beverage">Đồ uống</button>
-            <button class="category-tab" data-category="handicraft">Thủ công mỹ nghệ</button>
-            <button class="category-tab" data-category="textile">Dệt may</button>
-            <button class="category-tab" data-category="cosmetic">Mỹ phẩm</button>
+            <button type="button" class="category-tab active" data-category="all">Tất cả</button>
+            <button type="button" class="category-tab" data-category="food">Ẩm thực</button>
+            <button type="button" class="category-tab" data-category="beverage">Đồ uống</button>
+            <button type="button" class="category-tab" data-category="handicraft">Thủ công mỹ nghệ</button>
+            <button type="button" class="category-tab" data-category="textile">Dệt may</button>
+            <button type="button" class="category-tab" data-category="cosmetic">Mỹ phẩm</button>
         </div>
     </nav>
 
@@ -1147,7 +1147,7 @@
                     <div class="product-image">
                         <img src="${product.image}" alt="${product.name}" loading="lazy">
                         ${product.badge ? `<span class="product-badge ${product.badge}">${product.badgeText}</span>` : ''}
-                        <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this, ${product.id})">
+                        <button type="button" class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this, ${product.id})">
                             <span class="material-symbols-outlined">favorite</span>
                         </button>
                     </div>
@@ -1169,7 +1169,7 @@
                                 <span class="price-current">${formatCurrency(product.price)}</span>
                                 ${product.originalPrice ? `<span class="price-original">${formatCurrency(product.originalPrice)}</span>` : ''}
                             </div>
-                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">
+                            <button type="button" class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">
                                 <span class="material-symbols-outlined">add_shopping_cart</span>
                                 Thêm
                             </button>

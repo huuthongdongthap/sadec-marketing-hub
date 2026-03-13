@@ -8,7 +8,7 @@
 
 import { ApiClientBase, onReady, renderTable, statusBadge } from '../shared/api-client.js';
 import { formatCurrency } from '../shared/format-utils.js';
-import { invoices, budget } from '../supabase.js';
+import { invoices, budget } from '../api/supabase.js';
 
 /**
  * Finance API Client

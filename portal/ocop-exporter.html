@@ -454,7 +454,7 @@
                     </div>
                 </div>
 
-                <button class="generate-btn" id="generate-btn" onclick="generateExport()">
+                <button type="button" class="generate-btn" id="generate-btn" onclick="generateExport()">
                     <span class="material-symbols-outlined">auto_awesome</span>
                     Tạo Export Package — 3 credits
                 </button>
@@ -463,25 +463,25 @@
             <!-- AI Output -->
             <div class="ai-output" id="ai-output">
                 <div class="output-tabs">
-                    <button class="output-tab active" onclick="switchTab('alibaba', this)">📦 Alibaba Listing</button>
-                    <button class="output-tab" onclick="switchTab('email', this)">📧 B2B Email</button>
-                    <button class="output-tab" onclick="switchTab('compliance', this)">📋 Compliance</button>
+                    <button type="button" class="output-tab active" onclick="switchTab('alibaba', this)">📦 Alibaba Listing</button>
+                    <button type="button" class="output-tab" onclick="switchTab('email', this)">📧 B2B Email</button>
+                    <button type="button" class="output-tab" onclick="switchTab('compliance', this)">📋 Compliance</button>
                 </div>
 
                 <div class="output-panel active" id="panel-alibaba">
-                    <button class="copy-btn" onclick="copyPanel('alibaba')">
+                    <button type="button" class="copy-btn" onclick="copyPanel('alibaba')">
                         <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
                     </button>
                     <div id="content-alibaba"></div>
                 </div>
                 <div class="output-panel" id="panel-email">
-                    <button class="copy-btn" onclick="copyPanel('email')">
+                    <button type="button" class="copy-btn" onclick="copyPanel('email')">
                         <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
                     </button>
                     <div id="content-email"></div>
                 </div>
                 <div class="output-panel" id="panel-compliance">
-                    <button class="copy-btn" onclick="copyPanel('compliance')">
+                    <button type="button" class="copy-btn" onclick="copyPanel('compliance')">
                         <span class="material-symbols-outlined" style="font-size:14px">content_copy</span> Copy
                     </button>
                     <div id="content-compliance"></div>

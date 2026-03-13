@@ -283,7 +283,7 @@
                     <span class="material-symbols-outlined">history</span>
                     Execution Log
                 </h2>
-                <button class="btn btn-text" onclick="clearLog()">Clear</button>
+                <button type="button" class="btn btn-text" onclick="clearLog()">Clear</button>
             </div>
             <div class="execution-log" id="executionLog">
                 <div class="empty-log">
@@ -304,8 +304,8 @@
                 <!-- Dynamic form fields -->
             </div>
             <div class="modal-footer">
-                <button class="modal-btn secondary" onclick="closeModal()">Cancel</button>
-                <button class="modal-btn primary" onclick="executeWorkflow()">
+                <button type="button" class="modal-btn secondary" onclick="closeModal()">Cancel</button>
+                <button type="button" class="modal-btn primary" onclick="executeWorkflow()">
                     <span class="material-symbols-outlined" style="font-size: 18px;">play_arrow</span>
                     Run
                 </button>
@@ -348,7 +348,7 @@
               `).join('')}
             </div>
             <div class="workflow-actions">
-              <button class="run-btn" onclick="openModal('${wf.id}')" id="run-${wf.id}">
+              <button type="button" class="run-btn" onclick="openModal('${wf.id}')" id="run-${wf.id}">
                 <span class="material-symbols-outlined">play_arrow</span>
                 Run Workflow
               </button>

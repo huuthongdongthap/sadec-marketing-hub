@@ -663,19 +663,19 @@
 
             <!-- Tabs -->
             <div class="quality-tabs animate-entry delay-3" id="qualityTabs">
-                <button class="quality-tab active" data-tab="hourly" onclick="switchTab('hourly')">
+                <button type="button" class="quality-tab active" data-tab="hourly" onclick="switchTab('hourly')">
                     <span class="material-symbols-outlined">schedule</span>
                     Hàng giờ
                 </button>
-                <button class="quality-tab" data-tab="daily" onclick="switchTab('daily')">
+                <button type="button" class="quality-tab" data-tab="daily" onclick="switchTab('daily')">
                     <span class="material-symbols-outlined">today</span>
                     Hàng ngày
                 </button>
-                <button class="quality-tab" data-tab="weekly" onclick="switchTab('weekly')">
+                <button type="button" class="quality-tab" data-tab="weekly" onclick="switchTab('weekly')">
                     <span class="material-symbols-outlined">calendar_view_week</span>
                     Hàng tuần
                 </button>
-                <button class="quality-tab" data-tab="monthly" onclick="switchTab('monthly')">
+                <button type="button" class="quality-tab" data-tab="monthly" onclick="switchTab('monthly')">
                     <span class="material-symbols-outlined">calendar_month</span>
                     Hàng tháng
                 </button>
@@ -708,7 +708,7 @@
                         <span class="material-symbols-outlined">history</span>
                         Lịch sử kiểm tra
                     </div>
-                    <button class="btn-clear-history" onclick="clearHistory()">Xóa lịch sử</button>
+                    <button type="button" class="btn-clear-history" onclick="clearHistory()">Xóa lịch sử</button>
                 </div>
                 <div class="history-list" id="historyList">
                     <!-- Dynamic content -->
@@ -834,7 +834,7 @@
                             </div>
                         </div>
                         <div class="checklist-actions">
-                            <button class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
                                 <span class="material-symbols-outlined">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>
@@ -1032,7 +1032,7 @@
                             </div>
                         </div>
                         <div class="checklist-actions">
-                            <button class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
                                 <span class="material-symbols-outlined">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>

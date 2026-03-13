@@ -703,7 +703,7 @@
                             <span class="material-symbols-outlined">groups</span>
                             Danh sách thành viên
                         </div>
-                        <button class="btn-add-member" onclick="openAddMemberModal()">
+                        <button type="button" class="btn-add-member" onclick="openAddMemberModal()">
                             <span class="material-symbols-outlined">add</span>
                             Thêm thành viên
                         </button>
@@ -757,8 +757,8 @@
                 <input type="number" class="form-input" id="memberPoints" placeholder="0" value="0" aria-label="0">
             </div>
             <div class="modal-actions">
-                <button class="btn-modal btn-cancel" onclick="closeAddMemberModal()">Huỷ</button>
-                <button class="btn-modal btn-confirm" onclick="addMember()">Thêm</button>
+                <button type="button" class="btn-modal btn-cancel" onclick="closeAddMemberModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="addMember()">Thêm</button>
             </div>
         </div>
     </div>
@@ -784,8 +784,8 @@
                 <input type="text" class="form-input" id="pointsNote" placeholder="Lý do cộng điểm" aria-label="Lý do cộng điểm">
             </div>
             <div class="modal-actions">
-                <button class="btn-modal btn-cancel" onclick="closeAddPointsModal()">Huỷ</button>
-                <button class="btn-modal btn-confirm" onclick="confirmAddPoints()">Cộng điểm</button>
+                <button type="button" class="btn-modal btn-cancel" onclick="closeAddPointsModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="confirmAddPoints()">Cộng điểm</button>
             </div>
         </div>
     </div>
@@ -813,8 +813,8 @@
                 <input type="text" class="form-input" id="redeemMemberPoints" readonly="" aria-label="redeem Member Points">
             </div>
             <div class="modal-actions">
-                <button class="btn-modal btn-cancel" onclick="closeRedeemModal()">Huỷ</button>
-                <button class="btn-modal btn-confirm" onclick="confirmRedeem()">Đổi thưởng</button>
+                <button type="button" class="btn-modal btn-cancel" onclick="closeRedeemModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="confirmRedeem()">Đổi thưởng</button>
             </div>
         </div>
     </div>
@@ -909,10 +909,10 @@
                     <td><span class="tier-badge tier-${member.tier}">${getTierLabel(member.tier)}</span></td>
                     <td>${member.lastVisit}</td>
                     <td>
-                        <button class="action-btn btn-add-points" onclick="openAddPointsModal('${member.id}')">
+                        <button type="button" class="action-btn btn-add-points" onclick="openAddPointsModal('${member.id}')">
                             <span class="material-symbols-outlined" style="font-size: 14px;">add</span> Điểm
                         </button>
-                        <button class="action-btn btn-redeem" onclick="openRedeemModal('${member.id}')">
+                        <button type="button" class="action-btn btn-redeem" onclick="openRedeemModal('${member.id}')">
                             <span class="material-symbols-outlined" style="font-size: 14px;">card_giftcard</span> Đổi
                         </button>
                     </td>
@@ -929,7 +929,7 @@
                         <div class="reward-points">${reward.points} pts</div>
                     </div>
                     <div class="reward-desc">${reward.desc}</div>
-                    <button class="btn-redeem-reward" onclick="openRedeemRewardModal('${reward.id}')">
+                    <button type="button" class="btn-redeem-reward" onclick="openRedeemRewardModal('${reward.id}')">
                         Đổi thưởng này
                     </button>
                 </div>

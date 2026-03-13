@@ -248,16 +248,16 @@
 
     <div class="container dashboard-content">
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('health')">
+            <button type="button" class="tab active" onclick="switchTab('health')">
                 <span class="material-symbols-outlined">monitoring</span> Health Report
             </button>
-            <button class="tab" onclick="switchTab('customers')">
+            <button type="button" class="tab" onclick="switchTab('customers')">
                 <span class="material-symbols-outlined">people</span> Customers
             </button>
-            <button class="tab" onclick="switchTab('actions')">
+            <button type="button" class="tab" onclick="switchTab('actions')">
                 <span class="material-symbols-outlined">task_alt</span> Actions
             </button>
-            <button class="tab" onclick="switchTab('playbooks')">
+            <button type="button" class="tab" onclick="switchTab('playbooks')">
                 <span class="material-symbols-outlined">menu_book</span> Playbooks
             </button>
         </div>
@@ -397,7 +397,7 @@
             <div class="action-task">${a.task}</div>
             <div class="action-customer">${a.customerName}</div>
           </div>
-          <button class="action-btn" onclick="completeAction('${a.id}')">Done</button>
+          <button type="button" class="action-btn" onclick="completeAction('${a.id}')">Done</button>
         </div>
       `).join('') : '<div style="text-align:center;padding:40px;color:#666">All actions completed!</div>';
         }

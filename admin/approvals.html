@@ -405,11 +405,11 @@
               ${req.amount > 0 ? formatCurrency(req.amount) : req.description}
             </div>
             <div class="approval-actions">
-              <button class="action-btn reject" onclick="rejectApproval('${req.id}')">
+              <button type="button" class="action-btn reject" onclick="rejectApproval('${req.id}')">
                 <span class="material-symbols-outlined">close</span>
                 Reject
               </button>
-              <button class="action-btn approve" onclick="approveRequest('${req.id}')">
+              <button type="button" class="action-btn approve" onclick="approveRequest('${req.id}')">
                 <span class="material-symbols-outlined">check</span>
                 Approve
               </button>

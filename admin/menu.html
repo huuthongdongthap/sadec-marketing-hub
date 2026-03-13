@@ -81,6 +81,12 @@
     <link rel="stylesheet" href="/assets/css/responsive-table-layout.css">
     <link rel="stylesheet" href="/assets/css/ui-animations.css">
     <link rel="stylesheet" href="/assets/css/lazy-loading.css">
+    <!-- UX Components -->
+    <link rel="stylesheet" href="/assets/css/components/command-palette.css">
+    <link rel="stylesheet" href="/assets/css/components/notification-bell.css">
+    <link rel="stylesheet" href="/assets/css/components/theme-toggle.css">
+    <link rel="stylesheet" href="/assets/css/components/keyboard-shortcuts.css">
+    <link rel="stylesheet" href="/assets/css/components/error-boundary.css">
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -241,7 +247,7 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Tìm món..." id="searchInput" aria-label="Search menu items">
                     </div>
-                    <button class="btn-cyber" onclick="MenuManager.exportCSV()" title="Export CSV">
+                    <button type="button" class="btn-cyber" onclick="MenuManager.exportCSV()" title="Export CSV">
                         <span class="material-symbols-outlined">download</span>
                     </button>
                 </div>
@@ -256,13 +262,13 @@
 
             <div class="menu-toolbar animate-entry delay-3">
                 <div class="toolbar-left">
-                    <button class="filter-chip active" data-filter="all" onclick="MenuManager.filter('all')">Tất cả</button>
-                    <button class="filter-chip" data-filter="coffee" onclick="MenuManager.filter('coffee')">☕ Cà phê</button>
-                    <button class="filter-chip" data-filter="tea" onclick="MenuManager.filter('tea')">🍵 Trà</button>
-                    <button class="filter-chip" data-filter="blended" onclick="MenuManager.filter('blended')">🧊 Đá Xay</button>
-                    <button class="filter-chip" data-filter="snacks" onclick="MenuManager.filter('snacks')">🍰 Snacks</button>
+                    <button type="button" class="filter-chip active" data-filter="all" onclick="MenuManager.filter('all')">Tất cả</button>
+                    <button type="button" class="filter-chip" data-filter="coffee" onclick="MenuManager.filter('coffee')">☕ Cà phê</button>
+                    <button type="button" class="filter-chip" data-filter="tea" onclick="MenuManager.filter('tea')">🍵 Trà</button>
+                    <button type="button" class="filter-chip" data-filter="blended" onclick="MenuManager.filter('blended')">🧊 Đá Xay</button>
+                    <button type="button" class="filter-chip" data-filter="snacks" onclick="MenuManager.filter('snacks')">🍰 Snacks</button>
                 </div>
-                <button class="add-menu-btn" onclick="MenuManager.openModal()">
+                <button type="button" class="add-menu-btn" onclick="MenuManager.openModal()">
                     <span class="material-symbols-outlined">add</span> Thêm món mới
                 </button>
             </div>
@@ -312,5 +318,11 @@
   <!-- Mobile Navigation -->
   <script src="/assets/js/mobile-navigation.js" defer=""></script>
 
+  <!-- UX Features Components -->
+  <script type="module" src="/assets/js/components/command-palette.js" defer=""></script>
+  <script type="module" src="/assets/js/components/notification-bell.js" defer=""></script>
+  <script type="module" src="/assets/js/components/theme-toggle.js" defer=""></script>
+  <script type="module" src="/assets/js/utils/keyboard-shortcuts.js" defer=""></script>
+  <script type="module" src="/assets/js/components/error-boundary.js" defer=""></script>
 
 </body></html>

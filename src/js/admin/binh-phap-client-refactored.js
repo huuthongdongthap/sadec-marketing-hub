@@ -7,7 +7,7 @@
  */
 
 import { ApiClientBase, onReady, renderTable, renderList } from '../shared/api-client.js';
-import { strategic, seo } from '../supabase.js';
+import { strategic, seo } from '../api/supabase.js';
 
 /**
  * Binh Phap (Strategic Intelligence) API Client

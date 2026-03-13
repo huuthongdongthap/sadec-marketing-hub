@@ -28,7 +28,7 @@ export {
     ThemeManager,
     ScrollProgress,
     MobileSidebar
-} from '../enhanced-utils.js';
+} from '../core/enhanced-utils.js';
 
 // ================================================
 // MODAL MANAGER

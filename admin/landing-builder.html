@@ -236,20 +236,20 @@
         </div>
 
         <div class="device-toggles">
-            <button class="device-btn active" onclick="setDevice('desktop')">
+            <button type="button" class="device-btn active" onclick="setDevice('desktop')">
                 <span class="material-symbols-outlined">desktop_windows</span>
             </button>
-            <button class="device-btn" onclick="setDevice('tablet')">
+            <button type="button" class="device-btn" onclick="setDevice('tablet')">
                 <span class="material-symbols-outlined">tablet_mac</span>
             </button>
-            <button class="device-btn" onclick="setDevice('mobile')">
+            <button type="button" class="device-btn" onclick="setDevice('mobile')">
                 <span class="material-symbols-outlined">smartphone</span>
             </button>
         </div>
 
         <div style="display: flex; gap: 8px;">
-            <button class="btn btn-outlined">Preview</button>
-            <button class="btn btn-filled">Publish</button>
+            <button type="button" class="btn btn-outlined">Preview</button>
+            <button type="button" class="btn btn-filled">Publish</button>
         </div>
     </header>
 
@@ -384,9 +384,9 @@
         function getBlockTemplate(type) {
             const actions = `
                 <div class="block-actions">
-                    <button class="btn-icon small"><span class="material-symbols-outlined">arrow_upward</span></button>
-                    <button class="btn-icon small"><span class="material-symbols-outlined">arrow_downward</span></button>
-                    <button class="btn-icon small" onclick="this.closest('.canvas-block').remove()"><span class="material-symbols-outlined">delete</span></button>
+                    <button type="button" class="btn-icon small"><span class="material-symbols-outlined">arrow_upward</span></button>
+                    <button type="button" class="btn-icon small"><span class="material-symbols-outlined">arrow_downward</span></button>
+                    <button type="button" class="btn-icon small" onclick="this.closest('.canvas-block').remove()"><span class="material-symbols-outlined">delete</span></button>
                 </div>
             `;
 
@@ -397,7 +397,7 @@
                         <div style="text-align: center; padding: 40px 20px; background: #f8f9fa;">
                             <h1 style="font-size: 32px; margin-bottom: 16px; color: #333;">Tiêu đề chính ấn tượng</h1>
                             <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 24px;">Mô tả ngắn gọn về giá trị sản phẩm/dịch vụ của bạn tại đây.</p>
-                            <button class="btn btn-filled">Đăng ký ngay</button>
+                            <button type="button" class="btn btn-filled">Đăng ký ngay</button>
                         </div>
                     `;
                 case 'features':
@@ -428,7 +428,7 @@
                             <h3 style="text-align: center; margin-bottom: 16px;">Đăng ký tư vấn</h3>
                             <input type="text" placeholder="Họ tên" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;" aria-label="Họ tên">
                             <input type="text" placeholder="Số điện thoại" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 4px;" aria-label="Số điện thoại">
-                            <button class="btn btn-filled" style="width: 100%;">Gửi thông tin</button>
+                            <button type="button" class="btn btn-filled" style="width: 100%;">Gửi thông tin</button>
                         </div>
                     `;
                 default:

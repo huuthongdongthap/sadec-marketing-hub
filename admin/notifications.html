@@ -937,11 +937,11 @@
                     <p class="dashboard-subtitle">Quản lý notification templates, broadcast, và logs</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-cyber outline" onclick="testNotification()">
+                    <button type="button" class="btn-cyber outline" onclick="testNotification()">
                         <span class="material-symbols-outlined">send</span>
                         Test
                     </button>
-                    <button class="btn-cyber" onclick="showSection('broadcast')">
+                    <button type="button" class="btn-cyber" onclick="showSection('broadcast')">
                         <span class="material-symbols-outlined">campaign</span>
                         New Broadcast
                     </button>
@@ -950,23 +950,23 @@
 
             <!-- Tabs -->
             <div class="tabs-container">
-                <button class="tab-btn active" onclick="showSection('overview')">
+                <button type="button" class="tab-btn active" onclick="showSection('overview')">
                     <span class="material-symbols-outlined">dashboard</span>
                     Overview
                 </button>
-                <button class="tab-btn" onclick="showSection('templates')">
+                <button type="button" class="tab-btn" onclick="showSection('templates')">
                     <span class="material-symbols-outlined">description</span>
                     Templates
                 </button>
-                <button class="tab-btn" onclick="showSection('logs')">
+                <button type="button" class="tab-btn" onclick="showSection('logs')">
                     <span class="material-symbols-outlined">receipt_long</span>
                     Logs
                 </button>
-                <button class="tab-btn" onclick="showSection('broadcast')">
+                <button type="button" class="tab-btn" onclick="showSection('broadcast')">
                     <span class="material-symbols-outlined">campaign</span>
                     Broadcast
                 </button>
-                <button class="tab-btn" onclick="showSection('settings')">
+                <button type="button" class="tab-btn" onclick="showSection('settings')">
                     <span class="material-symbols-outlined">settings</span>
                     Settings
                 </button>
@@ -1017,7 +1017,7 @@
                             <span class="material-symbols-outlined">history</span>
                             Recent Activity
                         </h3>
-                        <button class="btn-cyber outline" onclick="showSection('logs')">
+                        <button type="button" class="btn-cyber outline" onclick="showSection('logs')">
                             View All
                         </button>
                     </div>
@@ -1083,7 +1083,7 @@
                             <span class="material-symbols-outlined">description</span>
                             Notification Templates
                         </h3>
-                        <button class="btn-cyber" onclick="createNewTemplate()">
+                        <button type="button" class="btn-cyber" onclick="createNewTemplate()">
                             <span class="material-symbols-outlined">add</span>
                             New Template
                         </button>
@@ -1110,7 +1110,7 @@
                                 <option value="payment_success">Payment Success</option>
                                 <option value="low_credits">Low Credits</option>
                             </select>
-                            <button class="btn-cyber outline">
+                            <button type="button" class="btn-cyber outline">
                                 <span class="material-symbols-outlined">download</span>
                                 Export
                             </button>

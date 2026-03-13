@@ -890,13 +890,13 @@
                             <span id="currentWeekLabel">Tuần này</span>
                         </div>
                         <div class="calendar-nav">
-                            <button class="calendar-nav-btn" onclick="prevWeek()" title="Tuần trước">
+                            <button type="button" class="calendar-nav-btn" onclick="prevWeek()" title="Tuần trước">
                                 <span class="material-symbols-outlined">chevron_left</span>
                             </button>
-                            <button class="calendar-nav-btn" onclick="goToToday()" title="Về tuần hiện tại">
+                            <button type="button" class="calendar-nav-btn" onclick="goToToday()" title="Về tuần hiện tại">
                                 <span class="material-symbols-outlined">today</span>
                             </button>
-                            <button class="calendar-nav-btn" onclick="nextWeek()" title="Tuần sau">
+                            <button type="button" class="calendar-nav-btn" onclick="nextWeek()" title="Tuần sau">
                                 <span class="material-symbols-outlined">chevron_right</span>
                             </button>
                         </div>
@@ -913,7 +913,7 @@
                             <span class="material-symbols-outlined">groups</span>
                             Nhân viên
                         </div>
-                        <button class="add-staff-btn" onclick="openAddStaffModal()" title="Thêm nhân viên">
+                        <button type="button" class="add-staff-btn" onclick="openAddStaffModal()" title="Thêm nhân viên">
                             <span class="material-symbols-outlined">add</span>
                         </button>
                     </div>
@@ -930,7 +930,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="staffModalTitle">Thêm nhân viên</h2>
-                <button class="modal-close" onclick="closeStaffModal()">
+                <button type="button" class="modal-close" onclick="closeStaffModal()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -970,7 +970,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">Phân ca</h2>
-                <button class="modal-close" onclick="closeAssignModal()">
+                <button type="button" class="modal-close" onclick="closeAssignModal()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
@@ -981,7 +981,7 @@
                 <div class="staff-select-grid" id="staffSelectGrid">
                     <!-- Rendered by JS -->
                 </div>
-                <button class="clear-shift-btn" onclick="clearShiftAssignment()" id="clearShiftBtn">
+                <button type="button" class="clear-shift-btn" onclick="clearShiftAssignment()" id="clearShiftBtn">
                     <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 4px;">clear</span>
                     Bỏ phân ca
                 </button>
@@ -1086,7 +1086,7 @@
                     </div>
                     <div class="staff-status ${s.status === 'inactive' ? 'inactive' : ''}"></div>
                     <div class="staff-actions">
-                        <button class="staff-action-btn" onclick="editStaff('${s.id}')" title="Sửa">
+                        <button type="button" class="staff-action-btn" onclick="editStaff('${s.id}')" title="Sửa">
                             <span class="material-symbols-outlined">edit</span>
                         </button>
                     </div>

@@ -240,11 +240,11 @@
                     <div class="page-subtitle">Build REST APIs in minutes with AgencyOS</div>
                 </div>
                 <div style="display: flex; gap: 12px;">
-                    <button class="btn btn-secondary" onclick="showToast('Opening Swagger docs...', 'info')">
+                    <button type="button" class="btn btn-secondary" onclick="showToast('Opening Swagger docs...', 'info')">
                         <span class="material-symbols-outlined">description</span>
                         Swagger
                     </button>
-                    <button class="btn btn-primary" onclick="showToast('Creating new endpoint...', 'success')">
+                    <button type="button" class="btn btn-primary" onclick="showToast('Creating new endpoint...', 'success')">
                         <span class="material-symbols-outlined">add</span>
                         New Endpoint
                     </button>
@@ -440,7 +440,7 @@
                                         <option value="DELETE">DELETE</option>
                                     </select>
                                     <input type="text" class="url-input" id="urlInput" value="/api/users" placeholder="/api/endpoint" aria-label="/api/endpoint">
-                                    <button class="btn btn-send" onclick="sendRequest()">
+                                    <button type="button" class="btn btn-send" onclick="sendRequest()">
                                         <span class="material-symbols-outlined">send</span>
                                         Send
                                     </button>

@@ -189,19 +189,19 @@
     <section class="section">
       <h2 class="section-title">Alert System</h2>
       <div class="btn-group">
-        <button class="btn-success" onclick="Alert.success('Thành công', 'Dữ liệu đã được lưu!')">✅ Alert Thành Công</button>
-        <button class="btn-error" onclick="Alert.error('Lỗi', 'Có lỗi xảy ra khi xử lý!')">❌ Alert Lỗi</button>
-        <button class="btn-warning" onclick="Alert.warning('Cảnh báo', 'Dữ liệu sắp hết hạn!')">⚠️ Alert Cảnh Báo</button>
-        <button class="btn-primary" onclick="Alert.info('Thông báo', 'Cập nhật mới available!')">ℹ️ Alert Thông Tin</button>
+        <button type="button" class="btn-success" onclick="Alert.success('Thành công', 'Dữ liệu đã được lưu!')">✅ Alert Thành Công</button>
+        <button type="button" class="btn-error" onclick="Alert.error('Lỗi', 'Có lỗi xảy ra khi xử lý!')">❌ Alert Lỗi</button>
+        <button type="button" class="btn-warning" onclick="Alert.warning('Cảnh báo', 'Dữ liệu sắp hết hạn!')">⚠️ Alert Cảnh Báo</button>
+        <button type="button" class="btn-primary" onclick="Alert.info('Thông báo', 'Cập nhật mới available!')">ℹ️ Alert Thông Tin</button>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Loading States</h2>
       <div class="btn-group">
-        <button class="btn-primary" onclick="Loading.fullscreen.show('Đang xử lý...')">Show Fullscreen Loading</button>
-        <button class="btn-success" onclick="Loading.fullscreen.hide()">Hide Fullscreen Loading</button>
-        <button class="btn-warning" onclick="showSkeletonDemo()">Show Skeleton Demo</button>
+        <button type="button" class="btn-primary" onclick="Loading.fullscreen.show('Đang xử lý...')">Show Fullscreen Loading</button>
+        <button type="button" class="btn-success" onclick="Loading.fullscreen.hide()">Hide Fullscreen Loading</button>
+        <button type="button" class="btn-warning" onclick="showSkeletonDemo()">Show Skeleton Demo</button>
       </div>
       <div id="skeleton-demo" style="margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;"></div>
     </section>

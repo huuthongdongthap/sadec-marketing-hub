@@ -735,7 +735,7 @@
                         <span class="material-symbols-outlined">search</span>
                         <input type="text" placeholder="Tìm món..." id="searchInput" aria-label="Search menu">
                     </div>
-                    <button class="btn-cyber" title="Order History" onclick="showOrderHistory()">
+                    <button type="button" class="btn-cyber" title="Order History" onclick="showOrderHistory()">
                         <span class="material-symbols-outlined">receipt_long</span>
                     </button>
                 </div>
@@ -766,19 +766,19 @@
                 <!-- Left: Menu -->
                 <div>
                     <div class="category-tabs" id="categoryTabs">
-                        <button class="category-tab active" data-cat="all" onclick="filterCategory('all')">
+                        <button type="button" class="category-tab active" data-cat="all" onclick="filterCategory('all')">
                             🍽️ Tất cả
                         </button>
-                        <button class="category-tab" data-cat="coffee" onclick="filterCategory('coffee')">
+                        <button type="button" class="category-tab" data-cat="coffee" onclick="filterCategory('coffee')">
                             ☕ Cà Phê
                         </button>
-                        <button class="category-tab" data-cat="tea" onclick="filterCategory('tea')">
+                        <button type="button" class="category-tab" data-cat="tea" onclick="filterCategory('tea')">
                             🍵 Trà
                         </button>
-                        <button class="category-tab" data-cat="blended" onclick="filterCategory('blended')">
+                        <button type="button" class="category-tab" data-cat="blended" onclick="filterCategory('blended')">
                             🧊 Đá Xay
                         </button>
-                        <button class="category-tab" data-cat="snacks" onclick="filterCategory('snacks')">
+                        <button type="button" class="category-tab" data-cat="snacks" onclick="filterCategory('snacks')">
                             🍰 Bánh & Snacks
                         </button>
                     </div>
@@ -793,7 +793,7 @@
                             Đơn hàng
                             <span class="cart-count" id="cartCount">0</span>
                         </div>
-                        <button class="clear-cart-btn" onclick="clearCart()">Xóa hết</button>
+                        <button type="button" class="clear-cart-btn" onclick="clearCart()">Xóa hết</button>
                     </div>
 
                     <div class="cart-items" id="cartItems">
@@ -818,25 +818,25 @@
                         </div>
 
                         <div class="payment-methods">
-                            <button class="payment-btn active" data-method="cash" onclick="selectPayment('cash')">
+                            <button type="button" class="payment-btn active" data-method="cash" onclick="selectPayment('cash')">
                                 <span class="material-symbols-outlined">payments</span>
                                 Tiền mặt
                             </button>
-                            <button class="payment-btn" data-method="transfer" onclick="selectPayment('transfer')">
+                            <button type="button" class="payment-btn" data-method="transfer" onclick="selectPayment('transfer')">
                                 <span class="material-symbols-outlined">account_balance</span>
                                 Chuyển khoản
                             </button>
-                            <button class="payment-btn" data-method="momo" onclick="selectPayment('momo')">
+                            <button type="button" class="payment-btn" data-method="momo" onclick="selectPayment('momo')">
                                 <span class="material-symbols-outlined">phone_android</span>
                                 MoMo
                             </button>
-                            <button class="payment-btn" data-method="vnpay" onclick="selectPayment('vnpay')">
+                            <button type="button" class="payment-btn" data-method="vnpay" onclick="selectPayment('vnpay')">
                                 <span class="material-symbols-outlined">credit_card</span>
                                 VNPay
                             </button>
                         </div>
 
-                        <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
+                        <button type="button" class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
                             <span class="material-symbols-outlined">point_of_sale</span>
                             THANH TOÁN
                         </button>
@@ -946,9 +946,9 @@
                         <div class="cart-item-price">${formatVND(item.price)}</div>
                     </div>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                        <button type="button" class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
                         <span class="qty-value">${item.qty}</span>
-                        <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                        <button type="button" class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
                     </div>
                 </div>
             `).join('');

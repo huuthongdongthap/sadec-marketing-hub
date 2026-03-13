@@ -5,7 +5,7 @@
  * ==============================================
  */
 
-import { formatCurrency } from './shared/format-utils.js';
+import { formatCurrency } from '../shared/format-utils.js';
 
 // ===== APPROVAL EVENT BUS =====
 class ApprovalEventBus {
