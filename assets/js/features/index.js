@@ -22,6 +22,10 @@ export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from
 export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
 export { QuickToolsPanel, QuickToolsPanelInstance, initQuickToolsPanel } from './quick-tools-panel.js';
 
+// New UX Enhancements 2026
+export { initUXEnhancements } from './ux-enhancements-2026.js';
+export { initDataRefreshIndicator, triggerRefresh, enableAutoRefresh, disableAutoRefresh } from './data-refresh-indicator.js';
+
 // UX Utilities
 export { Loading, ScrollAnimations, RippleEffect } from '../loading-states.js';
 export { ToastManager } from '../toast-manager.js';
