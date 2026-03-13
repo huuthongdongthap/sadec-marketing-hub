@@ -1,0 +1,20 @@
+{
+  "name": "notify-engine",
+  "version": "1.0.0",
+  "description": "ROIaaS Notification Engine - Multi-channel notifications",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "supabase functions deploy notify-engine",
+    "serve": "supabase functions serve notify-engine",
+    "test": "deno test _test.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.177.0/",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  },
+  "deno": {
+    "compilerOptions": {
+      "lib": ["deno.window", "dom"]
+    }
+  }
+}

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROIaaS Onboarding - Bắt đầu phân tích ROI</title>
+    <meta name="description" content="Thiết lập ROIaaS - nền tảng phân tích ROI và tối ưu chiến dịch marketing">
+
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Web Components -->
+    <script type="module" src="../assets/js/components/sadec-sidebar.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/m3-agency.css">
+    <link rel="stylesheet" href="css/roiaas-onboarding.css">
+
+    <style>
+        /* Inline critical styles for onboarding wizard */
+        :root {
+            --roiaas-primary: #00f2ff;
+            --roiaas-secondary: #0088ff;
+            --roiaas-accent: #a855f7;
+            --roiaas-success: #76ff03;
+            --roiaas-warning: #ff8f00;
+            --roiaas-danger: #ff5252;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .onboarding-container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(18, 24, 38, 0.95);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Progress Bar */
+        .progress-header {
+            margin-bottom: 32px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--roiaas-primary), var(--roiaas-secondary));
+            border-radius: 4px;
+            transition: width 0.4s ease;
+            width: 25%;
+        }
+
+        /* Step Indicators */
+        .step-indicators {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .step-indicators::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #a0aec0;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .step-dot.active {
+            background: linear-gradient(135deg, var(--roiaas-primary), var(--roiaas-secondary));
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        .step-dot.completed {
+            background: var(--roiaas-success);
+            color: #000;
+        }
+
+        .step-dot .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        /* Step Content */
+        .step-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .step-subtitle {
+            color: #a0aec0;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #e0e6f0;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--roiaas-primary);
+            box-shadow: 0 0 0 3px rgba(0, 242, 255, 0.1);
+        }
+
+        .form-group select option {
+            background: #1a2238;
+            color: #fff;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 6px;
+        }
+
+        /* Plan Cards */
+        .plan-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .plan-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .plan-card:hover {
+            border-color: rgba(0, 242, 255, 0.5);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        .plan-card.selected {
+            border-color: var(--roiaas-primary);
+            background: rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .plan-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .plan-name {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .plan-credits {
+            color: var(--roiaas-primary);
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        .plan-popular {
+            display: inline-block;
+            background: var(--roiaas-success);
+            color: #000;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-top: 8px;
+        }
+
+        /* Channel Cards */
+        .channel-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .channel-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .channel-card:hover {
+            border-color: rgba(0, 242, 255, 0.5);
+        }
+
+        .channel-card.selected {
+            border-color: var(--roiaas-primary);
+            background: rgba(0, 242, 255, 0.1);
+        }
+
+        .channel-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .channel-name {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Button Row */
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--roiaas-primary), var(--roiaas-secondary));
+            color: #fff;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 242, 255, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Error & Success */
+        .error-message {
+            color: var(--roiaas-danger);
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .success-message {
+            color: var(--roiaas-success);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .industry-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .industry-option:hover {
+            border-color: rgba(0, 242, 255, 0.5);
+        }
+
+        .industry-option.selected {
+            border-color: var(--roiaas-primary);
+            background: rgba(0, 242, 255, 0.1);
+        }
+
+        .industry-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .industry-label {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        /* Success State */
+        .success-state {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--roiaas-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .success-icon .material-symbols-outlined {
+            font-size: 48px;
+            color: #000;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .success-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .success-desc {
+            color: #a0aec0;
+            font-size: 15px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .onboarding-container {
+                padding: 24px;
+            }
+
+            .step-title {
+                font-size: 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .btn-primary {
+                order: 1;
+            }
+
+            .btn-secondary {
+                order: 2;
+            }
+
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <!-- Progress Header -->
+        <div class="progress-header">
+            <div class="progress-label">
+                <span>Thiết lập ROIaaS</span>
+                <span id="progress-text">Bước 1/4</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Step Indicators -->
+        <div class="step-indicators">
+            <div class="step-dot active" data-step="1">1</div>
+            <div class="step-dot" data-step="2">2</div>
+            <div class="step-dot" data-step="3">3</div>
+            <div class="step-dot" data-step="4">4</div>
+        </div>
+
+        <!-- STEP 1: Chọn Plan -->
+        <div class="step-content active" data-step="1">
+            <h2 class="step-title">Chọn gói credits</h2>
+            <p class="step-subtitle">Chọn gói phù hợp với nhu cầu phân tích ROI của bạn</p>
+
+            <div class="plan-cards">
+                <div class="plan-card" data-plan="starter" onclick="selectPlan('starter')">
+                    <div class="plan-icon">🚀</div>
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-credits">200 credits</div>
+                    <div class="plan-price">490.000đ/tháng</div>
+                </div>
+                <div class="plan-card selected" data-plan="growth" onclick="selectPlan('growth')">
+                    <div class="plan-icon">📈</div>
+                    <div class="plan-name">Growth</div>
+                    <div class="plan-credits">1.000 credits</div>
+                    <div class="plan-price">1.490.000đ/tháng</div>
+                    <span class="plan-popular">Phổ biến nhất</span>
+                </div>
+                <div class="plan-card" data-plan="pro" onclick="selectPlan('pro')">
+                    <div class="plan-icon">🎯</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-credits">5.000 credits</div>
+                    <div class="plan-price">4.990.000đ/tháng</div>
+                </div>
+            </div>
+
+            <div class="button-row">
+                <div></div> <!-- Spacer -->
+                <button class="btn btn-primary" onclick="nextStep()">
+                    Tiếp tục
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 2: Business Info -->
+        <div class="step-content" data-step="2">
+            <h2 class="step-title">Thông tin doanh nghiệp</h2>
+            <p class="step-subtitle">Giúp chúng tôi tùy chỉnh phân tích cho ngành của bạn</p>
+
+            <div class="industry-grid" id="industry-selection">
+                <div class="industry-option" data-industry="ecommerce" onclick="selectIndustry(this)">
+                    <span class="industry-icon">🛒</span>
+                    <span class="industry-label">Thương mại điện tử</span>
+                </div>
+                <div class="industry-option" data-industry="retail" onclick="selectIndustry(this)">
+                    <span class="industry-icon">🏪</span>
+                    <span class="industry-label">Bán lẻ</span>
+                </div>
+                <div class="industry-option" data-industry="fnb" onclick="selectIndustry(this)">
+                    <span class="industry-icon">🍽️</span>
+                    <span class="industry-label">F&B</span>
+                </div>
+                <div class="industry-option" data-industry="agriculture" onclick="selectIndustry(this)">
+                    <span class="industry-icon">🌾</span>
+                    <span class="industry-label">Nông nghiệp</span>
+                </div>
+                <div class="industry-option" data-industry="education" onclick="selectIndustry(this)">
+                    <span class="industry-icon">📚</span>
+                    <span class="industry-label">Giáo dục</span>
+                </div>
+                <div class="industry-option" data-industry="healthcare" onclick="selectIndustry(this)">
+                    <span class="industry-icon">🏥</span>
+                    <span class="industry-label">Y tế</span>
+                </div>
+                <div class="industry-option" data-industry="tourism" onclick="selectIndustry(this)">
+                    <span class="industry-icon">✈️</span>
+                    <span class="industry-label">Du lịch</span>
+                </div>
+                <div class="industry-option" data-industry="other" onclick="selectIndustry(this)">
+                    <span class="industry-icon">📦</span>
+                    <span class="industry-label">Khác</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="company-name">Tên doanh nghiệp</label>
+                <input type="text" id="company-name" placeholder="VD: Công ty ABC">
+            </div>
+
+            <div class="form-group">
+                <label for="monthly-budget">Ngân sách marketing hàng tháng (VNĐ)</label>
+                <select id="monthly-budget">
+                    <option value="">-- Chọn ngân sách --</option>
+                    <option value="<10m">Dưới 10 triệu</option>
+                    <option value="10-50m">10 - 50 triệu</option>
+                    <option value="50-100m">50 - 100 triệu</option>
+                    <option value="100-500m">100 - 500 triệu</option>
+                    <option value=">500m">Trên 500 triệu</option>
+                </select>
+            </div>
+
+            <div class="error-message" id="step2-error">Vui lòng điền đầy đủ thông tin</div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="prevStep()">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    Quay lại
+                </button>
+                <button class="btn btn-primary" onclick="validateStep2()">
+                    Tiếp tục
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3: Connect Campaigns -->
+        <div class="step-content" data-step="3">
+            <h2 class="step-title">Kết nối chiến dịch</h2>
+            <p class="step-subtitle">Chọn kênh marketing bạn đang sử dụng</p>
+
+            <div class="channel-cards">
+                <div class="channel-card" data-channel="facebook" onclick="toggleChannel('facebook')">
+                    <div class="channel-icon">📘</div>
+                    <div class="channel-name">Facebook Ads</div>
+                </div>
+                <div class="channel-card" data-channel="google" onclick="toggleChannel('google')">
+                    <div class="channel-icon">🔍</div>
+                    <div class="channel-name">Google Ads</div>
+                </div>
+                <div class="channel-card" data-channel="tiktok" onclick="toggleChannel('tiktok')">
+                    <div class="channel-icon">🎵</div>
+                    <div class="channel-name">TikTok Ads</div>
+                </div>
+                <div class="channel-card" data-channel="zalo" onclick="toggleChannel('zalo')">
+                    <div class="channel-icon">💬</div>
+                    <div class="channel-name">Zalo Ads</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="campaign-count">Số chiến dịch đang chạy</label>
+                <select id="campaign-count">
+                    <option value="">-- Chọn số lượng --</option>
+                    <option value="1-3">1 - 3 chiến dịch</option>
+                    <option value="4-10">4 - 10 chiến dịch</option>
+                    <option value="11-20">11 - 20 chiến dịch</option>
+                    <option value="20+">Trên 20 chiến dịch</option>
+                </select>
+            </div>
+
+            <div class="form-hint">
+                <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">info</span>
+                Bạn có thể kết nối chi tiết sau trong dashboard
+            </div>
+
+            <div class="error-message" id="step3-error">Vui lòng chọn ít nhất 1 kênh</div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="prevStep()">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    Quay lại
+                </button>
+                <button class="btn btn-primary" onclick="validateStep3()">
+                    Tiếp tục
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 4: First ROI Scan -->
+        <div class="step-content" data-step="4">
+            <h2 class="step-title">Phân tích ROI đầu tiên</h2>
+            <p class="step-subtitle">Nhập thông tin chiến dịch để phân tích ngay</p>
+
+            <div class="form-group">
+                <label for="campaign-name">Tên chiến dịch</label>
+                <input type="text" id="campaign-name" placeholder="VD: Chiến dịch Tết 2024">
+            </div>
+
+            <div class="form-group">
+                <label for="campaign-revenue">Doanh thu (VNĐ)</label>
+                <input type="number" id="campaign-revenue" placeholder="VD: 150000000">
+            </div>
+
+            <div class="form-group">
+                <label for="campaign-cost">Chi phí (VNĐ)</label>
+                <input type="number" id="campaign-cost" placeholder="VD: 50000000">
+            </div>
+
+            <div class="form-group">
+                <label for="campaign-channel">Kênh quảng cáo</label>
+                <select id="campaign-channel">
+                    <option value="">-- Chọn kênh --</option>
+                    <option value="facebook">Facebook Ads</option>
+                    <option value="google">Google Ads</option>
+                    <option value="tiktok">TikTok Ads</option>
+                    <option value="zalo">Zalo Ads</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+
+            <div class="error-message" id="step4-error">Vui lòng điền đầy đủ thông tin</div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="prevStep()">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    Quay lại
+                </button>
+                <button class="btn btn-primary" onclick="submitOnboarding()" id="submit-btn">
+                    <span class="material-symbols-outlined">analytics</span>
+                    Phân tích ROI
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 5: Complete -->
+        <div class="step-content" data-step="5">
+            <div class="success-state">
+                <div class="success-icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <h2 class="success-title">Hoàn tất!</h2>
+                <p class="success-desc">
+                    Thiết lập ROIaaS thành công. Đang chuyển hướng đến dashboard để xem phân tích ROI của bạn.
+                </p>
+                <div id="loading-indicator" style="margin-top: 24px;">
+                    <span class="loading-spinner"></span>
+                    <span style="color: #a0aec0; margin-left: 8px;">Đang xử lý...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/roiaas-onboarding.js"></script>
+</body>
+
+</html>

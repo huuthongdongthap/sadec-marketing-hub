@@ -20,6 +20,9 @@ build/
 env.js
 *.log
 
+# Build scripts (allowed)
+!scripts/build/
+
 # Reports (generated)
 reports/
 
