@@ -50,9 +50,9 @@ export function slugify(str) {
 }
 
 /**
- * Truncate string to max length (re-export from format for convenience)
+ * Truncate string to max length (re-export from shared/format-utils for convenience)
  */
-export { truncate } from './format.js';
+export { truncate } from '../shared/format-utils.js';
 
 /**
  * Escape HTML entities to prevent XSS

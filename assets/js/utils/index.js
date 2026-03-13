@@ -1,12 +1,12 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
  * MEKONG UTILITIES - Barrel Export
- * 
+ *
  * Single source of truth for all utility functions
- * 
+ *
  * Usage:
  *   import { formatCurrency, debounce, slugify } from 'utils/index.js';
- * 
+ *
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -20,7 +20,7 @@ export {
     formatDateTime,
     formatRelativeTime,
     truncate
-} from './format.js';
+} from '../shared/format-utils.js';
 
 // Function utilities (debounce, throttle)
 export {
@@ -35,6 +35,12 @@ export {
     getInitials,
     truncate
 } from './string.js';
+
+// Function utilities (debounce, throttle)
+export {
+    debounce,
+    throttle
+} from './function.js';
 
 // ID utilities
 export { generateId } from './id.js';
@@ -57,3 +63,10 @@ export {
 export {
     delegateEvent
 } from './events.js';
+
+// Export utilities
+export {
+    exportToCSV,
+    exportToJSON,
+    downloadFile
+} from './export-utils.js';

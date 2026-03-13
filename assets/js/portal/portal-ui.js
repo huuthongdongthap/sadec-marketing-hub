@@ -5,99 +5,11 @@
 
 import { Toast } from '../services/core-utils.js';
 import { formatCurrency } from './portal-utils.js';
+import { ModalManager } from '../shared/modal-utils.js';
 
 // ================================================
-// MODAL MANAGER
+// MODAL MANAGER (re-exported from shared/modal-utils.js)
 // ================================================
-
-export class ModalManager {
-    constructor() {
-        this.overlay = null;
-        this.modal = null;
-    }
-
-    open(content, options = {}) {
-        // Create overlay if not exists
-        if (!document.getElementById('modal-overlay')) {
-            this.overlay = document.createElement('div');
-            this.overlay.id = 'modal-overlay';
-            this.overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.5);
-                z-index: 9999;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) {
-                    this.close();
-                }
-            });
-
-            document.body.appendChild(this.overlay);
-        } else {
-            this.overlay = document.getElementById('modal-overlay');
-        }
-
-        // Create modal content
-        this.modal = document.createElement('div');
-        this.modal.className = 'modal-content';
-        this.modal.style.cssText = `
-            background: var(--md-sys-color-surface);
-            border-radius: 16px;
-            max-width: 560px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        `;
-
-        this.modal.innerHTML = `
-            ${content}
-        `;
-
-        this.overlay.appendChild(this.modal);
-
-        // Animate in
-        requestAnimationFrame(() => {
-            this.overlay.style.opacity = '1';
-            this.modal.style.transform = 'scale(1)';
-        });
-
-        // Close button handler
-        this.modal.querySelector('.modal-close')?.addEventListener('click', () => this.close());
-
-        // ESC key handler
-        this.escHandler = (e) => {
-            if (e.key === 'Escape') this.close();
-        };
-        document.addEventListener('keydown', this.escHandler);
-    }
-
-    close() {
-        if (!this.overlay) return;
-
-        this.overlay.style.opacity = '0';
-        this.modal.style.transform = 'scale(0.9)';
-
-        setTimeout(() => {
-            this.overlay?.remove();
-            this.overlay = null;
-            this.modal = null;
-            document.removeEventListener('keydown', this.escHandler);
-        }, 300);
-    }
-}
 
 // ================================================
 // RENDER FUNCTIONS

@@ -5,6 +5,7 @@
 
 import { auth, leads, clients, deals, utils } from '../api/supabase.js';
 import { formatCurrencyCompact, formatRelativeTime, Toast } from '../core/enhanced-utils.js';
+import { ModalManager } from '../shared/modal-utils.js';
 
 // ================================================
 // DEMO DEALS DATA

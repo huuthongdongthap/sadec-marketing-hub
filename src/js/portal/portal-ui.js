@@ -5,50 +5,15 @@
 
 import { Toast } from '../core/enhanced-utils.js';
 import { formatCurrency } from './portal-utils.js';
+import { ModalManager } from '../shared/modal-utils.js';
 
 // ================================================
-// MODAL MANAGER
+// MODAL MANAGER (re-exported from shared)
 // ================================================
 
-export class ModalManager {
-    constructor() {
-        this.overlay = null;
-        this.modal = null;
-    }
-
-    open(content, options = {}) {
-        // Create overlay if not exists
-        if (!document.getElementById('modal-overlay')) {
-            this.overlay = document.createElement('div');
-            this.overlay.id = 'modal-overlay';
-            this.overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.5);
-                z-index: 9999;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) {
-                    this.close();
-                }
-            });
-
-            document.body.appendChild(this.overlay);
-        } else {
-            this.overlay = document.getElementById('modal-overlay');
-        }
-
-        // Create modal content
-        this.modal = document.createElement('div');
+// ================================================
+// RENDER FUNCTIONS
+// ================================================        this.modal = document.createElement('div');
         this.modal.className = 'modal-content';
         this.modal.style.cssText = `
             background: var(--md-sys-color-surface);
