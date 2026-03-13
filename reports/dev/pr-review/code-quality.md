@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-13T10:37:14.408Z
-**Files Scanned:** 424
-**Total Issues:** 1189
+**Generated:** 2026-03-13T15:40:31.770Z
+**Files Scanned:** 637
+**Total Issues:** 1824
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 231 |
-| 🟡 Warnings | 763 |
-| ℹ️ Info | 195 |
+| 🔴 Errors | 312 |
+| 🟡 Warnings | 1216 |
+| ℹ️ Info | 296 |
 
 ---
 
@@ -20,12 +20,12 @@
 
 | Type | Count |
 |------|-------|
-| Dead Code | 43 |
+| Dead Code | 85 |
 | Tech Debt | 0 |
-| Code Smell | 188 |
-| Naming | 38 |
-| Security | 855 |
-| Duplicate | 65 |
+| Code Smell | 271 |
+| Naming | 59 |
+| Security | 1302 |
+| Duplicate | 107 |
 
 ---
 
@@ -82,40 +82,22 @@
 ### assets/js/admin/admin-ux-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/admin-shared.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/admin-shared.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/agents.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/approvals.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/campaign-optimizer.js
+### assets/js/components/data-table.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/components/error-boundary.js
@@ -166,6 +148,15 @@
 ### assets/js/components/mobile-responsive.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/payment-modal.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -193,10 +184,31 @@
 ### assets/js/components/sadec-toast.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/scroll-to-top.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/search-autocomplete.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/search-autocomplete.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/theme-toggle.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/toast-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/components/toast-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/core-utils.test.js
@@ -211,25 +223,10 @@
 ### assets/js/data-sync-init.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/enhanced-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/enhanced-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/events.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/features/analytics-dashboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/quick-actions.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/loading-states.js
@@ -253,15 +250,6 @@
 ### assets/js/mobile-navigation.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/payment-gateway.js
-- **Line 1:** Potential hardcoded secret detected (1 occurrences)
-
-### assets/js/pipeline-client.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/pipeline-client.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/portal/portal-payments.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -280,7 +268,82 @@
 ### assets/js/realtime-dashboard.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/services/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/approvals.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/events.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/form-validation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/payment-gateway.js
+- **Line 1:** Potential hardcoded secret detected (1 occurrences)
+
+### assets/js/services/toast-notification.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ui-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/zalo-chat.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/shared/api-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/shared/dom-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/format-utils.js
@@ -349,16 +412,16 @@
 ### assets/js/ui-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/ui-utils.js
+### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/workflows.js
+### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/workflows.js
+### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/zalo-chat.js
+### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/activity-feed.js
@@ -406,40 +469,22 @@
 ### assets/js/admin/admin-ux-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/admin-shared.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/admin-shared.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/admin/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
+### assets/js/alert-system.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/agents.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/agents.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ai-assistant.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/approvals.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/campaign-optimizer.js
+### assets/js/components/data-table.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/components/error-boundary.js
@@ -490,6 +535,15 @@
 ### assets/js/components/mobile-responsive.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/notification-bell.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/payment-modal.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -517,10 +571,31 @@
 ### assets/js/components/sadec-toast.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/components/scroll-to-top.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/search-autocomplete.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/search-autocomplete.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/theme-toggle.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/components/toast-manager.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/components/toast-manager.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/components/tooltip.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/core-utils.test.js
@@ -535,25 +610,10 @@
 ### assets/js/data-sync-init.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/ecommerce.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/enhanced-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/enhanced-utils.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/events.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/features/analytics-dashboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/quick-actions.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/loading-states.js
@@ -577,15 +637,6 @@
 ### assets/js/mobile-navigation.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/payment-gateway.js
-- **Line 1:** Potential hardcoded secret detected (1 occurrences)
-
-### assets/js/pipeline-client.js
-- **Line 0:** eval() usage detected - potential security risk
-
-### assets/js/pipeline-client.js
-- **Line 0:** eval() usage detected - potential security risk
-
 ### assets/js/portal/portal-payments.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -604,7 +655,82 @@
 ### assets/js/realtime-dashboard.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/services/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/agents.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ai-assistant.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/approvals.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ecommerce.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/events.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/form-validation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/payment-gateway.js
+- **Line 1:** Potential hardcoded secret detected (1 occurrences)
+
+### assets/js/services/toast-notification.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/ui-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/services/zalo-chat.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/shared/api-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/shared/dom-utils.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/shared/format-utils.js
@@ -673,16 +799,16 @@
 ### assets/js/ui-enhancements.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/ui-utils.js
+### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/workflows.js
+### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/workflows.js
+### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
-### assets/js/zalo-chat.js
+### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### material-interactions.js
@@ -700,11 +826,128 @@
 ### scripts/migration/create-users.js
 - **Line 1:** Potential hardcoded secret detected (5 occurrences)
 
+### scripts/perf/inject-critical-css.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### scripts/review/code-quality.js
 - **Line 41:** eval() usage detected - potential security risk
 
 ### scripts/review/code-quality.js
 - **Line 41:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/admin-ux-enhancements.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/dashboard-client-refactored.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/admin/keyboard-shortcuts.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/api/approvals.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/api/data-sync-init.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/components/mobile-menu.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/components/mobile-navigation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/components/mobile-navigation.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/components/toast-notification.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/core/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/core/enhanced-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/features/analytics-dashboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/modules/campaign-optimizer.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/modules/pipeline-client.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/modules/pipeline-client.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/modules/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/modules/workflows.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/portal/portal-payments.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/portal/portal-payments.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/portal/portal-ui.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/portal/portal-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/admin-shared.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/api-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/dom-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/format-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/format-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/guard-utils.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### src/js/shared/modal-utils.js
+- **Line 0:** eval() usage detected - potential security risk
 
 ### supabase/functions/generate-content/index.ts
 - **Line 0:** eval() usage detected - potential security risk
@@ -749,7 +992,7 @@
 - **admin/widgets/project-progress.js** (Line 29): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/widgets/project-progress.js** (Line 0): document.write() usage - consider using DOM manipulation methods
 
-... and 743 more warnings
+... and 1196 more warnings
 
 
 ---
@@ -779,17 +1022,19 @@
 - code-smell: 2
 - security: 16
 
-### assets/js/pipeline-client.js (18 issues)
-- code-smell: 10
-- security: 8
-
-### assets/js/agents.js (14 issues)
-- security: 14
+### assets/js/admin/keyboard-shortcuts.js (14 issues)
+- code-smell: 4
+- security: 10
 
 ### assets/js/components/mobile-responsive.js (14 issues)
 - dead-code: 2
 - naming: 2
 - security: 10
+
+### assets/js/components/tooltip.js (14 issues)
+- dead-code: 2
+- security: 10
+- duplicate: 2
 
 ### assets/js/features/analytics-dashboard.js (14 issues)
 - dead-code: 2

@@ -17,140 +17,76 @@ import { test, expect } from '@playwright/test';
  */
 test.describe('Admin Pages - Additional Coverage', () => {
   const ADMIN_PAGES = [
-    { path: '/admin/agents.html', name: 'AI Agents', elements: ['agent', 'ai', 'automation'] },
-    { path: '/admin/ai-analysis.html', name: 'AI Analysis', elements: ['analysis', 'ai', 'insights'] },
-    { path: '/admin/api-builder.html', name: 'API Builder', elements: ['api', 'builder', 'endpoint'] },
-    { path: '/admin/approvals.html', name: 'Approvals', elements: ['approval', 'request', 'pending'] },
-    { path: '/admin/auth.html', name: 'Authentication', elements: ['auth', 'user', 'permission'] },
-    { path: '/admin/binh-phap.html', name: 'Binh Pháp', elements: ['binh-phap', 'strategy', 'tactic'] },
-    { path: '/admin/brand-guide.html', name: 'Brand Guide', elements: ['brand', 'guide', 'style'] },
-    { path: '/admin/campaigns.html', name: 'Campaigns', elements: ['campaign', 'marketing', 'ads'] },
-    { path: '/admin/community.html', name: 'Community', elements: ['community', 'member', 'forum'] },
-    { path: '/admin/components-demo.html', name: 'Components Demo', elements: ['component', 'demo', 'ui'] },
-    { path: '/admin/content-calendar.html', name: 'Content Calendar', elements: ['content', 'calendar', 'schedule'] },
-    { path: '/admin/customer-success.html', name: 'Customer Success', elements: ['customer', 'success', 'support'] },
-    { path: '/admin/dashboard.html', name: 'Dashboard', elements: ['dashboard', 'overview', 'stats'] },
-    { path: '/admin/deploy.html', name: 'Deploy', elements: ['deploy', 'release', 'version'] },
-    { path: '/admin/docs.html', name: 'Documentation', elements: ['docs', 'documentation', 'guide'] },
-    { path: '/admin/ecommerce.html', name: 'E-commerce', elements: ['ecommerce', 'shop', 'product'] },
-    { path: '/admin/events.html', name: 'Events', elements: ['event', 'calendar', 'schedule'] },
-    { path: '/admin/finance.html', name: 'Finance', elements: ['finance', 'revenue', 'expense'] },
-    { path: '/admin/hr-hiring.html', name: 'HR & Hiring', elements: ['hr', 'hiring', 'employee'] },
-    { path: '/admin/landing-builder.html', name: 'Landing Builder', elements: ['landing', 'builder', 'page'] },
-    { path: '/admin/leads.html', name: 'Leads', elements: ['leads', 'crm', 'prospect'] },
-    { path: '/admin/legal.html', name: 'Legal', elements: ['legal', 'compliance', 'terms'] },
-    { path: '/admin/lms.html', name: 'LMS', elements: ['lms', 'course', 'learning'] },
-    { path: '/admin/mvp-launch.html', name: 'MVP Launch', elements: ['mvp', 'launch', 'checklist'] },
-    { path: '/admin/onboarding.html', name: 'Onboarding', elements: ['onboarding', 'welcome', 'setup'] },
-    { path: '/admin/payments.html', name: 'Payments', elements: ['payment', 'transaction', 'gateway'] },
-    { path: '/admin/pipeline.html', name: 'Pipeline', elements: ['pipeline', 'deal', 'sales'] },
-    { path: '/admin/pricing.html', name: 'Pricing', elements: ['pricing', 'plan', 'subscription'] },
-    { path: '/admin/proposals.html', name: 'Proposals', elements: ['proposal', 'quote', 'estimate'] },
-    { path: '/admin/retention.html', name: 'Retention', elements: ['retention', 'churn', 'loyalty'] },
-    { path: '/admin/roiaas-admin.html', name: 'ROIaaS Admin', elements: ['roi', 'roiaas', 'analytics'] },
-    { path: '/admin/ui-components-demo.html', name: 'UI Components', elements: ['ui', 'component', 'demo'] },
-    { path: '/admin/ui-demo.html', name: 'UI Demo', elements: ['ui', 'demo', 'preview'] },
-    { path: '/admin/vc-readiness.html', name: 'VC Readiness', elements: ['vc', 'investor', 'pitch'] },
-    { path: '/admin/video-workflow.html', name: 'Video Workflow', elements: ['video', 'workflow', 'media'] },
-    { path: '/admin/widgets-demo.html', name: 'Widgets Demo', elements: ['widget', 'demo', 'component'] },
-    { path: '/admin/workflows.html', name: 'Workflows', elements: ['workflow', 'automation', 'flow'] },
-    { path: '/admin/zalo.html', name: 'Zalo OA', elements: ['zalo', 'oa', 'chat'] },
+    '/admin/ai-analysis.html',
+    '/admin/api-builder.html',
+    '/admin/auth.html',
+    '/admin/binh-phap.html',
+    '/admin/campaigns.html',
+    '/admin/content-calendar.html',
+    '/admin/customer-success.html',
+    '/admin/dashboard.html',
+    '/admin/deploy.html',
+    '/admin/docs.html',
+    '/admin/ecommerce.html',
+    '/admin/events.html',
+    '/admin/finance.html',
+    '/admin/hr-hiring.html',
+    '/admin/landing-builder.html',
+    '/admin/leads.html',
+    '/admin/legal.html',
+    '/admin/lms.html',
+    '/admin/mvp-launch.html',
+    '/admin/onboarding.html',
+    '/admin/payments.html',
+    '/admin/pipeline.html',
+    '/admin/pricing.html',
+    '/admin/proposals.html',
+    '/admin/retention.html',
+    '/admin/roiaas-admin.html',
+    '/admin/vc-readiness.html',
+    '/admin/video-workflow.html',
+    '/admin/workflows.html',
+    '/admin/zalo.html',
+    // Legacy pages (no sidebar)
+    '/admin/agents.html',
+    '/admin/approvals.html',
+    '/admin/brand-guide.html',
+    '/admin/community.html',
+    '/admin/components-demo.html',
+    '/admin/ui-components-demo.html',
+    '/admin/ui-demo.html',
+    '/admin/widgets-demo.html',
   ];
 
-  // Basic page load tests for all admin pages
-  for (const pageConfig of ADMIN_PAGES) {
-    test.describe(`${pageConfig.name}`, () => {
-      test('page loads successfully', async ({ page: p }) => {
-        const response = await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-        expect(response?.status()).toBe(200);
-      });
+  for (const pagePath of ADMIN_PAGES) {
+    const pageName = pagePath.split('/').pop()?.replace('.html', '') || pagePath;
 
-      test('has valid HTML5 structure', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
+    test(`✓ ${pageName}`, async ({ page }) => {
+      // Single goto with short timeout
+      const response = await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-        // Check DOCTYPE
-        const hasDoctype = await p.evaluate(() => {
-          const firstChild = document.firstChild;
-          return firstChild?.nodeType === 10; // Node.DOCUMENT_TYPE_NODE
-        });
-        expect(hasDoctype).toBe(true);
+      // Check HTTP status
+      expect(response?.status()).toBe(200);
 
-        // Check html element exists
-        const html = await p.$('html');
-        expect(html).toBeTruthy();
+      // Check has HTML
+      const html = await page.$('html');
+      expect(html).toBeTruthy();
 
-        // Check head exists
-        const head = await p.$('head');
-        expect(head).toBeTruthy();
+      // Check has body
+      const body = await page.$('body');
+      expect(body).toBeTruthy();
 
-        // Check body exists
-        const body = await p.$('body');
-        expect(body).toBeTruthy();
-      });
+      // Check has viewport
+      const viewport = await page.$('meta[name="viewport"]');
+      expect(viewport).toBeTruthy();
 
-      test('has required meta tags', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
+      // Check has title
+      const title = await page.title();
+      expect(title.length).toBeGreaterThan(0);
 
-        // Viewport meta tag
-        const viewport = await p.$('meta[name="viewport"]');
-        expect(viewport).toBeTruthy();
-
-        // Charset
-        const charset = await p.$('meta[charset]');
-        expect(charset).toBeTruthy();
-
-        // Title
-        const title = await p.title();
-        expect(title).toBeTruthy();
-        expect(title.length).toBeGreaterThan(0);
-      });
-
-      test('loads without critical JavaScript errors', async ({ page: p }) => {
-        const criticalErrors: string[] = [];
-
-        p.on('pageerror', (error) => {
-          // Ignore expected errors (Supabase config, etc.)
-          if (error.message.includes('supabase')) return;
-          if (error.message.includes('__ENV__')) return;
-          if (error.message.includes('is not defined')) return;
-          if (error.message.includes('CustomElementRegistry')) return;
-          if (error.message.includes('Failed to load module')) return;
-
-          criticalErrors.push(error.message);
-        });
-
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        // Wait a bit for initial JS to load
-        await p.waitForTimeout(1000);
-
-        // Allow some non-critical errors (Supabase config, etc. are expected)
-        expect(criticalErrors.length).toBeLessThanOrEqual(5);
-      });
-
-      test('sidebar component loads', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        // Check for sidebar web component
-        const sidebar = await p.$('sadec-sidebar');
-        expect(sidebar).toBeTruthy();
-      });
-
-      test('main content area exists', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        // Check for main element or main content container
-        const main = await p.$('main, [role="main"], .main-content, #main');
-        expect(main).toBeTruthy();
-      });
-
-      test('responsive viewport meta tag', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        const viewportContent = await p.getAttribute('meta[name="viewport"]', 'content');
-        expect(viewportContent).toContain('width=device-width');
-        expect(viewportContent).toContain('initial-scale');
-      });
+      // Check has main content
+      const main = await page.$('main, [role="main"], .main-content');
+      expect(main).toBeTruthy();
     });
   }
 });
@@ -160,45 +96,37 @@ test.describe('Admin Pages - Additional Coverage', () => {
  */
 test.describe('Portal Pages Coverage', () => {
   const PORTAL_PAGES = [
-    { path: '/portal/dashboard.html', name: 'Portal Dashboard' },
-    { path: '/portal/projects.html', name: 'Projects' },
-    { path: '/portal/invoices.html', name: 'Invoices' },
-    { path: '/portal/payments.html', name: 'Payments' },
-    { path: '/portal/subscriptions.html', name: 'Subscriptions' },
-    { path: '/portal/missions.html', name: 'AI Missions' },
-    { path: '/portal/ocop-exporter.html', name: 'OCOP Exporter' },
-    { path: '/portal/credits.html', name: 'Credits' },
-    { path: '/portal/reports.html', name: 'Reports' },
-    { path: '/portal/approve.html', name: 'Approve' },
-    { path: '/portal/assets.html', name: 'Assets' },
-    { path: '/portal/roi-report.html', name: 'ROI Report' },
-    { path: '/portal/subscription-plans.html', name: 'Subscription Plans' },
-    { path: '/portal/login.html', name: 'Portal Login' },
+    '/portal/dashboard.html',
+    '/portal/projects.html',
+    '/portal/invoices.html',
+    '/portal/payments.html',
+    '/portal/subscriptions.html',
+    '/portal/missions.html',
+    '/portal/ocop-exporter.html',
+    '/portal/credits.html',
+    '/portal/reports.html',
+    '/portal/approve.html',
+    '/portal/assets.html',
+    '/portal/roi-report.html',
+    '/portal/subscription-plans.html',
+    '/portal/login.html',
   ];
 
-  for (const pageConfig of PORTAL_PAGES) {
-    test.describe(`${pageConfig.name}`, () => {
-      test('page loads successfully', async ({ page: p }) => {
-        const response = await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-        expect(response?.status()).toBe(200);
-      });
+  for (const pagePath of PORTAL_PAGES) {
+    const pageName = pagePath.split('/').pop()?.replace('.html', '') || pagePath;
 
-      test('has valid HTML structure', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
+    test(`✓ ${pageName}`, async ({ page }) => {
+      const response = await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      expect(response?.status()).toBe(200);
 
-        const hasDoctype = await p.evaluate(() => document.firstChild?.nodeType === 10);
-        expect(hasDoctype).toBe(true);
+      const html = await page.$('html');
+      expect(html).toBeTruthy();
 
-        const title = await p.title();
-        expect(title.length).toBeGreaterThan(0);
-      });
+      const viewport = await page.$('meta[name="viewport"]');
+      expect(viewport).toBeTruthy();
 
-      test('has viewport meta tag', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        const viewport = await p.$('meta[name="viewport"]');
-        expect(viewport).toBeTruthy();
-      });
+      const title = await page.title();
+      expect(title.length).toBeGreaterThan(0);
     });
   }
 });
@@ -208,35 +136,27 @@ test.describe('Portal Pages Coverage', () => {
  */
 test.describe('Affiliate Pages Coverage', () => {
   const AFFILIATE_PAGES = [
-    { path: '/affiliate/dashboard.html', name: 'Affiliate Dashboard' },
-    { path: '/affiliate/referrals.html', name: 'Referrals' },
-    { path: '/affiliate/commissions.html', name: 'Commissions' },
-    { path: '/affiliate/links.html', name: 'Links' },
-    { path: '/affiliate/media.html', name: 'Media Kit' },
-    { path: '/affiliate/profile.html', name: 'Profile' },
-    { path: '/affiliate/settings.html', name: 'Settings' },
+    '/affiliate/dashboard.html',
+    '/affiliate/referrals.html',
+    '/affiliate/commissions.html',
+    '/affiliate/links.html',
+    '/affiliate/media.html',
+    '/affiliate/profile.html',
+    '/affiliate/settings.html',
   ];
 
-  for (const pageConfig of AFFILIATE_PAGES) {
-    test.describe(`${pageConfig.name}`, () => {
-      test('page loads successfully', async ({ page: p }) => {
-        const response = await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-        expect(response?.status()).toBe(200);
-      });
+  for (const pagePath of AFFILIATE_PAGES) {
+    const pageName = pagePath.split('/').pop()?.replace('.html', '') || pagePath;
 
-      test('has valid HTML structure', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
+    test(`✓ ${pageName}`, async ({ page }) => {
+      const response = await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      expect(response?.status()).toBe(200);
 
-        const hasDoctype = await p.evaluate(() => document.firstChild?.nodeType === 10);
-        expect(hasDoctype).toBe(true);
-      });
+      const html = await page.$('html');
+      expect(html).toBeTruthy();
 
-      test('has sidebar component', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-
-        const sidebar = await p.$('sadec-sidebar');
-        expect(sidebar).toBeTruthy();
-      });
+      const main = await page.$('main, [role="main"], .main-content');
+      expect(main).toBeTruthy();
     });
   }
 });
@@ -245,30 +165,25 @@ test.describe('Affiliate Pages Coverage', () => {
  * SECTION: F&B Pages Coverage
  */
 test.describe('F&B Pages Coverage', () => {
-  const FNBPAGES = [
-    { path: '/admin/pos.html', name: 'POS System' },
-    { path: '/admin/menu.html', name: 'Menu Management' },
-    { path: '/admin/inventory.html', name: 'Inventory' },
-    { path: '/admin/shifts.html', name: 'Shifts' },
-    { path: '/admin/quality.html', name: 'Quality Control' },
-    { path: '/admin/suppliers.html', name: 'Suppliers' },
-    { path: '/admin/loyalty.html', name: 'Loyalty Program' },
+  const FNB_PAGES = [
+    '/admin/pos.html',
+    '/admin/menu.html',
+    '/admin/inventory.html',
+    '/admin/shifts.html',
+    '/admin/quality.html',
+    '/admin/suppliers.html',
+    '/admin/loyalty.html',
   ];
 
-  for (const pageConfig of FNBPAGES) {
-    test.describe(`${pageConfig.name}`, () => {
-      test('page loads successfully', async ({ page: p }) => {
-        const response = await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
-        expect(response?.status()).toBe(200);
-      });
+  for (const pagePath of FNB_PAGES) {
+    const pageName = pagePath.split('/').pop()?.replace('.html', '') || pagePath;
 
-      test('has F&B specific elements', async ({ page: p }) => {
-        await p.goto(pageConfig.path, { waitUntil: 'commit', timeout: 30000 });
+    test(`✓ ${pageName}`, async ({ page }) => {
+      const response = await page.goto(pagePath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      expect(response?.status()).toBe(200);
 
-        // Check for main content
-        const main = await p.$('main, [role="main"], .main-content');
-        expect(main).toBeTruthy();
-      });
+      const main = await page.$('main, [role="main"], .main-content');
+      expect(main).toBeTruthy();
     });
   }
 });

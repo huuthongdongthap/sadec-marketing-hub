@@ -192,21 +192,21 @@
     <section class="section">
       <h2 class="section-title">Bar Chart - Doanh Thu Theo Tháng</h2>
       <div class="chart-wrapper">
-        <bar-chart data='[{"label":"T1","value":45},{"label":"T2","value":52},{"label":"T3","value":38},{"label":"T4","value":65},{"label":"T5","value":58},{"label":"T6","value":72}]' color="cyan" height="200" show-labels="true"></bar-chart>
+        <bar-chart-widget data='[{"label":"T1","value":45},{"label":"T2","value":52},{"label":"T3","value":38},{"label":"T4","value":65},{"label":"T5","value":58},{"label":"T6","value":72}]' color="cyan" height="200" show-labels="true"></bar-chart-widget>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Line Chart - Lượt Truy Cập Website</h2>
       <div class="chart-wrapper">
-        <line-chart data='[{"label":"T2","value":3200},{"label":"T3","value":4100},{"label":"T4","value":3800},{"label":"T5","value":5200},{"label":"T6","value":4800},{"label":"T7","value":6100}]' color="purple" height="200" show-points="true" show-area="true"></line-chart>
+        <line-chart-widget data='[{"label":"T2","value":3200},{"label":"T3","value":4100},{"label":"T4","value":3800},{"label":"T5","value":5200},{"label":"T6","value":4800},{"label":"T7","value":6100}]' color="purple" height="200" show-points="true" show-area="true"></line-chart-widget>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Doughnut Chart - Kênh Marketing</h2>
+      <h2 class="section-title">Pie Chart - Kênh Marketing</h2>
       <div class="chart-wrapper" style="display: flex; justify-content: center;">
-        <doughnut-chart data='[{"label":"Facebook","value":45},{"label":"Google","value":30},{"label":"Zalo","value":15},{"label":"TikTok","value":10}]' size="250" show-legend="true"></doughnut-chart>
+        <pie-chart-widget data='[{"label":"Facebook","value":45},{"label":"Google","value":30},{"label":"Zalo","value":15},{"label":"TikTok","value":10}]' size="250" show-legend="true"></pie-chart-widget>
       </div>
     </section>
 
@@ -232,14 +232,66 @@
   </div>
 
   <script type="module">
-    import './charts/bar-chart.js';
-    import './charts/line-chart.js';
-    import './charts/doughnut-chart.js';
-    import './components/kpi-card.js';
-    import './alert-system.js';
-    import './loading-states.js';
-    import './micro-animations.js';
-    window.Loading = LoadingStates;
+    // Import widgets from admin/widgets/ directory
+    import './widgets/bar-chart.js';
+    import './widgets/line-chart-widget.js';
+    import './widgets/pie-chart-widget.js';
+    import './widgets/bar-chart-widget.js';
+    import './widgets/area-chart-widget.js';
+    import './widgets/alerts-widget.js';
+
+    // Global utils
+    window.Alert = AlertHelper;
+    window.Loading = LoadingHelper;
+  </script>
+
+  <!-- Alert helper system -->
+  <script>
+    const AlertHelper = {
+      success: (title, message) => {
+        const toast = document.createElement('div');
+        toast.className = 'toast toast-success';
+        toast.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      },
+      error: (title, message) => {
+        const toast = document.createElement('div');
+        toast.className = 'toast toast-error';
+        toast.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      },
+      warning: (title, message) => {
+        const toast = document.createElement('div');
+        toast.className = 'toast toast-warning';
+        toast.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      },
+      info: (title, message) => {
+        const toast = document.createElement('div');
+        toast.className = 'toast toast-info';
+        toast.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
+    };
+
+    const LoadingHelper = {
+      fullscreen: {
+        show: (message) => {
+          const overlay = document.createElement('div');
+          overlay.id = 'loading-overlay';
+          overlay.innerHTML = `<div class="loading-spinner"><p>${message || 'Đang xử lý...'}</p></div>`;
+          document.body.appendChild(overlay);
+        },
+        hide: () => {
+          const overlay = document.getElementById('loading-overlay');
+          if (overlay) overlay.remove();
+        }
+      }
+    };
   </script>
 
   <script>

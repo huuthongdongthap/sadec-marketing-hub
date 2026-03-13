@@ -49,23 +49,23 @@ test.describe('Dashboard Widgets', () => {
 
   test.describe('Bar Chart Component', () => {
     test('renders bar chart', async ({ page }) => {
-      const barChart = page.locator('bar-chart').first();
+      const barChart = page.locator('bar-chart-widget').first();
       await expect(barChart).toBeVisible();
     });
 
     test('displays bars with correct data', async ({ page }) => {
-      const bars = page.locator('bar-chart .bar');
+      const bars = page.locator('bar-chart-widget .bar');
       await expect(bars).toHaveCount(6);
     });
 
     test('shows labels when show-labels is true', async ({ page }) => {
-      const barChart = page.locator('bar-chart').first();
+      const barChart = page.locator('bar-chart-widget').first();
       const labels = barChart.locator('text');
       await expect(labels.first()).toBeVisible();
     });
 
     test('hover effect on bars', async ({ page }) => {
-      const firstBar = page.locator('bar-chart .bar').first();
+      const firstBar = page.locator('bar-chart-widget .bar').first();
       await firstBar.hover();
       await expect(firstBar).toHaveCSS('opacity', /0.8/);
     });
@@ -73,36 +73,36 @@ test.describe('Dashboard Widgets', () => {
 
   test.describe('Line Chart Component', () => {
     test('renders line chart', async ({ page }) => {
-      const lineChart = page.locator('line-chart').first();
+      const lineChart = page.locator('line-chart-widget').first();
       await expect(lineChart).toBeVisible();
     });
 
     test('shows data points when show-points is true', async ({ page }) => {
-      const lineChart = page.locator('line-chart').first();
+      const lineChart = page.locator('line-chart-widget').first();
       const points = lineChart.locator('circle');
       await expect(points.count()).resolves.toBeGreaterThan(0);
     });
 
     test('displays area fill when show-area is true', async ({ page }) => {
-      const lineChart = page.locator('line-chart').first();
+      const lineChart = page.locator('line-chart-widget').first();
       const area = lineChart.locator('path[fill^="url"]');
       await expect(area).toBeVisible();
     });
   });
 
-  test.describe('Doughnut Chart Component', () => {
-    test('renders doughnut chart', async ({ page }) => {
-      const doughnutChart = page.locator('doughnut-chart').first();
-      await expect(doughnutChart).toBeVisible();
+  test.describe('Pie Chart Component', () => {
+    test('renders pie chart', async ({ page }) => {
+      const pieChart = page.locator('pie-chart-widget').first();
+      await expect(pieChart).toBeVisible();
     });
 
     test('shows legend when show-legend is true', async ({ page }) => {
-      const legend = page.locator('doughnut-chart .legend');
+      const legend = page.locator('pie-chart-widget .legend');
       await expect(legend).toBeVisible();
     });
 
     test('displays correct number of segments', async ({ page }) => {
-      const segments = page.locator('doughnut-chart path[fill]');
+      const segments = page.locator('pie-chart-widget path[fill]');
       await expect(segments.count()).resolves.toBe(4);
     });
   });
