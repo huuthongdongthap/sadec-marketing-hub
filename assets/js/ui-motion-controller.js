@@ -54,7 +54,6 @@ const UIMotionController = {
         this.config.performanceMode = navigator.hardwareConcurrency <= 4;
 
         if (this.config.reducedMotion) {
-            console.log('[UIMotion] Reduced motion enabled');
             this.disableAnimations();
             return;
         }
@@ -71,7 +70,7 @@ const UIMotionController = {
         // Initialize performance optimizations
         this.initPerformanceOptimizations();
 
-        console.log('[UIMotion] Initialized');
+        // Initialized
     },
 
     /**
@@ -303,7 +302,6 @@ const UIMotionController = {
             navigator.getBattery().then(battery => {
                 if (battery.level < 0.2 || !battery.charging) {
                     this.config.performanceMode = true;
-                    console.log('[UIMotion] Performance mode enabled (low battery)');
                 }
             });
         }
@@ -484,8 +482,6 @@ const UIMotionController = {
         // Clear state
         this.state.animatedElements.clear();
         this.state.scrollHandlers.clear();
-
-        console.log('[UIMotion] Destroyed');
     }
 };
 

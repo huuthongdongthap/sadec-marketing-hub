@@ -213,22 +213,11 @@ export class ModalManager {
 /**
  * ToastManager - Unified toast notification manager
  *
- * Note: Re-exported from components/toast-manager.js for convenience
+ * Re-exported from assets/js/components/toast-manager.js for convenience
  * Import directly from there for new code.
  */
-// TODO: Implement toast-manager.js
-// export { Toast, ToastManager } from '../components/toast-manager.js';
-
-// Stub Toast for now
-const Toast = {
-    success: (msg) => {},
-    error: (msg) => {},
-    info: (msg) => {}
-};
-const ToastManager = class ToastManager {
-    constructor() {}
-    show() {}
-};
+export { ToastManager } from '../../../assets/js/components/toast-manager.js';
+export { Toast } from '../../../assets/js/components/toast-manager.js';
 
 /**
  * Convenience modal instances

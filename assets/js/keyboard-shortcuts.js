@@ -475,8 +475,6 @@ class KeyboardShortcuts {
   showToast(message, type = 'info') {
     if (window.Toast) {
       Toast.show({ title: type === 'success' ? '✓' : 'ℹ', message, type, duration: 2000 });
-    } else {
-      console.log(`[${type.toUpperCase()}] ${message}`);
     }
   }
 }
