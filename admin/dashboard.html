@@ -129,6 +129,22 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
 </head>
 
 <body>
@@ -163,60 +179,170 @@
                 </div>
             </div>
 
-            <!-- Stats - Using KPI Card Widgets -->
+            <!-- Stats Row 1 - Using KPI Card Widgets -->
             <div class="stats-grid animate-entry-premium delay-2">
                 <!-- Stat 1: Revenue -->
                 <kpi-card-widget
                     title="Total Revenue"
-                    value="0"
+                    value="125,000,000đ"
                     trend="positive"
-                    trend-value="12.5%"
-                    icon="trending_up"
-                    color="cyan"
+                    trend-value="+12.5%"
+                    icon="payments"
+                    color="green"
+                    sparkline-data="10,25,18,30,22,35,28"
                     id="kpi-revenue">
                 </kpi-card-widget>
 
                 <!-- Stat 2: Clients -->
                 <kpi-card-widget
                     title="Active Clients"
-                    value="0"
+                    value="47"
                     trend="positive"
-                    trend-value="8 new"
-                    icon="group_add"
-                    color="purple"
+                    trend-value="+8 new"
+                    icon="group"
+                    color="cyan"
+                    sparkline-data="5,8,12,15,20,25,30"
                     id="kpi-clients">
                 </kpi-card-widget>
 
                 <!-- Stat 3: Leads -->
                 <kpi-card-widget
                     title="Total Leads"
-                    value="0"
-                    trend="neutral"
-                    trend-value="Stable"
+                    value="234"
+                    trend="positive"
+                    trend-value="+18%"
                     icon="ads_click"
-                    color="lime"
+                    color="purple"
+                    sparkline-data="15,20,18,25,30,28,35"
                     id="kpi-leads">
                 </kpi-card-widget>
 
                 <!-- Stat 4: Campaign Rate -->
                 <kpi-card-widget
                     title="Active Campaigns"
-                    value="0"
+                    value="12"
                     trend="positive"
                     trend-value="100%"
                     icon="bolt"
                     color="orange"
+                    sparkline-data="8,9,10,10,11,12,12"
                     id="kpi-campaigns">
+                </kpi-card-widget>
+            </div>
+
+            <!-- Stats Row 2 - Additional KPIs -->
+            <div class="stats-grid animate-entry-premium delay-2" style="margin-top: 16px;">
+                <!-- Stat 5: Conversion Rate -->
+                <kpi-card-widget
+                    title="Conversion Rate"
+                    value="3.24%"
+                    trend="positive"
+                    trend-value="+0.4%"
+                    icon="funnel"
+                    color="lime"
+                    sparkline-data="2.1,2.4,2.8,2.6,3.0,2.9,3.24"
+                    id="kpi-conversion">
+                </kpi-card-widget>
+
+                <!-- Stat 6: Orders Today -->
+                <kpi-card-widget
+                    title="Orders Today"
+                    value="89"
+                    trend="positive"
+                    trend-value="+23%"
+                    icon="shopping_cart"
+                    color="red"
+                    sparkline-data="45,52,48,60,55,70,89"
+                    id="kpi-orders">
+                </kpi-card-widget>
+
+                <!-- Stat 7: Page Speed -->
+                <kpi-card-widget
+                    title="Page Speed Score"
+                    value="94"
+                    trend="positive"
+                    trend-value="+5 pts"
+                    icon="speed"
+                    color="cyan"
+                    sparkline-data="78,82,85,88,90,92,94"
+                    id="kpi-speed">
+                </kpi-card-widget>
+
+                <!-- Stat 8: System Health -->
+                <kpi-card-widget
+                    title="System Health"
+                    value="99.9%"
+                    trend="neutral"
+                    trend-value="Stable"
+                    icon="health_and_safety"
+                    color="green"
+                    sparkline-data="99,99.5,99.8,99.9,99.9,99.9,99.9"
+                    id="kpi-health">
                 </kpi-card-widget>
             </div>
 
             <!-- Content Area - Using Dashboard Widgets -->
             <div class="chart-section animate-entry delay-3">
                 <!-- Revenue Chart Widget -->
-                <revenue-chart-widget time-range="weekly" id="revenue-chart"></revenue-chart-widget>
+                <line-chart-widget
+                    title="Revenue Trend"
+                    data-type="revenue"
+                    time-range="weekly"
+                    id="revenue-chart">
+                </line-chart-widget>
 
-                <!-- Activity Feed Widget -->
-                <activity-feed-widget title="Live Activity" max-items="5" id="activity-feed"></activity-feed-widget>
+                <!-- Traffic Chart -->
+                <area-chart-widget
+                    title="Traffic Sources"
+                    series='[{"name":"Direct","data":[30,40,35,45,50,55,60]},{"name":"Organic","data":[50,60,55,70,75,80,85]}]'
+                    labels='["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]'
+                    colors='["#00e5ff","#c6ff00"]'
+                    opacity="0.3"
+                    id="traffic-chart">
+                </area-chart-widget>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="chart-section animate-entry delay-4" style="margin-top: 20px;">
+                <!-- Sales by Category Bar Chart -->
+                <bar-chart-widget
+                    title="Sales by Category"
+                    data='[65,59,80,81,56,55,45,60,75,70,85,90]'
+                    labels='["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]'
+                    colors='["#00e5ff","#d500f9"]'
+                    show-values="true"
+                    id="sales-chart">
+                </bar-chart-widget>
+
+                <!-- Device Distribution Pie Chart -->
+                <pie-chart-widget
+                    title="Device Distribution"
+                    data='[{"label":"Desktop","value":45,"color":"#00e5ff"},{"label":"Mobile","value":35,"color":"#d500f9"},{"label":"Tablet","value":20,"color":"#c6ff00"}]'
+                    donut="true"
+                    show-legend="true"
+                    show-percentages="true"
+                    size="220"
+                    id="device-chart">
+                </pie-chart-widget>
+            </div>
+
+            <!-- Alerts + Activity Row -->
+            <div class="chart-section animate-entry delay-5" style="margin-top: 20px;">
+                <!-- System Alerts Widget -->
+                <alerts-widget
+                    title="System Alerts"
+                    max-items="6"
+                    filter="all"
+                    auto-dismiss="60"
+                    id="system-alerts">
+                </alerts-widget>
+
+                <!-- Live Activity Feed -->
+                <activity-feed-widget
+                    title="Live Activity"
+                    max-items="8"
+                    id="activity-feed">
+                </activity-feed-widget>
             </div>
 
             <!-- Project Progress Widget -->

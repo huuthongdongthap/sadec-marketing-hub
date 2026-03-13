@@ -9,6 +9,8 @@
  * Skips guard on localhost for demo mode.
  */
 
+import { waitForAuth, isAdmin, isStaff, getCurrentUser } from './shared/guard-utils.js';
+
 (async function adminGuard() {
     const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
 
@@ -34,12 +36,18 @@
             return;
         }
 
-        // Optional: Check for admin role
-        const role = window.Auth.State.getRole?.();
-        const adminRoles = ['super_admin', 'admin', 'manager', 'content_creator'];
-
-        if (role && !adminRoles.includes(role)) {
-            // Not an admin role - redirect to appropriate dashboard
+        // Optional: Check for admin/staff role using shared guards
+        if (isAdmin() || isStaff()) {
+            // User is authenticated with admin/staff role - export user info
+            window.__ADMIN_USER__ = {
+                id: window.Auth.State.user?.id,
+                email: window.Auth.State.user?.email,
+                role: window.Auth.State.getRole?.(),
+                profile: window.Auth.State.profile
+            };
+        } else {
+            // Not an admin/staff role - redirect to appropriate dashboard
+            const role = window.Auth.State.getRole?.();
             const ROLE_REDIRECTS = {
                 'client': '/portal/dashboard.html',
                 'affiliate': '/affiliate/dashboard.html'
@@ -48,14 +56,6 @@
             window.location.replace(redirectUrl);
             return;
         }
-
-        // User is authenticated with admin role - export user info
-        window.__ADMIN_USER__ = {
-            id: window.Auth.State.user?.id,
-            email: window.Auth.State.user?.email,
-            role: role,
-            profile: window.Auth.State.profile
-        };
 
         // Listen for sign-out events
         window.addEventListener('auth:signout', () => {
@@ -67,26 +67,3 @@
         // Don't block page on guard errors — graceful degradation
     }
 })();
-
-/**
- * Wait for Auth system to be available
- */
-function waitForAuth(timeout = 5000) {
-    return new Promise((resolve, reject) => {
-        if (window.Auth && window.Auth.Guards) {
-            resolve();
-            return;
-        }
-
-        const startTime = Date.now();
-        const checkInterval = setInterval(() => {
-            if (window.Auth && window.Auth.Guards) {
-                clearInterval(checkInterval);
-                resolve();
-            } else if (Date.now() - startTime > timeout) {
-                clearInterval(checkInterval);
-                reject(new Error('Auth system not loaded'));
-            }
-        }, 100);
-    });
-}

@@ -6,26 +6,7 @@
  * Skip guard on localhost for demo mode.
  */
 
-// Wait for Auth to be available
-function waitForAuth(timeout = 5000) {
-    return new Promise((resolve, reject) => {
-        if (window.Auth && window.Auth.Guards) {
-            resolve();
-            return;
-        }
-
-        const startTime = Date.now();
-        const checkInterval = setInterval(() => {
-            if (window.Auth && window.Auth.Guards) {
-                clearInterval(checkInterval);
-                resolve();
-            } else if (Date.now() - startTime > timeout) {
-                clearInterval(checkInterval);
-                reject(new Error('Auth system not loaded'));
-            }
-        }, 100);
-    });
-}
+import { waitForAuth, getCurrentUser } from './shared/guard-utils.js';
 
 // Main guard logic
 (async function portalGuard() {
