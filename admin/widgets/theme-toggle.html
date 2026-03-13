@@ -1,0 +1,322 @@
+<!--
+Theme Toggle Widget - Sa Đéc Marketing Hub
+Dark mode toggle button với theme indicator
+
+Usage: Include in admin layout header
+-->
+<div class="theme-toggle-widget" role="group" aria-label="Theme settings">
+  <button
+    id="theme-toggle-btn"
+    class="theme-toggle-btn"
+    type="button"
+    aria-label="Chuyển chế độ sáng/tối"
+    title="Chuyển chế độ sáng/tối (Ctrl+T)"
+  >
+    <span class="material-symbols-outlined theme-icon-light" aria-hidden="true">
+      light_mode
+    </span>
+    <span class="material-symbols-outlined theme-icon-dark" aria-hidden="true">
+      dark_mode
+    </span>
+    <span class="theme-indicator"></span>
+  </button>
+
+  <!-- Theme dropdown menu -->
+  <div
+    id="theme-dropdown"
+    class="theme-dropdown"
+    role="menu"
+    aria-labelledby="theme-toggle-btn"
+    hidden
+  >
+    <div class="theme-dropdown-header">
+      <span>Chọn chủ đề</span>
+    </div>
+
+    <button
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="light"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
+      <span>Sáng</span>
+      <span class="theme-check material-symbols-outlined">check</span>
+    </button>
+
+    <button
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="dark"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+      <span>Tối</span>
+      <span class="theme-check material-symbols-outlined">check</span>
+    </button>
+
+    <button
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="system"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">settings_brightness</span>
+      <span>Hệ thống</span>
+      <span class="theme-check material-symbols-outlined">check</span>
+    </button>
+
+    <div class="theme-dropdown-divider"></div>
+
+    <button
+      class="theme-shortcut"
+      role="menuitem"
+      id="theme-shortcut-hint"
+    >
+      <span>Phím tắt: Ctrl+T</span>
+    </button>
+  </div>
+</div>
+
+<style>
+/* Theme Toggle Button Styles */
+.theme-toggle-widget {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-toggle-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-btn .theme-icon-light,
+.theme-toggle-btn .theme-icon-dark {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-btn .theme-icon-dark {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-light {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+/* Theme Dropdown */
+.theme-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  background: var(--md-sys-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 1000;
+  animation: theme-dropdown-in 0.2s ease;
+}
+
+[data-theme="dark"] .theme-dropdown {
+  background: var(--md-sys-color-surface, #1e1e1e);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes theme-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-dropdown-header {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant, #666);
+  border-bottom: 1px solid var(--md-sys-color-outline, #e0e0e0);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--md-sys-color-on-surface, #333);
+}
+
+.theme-option:hover {
+  background-color: var(--md-sys-color-surface-container-hover, rgba(0,0,0,0.05));
+}
+
+.theme-option .material-symbols-outlined:first-child {
+  font-size: 20px;
+  width: 24px;
+}
+
+.theme-option span:nth-child(2) {
+  flex: 1;
+  text-align: left;
+}
+
+.theme-check {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.theme-option[aria-checked="true"] .theme-check {
+  opacity: 1;
+}
+
+.theme-dropdown-divider {
+  height: 1px;
+  background: var(--md-sys-color-outline, #e0e0e0);
+  margin: 8px 0;
+}
+
+.theme-shortcut {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+  cursor: default;
+}
+</style>
+
+<script>
+/**
+ * Theme Toggle Widget Controller
+ */
+(function() {
+  'use strict';
+
+  class ThemeToggleWidget {
+    constructor() {
+      this.btn = document.getElementById('theme-toggle-btn');
+      this.dropdown = document.getElementById('theme-dropdown');
+      this.options = this.dropdown ? this.dropdown.querySelectorAll('.theme-option') : [];
+
+      this.init();
+    }
+
+    init() {
+      if (!this.btn) return;
+
+      // Toggle dropdown on button click
+      this.btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleDropdown();
+      });
+
+      // Theme option clicks
+      this.options.forEach(option => {
+        option.addEventListener('click', () => {
+          const theme = option.getAttribute('data-theme');
+          if (theme && window.Theme) {
+            Theme.set(theme);
+            this.updateChecked(theme);
+            this.hideDropdown();
+          }
+        });
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', (e) => {
+        if (this.dropdown && !this.dropdown.contains(e.target) && !this.btn.contains(e.target)) {
+          this.hideDropdown();
+        }
+      });
+
+      // Keyboard shortcut: Ctrl+T
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 't') {
+          e.preventDefault();
+          if (window.Theme) {
+            Theme.toggle();
+          }
+        }
+      });
+
+      // Update initial state
+      this.updateChecked(window.Theme ? Theme.get() : 'light');
+    }
+
+    toggleDropdown() {
+      const isHidden = this.dropdown.hasAttribute('hidden');
+      if (isHidden) {
+        this.showDropdown();
+      } else {
+        this.hideDropdown();
+      }
+    }
+
+    showDropdown() {
+      this.dropdown.removeAttribute('hidden');
+      this.dropdown.setAttribute('aria-expanded', 'true');
+      // Focus first option
+      const firstOption = this.dropdown.querySelector('.theme-option');
+      if (firstOption) firstOption.focus();
+    }
+
+    hideDropdown() {
+      this.dropdown.setAttribute('hidden', '');
+      this.dropdown.setAttribute('aria-expanded', 'false');
+      this.btn.focus();
+    }
+
+    updateChecked(theme) {
+      this.options.forEach(option => {
+        const isChecked = option.getAttribute('data-theme') === theme;
+        option.setAttribute('aria-checked', isChecked);
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new ThemeToggleWidget());
+  } else {
+    new ThemeToggleWidget();
+  }
+})();
+</script>
