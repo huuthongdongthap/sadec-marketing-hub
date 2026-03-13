@@ -1,0 +1,485 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SA ĐÉC MARKETING HUB - MICRO ANIMATIONS
+ * Small, delightful animations for enhanced user experience
+ *
+ * Categories:
+ *   - Attention Animations (subtle cues to draw attention)
+ *   - Feedback Animations (user interaction responses)
+ *   - State Transition Animations (smooth state changes)
+ *   - Loading Micro-animations (small loading indicators)
+ *
+ * Usage: Add utility classes to elements
+ * Example: <div class="micro-pulse">Important</div>
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ATTENTION ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Subtle Pulse - Gentle breathing effect for notifications */
+@keyframes micro-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.micro-pulse {
+    animation: micro-pulse 2s ease-in-out infinite;
+}
+
+/* 2. Shimmer Effect - Light sweep across element */
+@keyframes micro-shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.micro-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: micro-shimmer 3s ease-in-out infinite;
+}
+
+/* 3. Dot Bounce - Three bouncing dots (typing indicator style) */
+@keyframes micro-dot-bounce {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.micro-dot-bounce {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.micro-dot-bounce::before,
+.micro-dot-bounce::after,
+.micro-dot-bounce span {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: micro-dot-bounce 1.4s ease-in-out infinite;
+}
+
+.micro-dot-bounce::before { animation-delay: 0s; }
+.micro-dot-bounce span { animation-delay: 0.2s; }
+.micro-dot-bounce::after { animation-delay: 0.4s; }
+
+/* 4. Attention Shake - Gentle shake to get attention */
+@keyframes micro-shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+    20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+.micro-shake {
+    animation: micro-shake 0.5s ease-in-out;
+}
+
+/* 5. Attention Bounce - Three quick bounces */
+@keyframes micro-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-8px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-4px);
+    }
+}
+
+.micro-bounce {
+    animation: micro-bounce 0.6s ease-in-out;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FEEDBACK ANIMATIONS (Button/Interactive Element Responses)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 6. Button Press - Button depresses on click */
+@keyframes micro-press {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.micro-press {
+    animation: micro-press 0.15s ease-out;
+}
+
+/* 7. Success Pop - Celebratory pop for success states */
+@keyframes micro-success-pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.micro-success-pop {
+    animation: micro-success-pop 0.4s ease-out forwards;
+}
+
+/* 8. Error Vibrate - Rapid vibration for errors */
+@keyframes micro-vibrate {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+}
+
+.micro-error {
+    animation: micro-vibrate 0.3s ease-in-out;
+}
+
+/* 9. Toggle Switch - Smooth toggle transition */
+@keyframes micro-toggle-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+.micro-toggle {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STATE TRANSITION ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 10. Fade + Slide - Combined fade and slide transition */
+@keyframes micro-fade-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes micro-fade-slide-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.micro-fade-in {
+    animation: micro-fade-slide-in 0.3s ease-out forwards;
+}
+
+.micro-fade-out {
+    animation: micro-fade-slide-out 0.3s ease-in forwards;
+}
+
+/* 11. Expand/Collapse - Smooth height transition */
+@keyframes micro-expand {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
+
+@keyframes micro-collapse {
+    from {
+        max-height: 1000px;
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+.micro-expand {
+    animation: micro-expand 0.3s ease-out forwards;
+}
+
+/* 12. Zoom In - Subtle zoom for modals/popups */
+@keyframes micro-zoom-in {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.micro-zoom-in {
+    animation: micro-zoom-in 0.2s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOADING MICRO-ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 13. Progress Bar Indeterminate */
+@keyframes micro-progress-indeterminate {
+    0% {
+        left: -30%;
+        width: 30%;
+    }
+    50% {
+        left: 35%;
+        width: 30%;
+    }
+    100% {
+        left: 100%;
+        width: 30%;
+    }
+}
+
+.micro-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.micro-progress-bar::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(90deg, #006A60, #4ADD0);
+    animation: micro-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+/* 14. Ring Loader - Spinning ring */
+@keyframes micro-ring-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.micro-ring-loader {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0, 106, 96, 0.2);
+    border-top-color: #006A60;
+    border-radius: 50%;
+    animation: micro-ring-spin 0.8s linear infinite;
+}
+
+/* 15. Square Wave - Pulsing squares */
+@keyframes micro-square-wave {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.micro-square-loader {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.micro-square-loader span {
+    width: 8px;
+    height: 8px;
+    background: #006A60;
+    animation: micro-square-wave 1s ease-in-out infinite;
+}
+
+.micro-square-loader span:nth-child(2) { animation-delay: 0.2s; }
+.micro-square-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES FOR ICONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Icon Rotates */
+.micro-icon-rotate {
+    display: inline-block;
+    animation: micro-ring-spin 1s linear infinite;
+}
+
+/* Icon Pulse */
+.micro-icon-pulse {
+    display: inline-block;
+    animation: micro-pulse 1.5s ease-in-out infinite;
+}
+
+/* Icon Bounce */
+.micro-icon-bounce {
+    display: inline-block;
+    animation: micro-bounce 0.6s ease-in-out;
+}
+
+/* Icon Shake */
+.micro-icon-shake {
+    display: inline-block;
+    animation: micro-shake 0.5s ease-in-out;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARD MICRO-ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Card Subtle Lift */
+.micro-card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.micro-card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Glow Border */
+@keyframes micro-border-glow {
+    0%, 100% {
+        border-color: rgba(0, 106, 96, 0.3);
+    }
+    50% {
+        border-color: rgba(0, 106, 96, 0.8);
+    }
+}
+
+.micro-card-glow {
+    border: 2px solid transparent;
+    animation: micro-border-glow 2s ease-in-out infinite;
+}
+
+/* Card Shimmer on Hover */
+.micro-card-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.micro-card-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.micro-card-shimmer:hover::before {
+    left: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT MICRO-ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Text Gradient Shimmer */
+@keyframes micro-text-shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.micro-text-gradient {
+    background: linear-gradient(
+        90deg,
+        #006A60 0%,
+        #4ADD 50%,
+        #006A60 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: micro-text-shimmer 3s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE REDUCTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .micro-pulse,
+    .micro-shimmer,
+    .micro-dot-bounce,
+    .micro-dot-bounce::before,
+    .micro-dot-bounce span,
+    .micro-dot-bounce::after,
+    .micro-shake,
+    .micro-bounce,
+    .micro-press,
+    .micro-success-pop,
+    .micro-error,
+    .micro-fade-in,
+    .micro-fade-out,
+    .micro-expand,
+    .micro-zoom-in,
+    .micro-ring-loader,
+    .micro-square-wave,
+    .micro-square-loader span,
+    .micro-icon-rotate,
+    .micro-icon-pulse,
+    .micro-icon-bounce,
+    .micro-icon-shake,
+    .micro-card-glow,
+    .micro-text-gradient {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .micro-card-lift:hover {
+        transform: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}

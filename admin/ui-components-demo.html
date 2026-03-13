@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Components Demo - Micro Animations, Loading States, Hover Effects</title>
+  <meta name="description" content="Demo UI components - Micro animations, loading states, hover effects">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/m3-agency.css">
+  <link rel="stylesheet" href="/assets/css/hover-effects.css">
+  <link rel="stylesheet" href="/assets/css/ui-animations.css">
+  <link rel="stylesheet" href="/assets/css/micro-animations.css">
+  <link rel="stylesheet" href="/assets/css/loading-states.css">
+
+  <style>
+    body {
+      font-family: var(--font-body);
+      background: var(--md-sys-color-surface);
+      padding: 20px;
+    }
+
+    .demo-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 30px;
+      background: var(--md-sys-color-surface-container);
+      border-radius: 16px;
+    }
+
+    .demo-section h2 {
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--md-sys-color-primary);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .demo-item {
+      padding: 20px;
+      background: var(--md-sys-color-surface);
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .demo-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .card-demo {
+      background: var(--md-sys-color-surface);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .loading-demo {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    /* Custom demo styles */
+    .icon-demo {
+      font-size: 32px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <main id="main" role="main">
+    <header class="demo-section">
+      <h1>🎨 UI Components Demo</h1>
+      <p>Micro Animations, Loading States, Hover Effects</p>
+      <p><small>Click on any demo item to see the animation!</small></p>
+    </header>
+
+    <!-- MICRO ANIMATIONS -->
+    <section class="demo-section">
+      <h2>✨ Micro Animations (Click to trigger)</h2>
+      <div class="demo-grid">
+        <div class="demo-item" onclick="MicroAnimations.pulse(this)">
+          <div class="icon-demo">💫</div>
+          <p>Pulse</p>
+          <code>MicroAnimations.pulse(el)</code>
+        </div>
+        <div class="demo-item" onclick="MicroAnimations.shake(this)">
+          <div class="icon-demo">🔀</div>
+          <p>Shake</p>
+          <code>MicroAnimations.shake(el)</code>
+        </div>
+        <div class="demo-item" onclick="MicroAnimations.bounce(this)">
+          <div class="icon-demo">⬆️</div>
+          <p>Bounce</p>
+          <code>MicroAnimations.bounce(el)</code>
+        </div>
+        <div class="demo-item" onclick="MicroAnimations.pop(this)">
+          <div class="icon-demo">🎉</div>
+          <p>Pop</p>
+          <code>MicroAnimations.pop(el)</code>
+        </div>
+        <div class="demo-item" onclick="MicroAnimations.zoomIn(this)">
+          <div class="icon-demo">🔍</div>
+          <p>Zoom In</p>
+          <code>MicroAnimations.zoomIn(el)</code>
+        </div>
+        <div class="demo-item" onclick="triggerError(this)">
+          <div class="icon-demo">❌</div>
+          <p>Error</p>
+          <code>MicroAnimations.error(el)</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUTTON HOVER EFFECTS -->
+    <section class="demo-section">
+      <h2>🔘 Button Hover Effects</h2>
+      <div class="btn-demo-container">
+        <button class="btn btn-hover-glow">Glow Effect</button>
+        <button class="btn btn-hover-scale">Scale Effect</button>
+        <button class="btn btn-hover-slide">Slide Effect</button>
+        <button class="btn btn-hover-ripple">Ripple Effect</button>
+        <button class="btn btn-hover-border">Border Draw</button>
+        <button class="btn btn-hover-shine">Shine Effect</button>
+      </div>
+      <div class="btn-demo-container">
+        <button class="btn btn-hover-lift">Lift Effect</button>
+        <button class="btn btn-hover-fill">Fill Effect</button>
+        <button class="btn btn-hover-sweep">Sweep Effect</button>
+        <button class="btn btn-hover-glow-pulse">Pulse Glow</button>
+        <button class="btn btn-hover-gradient">Gradient Shift</button>
+        <button class="btn btn-hover-3d">3D Press</button>
+      </div>
+    </section>
+
+    <!-- CARD HOVER EFFECTS -->
+    <section class="demo-section">
+      <h2>🎴 Card Hover Effects</h2>
+      <div class="demo-grid">
+        <div class="card-demo micro-card-lift">
+          <h3>Card Lift</h3>
+          <p>Hover over this card to see the lift effect with shadow.</p>
+          <code class="micro-text-gradient">.micro-card-lift</code>
+        </div>
+        <div class="card-demo micro-card-shimmer">
+          <h3>Card Shimmer</h3>
+          <p>Hover to see shimmer effect sweep across the card.</p>
+          <code>.micro-card-shimmer</code>
+        </div>
+        <div class="card-demo micro-card-glow">
+          <h3>Card Glow Border</h3>
+          <p>Glowing border animation.</p>
+          <code>.micro-card-glow</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS MICRO ANIMATIONS -->
+    <section class="demo-section">
+      <h2>🌟 CSS-Only Micro Animations</h2>
+      <div class="demo-grid">
+        <div class="demo-item micro-pulse">
+          <p>Pulse (CSS)</p>
+          <code>.micro-pulse</code>
+        </div>
+        <div class="demo-item micro-shimmer">
+          <p>Shimmer</p>
+          <code>.micro-shimmer</code>
+        </div>
+        <div class="demo-item">
+          <div class="micro-dot-bounce"><span></span></div>
+          <p style="margin-top: 12px;">Dot Bounce</p>
+          <code>.micro-dot-bounce</code>
+        </div>
+        <div class="demo-item">
+          <div class="micro-ring-loader"></div>
+          <p style="margin-top: 12px;">Ring Loader</p>
+          <code>.micro-ring-loader</code>
+        </div>
+        <div class="demo-item">
+          <div class="micro-square-loader"><span></span><span></span><span></span></div>
+          <p style="margin-top: 12px;">Square Loader</p>
+          <code>.micro-square-loader</code>
+        </div>
+        <div class="demo-item">
+          <div class="micro-progress-bar"></div>
+          <p style="margin-top: 12px;">Progress Bar</p>
+          <code>.micro-progress-bar</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOADING STATES -->
+    <section class="demo-section">
+      <h2>⏳ Loading States</h2>
+
+      <h3>Spinners</h3>
+      <div class="loading-demo">
+        <div class="spinner-primary spinner-sm"></div>
+        <div class="spinner-primary spinner-md"></div>
+        <div class="spinner-primary spinner-lg"></div>
+        <div class="spinner-secondary spinner-sm"></div>
+        <div class="spinner-secondary spinner-md"></div>
+        <div class="spinner-secondary spinner-lg"></div>
+      </div>
+
+      <h3>Skeleton Loaders</h3>
+      <div class="skeleton-card" style="padding: 20px; border-radius: 12px;">
+        <div class="skeleton-avatar" style="width: 60px; height: 60px; margin: 0 auto 16px;"></div>
+        <div class="skeleton-title" style="width: 60%; margin: 0 auto 12px;"></div>
+        <div class="skeleton-text" style="width: 90%;"></div>
+        <div class="skeleton-text" style="width: 85%;"></div>
+        <div class="skeleton-text" style="width: 95%;"></div>
+      </div>
+
+      <h3>Button Loading</h3>
+      <div class="btn-demo-container">
+        <button class="btn btn-loading" disabled>
+          <span class="spinner-primary spinner-sm"></span>
+          Loading...
+        </button>
+        <button class="btn btn-primary" onclick="showLoading(this)">
+          Click Me
+        </button>
+      </div>
+    </section>
+
+    <!-- ICON ANIMATIONS -->
+    <section class="demo-section">
+      <h2>🎯 Icon Animations</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <span class="material-icons-outlined icon-demo micro-icon-rotate">settings</span>
+          <p>Rotate</p>
+          <code>.micro-icon-rotate</code>
+        </div>
+        <div class="demo-item">
+          <span class="material-icons-outlined icon-demo micro-icon-pulse">favorite</span>
+          <p>Pulse</p>
+          <code>.micro-icon-pulse</code>
+        </div>
+        <div class="demo-item">
+          <span class="material-icons-outlined icon-demo micro-icon-bounce">arrow_upward</span>
+          <p>Bounce</p>
+          <code>.micro-icon-bounce</code>
+        </div>
+        <div class="demo-item">
+          <span class="material-icons-outlined icon-demo micro-icon-shake">warning</span>
+          <p>Shake</p>
+          <code>.micro-icon-shake</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT ANIMATIONS -->
+    <section class="demo-section">
+      <h2>📝 Text Animations</h2>
+      <div style="text-align: center; padding: 40px;">
+        <h1 class="micro-text-gradient" style="font-size: 48px; margin-bottom: 24px;">
+          Gradient Shimmer Text
+        </h1>
+        <p class="micro-fade-in" style="font-size: 18px; margin-top: 20px;">
+          Fade In Text
+        </p>
+      </div>
+    </section>
+
+    <!-- ANIMATION CONTROLS -->
+    <section class="demo-section">
+      <h2>🎮 Animation Controls</h2>
+      <div class="btn-demo-container">
+        <button class="btn btn-primary" onclick="demoAllAnimations()">Demo All Animations</button>
+        <button class="btn btn-secondary" onclick="demoToast()">Show Toast</button>
+        <button class="btn btn-secondary" onclick="demoLoading()">Demo Loading</button>
+        <button class="btn btn-secondary" onclick="demoSkeleton()">Show Skeleton</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+  </script>
+  <script type="module" src="@material/web/all.js"></script>
+  <script type="module" src="/assets/js/micro-animations.js"></script>
+  <script type="module" src="/assets/js/loading-states.js"></script>
+  <script type="module" src="/assets/js/components/index.js"></script>
+
+  <script>
+    // Demo functions
+    function triggerError(el) {
+      MicroAnimations?.error(el);
+    }
+
+    function showLoading(btn) {
+      btn.classList.add('btn-loading');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-primary spinner-sm"></span> Loading...';
+
+      setTimeout(() => {
+        btn.classList.remove('btn-loading');
+        btn.disabled = false;
+        btn.innerHTML = 'Done! ✓';
+        MicroAnimations?.successPop(btn);
+
+        setTimeout(() => {
+          btn.innerHTML = 'Click Me';
+        }, 2000);
+      }, 2000);
+    }
+
+    function demoAllAnimations() {
+      const items = document.querySelectorAll('.demo-item');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          MicroAnimations?.bounce(item);
+        }, index * 100);
+      });
+      console.log('[Demo] All animations triggered!');
+    }
+
+    function demoToast() {
+      if (window.SadecToast) {
+        SadecToast.success('✅ UI Components loaded successfully!');
+        setTimeout(() => SadecToast.info('ℹ️ Micro animations are go!', 3000), 1000);
+      } else {
+        alert('Toast component not loaded yet');
+      }
+    }
+
+    function demoLoading() {
+      if (window.Loading) {
+        Loading.fullscreen.show('Đang tải demo...');
+        setTimeout(() => Loading.fullscreen.hide(), 2000);
+      } else {
+        alert('Loading component not loaded yet');
+      }
+    }
+
+    function demoSkeleton() {
+      const container = document.querySelector('.loading-demo');
+      if (window.Loading) {
+        Loading.skeleton(container, 'card');
+        setTimeout(() => Loading.hide(container), 3000);
+      }
+    }
+
+    // Log on load
+    console.log('🎨 UI Components Demo loaded!');
+    console.log('Available: MicroAnimations, Loading, SadecToast');
+  </script>
+</body>
+</html>

@@ -110,4 +110,13 @@ window.MekongComponents.demoAnimations = () => {
     setTimeout(() => MicroAnimations?.shake(demoEl), 2000);
     setTimeout(() => demoEl.remove(), 3000);
   }, 1000);
+
+  console.log('[MekongComponents] Demo animations complete!');
 };
+
+/**
+ * Initialize MicroAnimations if available
+ */
+if (typeof MicroAnimations !== 'undefined' && MicroAnimations?.init) {
+  MicroAnimations.init();
+}
