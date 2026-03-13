@@ -1,8 +1,32 @@
 [
   {
     "file": "assets/js/core/supabase-client.js",
+    "import": "./core/auth-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/core/core/auth-service.js",
+    "issue": "File không tồn tại"
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/database-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/core/core/database-service.js",
+    "issue": "File không tồn tại"
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/storage-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/core/core/storage-service.js",
+    "issue": "File không tồn tại"
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
     "import": "./core/supabase-client.js",
     "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/core/core/supabase-client.js",
+    "issue": "File không tồn tại"
+  },
+  {
+    "file": "assets/js/features/analytics-dashboard.js",
+    "import": "./features/analytics-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/features/features/analytics-dashboard.js",
     "issue": "File không tồn tại"
   },
   {

@@ -42,6 +42,9 @@
  */
 
 import { Logger } from '../shared/logger.js';
+import { PaginationComponent } from './pagination-component.js';
+import { sortData, SortOrder, SortCompare, getSortIcon } from '../utils/sort-utils.js';
+import { FilterComponent } from './filter-component.js';
 
 class DataTable {
   constructor(selector, options = {}) {
@@ -87,13 +90,20 @@ class DataTable {
       currentPage: 1,
       pageSize: this.options.pageSize,
       sortBy: null,
-      sortOrder: null,
+      sortOrder: SortOrder.NONE,
       searchQuery: '',
       filters: {},
       selectedRows: new Set(),
       filteredData: [...this.options.data],
       totalPages: 1
     };
+
+    // Pagination component
+    this.paginationComponent = null;
+
+    // Filter component
+    this.filterComponent = null;
+    this.filterPanel = null;
 
     this.init();
   }
@@ -108,9 +118,39 @@ class DataTable {
     // Bind events
     this.bindEvents();
 
+    // Initialize pagination component
+    if (this.options.showPagination && this.paginationContainer) {
+      this.paginationComponent = new PaginationComponent(this.paginationContainer, {
+        currentPage: this.state.currentPage,
+        pageSize: this.state.pageSize,
+        pageSizes: this.options.pageSizes,
+        totalItems: this.state.filteredData.length,
+        showSizeSelector: this.options.showSizeSelector,
+        showTotal: this.options.showTotal,
+        onChange: (page, pageSize) => this.handlePageChange(page, pageSize),
+        onPageSizeChange: (size) => this.handlePageSizeChange(size)
+      });
+    }
+
+    // Initialize filter component
+    if (this.options.filterable && this.filterPanel) {
+      this.filterComponent = new FilterComponent({
+        columns: this.options.columns,
+        filters: this.state.filters,
+        onChange: (filters) => this.handleFilterChange(filters)
+      });
+      this.filterComponent.render(this.filterPanel);
+    }
+
     // Initial render
     this.renderTable();
-    this.renderPagination();
+  }
+
+  handleFilterChange(filters) {
+    Object.keys(filters).forEach(key => {
+      this.state.filters[key] = filters[key];
+    });
+    this.applyFilters();
   }
 
   render() {
@@ -141,6 +181,14 @@ class DataTable {
     this.tableHead = tableContainer.querySelector('.mekong-data-table__head');
     this.tableBody = tableContainer.querySelector('.mekong-data-table__body');
     this.loadingElement = tableContainer.querySelector('.mekong-data-table__loading');
+
+    // Filter panel
+    if (this.options.filterable) {
+      this.filterPanel = document.createElement('div');
+      this.filterPanel.className = 'mekong-data-table__filter-panel';
+      this.filterPanel.hidden = true; // Hidden by default
+      tableContainer.appendChild(this.filterPanel);
+    }
 
     // Pagination
     if (this.options.showPagination) {
@@ -243,7 +291,7 @@ class DataTable {
     columns.forEach((col, index) => {
       const sortable = this.options.sortable && col.sortable !== false;
       const sorted = sortBy === col.field || sortBy === index;
-      const sortIcon = sorted && sortOrder === 'asc' ? '↑' : sorted && sortOrder === 'desc' ? '↓' : '⇅';
+      const sortIconSvg = sorted ? getSortIcon(sortOrder) : getSortIcon(SortOrder.NONE);
 
       html += `
         <th class="mekong-data-table__header ${sorted ? 'mekong-data-table__header--sorted' : ''} ${col.class || ''}"
@@ -251,7 +299,7 @@ class DataTable {
             data-field="${col.field}">
           <div class="mekong-data-table__header-content">
             <span>${col.header || col.title || col.field}</span>
-            ${sortable ? `<span class="mekong-data-table__sort-icon">${sortIcon}</span>` : ''}
+            ${sortable ? `<span class="mekong-data-table__sort-icon">${sortIconSvg}</span>` : ''}
           </div>
           ${col.filterable !== false && this.options.filterable ? `
             <input type="text" class="mekong-data-table__filter-input"
@@ -331,101 +379,23 @@ class DataTable {
   }
 
   renderPagination() {
-    if (!this.paginationContainer) return;
-
-    const { currentPage, pageSize, filteredData, totalPages } = this.state;
-    const total = filteredData.length;
-    const start = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
-    const end = Math.min(currentPage * pageSize, total);
-
-    let html = '';
-
-    // Show total
-    if (this.options.showTotal) {
-      html += `
-        <div class="mekong-data-table__total">
-          Hiển thị ${start}-${end} trong ${total} dòng
-        </div>
-      `;
+    // Pagination is now handled by PaginationComponent
+    if (this.paginationComponent) {
+      this.paginationComponent.update(this.state.filteredData.length);
     }
-
-    // Size selector
-    if (this.options.showSizeSelector) {
-      html += `
-        <div class="mekong-data-table__size-selector">
-          <span class="mekong-data-table__size-label">Số dòng:</span>
-          <select class="mekong-data-table__size-select">
-            ${this.options.pageSizes.map(size => `
-              <option value="${size}" ${size === pageSize ? 'selected' : ''}>${size}</option>
-            `).join('')}
-          </select>
-        </div>
-      `;
-    }
-
-    // Pagination buttons
-    html += `
-      <div class="mekong-data-table__pages">
-        <button class="mekong-data-table__page-btn" data-page="first" ${currentPage === 1 ? 'disabled' : ''}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="11 17 6 12 11 7"/>
-            <polyline points="18 17 13 12 18 7"/>
-          </svg>
-        </button>
-        <button class="mekong-data-table__page-btn" data-page="prev" ${currentPage === 1 ? 'disabled' : ''}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </button>
-        <div class="mekong-data-table__page-numbers">
-          ${this.renderPageNumbers()}
-        </div>
-        <button class="mekong-data-table__page-btn" data-page="next" ${currentPage === totalPages ? 'disabled' : ''}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button>
-        <button class="mekong-data-table__page-btn" data-page="last" ${currentPage === totalPages ? 'disabled' : ''}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="13 17 18 12 13 7"/>
-            <polyline points="6 17 11 12 6 7"/>
-          </svg>
-        </button>
-      </div>
-    `;
-
-    this.paginationContainer.innerHTML = html;
   }
 
-  renderPageNumbers() {
-    const { currentPage, totalPages } = this.state;
-    const pages = [];
-
-    // Always show first page
-    if (currentPage > 3) {
-      pages.push('<button class="mekong-data-table__page-number" data-page="1">1</button>');
-      if (currentPage > 4) {
-        pages.push('<span class="mekong-data-table__page-ellipsis">...</span>');
-      }
+  handlePageChange(page, pageSize) {
+    this.state.currentPage = page;
+    if (pageSize !== this.state.pageSize) {
+      this.state.pageSize = pageSize;
     }
+    this.renderTable();
+    this.options.onPageChange?.({ page, totalPages: this.state.totalPages });
+  }
 
-    // Show pages around current
-    for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
-      pages.push(`
-        <button class="mekong-data-table__page-number ${i === currentPage ? 'mekong-data-table__page-number--active' : ''}"
-                data-page="${i}">${i}</button>
-      `);
-    }
-
-    // Always show last page
-    if (currentPage < totalPages - 2) {
-      if (currentPage < totalPages - 3) {
-        pages.push('<span class="mekong-data-table__page-ellipsis">...</span>');
-      }
-      pages.push(`<button class="mekong-data-table__page-number" data-page="${totalPages}">${totalPages}</button>`);
-    }
-
-    return pages.join('');
+  handlePageSizeChange(size) {
+    this.setPageSize(size);
   }
 
   formatValue(value, col) {
@@ -488,23 +458,6 @@ class DataTable {
         this.sort(index);
       }
 
-      // Page navigation
-      const pageBtn = e.target.closest('[data-page]');
-      if (pageBtn) {
-        const page = pageBtn.dataset.page;
-        if (page === 'first') this.goToPage(1);
-        else if (page === 'prev') this.prevPage();
-        else if (page === 'next') this.nextPage();
-        else if (page === 'last') this.goToPage(this.state.totalPages);
-        else this.goToPage(parseInt(page));
-      }
-
-      // Page numbers
-      const pageNum = e.target.closest('.mekong-data-table__page-number');
-      if (pageNum) {
-        this.goToPage(parseInt(pageNum.dataset.page));
-      }
-
       // Export
       const exportBtn = e.target.closest('[data-action="export"]');
       if (exportBtn) {
@@ -527,14 +480,6 @@ class DataTable {
         debounceTimer = setTimeout(() => {
           this.search(e.target.value);
         }, 300);
-      });
-    }
-
-    // Size selector
-    const sizeSelect = this.element.querySelector('.mekong-data-table__size-select');
-    if (sizeSelect) {
-      sizeSelect.addEventListener('change', (e) => {
-        this.setPageSize(parseInt(e.target.value));
       });
     }
 
@@ -589,36 +534,21 @@ class DataTable {
     // Toggle sort order
     let newOrder;
     if (sortBy === field) {
-      newOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+      newOrder = sortOrder === SortOrder.ASC ? SortOrder.DESC : SortOrder.ASC;
     } else {
-      newOrder = 'asc';
+      newOrder = SortOrder.ASC;
     }
 
     this.state.sortBy = field;
     this.state.sortOrder = newOrder;
 
-    // Sort data
-    this.state.filteredData.sort((a, b) => {
-      let aVal = a[field];
-      let bVal = b[field];
-
-      // Handle null/undefined
-      if (aVal == null) return 1;
-      if (bVal == null) return -1;
-
-      // Handle different types
-      if (typeof aVal === 'string') {
-        aVal = aVal.toLowerCase();
-        bVal = bVal.toLowerCase();
-        return newOrder === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      }
-
-      return newOrder === 'asc' ? aVal - bVal : bVal - aVal;
-    });
+    // Use sort-utils for type-aware sorting
+    this.state.filteredData = sortData(this.state.filteredData, field, newOrder);
 
     this.state.currentPage = 1;
     this.renderTable();
     this.renderHead(); // Update sort icons
+    this.renderPagination();
     this.options.onSort?.({ field, order: newOrder });
   }
 
@@ -665,29 +595,15 @@ class DataTable {
     this.renderPagination();
   }
 
-  goToPage(page) {
-    if (page < 1 || page > this.state.totalPages) return;
-
-    this.state.currentPage = page;
-    this.renderTable();
-    this.renderPagination();
-    this.options.onPageChange?.({ page, totalPages: this.state.totalPages });
-  }
-
-  prevPage() {
-    this.goToPage(this.state.currentPage - 1);
-  }
-
-  nextPage() {
-    this.goToPage(this.state.currentPage + 1);
-  }
-
   setPageSize(size) {
     this.state.pageSize = size;
     this.state.totalPages = Math.ceil(this.state.filteredData.length / size);
     this.state.currentPage = 1;
     this.renderTable();
     this.renderPagination();
+    if (this.paginationComponent) {
+      this.paginationComponent.update(this.state.filteredData.length);
+    }
   }
 
   toggleSelectAll(selected) {
@@ -757,7 +673,14 @@ class DataTable {
   }
 
   toggleFilters() {
-    this.element.classList.toggle('mekong-data-table--filters-visible');
+    if (this.filterPanel) {
+      this.filterPanel.hidden = !this.filterPanel.hidden;
+      this.element.classList.toggle('mekong-data-table--filters-visible');
+      // Re-render filter component if visible
+      if (!this.filterPanel.hidden && this.filterComponent) {
+        this.filterComponent.render(this.filterPanel);
+      }
+    }
   }
 
   // Data manipulation
