@@ -2,6 +2,78 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.3.0] - 2026-03-13 - Performance Optimization Release
+
+### ⚡ Performance Optimization
+- **Minification Pipeline:**
+  - HTML minification với `html-minifier-terser` (giảm 30-40%)
+  - CSS minification với `clean-css` level 2 (giảm 50-60%)
+  - JS minification với `terser` ECMA 2020 (giảm 40-50%)
+  - Build output: `dist/` folder với optimized files
+
+- **Lazy Loading:**
+  - Tự động thêm `loading="lazy"` cho images không nằm trong hero/header
+  - `decoding="async"` cho async image decoding
+  - Lazy loading cho iframes (YouTube embeds)
+  - Blur-up placeholder effect với `class="lazy-image"`
+
+- **Preloading & Prefetching:**
+  - Preload hero images (first image trong hero section)
+  - DNS prefetch cho external domains (fonts.googleapis.com, cdn.jsdelivr.net)
+  - Preconnect cho Supabase CDN
+
+### 🔧 Cache Strategy
+- **Service Worker v2.1.0-perf:**
+  - Cache version upgrade: v2.0.0 → v2.1.0-perf
+  - Static assets: Cache First, 1 năm (immutable)
+  - Images: Cache First với TTL 30 ngày
+  - HTML pages: Stale While Revalidate (5 phút)
+  - API calls: Network First với cache fallback (5 phút)
+
+- **Vercel Cache Headers:**
+  - `/assets/*`: `public, max-age=31536000, immutable`
+  - `/images/*`: `public, max-age=2592000, stale-while-revalidate=604800`
+  - `/*.html`: `public, max-age=0, must-revalidate, stale-while-revalidate=300`
+  - `/api/*`: `private, no-store, no-cache, must-revalidate`
+
+### 🎨 UI Enhancements
+- **Loading States:**
+  - Skeleton loaders cho cards và content blocks
+  - Loading spinner với CSS animations
+  - Progressive content reveal
+
+- **Micro-Animations:**
+  - Hover effects enhancements
+  - Button press feedback
+  - Smooth transitions cho UI elements
+
+### 📦 New Files
+- `assets/js/loading-states.js` - Skeleton loader utilities
+- `assets/js/micro-animations.js` - Animation controllers
+- `analyze-test-coverage.py` - Coverage analysis tool
+- `check-coverage.py` - Coverage checker
+- `PERFORMANCE_REPORT_2026-03-13.md` - Performance audit report
+
+### 🧪 Testing
+- Test coverage analysis scripts
+- Responsive check improvements
+- Smoke tests coverage expansion
+
+### 📈 Performance Metrics
+| Metric | Before | Target | Status |
+|--------|--------|--------|--------|
+| Bundle Size | ~19MB | -50% | ✅ Achieved |
+| LCP | ~3.5s | <2.5s | 🎯 Target |
+| FID | ~150ms | <100ms | 🎯 Target |
+| CLS | - | <0.1 | 🎯 Target |
+
+### 📝 Files Changed
+- **80 files modified:** 1431 insertions(+), 78 deletions(-)
+- **Key updates:** sw.js, vercel.json, tất cả HTML pages
+- **Build output:** dist/ folder với minified files
+
+---
+
 ## [v4.2.0] - 2026-03-13
 
 ### 🚀 Major Features
