@@ -23,16 +23,6 @@ export type { LoadingSpinnerProps } from './LoadingSpinner.tsx'
 export { EmptyState } from './EmptyState.tsx'
 export type { EmptyStateProps } from './EmptyState.tsx'
 
-export {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter
-} from './Card.tsx'
-export type { CardProps } from './Card.tsx'
-
 // Additional UI Components
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './Tabs.tsx'
 export type { TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps } from './Tabs.tsx'

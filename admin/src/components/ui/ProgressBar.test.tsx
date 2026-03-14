@@ -88,11 +88,8 @@ describe('ProgressBar', () => {
   it('does not show inside label when percentage < 15', () => {
     render(<ProgressBar value={10} showLabel={true} labelPosition="inside" />)
 
-    // Label might not be rendered or visible
-    // Based on implementation, it checks percentage > 15
-    const label = screen.queryByText('10%')
-    // The label element exists in DOM but might not be visually visible
-    // This depends on the actual implementation
+    // Label might not be rendered when percentage is too small
+    expect(screen.queryByText('10%')).not.toBeInTheDocument()
   })
 
   it('applies animated class when animated prop is true', () => {
