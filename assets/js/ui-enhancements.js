@@ -1,11 +1,10 @@
 /**
  * UI Enhancements JavaScript - Sa Đéc Marketing Hub
  * Scroll animations, micro-interactions, loading states
- * @version 1.0.0 | 2026-03-13
+ * @version 1.0.1 | 2026-03-14
  */
 
-// Import consolidated toast system
-import { toast } from '../../src/js/components/enhanced-toast.js';
+// Note: Use window.Toast or ToastManager for notifications
 
 (function() {
   'use strict';

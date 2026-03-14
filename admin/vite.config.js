@@ -109,7 +109,7 @@ export default defineConfig({
                 drop_console: true,
                 drop_debugger: true,
                 pure_funcs: process.env.NODE_ENV === 'production' ? ['console.log', 'console.info'] : [],
-                passes: 2 // Multiple passes for better minification
+                passes: 2 // Multiple passes for better minification, remove console logs in production
             },
             mangle: {
                 safari10: false,

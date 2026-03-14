@@ -206,6 +206,7 @@ async function processFile(filePath) {
     fs.writeFileSync(destPath, minifiedContent, 'utf8');
 
     const savings = ((1 - newSize / originalSize) * 100).toFixed(1);
+    console.log(`   ✓ ${relativePath}: ${(originalSize / 1024).toFixed(1)} KB → ${(newSize / 1024).toFixed(1)} KB (-${savings}%)`);
 }
 
 /**
@@ -236,6 +237,9 @@ function copyStaticAssets() {
  * Print build stats
  */
 function printStats() {
+    console.log('\n════════════════════════════════════════');
+    console.log('📊 Build Statistics');
+    console.log('════════════════════════════════════════');
 
     const formatSize = (bytes) => {
         if (bytes < 1024) return `${bytes} B`;
@@ -249,18 +253,28 @@ function printStats() {
 
     const totalOriginal = stats.html.original + stats.css.original + stats.js.original;
     const totalMinified = stats.html.minified + stats.css.minified + stats.js.minified;
+    const totalSavings = calcSavings(totalOriginal, totalMinified);
+
+    console.log(`   HTML: ${stats.html.files} files | ${formatSize(stats.html.original)} → ${formatSize(stats.html.minified)} (-${calcSavings(stats.html.original, stats.html.minified)}%)`);
+    console.log(`   CSS:  ${stats.css.files} files | ${formatSize(stats.css.original)} → ${formatSize(stats.css.minified)} (-${calcSavings(stats.css.original, stats.css.minified)}%)`);
+    console.log(`   JS:   ${stats.js.files} files | ${formatSize(stats.js.original)} → ${formatSize(stats.js.minified)} (-${calcSavings(stats.js.original, stats.js.minified)}%)`);
+    console.log('────────────────────────────────────────');
+    console.log(`   TOTAL:        ${formatSize(totalOriginal)} → ${formatSize(totalMinified)} (-${totalSavings}%)`);
+    console.log('════════════════════════════════════════');
 
     if (stats.errors.length > 0) {
+        console.log(`\n⚠️  ${stats.errors.length} errors encountered:`);
         stats.errors.forEach(err => {
+            console.log(`   - ${err.file}: ${err.error}`);
         });
     }
-
 }
 
 /**
  * Main build function
  */
 async function build() {
+    console.log('🚀 Starting production build...\n');
 
     // Clean dist directory
     if (fs.existsSync(DIST_DIR)) {
@@ -311,6 +325,7 @@ async function build() {
     // Print stats
     printStats();
 
+    console.log('\n✅ Build complete! Output in dist/\n');
 }
 
 // Run build
