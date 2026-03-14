@@ -1517,7 +1517,7 @@
                     }
                 }
             } catch (error) {
-                console.error('Payment error:', error);
+                window.location.hostname === 'localhost' && console.error('Payment error:', error);
                 alert('Có lỗi xảy ra khi xử lý thanh toán. Vui lòng thử lại.');
             }
         });

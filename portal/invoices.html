@@ -567,7 +567,7 @@
                     }
                 }
             } catch (e) {
-                console.error('Error loading invoices:', e);
+                window.location.hostname === 'localhost' && console.error('Error loading invoices:', e);
                 allInvoices = DEMO_INVOICES;
             }
             renderInvoiceRows(allInvoices);
@@ -628,7 +628,7 @@
                 } else {
                     alert('Lỗi: ' + (result.error || 'Không thể tạo thanh toán'));
                 }
-            } catch (error) { console.error('Payment error:', error); alert('Có lỗi xảy ra. Vui lòng thử lại sau.'); }
+            } catch (error) { window.location.hostname === 'localhost' && console.error('Payment error:', error); alert('Có lỗi xảy ra. Vui lòng thử lại sau.'); }
         }
 
         async function handleBulkPayment() {

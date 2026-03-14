@@ -508,7 +508,7 @@
                 if (campaignsReq.data) updateCampaignTable(campaignsReq.data);
 
             } catch (error) {
-                console.error('Error loading report data:', error);
+                window.location.hostname === 'localhost' && console.error('Error loading report data:', error);
             }
         }
 

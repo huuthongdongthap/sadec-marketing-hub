@@ -417,7 +417,7 @@
                 }
             } catch (e) {
                 // supabase might not be fully configured, still show onboarding
-                console.warn('Auth check skipped:', e);
+                window.location.hostname === 'localhost' && console.warn('Auth check skipped:', e);
             }
         }
         checkAuth();
@@ -504,7 +504,7 @@
                 }
                 goToStep(4);
             } catch (err) {
-                console.error('Save business info error:', err);
+                window.location.hostname === 'localhost' && console.error('Save business info error:', err);
                 // Still proceed even if save fails
                 goToStep(4);
             }

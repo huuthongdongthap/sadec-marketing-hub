@@ -381,7 +381,7 @@
                     result = await Auth.Actions.signIn(email, password);
                 } else {
                     // Fallback to inline DEMO_USERS when Auth module not available
-                    console.warn('Auth module not available, using inline DEMO_USERS');
+                    window.location.hostname === 'localhost' && console.warn('Auth module not available, using inline DEMO_USERS');
                     const demoUser = DEMO_USERS[email];
                     if (demoUser && demoUser.password === password) {
                         result = { success: true, user: { email, role: demoUser.role, name: demoUser.name } };
@@ -409,7 +409,7 @@
                 }
 
             } catch (err) {
-                console.error('Login error:', err);
+                window.location.hostname === 'localhost' && console.error('Login error:', err);
                 showError('Có lỗi xảy ra: ' + (err.message || 'Không xác định'));
             } finally {
                 setLoading(false);
@@ -428,7 +428,7 @@
                 Auth.Guards.redirectIfAuthenticated();
             }
         } catch (e) {
-            console.warn('Auth.Guards unavailable, skipping redirect check');
+            window.location.hostname === 'localhost' && console.warn('Auth.Guards unavailable, skipping redirect check');
         }
 
         // Update register link with current query params
@@ -449,7 +449,7 @@
                     alert('🚀 ' + result.error + '\n\nTính năng đăng nhập bằng Zalo sẽ được cập nhật sớm!\nHiện tại bạn có thể đăng nhập bằng email.');
                 }
             } catch (err) {
-                console.error('Zalo login error:', err);
+                window.location.hostname === 'localhost' && console.error('Zalo login error:', err);
                 alert('💬 Đăng nhập bằng Zalo sẽ được cập nhật sớm!\nHiện tại bạn có thể đăng nhập bằng email.');
             }
         });

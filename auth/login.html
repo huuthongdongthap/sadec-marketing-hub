@@ -606,14 +606,14 @@
             let loginForm = document.getElementById('loginForm');
             if (!loginForm) {
                 loginForm = document.querySelector('form#loginForm');
-                console.warn('getElementById failed, using querySelector fallback');
+                window.location.hostname === 'localhost' && console.warn('getElementById failed, using querySelector fallback');
             }
 
             const loginBtn = document.getElementById('loginBtn');
 
             // Safety check: ensure form element exists
             if (!loginForm) {
-                console.error('[LOGIN] CRITICAL: loginForm element not found!');
+                window.location.hostname === 'localhost' && console.error('[LOGIN] CRITICAL: loginForm element not found!');
                 return;
             }
 
@@ -666,15 +666,15 @@
                         authError = result.error;
                     }
                 } else {
-                    console.warn('Auth module NOT available');
+                    window.location.hostname === 'localhost' && console.warn('Auth module NOT available');
                 }
 
                 // Inline demo fallback — login ALWAYS works even if Auth module fails or returns error
                 if (!loginSuccess) {
                     if (!authModuleAvailable) {
-                        console.warn('Auth module not available, using inline demo login');
+                        window.location.hostname === 'localhost' && console.warn('Auth module not available, using inline demo login');
                     } else {
-                        console.warn('Auth module returned error, falling back to inline DEMO_USERS. Auth error:', authError);
+                        window.location.hostname === 'localhost' && console.warn('Auth module returned error, falling back to inline DEMO_USERS. Auth error:', authError);
                     }
 
                     const demoUser = DEMO_USERS[email];
@@ -688,13 +688,13 @@
                         redirectUrl = demoUser.redirect;
                     } else if (!authModuleAvailable) {
                         // Only show error if Auth module was never available
-                        console.warn('No auth module and no demo match');
+                        window.location.hostname === 'localhost' && console.warn('No auth module and no demo match');
                         alert('Email hoặc mật khẩu không đúng');
                         loginBtn.disabled = false;
                         loginBtn.textContent = 'Đăng nhập';
                         return;
                     } else {
-                        console.warn('Demo fallback failed - no matching demo user');
+                        window.location.hostname === 'localhost' && console.warn('Demo fallback failed - no matching demo user');
                     }
                 }
 
@@ -702,7 +702,7 @@
                     window.location.href = redirectUrl;
                 }
             } catch (error) {
-                console.error('Login error:', error);
+                window.location.hostname === 'localhost' && console.error('Login error:', error);
                 // Last resort: try inline demo even if Auth threw
                 const demoUser = DEMO_USERS[email];
                 if (demoUser && demoUser.password === password) {

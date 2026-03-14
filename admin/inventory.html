@@ -955,7 +955,7 @@
                     saveInventory();
                 }
             } catch (e) {
-                console.error('Error loading inventory:', e);
+                window.location.hostname === 'localhost' && console.error('Error loading inventory:', e);
                 inventoryItems = [...DEFAULT_INVENTORY];
             }
         }

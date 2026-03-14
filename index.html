@@ -681,7 +681,7 @@
       try {
         await createPayment(gateway, amount, packageName, invoiceId);
       } catch (e) {
-        console.error('Payment error:', e);
+        window.location.hostname === 'localhost' && console.error('Payment error:', e);
         // Only hide modal on error so user can retry or see error
         // On success, we redirect anyway
         const modal = document.getElementById('paymentModal');
@@ -720,7 +720,7 @@
         const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY;
 
         if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-          console.warn('[Payment] Supabase credentials not configured. Run build to inject env.');
+          window.location.hostname === 'localhost' && console.warn('[Payment] Supabase credentials not configured. Run build to inject env.');
           alert('Cấu hình thanh toán chưa sẵn sàng. Vui lòng liên hệ quản trị viên.');
           return;
         }
@@ -775,7 +775,7 @@
         }
       } catch (error) {
         document.getElementById('paymentLoading')?.remove();
-        console.error('Payment error:', error);
+        window.location.hostname === 'localhost' && console.error('Payment error:', error);
         alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
       }
     }

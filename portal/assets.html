@@ -404,7 +404,7 @@
                 alert('Upload thành công!');
 
             } catch (error) {
-                console.error('Upload failed:', error);
+                window.location.hostname === 'localhost' && console.error('Upload failed:', error);
                 alert('Có lỗi xảy ra khi upload.');
             } finally {
                 document.querySelector('.upload-label').textContent = originalText;
@@ -443,7 +443,7 @@
                 grid.innerHTML = data.map(asset => createAssetCard(asset)).join('');
 
             } catch (error) {
-                console.error('Error loading assets:', error);
+                window.location.hostname === 'localhost' && console.error('Error loading assets:', error);
                 // Fallback to static for now if error
             }
         }

@@ -636,7 +636,7 @@
                 updateCreditBalance();
                 showToast(`Nhiệm vụ đã gửi! Chi phí: ${cost} credits`, 'success');
             } catch (err) {
-                console.error('[Mission]', err);
+                window.location.hostname === 'localhost' && console.error('[Mission]', err);
                 // Fallback: add mock mission for demo
                 const mockMission = {
                     id: 'msn-' + Date.now(),

@@ -794,7 +794,7 @@
                 if (saved) {
                     qualityData = JSON.parse(saved);
                 }
-            } catch (e) { console.error('Load error:', e); }
+            } catch (e) { window.location.hostname === 'localhost' && console.error('Load error:', e); }
         }
 
         function saveQualityData() {

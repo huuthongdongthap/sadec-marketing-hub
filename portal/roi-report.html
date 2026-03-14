@@ -1228,7 +1228,7 @@
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }).catch(err => {
-                    console.error('PDF export error:', err);
+                    window.location.hostname === 'localhost' && console.error('PDF export error:', err);
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 });

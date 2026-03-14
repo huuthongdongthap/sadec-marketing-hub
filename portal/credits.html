@@ -603,7 +603,7 @@
                     throw new Error('Payment init failed');
                 }
             } catch (err) {
-                console.warn('[Credits] Edge Function not available, showing demo', err);
+                window.location.hostname === 'localhost' && console.warn('[Credits] Edge Function not available, showing demo', err);
                 alert(`Demo mode: Đã giả lập mua ${credits} credits thành công!\n\nTrong production, bạn sẽ được chuyển đến PayOS.`);
 
                 // Update balance in demo

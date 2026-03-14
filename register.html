@@ -500,7 +500,7 @@
                     showError(result.error || 'Có lỗi xảy ra');
                 }
             } catch (err) {
-                // console.error('Register error:', err);
+                // window.location.hostname === 'localhost' && console.error('Register error:', err);
                 showError('Có lỗi xảy ra, vui lòng thử lại');
             } finally {
                 setLoading(false);

@@ -45,7 +45,7 @@ const Logger = {
      * @param {Object} [data] - Additional data
      */
     info(message, data) {
-        console.info(`[Info] ${message}`, data || '');
+        window.location.hostname === 'localhost' && console.info(`[Info] ${message}`, data || '');
     },
 
     /**
@@ -64,7 +64,7 @@ const Logger = {
      */
     table(data, columns) {
         if (this._isDev) {
-            console.table(data, columns);
+            window.location.hostname === 'localhost' && console.table(data, columns);
         }
     },
 
@@ -74,7 +74,7 @@ const Logger = {
      */
     group(label) {
         if (this._isDev && console.group) {
-            console.group(`[Group] ${label}`);
+            window.location.hostname === 'localhost' && console.group(`[Group] ${label}`);
         }
     },
 
@@ -83,7 +83,7 @@ const Logger = {
      */
     groupEnd() {
         if (this._isDev && console.groupEnd) {
-            console.groupEnd();
+            window.location.hostname === 'localhost' && console.groupEnd();
         }
     },
 

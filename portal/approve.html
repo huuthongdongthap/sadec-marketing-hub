@@ -334,7 +334,7 @@
                 renderApprovals(approvalItems);
 
             } catch (error) {
-                console.error('Error loading approvals:', error);
+                window.location.hostname === 'localhost' && console.error('Error loading approvals:', error);
                 // Fallback to demo data if DB is empty or error
                 renderDemoApprovals(status);
             }
@@ -485,7 +485,7 @@
                 alert(status === 'approved' ? 'Đã duyệt nội dung thành công!' : 'Đã gửi yêu cầu chỉnh sửa.');
 
             } catch (error) {
-                console.error('Error updating status:', error);
+                window.location.hostname === 'localhost' && console.error('Error updating status:', error);
                 alert('Có lỗi xảy ra. Vui lòng thử lại.');
             }
         }

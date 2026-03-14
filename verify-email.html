@@ -469,7 +469,7 @@
                         const { data: { session }, error: sessionError } = await client.auth.getSession();
 
                         if (sessionError) {
-                            // console.error('Session error:', sessionError);
+                            // window.location.hostname === 'localhost' && console.error('Session error:', sessionError);
                             showState('stateError');
                             return;
                         }
@@ -506,7 +506,7 @@
                 }
 
             } catch (err) {
-                // console.error('Verification error:', err);
+                // window.location.hostname === 'localhost' && console.error('Verification error:', err);
                 showState('stateError');
             }
         }

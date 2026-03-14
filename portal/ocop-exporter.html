@@ -576,7 +576,7 @@
                     throw new Error('Edge Function error');
                 }
             } catch (err) {
-                console.warn('[OCOP] Edge Function unavailable, using demo', err);
+                window.location.hostname === 'localhost' && console.warn('[OCOP] Edge Function unavailable, using demo', err);
                 displayResults(generateDemoData(name, category, desc, origin, price, market));
             } finally {
                 btn.disabled = false;
