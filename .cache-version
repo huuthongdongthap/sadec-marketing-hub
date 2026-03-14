@@ -1,6 +1,6 @@
 {
-  "version": "vmmpucj9v.b6e1e840d051",
-  "timestamp": "2026-03-14T04:44:09.236Z",
+  "version": "vmmpx7hdi.4996ed952d51",
+  "timestamp": "2026-03-14T06:04:12.342Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -128,7 +128,7 @@
     },
     {
       "path": "assets/css/admin-unified.css",
-      "hash": "535a5f34"
+      "hash": "78f6ccde"
     },
     {
       "path": "assets/css/admin-vc-readiness.css",
@@ -176,7 +176,7 @@
     },
     {
       "path": "assets/css/bundle/animations.css",
-      "hash": "1b961efb"
+      "hash": "596ad797"
     },
     {
       "path": "assets/css/bundle/portal-common.css",
@@ -227,6 +227,10 @@
       "hash": "9acc4be5"
     },
     {
+      "path": "assets/css/features/favorites.css",
+      "hash": "c5b55f26"
+    },
+    {
       "path": "assets/css/features/help-tour.css",
       "hash": "26e9e835"
     },
@@ -235,8 +239,16 @@
       "hash": "f7b0e6d1"
     },
     {
+      "path": "assets/css/features/quick-settings.css",
+      "hash": "05570ee3"
+    },
+    {
       "path": "assets/css/features/reading-progress.css",
       "hash": "501f2b2a"
+    },
+    {
+      "path": "assets/css/features/smart-task-manager.css",
+      "hash": "ab12e876"
     },
     {
       "path": "assets/css/features.css",
@@ -280,7 +292,7 @@
     },
     {
       "path": "assets/css/portal.css",
-      "hash": "df943815"
+      "hash": "5ecf3923"
     },
     {
       "path": "assets/css/quick-actions.css",
@@ -295,24 +307,8 @@
       "hash": "bb60ffe6"
     },
     {
-      "path": "assets/css/responsive-2026-complete.css",
-      "hash": "83821f9f"
-    },
-    {
-      "path": "assets/css/responsive-enhancements.css",
-      "hash": "efb22354"
-    },
-    {
-      "path": "assets/css/responsive-fix-2026.css",
-      "hash": "9ebc89a6"
-    },
-    {
-      "path": "assets/css/responsive-portal-admin.css",
-      "hash": "b62e74f1"
-    },
-    {
-      "path": "assets/css/responsive-table-layout.css",
-      "hash": "01dd745b"
+      "path": "assets/css/responsive-utils.css",
+      "hash": "7d6d632c"
     },
     {
       "path": "assets/css/ui-animations.css",
@@ -341,6 +337,10 @@
     {
       "path": "assets/css/ux-enhancements-2026.css",
       "hash": "3d71296b"
+    },
+    {
+      "path": "assets/css/ux-features-2026.css",
+      "hash": "14816dd5"
     },
     {
       "path": "assets/css/widget-customizer.css",
@@ -615,8 +615,16 @@
       "hash": "31df69c5"
     },
     {
+      "path": "assets/js/core/cache-helper.js",
+      "hash": "0f5b80c2"
+    },
+    {
       "path": "assets/js/core/database-service.js",
       "hash": "1840ce24"
+    },
+    {
+      "path": "assets/js/core/lazy-loader.js",
+      "hash": "bf9a8fda"
     },
     {
       "path": "assets/js/core/storage-service.js",
@@ -699,6 +707,10 @@
       "hash": "fa82ef69"
     },
     {
+      "path": "assets/js/features/favorites.js",
+      "hash": "36aa4e9c"
+    },
+    {
       "path": "assets/js/features/features-2026-index.js",
       "hash": "9158709a"
     },
@@ -712,7 +724,7 @@
     },
     {
       "path": "assets/js/features/index.js",
-      "hash": "ec321119"
+      "hash": "45be8fda"
     },
     {
       "path": "assets/js/features/keyboard-shortcuts.js",
@@ -775,6 +787,10 @@
       "hash": "2ccf3529"
     },
     {
+      "path": "assets/js/features/quick-settings.js",
+      "hash": "6b6632c3"
+    },
+    {
       "path": "assets/js/features/quick-tools-panel.js",
       "hash": "58af7478"
     },
@@ -787,8 +803,16 @@
       "hash": "bf7c6f8b"
     },
     {
+      "path": "assets/js/features/smart-task-manager.js",
+      "hash": "911f5135"
+    },
+    {
       "path": "assets/js/features/ux-enhancements-2026.js",
       "hash": "8bec5e4f"
+    },
+    {
+      "path": "assets/js/features/ux-features-2026.js",
+      "hash": "1e7c06a6"
     },
     {
       "path": "assets/js/features/ux-improvements-v2.js",
@@ -1028,7 +1052,7 @@
     },
     {
       "path": "assets/js/services/service-worker.js",
-      "hash": "49041686"
+      "hash": "c8e74744"
     },
     {
       "path": "assets/js/services/toast-notification.js",
@@ -1061,6 +1085,10 @@
     {
       "path": "assets/js/shared/api-utils.js",
       "hash": "81c74f21"
+    },
+    {
+      "path": "assets/js/shared/api.js",
+      "hash": "6112a8e5"
     },
     {
       "path": "assets/js/shared/base-component.js",
@@ -1136,7 +1164,7 @@
     },
     {
       "path": "assets/js/utils/api.js",
-      "hash": "d8ef1fa0"
+      "hash": "9aa1c333"
     },
     {
       "path": "assets/js/utils/auto-save.js",
