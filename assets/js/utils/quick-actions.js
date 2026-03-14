@@ -3,6 +3,8 @@
  * Quick command palette cho navigation và actions
  */
 
+import { Logger } from '../shared/logger.js';
+
 const QuickActions = {
     actions: [],
     isOpen: false,
@@ -11,7 +13,7 @@ const QuickActions = {
         this.createModal();
         this.bindKeyboard();
         this.loadDefaultActions();
-        console.log('[QuickActions] Initialized');
+        Logger.info('[QuickActions] Initialized');
     },
 
     createModal() {
