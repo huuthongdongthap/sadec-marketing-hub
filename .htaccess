@@ -168,6 +168,15 @@
     </IfModule>
 </FilesMatch>
 
+# CORS - Restrict to specific origin
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://sadec-marketing-hub.com"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, X-CSRF-Token"
+    Header set Access-Control-Allow-Credentials "true"
+    Header set Access-Control-Max-Age "86400"
+</IfModule>
+
 # UTF-8 encoding
 AddDefaultCharset UTF-8
 AddType text/html .html
