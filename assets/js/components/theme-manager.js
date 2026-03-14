@@ -395,6 +395,4 @@ if (document.readyState === 'loading') {
 }
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { Theme, ThemeManager };
-}
+export { Theme, ThemeManager };

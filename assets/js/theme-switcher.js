@@ -152,7 +152,6 @@ function listenForSystemChanges() {
         // Only auto-switch if user hasn't set a preference
         if (!stored || stored === Theme.SYSTEM) {
             applyTheme(Theme.SYSTEM);
-            console.log('[Theme] System theme changed');
         }
     };
 
@@ -184,9 +183,6 @@ function init() {
 
     // Handle resize for mobile toggle
     window.addEventListener('resize', addFloatingToggle);
-
-    console.log('[Theme] Theme switcher initialized');
-    console.log(`[Theme] Current theme: ${theme}`);
 }
 
 // Initialize immediately

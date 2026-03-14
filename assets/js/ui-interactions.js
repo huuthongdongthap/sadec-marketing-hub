@@ -266,7 +266,5 @@ if (typeof window !== 'undefined') {
   });
 }
 
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = UIInteractions;
-}
+// Export for ES modules
+export default UIInteractions;

@@ -139,7 +139,5 @@ if (typeof window !== 'undefined') {
     window.BaseManager = BaseManager;
 }
 
-// Export for Node.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { EventBus, BaseManager };
-}
+// Export for ES modules
+export { EventBus, BaseManager };

@@ -207,7 +207,5 @@ if (typeof document !== 'undefined') {
     }
 }
 
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = LazyLoad;
-}
+// Export for ES modules
+export default LazyLoad;
