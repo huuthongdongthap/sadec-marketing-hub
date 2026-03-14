@@ -37,7 +37,7 @@ export function useTimeoutCleanup() {
  * Hook cho debounced callback
  * Returns debounced function
  */
-export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
+export function useDebouncedCallback<T extends (...args: any[]) => void>(
   callback: T,
   delay: number
 ) {

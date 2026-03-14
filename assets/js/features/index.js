@@ -18,6 +18,8 @@ export { NotificationCenter } from './notification-center.js';
 export { CommandPalette } from './command-palette-enhanced.js';
 export { initQuickNotes } from './quick-notes.js';
 export { AISearchEnhancement } from './ai-search-enhancement.js';
+export { QuickSettings } from './quick-settings.js';
+export { FavoritesManager } from './favorites.js';
 export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from './widget-customizer.js';
 export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
 export { QuickToolsPanel, QuickToolsPanelInstance, initQuickToolsPanel } from './quick-tools-panel.js';
@@ -65,6 +67,8 @@ window.MekongFeatures = {
     AIContentPanel: window.AIContentPanel,
     QuickToolsPanel: window.QuickToolsPanel,
     initQuickNotes: window.initQuickNotes,
+    QuickSettings: window.QuickSettings,
+    FavoritesManager: window.FavoritesManager,
     init: initializeFeatures,
     // UX Utilities
     Loading: window.Loading,
