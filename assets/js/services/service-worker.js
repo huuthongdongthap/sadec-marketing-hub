@@ -11,8 +11,10 @@ const DYNAMIC_CACHE = 'sadec-dynamic-v1';
 const LOG_ENABLED = typeof SW_LOG !== 'undefined' ? SW_LOG : (location?.hostname === 'localhost');
 
 // Debug logger - stripped in production build
-const swLog = (...args) => LOG_ENABLED && console.info('[SW]', ...args);
-const swError = (...args) => console.error('[SW]', ...args);
+// Using Logger module for production-safe logging
+import { Logger } from '../shared/logger.js';
+const swLog = (...args) => LOG_ENABLED && Logger.info('[SW]', ...args);
+const swError = (...args) => Logger.error('[SW]', ...args);
 
 // Static assets to cache immediately
 const STATIC_ASSETS = [

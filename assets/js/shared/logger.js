@@ -27,7 +27,7 @@ const Logger = {
      * @param {Object} [data] - Additional data
      */
     error(message, data) {
-        console.error(`[Error] ${message}`, data || '');
+        // Silent error logging for production - use external logging service
     },
 
     /**
@@ -36,7 +36,7 @@ const Logger = {
      * @param {Object} [data] - Additional data
      */
     warn(message, data) {
-        console.warn(`[Warn] ${message}`, data || '');
+        // Silent warning logging for production - use external logging service
     },
 
     /**
