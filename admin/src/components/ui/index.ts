@@ -40,6 +40,26 @@ export type { ProgressBarProps } from './ProgressBar.tsx'
 export { Button } from './Button.tsx'
 export type { ButtonProps } from './Button.tsx'
 
+// New Feature Components
+export { CommandPalette } from './CommandPalette.tsx'
+export type { CommandPaletteProps, CommandItem } from './CommandPalette.tsx'
+
+export { NotificationBell } from './NotificationBell.tsx'
+export type { NotificationBellProps, Notification } from './NotificationBell.tsx'
+
+// Loading States
+export {
+  Skeleton,
+  SkeletonText,
+  SkeletonTitle,
+  SkeletonAvatar,
+  SkeletonCard,
+  SkeletonTableRow,
+  SkeletonKPI,
+  SkeletonChart
+} from './Skeleton.tsx'
+export type { SkeletonProps } from './Skeleton.tsx'
+
 // Performance Components
 export { LazyChartWrapper, createLazyChart, LazyImage } from './LazyChart.tsx'
 export { LazyImage as LazyImageAdvanced } from './LazyImage.tsx'
