@@ -15,31 +15,42 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false, // Disable sourcemap for production to reduce bundle size
-    minify: 'esbuild', // Faster minifier
+    sourcemap: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: process.env.NODE_ENV === 'production' ? ['console.log', 'console.info'] : []
+      }
+    },
     cssCodeSplit: true,
-    target: 'esnext', // Modern browser target for smaller bundle
+    chunkSizeWarningLimit: 1000,
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           charts: ['recharts'],
           icons: ['lucide-react']
-        }
+        },
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
-    // Enable compression report
     reportCompressedSize: true
   },
-  // Performance optimizations
   optimizeDeps: {
-    include: ['react', 'react-dom', 'recharts', 'lucide-react']
+    include: ['react', 'react-dom', 'recharts', 'lucide-react'],
+    esbuildOptions: {
+      target: 'esnext'
+    }
   },
-  // Test configuration
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
   }
-} as any)
+})

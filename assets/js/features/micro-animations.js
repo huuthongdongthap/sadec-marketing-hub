@@ -1,0 +1,720 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SA ĐÉC MARKETING HUB — MICRO ANIMATIONS
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Animation Collection:
+ * 1. Button Animations (hover, click, loading)
+ * 2. Card Animations (lift, glow, shake)
+ * 3. Input Animations (focus, error, success)
+ * 4. Loading Animations (spinner, pulse, wave)
+ * 5. Notification Animations (slide, bounce, fade)
+ * 6. Scroll Animations (fade-in, slide-up, zoom-in)
+ *
+ * @version 1.0.0 | 2026-03-14
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+// ============================================================================
+// CSS ANIMATIONS
+// ============================================================================
+
+const animationsCSS = `
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ripple Effect */
+.btn.ripple::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Button Loading */
+.btn.loading {
+    pointer-events: none;
+    color: transparent !important;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARD ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card.lift {
+    animation: cardLift 0.3s ease forwards;
+}
+
+@keyframes cardLift {
+    to {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.card.glow {
+    animation: cardGlow 2s ease infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    }
+}
+
+.card.shake {
+    animation: cardShake 0.5s ease;
+}
+
+@keyframes cardShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INPUT ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    transition: all 0.2s ease;
+}
+
+.input-wrapper input:focus {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-wrapper.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.input-wrapper input:focus + .underline::after,
+.input-wrapper.underline:focus::after {
+    width: 100%;
+}
+
+/* Input Error */
+.input-wrapper.error input {
+    animation: inputError 0.4s ease;
+    border-color: #dc2626;
+}
+
+@keyframes inputError {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+/* Input Success */
+.input-wrapper.success input {
+    animation: inputSuccess 0.4s ease;
+    border-color: #16a34a;
+}
+
+@keyframes inputSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOADING ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse */
+.pulse {
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+/* Wave Loading */
+.wave-loading {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave-loading span {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    animation: wave 1.4s ease-in-out infinite;
+}
+
+.wave-loading span:nth-child(1) { animation-delay: -0.3s; }
+.wave-loading span:nth-child(2) { animation-delay: -0.2s; }
+.wave-loading span:nth-child(3) { animation-delay: -0.1s; }
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-12px);
+        opacity: 0.5;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NOTIFICATION ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.toast {
+    animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast.slide-out {
+    animation: toastSlideOut 0.3s ease forwards;
+}
+
+@keyframes toastSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Bounce Alert */
+.alert.bounce {
+    animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade In Up */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Left */
+.slide-in-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide In Right */
+.slide-in-right {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Zoom In */
+.zoom-in {
+    animation: zoomIn 0.4s ease forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SKELETON LOADING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 50%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-card {
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.skeleton-image {
+    height: 120px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.skeleton-text {
+    height: 16px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.skeleton-text.short {
+    width: 60%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HOVER EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Image Hover Zoom */
+.hover-zoom {
+    overflow: hidden;
+}
+
+.hover-zoom img {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* Text Highlight */
+.hover-highlight {
+    position: relative;
+}
+
+.hover-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.hover-highlight:hover::after {
+    width: 100%;
+}
+
+/* Icon Shake */
+.hover-shake:hover {
+    animation: iconShake 0.5s ease;
+}
+
+@keyframes iconShake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Pulse Glow */
+.hover-pulse:hover {
+    animation: hoverPulse 1s ease infinite;
+}
+
+@keyframes hoverPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal-overlay {
+    animation: modalFadeIn 0.2s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    animation: modalSlideUp 0.3s ease forwards;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROGRESS BAR ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.progress-bar {
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #3b82f6 0%,
+        #60a5fa 50%,
+        #3b82f6 100%
+    );
+    background-size: 200% 100%;
+    animation: progressGradient 2s ease infinite, progressFill 0.5s ease forwards;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes progressGradient {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes progressFill {
+    from { width: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: badgePulse 2s ease infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* Badge Bounce In */
+.badge.bounce-in {
+    animation: badgeBounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes badgeBounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+`;
+
+// Inject CSS
+const styleSheet = document.createElement('style');
+styleSheet.textContent = animationsCSS;
+document.head.appendChild(styleSheet);
+
+// ============================================================================
+// JAVASCRIPT ANIMATION HELPERS
+// ============================================================================
+
+/**
+ * Add ripple effect to button
+ * @param {HTMLElement} button
+ */
+export function addRipple(button) {
+    button.classList.add('ripple');
+
+    button.addEventListener('click', (e) => {
+        const ripple = button.querySelector('.ripple') || document.createElement('span');
+        ripple.className = 'ripple-effect';
+
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.cssText = \`
+            position: absolute;
+            width: \${size}px;
+            height: \${size}px;
+            left: \${x}px;
+            top: \${y}px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        \`;
+
+        button.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+    });
+}
+
+/**
+ * Initialize scroll animations
+ */
+export function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+/**
+ * Animate counter
+ * @param {HTMLElement} el
+ * @param {number} end
+ * @param {number} duration
+ */
+export function animateCounter(el, end, duration = 2000) {
+    const start = 0;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        const current = Math.floor(start + (end - start) * easeOutQuart);
+        el.textContent = current.toLocaleString();
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+/**
+ * Initialize all micro animations
+ */
+export function initMicroAnimations() {
+    // Add ripple to all buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+        addRipple(btn);
+    });
+
+    // Initialize scroll animations
+    initScrollAnimations();
+
+    // Animate counters
+    document.querySelectorAll('[data-animate-counter]').forEach(el => {
+        const end = parseInt(el.dataset.animateCounter, 10);
+        animateCounter(el, end);
+    });
+
+    console.log('[Micro Animations] Initialized');
+}
+
+// Auto-initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMicroAnimations);
+} else {
+    initMicroAnimations();
+}
+
+export { animationsCSS };

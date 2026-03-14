@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* Mekong Agency Responsive Bundle */
-@import '../assets/css/responsive-2026-complete.css';
-@import '../assets/css/responsive-enhancements.css';
-@import '../assets/css/responsive-fix-2026.css';
-
 /* Mekong Agency Custom Theme */
 @theme {
   --color-primary-50: #eff6ff;
@@ -262,21 +257,27 @@ body {
 
 /* Loading states */
 .skeleton {
-  @apply bg-gray-200 animate-pulse rounded;
+  background-color: rgb(229 231 235);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  border-radius: 0.375rem;
 }
 
 .skeleton-text {
-  @apply skeleton h-4 w-full;
+  height: 1rem;
+  width: 100%;
 }
 
 .skeleton-title {
-  @apply skeleton h-6 w-32 mb-4;
+  height: 1.5rem;
+  width: 8rem;
+  margin-bottom: 1rem;
 }
 
 .skeleton-circle {
-  @apply skeleton rounded-full;
+  border-radius: 9999px;
 }
 
 .skeleton-rect {
-  @apply skeleton h-32 w-full;
+  height: 8rem;
+  width: 100%;
 }
