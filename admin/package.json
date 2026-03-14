@@ -13,15 +13,16 @@
     "test:coverage": "vitest --coverage"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.15.0",
-    "lucide-react": "^0.475.0",
-    "clsx": "^2.1.1",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@tailwindcss/postcss": "^4.2.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
