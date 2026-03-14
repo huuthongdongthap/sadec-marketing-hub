@@ -1,3 +1,1 @@
-import { cn } from './lib/utils'
-
-export { cn }
+export { cn } from '@/lib/utils'
