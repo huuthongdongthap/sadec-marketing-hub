@@ -1,14 +1,14 @@
 {
-  "date": "2026-03-14T15:17:14.104Z",
+  "date": "2026-03-14T15:22:39.107Z",
   "summary": {
     "totalFiles": 104,
     "bySeverity": {
       "error": 183,
-      "warning": 20,
-      "info": 9
+      "warning": 16,
+      "info": 8
     },
     "byType": {
-      "meta": 136,
+      "meta": 131,
       "accessibility": 76,
       "links": 0
     },
@@ -1375,41 +1375,6 @@
       "type": "accessibility",
       "name": "skip link",
       "severity": "info"
-    },
-    {
-      "file": "reports/quality-scan/audit-report.html",
-      "type": "meta",
-      "name": "description",
-      "severity": "warning",
-      "message": "Missing description"
-    },
-    {
-      "file": "reports/quality-scan/audit-report.html",
-      "type": "meta",
-      "name": "og:title",
-      "severity": "warning",
-      "message": "Missing og:title"
-    },
-    {
-      "file": "reports/quality-scan/audit-report.html",
-      "type": "meta",
-      "name": "og:description",
-      "severity": "warning",
-      "message": "Missing og:description"
-    },
-    {
-      "file": "reports/quality-scan/audit-report.html",
-      "type": "meta",
-      "name": "og:image",
-      "severity": "warning",
-      "message": "Missing og:image"
-    },
-    {
-      "file": "reports/quality-scan/audit-report.html",
-      "type": "meta",
-      "name": "canonical",
-      "severity": "info",
-      "message": "Missing canonical"
     },
     {
       "file": "reports/quality-scan/audit-report.html",
