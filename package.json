@@ -1,6 +1,7 @@
 {
   "name": "sadec-marketing-hub",
   "version": "1.0.0",
+  "type": "module",
   "description": "Sa Đéc Marketing Hub - Digital Marketing Agency",
   "scripts": {
     "dev": "npx http-server -p 8080 -o",

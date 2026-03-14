@@ -54,12 +54,18 @@ export const supabase = getClient();
 // ================================================
 // If supabase-config.js is loaded, use its instances
 
+// Export placeholders - will be overridden if window APIs are available
+export let AuthAPI = typeof window.AuthAPI !== 'undefined' ? window.AuthAPI : null;
+export let AdminAPI = typeof window.AdminAPI !== 'undefined' ? window.AdminAPI : null;
+export let KPIAPI = typeof window.KPIAPI !== 'undefined' ? window.KPIAPI : null;
+export let BinhPhapAPI = typeof window.BinhPhapAPI !== 'undefined' ? window.BinhPhapAPI : null;
+
+// Initialize from window globals if available
 if (typeof window.SupabaseAPI !== 'undefined') {
-    // Use the global SupabaseAPI if available
-    export const AuthAPI = window.AuthAPI;
-    export const AdminAPI = window.AdminAPI;
-    export const KPIAPI = window.KPIAPI;
-    export const BinhPhapAPI = window.BinhPhapAPI;
+    AuthAPI = window.AuthAPI;
+    AdminAPI = window.AdminAPI;
+    KPIAPI = window.KPIAPI;
+    BinhPhapAPI = window.BinhPhapAPI;
 }
 
 // ================================================

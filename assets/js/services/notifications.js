@@ -5,7 +5,8 @@
 
 class NotificationManager {
     constructor() {
-        this.permission = Notification.permission;
+        // Safe check for Notification API (not available in all environments)
+        this.permission = typeof Notification !== 'undefined' ? Notification.permission : 'default';
     }
 
     async requestPermission() {
