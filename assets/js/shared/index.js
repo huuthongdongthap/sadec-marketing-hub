@@ -106,12 +106,9 @@ export {
 // MODAL UTILITIES
 // ============================================================================
 export {
-    openModal,
-    closeModal,
-    initModal,
-    initAllModals,
-    showModal,
-    hideModal
+    ModalManager,
+    modal,
+    modalHelpers
 } from './modal-utils.js';
 
 // ============================================================================
@@ -174,12 +171,12 @@ export default {
     $,
     $$,
     createElement,
-    createFragment,
     setAttributes,
-    getAttributes,
     removeElement,
-    replaceElement,
     waitForElement,
+    toggleClass,
+    addClass,
+    removeClass,
 
     // API
     apiFetch,
@@ -188,21 +185,24 @@ export default {
     apiPut,
     apiDelete,
     handleApiError,
+    ApiClientBase,
 
     // Guard
-    isDefined,
-    isNullOrUndefined,
-    isEmpty,
-    isNumeric,
-    isValidEmail,
-    isValidPhone,
-    sanitizeHtml,
-    escapeHtml,
+    waitForAuth,
+    isAdmin,
+    isStaff,
+    isAffiliate,
+    requireAdmin,
+    requireStaff,
+    requireAffiliate,
+    requireAuth,
+    getCurrentUser,
+    getCurrentUserId,
 
     // Modal
-    openModal,
-    closeModal,
-    initModal,
+    ModalManager,
+    modal,
+    modalHelpers,
 
     // Scroll
     scrollToElement,
@@ -210,7 +210,9 @@ export default {
 
     // Keyboard
     initKeyboardManager,
+    handleGlobalKeydown,
     registerShortcut,
+    unregisterShortcut,
 
     // Logger
     Logger
