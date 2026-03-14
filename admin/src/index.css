@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Mekong Agency Responsive Bundle */
+@import '../assets/css/responsive-2026-complete.css';
+@import '../assets/css/responsive-enhancements.css';
+@import '../assets/css/responsive-fix-2026.css';
+
 /* Mekong Agency Custom Theme */
 @theme {
   --color-primary-50: #eff6ff;
