@@ -3,6 +3,9 @@
    Consolidated & standardized with M3 design tokens
    ================================================ */
 
+/* Import responsive utilities */
+@import url('responsive-utils.css');
+
 /* ---- Layout: Portal Shell ---- */
 
 /* Two-column sidebar + content layout */

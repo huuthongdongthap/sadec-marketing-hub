@@ -28,6 +28,8 @@ export { SmartTaskManager } from './smart-task-manager.js';
 // New UX Enhancements 2026
 export { initUXEnhancements } from './ux-enhancements-2026.js';
 export { initDataRefreshIndicator, triggerRefresh, enableAutoRefresh, disableAutoRefresh } from './data-refresh-indicator.js';
+export { initUXFeatures } from './ux-features-2026.js';
+export { InfiniteScroll, VirtualScroll, OptimisticUI, FormProgressIndicator, CharacterCounter, InputMask, ToastQueue, DebouncedSearch, LazyLoadImages, ScrollAnimations } from './ux-features-2026.js';
 
 // UX Utilities
 export { Loading, ScrollAnimations, RippleEffect } from '../loading-states.js';
