@@ -75,7 +75,7 @@ export function validateEnvVars(required: string[]): void {
 
 // Restrict CORS to specific domains
 export const ALLOWED_ORIGINS = [
-    'https://sadec-marketing-hub.vercel.app',
+    'https://sadec-marketing-hub.pages.dev',
     'http://localhost:3000',
     'http://localhost:8000',
 ];

@@ -168,8 +168,8 @@
 | Performance | ✅ Optimized |
 | Security | ✅ Hardened |
 
-**Deployment:** Auto-deploy via Vercel
-**URL:** https://sadec-marketing-hub.vercel.app
+**Deployment:** Auto-deploy via Cloudflare Pages
+**URL:** https://sadec-marketing-hub.pages.dev
 
 ---
 

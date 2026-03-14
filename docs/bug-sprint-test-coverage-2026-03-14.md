@@ -120,7 +120,7 @@ test('component renders correctly', async ({ page }) => {
 ### Error Handling
 Tests properly ignore known benign errors:
 - Supabase auth errors
-- `__ENV__` undefined (Vercel runtime)
+- `__ENV__` undefined (Cloudflare Pages runtime)
 - Material Web Components duplicate registration
 - Demo/placeholder function errors
 

@@ -145,9 +145,9 @@ npm install html2canvas
 
 ## 🚀 Deployment
 
-**Auto-deploy via Vercel:**
+**Auto-deploy via Cloudflare Pages:**
 - Pushed to `main` branch
-- Vercel auto-deploys on push
+- Cloudflare Pages auto-deploys on push
 - Cache headers configured
 
 **Tag:**
@@ -196,7 +196,7 @@ git push origin v4.17.0
 - [x] Release notes written
 - [x] Git tag created
 - [x] Pushed to origin main
-- [x] Vercel deployment triggered
+- [x] Cloudflare Pages deployment triggered
 
 ---
 
@@ -204,7 +204,7 @@ git push origin v4.17.0
 
 - **GitHub Release:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.17.0
 - **Compare:** https://github.com/huuthongdongthap/sadec-marketing-hub/compare/v4.16.0...v4.17.0
-- **Deploy Preview:** https://sadec-marketing-hub.vercel.app
+- **Deploy Preview:** https://sadec-marketing-hub.pages.dev
 
 ---
 

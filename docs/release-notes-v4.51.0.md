@@ -202,7 +202,7 @@ initQuickActions({
 | Check | Status |
 |-------|--------|
 | Git Push | ✅ Complete (commit `5da9dac`) |
-| Vercel Deploy | ✅ Auto-deployed |
+| Cloudflare Pages Deploy | ✅ Auto-deployed |
 | HTTP Status | ✅ 200 OK |
 | Build Time | ~15s |
 | Cache Status | ✅ Cached |
@@ -246,7 +246,7 @@ initQuickActions({
 
 - [x] All changes committed
 - [x] Git push to main
-- [x] Vercel auto-deploy
+- [x] Cloudflare Pages auto-deploy
 - [x] Production HTTP 200
 - [x] Release notes created
 - [x] Documentation updated

@@ -103,7 +103,7 @@ assets/js/ui-enhancements.js           — Remove duplicates
 - ✅ HTML minification (collapseWhitespace, removeComments)
 - ✅ Service Worker with cache strategies
 - ✅ Lazy loading với IntersectionObserver
-- ✅ Vercel cache headers (1 year immutable)
+- ✅ Cloudflare Pages cache headers (1 year immutable)
 
 ### Core Web Vitals (Estimated)
 
@@ -170,10 +170,10 @@ assets/js/ui-enhancements.js           — Remove duplicates
 
 ## 🚀 Deployment
 
-**Platform:** Vercel
+**Platform:** Cloudflare Pages
 **Deploy:** Auto-deploy via `git push`
 **Status:** ✅ GREEN
-**URL:** https://sadec-marketing-hub.vercel.app
+**URL:** https://sadec-marketing-hub.pages.dev
 
 ### Git Tags
 

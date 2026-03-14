@@ -152,7 +152,7 @@ New styles:
 
 ### Post-Release
 - [x] Git push successful
-- [ ] Deploy to production (Vercel auto-deploy)
+- [ ] Deploy to production (Cloudflare Pages auto-deploy)
 - [ ] Smoke tests
 - [ ] Performance monitoring
 
@@ -160,10 +160,10 @@ New styles:
 
 ## 🚀 Deployment
 
-**Auto-deploy via Vercel:**
+**Auto-deploy via Cloudflare Pages:**
 - Push to `main` → Auto-deploy
 - Estimated deploy time: 2-3 minutes
-- Production URL: https://sadec-marketing-hub.vercel.app
+- Production URL: https://sadec-marketing-hub.pages.dev
 
 ---
 

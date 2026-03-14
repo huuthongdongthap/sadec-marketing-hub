@@ -288,7 +288,7 @@ async function build() {
     // Copy root files
     const rootFiles = ['index.html', 'login.html', 'register.html', 'forgot-password.html',
                        'verify-email.html', 'offline.html', 'manifest.json', 'sw.js',
-                       'favicon.png', 'vercel.json', 'robots.txt', 'sitemap.xml'];
+                       'favicon.png', 'robots.txt', 'sitemap.xml'];
 
     for (const file of rootFiles) {
         const srcPath = path.join(ROOT_DIR, file);

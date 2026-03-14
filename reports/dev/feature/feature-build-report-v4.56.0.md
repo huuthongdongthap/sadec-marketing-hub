@@ -230,8 +230,8 @@ Total: 76/76 tests passing (100%)
 
 | Environment | URL | Status |
 |-------------|-----|--------|
-| Production | https://sadec-marketing-hub.vercel.app | ✅ Deployed |
-| Admin Dashboard | https://sadec-marketing-hub.vercel.app/admin/dashboard.html | ✅ Live |
+| Production | https://sadec-marketing-hub.pages.dev | ✅ Deployed |
+| Admin Dashboard | https://sadec-marketing-hub.pages.dev/admin/dashboard.html | ✅ Live |
 
 ---
 

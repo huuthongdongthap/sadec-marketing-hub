@@ -144,6 +144,6 @@ openclaw:
 
 # Deployment
 deploy:
-  platform: vercel
+  platform: cloudflare-pages
   domain: sadecmarketinghub.com
   environment: production

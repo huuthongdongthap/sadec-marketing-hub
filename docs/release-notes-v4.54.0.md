@@ -185,7 +185,7 @@ exportChart(chartInstance, 'revenue-chart.png', { scale: 2 });
 | Check | Status |
 |-------|--------|
 | Git Push | ✅ Complete |
-| Vercel Deploy | ✅ Auto-deployed |
+| Cloudflare Pages Deploy | ✅ Auto-deployed |
 | HTTP Status | ✅ 200 OK |
 | Build Time | ~12s |
 | Cache Status | ✅ Cached |

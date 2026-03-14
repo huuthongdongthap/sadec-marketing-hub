@@ -83,7 +83,7 @@
 - [x] Fix TypeScript imports in kpi/index.ts
 - [x] Fix TypeScript imports in layout/index.ts
 - [x] Commit and push changes
-- [ ] Vercel Deploy (auto)
+- [ ] Cloudflare Pages Deploy (auto)
 - [ ] Verify production
 
 ---
@@ -106,7 +106,7 @@
 |-------|--------|
 | Git Commit | ✅ Complete |
 | Git Push | ✅ Complete |
-| Vercel Deploy | ⏳ Auto-deploying |
+| Cloudflare Pages Deploy | ⏳ Auto-deploying |
 | HTTP Status | ⏳ Pending |
 
 ---

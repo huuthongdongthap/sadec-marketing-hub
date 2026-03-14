@@ -173,9 +173,9 @@ Missing JSON-LD: 0
 
 | Environment | URL | Status |
 |-------------|-----|--------|
-| Production | https://sadec-marketing-hub.vercel.app | ✅ Live |
-| Admin Dashboard | https://sadec-marketing-hub.vercel.app/admin/dashboard.html | ✅ Live |
-| Portal Dashboard | https://sadec-marketing-hub.vercel.app/portal/dashboard.html | ✅ Live |
+| Production | https://sadec-marketing-hub.pages.dev | ✅ Live |
+| Admin Dashboard | https://sadec-marketing-hub.pages.dev/admin/dashboard.html | ✅ Live |
+| Portal Dashboard | https://sadec-marketing-hub.pages.dev/portal/dashboard.html | ✅ Live |
 
 ---
 

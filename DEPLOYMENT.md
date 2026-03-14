@@ -1,17 +1,17 @@
 # Deployment Guide
 
-## Vercel (Production)
+## Cloudflare Pages (Production)
 
 ```bash
 # Deploy tự động qua GitHub Actions CI/CD
-git push origin main   # CI/CD tự chạy → Vercel deploy
+git push origin main   # CI/CD tự chạy → Cloudflare Pages deploy
 
 # Manual deploy
-vercel --prod
+wrangler pages deploy . --project-name=sadec-marketing-hub --branch=main
 ```
 
-### Environment Variables trên Vercel
-Vào Vercel Dashboard → Project → Settings → Environment Variables:
+### Environment Variables trên Cloudflare Pages
+Vào Cloudflare Dashboard → Pages → sadec-marketing-hub → Settings → Environment Variables:
 ```
 SUPABASE_URL        = https://xxx.supabase.co
 SUPABASE_ANON_KEY   = eyJxxxxxxx
@@ -42,5 +42,5 @@ npm audit               # Security scan
 
 ## Domain
 
-- **Production:** `sadecmarketinghub.com` → Vercel
-- **Preview:** `sadec-*.vercel.app`
+- **Production:** `sadecmarketinghub.com` → Cloudflare Pages
+- **Preview:** `sadec-marketing-hub.pages.dev`

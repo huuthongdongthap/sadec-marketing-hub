@@ -35,8 +35,8 @@ const PAYOS_CONFIG = {
     clientId: Deno.env.get('PAYOS_CLIENT_ID')!,
     apiKey: Deno.env.get('PAYOS_API_KEY')!,
     checksumKey: Deno.env.get('PAYOS_CHECKSUM_KEY')!,
-    returnUrl: Deno.env.get('PAYOS_RETURN_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
-    cancelUrl: Deno.env.get('PAYOS_CANCEL_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payments.html',
+    returnUrl: Deno.env.get('PAYOS_RETURN_URL') || 'https://sadec-marketing-hub.pages.dev/portal/payment-result.html',
+    cancelUrl: Deno.env.get('PAYOS_CANCEL_URL') || 'https://sadec-marketing-hub.pages.dev/portal/payments.html',
 };
 
 async function createPaymentUrl(req: PaymentRequest, supabase: SupabaseType): Promise<PaymentResponse> {

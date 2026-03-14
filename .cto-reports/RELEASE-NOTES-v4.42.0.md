@@ -305,7 +305,7 @@ assets/css/hover-effects.css  — 450 lines (existing, enhanced)
 ### Production Status
 
 ```bash
-curl -sI https://sadec-marketing-hub.vercel.app/admin/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/admin/dashboard.html
 HTTP/2 200
 cache-control: public, max-age=0, must-revalidate
 ```

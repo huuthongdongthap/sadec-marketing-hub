@@ -197,7 +197,7 @@ git tag -a v4.23.0 -m "Responsive Fix Complete"
 
 ```bash
 # HTTP Status
-curl -sI https://sadec-marketing-hub.vercel.app
+curl -sI https://sadec-marketing-hub.pages.dev
 # → HTTP/2 200 ✅
 
 # Responsive check
@@ -239,13 +239,13 @@ curl -sI https://sadec-marketing-hub.vercel.app
 - **Developer:** AI Agent (via /frontend-responsive-fix skill)
 - **Testing:** Playwright E2E + Browser DevTools
 - **Code Review:** Automated CSS validation
-- **Deploy:** Vercel auto-deploy
+- **Deploy:** Cloudflare Pages auto-deploy
 
 ---
 
 ## 📞 Links
 
-- **Production:** https://sadec-marketing-hub.vercel.app
+- **Production:** https://sadec-marketing-hub.pages.dev
 - **Release Tag:** v4.23.0
 - **Responsive Report:** `reports/frontend/responsive-fix-complete-2026-03-14.md`
 - **WCAG Guidelines:** https://www.w3.org/WAI/WCAG21/Understanding/

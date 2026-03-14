@@ -3,7 +3,7 @@
 **Date:** 2026-03-14
 **Tag:** v4.32.0
 **Commit:** 249b91c
-**Production:** ✅ HTTP 200 (https://sadec-marketing-hub.vercel.app)
+**Production:** ✅ HTTP 200 (https://sadec-marketing-hub.pages.dev)
 
 ---
 
@@ -174,8 +174,8 @@ git push origin main
 ## 📝 Notes
 
 ### Production Deployment
-- **Platform:** Vercel (auto-deploy from main)
-- **URL:** https://sadec-marketing-hub.vercel.app
+- **Platform:** Cloudflare Pages (auto-deploy from main)
+- **URL:** https://sadec-marketing-hub.pages.dev
 - **Status:** ✅ HTTP 200
 - **Cache:** CDN cache with revalidation
 

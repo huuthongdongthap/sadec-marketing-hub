@@ -68,12 +68,12 @@ bd2662d feat(perf): Performance optimization - minify CSS/JS, lazy load, cache
 ### Phase 4: deploy-prod
 
 ```
-Production: https://sadec-marketing-hub.vercel.app
+Production: https://sadec-marketing-hub.pages.dev
 Status: ✅ HTTP 200 OK
 x-vercel-id: sin1::xxxx-xxxxxxxxxxxxx
 ```
 
-**Auto-deploy:** Vercel automatically deploys from `main` branch.
+**Auto-deploy:** Cloudflare Pages automatically deploys from `main` branch.
 
 ---
 
@@ -140,9 +140,9 @@ x-vercel-id: sin1::xxxx-xxxxxxxxxxxxx
 
 | Environment | URL | Status |
 |-------------|-----|--------|
-| Production | https://sadec-marketing-hub.vercel.app | ✅ Live |
-| Admin Dashboard | https://sadec-marketing-hub.vercel.app/admin/dashboard.html | ✅ Live |
-| Portal Dashboard | https://sadec-marketing-hub.vercel.app/portal/dashboard.html | ✅ Live |
+| Production | https://sadec-marketing-hub.pages.dev | ✅ Live |
+| Admin Dashboard | https://sadec-marketing-hub.pages.dev/admin/dashboard.html | ✅ Live |
+| Portal Dashboard | https://sadec-marketing-hub.pages.dev/portal/dashboard.html | ✅ Live |
 
 ---
 
@@ -184,6 +184,6 @@ Date:   Sat Mar 14 07:45:00 2026 +0700
 ## 🔗 Links
 
 - **GitHub:** https://github.com/huuthongdongthap/sadec-marketing-hub
-- **Vercel:** https://vercel.com/huuthongdongthap/sadec-marketing-hub
+- **Cloudflare Pages:** https://vercel.com/huuthongdongthap/sadec-marketing-hub
 - **Releases:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.54.0
-- **Production:** https://sadec-marketing-hub.vercel.app
+- **Production:** https://sadec-marketing-hub.pages.dev

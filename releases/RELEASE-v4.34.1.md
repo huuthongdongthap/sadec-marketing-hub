@@ -58,7 +58,7 @@ npm test -- tests/accessibility.spec.ts
 - [x] CHANGELOG.md updated
 - [x] Git tag created
 - [x] Tests passing
-- [ ] Vercel deploy complete
+- [ ] Cloudflare Pages deploy complete
 - [ ] Production health check
 
 ### Commands

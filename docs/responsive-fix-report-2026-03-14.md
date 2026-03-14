@@ -298,10 +298,10 @@ h2 { font-size: 20px; }
 
 ## 🚀 Deployment
 
-**Auto-deploy via Vercel:**
+**Auto-deploy via Cloudflare Pages:**
 - Push to `main` → Auto-deploy
 - Estimated deploy time: 2-3 minutes
-- Production URL: https://sadec-marketing-hub.vercel.app
+- Production URL: https://sadec-marketing-hub.pages.dev
 
 ---
 

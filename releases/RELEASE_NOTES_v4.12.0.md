@@ -126,8 +126,8 @@ npm test -- tests/dashboard-widgets.spec.ts
 ## 🔗 Links
 
 - **GitHub Release:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.12.0
-- **Production:** https://sadec-marketing-hub.vercel.app/
-- **Demo:** https://sadec-marketing-hub.vercel.app/admin/widgets-demo.html
+- **Production:** https://sadec-marketing-hub.pages.dev/
+- **Demo:** https://sadec-marketing-hub.pages.dev/admin/widgets-demo.html
 - **Changelog:** `/CHANGELOG.md`
 
 ---

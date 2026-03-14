@@ -145,7 +145,7 @@ Modified:
 ## 🚀 Deployment
 
 **Status:** ✅ Deployed to Production  
-**Platform:** Vercel (auto-deploy from main)  
+**Platform:** Cloudflare Pages (auto-deploy from main)  
 **CDN:** Cloudflare (cached globally)  
 
 ---

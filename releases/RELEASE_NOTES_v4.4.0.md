@@ -209,7 +209,7 @@ npm test -- tests/seo-validation.spec.ts
 
 ## 🚀 Deployment
 
-**Platform:** Vercel (auto-deploy from main branch)  
+**Platform:** Cloudflare Pages (auto-deploy from main branch)  
 **Status:** ✅ Deployed  
 **Production URL:** https://sadecmarketinghub.com
 

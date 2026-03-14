@@ -194,7 +194,7 @@ test('KPI Card Widget mobile', async ({ browser }) => {
 ### Production Health Check
 
 ```bash
-curl -sI https://sadec-marketing-hub.vercel.app
+curl -sI https://sadec-marketing-hub.pages.dev
 # → HTTP/2 200 ✅
 
 # Mobile viewport test
@@ -236,13 +236,13 @@ curl -sI https://sadec-marketing-hub.vercel.app
 - **Developer:** AI Agent (via /frontend-responsive-fix skill)
 - **Testing:** Playwright E2E + DevTools
 - **Code Review:** Automated CSS validation
-- **Deploy:** Vercel auto-deploy
+- **Deploy:** Cloudflare Pages auto-deploy
 
 ---
 
 ## 📞 Links
 
-- **Production:** https://sadec-marketing-hub.vercel.app
+- **Production:** https://sadec-marketing-hub.pages.dev
 - **Responsive Test:** https://responsivedesignchecker.com/
 - **WCAG Touch Targets:** https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
 

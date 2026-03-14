@@ -212,7 +212,7 @@ Theo plan .tasks/sprint2-post-payment.md:
 4. Responsive mobile-first
 5. Auth check: redirect to login if not authenticated
 
-6. Git add + commit + push + vercel --prod"
+6. Git add + commit + push + wrangler pages deploy"
 ```
 
 ---
@@ -220,7 +220,7 @@ Theo plan .tasks/sprint2-post-payment.md:
 ## Verification
 
 Sau khi chạy 3 sessions, test E2E:
-1. Mở `https://sadec-marketing-hub.vercel.app`
+1. Mở `https://sadec-marketing-hub.pages.dev`
 2. Scroll → Pricing → Click "Đăng ký ngay" (Tăng trưởng 12M)
 3. PayOS checkout → thanh toán
 4. Redirect về payment-result.html → hiện form email/SĐT

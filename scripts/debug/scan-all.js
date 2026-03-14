@@ -14,7 +14,7 @@ from collections import defaultdict
 
 # Cấu hình
 ROOT_DIR = Path(__file__).parent.parent
-EXCLUDE_DIRS = {'node_modules', 'dist', '.git', '.vercel', 'playwright-report', 'tests'}
+EXCLUDE_DIRS = {'node_modules', 'dist', '.git', '.wrangler', 'playwright-report', 'tests'}
 JS_FILES = []
 
 # Kết quả

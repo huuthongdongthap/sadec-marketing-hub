@@ -394,7 +394,7 @@
                 </div>
                 <div class="check-item">
                     <span class="material-symbols-outlined check-icon pass" aria-label="Hoàn thành" role="img">check_circle</span>
-                    <span class="check-label">Vercel configured</span>
+                    <span class="check-label">Cloudflare Pages configured</span>
                 </div>
             </div>
 
@@ -408,7 +408,7 @@
 
             <div class="prod-url" id="prodUrl">
                 <span style="color: var(--text-secondary);">Production URL:</span><br>
-                <a href="https://mekong-agency.vercel.app" target="_blank">https://mekong-agency.vercel.app</a>
+                <a href="https://sadec-marketing-hub.pages.dev" target="_blank">https://sadec-marketing-hub.pages.dev</a>
             </div>
         </div>
     </div>
@@ -422,7 +422,7 @@
         async function deploy() {
             btn.classList.add('deploying');
             btn.textContent = 'DEPLOYING...';
-            status.textContent = 'Connecting to Vercel...';
+            status.textContent = 'Connecting to Cloudflare Pages...';
             log.classList.add('active');
             log.innerHTML = '';
 
@@ -430,7 +430,7 @@
                 '> Initializing deployment...',
                 '> Running pre-flight checks...',
                 '> All checks passed ✓',
-                '> Uploading files to Vercel...',
+                '> Uploading files to Cloudflare Pages...',
                 '> Building production bundle...',
                 '> Optimizing assets...',
                 '> Deploying to edge network...',

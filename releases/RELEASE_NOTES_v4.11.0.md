@@ -67,7 +67,7 @@ Release v4.11.0 combines **performance optimizations** with a comprehensive **UI
 | **Network First** | `mekong-os-api-*` | 5 min | API Calls |
 | **Cache First (Long TTL)** | `mekong-os-fonts-*` | 30 days | Google Fonts |
 
-### Vercel Cache Headers
+### Cloudflare Pages Cache Headers
 
 | Resource | Cache-Control | TTL |
 |----------|---------------|-----|
@@ -149,10 +149,10 @@ npm run optimize:full
 
 ### Deployment
 
-- **Platform:** Vercel (auto-deploy from main branch)
+- **Platform:** Cloudflare Pages (auto-deploy from main branch)
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist/`
-- **URL:** https://sadec-marketing-hub.vercel.app/
+- **URL:** https://sadec-marketing-hub.pages.dev/
 
 ---
 
@@ -248,7 +248,7 @@ npm run test:ui
 ## 🔗 Links
 
 - **GitHub Release:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.11.0
-- **Production:** https://sadec-marketing-hub.vercel.app/
+- **Production:** https://sadec-marketing-hub.pages.dev/
 - **Performance Report:** `/reports/performance-optimization-report-2026-03-13.md`
 - **Changelog:** `/CHANGELOG.md`
 

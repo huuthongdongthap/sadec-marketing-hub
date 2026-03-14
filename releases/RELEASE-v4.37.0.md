@@ -57,7 +57,7 @@ dee71a8 docs(release): Add v4.36.0 release notes
 
 ## Deployment
 
-**Vercel:** Auto-deployed from main
+**Cloudflare Pages:** Auto-deployed from main
 **URL:** https://sadecmarketinghub.com
 
 ### Post-Deploy Checklist

@@ -45,7 +45,7 @@ const SUPABASE_ANON_KEY = 'eyJ...';              // ← Paste anon key
 
 ---
 
-## Bước 5: Deploy lên Vercel
+## Bước 5: Deploy lên Cloudflare Pages
 
 ```bash
 # Commit changes
@@ -53,10 +53,10 @@ git add .
 git commit -m "Add Supabase integration"
 
 # Deploy
-vercel --prod
+wrangler pages deploy
 ```
 
-Hoặc thêm Environment Variables trên Vercel Dashboard:
+Hoặc thêm Environment Variables trên Cloudflare Pages Dashboard:
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 

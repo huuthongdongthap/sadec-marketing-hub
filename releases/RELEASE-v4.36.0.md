@@ -210,7 +210,7 @@ Date:   Sat Mar 14 03:41:26 2026 +0700
 | Git Commit | ✅ Complete | ae50a8a |
 | Git Push | ⏳ Pending | - |
 | Git Tag v4.36.0 | ⏳ Pending | - |
-| Vercel Deploy | ⏳ Pending | - |
+| Cloudflare Pages Deploy | ⏳ Pending | - |
 
 ---
 
@@ -219,7 +219,7 @@ Date:   Sat Mar 14 03:41:26 2026 +0700
 1. ✅ Run E2E tests
 2. ⏳ Push to remote
 3. ⏳ Create git tag v4.36.0
-4. ⏳ Monitor Vercel deployment
+4. ⏳ Monitor Cloudflare Pages deployment
 
 ---
 

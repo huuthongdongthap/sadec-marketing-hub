@@ -22,7 +22,7 @@ const VNPAY_CONFIG = {
     vnpUrl: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html',
     tmnCode: Deno.env.get('VNPAY_TMN_CODE')!,
     secretKey: Deno.env.get('VNPAY_SECRET_KEY')!,
-    returnUrl: Deno.env.get('VNPAY_RETURN_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
+    returnUrl: Deno.env.get('VNPAY_RETURN_URL') || 'https://sadec-marketing-hub.pages.dev/portal/payment-result.html',
     version: '2.1.0',
     locale: 'vn',
     currCode: 'VND'

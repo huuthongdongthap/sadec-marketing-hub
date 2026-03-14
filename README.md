@@ -15,7 +15,7 @@
 -   **AI-Powered Tools**: Gemini-integrated multimodal analysis for marketing assets.
 -   **Performance First**: Zero-framework architecture (Vanilla JS + Web Components) for maximum speed.
 
-**Live URL**: `[Insert Vercel URL Here]`
+**Live URL**: `https://sadec-marketing-hub.pages.dev`
 
 ---
 
@@ -46,7 +46,7 @@ The project follows a **"No-Build"** philosophy for simplicity and longevity.
 -   **Design System**: Google Material Design 3 (Expressive) with custom "Mekong Aurora" themes.
 -   **Backend / DB**: Supabase (PostgreSQL, Auth, Edge Functions, Realtime).
 -   **AI**: Google Gemini API (via Edge Functions).
--   **Hosting**: Vercel (recommended) or any static host.
+-   **Hosting**: Cloudflare Pages
 
 ---
 

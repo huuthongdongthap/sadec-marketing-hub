@@ -151,7 +151,7 @@
 |-------|--------|
 | Git Commit | ✅ Complete |
 | Git Push | ✅ Complete |
-| Vercel Deploy | ✅ Auto-deployed |
+| Cloudflare Pages Deploy | ✅ Auto-deployed |
 | HTTP Status | ✅ 200 OK |
 
 ---

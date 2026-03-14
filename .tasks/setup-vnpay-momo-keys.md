@@ -90,13 +90,13 @@ supabase functions deploy verify-momo-payment --no-verify-jwt
 curl -s -X POST 'https://pzcgvfhppglzfjavxuid.supabase.co/functions/v1/create-payment' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MzE3ODYsImV4cCI6MjA4MjMwNzc4Nn0.xE_iEkIYaY0ql0Br_B64o1JKLuiAeAPg8GydLm71DLs' \
-  -d '{"amount":5000000,"description":"Goi test","orderCode":1234567890,"invoiceId":"INV-TEST","invoiceNumber":"INV-TEST","returnUrl":"https://sadec-marketing-hub.vercel.app/portal/payment-result.html","cancelUrl":"https://sadec-marketing-hub.vercel.app/#pricing"}'
+  -d '{"amount":5000000,"description":"Goi test","orderCode":1234567890,"invoiceId":"INV-TEST","invoiceNumber":"INV-TEST","returnUrl":"https://sadec-marketing-hub.pages.dev/portal/payment-result.html","cancelUrl":"https://sadec-marketing-hub.pages.dev/#pricing"}'
 
 # Test MoMo
 curl -s -X POST 'https://pzcgvfhppglzfjavxuid.supabase.co/functions/v1/create-momo-payment' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6Y2d2ZmhwcGdsemZqYXZ4dWlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MzE3ODYsImV4cCI6MjA4MjMwNzc4Nn0.xE_iEkIYaY0ql0Br_B64o1JKLuiAeAPg8GydLm71DLs' \
-  -d '{"amount":5000000,"description":"Goi test","orderCode":1234567890,"invoiceId":"INV-TEST","invoiceNumber":"INV-TEST","returnUrl":"https://sadec-marketing-hub.vercel.app/portal/payment-result.html","cancelUrl":"https://sadec-marketing-hub.vercel.app/#pricing"}'
+  -d '{"amount":5000000,"description":"Goi test","orderCode":1234567890,"invoiceId":"INV-TEST","invoiceNumber":"INV-TEST","returnUrl":"https://sadec-marketing-hub.pages.dev/portal/payment-result.html","cancelUrl":"https://sadec-marketing-hub.pages.dev/#pricing"}'
 ```
 
 ---
@@ -123,7 +123,7 @@ claude "Setup VNPay & MoMo payment gateways theo plan .tasks/setup-vnpay-momo-ke
 
 6. Cleanup index.html - giảm duplicate event listeners, remove debug logs
 
-7. Git commit + push + vercel --prod"
+7. Git commit + push + wrangler pages deploy"
 ```
 
 ---

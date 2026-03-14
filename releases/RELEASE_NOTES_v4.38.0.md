@@ -205,7 +205,7 @@ npm run build              # Full build
 
 **Deploy:**
 ```bash
-git push origin main       # Auto-deploy via Vercel
+git push origin main       # Auto-deploy via Cloudflare Pages
 ```
 
 **Verify:**

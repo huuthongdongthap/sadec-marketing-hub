@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
-const EXCLUDED_DIRS = ['node_modules', '.git', '.vercel', 'dist', 'releases', 'reports'];
+const EXCLUDED_DIRS = ['node_modules', '.git', '.wrangler', 'dist', 'releases', 'reports'];
 
 // SEO metadata requirements
 const REQUIRED_TAGS = {

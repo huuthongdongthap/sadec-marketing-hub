@@ -358,8 +358,8 @@ Loading.fullscreen.hide();
 ## 🔗 Links
 
 - **GitHub Release:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.15.0
-- **Production:** https://sadec-marketing-hub.vercel.app/
-- **Demo Page:** https://sadec-marketing-hub.vercel.app/admin/ui-components-demo.html
+- **Production:** https://sadec-marketing-hub.pages.dev/
+- **Demo Page:** https://sadec-marketing-hub.pages.dev/admin/ui-components-demo.html
 - **Changelog:** `/CHANGELOG.md`
 
 ---

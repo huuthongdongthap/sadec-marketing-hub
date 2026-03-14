@@ -376,7 +376,7 @@ Toast.warning('Vui lòng đợi...', { dismissible: false, duration: 0 });
 - **Developer:** AI Agent (via /dev-feature skill)
 - **Testing:** Playwright E2E
 - **Code Review:** Syntax validation
-- **Deploy:** Vercel auto-deploy
+- **Deploy:** Cloudflare Pages auto-deploy
 
 ---
 

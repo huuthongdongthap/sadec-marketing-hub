@@ -39,7 +39,7 @@ function getHtmlFiles(dir, fileList = []) {
     for (const file of files) {
         const filePath = path.join(dir, file);
 
-        if (file === 'node_modules' || file === '.git' || file === 'dist' || file === '.vercel') {
+        if (file === 'node_modules' || file === '.git' || file === 'dist' || file === '.wrangler') {
             continue;
         }
 

@@ -116,7 +116,7 @@ git commit -m "chore: audit cleanup và test config fix"
 git push origin main
 # → Success ✅
 
-# Vercel auto-deploy
+# Cloudflare Pages auto-deploy
 # Check: https://vercel.com/dashboard
 ```
 
@@ -124,7 +124,7 @@ git push origin main
 
 ```bash
 # HTTP Status
-curl -sI https://sadec-marketing-hub.vercel.app
+curl -sI https://sadec-marketing-hub.pages.dev
 # → HTTP/2 200 ✅
 
 # Latest tag
@@ -167,13 +167,13 @@ git describe --tags --abbrev=0
 - **Developer:** AI Agent (via /cook skill)
 - **Testing:** Automated audit scripts
 - **Code Review:** Git diff review
-- **Deploy:** Vercel auto-deploy
+- **Deploy:** Cloudflare Pages auto-deploy
 
 ---
 
 ## 📞 Links
 
-- **Production:** https://sadec-marketing-hub.vercel.app
+- **Production:** https://sadec-marketing-hub.pages.dev
 - **Audit Report:** `reports/audit/audit-summary-2026-03-14.md`
 - **Broken Links Report:** `/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/reports/broken-links-report.md`
 

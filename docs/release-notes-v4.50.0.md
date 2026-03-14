@@ -116,7 +116,7 @@ Release v4.50.0 tập trung vào code quality, security audit, và UI enhancemen
 
 - **Repository:** [sadec-marketing-hub](https://github.com/huuthongdongthap/sadec-marketing-hub)
 - **Production:** [sadecmarketinghub.com](https://sadecmarketinghub.com)
-- **Deployment:** Auto-deploy via Vercel
+- **Deployment:** Auto-deploy via Cloudflare Pages
 
 ---
 

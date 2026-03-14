@@ -24,7 +24,7 @@
 
 ## Security Headers
 
-Dự án enforce các HTTP security headers sau (qua `vercel.json`):
+Dự án enforce các HTTP security headers sau (qua `_headers` — Cloudflare Pages):
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: SAMEORIGIN`
 - `Strict-Transport-Security: max-age=63072000`

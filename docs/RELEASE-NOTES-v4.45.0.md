@@ -178,16 +178,16 @@ Added `<meta charset="UTF-8">` to:
 ### Production Status
 ```bash
 # Root
-curl -sI https://sadec-marketing-hub.vercel.app/
+curl -sI https://sadec-marketing-hub.pages.dev/
 HTTP/2 200
 cache-control: public, max-age=0, must-revalidate
 
 # Portal
-curl -sI https://sadec-marketing-hub.vercel.app/portal/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/portal/dashboard.html
 HTTP/2 200
 
 # Admin
-curl -sI https://sadec-marketing-hub.vercel.app/admin/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/admin/dashboard.html
 HTTP/2 200
 ```
 

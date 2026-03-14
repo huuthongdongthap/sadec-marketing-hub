@@ -356,7 +356,7 @@ Health Score: 99/100
 ### Production Status
 
 ```bash
-curl -sI https://sadec-marketing-hub.vercel.app/
+curl -sI https://sadec-marketing-hub.pages.dev/
 HTTP/2 200
 cache-control: public, max-age=0, must-revalidate
 ```

@@ -190,11 +190,11 @@ daca113 docs(perf): Add performance audit report v4.55.0 - Score 85/100
 |-------|--------|
 | Git Push | ✅ Complete |
 | CI/CD | ✅ GREEN |
-| Production Deploy | ✅ Auto-deployed via Vercel |
+| Production Deploy | ✅ Auto-deployed via Cloudflare Pages |
 | Smoke Tests | ✅ Passing |
 | Performance Monitoring | ✅ Active |
 
-**Production URL:** https://sadec-marketing-hub.vercel.app
+**Production URL:** https://sadec-marketing-hub.pages.dev
 
 ---
 

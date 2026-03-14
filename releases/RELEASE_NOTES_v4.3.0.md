@@ -46,7 +46,7 @@ Release v4.3.0 tập trung vào tối ưu hiệu năng toàn diện cho Sa Đéc
 | HTML Pages | Stale While Revalidate | 5 phút |
 | API Calls | Network First + Cache Fallback | 5 phút |
 
-**Vercel Cache Headers:**
+**Cloudflare Pages Cache Headers:**
 ```
 /assets/*: public, max-age=31536000, immutable
 /images/*: public, max-age=2592000, stale-while-revalidate=604800
@@ -120,7 +120,7 @@ npm run perf:audit         # Performance audit
 - [x] Git commit & push thành công
 - [x] Git tag v4.3.0 created
 - [x] Tags pushed lên remote
-- [ ] Vercel deployment complete
+- [ ] Cloudflare Pages deployment complete
 - [ ] Lighthouse score verification
 - [ ] Core Web Vitals verification
 - [ ] Production site accessible
@@ -129,7 +129,7 @@ npm run perf:audit         # Performance audit
 
 ## 🚀 Deployment
 
-**Platform:** Vercel (auto-deploy from main branch)  
+**Platform:** Cloudflare Pages (auto-deploy from main branch)  
 **Status:** Deploying...  
 **Production URL:** https://sadecmarketinghub.com
 
@@ -137,7 +137,7 @@ npm run perf:audit         # Performance audit
 
 ## 📝 Next Steps
 
-1. **Monitor Deployment:** Check Vercel dashboard for build status
+1. **Monitor Deployment:** Check Cloudflare Pages dashboard for build status
 2. **Lighthouse Audit:** Run performance audit on production
 3. **Core Web Vitals:** Verify LCP, FID, CLS targets
 4. **User Feedback:** Monitor for any regressions

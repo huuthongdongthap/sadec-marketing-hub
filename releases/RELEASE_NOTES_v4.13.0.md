@@ -270,7 +270,7 @@ npm test -- tests/responsive-layouts.spec.ts
 ## 🔗 Links
 
 - **GitHub Release:** https://github.com/huuthongdongthap/sadec-marketing-hub/releases/tag/v4.13.0
-- **Production:** https://sadec-marketing-hub.vercel.app/
+- **Production:** https://sadec-marketing-hub.pages.dev/
 - **Responsive Audit:** `reports/responsive/responsive-audit-2026-03-13.md`
 - **Changelog:** `/CHANGELOG.md`
 

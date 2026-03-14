@@ -4,7 +4,7 @@
  * Sa Đéc Marketing Hub - Security Hardening Phase 1
  * 
  * This script generates env.js with Supabase credentials from environment variables.
- * Run this script during the Vercel build process.
+ * Run this script during the Cloudflare Pages build process.
  * 
  * Usage:
  *   SUPABASE_URL=xxx SUPABASE_ANON_KEY=yyy node inject-env.js

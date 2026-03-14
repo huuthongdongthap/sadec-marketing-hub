@@ -187,7 +187,7 @@ THỰC HIỆN:
 claude "Sprint 3 Final — Deploy + Verify.
 
 1. DEPLOY:
-   npx vercel --prod --yes
+   npx wrangler pages deploy --yes
 
 2. VERIFY bằng grep:
    - Tất cả portal/*.html (trừ login, payment-result, onboarding) có portal-guard.js import

@@ -35,8 +35,8 @@ const MOMO_CONFIG = {
     partnerCode: Deno.env.get('MOMO_PARTNER_CODE')!,
     accessKey: Deno.env.get('MOMO_ACCESS_KEY')!,
     secretKey: Deno.env.get('MOMO_SECRET_KEY')!,
-    redirectUrl: Deno.env.get('MOMO_REDIRECT_URL') || 'https://sadec-marketing-hub.vercel.app/portal/payment-result.html',
-    ipnUrl: Deno.env.get('MOMO_IPN_URL') || 'https://sadec-marketing-hub.vercel.app/api/momo-ipn',
+    redirectUrl: Deno.env.get('MOMO_REDIRECT_URL') || 'https://sadec-marketing-hub.pages.dev/portal/payment-result.html',
+    ipnUrl: Deno.env.get('MOMO_IPN_URL') || 'https://sadec-marketing-hub.pages.dev/api/momo-ipn',
 };
 
 async function createPaymentUrl(req: PaymentRequest, supabase: SupabaseType): Promise<PaymentResponse> {

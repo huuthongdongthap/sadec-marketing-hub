@@ -138,10 +138,10 @@ ls -la supabase-config.js
 ### Production Deployment
 
 ```bash
-curl -sI https://sadec-marketing-hub.vercel.app/admin/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/admin/dashboard.html
 # HTTP/2 200 (✅ PASS)
 
-curl -sI https://sadec-marketing-hub.vercel.app/portal/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/portal/dashboard.html
 # HTTP/2 200 (✅ PASS)
 ```
 

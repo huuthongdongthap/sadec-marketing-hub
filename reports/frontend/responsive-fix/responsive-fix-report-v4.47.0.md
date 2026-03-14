@@ -261,7 +261,7 @@ git commit -m "fix(responsive): Hoàn thành responsive fix cho 47 pages (v4.47.
 
 ### CI/CD
 
-Auto-deploy via Vercel from main branch.
+Auto-deploy via Cloudflare Pages from main branch.
 
 ---
 

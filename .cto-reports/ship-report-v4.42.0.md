@@ -93,10 +93,10 @@ git push origin v4.42.0
 
 ## 🚀 Production Deploy
 
-### Vercel Status
+### Cloudflare Pages Status
 
 ```bash
-curl -sI https://sadec-marketing-hub.vercel.app/
+curl -sI https://sadec-marketing-hub.pages.dev/
 HTTP/2 200
 age: 1277
 cache-control: public, max-age=0, must-revalidate
@@ -176,7 +176,7 @@ curl raw.githubusercontent.com/.../dashboard.html | grep quick-tools-panel
 - [x] GitHub shows commits
 
 ### Production Deploy
-- [x] Vercel triggered
+- [x] Cloudflare Pages triggered
 - [x] HTTP 200 verified
 - [x] Files deployed
 - [x] Content verified
@@ -216,7 +216,7 @@ GitHub API requires authentication. Manual steps:
 ### Browser Check
 
 ```
-✅ https://sadec-marketing-hub.vercel.app/admin/dashboard.html
+✅ https://sadec-marketing-hub.pages.dev/admin/dashboard.html
    - Widget Customizer integrated
    - AI Content Panel integrated
    - Quick Tools Panel integrated

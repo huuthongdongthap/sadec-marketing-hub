@@ -299,7 +299,7 @@ After every `git push`:
 2. **HTTP Check** — `curl -sI <PROD_URL>` must return HTTP 200
 3. **Report** — `Build: ✅ | Tests: ✅ | CI/CD: ✅ | Production: ✅ HTTP 200`
 
-**BANNED:** `vercel --prod`, `vercel deploy` — only deploy via `git push`.
+**BANNED:** `wrangler pages deploy` (CI only) — only deploy via `git push`.
 
 ---
 
@@ -698,7 +698,7 @@ docs: Update documentation
 git push origin main
   → GitHub Actions triggers
   → CI/CD builds + tests
-  → Auto-deploy (Vercel/Cloudflare)
+  → Auto-deploy (Cloudflare Pages)
   → Poll until GREEN
   → curl production HTTP 200
   → Report format with all checks

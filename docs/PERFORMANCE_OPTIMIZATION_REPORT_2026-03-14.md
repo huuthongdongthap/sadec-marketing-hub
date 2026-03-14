@@ -184,7 +184,7 @@ git push origin main
 ```
 
 ### CI/CD Pipeline
-- Vercel auto-deploy from main
+- Cloudflare Pages auto-deploy from main
 - Production URL: https://sadecmarketinghub.com
 
 ---
@@ -209,7 +209,7 @@ git push origin main
 2. **Tree Shaking:** Remove unused code with esbuild
 3. **Image Optimization:** Convert to WebP/AVIF
 4. **CDN:** Use Cloudflare CDN for global delivery
-5. **HTTP/3:** Enable HTTP/3 on Vercel
+5. **HTTP/3:** Enable HTTP/3 on Cloudflare Pages
 
 ### Monitoring
 1. **RUM (Real User Monitoring):** Track actual user performance

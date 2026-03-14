@@ -28,7 +28,7 @@ Complete refactoring and optimization of payment gateway integration for VNPay, 
 - **Status**: IMPLEMENTED
 - **Location**: `_shared/payment-utils.ts:13-26`
 - **Implementation**:
-  - Allowed origins: `sadec-marketing-hub.vercel.app`, `localhost:3000`, `localhost:8000`
+  - Allowed origins: `sadec-marketing-hub.pages.dev`, `localhost:3000`, `localhost:8000`
   - Rejects requests from unauthorized origins
   - Centralized CORS configuration
 
@@ -171,21 +171,21 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 # VNPay
 VNPAY_TMN_CODE=your_tmn_code
 VNPAY_SECRET_KEY=your_secret_key
-VNPAY_RETURN_URL=https://sadec-marketing-hub.vercel.app/portal/payment-result.html
+VNPAY_RETURN_URL=https://sadec-marketing-hub.pages.dev/portal/payment-result.html
 
 # MoMo
 MOMO_PARTNER_CODE=your_partner_code
 MOMO_ACCESS_KEY=your_access_key
 MOMO_SECRET_KEY=your_secret_key
-MOMO_REDIRECT_URL=https://sadec-marketing-hub.vercel.app/portal/payment-result.html
+MOMO_REDIRECT_URL=https://sadec-marketing-hub.pages.dev/portal/payment-result.html
 MOMO_IPN_URL=https://your-project.supabase.co/functions/v1/payment-webhook?gateway=momo
 
 # PayOS
 PAYOS_CLIENT_ID=your_client_id
 PAYOS_API_KEY=your_api_key
 PAYOS_CHECKSUM_KEY=your_checksum_key
-PAYOS_RETURN_URL=https://sadec-marketing-hub.vercel.app/portal/payment-result.html
-PAYOS_CANCEL_URL=https://sadec-marketing-hub.vercel.app/portal/payments.html
+PAYOS_RETURN_URL=https://sadec-marketing-hub.pages.dev/portal/payment-result.html
+PAYOS_CANCEL_URL=https://sadec-marketing-hub.pages.dev/portal/payments.html
 ```
 
 ## Breaking Changes

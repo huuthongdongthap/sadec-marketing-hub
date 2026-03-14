@@ -178,13 +178,13 @@ All pages follow this comprehensive template:
 
 ```bash
 # Check production deployment
-curl -sI https://sadec-marketing-hub.vercel.app/admin/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/admin/dashboard.html
 # HTTP/2 200 ✅
 
-curl -sI https://sadec-marketing-hub.vercel.app/portal/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/portal/dashboard.html
 # HTTP/2 200 ✅
 
-curl -sI https://sadec-marketing-hub.vercel.app/affiliate/dashboard.html
+curl -sI https://sadec-marketing-hub.pages.dev/affiliate/dashboard.html
 # HTTP/2 200 ✅
 ```
 

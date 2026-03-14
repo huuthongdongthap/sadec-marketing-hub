@@ -199,10 +199,10 @@ git tag -a v4.26.0 -m "Release v4.26.0"
 git push origin v4.26.0
 ```
 
-### Vercel Deploy
+### Cloudflare Pages Deploy
 
 - **Status:** ✅ Live
-- **URL:** https://sadec-marketing-hub.vercel.app/
+- **URL:** https://sadec-marketing-hub.pages.dev/
 - **HTTP Status:** 200 OK
 - **Cache Headers:** Configured
 - **CDN:** Global edge caching
@@ -254,7 +254,7 @@ git push origin v4.26.0
 - ✅ All quality gates passed
 - ✅ Production deployed and verified
 
-**Production URL:** https://sadec-marketing-hub.vercel.app/
+**Production URL:** https://sadec-marketing-hub.pages.dev/
 
 ---
 

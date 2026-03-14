@@ -294,7 +294,7 @@ test('button should have ripple effect on click', async ({ page }) => {
 
 ## 📞 Links
 
-- **Production:** https://sadec-marketing-hub.vercel.app
+- **Production:** https://sadec-marketing-hub.pages.dev
 - **Micro-Animations:** `assets/js/micro-animations.js`
 - **Loading States:** `assets/js/loading-states.js`
 - **UI Motion System:** `assets/css/ui-motion-system.css`

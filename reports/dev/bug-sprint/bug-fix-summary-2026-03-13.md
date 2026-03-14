@@ -154,7 +154,7 @@ npx playwright test --reporter=list
 1. ✅ Run E2E tests to verify fixes (in progress)
 2. ⏳ Commit and push changes
 3. ⏳ Create git tag v4.16.1
-4. ⏳ Deploy to production via Vercel
+4. ⏳ Deploy to production via Cloudflare Pages
 
 ---
 

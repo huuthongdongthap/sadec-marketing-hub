@@ -250,7 +250,7 @@ tests/roiaas-onboarding.test.ts
    - TTL-based invalidation
    - Background sync
 
-4. **Vercel Cache Headers**
+4. **Cloudflare Pages Cache Headers**
    - Static: 1 year immutable
    - HTML: stale-while-revalidate
    - API: no-cache
