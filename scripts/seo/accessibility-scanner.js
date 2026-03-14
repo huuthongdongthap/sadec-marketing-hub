@@ -12,7 +12,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
+// Use absolute path to ensure correct directory
+const ROOT_DIR = process.cwd();
 const SCAN_DIRS = ['admin', 'portal', 'affiliate', 'auth', ''];
 const EXCLUDE_PATTERNS = ['node_modules', '.git', 'dist', '.min.', 'test-'];
 
