@@ -4,6 +4,9 @@
  * @version 1.0.0 | 2026-03-13
  */
 
+// Import consolidated toast system
+import { toast } from '../../src/js/components/enhanced-toast.js';
+
 (function() {
   'use strict';
 
@@ -195,40 +198,16 @@
   // ============================================================================
 
   /**
-   * Show enhanced toast notification
+   * Show enhanced toast notification (using consolidated toast system)
    * @param {string} message - Toast message
    * @param {string} type - Type: 'success', 'error', 'warning', 'info'
    * @param {number} duration - Duration in ms (default: 3000)
+   * @deprecated Use window.toast.success/error/warning/info directly
    */
   window.showToast = function(message, type = 'info', duration = 3000) {
-    const toast = document.createElement('div');
-    toast.className = `toast-enhanced ${type}`;
-
-    const icons = {
-      success: 'check_circle',
-      error: 'error',
-      warning: 'warning',
-      info: 'info'
-    };
-
-    toast.innerHTML = `
-      <span class="material-symbols-outlined toast-icon">${icons[type] || icons.info}</span>
-      <span class="toast-message">${message}</span>
-    `;
-
-    document.body.appendChild(toast);
-
-    // Trigger show animation
-    requestAnimationFrame(() => {
-      toast.classList.add('show');
-    });
-
-    // Auto hide
-    setTimeout(() => {
-      toast.classList.remove('show');
-      toast.classList.add('hide');
-      setTimeout(() => toast.remove(), 300);
-    }, duration);
+    // Delegate to consolidated toast manager
+    const toastMethod = toast[type] || toast.info;
+    toastMethod(message, { duration });
   };
 
   // ============================================================================

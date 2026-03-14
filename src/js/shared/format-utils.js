@@ -113,24 +113,8 @@ export function truncate(str, length = 50) {
 }
 
 // ===== PERFORMANCE UTILITIES =====
-export function debounce(fn, delay = 300) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn(...args), delay);
-    };
-}
-
-export function throttle(fn, limit = 300) {
-    let inThrottle;
-    return (...args) => {
-        if (!inThrottle) {
-            fn(...args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
+// Re-export from consolidated function utilities
+export { debounce, throttle } from '../../assets/js/utils/function.js';
 
 // ===== EXPORTS =====
 export default {
