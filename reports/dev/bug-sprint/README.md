@@ -1,7 +1,7 @@
 # Bug Sprint Report — Sa Đéc Marketing Hub
 
-**Ngày:** 2026-03-15
-**Mục tiêu:** Viet tests verify code vua build
+**Ngày:** 2026-03-15 01:01
+**Mục tiêu:** Viet tests verify code vua build trong /Users/mac/mekong-cli/apps/sadec-marketing-hub
 
 ---
 
@@ -11,7 +11,7 @@
 |--------|---------|
 | Test Files | 4 passed (4) |
 | Tests | 92 passed (92) |
-| Duration | ~797ms |
+| Duration | ~763ms |
 | Status | ✅ PASS |
 
 ---

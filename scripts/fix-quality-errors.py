@@ -20,30 +20,67 @@ def fix_file(file_path):
         original = content
         fixes = []
 
-        # Fix 1: Add lang="vi" to <html> tag
-        if re.search(r'<html(?![^>]*\s+lang=)', content, re.IGNORECASE):
-            content = re.sub(r'<html\s*', '<html lang="vi" ', content, count=1, flags=re.IGNORECASE)
-            fixes.append('Added lang="vi"')
+        # Check if file has valid HTML structure
+        has_doctype = '<!DOCTYPE html>' in content
+        has_html = '<html' in content
+        has_head = '<head>' in content
+        has_viewport = bool(re.search(r'<meta[^>]*name=["\']?viewport', content, re.IGNORECASE))
+        has_title = bool(re.search(r'<title>.*?</title>', content, re.IGNORECASE))
+        has_lang = bool(re.search(r'<html[^>]*lang=', content, re.IGNORECASE))
 
-        # Fix 2: Add viewport meta if missing
-        if not re.search(r'<meta[^>]*name=["\']?viewport', content, re.IGNORECASE):
-            viewport_tag = '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  '
-            if '<head>' in content:
-                content = content.replace('<head>', f'<head>\n{viewport_tag}', 1)
-            elif '<!DOCTYPE html>' in content:
-                content = content.replace('<!DOCTYPE html>', f'<!DOCTYPE html>\n<html lang="vi">\n<head>\n{viewport_tag}', 1)
-            fixes.append('Added viewport meta')
+        # Extract filename for default title
+        filename = file_path.stem
+        default_title = filename.replace('-', ' ').title()
 
-        # Fix 3: Add <title> if missing
-        if not re.search(r'<title>.*?</title>', content, re.IGNORECASE):
-            # Extract filename for default title
-            filename = file_path.stem
-            default_title = filename.replace('-', ' ').title()
+        # Case 1: File has no HTML structure at all (no <html>, no <head>)
+        if not has_html and not has_head:
+            # Wrap content in proper HTML structure
+            viewport_meta = '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+            title_tag = f'  <title>{default_title} - Mekong Agency</title>\n'
 
-            if '<head>' in content:
+            # Find where content starts (skip leading whitespace/comments)
+            content_start = 0
+            for i, line in enumerate(content.split('\n')):
+                if line.strip() and not line.strip().startswith('<!--'):
+                    break
+                content_start += len(line) + 1
+
+            # Build new content with proper structure
+            new_content = f'''<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+{viewport_meta}{title_tag}</head>
+<body>
+{content}
+</body>
+</html>'''
+            content = new_content
+            fixes.extend(['Added HTML structure', 'Added lang="vi"', 'Added viewport meta', 'Added <title> tag'])
+
+        # Case 2: File has HTML structure but missing elements
+        else:
+            # Fix 1: Add lang="vi" to <html> tag
+            if not has_lang:
+                if has_html:
+                    content = re.sub(r'<html(\s)', r'<html lang="vi"\1', content, count=1, flags=re.IGNORECASE)
+                else:
+                    content = re.sub(r'<!DOCTYPE html>', '<!DOCTYPE html>\n<html lang="vi">', content, count=1, flags=re.IGNORECASE)
+                fixes.append('Added lang="vi"')
+
+            # Fix 2: Add viewport meta if missing
+            if not has_viewport:
+                viewport_tag = '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  '
+                if has_head:
+                    content = content.replace('<head>', f'<head>\n{viewport_tag}', 1)
+                fixes.append('Added viewport meta')
+
+            # Fix 3: Add <title> if missing
+            if not has_title:
                 title_tag = f'  <title>{default_title} - Mekong Agency</title>\n  '
-                content = content.replace('<head>', f'<head>\n{title_tag}', 1)
-            fixes.append(f'Added <title> tag')
+                if has_head:
+                    content = content.replace('<head>', f'<head>\n{title_tag}', 1)
+                fixes.append('Added <title> tag')
 
         # Write back if changed
         if content != original:
