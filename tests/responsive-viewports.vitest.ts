@@ -10,13 +10,9 @@ import { JSDOM } from 'jsdom';
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Read responsive CSS file
-const responsiveCSSPath = path.join(__dirname, '../assets/css/responsive-fix-2026.css');
+// Read responsive CSS file (consolidated)
+const responsiveCSSPath = path.join(__dirname, '../assets/css/responsive.css');
 const responsiveCSS = fs.readFileSync(responsiveCSSPath, 'utf-8');
-
-// Read responsive enhancements CSS
-const responsiveEnhancementsPath = path.join(__dirname, '../assets/css/responsive-enhancements.css');
-const responsiveEnhancementsCSS = fs.readFileSync(responsiveEnhancementsPath, 'utf-8');
 
 describe('Responsive CSS Breakpoints', () => {
   it('has 1024px breakpoint', () => {
@@ -32,11 +28,6 @@ describe('Responsive CSS Breakpoints', () => {
   it('has 375px breakpoint', () => {
     const hasMaxWidth375 = responsiveCSS.includes('@media (max-width: 375px)');
     expect(hasMaxWidth375).toBe(true);
-  });
-
-  it('has responsive enhancements CSS loaded', () => {
-    const hasResponsiveEnhancements = responsiveEnhancementsCSS.includes('@media (max-width: 768px)');
-    expect(hasResponsiveEnhancements).toBe(true);
   });
 });
 
@@ -85,7 +76,7 @@ describe('Touch Target Sizes', () => {
 
   it('has WCAG compliant button sizes', () => {
     const hasButtonSizes = responsiveCSS.includes('.btn') &&
-                           responsiveEnhancementsCSS.includes('min-height: 44px');
+                           responsiveCSS.includes('min-height: 44px');
     expect(hasButtonSizes).toBe(true);
   });
 });
@@ -270,14 +261,9 @@ describe('Utility Classes Responsive', () => {
 });
 
 describe('CSS Coverage', () => {
-  it('responsive-fix-2026.css has substantial content', () => {
+  it('responsive.css has substantial content', () => {
     const lineCount = responsiveCSS.split('\n').length;
     expect(lineCount).toBeGreaterThan(500);
-  });
-
-  it('responsive-enhancements.css has substantial content', () => {
-    const lineCount = responsiveEnhancementsCSS.split('\n').length;
-    expect(lineCount).toBeGreaterThan(300);
   });
 
   it('has print styles', () => {

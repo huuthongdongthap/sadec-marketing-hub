@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
+import { logger } from '@/lib/logger'
 
 /**
  * Debounce hook
@@ -75,7 +76,7 @@ export function useLocalStorage<T>(
         timestamp: Date.now()
       }))
     } catch (error) {
-      console.error('Error saving to localStorage:', error)
+      logger.error('Error saving to localStorage:', error)
     }
   }, [key])
 

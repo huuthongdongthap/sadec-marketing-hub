@@ -1,17 +1,37 @@
 #!/usr/bin/env python3
 """
-SaDec Marketing Hub - Audit Script
-Scans for broken links, missing meta tags, and accessibility issues
+SaDec Marketing Hub - Comprehensive Audit Script
+Quét broken links, meta tags và accessibility issues
 """
 
 import os
 import re
 import json
+import requests
 from pathlib import Path
 from datetime import datetime
+from html.parser import HTMLParser
+from dataclasses import dataclass, field, asdict
+from typing import List, Dict, Set, Tuple, Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 BASE_DIR = Path("/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub")
 EXCLUDE_DIRS = {'node_modules', 'dist', '.git', '.pytest_cache', '.venv', '__pycache__'}
+TIMEOUT = 5  # seconds per link check
+MAX_WORKERS = 10
+
+@dataclass
+class AuditIssue:
+    file: str
+    line: int
+    issue_type: str
+    description: str
+    severity: str = 'warning'  # 'error', 'warning', 'info'
+    url: Optional[str] = None
+    status_code: Optional[int] = None
 
 def get_html_files():
     """Get all HTML files excluding certain directories"""

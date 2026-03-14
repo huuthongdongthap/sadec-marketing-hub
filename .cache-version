@@ -1,6 +1,6 @@
 {
-  "version": "vmmq0lpnb.7c94814682ce",
-  "timestamp": "2026-03-14T07:39:15.096Z",
+  "version": "vmmq3pm2k.e7a00f60203f",
+  "timestamp": "2026-03-14T09:06:15.932Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -176,7 +176,7 @@
     },
     {
       "path": "assets/css/bundle/animations.css",
-      "hash": "b213dd66"
+      "hash": "596ad797"
     },
     {
       "path": "assets/css/bundle/portal-common.css",
@@ -272,7 +272,7 @@
     },
     {
       "path": "assets/css/hover-effects.css",
-      "hash": "75bc2c83"
+      "hash": "64e164b3"
     },
     {
       "path": "assets/css/lazy-loading.css",
@@ -288,7 +288,7 @@
     },
     {
       "path": "assets/css/micro-animations.css",
-      "hash": "f87688d6"
+      "hash": "381d9579"
     },
     {
       "path": "assets/css/micro-interactions.css",
@@ -323,16 +323,8 @@
       "hash": "bb60ffe6"
     },
     {
-      "path": "assets/css/responsive-enhancements.css",
-      "hash": "4f92ac70"
-    },
-    {
-      "path": "assets/css/responsive-fix-2026.css",
-      "hash": "7d6d632c"
-    },
-    {
-      "path": "assets/css/responsive-utils.css",
-      "hash": "7d6d632c"
+      "path": "assets/css/responsive.css",
+      "hash": "914dbe7e"
     },
     {
       "path": "assets/css/ui-animations.css",
@@ -381,6 +373,10 @@
     {
       "path": "assets/js/admin/admin-campaigns.js",
       "hash": "d92941b7"
+    },
+    {
+      "path": "assets/js/admin/admin-client.js",
+      "hash": "3f339d8d"
     },
     {
       "path": "assets/js/admin/admin-clients.js",
@@ -439,6 +435,14 @@
       "hash": "5147d1b4"
     },
     {
+      "path": "assets/js/admin-client.js",
+      "hash": "5552060a"
+    },
+    {
+      "path": "assets/js/admin-guard.js",
+      "hash": "a2aafd43"
+    },
+    {
       "path": "assets/js/affiliate-api.js",
       "hash": "67743400"
     },
@@ -455,8 +459,16 @@
       "hash": "73c38b85"
     },
     {
+      "path": "assets/js/approvals.js",
+      "hash": "3a7535b0"
+    },
+    {
       "path": "assets/js/base-manager.js",
       "hash": "a8b5d482"
+    },
+    {
+      "path": "assets/js/binh-phap-client.js",
+      "hash": "aeab3f43"
     },
     {
       "path": "assets/js/binh-phap.js",
@@ -473,6 +485,10 @@
     {
       "path": "assets/js/charts/line-chart.js",
       "hash": "263efd6e"
+    },
+    {
+      "path": "assets/js/community.js",
+      "hash": "1b2e18cb"
     },
     {
       "path": "assets/js/components/accordion.js",
@@ -545,6 +561,10 @@
     {
       "path": "assets/js/components/loading-button.js",
       "hash": "caa6bd9e"
+    },
+    {
+      "path": "assets/js/components/loading-states.js",
+      "hash": "f725a886"
     },
     {
       "path": "assets/js/components/mobile-responsive.js",
@@ -631,6 +651,14 @@
       "hash": "7cf065b1"
     },
     {
+      "path": "assets/js/content-ai.js",
+      "hash": "558d5084"
+    },
+    {
+      "path": "assets/js/content-calendar-client.js",
+      "hash": "0e635861"
+    },
+    {
       "path": "assets/js/content-calendar.js",
       "hash": "dac91325"
     },
@@ -671,6 +699,10 @@
       "hash": "f0260db1"
     },
     {
+      "path": "assets/js/customer-success.js",
+      "hash": "6f9f30b2"
+    },
+    {
       "path": "assets/js/dashboard-client.js",
       "hash": "db2c6541"
     },
@@ -683,12 +715,20 @@
       "hash": "e019c6a0"
     },
     {
+      "path": "assets/js/ecommerce.js",
+      "hash": "19561bf5"
+    },
+    {
       "path": "assets/js/empty-states.js",
       "hash": "14252409"
     },
     {
       "path": "assets/js/error-boundary.js",
       "hash": "555ea329"
+    },
+    {
+      "path": "assets/js/events.js",
+      "hash": "b46ce93a"
     },
     {
       "path": "assets/js/features/activity-timeline.js",
@@ -831,6 +871,10 @@
       "hash": "bf7c6f8b"
     },
     {
+      "path": "assets/js/features/search-enhancements.js",
+      "hash": "7e5bb000"
+    },
+    {
       "path": "assets/js/features/smart-task-manager.js",
       "hash": "911f5135"
     },
@@ -891,8 +935,20 @@
       "hash": "c46dbc15"
     },
     {
+      "path": "assets/js/legal.js",
+      "hash": "aa518323"
+    },
+    {
+      "path": "assets/js/lms.js",
+      "hash": "276d2c8b"
+    },
+    {
       "path": "assets/js/loading-states.js",
       "hash": "62899efd"
+    },
+    {
+      "path": "assets/js/mekong-store.js",
+      "hash": "fc70f31b"
     },
     {
       "path": "assets/js/micro-animations.js",
@@ -917,6 +973,10 @@
     {
       "path": "assets/js/onboarding.js",
       "hash": "c2b07e48"
+    },
+    {
+      "path": "assets/js/pipeline-client.js",
+      "hash": "3e652c85"
     },
     {
       "path": "assets/js/pipeline.js",
@@ -971,8 +1031,16 @@
       "hash": "723dee3b"
     },
     {
+      "path": "assets/js/portal-guard.js",
+      "hash": "a07ad563"
+    },
+    {
       "path": "assets/js/pricing.js",
       "hash": "e00b57ce"
+    },
+    {
+      "path": "assets/js/pwa-install.js",
+      "hash": "fbc808e6"
     },
     {
       "path": "assets/js/realtime-dashboard.js",
@@ -1009,6 +1077,10 @@
     {
       "path": "assets/js/services/customer-success.js",
       "hash": "9261688c"
+    },
+    {
+      "path": "assets/js/services/dialog-service.js",
+      "hash": "52e1a471"
     },
     {
       "path": "assets/js/services/ecommerce.js",
@@ -1049,6 +1121,10 @@
     {
       "path": "assets/js/services/mekong-store.js",
       "hash": "fee2e954"
+    },
+    {
+      "path": "assets/js/services/notification-service.js",
+      "hash": "38fa95a2"
     },
     {
       "path": "assets/js/services/notifications.js",
@@ -1180,7 +1256,7 @@
     },
     {
       "path": "assets/js/ui-enhancements.js",
-      "hash": "9126dbc8"
+      "hash": "00ef4585"
     },
     {
       "path": "assets/js/ui-motion-controller.js",
@@ -1349,6 +1425,14 @@
     {
       "path": "assets/js/widgets/revenue-chart.js",
       "hash": "61dafda1"
+    },
+    {
+      "path": "assets/js/workflows-client.js",
+      "hash": "1b852231"
+    },
+    {
+      "path": "assets/js/workflows.js",
+      "hash": "ce355537"
     },
     {
       "path": "assets/minified/css/admin-agents.min.css",
