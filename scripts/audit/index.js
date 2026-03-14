@@ -10,27 +10,31 @@
  *   node scripts/audit/index.js --scan a11y  # Scan accessibility only
  */
 
-const fs = require('fs');
-const path = require('path');
-const { JSDOM } = require('jsdom');
-const { Logger, ProgressBar, formatDuration } = require('../utils/cli-utils.js');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { JSDOM } from 'jsdom';
+import { Logger, ProgressBar, formatDuration } from '../utils/cli-utils.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const log = new Logger('audit', process.argv.includes('--verbose'));
 
 // Import scanners
-const { scanLinks } = require('./scanners/links.js');
-const { scanMeta } = require('./scanners/meta.js');
-const { scanA11y } = require('./scanners/a11y.js');
-const { scanIDs } = require('./scanners/ids.js');
+const { scanLinks } = await import('./scanners/links.js');
+const { scanMeta } = await import('./scanners/meta.js');
+const { scanA11y } = await import('./scanners/a11y.js');
+const { scanIDs } = await import('./scanners/ids.js');
 
 // Import fixers
-const { fixLinks } = require('./fixers/links.js');
-const { fixMeta } = require('./fixers/meta.js');
-const { fixA11y } = require('./fixers/a11y.js');
+const { fixLinks } = await import('./fixers/links.js');
+const { fixMeta } = await import('./fixers/meta.js');
+const { fixA11y } = await import('./fixers/a11y.js');
 
 // Import reporters
-const { generateMarkdownReport } = require('./report/markdown.js');
-const { generateJSONReport } = require('./report/json.js');
+const { generateMarkdownReport } = await import('./report/markdown.js');
+const { generateJSONReport } = await import('./report/json.js');
 
 // Configuration
 const ROOT_DIR = path.resolve(__dirname, '../..');
