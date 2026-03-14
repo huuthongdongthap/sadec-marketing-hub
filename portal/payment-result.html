@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <!-- SEO Meta Tags -->
+  <title>Kết Quả Thanh Toán | Payment Result - Sa Đéc Hub</title>
+  <meta name="description" content="Kết quả giao dịch thanh toán. Xác nhận và hóa đơn điện tử.">
+  <meta name="keywords" content="payment result, thanh toán, kết quả, hóa đơn, xác nhận">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/payment-result.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Kết Quả Thanh Toán | Payment Result - Sa Đéc Hub">
+  <meta property="og:description" content="Kết quả giao dịch thanh toán. Xác nhận và hóa đơn điện tử.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/payment-result.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kết Quả Thanh Toán | Payment Result - Sa Đéc Hub">
+  <meta name="twitter:description" content="Kết quả giao dịch thanh toán. Xác nhận và hóa đơn điện tử.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kết Quả Thanh Toán | Payment Result - Sa Đéc Hub",
+    "description": "Kết quả giao dịch thanh toán. Xác nhận và hóa đơn điện tử.",
+    "url": "https://sadecmarketinghub.com/portal/payment-result.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/portal.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+  </head>
+
+<body class="body-centered">
+<main id="main" role="main">
+    <div class="result-card">
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state">
+            <div class="spinner"></div>
+            <div class="result-title">Đang xác nhận thanh toán...</div>
+        </div>
+
+        <!-- Result State (hidden by default) -->
+        <div id="result-state" style="display: none;">
+            <div class="result-icon" id="result-icon">
+                <span class="material-symbols-outlined" id="result-icon-symbol" aria-label="Hoàn thành" role="img">check_circle</span>
+            </div>
+            <h1 class="result-title" id="result-title">Thanh toán thành công!</h1>
+            <p class="result-message" id="result-message">Cảm ơn bạn đã thanh toán.</p>
+
+            <div class="transaction-details">
+                <div class="detail-row">
+                    <span class="detail-label">Mã giao dịch</span>
+                    <span class="detail-value" id="txn-id">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Số tiền</span>
+                    <span class="detail-value amount" id="txn-amount">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Ngân hàng</span>
+                    <span class="detail-value" id="txn-bank">--</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Thời gian</span>
+                    <span class="detail-value" id="txn-time">--</span>
+                </div>
+            </div>
+
+            <!-- Activation Form (PayOS success only) -->
+            <div id="activation-section" class="activation-section" style="display: none;">
+                <h2>
+                    <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
+                    Hoàn tất đăng ký
+                </h2>
+                <div class="subtitle">Nhập thông tin để nhận tài khoản Client Portal</div>
+                <div class="form-field">
+                    <label for="act-email">Email đăng nhập</label>
+                    <input type="email" id="act-email" placeholder="email@example.com" required aria-label="Email@example.com">
+                </div>
+                <div class="form-field">
+                    <label for="act-phone">Số điện thoại</label>
+                    <input type="tel" id="act-phone" placeholder="0915 xxx xxx" aria-label="0915 xxx xxx">
+                </div>
+                <div class="form-field">
+                    <label for="act-package">Gói dịch vụ</label>
+                    <select id="act-package">
+                        <option value="Cơ bản">Cơ bản — 5.000.000 ₫/tháng</option>
+                        <option value="Tăng trưởng" selected>Tăng trưởng — 12.000.000 ₫/tháng</option>
+                        <option value="Chuyên nghiệp">Chuyên nghiệp — 25.000.000 ₫/tháng</option>
+                    </select>
+                </div>
+                <button type="button" class="activate-btn" id="activate-btn" onclick="activateAccount()">
+                    <span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span>
+                    Kích hoạt tài khoản
+                </button>
+                <div class="error-msg" id="activation-error"></div>
+            </div>
+
+            <!-- Credentials Card (shown after activation) -->
+            <div id="credentials-card" class="credentials-card" style="display: none;">
+                <h2>
+                    <span class="material-symbols-outlined" aria-label="Đã xác minh" role="img">verified</span>
+                    Tài khoản đã tạo!
+                </h2>
+                <div class="credential-row">
+                    <span class="cred-label">Email</span>
+                    <span class="cred-value" id="cred-email">--</span>
+                </div>
+                <div class="credential-row">
+                    <span class="cred-label">Mật khẩu tạm</span>
+                    <span class="cred-value" id="cred-password">--</span>
+                </div>
+                <div class="cred-warning">
+                    <span class="material-symbols-outlined" aria-label="Cảnh báo" role="img">warning</span>
+                    Hãy đổi mật khẩu ngay khi đăng nhập lần đầu
+                </div>
+                <button type="button" class="portal-btn" onclick="window.location.href='onboarding.html'">
+                    <span class="material-symbols-outlined" aria-label="Đăng nhập" role="img">login</span>
+                    Vào Portal ngay
+                </button>
+            </div>
+
+            <div id="countdown-container" style="display: none;">
+                <div class="countdown-bar">
+                    <div class="countdown-progress" id="countdown-progress" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="actions" id="default-actions">
+                <md-filled-button onclick="window.location.href='dashboard.html'">
+                    <span class="material-symbols-outlined" slot="icon" aria-label="Trang chủ" role="img">home</span>
+                    Về Dashboard
+                </md-filled-button>
+                <md-outlined-button onclick="window.location.href='invoices.html'">
+                    <span class="material-symbols-outlined" slot="icon" aria-label="Receipt Long" role="img">receipt_long</span>
+                    Xem hóa đơn
+                </md-outlined-button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { supabase } from '../assets/js/supabase.js';
+
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || 'https://pzcgvfhppglzfjavxuid.supabase.co';
+        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
+
+        // Track if this is a PayOS payment for activation flow
+        let isPayOSPayment = false;
+        let currentOrderCode = null;
+        let currentAmount = 0;
+
+        // Parse VNPay response from URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Verify payment with Edge Function
+        async function verifyPayment(gateway = 'vnpay') {
+            try {
+                // Localhost fallback - skip API and show success based on URL params
+                if (isLocalhost) {
+                    // Wait a bit to show loading state (better UX)
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+
+                    // Hide loading, show result
+                    document.getElementById('loading-state').style.display = 'none';
+                    document.getElementById('result-state').style.display = 'block';
+
+                    const resultIcon = document.getElementById('result-icon');
+                    const iconSymbol = document.getElementById('result-icon-symbol');
+                    const resultTitle = document.getElementById('result-title');
+                    const resultMessage = document.getElementById('result-message');
+
+                    // Fill transaction details from URL params
+                    document.getElementById('txn-id').textContent = urlParams.get('vnp_TxnRef') || urlParams.get('orderCode') || urlParams.get('orderId') || 'LOCAL-TEST';
+                    document.getElementById('txn-amount').textContent = urlParams.get('amount') || '500.000 ₫';
+                    document.getElementById('txn-bank').textContent = gateway.toUpperCase();
+                    document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
+                    // Determine success based on URL params
+                    const vnpaySuccess = urlParams.get('vnp_ResponseCode') === '00';
+                    const momoSuccess = urlParams.get('resultCode') === '0';
+                    const payosSuccess = urlParams.get('code') === '00' || urlParams.get('status') === 'PAID';
+
+                    if (vnpaySuccess || momoSuccess || payosSuccess) {
+                        resultIcon.className = 'result-icon success';
+                        iconSymbol.textContent = 'check_circle';
+                        resultTitle.textContent = '✅ Thanh toán thành công!';
+                        resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
+
+                        // Show activation form for PayOS, countdown for others
+                        if (payosSuccess && isPayOSPayment) {
+                            document.getElementById('activation-section').style.display = 'block';
+                            document.getElementById('default-actions').style.display = 'none';
+                            autoDetectPackage(currentAmount);
+                        } else {
+                            startCountdown();
+                        }
+                    } else {
+                        resultIcon.className = 'result-icon failed';
+                        iconSymbol.textContent = 'error';
+                        resultTitle.textContent = '⚠️ Thanh toán không thành công';
+                        resultMessage.textContent = 'Giao dịch không thành công. Vui lòng thử lại.';
+                    }
+                    return;
+                }
+
+                // Production: Call Edge Function
+                // Determine endpoint based on gateway
+                let endpoint = 'verify-payment'; // Default for VNPay
+                if (gateway === 'momo') {
+                    endpoint = 'verify-momo-payment';
+                } else if (gateway === 'payos') {
+                    endpoint = 'verify-payos-payment';
+                }
+
+                // Call the verify-payment Edge Function
+                // We pass the query string exactly as received from gateway
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}${window.location.search}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    }
+                });
+
+                const result = await response.json();
+
+                // Wait a bit to show loading state (better UX)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Hide loading, show result
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('result-state').style.display = 'block';
+
+                const resultIcon = document.getElementById('result-icon');
+                const iconSymbol = document.getElementById('result-icon-symbol');
+                const resultTitle = document.getElementById('result-title');
+                const resultMessage = document.getElementById('result-message');
+
+                // Fill transaction details from server response
+                document.getElementById('txn-id').textContent = result.transactionId || urlParams.get('vnp_TxnRef') || urlParams.get('orderCode') || 'N/A';
+                document.getElementById('txn-amount').textContent = result.amount ? parseInt(result.amount).toLocaleString('vi-VN') + ' ₫' : 'N/A';
+                document.getElementById('txn-bank').textContent = result.bankCode || gateway.toUpperCase();
+
+                if (result.payDate) {
+                    // Format date: YYYYMMDDHHmmss -> DD/MM/YYYY HH:mm
+                    const pd = result.payDate;
+                    if (pd.length === 14) {
+                        const year = pd.substring(0, 4);
+                        const month = pd.substring(4, 6);
+                        const day = pd.substring(6, 8);
+                        const hour = pd.substring(8, 10);
+                        const min = pd.substring(10, 12);
+                        document.getElementById('txn-time').textContent = `${day}/${month}/${year} ${hour}:${min}`;
+                    } else {
+                        document.getElementById('txn-time').textContent = result.payDate;
+                    }
+                } else {
+                    document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+                }
+
+                // Determine result based on status from server
+                if (result.status === 'success') {
+                    resultIcon.className = 'result-icon success';
+                    iconSymbol.textContent = 'check_circle';
+                    resultTitle.textContent = '✅ Thanh toán thành công!';
+                    resultMessage.textContent = 'Hóa đơn của bạn đã được thanh toán thành công. Cảm ơn bạn!';
+
+                    // Show activation form for PayOS payments
+                    if (isPayOSPayment) {
+                        document.getElementById('activation-section').style.display = 'block';
+                        document.getElementById('default-actions').style.display = 'none';
+                        // Auto-detect package from amount
+                        autoDetectPackage(currentAmount);
+                    } else {
+                        // Non-PayOS: auto-redirect
+                        startCountdown();
+                    }
+                } else if (result.status === 'invalid') {
+                    resultIcon.className = 'result-icon failed';
+                    iconSymbol.textContent = 'warning';
+                    resultTitle.textContent = '⚠️ Chữ ký không hợp lệ';
+                    resultMessage.textContent = 'Cảnh báo: Dữ liệu thanh toán có thể đã bị thay đổi.';
+                } else {
+                    resultIcon.className = 'result-icon failed';
+                    iconSymbol.textContent = 'error';
+                    resultTitle.textContent = '⚠️ Thanh toán không thành công';
+                    resultMessage.textContent = result.message || 'Đã xảy ra lỗi trong quá trình thanh toán. Vui lòng thử lại.';
+                }
+
+            } catch (error) {
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('result-state').style.display = 'block';
+
+                document.getElementById('result-icon').className = 'result-icon failed';
+                document.getElementById('result-icon-symbol').textContent = 'cloud_off';
+                document.getElementById('result-title').textContent = 'Lỗi kết nối';
+                document.getElementById('result-message').textContent = 'Không thể xác minh thanh toán. Vui lòng liên hệ bộ phận hỗ trợ.';
+            }
+        }
+
+        // Check gateway type from URL params
+        if (urlParams.has('vnp_ResponseCode') && urlParams.has('vnp_TxnRef')) {
+            // VNPay callback
+            verifyPayment('vnpay');
+        } else if (urlParams.has('resultCode') && urlParams.has('partnerCode')) {
+            // MoMo callback
+            verifyPayment('momo');
+        } else if (urlParams.has('code') && urlParams.has('orderCode')) {
+            // PayOS callback (code, status, orderCode params)
+            isPayOSPayment = true;
+            currentOrderCode = urlParams.get('orderCode');
+            currentAmount = parseInt(urlParams.get('amount') || '0');
+            verifyPayment('payos');
+        } else if (urlParams.get('cancel') === 'true') {
+            // User cancelled payment
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+
+            document.getElementById('result-icon').className = 'result-icon failed';
+            document.getElementById('result-icon-symbol').textContent = 'cancel';
+            document.getElementById('result-title').textContent = '❌ Đã hủy thanh toán';
+            document.getElementById('result-message').textContent = 'Bạn đã hủy giao dịch thanh toán.';
+
+            document.getElementById('txn-id').textContent = urlParams.get('orderCode') || 'N/A';
+            document.getElementById('txn-amount').textContent = '--';
+            document.getElementById('txn-bank').textContent = '--';
+            document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
+            // Auto-redirect after 5s
+            let countdown = 5;
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    document.getElementById('result-message').textContent = `Bạn đã hủy giao dịch thanh toán.\n\nTự động chuyển về trang hóa đơn trong ${countdown} giây...`;
+                } else {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'invoices.html';
+                }
+            }, 1000);
+        } else if (urlParams.get('status') === 'pending') {
+            // Handle Pending / QR Display
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+
+            const method = urlParams.get('method');
+            const amount = urlParams.get('amount');
+            const qrUrl = urlParams.get('qr');
+
+            document.getElementById('result-icon').className = 'result-icon pending';
+            document.getElementById('result-icon-symbol').textContent = 'qr_code_scanner';
+
+            if (method === 'bank' && qrUrl) {
+                document.getElementById('result-title').textContent = 'Quét mã để thanh toán';
+                document.getElementById('result-message').innerHTML = `
+                    Vui lòng quét mã VietQR bên dưới để hoàn tất giao dịch.<br>
+                    <img decoding="async" src="${decodeURIComponent(qrUrl)}" alt="VietQR" class="qr-payment-image" loading="lazy">
+                `;
+            } else {
+                document.getElementById('result-title').textContent = '⏳ Đang chờ thanh toán';
+                document.getElementById('result-message').textContent = 'Giao dịch của bạn đang được xử lý.';
+            }
+
+            document.getElementById('txn-id').textContent = 'PENDING-' + Date.now().toString().slice(-6);
+            document.getElementById('txn-amount').textContent = amount ? parseInt(amount).toLocaleString('vi-VN') + ' ₫' : '--';
+            document.getElementById('txn-bank').textContent = method === 'bank' ? 'Vietcombank' : method.toUpperCase();
+            document.getElementById('txn-time').textContent = new Date().toLocaleString('vi-VN');
+
+        } else {
+            // No params - show demo success
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('result-state').style.display = 'block';
+            document.getElementById('result-icon').className = 'result-icon success';
+            document.getElementById('result-title').textContent = '✅ Demo: Kết quả thanh toán';
+            document.getElementById('result-message').textContent = 'Trang này hiển thị kết quả sau khi thanh toán VNPay/MoMo hoàn tất.';
+        }
+
+        // === Helper Functions ===
+
+        function autoDetectPackage(amount) {
+            const sel = document.getElementById('act-package');
+            if (!sel) return;
+            if (amount >= 20000000) sel.value = 'Chuyên nghiệp';
+            else if (amount >= 10000000) sel.value = 'Tăng trưởng';
+            else sel.value = 'Cơ bản';
+        }
+
+        function startCountdown() {
+            const countdownContainer = document.getElementById('countdown-container');
+            const countdownProgress = document.getElementById('countdown-progress');
+            const resultMessage = document.getElementById('result-message');
+            countdownContainer.style.display = 'block';
+            let countdown = 5;
+            countdownProgress.style.width = '100%';
+            const interval = setInterval(() => {
+                countdown--;
+                countdownProgress.style.width = `${(countdown / 5) * 100}%`;
+                if (countdown > 0) {
+                    resultMessage.textContent = `Hóa đơn đã thanh toán thành công. Tự động chuyển về trang hóa đơn trong ${countdown} giây...`;
+                } else {
+                    clearInterval(interval);
+                    window.location.href = 'invoices.html';
+                }
+            }, 1000);
+        }
+
+        // Global function for onclick
+        window.activateAccount = async function () {
+            const email = document.getElementById('act-email').value.trim();
+            const phone = document.getElementById('act-phone').value.trim();
+            const packageName = document.getElementById('act-package').value;
+            const btn = document.getElementById('activate-btn');
+            const errorDiv = document.getElementById('activation-error');
+
+            // Validate
+            if (!email || !email.includes('@')) {
+                errorDiv.textContent = 'Vui lòng nhập email hợp lệ.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            // Show loading
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner-sm"></div> Đang kích hoạt...';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/activate-subscription`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        orderCode: currentOrderCode || urlParams.get('orderCode') || 'UNKNOWN',
+                        packageName: packageName,
+                        amount: currentAmount || parseInt(urlParams.get('amount') || '0'),
+                        buyerEmail: email,
+                        buyerPhone: phone
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success || result.email) {
+                    // Success! Show credentials
+                    document.getElementById('activation-section').style.display = 'none';
+                    document.getElementById('credentials-card').style.display = 'block';
+                    document.getElementById('cred-email').textContent = result.email || email;
+                    document.getElementById('cred-password').textContent = result.tempPassword || '(Đã có tài khoản - dùng mật khẩu hiện tại)';
+
+                    // Update title
+                    document.getElementById('result-title').textContent = '🎉 Đăng ký thành công!';
+                    document.getElementById('result-message').textContent = 'Tài khoản Client Portal của bạn đã sẵn sàng.';
+                } else {
+                    throw new Error(result.error || 'Không thể kích hoạt tài khoản');
+                }
+            } catch (err) {
+                errorDiv.textContent = err.message || 'Lỗi kích hoạt. Vui lòng thử lại.';
+                errorDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Rocket Launch" role="img">rocket_launch</span> Kích hoạt tài khoản';
+            }
+        };
+    </script>
+
+    <script type="module" src="/assets/js/portal-client.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer></script>
+</main>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+
+</html>

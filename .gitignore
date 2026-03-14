@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.*
+mekong-env.js
+
+# Build outputs
+dist/
+build/
+env.js
+*.log
+
+# Build scripts (allowed)
+!scripts/build/
+!scripts/perf/
+
+# Reports (generated)
+reports/
+!reports/audit/
+!reports/perf/
+!reports/frontend/
+!reports/eng/
+!reports/dev/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+.warp-watchdog.pid
+.cto-reports/
+.vercel
+.env*.local
+.skills/
+
+# Generated reports
+*-report.md
+credential-audit-report.md
+migration-report.md
+performance-report.md
+security-report.md
+seo-accessibility-report.md
+
+# Test/utility scripts
+test-*.js
+create-users.js
+push-data.js
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests/fixtures/storage-state.json

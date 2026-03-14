@@ -1,0 +1,707 @@
+/**
+ * AI Content Generator
+ * Tích hợp Gemini AI để tạo content marketing
+ *
+ * Features:
+ * - Blog post generation
+ * - Social media captions
+ * - Ad copy variations
+ * - Email templates
+ * - SEO meta descriptions
+ *
+ * Usage:
+ *   const content = await AIGenerator.generate('blog', {
+ *     topic: 'Digital Marketing Trends 2026',
+ *     tone: 'professional',
+ *     length: 'long'
+ *   });
+ */
+
+class AIContentGenerator {
+  constructor() {
+    this.apiEndpoint = '/api/generate-content'; // Supabase Edge Function
+    this.models = {
+      default: 'gemini-1.5-pro',
+      fast: 'gemini-1.5-flash',
+      creative: 'gemini-2.0-flash-exp'
+    };
+    this.templates = this.loadTemplates();
+  }
+
+  loadTemplates() {
+    return {
+      blog: {
+        system: 'Bạn là một content creator chuyên nghiệp. Viết blog post với giọng văn {tone}, độ dài {length} từ.',
+        prompt: `Viết blog post về chủ đề "{topic}" đối tượng {audience}.
+
+Yêu cầu:
+- Title hấp dẫn, có từ khóa chính
+- Meta description 150-160 ký tự
+- Introduction thu hút
+- Các heading H2, H3 rõ ràng
+- Nội dung chi tiết, có ví dụ thực tế
+- Conclusion với call-to-action
+- Gợi ý 3-5 từ khóa SEO
+
+Định dạng: Markdown`
+      },
+      social: {
+        system: 'Bạn là social media manager. Tạo caption cho {platform} với giọng văn {tone}.',
+        prompt: `Tạo {count} caption social media về "{topic}" cho nền tảng {platform}.
+
+Yêu cầu:
+- Giọng văn: {tone}
+- Độ dài: {length}
+- Include emojis phù hợp
+- Hashtags liên quan (5-10)
+- Call-to-action rõ ràng
+- Phù hợp với đối tượng {audience}
+
+Định dạng: JSON array với fields: caption, hashtags, emojis`
+      },
+      ad: {
+        system: 'Bạn là copywriter chuyên gia quảng cáo. Tạo ad copy chuyển đổi cao.',
+        prompt: `Tạo {count} biến thể ad copy cho chiến dịch "{campaign}" trên {platform}.
+
+Sản phẩm/Dịch vụ: {product}
+Đối tượng: {audience}
+Mục tiêu: {goal}
+
+Yêu cầu:
+- Headline (tối đa 30 ký tự)
+- Description (tối đa 90 ký tự)
+- Call-to-action mạnh mẽ
+- Unique selling points
+- Social proof elements
+
+Định dạng: JSON array với fields: headline, description, cta, usp`
+      },
+      email: {
+        system: 'Bạn là email marketing specialist. Viết email marketing chuyên nghiệp.',
+        prompt: `Viết email marketing về chủ đề "{topic}".
+
+Loại email: {emailType}
+Đối tượng: {audience}
+Mục tiêu: {goal}
+
+Yêu cầu:
+- Subject line hấp dẫn (5-7 từ)
+- Preheader text
+- Personalization
+- Body ngắn gọn, clear
+- Call-to-action nổi bật
+- P.S. section
+
+Định dạng: JSON với fields: subject, preheader, body, cta, ps`
+      },
+      seo: {
+        system: 'Bạn là SEO specialist. Tối ưu hóa content cho search engines.',
+        prompt: `Tạo SEO metadata cho content về "{topic}".
+
+Yêu cầu:
+- Title tag (50-60 ký tự, có từ khóa)
+- Meta description (150-160 ký tự, có từ khóa + CTA)
+- 5-7 từ khóa chính và phụ
+- 3 suggested headings (H1, H2, H2)
+- URL slug gợi ý
+- Internal linking suggestions
+
+Định dạng: JSON`
+      }
+    };
+  }
+
+  /**
+   * Generate content
+   * @param {string} type - 'blog', 'social', 'ad', 'email', 'seo'
+   * @param {Object} options - Options for generation
+   * @returns {Promise<Object>} Generated content
+   */
+  async generate(type, options = {}) {
+    const template = this.templates[type];
+    if (!template) {
+      throw new Error(`Unknown content type: ${type}`);
+    }
+
+    // Build prompt from template
+    let prompt = template.prompt;
+    let systemPrompt = template.system;
+
+    // Replace placeholders
+    Object.entries(options).forEach(([key, value]) => {
+      const regex = new RegExp(`\\{${key}\\}`, 'g');
+      prompt = prompt.replace(regex, value || '');
+      systemPrompt = systemPrompt.replace(regex, value || '');
+    });
+
+    // Default values
+    prompt = prompt.replace(/\{count\}/g, options.count || '3');
+    systemPrompt = systemPrompt.replace(/\{tone\}/g, options.tone || 'thân thiện, chuyên nghiệp');
+
+    try {
+      // Show loading toast
+      if (typeof Toast !== 'undefined') {
+        Toast.loading('Đang tạo content...', { title: 'AI đang viết' });
+      }
+
+      const result = await this.callGemini({
+        system: systemPrompt,
+        prompt: prompt,
+        model: options.model || this.models.default
+      });
+
+      // Hide loading toast
+      if (typeof Toast !== 'undefined') {
+        Toast.hideAll();
+        Toast.success('Đã tạo content thành công!', { title: 'Hoàn thành' });
+      }
+
+      return this.parseResult(result, type);
+    } catch (error) {
+
+      if (typeof Toast !== 'undefined') {
+        Toast.hideAll();
+        Toast.error(error.message || 'Không thể tạo content', { title: 'Lỗi' });
+      }
+
+      throw error;
+    }
+  }
+
+  /**
+   * Call Gemini API via Supabase Edge Function
+   */
+  async callGemini({ system, prompt, model }) {
+    // Check if we have Supabase configured
+    const supabase = window.supabase;
+
+    if (!supabase) {
+      // Fallback: try direct fetch to edge function
+      return await this.callEdgeFunction(system, prompt);
+    }
+
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-content', {
+        body: {
+          system,
+          prompt,
+          model
+        }
+      });
+
+      if (error) throw error;
+      return data.content;
+    } catch (error) {
+      // Fallback to direct API call
+      return await this.callEdgeFunction(system, prompt);
+    }
+  }
+
+  async callEdgeFunction(system, prompt) {
+    const response = await fetch(this.apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        system,
+        prompt,
+        model: this.models.default
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.content;
+  }
+
+  /**
+   * Parse result based on content type
+   */
+  parseResult(result, type) {
+    try {
+      // Try to parse JSON for structured types
+      if (['social', 'ad', 'email', 'seo'].includes(type)) {
+        // Extract JSON from markdown code blocks if present
+        const jsonMatch = result.match(/```json\s*([\s\S]*?)\s*```/) ||
+                         result.match(/```\s*([\s\S]*?)\s*```/) ||
+                         result.match(/\{[\s\S]*\}/);
+
+        if (jsonMatch) {
+          const jsonStr = jsonMatch[1] || jsonMatch[0];
+          return JSON.parse(jsonStr);
+        }
+
+        // Try parsing entire result as JSON
+        return JSON.parse(result);
+      }
+
+      // For blog posts, return formatted markdown
+      return {
+        content: result,
+        type,
+        generatedAt: new Date().toISOString()
+      };
+    } catch (e) {
+      // Return raw result if parsing fails
+      return {
+        raw: result,
+        type,
+        generatedAt: new Date().toISOString()
+      };
+    }
+  }
+
+  /**
+   * Quick generation methods
+   */
+
+  async generateBlogPost(options) {
+    return this.generate('blog', {
+      tone: 'chuyên nghiệp, thân thiện',
+      length: '1500',
+      audience: 'doanh nghiệp vừa và nhỏ',
+      ...options
+    });
+  }
+
+  async generateSocialCaptions(options) {
+    return this.generate('social', {
+      platform: 'Facebook',
+      count: '5',
+      length: 'ngắn (dưới 150 từ)',
+      tone: 'sáng tạo, thu hút',
+      ...options
+    });
+  }
+
+  async generateAdCopy(options) {
+    return this.generate('ad', {
+      platform: 'Facebook Ads',
+      count: '5',
+      goal: 'tăng click và conversion',
+      ...options
+    });
+  }
+
+  async generateEmail(options) {
+    return this.generate('email', {
+      emailType: 'promotional',
+      goal: 'tăng click-through rate',
+      ...options
+    });
+  }
+
+  async generateSEOMetadata(options) {
+    return this.generate('seo', options);
+  }
+
+  /**
+   * Rewrite/Improve existing content
+   */
+  async improve(content, options = {}) {
+    const {
+      goal = 'improve clarity and engagement',
+      tone = 'professional',
+      length = 'same'
+    } = options;
+
+    const prompt = `Cải thiện nội dung sau:
+
+Mục tiêu: ${goal}
+Giọng văn: ${tone}
+Độ dài: ${length}
+
+Nội dung gốc:
+${content}
+
+Hãy giữ nguyên ý chính nhưng cải thiện:
+- Clarity và readability
+- Engagement và persuasion
+- Grammar và spelling
+- Flow và structure
+
+Trả về nội dung đã cải thiện:`;
+
+    try {
+      const result = await this.callGemini({
+        system: 'Bạn là editor chuyên nghiệp. Cải thiện content giữ nguyên ý nghĩa.',
+        prompt
+      });
+
+      return {
+        improved: result,
+        original: content
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  /**
+   * Generate content variations
+   */
+  async variations(content, count = 3, type = 'paragraph') {
+    const prompt = `Tạo ${count} biến thể cho nội dung sau:
+
+Loại: ${type}
+
+Nội dung gốc:
+${content}
+
+Mỗi biến thể nên:
+- Giữ nguyên ý chính
+- Có cách diễn đạt khác
+- Phù hợp với cùng đối tượng
+
+Trả về danh sách các biến thể:`;
+
+    try {
+      const result = await this.callGemini({
+        system: 'Bạn là copywriter sáng tạo. Tạo nhiều biến thể content.',
+        prompt
+      });
+
+      return {
+        variations: result.split('\n\n').filter(v => v.trim()),
+        original: content
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
+// Singleton instance
+const AIGenerator = new AIContentGenerator();
+
+// UI Component: AI Content Generator Panel
+class AIContentPanel extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.isOpen = false;
+  }
+
+  connectedCallback() {
+    this.render();
+    this.setupEventListeners();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          position: fixed;
+          bottom: 100px;
+          right: 24px;
+          z-index: 999;
+        }
+
+        .panel {
+          background: var(--md-sys-color-surface, #fff);
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+          width: 400px;
+          max-height: 500px;
+          overflow: hidden;
+          display: none;
+          flex-direction: column;
+        }
+
+        .panel.open {
+          display: flex;
+        }
+
+        .panel-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 20px;
+          border-bottom: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+        }
+
+        .panel-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: var(--md-sys-color-on-surface, #1f2937);
+        }
+
+        .panel-close {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          color: var(--md-sys-color-on-surface-variant, #666);
+        }
+
+        .panel-body {
+          padding: 20px;
+          overflow-y: auto;
+          flex: 1;
+        }
+
+        .form-group {
+          margin-bottom: 16px;
+        }
+
+        .form-group label {
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--md-sys-color-on-surface, #1f2937);
+          margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid var(--md-sys-color-outline, #ccc);
+          border-radius: 8px;
+          font-size: 14px;
+          background: var(--md-sys-color-surface, #fff);
+          color: var(--md-sys-color-on-surface, #1f2937);
+        }
+
+        .form-group textarea {
+          min-height: 100px;
+          resize: vertical;
+        }
+
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 24px;
+          background: var(--md-sys-color-primary, #006A60);
+          color: #fff;
+          border: none;
+          border-radius: 24px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .btn:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        .result-area {
+          margin-top: 16px;
+          padding: 16px;
+          background: var(--md-sys-color-surface-variant, #f5f5f5);
+          border-radius: 8px;
+          max-height: 200px;
+          overflow-y: auto;
+          font-size: 14px;
+          display: none;
+        }
+
+        .result-area.show {
+          display: block;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+          .panel {
+            background: #1E2329;
+          }
+          .panel-title {
+            color: #E1E2E6;
+          }
+          .form-group input,
+          .form-group select,
+          .form-group textarea {
+            background: #2A2F36;
+            color: #E1E2E6;
+            border-color: #3E444D;
+          }
+          .result-area {
+            background: #2A2F36;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+          .panel {
+            width: calc(100vw - 32px);
+            bottom: 80px;
+            right: 16px;
+            max-height: 70vh;
+          }
+        }
+      </style>
+
+      <div class="panel" id="panel">
+        <div class="panel-header">
+          <h3 class="panel-title">✨ AI Content Generator</h3>
+          <button class="panel-close" id="closeBtn">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label>Loại content</label>
+            <select id="contentType">
+              <option value="blog">Blog Post</option>
+              <option value="social">Social Media Caption</option>
+              <option value="ad">Ad Copy</option>
+              <option value="email">Email Template</option>
+              <option value="seo">SEO Metadata</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Chủ đề / Topic</label>
+            <input type="text" id="topic" placeholder="Nhập chủ đề...">
+          </div>
+
+          <div class="form-group">
+            <label>Đối tượng</label>
+            <input type="text" id="audience" placeholder="Ví dụ: doanh nghiệp SME">
+          </div>
+
+          <div class="form-group">
+            <label>Giọng văn</label>
+            <select id="tone">
+              <option value="chuyên nghiệp, thân thiện">Chuyên nghiệp, thân thiện</option>
+              <option value="sáng tạo, hài hước">Sáng tạo, hài hước</option>
+              <option value="nghiêm túc, học thuật">Nghiêm túc, học thuật</option>
+              <option value="thân thiện, gần gũi">Thân thiện, gần gũi</option>
+              <option value="persuasive, bán hàng">Persuasive, bán hàng</option>
+            </select>
+          </div>
+
+          <button class="btn" id="generateBtn">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            Tạo Content
+          </button>
+
+          <div class="result-area" id="result"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  setupEventListeners() {
+    const panel = this.shadowRoot.getElementById('panel');
+    const closeBtn = this.shadowRoot.getElementById('closeBtn');
+    const generateBtn = this.shadowRoot.getElementById('generateBtn');
+    const result = this.shadowRoot.getElementById('result');
+
+    // Toggle panel
+    this.toggle = () => {
+      this.isOpen = !this.isOpen;
+      panel.classList.toggle('open', this.isOpen);
+    };
+
+    closeBtn.addEventListener('click', () => {
+      this.isOpen = false;
+      panel.classList.remove('open');
+    });
+
+    // Generate button
+    generateBtn.addEventListener('click', async () => {
+      const contentType = this.shadowRoot.getElementById('contentType').value;
+      const topic = this.shadowRoot.getElementById('topic').value;
+      const audience = this.shadowRoot.getElementById('audience').value;
+      const tone = this.shadowRoot.getElementById('tone').value;
+
+      if (!topic) {
+        if (typeof Toast !== 'undefined') {
+          Toast.warning('Vui lòng nhập chủ đề', { title: 'Thiếu thông tin' });
+        }
+        return;
+      }
+
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<span class="material-symbols-outlined">progress_activity</span> Đang tạo...';
+
+      try {
+        const options = { topic, audience, tone };
+
+        let result_data;
+        switch (contentType) {
+          case 'blog':
+            result_data = await AIGenerator.generateBlogPost(options);
+            break;
+          case 'social':
+            result_data = await AIGenerator.generateSocialCaptions({ ...options, platform: 'Facebook' });
+            break;
+          case 'ad':
+            result_data = await AIGenerator.generateAdCopy({ ...options, platform: 'Facebook Ads' });
+            break;
+          case 'email':
+            result_data = await AIGenerator.generateEmail(options);
+            break;
+          case 'seo':
+            result_data = await AIGenerator.generateSEOMetadata(options);
+            break;
+          default:
+            result_data = await AIGenerator.generate(contentType, options);
+        }
+
+        result.textContent = JSON.stringify(result_data, null, 2);
+        result.classList.add('show');
+      } catch (error) {
+      } finally {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<span class="material-symbols-outlined">auto_awesome</span> Tạo Content';
+      }
+    });
+  }
+}
+
+// Register custom element
+customElements.define('ai-content-panel', AIContentPanel);
+
+// Add floating action button to open panel
+const fab = document.createElement('button');
+fab.className = 'ai-fab';
+fab.innerHTML = '<span class="material-symbols-outlined">auto_awesome</span>';
+fab.style.cssText = `
+  position: fixed;
+  bottom: 24px;
+  right: 100px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  cursor: pointer;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+`;
+fab.addEventListener('mouseenter', () => fab.style.transform = 'scale(1.1)');
+fab.addEventListener('mouseleave', () => fab.style.transform = 'scale(1)');
+
+document.body.appendChild(fab);
+
+// Add AI panel
+const panel = document.createElement('ai-content-panel');
+document.body.appendChild(panel);
+
+// Toggle panel on FAB click
+fab.addEventListener('click', () => {
+  if (panel.toggle) {
+    panel.toggle();
+  }
+});
+
+// Export
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { AIGenerator, AIContentGenerator, AIContentPanel };
+}

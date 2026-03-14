@@ -1,0 +1,242 @@
+# Component Specification Schema for Pencil.dev
+# Maps to M3 Agency Design System
+
+version: "1.0"
+design_system: "M3 Agency"
+
+# Design tokens from M3 Agency
+tokens:
+  colors:
+    primary: "#006A60"
+    on_primary: "#FFFFFF"
+    primary_container: "#74F8E5"
+    on_primary_container: "#00201C"
+
+    secondary: "#9C6800"
+    on_secondary: "#FFFFFF"
+    secondary_container: "#FFDEA6"
+    on_secondary_container: "#321B00"
+
+    tertiary: "#6750A4"
+    on_tertiary: "#FFFFFF"
+    tertiary_container: "#EADDFF"
+    on_tertiary_container: "#21005E"
+
+    surface: "#FAFDFC"
+    on_surface: "#191C1B"
+    surface_variant: "#DAE5E2"
+    on_surface_variant: "#3F4946"
+
+    error: "#BA1A1A"
+    on_error: "#FFFFFF"
+
+    outline: "#6F7976"
+    outline_variant: "#BEC9C6"
+
+  typography:
+    display_large: "500 57px/64px 'Google Sans'"
+    display_medium: "500 45px/52px 'Google Sans'"
+    display_small: "500 36px/44px 'Google Sans'"
+    headline_large: "500 32px/40px 'Google Sans'"
+    headline_medium: "500 28px/36px 'Google Sans'"
+    headline_small: "500 24px/32px 'Google Sans'"
+    title_large: "500 22px/28px 'Google Sans'"
+    title_medium: "500 16px/24px 'Google Sans Text'"
+    body_large: "400 16px/24px 'Google Sans Text'"
+    body_medium: "400 14px/20px 'Google Sans Text'"
+    label_large: "500 14px/20px 'Google Sans Text'"
+    label_medium: "500 12px/16px 'Google Sans Text'"
+
+  shape:
+    corner_none: 0
+    corner_extra_small: 4
+    corner_small: 8
+    corner_medium: 12
+    corner_large: 16
+    corner_extra_large: 28
+    corner_full: 9999
+
+  elevation:
+    level_1: "0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15)"
+    level_2: "0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15)"
+    level_3: "0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3)"
+
+# Component specifications
+components:
+  # Frame component
+  frame:
+    type: "frame"
+    properties:
+      name: "string"
+      layout: "vertical | horizontal | none"
+      gap: "number"
+      padding: "number | [number, number, number, number]"
+      width: "number | fill_container | hug_contents"
+      height: "number | fill_container | hug_contents"
+      fill: "color_token"
+      stroke: "color_token"
+      strokeThickness: "number"
+      cornerRadius: "number | [number, number, number, number]"
+      boxShadow: "elevation_token"
+    children: "Component[]"
+
+  # Text component
+  text:
+    type: "text"
+    properties:
+      name: "string"
+      content: "string"
+      font: "typography_token"
+      fontSize: "number"
+      fontFamily: "string"
+      fontWeight: "number"
+      lineHeight: "number"
+      textColor: "color_token"
+      textAlign: "left | center | right"
+      width: "number | fill_container | hug_contents"
+      height: "number | fill_container | hug_contents"
+
+  # Button component
+  button:
+    type: "ref"
+    ref: "button_component_id"
+    variants:
+      - name: "filled"
+        properties:
+          fill: "colors.primary"
+          textColor: "colors.on_primary"
+      - name: "outlined"
+        properties:
+          fill: "transparent"
+          stroke: "colors.outline"
+          textColor: "colors.primary"
+      - name: "tonal"
+        properties:
+          fill: "colors.secondary_container"
+          textColor: "colors.on_secondary_container"
+    properties:
+      label: "string"
+      icon: "string | null"
+      cornerRadius: "shape.corner_full"
+      padding: "[10, 24, 10, 24]"
+
+  # Card component
+  card:
+    type: "ref"
+    ref: "card_component_id"
+    variants:
+      - name: "elevated"
+        properties:
+          fill: "colors.surface"
+          boxShadow: "elevation.level_1"
+      - name: "filled"
+        properties:
+          fill: "colors.surface_container"
+      - name: "outlined"
+        properties:
+          fill: "colors.surface"
+          stroke: "colors.outline_variant"
+    properties:
+      cornerRadius: "shape.corner_large"
+      padding: "24"
+      children: "Component[]"
+
+  # Table component
+  table:
+    type: "frame"
+    layout: "vertical"
+    properties:
+      headers:
+        type: "frame"
+        layout: "horizontal"
+        properties:
+          fill: "colors.surface_container"
+          padding: "[12, 16, 12, 16]"
+          children:
+            - type: "text"
+              font: "typography.label_medium"
+              textColor: "colors.on_surface_variant"
+      rows:
+        type: "frame"
+        layout: "vertical"
+        children:
+          - type: "frame"
+            layout: "horizontal"
+            properties:
+              padding: "[12, 16, 12, 16]"
+              stroke: "colors.outline_variant"
+              children:
+                - type: "text"
+                  font: "typography.body_medium"
+
+  # Pricing card component
+  pricing_card:
+    type: "frame"
+    layout: "vertical"
+    properties:
+      cornerRadius: "shape.corner_large"
+      padding: "16"
+      fill: "colors.surface"
+      stroke: "colors.outline_variant"
+      children:
+        - type: "text"
+          name: "plan_name"
+          font: "typography.headline_medium"
+          textAlign: "center"
+        - type: "text"
+          name: "price"
+          font: "typography.display_small"
+          textColor: "colors.primary"
+          textAlign: "center"
+        - type: "text"
+          name: "period"
+          font: "typography.body_medium"
+          textColor: "colors.on_surface_variant"
+          textAlign: "center"
+        - type: "frame"
+          name: "features_list"
+          layout: "vertical"
+          gap: "8"
+          children:
+            - type: "text"
+              font: "typography.body_medium"
+              content: "✓ Feature"
+        - type: "ref"
+          ref: "button_component_id"
+          variant: "outlined"
+
+# Mapping rules
+mapping_rules:
+  # Color mapping from CSS variables
+  css_to_tokens:
+    "--md-sys-color-primary": "colors.primary"
+    "--md-sys-color-on-primary": "colors.on_primary"
+    "--md-sys-color-secondary": "colors.secondary"
+    "--md-sys-color-surface": "colors.surface"
+    "--md-sys-color-on-surface": "colors.on_surface"
+
+  # Typography mapping
+  css_classes_to_tokens:
+    ".display-large": "typography.display_large"
+    ".headline-medium": "typography.headline_medium"
+    ".body-large": "typography.body_large"
+    ".label-large": "typography.label_large"
+
+  # Component mapping from HTML classes
+  html_to_components:
+    ".card.card-elevated": "card.elevated"
+    ".card.card-outlined": "card.outlined"
+    ".btn.btn-filled": "button.filled"
+    ".btn.btn-outlined": "button.outlined"
+    ".pricing-card": "pricing_card"
+
+# Validation rules
+validation:
+  - rule: "all_colors_must_be_from_tokens"
+    description: "Only use colors defined in the design system"
+  - rule: "typography_must_match_scale"
+    description: "Font sizes should use predefined typescale"
+  - rule: "spacing_must_be_multiple_of_4"
+    description: "All spacing values should be multiples of 4px"
+  - rule: "contrast_ratio_minimum"
+    description: "Text must have minimum 4.5:1 contrast ratio"

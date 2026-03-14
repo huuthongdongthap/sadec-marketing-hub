@@ -1,0 +1,309 @@
+# Design Tokens for M3 Agency Design System
+# Extracted from assets/css/brand-colors.css and m3-agency.css
+# Mapped to Pencil.dev format
+
+design_system:
+  name: "M3 Agency"
+  version: "1.0"
+  description: "Material Design 3 Expressive for Marketing Agency - Mekong Delta Theme"
+
+# Color tokens
+colors:
+  # Primary - Mekong Teal
+  primary:
+    base: "#006A60"
+    light: "#74F8E5"
+    dark: "#004f48"
+    on_primary: "#FFFFFF"
+    container: "#74F8E5"
+    on_container: "#00201C"
+
+  # Secondary - Sa Đéc Gold
+  secondary:
+    base: "#9C6800"
+    light: "#FFDEA6"
+    dark: "#704300"
+    on_secondary: "#FFFFFF"
+    container: "#FFDEA6"
+    on_container: "#321B00"
+
+  # Tertiary - Accent Purple
+  tertiary:
+    base: "#6750A4"
+    light: "#EADDFF"
+    dark: "#4F378B"
+    on_tertiary: "#FFFFFF"
+    container: "#EADDFF"
+    on_container: "#21005E"
+
+  # Error states
+  error:
+    base: "#BA1A1A"
+    on_error: "#FFFFFF"
+    container: "#FFDAD6"
+    on_container: "#410002"
+
+  # Semantic colors
+  success:
+    base: "#10b981"
+    container: "#d1fae5"
+    on_success: "#FFFFFF"
+    on_container: "#064e3b"
+
+  warning:
+    base: "#f59e0b"
+    container: "#fef3c7"
+    on_warning: "#FFFFFF"
+    on_container: "#78350f"
+
+  info:
+    base: "#3b82f6"
+    container: "#dbeafe"
+    on_info: "#FFFFFF"
+    on_container: "#1e3a5f"
+
+  # Surface colors
+  surface:
+    base: "#FAFDFC"
+    variant: "#DAE5E2"
+    container: "#EDEFEE"
+    container_high: "#E7E9E8"
+    container_highest: "#E1E3E2"
+    on_surface: "#191C1B"
+    on_variant: "#3F4946"
+
+  # Neutral palette
+  neutral:
+    50: "#FAFDFC"
+    100: "#EDEFEE"
+    200: "#E7E9E8"
+    300: "#E1E3E2"
+    400: "#BEC9C6"
+    500: "#6F7976"
+    600: "#3F4946"
+    700: "#2E3130"
+    800: "#191C1B"
+    900: "#0d0f0e"
+
+  # Outlines
+  outline:
+    base: "#6F7976"
+    variant: "#BEC9C6"
+
+  # Payment status colors
+  payment:
+    success: "#34C759"
+    pending: "#FF9500"
+    failed: "#FF3B30"
+
+# Typography tokens
+typography:
+  font_families:
+    display: "'Google Sans', sans-serif"
+    body: "'Google Sans Text', sans-serif"
+
+  display:
+    large:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 57
+      line_height: 64
+      letter_spacing: 0
+    medium:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 45
+      line_height: 52
+      letter_spacing: 0
+    small:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 36
+      line_height: 44
+      letter_spacing: 0
+
+  headline:
+    large:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 32
+      line_height: 40
+      letter_spacing: 0
+    medium:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 28
+      line_height: 36
+      letter_spacing: 0
+    small:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 24
+      line_height: 32
+      letter_spacing: 0
+
+  title:
+    large:
+      font_family: "'Google Sans', sans-serif"
+      font_weight: 500
+      font_size: 22
+      line_height: 28
+      letter_spacing: 0
+    medium:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 500
+      font_size: 16
+      line_height: 24
+      letter_spacing: 0.15
+    small:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 500
+      font_size: 14
+      line_height: 20
+      letter_spacing: 0.1
+
+  body:
+    large:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 400
+      font_size: 16
+      line_height: 24
+      letter_spacing: 0.5
+    medium:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 400
+      font_size: 14
+      line_height: 20
+      letter_spacing: 0.25
+    small:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 400
+      font_size: 12
+      line_height: 16
+      letter_spacing: 0.4
+
+  label:
+    large:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 500
+      font_size: 14
+      line_height: 20
+      letter_spacing: 0.1
+    medium:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 500
+      font_size: 12
+      line_height: 16
+      letter_spacing: 0.5
+    small:
+      font_family: "'Google Sans Text', sans-serif"
+      font_weight: 500
+      font_size: 11
+      line_height: 16
+      letter_spacing: 0.5
+
+# Spacing tokens (based on 4px grid)
+spacing:
+  xs: 4
+  sm: 8
+  md: 12
+  base: 16
+  lg: 24
+  xl: 32
+  xxl: 48
+  xxxl: 64
+
+# Shape tokens
+shape:
+  corner:
+    none: 0
+    extra_small: 4
+    small: 8
+    medium: 12
+    large: 16
+    extra_large: 28
+    full: 9999
+
+# Elevation tokens
+elevation:
+  level_0: "none"
+  level_1: "0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15)"
+  level_2: "0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15)"
+  level_3: "0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3)"
+
+# Motion/Animation tokens
+motion:
+  duration:
+    short: 200
+    medium: 400
+    long: 600
+  easing:
+    standard: "cubic-bezier(0.2, 0, 0, 1)"
+    emphasized: "cubic-bezier(0.2, 0, 0, 1)"
+
+# Layout tokens
+layout:
+  container:
+    max_width: 1200
+    padding_x: 24
+  section:
+    padding_y: 48
+  grid:
+    gap: 16
+
+# Pencil.dev specific mappings
+pencil_mappings:
+  # Map CSS custom properties to Pencil values
+  fill_colors:
+    primary: "#006A60"
+    secondary: "#9C6800"
+    tertiary: "#6750A4"
+    surface: "#FAFDFC"
+    surface_container: "#EDEFEE"
+    error: "#BA1A1A"
+    success: "#10b981"
+    warning: "#f59e0b"
+
+  text_colors:
+    primary: "#191C1B"
+    secondary: "#3F4946"
+    on_primary: "#FFFFFF"
+    on_surface: "#191C1B"
+
+  stroke_colors:
+    outline: "#6F7976"
+    outline_variant: "#BEC9C6"
+
+  # Component default styles
+  component_defaults:
+    button:
+      padding: [10, 24, 10, 24]
+      corner_radius: 9999
+      elevation: 0
+    card:
+      padding: 24
+      corner_radius: 16
+      elevation: 1
+    input:
+      padding: 16
+      corner_radius: 8
+      stroke_thickness: 1
+
+# Dark mode overrides
+dark_mode:
+  colors:
+    primary:
+      base: "#54DBC9"
+      on_primary: "#003731"
+      container: "#004f48"
+      on_container: "#74F8E5"
+    secondary:
+      base: "#FFB951"
+      on_secondary: "#4e2d00"
+      container: "#704300"
+      on_container: "#FFDEA6"
+    surface:
+      base: "#191C1B"
+      on_surface: "#E1E3E2"
+      container: "#1E2120"
+      container_high: "#282B2A"

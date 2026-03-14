@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <!-- SEO Meta Tags -->
+  <title>Approve | Phê Duyệt - Sa Đéc Hub</title>
+  <meta name="description" content="Phê duyệt nội dung và chiến dịch. Approval workflow và notifications.">
+  <meta name="keywords" content="approve, phê duyệt, approval, workflow, content">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/approve.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Approve | Phê Duyệt - Sa Đéc Hub">
+  <meta property="og:description" content="Phê duyệt nội dung và chiến dịch. Approval workflow và notifications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/approve.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Approve | Phê Duyệt - Sa Đéc Hub">
+  <meta name="twitter:description" content="Phê duyệt nội dung và chiến dịch. Approval workflow và notifications.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Approve | Phê Duyệt - Sa Đéc Hub",
+    "description": "Phê duyệt nội dung và chiến dịch. Approval workflow và notifications.",
+    "url": "https://sadecmarketinghub.com/portal/approve.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/portal.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+  </head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <sadec-sidebar role="client" active="approve"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+  <main id="main" role="main" class="sr-main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Duyệt Nội Dung</h1>
+                    <div class="body-medium text-muted">Xem xét và phê duyệt các nội dung marketing</div>
+                </div>
+            </div>
+
+            <!-- Status Tabs -->
+            <div class="status-tabs">
+                <button type="button" class="status-tab active" data-status="pending">
+                    Chờ duyệt
+                    <span class="status-count">3</span>
+                </button>
+                <button type="button" class="status-tab" data-status="approved">
+                    Đã duyệt
+                    <span class="status-count">12</span>
+                </button>
+                <button type="button" class="status-tab" data-status="revision">
+                    Yêu cầu sửa
+                    <span class="status-count">2</span>
+                </button>
+            </div>
+
+            <!-- Approval Cards -->
+            <div class="approval-grid" id="approval-list">
+                <!-- Urgent Item -->
+                <div class="approval-card urgent" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">🔥 Banner Tết Sale - Facebook</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Lịch trình" role="img">schedule</span>
+                                    Gửi 2h trước</span>
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Person" role="img">person</span>
+                                    Designer: Minh Hương</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            <div class="preview-image" style="background: linear-gradient(135deg, #E53935, #FF5722);">
+                                <span style="color: white; font-weight: bold; font-size: 24px;">🎊 TẾT SALE 50%</span>
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Banner quảng cáo Facebook</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Kích thước</div>
+                                <div class="detail-value">1200 x 628 pixels</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Mục đích</div>
+                                <div class="detail-value">Chiến dịch Tết Nguyên Đán 2026 - Khuyến mãi giảm 50%</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline</div>
+                                <div class="detail-value detail-value--urgent">⚠️ Hôm nay 18:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button class="btn-approve-green">
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xác nhận" role="img">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chỉnh sửa" role="img">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <!-- Normal Item -->
+                <div class="approval-card" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">Instagram Story - Sản phẩm mới</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Lịch trình" role="img">schedule</span>
+                                    Gửi hôm qua</span>
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Person" role="img">person</span>
+                                    Designer: An Khang</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            <div class="preview-image story"
+                                style="background: linear-gradient(135deg, #E1306C, #833AB4);">
+                                <span style="color: white; font-weight: bold;">📱 Story Preview</span>
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Instagram Story</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Kích thước</div>
+                                <div class="detail-value">1080 x 1920 pixels</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Caption đề xuất</div>
+                                <div class="detail-value">"Sản phẩm mới đã có mặt! Swipe up để xem chi tiết 👆"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button class="btn-approve-green">
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xác nhận" role="img">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chỉnh sửa" role="img">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="approval-card" data-status="pending">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">📝 Caption bài post Facebook</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Lịch trình" role="img">schedule</span>
+                                    Gửi 3 ngày trước</span>
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Person" role="img">person</span>
+                                    Content: Lan Anh</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge pending">⏳ Chờ duyệt</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Nội dung</div>
+                            <div class="preview-text-content">
+                                🌸 <strong>XUÂN VỀ - RỘNG YÊU THƯƠNG</strong> 🌸<br><br>
+                                Tết đến xuân về, Mekong Agency xin gửi lời chúc tốt đẹp nhất đến quý khách hàng!<br><br>
+                                ✨ Ưu đãi đặc biệt: Giảm ngay 30% cho mọi gói dịch vụ<br>
+                                📅 Thời gian: 15/01 - 15/02/2026<br>
+                                📞 Liên hệ: 0947.xxx.xxx<br><br>
+                                #TetSale #MekongAgency #MarketingSaDec
+                            </div>
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">Caption Facebook Post</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Số ký tự</div>
+                                <div class="detail-value">248 ký tự (Tốt ✓)</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Hashtags</div>
+                                <div class="detail-value">3 hashtags</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button class="btn-approve-green">
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xác nhận" role="img">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button>
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chỉnh sửa" role="img">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase, auth, utils, approvals } from '../assets/js/supabase.js';
+
+        let currentStatus = 'pending';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadApprovals(currentStatus);
+        });
+
+        // Status tab switching
+        document.querySelectorAll('.status-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                currentStatus = tab.dataset.status;
+                loadApprovals(currentStatus);
+            });
+        });
+
+        async function loadApprovals(status) {
+            const listContainer = document.getElementById('approval-list');
+            listContainer.innerHTML = '<div class="empty-state"><div class="spinner"></div><p>Đang tải dữ liệu...</p></div>';
+
+            try {
+                // Get current user's client ID (if client)
+                const user = await auth.getUser();
+                if (!user) {
+                    // Demo mode
+                    renderDemoApprovals(status);
+                    return;
+                }
+
+                // Use the approvals API helper
+                const { data: approvalItems, error } = await approvals.getAll(status);
+
+                if (error) throw error;
+
+                updateCounts(); // This would fetch counts for all statuses
+                renderApprovals(approvalItems);
+
+            } catch (error) {
+                console.error('Error loading approvals:', error);
+                // Fallback to demo data if DB is empty or error
+                renderDemoApprovals(status);
+            }
+        }
+
+        function renderApprovals(approvalItems) {
+            const listContainer = document.getElementById('approval-list');
+
+            if (!approvalItems || approvalItems.length === 0) {
+                renderEmptyState(listContainer, currentStatus);
+                return;
+            }
+
+            listContainer.innerHTML = approvalItems.map(item => createApprovalCard(item)).join('');
+            bindApprovalActions();
+        }
+
+        function createApprovalCard(item) {
+            const isUrgent = isDeadlineClose(item.metadata?.deadline);
+            const statusClass = item.status;
+            const statusLabel = getStatusLabel(item.status);
+
+            return `
+                <div class="approval-card ${isUrgent ? 'urgent' : ''}" data-id="${item.id}">
+                    <div class="approval-header">
+                        <div>
+                            <div class="approval-title">${item.title}</div>
+                            <div class="approval-meta">
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Lịch trình" role="img">schedule</span>
+                                    ${utils.timeAgo(item.created_at)}</span>
+                                <span><span class="material-symbols-outlined icon-sm" aria-label="Person" role="img">person</span>
+                                    Designer: ${item.designer?.full_name || 'Agency Team'}</span>
+                            </div>
+                        </div>
+                        <span class="approval-badge ${statusClass}">${statusLabel}</span>
+                    </div>
+                    <div class="approval-content">
+                        <div class="preview-section">
+                            <div class="preview-label">Preview</div>
+                            ${renderPreview(item)}
+                        </div>
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <div class="detail-label">Loại nội dung</div>
+                                <div class="detail-value">${item.type.toUpperCase()}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Mô tả</div>
+                                <div class="detail-value">${item.description || '--'}</div>
+                            </div>
+                            ${item.metadata?.deadline ? `
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline</div>
+                                <div class="detail-value ${isUrgent ? 'detail-value--urgent' : ''}">
+                                    ${isUrgent ? '⚠️ ' : ''}${utils.formatDate(item.metadata.deadline)}
+                                </div>
+                            </div>
+                            ` : ''}
+                            ${item.feedback ? `
+                            <div class="detail-item">
+                                <div class="detail-label">Feedback của bạn</div>
+                                <div class="detail-value detail-value--feedback">"${item.feedback}"</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    ${item.status === 'pending' ? `
+                    <div class="approval-actions">
+                        <md-outlined-text-field class="comment-input"
+                            placeholder="Ghi chú (không bắt buộc)..."></md-outlined-text-field>
+                        <md-filled-button class="btn-approve btn-approve-green">
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Xác nhận" role="img">check</span>
+                            Duyệt
+                        </md-filled-button>
+                        <md-outlined-button class="btn-reject">
+                            <span class="material-symbols-outlined" slot="icon" aria-label="Chỉnh sửa" role="img">edit</span>
+                            Yêu cầu sửa
+                        </md-outlined-button>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function renderPreview(item) {
+            if (item.type === 'image') {
+                return `
+                    <div class="preview-image">
+                        <img decoding="async" src="${item.preview_url}" alt="${item.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="material-symbols-outlined placeholder" style="display:none" aria-label="Image" role="img">image</span>
+                    </div>
+                `;
+            } else if (item.type === 'text') {
+                return `
+                    <div class="preview-text-content">
+                        ${item.content_body || item.preview_url}
+                    </div>
+                `;
+            } else {
+                 return `
+                    <div class="preview-image">
+                         <span class="material-symbols-outlined placeholder" aria-label="Description" role="img">description</span>
+                         <button type="button" class="preview-link" onclick="openPreview('${item.id}')">Xem nội dung</button>
+                    </div>
+                `;
+            }
+        }
+
+        function bindApprovalActions() {
+            document.querySelectorAll('.btn-approve').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const card = btn.closest('.approval-card');
+                    const id = card.dataset.id;
+                    const comment = card.querySelector('.comment-input').value;
+
+                    if(confirm('Xác nhận duyệt nội dung này?')) {
+                        await updateStatus(id, 'approved', comment);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.btn-reject').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    const card = btn.closest('.approval-card');
+                    const id = card.dataset.id;
+                    const comment = card.querySelector('.comment-input').value;
+
+                    if (!comment) {
+                        alert('Vui lòng nhập ghi chú yêu cầu chỉnh sửa.');
+                        return;
+                    }
+
+                    await updateStatus(id, 'revision', comment);
+                });
+            });
+        }
+
+        async function updateStatus(id, status, feedback) {
+            try {
+                const { error } = await approvals.updateStatus(id, status, feedback);
+
+                if (error) throw error;
+
+                // Reload list
+                loadApprovals(currentStatus);
+
+                // Show toast (mock)
+                alert(status === 'approved' ? 'Đã duyệt nội dung thành công!' : 'Đã gửi yêu cầu chỉnh sửa.');
+
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            }
+        }
+
+        // Demo Helper Functions
+        function renderDemoApprovals(status) {
+             const listContainer = document.getElementById('approval-list');
+
+             // Reuse existing static HTML logic for demo if no DB connection
+             // For now, we keep the original static content as fallback if we can't connect
+             if (document.querySelectorAll('.approval-card').length === 0) {
+                 // If list is empty (cleared by loadApprovals), restore original static content
+                 // But wait, we overwrote the body. Let's just reload page or show static data.
+                 // This part is tricky without keeping the original HTML.
+                 // We'll regenerate the static demo data using the JS logic.
+
+                 const demoItems = [
+                     {
+                         id: 'demo-1', title: 'Banner Tết Sale - Facebook', status: 'pending', type: 'image',
+                         preview_url: 'https://via.placeholder.com/800x400/E53935/FFFFFF?text=TET+SALE+50%25',
+                         description: 'Chiến dịch Tết Nguyên Đán 2026',
+                         metadata: { deadline: new Date(Date.now() + 3600000).toISOString() }
+                     },
+                     {
+                         id: 'demo-2', title: 'Instagram Story - Sản phẩm mới', status: 'pending', type: 'image',
+                         preview_url: 'https://via.placeholder.com/400x700/E1306C/FFFFFF?text=Story+Preview',
+                         description: 'Story giới thiệu sản phẩm'
+                     },
+                      {
+                         id: 'demo-3', title: 'Caption bài post Facebook', status: 'pending', type: 'text',
+                         content_body: '🌸 <strong>XUÂN VỀ - RỘNG YÊU THƯƠNG</strong> 🌸<br>Tết đến xuân về...',
+                         description: 'Caption cho bài post chính'
+                     }
+                 ];
+
+                 const filtered = demoItems.filter(i => i.status === status);
+                 if (filtered.length === 0) {
+                     renderEmptyState(listContainer, status);
+                 } else {
+                     listContainer.innerHTML = filtered.map(item => createApprovalCard(item)).join('');
+                     bindApprovalActions(); // Binds to alert for demo
+                 }
+             }
+        }
+
+        function renderEmptyState(container, status) {
+            let msg = '';
+            let icon = '';
+            if (status === 'pending') { msg = 'Không có nội dung chờ duyệt'; icon = 'task_alt'; }
+            else if (status === 'approved') { msg = 'Chưa có nội dung nào được duyệt'; icon = 'verified'; }
+            else { msg = 'Không có yêu cầu chỉnh sửa nào'; icon = 'edit_note'; }
+
+            container.innerHTML = `
+                <div class="empty-state">
+                    <span class="material-symbols-outlined" aria-label="${Icon}" role="img">${icon}</span>
+                    <h3>${msg}</h3>
+                </div>
+            `;
+        }
+
+        function updateCounts() {
+            // Mock counts update
+            // In real app, perform count query
+        }
+
+        // Utils
+        function isDeadlineClose(deadline) {
+            if (!deadline) return false;
+            const diff = new Date(deadline) - new Date();
+            return diff > 0 && diff < 86400000; // Less than 24h
+        }
+
+        function getStatusLabel(status) {
+            const map = {
+                'pending': '⏳ Chờ duyệt',
+                'approved': '✅ Đã duyệt',
+                'revision': '📝 Yêu cầu sửa'
+            };
+            return map[status] || status;
+        }
+
+    </script>
+
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/portal-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/portal-client.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer></script>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,161 @@
+/**
+ * Export Utilities - CSV & PDF Export Functions
+ * Sa Đéc Marketing Hub
+ * @version 1.0.0 | 2026-03-14
+ */
+
+import { Logger } from '../shared/logger.js';
+
+/**
+ * Export data array to CSV file
+ * @param {Array<Object>} data - Array of objects to export
+ * @param {string} filename - Output filename (without extension)
+ * @param {string[]} columns - Optional column order
+ */
+export function exportToCSV(data, filename = 'export', columns = null) {
+  if (!data || data.length === 0) {
+    Logger.warn('exportToCSV', 'No data to export');
+    return;
+  }
+
+  try {
+    const headers = columns || Object.keys(data[0]);
+    const csvRows = [];
+    csvRows.push(headers.map(h => `"${h}"`).join(','));
+
+    for (const row of data) {
+      const values = headers.map(header => {
+        const value = row[header];
+        const escaped = String(value ?? '').replace(/"/g, '""');
+        return `"${escaped}"`;
+      });
+      csvRows.push(values.join(','));
+    }
+
+    const csvContent = csvRows.join('\n');
+    downloadFile(csvContent, `${filename}.csv`, 'text/csv;charset=utf-8;');
+    Logger.success('exportToCSV', `Exported ${data.length} rows to ${filename}.csv`);
+  } catch (error) {
+    Logger.error('exportToCSV', error.message);
+    throw error;
+  }
+}
+
+/**
+ * Export DOM element to PDF using jsPDF
+ * @param {string|HTMLElement} target - Element selector or element
+ * @param {string} filename - Output filename (without extension)
+ * @param {Object} options - PDF options (orientation, format, title)
+ */
+export async function exportToPDF(target, filename = 'export', options = {}) {
+  const { orientation = 'portrait', format = 'a4', title = '', margin = 20 } = options;
+
+  try {
+    const { jsPDF } = await import('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm');
+    const element = typeof target === 'string' ? document.querySelector(target) : target;
+
+    if (!element) {
+      Logger.error('exportToPDF', 'Target element not found');
+      return;
+    }
+
+    const doc = new jsPDF({ orientation, unit: 'mm', format });
+
+    if (title) {
+      doc.setFontSize(16);
+      doc.setTextColor(40);
+      doc.text(title, margin, margin);
+    }
+
+    const { html2canvas } = await import('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm');
+    const canvas = await html2canvas(element, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
+    const imgData = canvas.toDataURL('image/png');
+    const imgWidth = 210 - (margin * 2);
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = margin + (title ? 10 : 0);
+
+    doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+    heightLeft -= 297 - (margin * 2);
+
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      doc.addPage();
+      doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+      heightLeft -= 297 - (margin * 2);
+    }
+
+    doc.save(`${filename}.pdf`);
+    Logger.success('exportToPDF', `Exported ${title || 'content'} to ${filename}.pdf`);
+  } catch (error) {
+    Logger.error('exportToPDF', error.message);
+    throw error;
+  }
+}
+
+/**
+ * Export HTML table to Excel-compatible XLS file
+ */
+export function exportTableToExcel(table, filename = 'export') {
+  try {
+    const tableElement = typeof table === 'string' ? document.querySelector(table) : table;
+    if (!tableElement) {
+      Logger.error('exportTableToExcel', 'Table element not found');
+      return;
+    }
+
+    const html = tableElement.outerHTML;
+    const prefix = 'data:application/vnd.ms-excel;charset=utf-8,';
+    const encoded = encodeURIComponent(html);
+    const link = document.createElement('a');
+    link.href = prefix + encoded;
+    link.download = `${filename}.xls`;
+    link.click();
+    Logger.success('exportTableToExcel', `Exported table to ${filename}.xls`);
+  } catch (error) {
+    Logger.error('exportTableToExcel', error.message);
+    throw error;
+  }
+}
+
+function downloadFile(content, filename, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+export function exportToJSON(data, filename = 'export', pretty = true) {
+  try {
+    const content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data);
+    downloadFile(content, `${filename}.json`, 'application/json;charset=utf-8;');
+    Logger.success('exportToJSON', `Exported to ${filename}.json`);
+  } catch (error) {
+    Logger.error('exportToJSON', error.message);
+    throw error;
+  }
+}
+
+export function printElement(target) {
+  const element = typeof target === 'string' ? document.querySelector(target) : target;
+  if (!element) {
+    Logger.error('printElement', 'Target element not found');
+    return;
+  }
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`<!DOCTYPE html><html><head><title>In ấn</title><style>body{font-family:Arial,sans-serif;padding:20px;}@media print{body{padding:0;}}</style></head><body>${element.outerHTML}</body></html>`);
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+  printWindow.close();
+}
+
+window.ExportUtils = { exportToCSV, exportToPDF, exportTableToExcel, exportToJSON, printElement };
+Logger.debug('export-utils', 'Export utilities loaded');

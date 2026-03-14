@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Components Demo — Sa Đéc Marketing Hub</title>
+    <meta name="description" content="Demo page for UI components, animations, and hover effects">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="UI demo, components, design system, Material Design 3">
+    <meta name="author" content="Sa Đéc Marketing Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sadecmarketinghub.com/ui-demo.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sadecmarketinghub.com/ui-demo.html">
+    <meta property="og:title" content="UI Components Demo — Sa Đéc Marketing Hub">
+    <meta property="og:description" content="Demo page for UI components, animations, and hover effects">
+    <meta property="og:image" content="https://sadecmarketinghub.com/og-admin.jpg">
+    <meta property="og:site_name" content="Sa Đéc Marketing Hub - Admin">
+    <meta property="og:locale" content="vi_VN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sadecmarketinghub.com/ui-demo.html">
+    <meta name="twitter:title" content="UI Components Demo — Sa Đéc Marketing Hub">
+    <meta name="twitter:description" content="Demo page for UI components, animations, and hover effects">
+    <meta name="twitter:image" content="https://sadecmarketinghub.com/og-admin.jpg">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#006A60">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="Sa Đéc Marketing Hub">
+    <meta name="msapplication-TileColor" content="#006A60">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "UI Components Demo — Sa Đéc Marketing Hub",
+      "description": "Demo page for UI components, animations, and hover effects",
+      "keywords": "UI demo, components, design system, Material Design 3",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sa Đéc Marketing Hub",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://sadecmarketinghub.com/logo.png"
+        }
+      },
+      "url": "https://sadecmarketinghub.com/ui-demo.html",
+      "inLanguage": "vi-VN",
+      "copyrightYear": "2026"
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=display=swap2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/hover-effects.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-table-layout.css?v=mmp5r1rf">
+    <style>
+        :root {
+            --md-sys-color-primary: #006A60;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-surface: #FFFFFF;
+            --md-sys-color-on-surface: #1C1B1F;
+            --md-sys-color-surface-container: #F3F3F7;
+            --md-sys-color-outline: #79747E;
+        }
+
+        [data-theme="dark"] {
+            --md-sys-color-primary: #4ADDD0;
+            --md-sys-color-on-primary: #003732;
+            --md-sys-color-surface: #1E1F26;
+            --md-sys-color-on-surface: #E6E1E5;
+            --md-sys-color-surface-container: #27282E;
+            --md-sys-color-outline: #938F99;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--md-sys-color-primary), #00dbc1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--md-sys-color-outline);
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--md-sys-color-primary);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .demo-card {
+            background: var(--md-sys-color-surface-container);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .demo-card h3 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--md-sys-color-outline);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--md-sys-color-primary);
+            color: var(--md-sys-color-primary);
+        }
+
+        /* Loading States */
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .spinner-primary {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--md-sys-color-surface-container);
+            border-top-color: var(--md-sys-color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                var(--md-sys-color-surface-container) 25%,
+                rgba(255,255,255,0.1) 50%,
+                var(--md-sys-color-surface-container) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-text {
+            height: 16px;
+            margin-bottom: 8px;
+        }
+
+        .skeleton-title {
+            height: 24px;
+            width: 60%;
+            margin-bottom: 16px;
+        }
+
+        .skeleton-image {
+            height: 150px;
+            margin-bottom: 16px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--md-sys-color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .card-text {
+            color: var(--md-sys-color-outline);
+            font-size: 0.9rem;
+        }
+
+        /* Icons */
+        .icon-demo {
+            font-size: 32px;
+            color: var(--md-sys-color-primary);
+        }
+
+        /* Links */
+        .link-demo {
+            display: inline-block;
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            padding: 8px 0;
+        }
+
+        /* Inputs */
+        .input-demo {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* Toast Container */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--md-sys-color-surface);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 8px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast.success { border-left: 4px solid #22c55e; }
+        .toast.error { border-left: 4px solid #ef4444; }
+        .toast.warning { border-left: 4px solid #f59e0b; }
+        .toast.info { border-left: 4px solid var(--md-sys-color-primary); }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle-fixed {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 1px solid var(--md-sys-color-outline);
+            color: var(--md-sys-color-outline);
+        }
+    </style>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+  </head>
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to content">Skip to content</a>
+    <!-- Theme Toggle -->
+    <button type="button" class="theme-toggle-fixed btn btn-primary" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="material-symbols-outlined" aria-label="Chế độ tối" role="img">dark_mode</span>
+        Toggle Theme
+    </button>
+
+    <div class="container">
+  <main id="main" role="main">
+        <header>
+            <h1>UI Components Demo</h1>
+            <p>Sa Đéc Marketing Hub — Micro-animations, Loading States & Hover Effects</p>
+        </header>
+
+        <!-- Button Hover Effects -->
+        <section class="section">
+            <h2 class="section-title">Button Hover Effects</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Glow</h3>
+                    <button type="button" class="btn btn-primary btn-hover-glow">
+                        <span class="material-symbols-outlined" aria-label="Sparkles" role="img">sparkles</span>
+                        Glow Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Scale</h3>
+                    <button type="button" class="btn btn-primary btn-hover-scale">
+                        <span class="material-symbols-outlined" aria-label="Phóng to" role="img">zoom_in</span>
+                        Scale Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Slide</h3>
+                    <button type="button" class="btn btn-primary btn-hover-slide">
+                        <span class="material-symbols-outlined" aria-label="Trending Flat" role="img">trending_flat</span>
+                        Slide Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Ripple</h3>
+                    <button type="button" class="btn btn-primary btn-hover-ripple">
+                        <span class="material-symbols-outlined" aria-label="Water Drop" role="img">water_drop</span>
+                        Ripple Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Border</h3>
+                    <button type="button" class="btn btn-outline btn-hover-border">
+                        <span class="material-symbols-outlined" aria-label="Border Outer" role="img">border_outer</span>
+                        Border Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Shine</h3>
+                    <button type="button" class="btn btn-primary btn-hover-shine">
+                        <span class="material-symbols-outlined" aria-label="Chế độ sáng" role="img">light_mode</span>
+                        Shine Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Lift</h3>
+                    <button type="button" class="btn btn-primary btn-hover-lift">
+                        <span class="material-symbols-outlined" aria-label="Pan Tool" role="img">pan_tool</span>
+                        Lift Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Pulse</h3>
+                    <button type="button" class="btn btn-primary btn-hover-pulse">
+                        <span class="material-symbols-outlined" aria-label="Yêu thích" role="img">favorite</span>
+                        Pulse Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Gradient</h3>
+                    <button type="button" class="btn btn-primary btn-hover-gradient">
+                        <span class="material-symbols-outlined" aria-label="Gradient" role="img">gradient</span>
+                        Gradient Effect
+                    </button>
+                </div>
+                <div class="demo-card">
+                    <h3>Arrow</h3>
+                    <button type="button" class="btn btn-primary btn-hover-arrow">
+                        <span class="material-symbols-outlined" aria-label="Chuyển tiếp" role="img">arrow_forward</span>
+                        Arrow Effect
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Hover Effects -->
+        <section class="section">
+            <h2 class="section-title">Card Hover Effects</h2>
+            <div class="demo-grid">
+                <div class="card card-hover-lift">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150'%3E%3Crect fill='%23006A60' width='400' height='150'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24'%3EImage%3C/text%3E%3C/svg%3E" alt="Demo">
+                    <div class="card-body">
+                        <h3 class="card-title">Lift Effect</h3>
+                        <p class="card-text">Card lifts with shadow on hover</p>
+                    </div>
+                </div>
+                <div class="card card-hover-glow">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150'%3E%3Crect fill='%2300dbc1' width='400' height='150'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24'%3EImage%3C/text%3E%3C/svg%3E" alt="Demo">
+                    <div class="card-body">
+                        <h3 class="card-title">Glow Border</h3>
+                        <p class="card-text">Glowing gradient border on hover</p>
+                    </div>
+                </div>
+                <div class="card card-hover-scale">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150'%3E%3Crect fill='%234ADDD0' width='400' height='150'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24'%3EImage%3C/text%3E%3C/svg%3E" alt="Demo">
+                    <div class="card-body">
+                        <h3 class="card-title">Scale Up</h3>
+                        <p class="card-text">Card scales up uniformly</p>
+                    </div>
+                </div>
+                <div class="card card-hover-zoom">
+                    <img decoding="async" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150'%3E%3Crect fill='%23006A60' width='400' height='150'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24'%3EZoom%3C/text%3E%3C/svg%3E" alt="Demo">
+                    <div class="card-body">
+                        <h3 class="card-title">Zoom Image</h3>
+                        <p class="card-text">Image zooms inside card</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="section">
+            <h2 class="section-title">Loading States</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Spinner</h3>
+                    <div class="loading-container">
+                        <div class="spinner-primary"></div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <h3>Skeleton Card</h3>
+                    <div class="skeleton skeleton-image"></div>
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+                <div class="demo-card">
+                    <h3>Skeleton Text</h3>
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text" style="width: 90%"></div>
+                    <div class="skeleton skeleton-text" style="width: 70%"></div>
+                    <div class="skeleton skeleton-text" style="width: 85%"></div>
+                </div>
+                <div class="demo-card">
+                    <h3>Button Loading</h3>
+                    <button type="button" class="btn btn-primary" id="loading-btn" onclick="showLoading()">
+                        <span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span>
+                        Download
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Hover Effects -->
+        <section class="section">
+            <h2 class="section-title">Icon Hover Effects</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Bounce</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-bounce" aria-label="Shopping Bag" role="img">shopping_bag</span>
+                </div>
+                <div class="demo-card">
+                    <h3>Rotate</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-rotate" aria-label="Cài đặt" role="img">settings</span>
+                </div>
+                <div class="demo-card">
+                    <h3>Pulse</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-pulse" aria-label="Yêu thích" role="img">favorite</span>
+                </div>
+                <div class="demo-card">
+                    <h3>Glow</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-glow" aria-label="Lightbulb" role="img">lightbulb</span>
+                </div>
+                <div class="demo-card">
+                    <h3>Shake</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-shake" aria-label="Thông báo" role="img">notifications</span>
+                </div>
+                <div class="demo-card">
+                    <h3>Flip</h3>
+                    <span class="material-symbols-outlined icon-demo icon-hover-flip" aria-label="Flip" role="img">flip</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Link Hover Effects -->
+        <section class="section">
+            <h2 class="section-title">Link Hover Effects</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Underline Slide</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-underline">Hover Me</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Underline Expand</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-expand">Hover Me</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Letter Spacing</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-space">Hover Me</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Arrow</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-arrow">Hover Me</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Dotted</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-dotted">Hover Me</a>
+                </div>
+                <div class="demo-card">
+                    <h3>Double Line</h3>
+                    <br>
+                    <a href="#" role="button" class="link-demo link-hover-double">Hover Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toast Notifications -->
+        <section class="section">
+            <h2 class="section-title">Toast Notifications</h2>
+            <div class="controls">
+                <button type="button" class="btn btn-primary" onclick="showToast('success', 'Thành công!')">
+                    Success
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showToast('error', 'Có lỗi xảy ra')">
+                    Error
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showToast('warning', 'Cảnh báo')">
+                    Warning
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showToast('info', 'Thông tin')">
+                    Info
+                </button>
+            </div>
+        </section>
+
+        <!-- Micro Animations -->
+        <section class="section">
+            <h2 class="section-title">Micro Animations (JavaScript)</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Shake</h3>
+                    <button type="button" class="btn btn-primary" onclick="triggerShake()">
+                        <span class="material-symbols-outlined" aria-label="Lỗi" role="img">error</span>
+                        Trigger Shake
+                    </button>
+                    <div id="shake-target" style="margin-top: 16px; padding: 16px; background: var(--md-sys-color-surface-container); border-radius: 8px;">
+                        Target Element
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <h3>Pop</h3>
+                    <button type="button" class="btn btn-primary" onclick="triggerPop()">
+                        <span class="material-symbols-outlined" aria-label="Celebration" role="img">celebration</span>
+                        Trigger Pop
+                    </button>
+                    <div id="pop-target" style="margin-top: 16px; padding: 16px; background: var(--md-sys-color-surface-container); border-radius: 8px; display: inline-block;">
+                        🎉
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <h3>Count Up</h3>
+                    <button type="button" class="btn btn-primary" onclick="triggerCountUp()">
+                        <span class="material-symbols-outlined" aria-label="Xu hướng tăng" role="img">trending_up</span>
+                        Start Count
+                    </button>
+                    <div id="count-target" style="margin-top: 16px; font-size: 2rem; font-weight: bold; color: var(--md-sys-color-primary);">
+                        0
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <footer>
+        <p>Sa Đéc Marketing Hub v4.7.0 — UI Components Demo</p>
+        <p>Hover over elements to see effects • Click buttons to trigger animations</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script defer src="/assets/js/micro-animations.js"></script>
+    <script defer src="/assets/js/loading-states.js"></script>
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        }
+
+        // Toast Notifications
+        function showToast(type, message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <span class="material-symbols-outlined" aria-label="${Geticon(Type)}" role="img">${getIcon(type)}</span>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function getIcon(type) {
+            const icons = {
+                success: 'check_circle',
+                error: 'error',
+                warning: 'warning',
+                info: 'info'
+            };
+            return icons[type] || 'info';
+        }
+
+        // Loading Button Demo
+        function showLoading() {
+            const btn = document.getElementById('loading-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner-primary" style="width: 20px; height: 20px;"></div> Loading...';
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Xác nhận" role="img">check</span> Done!';
+                showToast('success', 'Download complete!');
+
+                setTimeout(() => {
+                    btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Tải xuống" role="img">download</span> Download';
+                }, 2000);
+            }, 2000);
+        }
+
+        // Micro Animations
+        function triggerShake() {
+            const target = document.getElementById('shake-target');
+            MicroAnimations.shake(target);
+        }
+
+        function triggerPop() {
+            const target = document.getElementById('pop-target');
+            MicroAnimations.pop(target);
+        }
+
+        function triggerCountUp() {
+            const target = document.getElementById('count-target');
+            MicroAnimations.countUp(target, 0, 100, { duration: 1500, suffix: '%' });
+        }
+
+        // Initialize micro animations
+        document.addEventListener('DOMContentLoaded', () => {
+            MicroAnimations.initButtons();
+            console.log('UI Demo initialized');
+        });
+    </script>
+
+    <!-- UX Widgets -->
+    <script type="module" src="/admin/widgets/command-palette.js?v=mmpm5wei" defer></script>
+    <script type="module" src="/admin/widgets/help-tour.js?v=mmpm5wei" defer></script>
+    <script src="/assets/js/admin/notification-bell.js" defer></script>
+
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+</html>

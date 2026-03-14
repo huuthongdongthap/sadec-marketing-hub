@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+
+  <!-- SEO Meta Tags -->
+  <title>ROI Analytics | Phân Tích Hiệu Quả - Sa Đéc Hub</title>
+  <meta name="description" content="Phân tích ROI và hiệu quả chiến dịch. Detailed analytics và insights.">
+  <meta name="keywords" content="ROI, analytics, phân tích, hiệu quả, insights">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/roi-analytics.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="ROI Analytics | Phân Tích Hiệu Quả - Sa Đéc Hub">
+  <meta property="og:description" content="Phân tích ROI và hiệu quả chiến dịch. Detailed analytics và insights.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/roi-analytics.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ROI Analytics | Phân Tích Hiệu Quả - Sa Đéc Hub">
+  <meta name="twitter:description" content="Phân tích ROI và hiệu quả chiến dịch. Detailed analytics và insights.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ROI Analytics | Phân Tích Hiệu Quả - Sa Đéc Hub",
+    "description": "Phân tích ROI và hiệu quả chiến dịch. Detailed analytics và insights.",
+    "url": "https://sadecmarketinghub.com/portal/roi-analytics.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+<!-- Performance: Preconnect hints -->
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  
+
+
+
+  
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  
+  
+  
+  
+  
+
+  <!-- Twitter Card -->
+  
+  
+  
+  
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ROI Analytics Dashboard",
+    "description": "Track and analyze your marketing ROI with real-time charts and metrics",
+    "url": "https://sadecmarketinghub.com/portal/roi-analytics",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  
+  <link rel="stylesheet" href="/assets/css/bundle/portal-common.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 24px;
+    }
+    .metric-card {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .metric-card h3 {
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .metric-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+    }
+    .metric-change {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .metric-change.positive { color: #10b981; }
+    .metric-change.negative { color: #ef4444; }
+    .chart-container {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .chart-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+      padding: 24px;
+    }
+    .phase-tracker {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px;
+      color: white;
+    }
+    .phase-item {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+    }
+    .phase-progress {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      margin: 0 16px;
+      overflow: hidden;
+    }
+    .phase-bar {
+      height: 100%;
+      background: white;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .phase-label {
+      min-width: 120px;
+      font-weight: 600;
+    }
+    .phase-percent {
+      min-width: 50px;
+      text-align: right;
+      font-weight: 700;
+    }
+  </style>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <main role="main" class="main-content">
+  <main id="main" role="main" class="sr-main">
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <h1>📊 ROI Analytics Dashboard</h1>
+      <p>Track your marketing performance and return on investment</p>
+    </header>
+
+    <!-- Key Metrics -->
+    <div class="dashboard-grid">
+      <div class="metric-card">
+        <h3>Tổng ROI</h3>
+        <div class="metric-value">245%</div>
+        <div class="metric-change positive">↑ 12% so với tháng trước</div>
+      </div>
+      <div class="metric-card">
+        <h3>Doanh Thu</h3>
+        <div class="metric-value">₫1.2T</div>
+        <div class="metric-change positive">↑ 8% so với tháng trước</div>
+      </div>
+      <div class="metric-card">
+        <h3>Chi Phí Marketing</h3>
+        <div class="metric-value">₫350M</div>
+        <div class="metric-change negative">↑ 3% so với tháng trước</div>
+      </div>
+      <div class="metric-card">
+        <h3>Tỷ Lệ Chuyển Đổi</h3>
+        <div class="metric-value">3.2%</div>
+        <div class="metric-change positive">↑ 0.4% so với tháng trước</div>
+      </div>
+    </div>
+
+    <!-- Charts Row 1 -->
+    <div class="chart-row">
+      <div class="chart-container">
+        <h3>Xu Hướng ROI Theo Tháng</h3>
+        <canvas id="roiTrendChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Phân Bổ Ngân Sách</h3>
+        <canvas id="budgetChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Phase Tracker -->
+    <div class="phase-tracker">
+      <h2>🎯 ROIaaS Implementation Phases</h2>
+      <div class="phase-item">
+        <span class="phase-label">Phase 1: Discovery</span>
+        <div class="phase-progress">
+          <div class="phase-bar" style="width: 100%"></div>
+        </div>
+        <span class="phase-percent">100%</span>
+      </div>
+      <div class="phase-item">
+        <span class="phase-label">Phase 2: Setup</span>
+        <div class="phase-progress">
+          <div class="phase-bar" style="width: 100%"></div>
+        </div>
+        <span class="phase-percent">100%</span>
+      </div>
+      <div class="phase-item">
+        <span class="phase-label">Phase 3: Integration</span>
+        <div class="phase-progress">
+          <div class="phase-bar" style="width: 75%"></div>
+        </div>
+        <span class="phase-percent">75%</span>
+      </div>
+      <div class="phase-item">
+        <span class="phase-label">Phase 4: Optimization</span>
+        <div class="phase-progress">
+          <div class="phase-bar" style="width: 45%"></div>
+        </div>
+        <span class="phase-percent">45%</span>
+      </div>
+      <div class="phase-item">
+        <span class="phase-label">Phase 5: Scale</span>
+        <div class="phase-progress">
+          <div class="phase-bar" style="width: 20%"></div>
+        </div>
+        <span class="phase-percent">20%</span>
+      </div>
+    </div>
+
+    <!-- Charts Row 2 -->
+    <div class="chart-row">
+      <div class="chart-container">
+        <h3>Hiệu Suất Kênh Marketing</h3>
+        <canvas id="channelChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Customer Journey Funnel</h3>
+        <canvas id="funnelChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+
+    // ROI Trend Chart
+    const roiCtx = document.getElementById('roiTrendChart').getContext('2d');
+    new Chart(roiCtx, {
+      type: 'line',
+      data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+        datasets: [{
+          label: 'ROI (%)',
+          data: [180, 195, 210, 225, 238, 245],
+          borderColor: '#667eea',
+          backgroundColor: 'rgba(102, 126, 234, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: false }
+        }
+      }
+    });
+
+    // Budget Distribution Chart
+    const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+    new Chart(budgetCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Facebook Ads', 'Google Ads', 'Zalo Ads', 'Content', 'SEO'],
+        datasets: [{
+          data: [35, 25, 15, 15, 10],
+          backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // Channel Performance Chart
+    const channelCtx = document.getElementById('channelChart').getContext('2d');
+    new Chart(channelCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Facebook', 'Google', 'Zalo', 'TikTok', 'Email'],
+        datasets: [{
+          label: ' conversions',
+          data: [245, 189, 156, 98, 67],
+          backgroundColor: '#667eea',
+          borderRadius: 8
+        }, {
+          label: 'Chi phí (triệu ₫)',
+          data: [120, 95, 52, 45, 18],
+          backgroundColor: '#f093fb',
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // Funnel Chart
+    const funnelCtx = document.getElementById('funnelChart').getContext('2d');
+    new Chart(funnelCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Nhận biết', 'Quan tâm', 'Cân nhắc', 'Mua hàng', 'Trung thành'],
+        datasets: [{
+          label: 'Khách hàng',
+          data: [10000, 5000, 2000, 800, 320],
+          backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+    </main>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<!-- Performance: Preconnect hints -->
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KPI Card Widget - Dashboard component for displaying key performance indicators">
+    <meta name="keywords" content="KPI card, chỉ số, metrics, performance, dashboard widget">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KPI Card Widget - Mekong Agency">
+    <meta name="twitter:description" content="Dashboard component for KPI display with animations and trends">
+    <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "KPI Card Widget",
+      "description": "Dashboard component for KPI display with animations and trends",
+      "url": "https://sadecmarketinghub.com/admin/widgets/kpi-card.html",
+      "applicationCategory": "BusinessApplication"
+    }
+    </script>
+
+    <title>KPI Card Widget - Mekong Agency</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="KPI Card Widget">
+    <meta property="og:description" content="Dashboard component for KPI display">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sadecmarketinghub.com/admin/widgets/kpi-card.html">
+    <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/widgets.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/micro-animations.css?v=mmp5r1rf">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+    <div class="widget-demo-container">
+        <h1>KPI Card Widget Demo</h1>
+        <p>Custom Element: &lt;kpi-card-widget&gt;</p>
+
+        <div class="widget-showcase">
+            <!-- Revenue KPI -->
+            <kpi-card-widget
+                title="Total Revenue"
+                value="125,000,000đ"
+                trend="positive"
+                trend-value="+12.5%"
+                icon="payments"
+                color="green"
+                sparkline-data="10,25,18,30,22,35,28">
+            </kpi-card-widget>
+
+            <!-- Clients KPI -->
+            <kpi-card-widget
+                title="Active Clients"
+                value="47"
+                trend="positive"
+                trend-value="+8 new"
+                icon="group"
+                color="cyan"
+                sparkline-data="5,8,12,15,20,25,30">
+            </kpi-card-widget>
+
+            <!-- Leads KPI -->
+            <kpi-card-widget
+                title="Total Leads"
+                value="234"
+                trend="positive"
+                trend-value="+18%"
+                icon="ads_click"
+                color="purple"
+                sparkline-data="15,20,18,25,30,28,35">
+            </kpi-card-widget>
+
+            <!-- Campaigns KPI -->
+            <kpi-card-widget
+                title="Active Campaigns"
+                value="12"
+                trend="neutral"
+                trend-value="Stable"
+                icon="bolt"
+                color="orange"
+                sparkline-data="8,9,10,10,11,12,12">
+            </kpi-card-widget>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="/supabase-config.js?v=mmp5r1rf"></script>
+    <script type="module" src="kpi-card.js?v=mmp5r1rf"></script>
+</body>
+</html>

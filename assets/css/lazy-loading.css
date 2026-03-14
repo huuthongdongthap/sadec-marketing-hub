@@ -1,0 +1,230 @@
+/**
+ * Sa Đéc Marketing Hub - Lazy Loading Styles
+ * Blur-up placeholders and loading states
+ */
+
+/* ============================================================================
+   IMAGE LAZY LOADING
+   ============================================================================ */
+
+.lazy-image {
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.lazy-image.loading {
+    opacity: 0.6;
+    filter: blur(10px);
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.lazy-image.error {
+    opacity: 1;
+    filter: none;
+    background: var(--md-sys-color-surface-variant, #f5f5f5);
+}
+
+/* Skeleton placeholder for images */
+.image-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--md-sys-color-surface-variant, #f0f0f0) 25%,
+        var(--md-sys-color-surface-variant, #e0e0e0) 50%,
+        var(--md-sys-color-surface-variant, #f0f0f0) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: var(--md-sys-radius-medium, 8px);
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Blur-up placeholder container */
+.blur-up-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--md-sys-color-surface-variant, #f5f5f5);
+}
+
+.blur-up-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.blur-up-container .placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: opacity 0.4s ease;
+}
+
+.blur-up-container img.loaded + .placeholder {
+    opacity: 0;
+}
+
+/* ============================================================================
+   CONTENT LAZY LOADING
+   ============================================================================ */
+
+.lazy-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lazy-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================================
+   SKELETON LOADERS FOR CARDS AND COMPONENTS
+   ============================================================================ */
+
+.skeleton-card {
+    background: var(--md-sys-color-surface, #ffffff);
+    border-radius: var(--md-sys-radius-large, 16px);
+    padding: 24px;
+    overflow: hidden;
+}
+
+.skeleton-card .skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.skeleton-card .skeleton-title {
+    height: 24px;
+    width: 60%;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.skeleton-card .skeleton-text {
+    height: 16px;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.skeleton-card .skeleton-text:last-child {
+    width: 80%;
+    margin-bottom: 0;
+}
+
+.skeleton-card .skeleton-image {
+    height: 200px;
+    width: 100%;
+    border-radius: var(--md-sys-radius-medium, 8px);
+    margin-bottom: 16px;
+}
+
+/* Animation for all skeleton elements */
+.skeleton-avatar,
+.skeleton-title,
+.skeleton-text,
+.skeleton-image {
+    background: linear-gradient(
+        90deg,
+        var(--md-sys-color-surface-variant, #f0f0f0) 25%,
+        var(--md-sys-color-outline-variant, #e0e0e0) 50%,
+        var(--md-sys-color-surface-variant, #f0f0f0) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+/* Stagger animation for multiple skeletons */
+.skeleton-card:nth-child(1) .skeleton-avatar { animation-delay: 0s; }
+.skeleton-card:nth-child(2) .skeleton-avatar { animation-delay: 0.1s; }
+.skeleton-card:nth-child(3) .skeleton-avatar { animation-delay: 0.2s; }
+.skeleton-card:nth-child(4) .skeleton-avatar { animation-delay: 0.3s; }
+
+/* ============================================================================
+   LAZY LOADING SPINNERS
+   ============================================================================ */
+
+.lazy-spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--md-sys-color-surface-variant, #f0f0f0);
+    border-top-color: var(--md-sys-color-primary, #006A60);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Center loader */
+.lazy-loader-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    width: 100%;
+}
+
+/* ============================================================================
+   RESPONSIVE LAZY LOADING
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .lazy-section {
+        transform: translateY(10px);
+    }
+
+    .skeleton-card .skeleton-image {
+        height: 150px;
+    }
+
+    .lazy-spinner {
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .lazy-image,
+    .lazy-section,
+    .skeleton-avatar,
+    .skeleton-title,
+    .skeleton-text,
+    .skeleton-image {
+        transition: none;
+        animation: none;
+    }
+
+    .lazy-image.loading {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,680 @@
+/**
+ * ROIaaS Onboarding - Dedicated Styles
+ * Cyber-Glass design system for onboarding wizard
+ */
+
+/* ============ CSS VARIABLES ============ */
+:root {
+    --roiaas-primary: #00f2ff;
+    --roiaas-secondary: #0088ff;
+    --roiaas-accent: #a855f7;
+    --roiaas-success: #76ff03;
+    --roiaas-warning: #ff8f00;
+    --roiaas-danger: #ff5252;
+    --roiaas-bg: #0a0e1a;
+    --roiaas-surface: rgba(18, 24, 38, 0.95);
+    --roiaas-border: rgba(100, 150, 255, 0.2);
+    --roiaas-text: #e0e6f0;
+    --roiaas-text-muted: #a0aec0;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============ MAIN CONTAINER ============ */
+.roiaas-onboarding-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--roiaas-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Grid Effect */
+.roiaas-onboarding-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ambient Glow */
+.roiaas-onboarding-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* ============ WIZARD CONTAINER ============ */
+.roiaas-wizard {
+    width: 100%;
+    max-width: 700px;
+    background: var(--roiaas-surface);
+    border: 1px solid var(--roiaas-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ============ PROGRESS HEADER ============ */
+.wizard-progress {
+    margin-bottom: 32px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: var(--roiaas-text-muted);
+    font-size: 14px;
+}
+
+.progress-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--roiaas-primary), var(--roiaas-secondary));
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============ STEP INDICATORS ============ */
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.step-indicators::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.step-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--roiaas-text-muted);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background: linear-gradient(135deg, var(--roiaas-primary), var(--roiaas-secondary));
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.step-dot.completed {
+    background: var(--roiaas-success);
+    color: #000;
+}
+
+.step-dot .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* ============ STEP CONTENT ============ */
+.step-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.step-content.active {
+    display: block;
+}
+
+.step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.step-subtitle {
+    color: var(--roiaas-text-muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+/* ============ FORM ELEMENTS ============ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--roiaas-text);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--roiaas-primary);
+    box-shadow: 0 0 0 3px rgba(0, 242, 255, 0.1);
+}
+
+.form-group select option {
+    background: #1a2238;
+    color: #fff;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: var(--roiaas-text-muted);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ============ PLAN CARDS ============ */
+.plan-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.plan-card:hover {
+    border-color: rgba(0, 242, 255, 0.5);
+    background: rgba(0, 242, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.plan-card.selected {
+    border-color: var(--roiaas-primary);
+    background: rgba(0, 242, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.plan-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.plan-name {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.plan-credits {
+    color: var(--roiaas-primary);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.plan-price {
+    color: var(--roiaas-text-muted);
+    font-size: 14px;
+}
+
+.plan-popular {
+    display: inline-block;
+    background: var(--roiaas-success);
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+/* ============ CHANNEL CARDS ============ */
+.channel-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.channel-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.channel-card:hover {
+    border-color: rgba(0, 242, 255, 0.5);
+}
+
+.channel-card.selected {
+    border-color: var(--roiaas-primary);
+    background: rgba(0, 242, 255, 0.1);
+}
+
+.channel-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.channel-name {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ============ INDUSTRY GRID ============ */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.industry-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.industry-option:hover {
+    border-color: rgba(0, 242, 255, 0.5);
+}
+
+.industry-option.selected {
+    border-color: var(--roiaas-primary);
+    background: rgba(0, 242, 255, 0.1);
+}
+
+.industry-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.industry-label {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* ============ BUTTONS ============ */
+.button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--roiaas-primary), var(--roiaas-secondary));
+    color: #fff;
+    flex: 1;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 242, 255, 0.3);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============ ERROR & SUCCESS ============ */
+.error-message {
+    color: var(--roiaas-danger);
+    font-size: 14px;
+    margin-top: 8px;
+    display: none;
+    padding: 8px 12px;
+    background: rgba(255, 82, 82, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid var(--roiaas-danger);
+}
+
+.error-message.visible {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.success-message {
+    color: var(--roiaas-success);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* ============ SUCCESS STATE ============ */
+.success-state {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: var(--roiaas-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease;
+}
+
+.success-icon .material-symbols-outlined {
+    font-size: 48px;
+    color: #000;
+}
+
+.success-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.success-desc {
+    color: var(--roiaas-text-muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* ============ LOADING SPINNER ============ */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Tablet Landscape - 1024px */
+@media (max-width: 1024px) {
+    .roiaas-wizard {
+        max-width: 600px;
+        padding: 32px;
+    }
+
+    .plan-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet Portrait - 768px */
+@media (max-width: 768px) {
+    .roiaas-wizard {
+        padding: 28px;
+    }
+
+    .step-title {
+        font-size: 24px;
+    }
+
+    .step-subtitle {
+        font-size: 14px;
+    }
+
+    .plan-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .industry-grid {
+        gap: 10px;
+    }
+
+    .step-indicators {
+        gap: 4px;
+    }
+
+    .step-dot {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile Landscape - 480px */
+@media (max-width: 480px) {
+    .roiaas-onboarding-wrapper {
+        padding: 12px;
+    }
+
+    .roiaas-wizard {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .step-title {
+        font-size: 22px;
+    }
+
+    .plan-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .btn-primary {
+        order: 1;
+    }
+
+    .btn-secondary {
+        order: 2;
+    }
+}
+
+/* Mobile Small - 375px */
+@media (max-width: 375px) {
+    .roiaas-onboarding-wrapper {
+        padding: 8px;
+    }
+
+    .roiaas-wizard {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .step-title {
+        font-size: 20px;
+    }
+
+    .step-subtitle {
+        font-size: 13px;
+    }
+
+    .plan-card {
+        padding: 16px;
+    }
+
+    .plan-icon {
+        font-size: 28px;
+    }
+
+    .channel-card {
+        padding: 12px;
+    }
+
+    .channel-icon {
+        font-size: 24px;
+    }
+
+    .industry-option {
+        padding: 12px;
+    }
+
+    .industry-icon {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+/* ============ DARK MODE ENHANCEMENTS ============ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --roiaas-bg: #050810;
+        --roiaas-surface: rgba(10, 15, 30, 0.95);
+    }
+}
+
+/* ============ ACCESSIBILITY ============ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.btn:focus-visible,
+.plan-card:focus-visible,
+.channel-card:focus-visible,
+.industry-option:focus-visible {
+    outline: 2px solid var(--roiaas-primary);
+    outline-offset: 2px;
+}

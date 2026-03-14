@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://esm.run">
+
+
+  <!-- SEO Meta Tags -->
+  <title>Shifts - Quản Lý Ca Làm Việc | Sa Đéc Hub</title>
+  <meta name="description" content="Quản lý ca làm việc nhân viên. Schedule, time tracking và attendance.">
+  <meta name="keywords" content="shifts, ca làm việc, schedule, attendance, nhân viên">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/shifts.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Shifts - Quản Lý Ca Làm Việc | Sa Đéc Hub">
+  <meta property="og:description" content="Quản lý ca làm việc nhân viên. Schedule, time tracking và attendance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/shifts.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shifts - Quản Lý Ca Làm Việc | Sa Đéc Hub">
+  <meta name="twitter:description" content="Quản lý ca làm việc nhân viên. Schedule, time tracking và attendance.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Shifts - Quản Lý Ca Làm Việc | Sa Đéc Hub",
+    "description": "Quản lý ca làm việc nhân viên. Schedule, time tracking và attendance.",
+    "url": "https://sadecmarketinghub.com/admin/shifts.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+<!-- DNS Prefetch (Deduplicated) -->
+
+<link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/agency-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/admin-unified.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+
+    <style>
+        /* Shifts Layout */
+        .shifts-container {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 20px;
+            min-height: calc(100vh - 140px);
+            overflow: hidden;
+        }
+
+        /* Stat Cards */
+        .shifts-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .shift-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .shift-stat-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.1);
+        }
+
+        .shift-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .shift-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .shift-stat-card:nth-child(1) .shift-stat-value { color: #00e5ff; }
+        .shift-stat-card:nth-child(2) .shift-stat-value { color: #76ff03; }
+        .shift-stat-card:nth-child(3) .shift-stat-value { color: #ff6ec7; }
+        .shift-stat-card:nth-child(4) .shift-stat-value { color: #ffd600; }
+
+        /* Calendar Grid */
+        .calendar-wrapper {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            overflow: auto;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .calendar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .calendar-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .calendar-nav-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.5);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 80px repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-cell {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 12px;
+            min-height: 100px;
+        }
+
+        .calendar-cell.header {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.2);
+            text-align: center;
+            font-weight: 600;
+            color: #00e5ff;
+            min-height: auto;
+        }
+
+        .calendar-cell.header.weekend {
+            background: rgba(255, 82, 82, 0.15);
+            border-color: rgba(255, 82, 82, 0.3);
+            color: #ff5252;
+        }
+
+        .calendar-cell.shift-label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .shift-label-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .shift-time {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .calendar-cell.day-cell {
+            position: relative;
+            padding: 8px;
+        }
+
+        .day-number {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .shift-assignment {
+            margin-top: 24px;
+            padding: 8px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .shift-assignment:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.4);
+        }
+
+        .shift-assignment.unassigned {
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            cursor: pointer;
+            min-height: 40px;
+        }
+
+        .shift-assignment.unassigned:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            color: rgba(0, 229, 255, 0.6);
+        }
+
+        .assignee-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .assignee-role {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2px;
+        }
+
+        /* Staff Panel */
+        .staff-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            height: fit-content;
+        }
+
+        .staff-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .staff-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-staff-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+
+        .add-staff-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        .staff-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .staff-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            cursor: grab;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .staff-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateX(-4px);
+        }
+
+        .staff-card.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .staff-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00e5ff, #76ff03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .staff-info {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .staff-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .staff-role {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .staff-hours {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 2px;
+        }
+
+        .staff-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #76ff03;
+            box-shadow: 0 0 8px rgba(118, 255, 3, 0.5);
+        }
+
+        .staff-status.inactive {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        .staff-actions {
+            display: flex;
+            gap: 4px;
+        }
+
+        .staff-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .staff-action-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: #00e5ff;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: rgba(20, 30, 40, 0.98);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 24px;
+            padding: 32px;
+            width: 100%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalPop 0.3s ease;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 82, 82, 0.2);
+            border-color: rgba(255, 82, 82, 0.4);
+            color: #ff5252;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(0, 229, 255, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: rgba(20, 30, 40, 0.98);
+            color: #fff;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 14px;
+            border: none;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-cancel {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .modal-btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .modal-btn-save {
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+            color: #000;
+        }
+
+        .modal-btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Staff Select Modal */
+        .staff-select-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .staff-select-card {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .staff-select-card:hover {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.4);
+        }
+
+        .staff-select-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00e5ff, #76ff03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            margin: 0 auto 8px;
+        }
+
+        .staff-select-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .staff-select-role {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .clear-shift-btn {
+            background: rgba(255, 82, 82, 0.15);
+            border: 1px solid rgba(255, 82, 82, 0.3);
+            color: #ff5252;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        .clear-shift-btn:hover {
+            background: rgba(255, 82, 82, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .shifts-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                overflow: auto;
+            }
+            .shifts-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .calendar-grid {
+                grid-template-columns: 70px repeat(7, minmax(100px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .shifts-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .calendar-grid {
+                grid-template-columns: 60px repeat(7, minmax(80px, 1fr));
+            }
+            .calendar-cell {
+                min-height: 80px;
+                padding: 6px;
+            }
+        }
+    </style>
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="shifts"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+  <main id="main" role="main" class="sr-main">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">📅 Lịch Ca Làm Việc</h1>
+                    <p class="text-secondary">Quản lý ca làm việc cho nhân viên</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
+                        <input type="text" placeholder="Tìm nhân viên..." id="searchStaff" aria-label="Search staff">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="shifts-stats animate-entry delay-2">
+                <div class="shift-stat-card">
+                    <div class="shift-stat-value" id="stat-active-staff">0</div>
+                    <div class="shift-stat-label">Nhân viên active</div>
+                </div>
+                <div class="shift-stat-card">
+                    <div class="shift-stat-value" id="stat-today-shifts">0</div>
+                    <div class="shift-stat-label">Ca hôm nay</div>
+                </div>
+                <div class="shift-stat-card">
+                    <div class="shift-stat-value" id="stat-week-hours">0h</div>
+                    <div class="shift-stat-label">Giờ làm tuần này</div>
+                </div>
+                <div class="shift-stat-card">
+                    <div class="shift-stat-value" id="stat-overtime">0h</div>
+                    <div class="shift-stat-label">Overtime</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="shifts-container animate-entry delay-3">
+                <!-- Calendar -->
+                <div class="calendar-wrapper">
+                    <div class="calendar-header">
+                        <div class="calendar-title">
+                            <span class="material-symbols-outlined" aria-label="Calendar Month" role="img">calendar_month</span>
+                            <span id="currentWeekLabel">Tuần này</span>
+                        </div>
+                        <div class="calendar-nav">
+                            <button type="button" class="calendar-nav-btn" onclick="prevWeek()" title="Tuần trước" aria-label="Trái"
+                                <span class="material-symbols-outlined" aria-label="Trái" role="img">chevron_left</span>
+                            </button>
+                            <button type="button" class="calendar-nav-btn" onclick="goToToday()" title="Về tuần hiện tại" aria-label="Today"
+                                <span class="material-symbols-outlined" aria-label="Today" role="img">today</span>
+                            </button>
+                            <button type="button" class="calendar-nav-btn" onclick="nextWeek()" title="Tuần sau" aria-label="Phải"
+                                <span class="material-symbols-outlined" aria-label="Phải" role="img">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Staff Panel -->
+                <div class="staff-panel">
+                    <div class="staff-header">
+                        <div class="staff-title">
+                            <span class="material-symbols-outlined" aria-label="Groups" role="img">groups</span>
+                            Nhân viên
+                        </div>
+                        <button type="button" class="add-staff-btn" onclick="openAddStaffModal()" title="Thêm nhân viên" aria-label="Thêm mới"
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+                        </button>
+                    </div>
+                    <div class="staff-list" id="staffList">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Staff Modal -->
+    <div class="modal-overlay" id="staffModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="staffModalTitle">Thêm nhân viên</h2>
+                <button type="button" class="modal-close" onclick="closeStaffModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
+                </button>
+            </div>
+            <form id="staffForm" onsubmit="saveStaff(event)">
+                <input type="hidden" id="staffId">
+                <div class="form-group">
+                    <label class="form-label">Họ và tên</label>
+                    <input type="text" class="form-input" id="staffName" required="" placeholder="Nguyễn Văn A" aria-label="Nguyễn Văn A">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Chức vụ</label>
+                    <select class="form-select" id="staffRole" required="">
+                        <option value="barista">Barista</option>
+                        <option value="cashier">Thu ngân</option>
+                        <option value="manager">Quản lý</option>
+                        <option value="part-time">Part-time</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-input" id="staffPhone" required="" placeholder="0901234567" aria-label="0901234567">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Lương/giờ (₫)</label>
+                    <input type="number" class="form-input" id="staffSalary" required="" placeholder="25000" aria-label="25000">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="modal-btn modal-btn-cancel" onclick="closeStaffModal()">Hủy</button>
+                    <button type="submit" class="modal-btn modal-btn-save">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Shift Modal -->
+    <div class="modal-overlay" id="assignModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Phân ca</h2>
+                <button type="button" class="modal-close" onclick="closeAssignModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
+                </button>
+            </div>
+            <div id="assignModalContent">
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 12px;">
+                    <span id="assignShiftInfo"></span>
+                </p>
+                <div class="staff-select-grid" id="staffSelectGrid">
+                    <!-- Rendered by JS -->
+                </div>
+                <button type="button" class="clear-shift-btn" onclick="clearShiftAssignment()" id="clearShiftBtn">
+                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 4px;" aria-label="Clear" role="img">clear</span>
+                    Bỏ phân ca
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="/supabase-config.js?v=mmp5r1rf"></script>
+    <script type="module" src="/auth.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/admin-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/enhanced-utils.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script>
+        // ============ DATA ============
+        const DEFAULT_STAFF = [
+            { id: 's1', name: 'Minh barista', role: 'barista', phone: '0901234567', salary: 30000, status: 'active', hoursThisWeek: 32 },
+            { id: 's2', name: 'Lan barista', role: 'barista', phone: '0902345678', salary: 30000, status: 'active', hoursThisWeek: 24 },
+            { id: 's3', name: 'Hùng cashier', role: 'cashier', phone: '0903456789', salary: 25000, status: 'active', hoursThisWeek: 40 },
+            { id: 's4', name: 'Mai manager', role: 'manager', phone: '0904567890', salary: 50000, status: 'active', hoursThisWeek: 48 },
+            { id: 's5', name: 'Tú part-time', role: 'part-time', phone: '0905678901', salary: 22000, status: 'inactive', hoursThisWeek: 16 },
+        ];
+
+        const SHIFTS = [
+            { id: 'morning', name: 'Sáng', time: '6:00 - 14:00' },
+            { id: 'afternoon', name: 'Chiều', time: '14:00 - 22:00' }
+        ];
+
+        const DAY_NAMES = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+        const DAY_NAMES_FULL = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
+
+        let staff = [];
+        let shifts = {}; // { 'YYYY-MM-DD-shiftId': staffId }
+        let currentWeekStart = getWeekStart(new Date());
+        let selectedCell = null;
+
+        // ============ UTILS ============
+        function getWeekStart(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+            d.setDate(diff);
+            d.setHours(0, 0, 0, 0);
+            return d;
+        }
+
+        function formatDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        function formatVND(n) {
+            return new Intl.NumberFormat('vi-VN').format(n) + '₫';
+        }
+
+        function getStaffInitials(name) {
+            return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+        }
+
+        function getRoleEmoji(role) {
+            const map = { barista: '☕', cashier: '💰', manager: '📋', 'part-time': '🕐' };
+            return map[role] || '👤';
+        }
+
+        // ============ STORAGE ============
+        function loadFromStorage() {
+            try {
+                const savedStaff = localStorage.getItem('sadec_staff');
+                staff = savedStaff ? JSON.parse(savedStaff) : [...DEFAULT_STAFF];
+            } catch (e) {
+                staff = [...DEFAULT_STAFF];
+            }
+
+            try {
+                const savedShifts = localStorage.getItem('sadec_shifts');
+                shifts = savedShifts ? JSON.parse(savedShifts) : {};
+            } catch (e) {
+                shifts = {};
+            }
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('sadec_staff', JSON.stringify(staff));
+            localStorage.setItem('sadec_shifts', JSON.stringify(shifts));
+        }
+
+        // ============ RENDER ============
+        function renderStaffList() {
+            const container = document.getElementById('staffList');
+            const searchTerm = document.getElementById('searchStaff').value.toLowerCase();
+
+            const filtered = staff.filter(s => s.name.toLowerCase().includes(searchTerm));
+
+            container.innerHTML = filtered.map(s => `
+                <div class="staff-card" draggable="true" data-staff-id="${s.id}"
+                     ondragstart="handleDragStart(event)" ondragend="handleDragEnd(event)">
+                    <div class="staff-avatar">${getStaffInitials(s.name)}</div>
+                    <div class="staff-info">
+                        <div class="staff-name">${s.name}</div>
+                        <div class="staff-role">${getRoleEmoji(s.role)} ${s.role}</div>
+                        <div class="staff-hours">${s.hoursThisWeek || 0}h tuần này</div>
+                    </div>
+                    <div class="staff-status ${s.status === 'inactive' ? 'inactive' : ''}"></div>
+                    <div class="staff-actions">
+                        <button type="button" class="staff-action-btn" onclick="editStaff('${s.id}')" title="Sửa" aria-label="Chỉnh sửa"
+                            <span class="material-symbols-outlined" aria-label="Chỉnh sửa" role="img">edit</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update stats
+            const activeCount = staff.filter(s => s.status === 'active').length;
+            const totalHours = staff.reduce((sum, s) => sum + (s.hoursThisWeek || 0), 0);
+            const overtime = staff.reduce((sum, s) => sum + Math.max(0, (s.hoursThisWeek || 0) - 40), 0);
+
+            document.getElementById('stat-active-staff').textContent = activeCount;
+            document.getElementById('stat-week-hours').textContent = totalHours + 'h';
+            document.getElementById('stat-overtime').textContent = overtime + 'h';
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            const today = new Date();
+            const weekStart = currentWeekStart;
+
+            // Update label
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekEnd.getDate() + 6);
+            const label = `Tuần ${weekStart.getDate()} - ${weekEnd.getDate()}/${weekEnd.getMonth() + 1}`;
+            document.getElementById('currentWeekLabel').textContent = label;
+
+            // Count today shifts
+            const todayStr = formatDate(today);
+            let todayShiftCount = 0;
+            SHIFTS.forEach(shift => {
+                const key = `${todayStr}-${shift.id}`;
+                if (shifts[key]) todayShiftCount++;
+            });
+            document.getElementById('stat-today-shifts').textContent = todayShiftCount;
+
+            // Header row
+            let html = `<div class="calendar-cell header">Ca</div>`;
+            DAY_NAMES.forEach((day, i) => {
+                const date = new Date(weekStart);
+                date.setDate(date.getDate() + i);
+                const isWeekend = i >= 5;
+                const isToday = formatDate(date) === formatDate(today);
+                html += `
+                    <div class="calendar-cell header ${isWeekend ? 'weekend' : ''} ${isToday ? 'today' : ''}">
+                        ${day}<br>
+                        <span style="font-size: 11px; opacity: 0.7;">${date.getDate()}/${date.getMonth() + 1}</span>
+                    </div>
+                `;
+            });
+
+            // Shift rows
+            SHIFTS.forEach(shift => {
+                html += `
+                    <div class="calendar-cell shift-label">
+                        <span class="shift-label-text">${shift.name}</span>
+                        <span class="shift-time">${shift.time}</span>
+                    </div>
+                `;
+
+                for (let i = 0; i < 7; i++) {
+                    const date = new Date(weekStart);
+                    date.setDate(date.getDate() + i);
+                    const dateStr = formatDate(date);
+                    const key = `${dateStr}-${shift.id}`;
+                    const assigneeId = shifts[key];
+                    const assignee = staff.find(s => s.id === assigneeId);
+                    const isWeekend = i >= 5;
+                    const isToday = dateStr === formatDate(today);
+
+                    html += `
+                        <div class="calendar-cell day-cell ${isWeekend ? 'weekend' : ''} ${isToday ? 'today' : ''}"
+                             data-date="${dateStr}" data-shift="${shift.id}">
+                            <span class="day-number">${date.getDate()}</span>
+                            ${assignee ? `
+                                <div class="shift-assignment" onclick="openAssignModal('${key}')">
+                                    <div class="assignee-name">${getRoleEmoji(assignee.role)} ${assignee.name}</div>
+                                    <div class="assignee-role">${assignee.role}</div>
+                                </div>
+                            ` : `
+                                <div class="shift-assignment unassigned" onclick="openAssignModal('${key}')">
+                                    <span>+ Phân ca</span>
+                                </div>
+                            `}
+                        </div>
+                    `;
+                }
+            });
+
+            grid.innerHTML = html;
+        }
+
+        // ============ DRAG & DROP ============
+        function handleDragStart(e) {
+            e.target.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', e.target.dataset.staffId);
+            e.dataTransfer.effectAllowed = 'copy';
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+        }
+
+        // Add drop handlers to calendar cells
+        document.addEventListener('dragover', (e) => {
+            const cell = e.target.closest('.day-cell');
+            if (cell) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'copy';
+            }
+        });
+
+        document.addEventListener('drop', (e) => {
+            const cell = e.target.closest('.day-cell');
+            if (cell) {
+                e.preventDefault();
+                const staffId = e.dataTransfer.getData('text/plain');
+                const date = cell.dataset.date;
+                const shift = cell.dataset.shift;
+                const key = `${date}-${shift}`;
+                shifts[key] = staffId;
+                saveToStorage();
+                renderCalendar();
+                renderStaffList();
+            }
+        });
+
+        // ============ MODALS ============
+        function openAddStaffModal() {
+            document.getElementById('staffModalTitle').textContent = 'Thêm nhân viên';
+            document.getElementById('staffForm').reset();
+            document.getElementById('staffId').value = '';
+            document.getElementById('staffModal').classList.add('show');
+        }
+
+        function closeStaffModal() {
+            document.getElementById('staffModal').classList.remove('show');
+        }
+
+        function openAssignModal(key) {
+            selectedCell = key;
+            const [dateStr, shiftId] = key.split('-');
+            const shift = SHIFTS.find(s => s.id === shiftId);
+            const date = new Date(dateStr);
+            const dayIndex = (date.getDay() + 6) % 7;
+
+            document.getElementById('assignShiftInfo').textContent =
+                `${DAY_NAMES_FULL[dayIndex]} ${date.getDate()}/${date.getMonth() + 1} - Ca ${shift.name} (${shift.time})`;
+
+            const assigneeId = shifts[key];
+            const grid = document.getElementById('staffSelectGrid');
+            grid.innerHTML = staff.filter(s => s.status === 'active').map(s => `
+                <div class="staff-select-card" onclick="assignStaffToShift('${s.id}')"
+                     style="${s.id === assigneeId ? 'border-color: #00e5ff; background: rgba(0, 229, 255, 0.15);' : ''}">
+                    <div class="staff-select-avatar">${getStaffInitials(s.name)}</div>
+                    <div class="staff-select-name">${s.name}</div>
+                    <div class="staff-select-role">${getRoleEmoji(s.role)} ${s.role}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('clearShiftBtn').style.display = assigneeId ? 'block' : 'none';
+            document.getElementById('assignModal').classList.add('show');
+        }
+
+        function closeAssignModal() {
+            document.getElementById('assignModal').classList.remove('show');
+            selectedCell = null;
+        }
+
+        function assignStaffToShift(staffId) {
+            if (selectedCell) {
+                shifts[selectedCell] = staffId;
+                saveToStorage();
+                renderCalendar();
+                closeAssignModal();
+            }
+        }
+
+        function clearShiftAssignment() {
+            if (selectedCell && shifts[selectedCell]) {
+                delete shifts[selectedCell];
+                saveToStorage();
+                renderCalendar();
+                closeAssignModal();
+            }
+        }
+
+        // ============ STAFF CRUD ============
+        function saveStaff(e) {
+            e.preventDefault();
+            const id = document.getElementById('staffId').value;
+            const staffData = {
+                id: id || 's' + Date.now(),
+                name: document.getElementById('staffName').value,
+                role: document.getElementById('staffRole').value,
+                phone: document.getElementById('staffPhone').value,
+                salary: parseInt(document.getElementById('staffSalary').value),
+                status: 'active',
+                hoursThisWeek: 0
+            };
+
+            if (id) {
+                const idx = staff.findIndex(s => s.id === id);
+                staff[idx] = staffData;
+            } else {
+                staff.push(staffData);
+            }
+
+            saveToStorage();
+            closeStaffModal();
+            renderStaffList();
+            renderCalendar();
+        }
+
+        function editStaff(id) {
+            const s = staff.find(s => s.id === id);
+            if (!s) return;
+
+            document.getElementById('staffModalTitle').textContent = 'Sửa nhân viên';
+            document.getElementById('staffId').value = s.id;
+            document.getElementById('staffName').value = s.name;
+            document.getElementById('staffRole').value = s.role;
+            document.getElementById('staffPhone').value = s.phone;
+            document.getElementById('staffSalary').value = s.salary;
+            document.getElementById('staffModal').classList.add('show');
+        }
+
+        // ============ NAVIGATION ============
+        function prevWeek() {
+            currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+            renderCalendar();
+        }
+
+        function nextWeek() {
+            currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+            renderCalendar();
+        }
+
+        function goToToday() {
+            currentWeekStart = getWeekStart(new Date());
+            renderCalendar();
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFromStorage();
+            renderStaffList();
+            renderCalendar();
+
+            // Search listener
+            document.getElementById('searchStaff').addEventListener('input', renderStaffList);
+
+            // Close modals on outside click
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="/assets/js/content-ai.js?v=mmp5r1rf"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="/assets/js/mobile-menu.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
+
+
+
+    <!-- UX Widgets -->
+    <script type="module" src="/admin/widgets/command-palette.js?v=mmpm5wei" defer></script>
+    <script type="module" src="/admin/widgets/help-tour.js?v=mmpm5wei" defer></script>
+    <script src="/assets/js/admin/notification-bell.js" defer></script>
+
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body></html>

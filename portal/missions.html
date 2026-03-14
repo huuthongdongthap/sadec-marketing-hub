@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://esm.run">
+
+
+  <!-- SEO Meta Tags -->
+  <title>Missions - Nhiệm Vụ RaaS | Sa Đéc Hub</title>
+  <meta name="description" content="Nhiệm vụ tự động hóa RaaS. AI agents thực thi chiến dịch marketing.">
+  <meta name="keywords" content="missions, RaaS, tự động hóa, AI agents, marketing">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/missions.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Missions - Nhiệm Vụ RaaS | Sa Đéc Hub">
+  <meta property="og:description" content="Nhiệm vụ tự động hóa RaaS. AI agents thực thi chiến dịch marketing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/missions.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Missions - Nhiệm Vụ RaaS | Sa Đéc Hub">
+  <meta name="twitter:description" content="Nhiệm vụ tự động hóa RaaS. AI agents thực thi chiến dịch marketing.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Missions - Nhiệm Vụ RaaS | Sa Đéc Hub",
+    "description": "Nhiệm vụ tự động hóa RaaS. AI agents thực thi chiến dịch marketing.",
+    "url": "https://sadecmarketinghub.com/portal/missions.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/portal.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+    <style>
+        /* Mission-specific styles */
+        .mission-form {
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .mission-form textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 12px;
+            padding: 16px;
+            font-family: 'Google Sans Text', sans-serif;
+            font-size: 14px;
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        .mission-form textarea:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb, 103, 80, 164), 0.15);
+        }
+        .mission-form textarea::placeholder {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .complexity-selector {
+            display: flex;
+            gap: 12px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+        .complexity-option {
+            flex: 1;
+            min-width: 140px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid var(--md-sys-color-outline-variant);
+            background: var(--md-sys-color-surface);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .complexity-option:hover {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+        }
+        .complexity-option.selected {
+            border-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .complexity-option .complexity-name {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--md-sys-color-on-surface);
+        }
+        .complexity-option .complexity-cost {
+            font-size: 13px;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 4px;
+        }
+        .complexity-option .complexity-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: var(--md-sys-color-primary);
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        /* Mission list */
+        .mission-list { display: flex; flex-direction: column; gap: 12px; }
+        .mission-card {
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.2s;
+        }
+        .mission-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transform: translateY(-1px);
+        }
+        .mission-status-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .mission-status-dot.queued { background: var(--md-sys-color-outline); }
+        .mission-status-dot.running {
+            background: #2196F3;
+            animation: statusPulse 1.5s ease-in-out infinite;
+        }
+        .mission-status-dot.done { background: #4CAF50; }
+        .mission-status-dot.failed { background: #F44336; }
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(33,150,243,0.4); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(33,150,243,0); }
+        }
+        .mission-info { flex: 1; }
+        .mission-goal {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 6px;
+        }
+        .mission-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .mission-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .mission-meta .material-symbols-outlined { font-size: 14px; }
+        .mission-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .mission-badge.queued {
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .mission-badge.running {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+        .mission-badge.done {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        .mission-badge.failed {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        /* Credit balance bar */
+        .credit-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--md-sys-color-primary-container), var(--md-sys-color-tertiary-container));
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .credit-bar-icon {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .credit-bar-value {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--md-sys-color-on-primary-container);
+        }
+        .credit-bar-label {
+            font-size: 13px;
+            color: var(--md-sys-color-on-primary-container);
+            opacity: 0.8;
+        }
+        .credit-bar-actions { margin-left: auto; }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .empty-state .material-symbols-outlined {
+            font-size: 64px;
+            opacity: 0.4;
+            margin-bottom: 16px;
+        }
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .filter-tab {
+            padding: 8px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            background: transparent;
+            font-family: 'Google Sans Text', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .filter-tab.active, .filter-tab:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-color: var(--md-sys-color-primary);
+        }
+    </style>
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <sadec-sidebar role="client" active="missions"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+  <main id="main" role="main" class="sr-main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">AI Missions</h1>
+                    <div class="body-medium text-muted">Gửi nhiệm vụ cho AI Agent và theo dõi tiến độ</div>
+                </div>
+                <div class="flex-between gap-12">
+                    <a href="credits.html" class="btn btn-tonal">
+                        <span class="material-symbols-outlined" aria-label="Account Balance Wallet" role="img">account_balance_wallet</span>
+                        Quản lý Credits
+                    </a>
+                </div>
+            </div>
+
+            <!-- Credit Balance Bar -->
+            <div class="credit-bar">
+                <div class="credit-bar-icon">
+                    <span class="material-symbols-outlined" aria-label="Toll" role="img">toll</span>
+                </div>
+                <div>
+                    <div class="credit-bar-value" id="credit-balance">--</div>
+                    <div class="credit-bar-label">Credits còn lại</div>
+                </div>
+                <div class="credit-bar-actions">
+                    <a href="credits.html" class="btn btn-filled btn-sm">
+                        <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+                        Mua thêm
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mission Submission Form -->
+            <div class="mission-form">
+                <div class="section-title" style="margin-bottom: 16px;">
+                    <span class="material-symbols-outlined" style="vertical-align: middle; margin-right: 8px;" aria-label="Rocket Launch" role="img">rocket_launch</span>
+                    Gửi nhiệm vụ mới
+                </div>
+                <textarea id="mission-goal"
+                    placeholder="Mô tả nhiệm vụ bằng ngôn ngữ tự nhiên...&#10;&#10;Ví dụ: &quot;Phân tích website đối thủ ABC.com, so sánh SEO với website của tôi và đề xuất 10 cải thiện ưu tiên cao nhất&quot;"></textarea>
+
+                <div class="complexity-selector" id="complexity-selector">
+                    <div class="complexity-option" data-value="simple" onclick="selectComplexity(this)">
+                        <div class="complexity-icon">⚡</div>
+                        <div class="complexity-name">Simple</div>
+                        <div class="complexity-cost">1 credit • ~5 phút</div>
+                    </div>
+                    <div class="complexity-option selected" data-value="standard" onclick="selectComplexity(this)">
+                        <div class="complexity-icon">🔧</div>
+                        <div class="complexity-name">Standard</div>
+                        <div class="complexity-cost">3 credits • ~15 phút</div>
+                    </div>
+                    <div class="complexity-option" data-value="complex" onclick="selectComplexity(this)">
+                        <div class="complexity-icon">🚀</div>
+                        <div class="complexity-name">Complex</div>
+                        <div class="complexity-cost">5 credits • ~30 phút</div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-filled" onclick="submitMission()" id="submit-btn">
+                        <span class="material-symbols-outlined" aria-label="Send" role="img">send</span>
+                        Gửi nhiệm vụ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button type="button" class="filter-tab active" onclick="filterMissions('all', this)">Tất cả</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('running', this)">Đang chạy</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('queued', this)">Chờ xử lý</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('done', this)">Hoàn thành</button>
+                <button type="button" class="filter-tab" onclick="filterMissions('failed', this)">Thất bại</button>
+            </div>
+
+            <!-- Mission List -->
+            <div class="mission-list" id="mission-list">
+                <div class="empty-state" id="empty-state">
+                    <span class="material-symbols-outlined" aria-label="Smart Toy" role="img">smart_toy</span>
+                    <div class="title-medium">Chưa có nhiệm vụ nào</div>
+                    <div class="body-medium" style="margin-top: 8px;">Gửi nhiệm vụ đầu tiên để AI Agent bắt đầu làm việc</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/mekong-env.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/portal-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+    <script>
+        // --- State ---
+        let selectedComplexity = 'standard';
+        let missions = [];
+        let currentFilter = 'all';
+
+        const MISSION_COSTS = { simple: 1, standard: 3, complex: 5 };
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL || '';
+        const SUPABASE_KEY = window.__ENV__?.SUPABASE_ANON_KEY || '';
+
+        // --- Complexity Selector ---
+        function selectComplexity(el) {
+            document.querySelectorAll('.complexity-option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedComplexity = el.dataset.value;
+        }
+
+        // --- Submit Mission ---
+        async function submitMission() {
+            const goalInput = document.getElementById('mission-goal');
+            const goal = goalInput.value.trim();
+
+            if (!goal) {
+                showToast('Vui lòng nhập mô tả nhiệm vụ', 'warning');
+                goalInput.focus();
+                return;
+            }
+
+            const cost = MISSION_COSTS[selectedComplexity];
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Hourglass Empty" role="img">hourglass_empty</span> Đang gửi...';
+
+            try {
+                // Create mission via Supabase Edge Function
+                const res = await fetch(`${SUPABASE_URL}/functions/v1/raas-bridge`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    },
+                    body: JSON.stringify({
+                        action: 'create_mission',
+                        goal: goal,
+                        complexity: selectedComplexity
+                    })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.detail || `HTTP ${res.status}`);
+                }
+
+                const mission = await res.json();
+                addMissionToList(mission);
+                goalInput.value = '';
+                updateCreditBalance();
+                showToast(`Nhiệm vụ đã gửi! Chi phí: ${cost} credits`, 'success');
+            } catch (err) {
+                console.error('[Mission]', err);
+                // Fallback: add mock mission for demo
+                const mockMission = {
+                    id: 'msn-' + Date.now(),
+                    goal: goal,
+                    complexity: selectedComplexity,
+                    credits_cost: cost,
+                    status: 'queued',
+                    created_at: new Date().toISOString()
+                };
+                addMissionToList(mockMission);
+                goalInput.value = '';
+                showToast(`Demo mode: Nhiệm vụ đã tạo (${cost} credits)`, 'info');
+
+                // Simulate status progression
+                setTimeout(() => updateMissionStatus(mockMission.id, 'running'), 3000);
+                setTimeout(() => updateMissionStatus(mockMission.id, 'done'), 12000);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined" aria-label="Send" role="img">send</span> Gửi nhiệm vụ';
+            }
+        }
+
+        // --- Render Mission ---
+        function addMissionToList(mission) {
+            missions.unshift(mission);
+            document.getElementById('empty-state').style.display = 'none';
+            renderMissions();
+        }
+
+        function renderMissions() {
+            const list = document.getElementById('mission-list');
+            const empty = document.getElementById('empty-state');
+            const filtered = currentFilter === 'all' ? missions : missions.filter(m => m.status === currentFilter);
+
+            if (filtered.length === 0) {
+                empty.style.display = '';
+                list.innerHTML = '';
+                list.appendChild(empty);
+                return;
+            }
+            empty.style.display = 'none';
+
+            list.innerHTML = filtered.map(m => `
+                <div class="mission-card" data-id="${m.id}">
+                    <div class="mission-status-dot ${m.status}"></div>
+                    <div class="mission-info">
+                        <div class="mission-goal">${escapeHtml(m.goal)}</div>
+                        <div class="mission-meta">
+                            <span>
+                                <span class="material-symbols-outlined" aria-label="Toll" role="img">toll</span>
+                                ${m.credits_cost} credits
+                            </span>
+                            <span>
+                                <span class="material-symbols-outlined" aria-label="Lịch trình" role="img">schedule</span>
+                                ${timeAgo(m.created_at)}
+                            </span>
+                            <span>
+                                <span class="material-symbols-outlined" aria-label="Speed" role="img">speed</span>
+                                ${m.complexity}
+                            </span>
+                        </div>
+                    </div>
+                    <span class="mission-badge ${m.status}">${statusLabel(m.status)}</span>
+                </div>
+            `).join('');
+        }
+
+        function updateMissionStatus(id, status) {
+            const m = missions.find(m => m.id === id);
+            if (m) {
+                m.status = status;
+                if (status === 'done') m.completed_at = new Date().toISOString();
+                renderMissions();
+                showToast(`Mission ${status === 'running' ? 'đang thực thi' : status === 'done' ? 'hoàn thành!' : status}`, status === 'done' ? 'success' : 'info');
+            }
+        }
+
+        function filterMissions(filter, btn) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderMissions();
+        }
+
+        // --- Credit Balance ---
+        async function updateCreditBalance() {
+            try {
+                const res = await fetch(`${SUPABASE_URL}/functions/v1/raas-bridge?action=credits`, {
+                    headers: { 'Authorization': `Bearer ${SUPABASE_KEY}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    document.getElementById('credit-balance').textContent = data.balance || 0;
+                }
+            } catch {
+                // Demo fallback
+                document.getElementById('credit-balance').textContent = '47';
+            }
+        }
+
+        // --- Utilities ---
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+        function statusLabel(s) {
+            return { queued: 'Chờ xử lý', running: 'Đang chạy', done: 'Hoàn thành', failed: 'Thất bại' }[s] || s;
+        }
+        function timeAgo(iso) {
+            const diff = Date.now() - new Date(iso).getTime();
+            const mins = Math.floor(diff / 60000);
+            if (mins < 1) return 'Vừa xong';
+            if (mins < 60) return `${mins} phút trước`;
+            const hours = Math.floor(mins / 60);
+            if (hours < 24) return `${hours} giờ trước`;
+            return `${Math.floor(hours / 24)} ngày trước`;
+        }
+        function showToast(msg, type) {
+            const t = document.createElement('div');
+            t.className = `toast toast-${type || 'info'}`;
+            t.textContent = msg;
+            t.style.cssText = 'position:fixed;bottom:24px;right:24px;padding:12px 24px;border-radius:12px;color:#fff;font-size:14px;font-family:"Google Sans Text",sans-serif;z-index:9999;animation:slideUp .3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.15);';
+            t.style.background = { success: '#4CAF50', warning: '#FF9800', info: '#2196F3', error: '#F44336' }[type] || '#333';
+            document.body.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 3000);
+        }
+
+        // --- Init ---
+        updateCreditBalance();
+    </script>
+
+    <style>
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer></script>
+    <script type="module" src="/assets/js/ui-enhancements-2026.js?v=mmpm5wei"></script>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+
+</html>

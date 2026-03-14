@@ -1,0 +1,53 @@
+name = "sadec-marketing-hub-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+account_id = "b69fee03bdd94234eea8e4114cfc36ab"
+
+# ── R2 Storage ───────────────────────────────────────────────────────
+[[r2_buckets]]
+binding = "ASSETS_BUCKET"
+bucket_name = "sadec-assets"
+
+# ── D1 Database ──────────────────────────────────────────────────────
+[[d1_databases]]
+binding = "DB"
+database_name = "sadec-db"
+database_id = "0ec55f8d-b366-4530-a6e7-e5d67ac95830"
+
+# ── Environment Variables ────────────────────────────────────────────
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGIN = "https://sadec-marketing-hub.pages.dev"
+APP_URL = "https://sadec-marketing-hub.pages.dev"
+
+# ── DEMO KEYS — thay bằng keys thật trước khi deploy production ──────
+# Chạy: wrangler secret put <TÊN_KEY> để set key thật (bảo mật hơn vars)
+#
+# Supabase Auth
+SUPABASE_URL = "https://your-project.supabase.co"
+SUPABASE_JWT_SECRET = "REPLACE_WITH_YOUR_SUPABASE_JWT_SECRET"
+#
+# VNPay — lấy tại: https://merchant.vnpay.vn
+VNPAY_TMN_CODE = "DEMO_TMN_CODE"
+VNPAY_SECRET_KEY = "REPLACE_WITH_VNPAY_SECRET_KEY"
+VNPAY_URL = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
+#
+# MoMo — lấy tại: https://business.momo.vn
+MOMO_PARTNER_CODE = "DEMO_PARTNER_CODE"
+MOMO_ACCESS_KEY = "REPLACE_WITH_MOMO_ACCESS_KEY"
+MOMO_SECRET_KEY = "REPLACE_WITH_MOMO_SECRET_KEY"
+MOMO_ENDPOINT = "https://test-payment.momo.vn/v2/gateway/api/create"
+#
+# PayOS — lấy tại: https://my.payos.vn
+PAYOS_CLIENT_ID = "REPLACE_WITH_PAYOS_CLIENT_ID"
+PAYOS_API_KEY = "REPLACE_WITH_PAYOS_API_KEY"
+PAYOS_CHECKSUM_KEY = "REPLACE_WITH_PAYOS_CHECKSUM_KEY"
+#
+# Zalo OA — lấy tại: https://developers.zalo.me
+ZALO_OA_SECRET = "REPLACE_WITH_ZALO_OA_SECRET"
+
+# ── Local Dev ────────────────────────────────────────────────────────
+[dev]
+port = 8787
+local_protocol = "http"

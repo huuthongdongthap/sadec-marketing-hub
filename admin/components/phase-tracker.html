@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+<!-- Performance: Preconnect hints -->
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+
+<!-- DNS Prefetch (Deduplicated) -->
+    
+  <!-- SEO Meta Tags -->
+  <title>Phase Tracker - Mekong Admin</title>
+  <meta name="description" content="Theo dõi tiến độ các phase dự án.">
+  <meta name="keywords" content="phase tracker, tiến độ, project tracking, milestone, workflow">
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/components/phase-tracker.html">
+  <meta property="og:title" content="Phase Tracker - Mekong Admin">
+  <meta property="og:description" content="Theo dõi tiến độ các phase dự án.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/components/phase-tracker.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Phase Tracker - Mekong Admin">
+  <meta name="twitter:description" content="Theo dõi tiến độ các phase dự án.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"MarketingAgency","name":"Mekong Agency","description":"Theo dõi tiến độ các phase dự án.","url":"https://sadecmarketinghub.com/admin/components/phase-tracker.html","logo":"https://sadecmarketinghub.com/favicon.png","address":{"@type":"PostalAddress","addressLocality":"Sa Đéc","addressRegion":"Đồng Tháp","addressCountry":"VN"},"areaServed":"Mekong Delta","priceRange":"$$"}
+  </script>
+
+<link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <style>
+    .phase-tracker-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .phase-tracker-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 24px;
+      padding: 32px;
+      color: white;
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+
+    .phase-tracker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .phase-tracker-header h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .overall-progress {
+      text-align: right;
+    }
+
+    .overall-progress .percent {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .overall-progress .label {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .phase-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .phase-timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .phase-item {
+      position: relative;
+      margin-bottom: 24px;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .phase-item.active {
+      opacity: 1;
+    }
+
+    .phase-item.completed {
+      opacity: 0.8;
+    }
+
+    .phase-marker {
+      position: absolute;
+      left: -34px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .phase-item.completed .phase-marker {
+      background: #10b981;
+      border-color: #10b981;
+    }
+
+    .phase-item.active .phase-marker {
+      background: white;
+      border-color: white;
+      color: #667eea;
+    }
+
+    .phase-item.completed .phase-marker::after {
+      content: "✓";
+    }
+
+    .phase-item .phase-marker::before {
+      content: attr(data-phase);
+    }
+
+    .phase-content {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .phase-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .phase-description {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .phase-progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .phase-progress-fill {
+      height: 100%;
+      background: white;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .phase-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .phase-status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-not-started {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .status-in-progress {
+      background: #fbbf24;
+      color: #78350f;
+    }
+
+    .status-completed {
+      background: #10b981;
+      color: white;
+    }
+
+    /* Cyberpunk Variant */
+    .cyber-phase-tracker {
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      border: 1px solid #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    .cyber-phase-tracker .phase-marker {
+      background: #1a1a2e;
+      border-color: #00d4ff;
+    }
+
+    .cyber-phase-tracker .phase-item.active .phase-marker {
+      background: #00d4ff;
+      border-color: #00d4ff;
+      color: #000;
+    }
+
+    .cyber-phase-tracker .phase-progress-fill {
+      background: linear-gradient(90deg, #00d4ff, #00ff88);
+    }
+  </style>
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <main role="main" class="main-content">
+  <main id="main" role="main" class="sr-main">
+  <div class="phase-tracker-container">
+    <h1>🎯 Phase Tracker Component</h1>
+    <p>ROIaaS 5-Phase Implementation Progress</p>
+
+    <!-- Standard Variant -->
+    <div class="phase-tracker-card">
+      <div class="phase-tracker-header">
+        <h2>ROIaaS Implementation</h2>
+        <div class="overall-progress">
+          <div class="percent">68%</div>
+          <div class="label">Overall Progress</div>
+        </div>
+      </div>
+
+      <div class="phase-timeline">
+        <!-- Phase 1 -->
+        <div class="phase-item completed">
+          <div class="phase-marker" data-phase="1"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 1: Discovery & Assessment</div>
+            <div class="phase-description">Business analysis, requirements gathering, baseline metrics</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>Completed: Jan 15, 2026</span>
+              <span class="phase-status status-completed">Done</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="phase-item completed">
+          <div class="phase-marker" data-phase="2"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 2: Platform Setup</div>
+            <div class="phase-description">Infrastructure setup, integrations, data pipelines</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>Completed: Feb 28, 2026</span>
+              <span class="phase-status status-completed">Done</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="phase-item active">
+          <div class="phase-marker" data-phase="3"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 3: Integration & Testing</div>
+            <div class="phase-description">API integrations, UAT, performance optimization</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 75%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>ETA: Mar 31, 2026</span>
+              <span class="phase-status status-in-progress">In Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="phase-item">
+          <div class="phase-marker" data-phase="4"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 4: Optimization & Training</div>
+            <div class="phase-description">ML optimization, team training, documentation</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 45%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>ETA: Apr 30, 2026</span>
+              <span class="phase-status status-not-started">Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="phase-item">
+          <div class="phase-marker" data-phase="5"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 5: Scale & Expand</div>
+            <div class="phase-description">Multi-channel expansion, advanced features</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 20%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>ETA: Jun 30, 2026</span>
+              <span class="phase-status status-not-started">Planned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cyberpunk Variant -->
+    <div class="phase-tracker-card cyber-phase-tracker" style="margin-top: 32px;">
+      <div class="phase-tracker-header">
+        <h2>Cyber-Glass 2026 Theme</h2>
+        <div class="overall-progress">
+          <div class="percent">68%</div>
+          <div class="label">Overall Progress</div>
+        </div>
+      </div>
+
+      <div class="phase-timeline">
+        <!-- Same phases with cyber styling -->
+        <div class="phase-item completed">
+          <div class="phase-marker" data-phase="1"></div>
+          <div class="phase-content">
+            <div class="phase-title">Phase 1: Discovery & Assessment</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="phase-meta">
+              <span>Completed</span>
+              <span class="phase-status status-completed">Done</span>
+            </div>
+          </div>
+        </div>
+        <!-- Additional phases would be same as above -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic phase update function
+    function updatePhaseProgress(phaseNumber, progress) {
+      const phaseItem = document.querySelectorAll('.phase-item')[phaseNumber - 1];
+      const progressBar = phaseItem.querySelector('.phase-progress-fill');
+      progressBar.style.width = progress + '%';
+    }
+  </script>
+    </main>
+</body>
+</html>

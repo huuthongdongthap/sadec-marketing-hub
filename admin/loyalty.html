@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://esm.run">
+
+
+  <!-- SEO Meta Tags -->
+  <title>Loyalty Program - Khách Hàng Thân Thiết | Sa Đéc Hub</title>
+  <meta name="description" content="Chương trình khách hàng thân thiết. Points, rewards và retention campaigns.">
+  <meta name="keywords" content="loyalty, khách hàng thân thiết, points, rewards, retention">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/loyalty.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Loyalty Program - Khách Hàng Thân Thiết | Sa Đéc Hub">
+  <meta property="og:description" content="Chương trình khách hàng thân thiết. Points, rewards và retention campaigns.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/loyalty.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loyalty Program - Khách Hàng Thân Thiết | Sa Đéc Hub">
+  <meta name="twitter:description" content="Chương trình khách hàng thân thiết. Points, rewards và retention campaigns.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Loyalty Program - Khách Hàng Thân Thiết | Sa Đéc Hub",
+    "description": "Chương trình khách hàng thân thiết. Points, rewards và retention campaigns.",
+    "url": "https://sadecmarketinghub.com/admin/loyalty.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+<!-- DNS Prefetch (Deduplicated) -->
+
+<link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/agency-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/admin-unified.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/responsive-table-layout.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+
+    <style>
+        /* Loyalty Layout */
+        .loyalty-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            overflow: hidden;
+            height: calc(100vh - 200px);
+        }
+
+        /* Stats Cards */
+        .loyalty-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .loyalty-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .loyalty-stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .loyalty-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .loyalty-stat-card:nth-child(1) .loyalty-stat-value { color: #00e5ff; }
+        .loyalty-stat-card:nth-child(2) .loyalty-stat-value { color: #76ff03; }
+        .loyalty-stat-card:nth-child(3) .loyalty-stat-value { color: #ff6ec7; }
+        .loyalty-stat-card:nth-child(4) .loyalty-stat-value { color: #ffd600; }
+
+        /* Members Panel */
+        .members-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-add-member {
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-add-member:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Members Table */
+        .members-table-container {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .members-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .members-table th {
+            text-align: left;
+            padding: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .members-table td {
+            padding: 14px 12px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .members-table tr:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tier-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tier-bronze {
+            background: rgba(205, 127, 50, 0.2);
+            color: #cd7f32;
+            border: 1px solid rgba(205, 127, 50, 0.4);
+        }
+
+        .tier-silver {
+            background: rgba(192, 192, 192, 0.2);
+            color: #c0c0c0;
+            border: 1px solid rgba(192, 192, 192, 0.4);
+        }
+
+        .tier-gold {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .points-display {
+            font-weight: 700;
+            color: #76ff03;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-right: 4px;
+        }
+
+        .btn-add-points {
+            background: rgba(0, 229, 255, 0.15);
+            color: #00e5ff;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-add-points:hover {
+            background: rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-redeem {
+            background: rgba(118, 255, 3, 0.15);
+            color: #76ff03;
+            border: 1px solid rgba(118, 255, 3, 0.3);
+        }
+
+        .btn-redeem:hover {
+            background: rgba(118, 255, 3, 0.3);
+        }
+
+        /* Rewards Sidebar */
+        .rewards-sidebar {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .rewards-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reward-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+
+        .reward-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .reward-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .reward-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .reward-points {
+            background: linear-gradient(135deg, #ffd600, #ffab00);
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .reward-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .btn-redeem-reward {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-redeem-reward:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-redeem-reward:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: rgba(20, 30, 40, 0.98);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 24px;
+            padding: 32px;
+            width: 100%;
+            max-width: 480px;
+            animation: modalPop 0.3s ease;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00e5ff;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-modal {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #00e5ff, #00b8d4);
+            color: #000;
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Tier Progress Bar */
+        .tier-progress {
+            margin-top: 8px;
+        }
+
+        .tier-progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .tier-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .tier-progress-fill.bronze { background: linear-gradient(90deg, #cd7f32, #e0964a); }
+        .tier-progress-fill.silver { background: linear-gradient(90deg, #c0c0c0, #e8e8e8); }
+        .tier-progress-fill.gold { background: linear-gradient(90deg, #ffd700, #fff176); }
+
+        .tier-progress-text {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .loyalty-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            .rewards-sidebar {
+                max-height: 400px;
+            }
+            .loyalty-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="loyalty"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+  <main id="main" role="main" class="sr-main">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">🎁 Loyalty Program</h1>
+                    <p class="text-secondary">Chương trình tích điểm thành viên</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
+                        <input type="text" placeholder="Tìm thành viên..." id="searchInput" aria-label="Search member">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="loyalty-stats animate-entry delay-2">
+                <div class="loyalty-stat-card">
+                    <div class="loyalty-stat-value" id="stat-total-members">0</div>
+                    <div class="loyalty-stat-label">Tổng thành viên</div>
+                </div>
+                <div class="loyalty-stat-card">
+                    <div class="loyalty-stat-value" id="stat-points-issued">0</div>
+                    <div class="loyalty-stat-label">Điểm đã phát</div>
+                </div>
+                <div class="loyalty-stat-card">
+                    <div class="loyalty-stat-value" id="stat-vouchers-used">0</div>
+                    <div class="loyalty-stat-label">Voucher đã dùng</div>
+                </div>
+                <div class="loyalty-stat-card">
+                    <div class="loyalty-stat-value" id="stat-loyalty-revenue">0₫</div>
+                    <div class="loyalty-stat-label">Doanh thu thành viên</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="loyalty-container animate-entry delay-3">
+                <!-- Members Panel -->
+                <div class="members-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="material-symbols-outlined" aria-label="Groups" role="img">groups</span>
+                            Danh sách thành viên
+                        </div>
+                        <button type="button" class="btn-add-member" onclick="openAddMemberModal()">
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+                            Thêm thành viên
+                        </button>
+                    </div>
+                    <div class="members-table-container">
+                        <table class="table-responsive" class="members-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên</th>
+                                    <th>SĐT</th>
+                                    <th>Điểm</th>
+                                    <th>Hạng</th>
+                                    <th>Last Visit</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="membersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Rewards Sidebar -->
+                <div class="rewards-sidebar">
+                    <div class="rewards-title">
+                        <span class="material-symbols-outlined" aria-label="Card Giftcard" role="img">card_giftcard</span>
+                        Đổi Thưởng
+                    </div>
+                    <div id="rewardsList"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="modal-overlay" id="addMemberModal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
+                Thêm Thành Viên Mới
+            </div>
+            <div class="form-group">
+                <label class="form-label">Họ và tên</label>
+                <input type="text" class="form-input" id="memberName" placeholder="Nhập tên thành viên" aria-label="Nhập tên thành viên">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Số điện thoại</label>
+                <input type="tel" class="form-input" id="memberPhone" placeholder="09xxxxxxxx" aria-label="09xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Điểm khởi tạo (tuỳ chọn)</label>
+                <input type="number" class="form-input" id="memberPoints" placeholder="0" value="0" aria-label="0">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-cancel" onclick="closeAddMemberModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="addMember()">Thêm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Points Modal -->
+    <div class="modal-overlay" id="addPointsModal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <span class="material-symbols-outlined" aria-label="Add Circle" role="img">add_circle</span>
+                Cộng Điểm
+            </div>
+            <div class="form-group">
+                <label class="form-label">Thành viên</label>
+                <input type="text" class="form-input" id="pointsMemberName" readonly="" aria-label="points Member Name">
+                <input type="hidden" id="pointsMemberId">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Số điểm</label>
+                <input type="number" class="form-input" id="pointsAmount" placeholder="Ví dụ: 50" aria-label="Ví dụ: 50">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ghi chú</label>
+                <input type="text" class="form-input" id="pointsNote" placeholder="Lý do cộng điểm" aria-label="Lý do cộng điểm">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-cancel" onclick="closeAddPointsModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="confirmAddPoints()">Cộng điểm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redeem Modal -->
+    <div class="modal-overlay" id="redeemModal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <span class="material-symbols-outlined" aria-label="Redeem" role="img">redeem</span>
+                Đổi Thưởng
+            </div>
+            <div class="form-group">
+                <label class="form-label">Thành viên</label>
+                <input type="text" class="form-input" id="redeemMemberName" readonly="" aria-label="redeem Member Name">
+                <input type="hidden" id="redeemMemberId">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Phần thưởng</label>
+                <input type="text" class="form-input" id="redeemRewardName" readonly="" aria-label="redeem Reward Name">
+                <input type="hidden" id="redeemRewardId">
+                <input type="hidden" id="redeemRewardPoints">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Số điểm hiện có</label>
+                <input type="text" class="form-input" id="redeemMemberPoints" readonly="" aria-label="redeem Member Points">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-cancel" onclick="closeRedeemModal()">Huỷ</button>
+                <button type="button" class="btn-modal btn-confirm" onclick="confirmRedeem()">Đổi thưởng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="/supabase-config.js?v=mmp5r1rf"></script>
+    <script type="module" src="/auth.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/admin-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/enhanced-utils.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script>
+        // ============ LOYALTY DATA ============
+        const DEFAULT_MEMBERS = [
+            { id: 'm01', name: 'Ngọc Anh', phone: '0901234567', points: 85, tier: 'bronze', joinDate: '2025-06-15', lastVisit: '2026-03-08' },
+            { id: 'm02', name: 'Thảo Vy', phone: '0912345678', points: 245, tier: 'silver', joinDate: '2025-07-20', lastVisit: '2026-03-10' },
+            { id: 'm03', name: 'Khang Minh', phone: '0923456789', points: 620, tier: 'gold', joinDate: '2025-05-10', lastVisit: '2026-03-09' },
+            { id: 'm04', name: 'Linh Chi', phone: '0934567890', points: 45, tier: 'bronze', joinDate: '2025-09-01', lastVisit: '2026-03-05' },
+            { id: 'm05', name: 'Phương Thanh', phone: '0945678901', points: 380, tier: 'silver', joinDate: '2025-08-12', lastVisit: '2026-03-11' },
+            { id: 'm06', name: 'Tuấn Kiệt', phone: '0956789012', points: 890, tier: 'gold', joinDate: '2025-04-25', lastVisit: '2026-03-10' },
+            { id: 'm07', name: 'Hạnh Nga', phone: '0967890123', points: 156, tier: 'silver', joinDate: '2025-10-05', lastVisit: '2026-03-07' },
+            { id: 'm08', name: 'Dũng Lê', phone: '0978901234', points: 72, tier: 'bronze', joinDate: '2025-11-20', lastVisit: '2026-03-06' },
+            { id: 'm09', name: 'Yến Nhi', phone: '0989012345', points: 510, tier: 'gold', joinDate: '2025-06-30', lastVisit: '2026-03-09' },
+            { id: 'm10', name: 'Bảo Long', phone: '0990123456', points: 320, tier: 'silver', joinDate: '2025-07-15', lastVisit: '2026-03-08' }
+        ];
+
+        const REWARDS = [
+            { id: 'r01', name: 'Free Size Up', points: 50, desc: 'Nâng cỡ ly miễn phí' },
+            { id: 'r02', name: 'Free Topping', points: 100, desc: 'Thêm topping miễn phí' },
+            { id: 'r03', name: 'Free Coffee', points: 200, desc: '1 ly cà phê bất kỳ' },
+            { id: 'r04', name: 'Free Combo', points: 500, desc: 'Combo 2 đồ uống + bánh' },
+            { id: 'r05', name: 'VIP Member Day', points: 1000, desc: 'Trải nghiệm VIP 1 ngày' }
+        ];
+
+        let members = [];
+        let vouchersUsed = 0;
+        let loyaltyRevenue = 0;
+
+        // ============ TIER SYSTEM ============
+        function getTier(points) {
+            if (points <= 100) return 'bronze';
+            if (points <= 500) return 'silver';
+            return 'gold';
+        }
+
+        function getTierLabel(tier) {
+            const labels = { bronze: 'Bronze', silver: 'Silver', gold: 'Gold' };
+            return labels[tier] || tier;
+        }
+
+        function getNextTierPoints(tier) {
+            if (tier === 'bronze') return 101;
+            if (tier === 'silver') return 501;
+            return null;
+        }
+
+        // ============ RENDER FUNCTIONS ============
+        function renderMembers(filter = '') {
+            const tbody = document.getElementById('membersTableBody');
+            let filtered = members;
+            if (filter) {
+                filtered = members.filter(m =>
+                    m.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    m.phone.includes(filter)
+                );
+            }
+
+            tbody.innerHTML = filtered.map(member => {
+                const nextTierPts = getNextTierPoints(member.tier);
+                const progressWidth = nextTierPts
+                    ? Math.min(100, (member.points / nextTierPts) * 100)
+                    : 100;
+
+                return `
+                <tr>
+                    <td>
+                        <div style="font-weight: 600; color: #fff;">${member.name}</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.4);">TV từ ${member.joinDate}</div>
+                    </td>
+                    <td>${member.phone}</td>
+                    <td>
+                        <div class="points-display">${member.points} pts</div>
+                        ${nextTierPts ? `
+                        <div class="tier-progress">
+                            <div class="tier-progress-bar">
+                                <div class="tier-progress-fill ${member.tier}" style="width: ${progressWidth}%"></div>
+                            </div>
+                            <div class="tier-progress-text">Cần ${nextTierPts - member.points} pts lên ${getTierLabel(getTier(nextTierPts))}</div>
+                        </div>
+                        ` : '<div class="tier-progress-text">✓ Max tier</div>'}
+                    </td>
+                    <td><span class="tier-badge tier-${member.tier}">${getTierLabel(member.tier)}</span></td>
+                    <td>${member.lastVisit}</td>
+                    <td>
+                        <button type="button" class="action-btn btn-add-points" onclick="openAddPointsModal('${member.id}')">
+                            <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Thêm mới" role="img">add</span> Điểm
+                        </button>
+                        <button type="button" class="action-btn btn-redeem" onclick="openRedeemModal('${member.id}')">
+                            <span class="material-symbols-outlined" style="font-size: 14px;" aria-label="Card Giftcard" role="img">card_giftcard</span> Đổi
+                        </button>
+                    </td>
+                </tr>
+            `}).join('');
+        }
+
+        function renderRewards() {
+            const container = document.getElementById('rewardsList');
+            container.innerHTML = REWARDS.map(reward => `
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-name">${reward.name}</div>
+                        <div class="reward-points">${reward.points} pts</div>
+                    </div>
+                    <div class="reward-desc">${reward.desc}</div>
+                    <button type="button" class="btn-redeem-reward" onclick="openRedeemRewardModal('${reward.id}')">
+                        Đổi thưởng này
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function updateStats() {
+            const totalMembers = members.length;
+            const totalPoints = members.reduce((sum, m) => sum + m.points, 0);
+
+            document.getElementById('stat-total-members').textContent = totalMembers;
+            document.getElementById('stat-points-issued').textContent = totalPoints.toLocaleString('vi-VN');
+            document.getElementById('stat-vouchers-used').textContent = vouchersUsed;
+            document.getElementById('stat-loyalty-revenue').textContent = formatVND(loyaltyRevenue);
+        }
+
+        // ============ MODAL FUNCTIONS ============
+        function openAddMemberModal() {
+            document.getElementById('memberName').value = '';
+            document.getElementById('memberPhone').value = '';
+            document.getElementById('memberPoints').value = '0';
+            document.getElementById('addMemberModal').classList.add('show');
+        }
+
+        function closeAddMemberModal() {
+            document.getElementById('addMemberModal').classList.remove('show');
+        }
+
+        function openAddPointsModal(memberId) {
+            const member = members.find(m => m.id === memberId);
+            if (!member) return;
+            document.getElementById('pointsMemberId').value = memberId;
+            document.getElementById('pointsMemberName').value = member.name;
+            document.getElementById('pointsAmount').value = '';
+            document.getElementById('pointsNote').value = '';
+            document.getElementById('addPointsModal').classList.add('show');
+        }
+
+        function closeAddPointsModal() {
+            document.getElementById('addPointsModal').classList.remove('show');
+        }
+
+        function openRedeemModal(memberId) {
+            const member = members.find(m => m.id === memberId);
+            if (!member) return;
+            document.getElementById('redeemMemberId').value = memberId;
+            document.getElementById('redeemMemberName').value = member.name;
+            document.getElementById('redeemMemberPoints').value = `${member.points} pts`;
+            document.getElementById('redeemModal').classList.add('show');
+        }
+
+        function openRedeemRewardModal(rewardId) {
+            const reward = REWARDS.find(r => r.id === rewardId);
+            if (!reward) return;
+            document.getElementById('redeemRewardId').value = rewardId;
+            document.getElementById('redeemRewardName').value = reward.name;
+            document.getElementById('redeemRewardPoints').value = reward.points.toString();
+
+            // Find member with most points for demo
+            const topMember = members.reduce((max, m) => m.points > max.points ? m : max, members[0]);
+            document.getElementById('redeemMemberId').value = topMember.id;
+            document.getElementById('redeemMemberName').value = topMember.name;
+            document.getElementById('redeemMemberPoints').value = `${topMember.points} pts`;
+
+            document.getElementById('redeemModal').classList.add('show');
+        }
+
+        function closeRedeemModal() {
+            document.getElementById('redeemModal').classList.remove('show');
+        }
+
+        // ============ ACTIONS ============
+        function addMember() {
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const points = parseInt(document.getElementById('memberPoints').value) || 0;
+
+            if (!name || !phone) {
+                alert('Vui lòng nhập đầy đủ thông tin!');
+                return;
+            }
+
+            const newMember = {
+                id: `m${Date.now()}`,
+                name,
+                phone,
+                points,
+                tier: getTier(points),
+                joinDate: new Date().toISOString().split('T')[0],
+                lastVisit: 'Chưa có'
+            };
+
+            members.push(newMember);
+            saveData();
+            renderMembers();
+            updateStats();
+            closeAddMemberModal();
+        }
+
+        function confirmAddPoints() {
+            const memberId = document.getElementById('pointsMemberId').value;
+            const points = parseInt(document.getElementById('pointsAmount').value);
+            const note = document.getElementById('pointsNote').value.trim();
+
+            if (!points || points <= 0) {
+                alert('Vui lòng nhập số điểm hợp lệ!');
+                return;
+            }
+
+            const member = members.find(m => m.id === memberId);
+            if (!member) return;
+
+            member.points += points;
+            member.tier = getTier(member.points);
+            member.lastVisit = new Date().toISOString().split('T')[0];
+
+            saveData();
+            renderMembers();
+            updateStats();
+            closeAddPointsModal();
+
+            alert(`✅ Đã cộng ${points} điểm cho ${member.name}!\nLý do: ${note || 'Không có'}\nHạng mới: ${getTierLabel(member.tier)}`);
+        }
+
+        function confirmRedeem() {
+            const memberId = document.getElementById('redeemMemberId').value;
+            const rewardId = document.getElementById('redeemRewardId').value;
+            const rewardPoints = parseInt(document.getElementById('redeemRewardPoints').value);
+
+            const member = members.find(m => m.id === memberId);
+            if (!member) return;
+
+            if (member.points < rewardPoints) {
+                alert(`❌ Điểm không đủ! Cần ${rewardPoints} pts, hiện có ${member.points} pts`);
+                return;
+            }
+
+            member.points -= rewardPoints;
+            member.tier = getTier(member.points);
+            vouchersUsed++;
+            loyaltyRevenue += rewardPoints * 100; // 1 point = 100 VND revenue
+
+            saveData();
+            renderMembers();
+            updateStats();
+            closeRedeemModal();
+
+            alert(`✅ Đổi thưởng thành công!\nPhần thưởng: ${document.getElementById('redeemRewardName').value}\nTrừ: ${rewardPoints} điểm`);
+        }
+
+        // ============ UTILS ============
+        function formatVND(n) {
+            return new Intl.NumberFormat('vi-VN').format(n) + '₫';
+        }
+
+        function saveData() {
+            localStorage.setItem('sadec_loyalty_members', JSON.stringify(members));
+            localStorage.setItem('sadec_loyalty_vouchers', vouchersUsed);
+            localStorage.setItem('sadec_loyalty_revenue', loyaltyRevenue);
+        }
+
+        function loadData() {
+            try {
+                const saved = localStorage.getItem('sadec_loyalty_members');
+                if (saved) {
+                    members = JSON.parse(saved);
+                } else {
+                    members = [...DEFAULT_MEMBERS];
+                    saveData();
+                }
+                vouchersUsed = parseInt(localStorage.getItem('sadec_loyalty_vouchers')) || 0;
+                loyaltyRevenue = parseInt(localStorage.getItem('sadec_loyalty_revenue')) || 0;
+            } catch (e) {
+                members = [...DEFAULT_MEMBERS];
+                vouchersUsed = 0;
+                loyaltyRevenue = 0;
+            }
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            renderMembers();
+            renderRewards();
+            updateStats();
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                renderMembers(e.target.value);
+            });
+        });
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="/assets/js/content-ai.js?v=mmp5r1rf"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="/assets/js/mobile-menu.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
+
+
+
+    <!-- UX Widgets -->
+    <script type="module" src="/admin/widgets/command-palette.js?v=mmpm5wei" defer></script>
+    <script type="module" src="/admin/widgets/help-tour.js?v=mmpm5wei" defer></script>
+    <script src="/assets/js/admin/notification-bell.js" defer></script>
+
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body></html>

@@ -1,0 +1,88 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * QUICK NOTES RENDERER
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Renders notes UI components
+ *
+ * @module features/quick-notes/notes-renderer
+ */
+
+import { COLORS } from './notes-constants.js';
+
+/**
+ * Render a single note item
+ * @param {Object} note - Note object
+ * @param {number} index - Note index
+ * @returns {string} HTML string
+ */
+export function renderNote(note, index) {
+    const color = COLORS.find(c => c.value === note.color) || COLORS[0];
+    const date = new Date(note.updatedAt).toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    return `
+        <div class="quick-note-item" data-id="${note.id}" data-index="${index}" style="background-color: ${note.color}">
+            <div class="quick-note-header">
+                <div class="quick-note-color-dot" style="background-color: ${color.dark}" title="Màu: ${color.name}"></div>
+                <div class="quick-note-date">${date}</div>
+                <div class="quick-note-menu">
+                    <button class="quick-note-edit" aria-label="Sửa" title="Sửa">
+                        <span class="material-symbols-outlined">edit</span>
+                    </button>
+                    <button class="quick-note-delete" aria-label="Xóa" title="Xóa">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            </div>
+            <div class="quick-note-content">${escapeHtml(note.content)}</div>
+        </div>
+    `;
+}
+
+/**
+ * Render empty state
+ * @returns {string} HTML string
+ */
+export function renderEmptyState() {
+    return `
+        <div class="quick-notes-empty">
+            <span class="material-symbols-outlined">note_add</span>
+            <p>Chưa có ghi chú nào</p>
+            <button class="quick-notes-create">Tạo ghi chú đầu tiên</button>
+        </div>
+    `;
+}
+
+/**
+ * Render color picker options
+ * @param {string} selectedColor - Currently selected color value
+ * @returns {string} HTML string
+ */
+export function renderColorOptions(selectedColor) {
+    return COLORS.map(color => `
+        <label class="quick-note-color-option ${color.value === selectedColor ? 'selected' : ''}"
+               style="background-color: ${color.value}">
+            <input type="radio" name="note-color" value="${color.value}"
+                   ${color.value === selectedColor ? 'checked' : ''}>
+            <span class="quick-note-color-name">${color.name}</span>
+        </label>
+    `).join('');
+}
+
+/**
+ * Escape HTML to prevent XSS
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped HTML string
+ */
+export function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML.replace(/\n/g, '<br>');
+}

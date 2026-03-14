@@ -1,0 +1,323 @@
+/**
+ * Widget Customizer Styles
+ * Dashboard customization UI
+ */
+
+/* ==========================================================================
+   WIDGET EDIT MODE
+   ========================================================================== */
+
+body.widget-edit-mode {
+    cursor: default;
+}
+
+body.widget-edit-mode .widget-draggable {
+    cursor: grab;
+    outline: 2px dashed var(--md-sys-color-primary, #006A60);
+    outline-offset: 4px;
+    transition: outline-color 0.2s ease;
+}
+
+body.widget-edit-mode .widget-draggable:hover {
+    outline-color: var(--md-sys-color-secondary, #9C6800);
+    background: rgba(0, 106, 96, 0.05);
+}
+
+body.widget-edit-mode .widget-draggable:active {
+    cursor: grabbing;
+}
+
+/* Widget hidden state */
+.widget-hidden {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(50%);
+}
+
+/* ==========================================================================
+   WIDGET EDIT PANEL
+   ========================================================================== */
+
+.widget-edit-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    max-width: 90vw;
+    height: 100vh;
+    max-height: 100vh;
+    background: var(--md-sys-color-surface, #fff);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-edit-panel.visible {
+    right: 0;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .widget-edit-panel {
+    background: var(--md-sys-color-surface, #1E1E1E);
+}
+
+/* Panel Header */
+.widget-edit-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant, #E0E3EB);
+    background: var(--md-sys-color-surface-container, #F3F6FB);
+}
+
+[data-theme="dark"] .widget-edit-panel-header {
+    background: var(--md-sys-color-surface-container, #2C2C2C);
+    border-color: var(--md-sys-color-outline-variant, #4A4A4A);
+}
+
+.widget-edit-panel-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface, #101C2D);
+}
+
+[data-theme="dark"] .widget-edit-panel-header h3 {
+    color: var(--md-sys-color-on-surface, #E8ECF1);
+}
+
+.widget-edit-close {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.widget-edit-close:hover {
+    background: var(--md-sys-color-surface-container-highest, #DDE0E8);
+}
+
+[data-theme="dark"] .widget-edit-close:hover {
+    background: var(--md-sys-color-surface-container-highest, #3C3C3C);
+}
+
+.widget-edit-close .material-symbols-outlined {
+    font-size: 24px;
+    color: var(--md-sys-color-on-surface-variant, #49505A);
+}
+
+/* Panel Body */
+.widget-edit-panel-body {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+/* Widget Visibility Toggles */
+.widget-visibility-toggles h4 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface-variant, #49505A);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.widget-toggle-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant, #E0E3EB);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.widget-toggle-item:hover {
+    background: var(--md-sys-color-surface-container-lowest, #F8FAFC);
+    border-radius: 8px;
+    padding-left: 8px;
+    margin-left: -8px;
+}
+
+[data-theme="dark"] .widget-toggle-item:hover {
+    background: var(--md-sys-color-surface-container-lowest, #242424);
+}
+
+.widget-toggle-item:last-child {
+    border-bottom: none;
+}
+
+.widget-toggle-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--md-sys-color-primary, #006A60);
+}
+
+.widget-toggle-item span {
+    flex: 1;
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface, #101C2D);
+}
+
+[data-theme="dark"] .widget-toggle-item span {
+    color: var(--md-sys-color-on-surface, #E8ECF1);
+}
+
+/* Edit Actions */
+.widget-edit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--md-sys-color-outline-variant, #E0E3EB);
+}
+
+.widget-edit-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--md-sys-color-outline, #C3C9D4);
+}
+
+.widget-edit-actions button .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.btn-reset {
+    background: var(--md-sys-color-secondary-container, #FFECCF);
+    border-color: var(--md-sys-color-secondary, #9C6800);
+    color: var(--md-sys-color-on-secondary-container, #342000);
+}
+
+.btn-reset:hover {
+    background: var(--md-sys-color-secondary, #9C6800);
+    color: #fff;
+}
+
+.btn-export {
+    background: var(--md-sys-color-primary-container, #D1E4FF);
+    border-color: var(--md-sys-color-primary, #0061AB);
+    color: var(--md-sys-color-on-primary-container, #001D36);
+}
+
+.btn-export:hover {
+    background: var(--md-sys-color-primary, #0061AB);
+    color: #fff;
+}
+
+.btn-import {
+    background: var(--md-sys-color-tertiary-container, #FFECCF);
+    border-color: var(--md-sys-color-tertiary, #9C6800);
+    color: var(--md-sys-color-on-tertiary-container, #342000);
+}
+
+.btn-import:hover {
+    background: var(--md-sys-color-tertiary, #9C6800);
+    color: #fff;
+}
+
+/* ==========================================================================
+   CUSTOMIZE BUTTON
+   ========================================================================== */
+
+.widget-edit-trigger {
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.widget-edit-trigger .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   DRAG & DROP STYLES
+   ========================================================================== */
+
+.widget-draggable[draggable="true"] {
+    touch-action: none;
+}
+
+.widget-draggable.dragging {
+    opacity: 0.5;
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.widget-drop-zone {
+    border: 2px dashed var(--md-sys-color-primary, #006A60);
+    border-radius: 12px;
+    background: rgba(0, 106, 96, 0.05);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-primary, #006A60);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .widget-edit-panel {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+    }
+
+    .widget-edit-panel-header {
+        padding: 16px 20px;
+    }
+
+    .widget-edit-panel-body {
+        padding: 20px;
+    }
+
+    .widget-toggle-item {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .widget-edit-actions button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .widget-edit-panel {
+        transition: none;
+    }
+
+    .widget-draggable,
+    .widget-toggle-item,
+    .widget-edit-actions button {
+        transition: none;
+    }
+}

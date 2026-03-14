@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="vi"><head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+
+  <!-- SEO Meta Tags -->
+  <title>Thông Báo | Notification Center - Sa Đéc Hub</title>
+  <meta name="description" content="Trung tâm thông báo và alerts. Real-time notifications và updates.">
+  <meta name="keywords" content="notifications, thông báo, alerts, updates, real-time">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/notifications.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Thông Báo | Notification Center - Sa Đéc Hub">
+  <meta property="og:description" content="Trung tâm thông báo và alerts. Real-time notifications và updates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/notifications.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thông Báo | Notification Center - Sa Đéc Hub">
+  <meta name="twitter:description" content="Trung tâm thông báo và alerts. Real-time notifications và updates.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Thông Báo | Notification Center - Sa Đéc Hub",
+    "description": "Trung tâm thông báo và alerts. Real-time notifications và updates.",
+    "url": "https://sadecmarketinghub.com/portal/notifications.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+<!-- Performance: Preconnect hints -->
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  
+
+
+
+  
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  
+  
+  
+  
+  
+
+  <!-- Twitter Card -->
+  
+  
+  
+  
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Notification Settings",
+    "description": "Customize your notification preferences",
+    "url": "https://sadecmarketinghub.com/portal/notifications"
+  }
+  </script>
+
+  
+  <link rel="stylesheet" href="/assets/css/bundle/portal-common.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <style>
+    .notifications-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .notification-section {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .notification-section h2 {
+      color: var(--md-sys-color-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .notification-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    }
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+    .notification-info h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .notification-info p {
+      font-size: 14px;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 32px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 32px;
+      transition: 0.3s;
+    }
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    input:checked + .toggle-slider {
+      background-color: var(--md-sys-color-primary);
+    }
+    input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+    .channel-toggles {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .channel-badge {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .channel-badge.active {
+      background: var(--md-sys-color-primary);
+      color: white;
+    }
+    .channel-badge.inactive {
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+    }
+  </style>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <main role="main" class="main-content">
+  <main id="main" role="main" class="sr-main">
+  <div class="notifications-container">
+    <h1>🔔 Cài Đặt Thông Báo</h1>
+    <p>Quản lý cách bạn nhận thông báo từ Sa Đéc Marketing Hub</p>
+
+    <!-- Marketing Alerts -->
+    <div class="notification-section">
+      <h2>📈 Marketing Alerts</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Campaign Performance</h3>
+          <p>Nhận thông báo khi campaign đạt mốc quan trọng</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Budget Alerts</h3>
+          <p>Cảnh báo khi ngân sách sắp hết</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Lead Notifications</h3>
+          <p>Thông báo khi có lead mới</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- ROI Alerts -->
+    <div class="notification-section">
+      <h2>💰 ROI Alerts</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>ROI Milestones</h3>
+          <p>Thông báo khi đạt mốc ROI</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Revenue Updates</h3>
+          <p>Báo cáo doanh thu hàng tuần</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- System Notifications -->
+    <div class="notification-section">
+      <h2>⚙️ System Notifications</h2>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>System Maintenance</h3>
+          <p>Thông báo bảo trì hệ thống</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-info">
+          <h3>Security Alerts</h3>
+          <p>Cảnh báo bảo mật quan trọng</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked="" disabled="" aria-label="Toggle option">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Notification Channels -->
+    <div class="notification-section">
+      <h2>📱 Kênh Thông Báo</h2>
+      <p>Chọn kênh bạn muốn nhận thông báo</p>
+
+      <div class="channel-toggles">
+        <span class="channel-badge active">Email</span>
+        <span class="channel-badge active">In-App</span>
+        <span class="channel-badge">Zalo</span>
+        <span class="channel-badge">SMS</span>
+        <span class="channel-badge">Telegram</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle channel badges
+    document.querySelectorAll('.channel-badge').forEach(badge => {
+      badge.addEventListener('click', () => {
+        badge.classList.toggle('active');
+        badge.classList.toggle('inactive');
+      });
+    });
+  </script>
+
+
+    </main>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body></html>

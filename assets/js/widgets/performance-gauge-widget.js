@@ -1,0 +1,256 @@
+/**
+ * Performance Gauge Widget Component
+ * Hiển thị performance metrics với gauge charts và progress rings
+ *
+ * Usage:
+ * <performance-gauge title="System Performance" metrics='[{"name":"CPU","value":75},{"name":"Memory","value":60}]'></performance-gauge>
+ */
+
+class PerformanceGaugeWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.metrics = [];
+    }
+
+    static get observedAttributes() {
+        return ['title', 'metrics', 'size'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.parseMetrics();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+        this.parseMetrics();
+    }
+
+    parseMetrics() {
+        try {
+            const metricsAttr = this.getAttribute('metrics');
+            if (metricsAttr) {
+                this.metrics = JSON.parse(metricsAttr);
+                this.renderGauges();
+            }
+        } catch (e) {
+            console.error('[PerformanceGauge] Failed to parse metrics:', e);
+        }
+    }
+
+    renderGauges() {
+        const container = this.shadowRoot.getElementById('gauges-container');
+        if (!container) return;
+
+        const size = this.getAttribute('size') || 'medium';
+        const sizeMap = { small: 100, medium: 140, large: 180 };
+        const gaugeSize = sizeMap[size] || 140;
+        const strokeWidth = gaugeSize / 10;
+        const radius = (gaugeSize - strokeWidth) / 2;
+        const circumference = radius * Math.PI; // Half circle
+
+        container.innerHTML = this.metrics.map((metric, index) => {
+            const value = Math.min(100, Math.max(0, metric.value));
+            const offset = circumference - (value / 100) * circumference;
+            const color = this.getValueColor(value);
+
+            return `
+                <div class="gauge-item">
+                    <div class="gauge-chart" style="width: ${gaugeSize}px; height: ${gaugeSize / 1.2}px;">
+                        <svg width="${gaugeSize}" height="${gaugeSize / 1.2}" viewBox="0 0 ${gaugeSize} ${gaugeSize / 1.2}">
+                            <!-- Background arc -->
+                            <path
+                                d="M ${strokeWidth / 2} ${gaugeSize / 2} A ${radius} ${radius} 0 0 1 ${gaugeSize - strokeWidth / 2} ${gaugeSize / 2}"
+                                fill="none"
+                                stroke="rgba(255, 255, 255, 0.1)"
+                                stroke-width="${strokeWidth}"
+                                stroke-linecap="round"
+                            />
+                            <!-- Value arc -->
+                            <path
+                                d="M ${strokeWidth / 2} ${gaugeSize / 2} A ${radius} ${radius} 0 0 1 ${gaugeSize - strokeWidth / 2} ${gaugeSize / 2}"
+                                fill="none"
+                                stroke="${color}"
+                                stroke-width="${strokeWidth}"
+                                stroke-linecap="round"
+                                stroke-dasharray="${circumference}"
+                                stroke-dashoffset="${offset}"
+                                class="gauge-arc"
+                                data-index="${index}"
+                            />
+                        </svg>
+                        <div class="gauge-value" style="font-size: ${gaugeSize / 5}px;">
+                            ${value}%
+                        </div>
+                    </div>
+                    <div class="gauge-label">${metric.name}</div>
+                    <div class="gauge-status" style="color: ${color}">
+                        ${this.getStatusText(value)}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    getValueColor(value) {
+        if (value < 50) return '#00e676'; // Green
+        if (value < 75) return '#ff9100'; // Orange
+        return '#ff1744'; // Red
+    }
+
+    getStatusText(value) {
+        if (value < 50) return 'Optimal';
+        if (value < 75) return 'Warning';
+        return 'Critical';
+    }
+
+    render() {
+        const title = this.getAttribute('title') || 'Performance';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                }
+                .performance-widget {
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .widget-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 24px;
+                }
+                .widget-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .widget-title .material-symbols-outlined {
+                    color: #00e5ff;
+                }
+                .refresh-btn {
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+                .refresh-btn:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-color: rgba(0, 229, 255, 0.3);
+                    color: #00e5ff;
+                }
+                #gauges-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 24px;
+                    justify-content: center;
+                }
+                .gauge-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 16px;
+                    background: rgba(255, 255, 255, 0.03);
+                    border-radius: 12px;
+                    border: 1px solid rgba(255, 255, 255, 0.08);
+                    transition: all 0.3s ease;
+                }
+                .gauge-item:hover {
+                    transform: translateY(-4px);
+                    background: rgba(255, 255, 255, 0.06);
+                    border-color: rgba(0, 229, 255, 0.2);
+                }
+                .gauge-chart {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .gauge-arc {
+                    transition: stroke-dashoffset 1s ease-out;
+                }
+                .gauge-value {
+                    position: absolute;
+                    bottom: 0;
+                    font-weight: 700;
+                    color: #ffffff;
+                    font-family: 'Space Grotesk', monospace;
+                }
+                .gauge-label {
+                    margin-top: 12px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(255, 255, 255, 0.8);
+                }
+                .gauge-status {
+                    margin-top: 4px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                .loading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 40px;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+                @media (max-width: 768px) {
+                    .performance-widget {
+                        padding: 16px;
+                    }
+                    #gauges-container {
+                        gap: 16px;
+                    }
+                }
+            </style>
+            <div class="performance-widget">
+                <div class="widget-header">
+                    <h3 class="widget-title">
+                        <span class="material-symbols-outlined">speed</span>
+                        ${title}
+                    </h3>
+                    <button class="refresh-btn" onclick="this.getRootNode().host.refreshMetrics()">
+                        <span class="material-symbols-outlined" style="font-size: 14px;">refresh</span>
+                        Refresh
+                    </button>
+                </div>
+                <div id="gauges-container">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <span>Loading metrics...</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    refreshMetrics() {
+        // Dispatch event for parent to handle refresh
+        this.dispatchEvent(new CustomEvent('refresh-metrics', {
+            bubbles: true,
+            detail: { timestamp: new Date() }
+        }));
+    }
+}
+
+customElements.define('performance-gauge-widget', PerformanceGaugeWidget);
+
+export { PerformanceGaugeWidget };

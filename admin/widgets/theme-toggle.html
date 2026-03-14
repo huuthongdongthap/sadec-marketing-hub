@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+<!-- Performance: Preconnect hints -->
+  <link rel="preload" href="/assets/css/responsive-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/responsive-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/responsive-enhancements.css">
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+  
+  <!-- SEO Meta Tags -->
+  <title>Theme Toggle Widget - Sa Đéc Hub</title>
+  <meta name="description" content="Widget chuyển đổi giao diện sáng/tối cho dashboard.">
+  <meta name="keywords" content="theme toggle, dark mode, light mode, widget, UI component">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/widgets/theme-toggle.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Theme Toggle Widget - Sa Đéc Hub">
+  <meta property="og:description" content="Widget chuyển đổi giao diện sáng/tối cho dashboard.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/widgets/theme-toggle.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Theme Toggle Widget - Sa Đéc Hub">
+  <meta name="twitter:description" content="Widget chuyển đổi giao diện sáng/tối cho dashboard.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Theme Toggle Widget - Sa Đéc Hub",
+    "description": "Widget chuyển đổi giao diện sáng/tối cho dashboard.",
+    "url": "https://sadecmarketinghub.com/admin/widgets/theme-toggle.html",
+    "applicationCategory": "UserInterface",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+<!--
+Theme Toggle Widget - Sa Đéc Marketing Hub
+Dark mode toggle button với theme indicator
+
+Usage: Include in admin layout header
+-->
+<div class="theme-toggle-widget" role="group" aria-label="Theme settings">
+  <button
+    id="theme-toggle-btn"
+    class="theme-toggle-btn"
+    type="button"
+    aria-label="Chuyển chế độ sáng/tối"
+    title="Chuyển chế độ sáng/tối (Ctrl+T)"
+  >
+    <span class="material-symbols-outlined theme-icon-light" aria-hidden="true">
+      light_mode
+    </span>
+    <span class="material-symbols-outlined theme-icon-dark" aria-hidden="true">
+      dark_mode
+    </span>
+    <span class="theme-indicator"></span>
+  </button>
+
+  <!-- Theme dropdown menu -->
+  <div
+    id="theme-dropdown"
+    class="theme-dropdown"
+    role="menu"
+    aria-labelledby="theme-toggle-btn"
+    hidden
+  >
+    <div class="theme-dropdown-header">
+      <span>Chọn chủ đề</span>
+    </div>
+
+    <button type="button"
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="light"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
+      <span>Sáng</span>
+      <span class="theme-check material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
+    </button>
+
+    <button type="button"
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="dark"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+      <span>Tối</span>
+      <span class="theme-check material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
+    </button>
+
+    <button type="button"
+      class="theme-option"
+      role="menuitemradio"
+      aria-checked="false"
+      data-theme="system"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">settings_brightness</span>
+      <span>Hệ thống</span>
+      <span class="theme-check material-symbols-outlined" aria-label="Xác nhận" role="img">check</span>
+    </button>
+
+    <div class="theme-dropdown-divider"></div>
+
+    <button type="button"
+      class="theme-shortcut"
+      role="menuitem"
+      id="theme-shortcut-hint"
+    >
+      <span>Phím tắt: Ctrl+T</span>
+    </button>
+  </div>
+</div>
+
+<style>
+/* Theme Toggle Button Styles */
+.theme-toggle-widget {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-toggle-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-btn .theme-icon-light,
+.theme-toggle-btn .theme-icon-dark {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-btn .theme-icon-dark {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-light {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+[data-theme="dark"] .theme-toggle-btn .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+/* Theme Dropdown */
+.theme-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  background: var(--md-sys-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 1000;
+  animation: theme-dropdown-in 0.2s ease;
+}
+
+[data-theme="dark"] .theme-dropdown {
+  background: var(--md-sys-color-surface, #1e1e1e);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes theme-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-dropdown-header {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant, #666);
+  border-bottom: 1px solid var(--md-sys-color-outline, #e0e0e0);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--md-sys-color-on-surface, #333);
+}
+
+.theme-option:hover {
+  background-color: var(--md-sys-color-surface-container-hover, rgba(0,0,0,0.05));
+}
+
+.theme-option .material-symbols-outlined:first-child {
+  font-size: 20px;
+  width: 24px;
+}
+
+.theme-option span:nth-child(2) {
+  flex: 1;
+  text-align: left;
+}
+
+.theme-check {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.theme-option[aria-checked="true"] .theme-check {
+  opacity: 1;
+}
+
+.theme-dropdown-divider {
+  height: 1px;
+  background: var(--md-sys-color-outline, #e0e0e0);
+  margin: 8px 0;
+}
+
+.theme-shortcut {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+  cursor: default;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .theme-dropdown {
+    right: -8px;
+    min-width: 180px;
+  }
+
+  .theme-option {
+    padding: 10px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .theme-toggle-widget {
+    transform: scale(0.9);
+  }
+}
+</style>
+
+<script>
+/**
+ * Theme Toggle Widget Controller
+ */
+(function() {
+  'use strict';
+
+  class ThemeToggleWidget {
+    constructor() {
+      this.btn = document.getElementById('theme-toggle-btn');
+      this.dropdown = document.getElementById('theme-dropdown');
+      this.options = this.dropdown ? this.dropdown.querySelectorAll('.theme-option') : [];
+
+      this.init();
+    }
+
+    init() {
+      if (!this.btn) return;
+
+      // Toggle dropdown on button click
+      this.btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleDropdown();
+      });
+
+      // Theme option clicks
+      this.options.forEach(option => {
+        option.addEventListener('click', () => {
+          const theme = option.getAttribute('data-theme');
+          if (theme && window.Theme) {
+            Theme.set(theme);
+            this.updateChecked(theme);
+            this.hideDropdown();
+          }
+        });
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', (e) => {
+        if (this.dropdown && !this.dropdown.contains(e.target) && !this.btn.contains(e.target)) {
+          this.hideDropdown();
+        }
+      });
+
+      // Keyboard shortcut: Ctrl+T
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 't') {
+          e.preventDefault();
+          if (window.Theme) {
+            Theme.toggle();
+          }
+        }
+      });
+
+      // Update initial state
+      this.updateChecked(window.Theme ? Theme.get() : 'light');
+    }
+
+    toggleDropdown() {
+      const isHidden = this.dropdown.hasAttribute('hidden');
+      if (isHidden) {
+        this.showDropdown();
+      } else {
+        this.hideDropdown();
+      }
+    }
+
+    showDropdown() {
+      this.dropdown.removeAttribute('hidden');
+      this.dropdown.setAttribute('aria-expanded', 'true');
+      // Focus first option
+      const firstOption = this.dropdown.querySelector('.theme-option');
+      if (firstOption) firstOption.focus();
+    }
+
+    hideDropdown() {
+      this.dropdown.setAttribute('hidden', '');
+      this.dropdown.setAttribute('aria-expanded', 'false');
+      this.btn.focus();
+    }
+
+    updateChecked(theme) {
+      this.options.forEach(option => {
+        const isChecked = option.getAttribute('data-theme') === theme;
+        option.setAttribute('aria-checked', isChecked);
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new ThemeToggleWidget());
+  } else {
+    new ThemeToggleWidget();
+  }
+})();
+</script>

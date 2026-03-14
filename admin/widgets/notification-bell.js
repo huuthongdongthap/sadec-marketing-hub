@@ -1,0 +1,342 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * NOTIFICATION BELL - With Unread Counter
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+class NotificationBell extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.notifications = [];
+    this.unreadCount = 0;
+  }
+
+  connectedCallback() {
+    this.render();
+    this.loadNotifications();
+    this.initPopover();
+  }
+
+  loadNotifications() {
+    // Load from localStorage or API
+    const stored = localStorage.getItem('notifications');
+    if (stored) {
+      this.notifications = JSON.parse(stored);
+      this.unreadCount = this.notifications.filter(n => !n.read).length;
+      this.updateBadge();
+    } else {
+      // Demo notifications
+      this.notifications = [
+        { id: 1, title: 'Welcome', message: 'Chào mừng đến với Sa Đéc Marketing Hub', time: '5m ago', read: false, icon: 'celebration' },
+        { id: 2, title: 'New Feature', message: 'Command Palette đã sẵn sàng (Ctrl+K)', time: '10m ago', read: false, icon: 'keyboard' },
+        { id: 3, title: 'Tip', message: 'Nhấn F1 để xem trợ giúp', time: '1h ago', read: true, icon: 'lightbulb' },
+      ];
+      this.unreadCount = 2;
+      this.saveNotifications();
+      this.updateBadge();
+    }
+  }
+
+  saveNotifications() {
+    localStorage.setItem('notifications', JSON.stringify(this.notifications));
+  }
+
+  updateBadge() {
+    const badge = this.shadowRoot.querySelector('.badge');
+    if (badge) {
+      badge.style.display = this.unreadCount > 0 ? 'flex' : 'none';
+      badge.textContent = Math.min(this.unreadCount, 99);
+    }
+  }
+
+  initPopover() {
+    const bell = this.shadowRoot.querySelector('.bell-btn');
+    const popover = this.shadowRoot.querySelector('.popover');
+
+    bell.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popover.classList.toggle('show');
+      if (popover.classList.contains('show')) {
+        this.renderPopover();
+      }
+    });
+
+    document.addEventListener('click', () => {
+      popover.classList.remove('show');
+    });
+  }
+
+  markAsRead(id) {
+    const notification = this.notifications.find(n => n.id === id);
+    if (notification) {
+      notification.read = true;
+      this.unreadCount = Math.max(0, this.unreadCount - 1);
+      this.saveNotifications();
+      this.updateBadge();
+      this.renderPopover();
+    }
+  }
+
+  markAllAsRead() {
+    this.notifications.forEach(n => n.read = true);
+    this.unreadCount = 0;
+    this.saveNotifications();
+    this.updateBadge();
+    this.renderPopover();
+  }
+
+  renderPopover() {
+    const container = this.shadowRoot.querySelector('.popover-content');
+    const unread = this.notifications.filter(n => !n.read);
+
+    if (this.notifications.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <span class="material-symbols-outlined">notifications_none</span>
+          <p>Không có thông báo nào</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="popover-header">
+        <h3>Thông báo</h3>
+        ${unread.length > 0 ? `<button class="mark-all" @click="${() => this.markAllAsRead()}">Mark all read</button>` : ''}
+      </div>
+      <div class="popover-list">
+        ${this.notifications.slice(0, 10).map(n => `
+          <div class="notification-item ${!n.read ? 'unread' : ''}">
+            <div class="notification-icon ${n.read ? 'read' : ''}">
+              <span class="material-symbols-outlined">${n.icon}</span>
+            </div>
+            <div class="notification-content">
+              <div class="notification-title">${n.title}</div>
+              <div class="notification-message">${n.message}</div>
+              <div class="notification-time">${n.time}</div>
+            </div>
+            ${!n.read ? `<button class="mark-read" onclick="this.getRootNode().host.markAsRead(${n.id})">
+              <span class="material-symbols-outlined">done</span>
+            </button>` : ''}
+          </div>
+        `).join('')}
+      </div>
+      ${this.notifications.length > 10 ? `
+        <div class="popover-footer">
+          <a href="/admin/notifications.html">View all notifications</a>
+        </div>
+      ` : ''}
+    `;
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host { display: inline-block; position: relative; }
+
+        .bell-btn {
+          position: relative;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 8px;
+          color: var(--text, #111827);
+          transition: background 0.2s;
+        }
+
+        .bell-btn:hover {
+          background: var(--surface-2, #f3f4f6);
+        }
+
+        .badge {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          background: var(--error, #ef4444);
+          color: white;
+          font-size: 10px;
+          font-weight: bold;
+          min-width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .popover {
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          width: 360px;
+          max-height: 400px;
+          background: var(--surface, #fff);
+          border-radius: 12px;
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--border, #e5e7eb);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.2s;
+          z-index: 1000;
+        }
+
+        .popover.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .popover-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          border-bottom: 1px solid var(--border, #e5e7eb);
+        }
+
+        .popover-header h3 {
+          margin: 0;
+          font-size: 16px;
+          color: var(--text, #111827);
+        }
+
+        .mark-all {
+          background: none;
+          border: none;
+          color: var(--primary, #06b6d4);
+          font-size: 12px;
+          cursor: pointer;
+        }
+
+        .popover-list {
+          overflow-y: auto;
+          max-height: 320px;
+        }
+
+        .notification-item {
+          display: flex;
+          align-items: flex-start;
+          padding: 12px 16px;
+          border-bottom: 1px solid var(--border, #e5e7eb);
+          transition: background 0.2s;
+        }
+
+        .notification-item:last-child {
+          border-bottom: none;
+        }
+
+        .notification-item:hover {
+          background: var(--surface-2, #f3f4f6);
+        }
+
+        .notification-item.unread {
+          background: var(--primary, rgba(6, 182, 212, 0.05));
+        }
+
+        .notification-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--surface-2, #f3f4f6);
+          margin-right: 12px;
+          flex-shrink: 0;
+        }
+
+        .notification-icon.read {
+          opacity: 0.5;
+        }
+
+        .notification-icon .material-symbols-outlined {
+          color: var(--primary, #06b6d4);
+          font-size: 20px;
+        }
+
+        .notification-content {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .notification-title {
+          font-weight: 600;
+          font-size: 14px;
+          color: var(--text, #111827);
+          margin-bottom: 2px;
+        }
+
+        .notification-message {
+          font-size: 13px;
+          color: var(--muted, #6b7280);
+          margin-bottom: 4px;
+        }
+
+        .notification-time {
+          font-size: 11px;
+          color: var(--muted, #9ca3af);
+        }
+
+        .mark-read {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          color: var(--muted, #9ca3af);
+          transition: all 0.2s;
+        }
+
+        .mark-read:hover {
+          background: var(--surface-2, #f3f4f6);
+          color: var(--primary, #06b6d4);
+        }
+
+        .popover-footer {
+          padding: 12px;
+          text-align: center;
+          border-top: 1px solid var(--border, #e5e7eb);
+        }
+
+        .popover-footer a {
+          color: var(--primary, #06b6d4);
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        .empty-state {
+          padding: 40px 20px;
+          text-align: center;
+          color: var(--muted, #9ca3af);
+        }
+
+        .empty-state .material-symbols-outlined {
+          font-size: 48px;
+          margin-bottom: 8px;
+        }
+
+        .empty-state p {
+          margin: 0;
+          font-size: 14px;
+        }
+      </style>
+
+      <button class="bell-btn" aria-label="Notifications">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="badge" style="display: none;"></span>
+      </button>
+
+      <div class="popover">
+        <div class="popover-content"></div>
+      </div>
+    `;
+  }
+}
+
+if (!customElements.get('notification-bell')) {
+  customElements.define('notification-bell', NotificationBell);
+}

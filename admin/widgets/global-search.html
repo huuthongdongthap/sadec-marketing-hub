@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+<!-- Performance: Preconnect hints -->
+  <link rel="preload" href="/assets/css/responsive-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/responsive-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/responsive-enhancements.css">
+<link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://esm.run">
+  
+  <!-- SEO Meta Tags -->
+  <title>Global Search Widget - Sa Đéc Hub</title>
+  <meta name="description" content="Widget tìm kiếm toàn cục cho dashboard với keyboard shortcuts.">
+  <meta name="keywords" content="global search, search widget, keyboard shortcuts, UI component">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/widgets/global-search.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Global Search Widget - Sa Đéc Hub">
+  <meta property="og:description" content="Widget tìm kiếm toàn cục cho dashboard với keyboard shortcuts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/widgets/global-search.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Global Search Widget - Sa Đéc Hub">
+  <meta name="twitter:description" content="Widget tìm kiếm toàn cục cho dashboard với keyboard shortcuts.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Global Search Widget - Sa Đéc Hub",
+    "description": "Widget tìm kiếm toàn cục cho dashboard với keyboard shortcuts.",
+    "url": "https://sadecmarketinghub.com/admin/widgets/global-search.html",
+    "applicationCategory": "UserInterface",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+<!--
+Global Search Widget - Sa Đéc Marketing Hub
+Search across all modules với keyboard shortcut (Ctrl+K)
+
+Usage: Include in admin layout header
+-->
+<div class="global-search-widget" role="search" aria-label="Tìm kiếm">
+  <button
+    id="search-trigger-btn"
+    class="search-trigger-btn"
+    type="button"
+    aria-label="Tìm kiếm (Ctrl+K)"
+    title="Tìm kiếm (Ctrl+K)"
+  >
+    <span class="material-symbols-outlined" aria-hidden="true">search</span>
+    <span class="search-trigger-text">Tìm kiếm...</span>
+    <span class="search-shortcut">
+      <kbd>Ctrl</kbd>
+      <kbd>K</kbd>
+    </span>
+  </button>
+
+  <!-- Search modal -->
+  <div
+    id="search-modal"
+    class="search-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="search-modal-title"
+    hidden
+  >
+    <div class="search-modal-backdrop" aria-hidden="true"></div>
+
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <div class="search-input-wrapper">
+          <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Tìm kiếm leads, campaigns, clients, emails..."
+            aria-label="Tìm kiếm"
+            autocomplete="off"
+          />
+          <kbd class="search-input-shortcut">ESC</kbd>
+        </div>
+      </div>
+
+      <div class="search-modal-body">
+        <!-- Recent searches -->
+        <div id="recent-searches" class="recent-searches" hidden>
+          <div class="search-section-title">
+            <span class="material-symbols-outlined" aria-hidden="true">history</span>
+            <span>Tìm kiếm gần đây</span>
+            <button
+              id="clear-recent-btn"
+              class="clear-recent-btn"
+              type="button"
+              aria-label="Xóa lịch sử tìm kiếm"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true">clear_all</span>
+            </button>
+          </div>
+          <div class="recent-searches-list" role="listbox"></div>
+        </div>
+
+        <!-- Search results -->
+        <div id="search-results" class="search-results" role="listbox" hidden>
+          <!-- Results populated by JavaScript -->
+        </div>
+
+        <!-- No results -->
+        <div id="search-no-results" class="search-no-results" hidden>
+          <span class="material-symbols-outlined" aria-hidden="true">search_off</span>
+          <span>Không tìm thấy kết quả nào</span>
+        </div>
+
+        <!-- Quick navigation -->
+        <div class="search-quick-nav">
+          <span class="quick-nav-label">Điều hướng nhanh:</span>
+          <div class="quick-nav-items">
+            <span class="quick-nav-item">
+              <kbd>↓</kbd> <kbd>↑</kbd> Di chuyển
+            </span>
+            <span class="quick-nav-item">
+              <kbd>Enter</kbd> Chọn
+            </span>
+            <span class="quick-nav-item">
+              <kbd>Esc</kbd> Đóng
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Global Search Styles */
+.global-search-widget {
+  position: relative;
+}
+
+.search-trigger-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 280px;
+  padding: 10px 14px;
+  background: var(--md-sys-color-surface-container, rgba(0,0,0,0.05));
+  border: 1px solid var(--md-sys-color-outline, rgba(0,0,0,0.1));
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-trigger-btn:hover {
+  background: var(--md-sys-color-surface-container-hover, rgba(0,0,0,0.08));
+  border-color: var(--md-sys-color-primary, #006A60);
+}
+
+.search-trigger-btn .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.search-trigger-text {
+  flex: 1;
+  text-align: left;
+  color: var(--md-sys-color-on-surface-variant, #888);
+  font-size: 14px;
+}
+
+.search-shortcut {
+  display: flex;
+  gap: 4px;
+}
+
+.search-shortcut kbd {
+  padding: 4px 8px;
+  background: var(--md-sys-color-surface, #fff);
+  border: 1px solid var(--md-sys-color-outline, #ccc);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: inherit;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+/* Search Modal */
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.search-modal[hidden] {
+  display: none;
+}
+
+.search-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: search-backdrop-in 0.2s ease;
+}
+
+@keyframes search-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.search-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 16px;
+  background: var(--md-sys-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  animation: search-content-in 0.2s ease;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .search-modal-content {
+  background: var(--md-sys-color-surface, #1e1e1e);
+}
+
+@keyframes search-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.search-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--md-sys-color-outline, #e0e0e0);
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 24px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 48px 12px 44px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--md-sys-color-on-surface, #333);
+}
+
+[data-theme="dark"] .search-input {
+  color: var(--md-sys-color-on-surface, #eee);
+}
+
+.search-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.search-input-shortcut {
+  position: absolute;
+  right: 12px;
+  padding: 4px 8px;
+  background: var(--md-sys-color-surface-container, rgba(0,0,0,0.05));
+  border: 1px solid var(--md-sys-color-outline, #ccc);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.search-modal-body {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.search-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.search-section-title .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.clear-recent-btn {
+  margin-left: auto;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.clear-recent-btn:hover {
+  color: var(--md-sys-color-primary, #006A60);
+}
+
+.recent-searches-list {
+  padding: 8px;
+}
+
+.recent-search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.recent-search-item:hover {
+  background-color: var(--md-sys-color-surface-container-hover, rgba(0,0,0,0.05));
+}
+
+.recent-search-item .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.recent-search-text {
+  flex: 1;
+  color: var(--md-sys-color-on-surface, #333);
+}
+
+[data-theme="dark"] .recent-search-text {
+  color: var(--md-sys-color-on-surface, #eee);
+}
+
+.recent-search-remove {
+  opacity: 0;
+  padding: 4px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.recent-search-item:hover .recent-search-remove {
+  opacity: 1;
+}
+
+/* Search Results */
+.search-results {
+  padding: 8px;
+}
+
+.search-result-group {
+  margin-bottom: 16px;
+}
+
+.search-result-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover,
+.search-result-item.highlighted {
+  background-color: var(--md-sys-color-primary-container, rgba(0, 106, 96, 0.1));
+}
+
+.search-result-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--md-sys-color-surface-container, rgba(0,0,0,0.05));
+}
+
+.search-result-icon .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-primary, #006A60);
+}
+
+.search-result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-title {
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface, #333);
+  margin-bottom: 2px;
+}
+
+[data-theme="dark"] .search-result-title {
+  color: var(--md-sys-color-on-surface, #eee);
+}
+
+.search-result-description {
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+.search-no-results .material-symbols-outlined {
+  font-size: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.search-quick-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--md-sys-color-outline, #e0e0e0);
+  background: var(--md-sys-color-surface-container, rgba(0,0,0,0.02));
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.quick-nav-items {
+  display: flex;
+  gap: 16px;
+}
+
+.quick-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.quick-nav-item kbd {
+  padding: 2px 6px;
+  background: var(--md-sys-color-surface, #fff);
+  border: 1px solid var(--md-sys-color-outline, #ccc);
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-trigger-btn {
+    max-width: 200px;
+    padding: 8px 12px;
+  }
+
+  .search-trigger-text {
+    font-size: 13px;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+
+  .search-modal-content {
+    max-width: calc(100% - 16px);
+    margin: 0 8px;
+  }
+
+  .search-modal {
+    padding-top: 60px;
+  }
+
+  .search-quick-nav {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .quick-nav-items {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .search-trigger-btn {
+    max-width: 160px;
+  }
+
+  .search-trigger-text {
+    font-size: 12px;
+  }
+
+  .search-input-wrapper {
+    padding: 8px;
+  }
+}
+</style>
+
+<script>
+/**
+ * Global Search Widget Controller
+ */
+(function() {
+  'use strict';
+
+  class GlobalSearchWidget {
+    constructor() {
+      this.triggerBtn = document.getElementById('search-trigger-btn');
+      this.modal = document.getElementById('search-modal');
+      this.input = document.getElementById('search-input');
+      this.results = document.getElementById('search-results');
+      this.recentSearches = document.getElementById('recent-searches');
+      this.recentSearchesList = this.recentSearches ? this.recentSearches.querySelector('.recent-searches-list') : null;
+      this.clearRecentBtn = document.getElementById('clear-recent-btn');
+      this.noResults = document.getElementById('search-no-results');
+
+      this.storageKey = 'sadec-recent-searches';
+      this.recentSearches = [];
+      this.searchIndex = []; // Will be populated from data
+      this.highlightedIndex = -1;
+
+      this.init();
+    }
+
+    init() {
+      if (!this.triggerBtn) return;
+
+      // Load recent searches
+      this.loadRecentSearches();
+
+      // Open modal on trigger click
+      this.triggerBtn.addEventListener('click', () => {
+        this.openModal();
+      });
+
+      // Close modal on backdrop click
+      this.modal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('search-modal-backdrop')) {
+          this.closeModal();
+        }
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !this.modal.hidden) {
+          this.closeModal();
+        }
+
+        // Ctrl+K to open
+        if (e.ctrlKey && e.key === 'k') {
+          e.preventDefault();
+          this.openModal();
+        }
+
+        // Keyboard navigation in modal
+        if (!this.modal.hidden) {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            this.highlightNext();
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            this.highlightPrev();
+          } else if (e.key === 'Enter') {
+            e.preventDefault();
+            this.selectHighlighted();
+          }
+        }
+      });
+
+      // Search input handler
+      if (this.input) {
+        this.input.addEventListener('input', (e) => {
+          const query = e.target.value.trim();
+          if (query.length >= 2) {
+            this.search(query);
+          } else {
+            this.showRecentSearches();
+          }
+        });
+      }
+
+      // Clear recent searches
+      if (this.clearRecentBtn) {
+        this.clearRecentBtn.addEventListener('click', () => {
+          this.recentSearches = [];
+          this.saveRecentSearches();
+          this.renderRecentSearches();
+        });
+      }
+
+      // Initial render
+      this.renderRecentSearches();
+    }
+
+    openModal() {
+      this.modal.removeAttribute('hidden');
+      this.input.focus();
+      this.showRecentSearches();
+    }
+
+    closeModal() {
+      this.modal.setAttribute('hidden', '');
+      this.input.value = '';
+      this.triggerBtn.focus();
+    }
+
+    loadRecentSearches() {
+      const stored = localStorage.getItem(this.storageKey);
+      if (stored) {
+        try {
+          this.recentSearches = JSON.parse(stored);
+        } catch (e) {
+          this.recentSearches = [];
+        }
+      }
+    }
+
+    saveRecentSearches() {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.recentSearches));
+    }
+
+    addRecentSearch(query) {
+      // Remove if exists
+      this.recentSearches = this.recentSearches.filter(s => s !== query);
+      // Add to beginning
+      this.recentSearches.unshift(query);
+      // Keep only last 10
+      if (this.recentSearches.length > 10) {
+        this.recentSearches = this.recentSearches.slice(0, 10);
+      }
+      this.saveRecentSearches();
+    }
+
+    showRecentSearches() {
+      this.results.hidden = true;
+      this.noResults.hidden = true;
+      this.recentSearches.hidden = this.recentSearches.length === 0;
+      this.highlightedIndex = -1;
+    }
+
+    renderRecentSearches() {
+      if (!this.recentSearchesList) return;
+
+      if (this.recentSearches.length === 0) {
+        this.recentSearches.hidden = true;
+        return;
+      }
+
+      this.recentSearches.hidden = false;
+      this.recentSearchesList.innerHTML = this.recentSearches.map(query => `
+        <div class="recent-search-item" role="option" data-query="${this.escapeHtml(query)}">
+          <span class="material-symbols-outlined" aria-hidden="true">history</span>
+          <span class="recent-search-text">${this.escapeHtml(query)}</span>
+          <button type="button" class="recent-search-remove" aria-label="Xóa" data-query="${this.escapeHtml(query)}">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span>
+          </button>
+        </div>
+      `).join('');
+
+      // Add handlers
+      this.recentSearchesList.querySelectorAll('.recent-search-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          if (e.target.closest('.recent-search-remove')) {
+            const query = item.getAttribute('data-query');
+            this.recentSearches = this.recentSearches.filter(s => s !== query);
+            this.saveRecentSearches();
+            this.renderRecentSearches();
+          } else {
+            const query = item.getAttribute('data-query');
+            this.input.value = query;
+            this.search(query);
+          }
+        });
+      });
+    }
+
+    search(query) {
+      this.addRecentSearch(query);
+
+      // Demo search - in real app, this would query API
+      const demoResults = [
+        { type: 'lead', title: 'Lead: ' + query, description: 'Khách hàng tiềm năng', icon: 'person' },
+        { type: 'campaign', title: 'Campaign: ' + query, description: 'Chiến dịch marketing', icon: 'campaign' },
+        { type: 'client', title: 'Client: ' + query, description: 'Khách hàng', icon: 'groups' }
+      ];
+
+      this.renderResults(demoResults);
+    }
+
+    renderResults(results) {
+      this.recentSearches.hidden = true;
+
+      if (results.length === 0) {
+        this.results.hidden = true;
+        this.noResults.hidden = false;
+        return;
+      }
+
+      this.noResults.hidden = true;
+      this.results.hidden = false;
+      this.highlightedIndex = -1;
+
+      this.results.innerHTML = results.map((result, index) => `
+        <div
+          class="search-result-item"
+          role="option"
+          data-index="${index}"
+          data-url="${result.url || '#'}"
+        >
+          <div class="search-result-icon">
+            <span class="material-symbols-outlined" aria-hidden="true">${result.icon || 'article'}</span>
+          </div>
+          <div class="search-result-content">
+            <div class="search-result-title">${this.escapeHtml(result.title)}</div>
+            <div class="search-result-description">${this.escapeHtml(result.description)}</div>
+          </div>
+        </div>
+      `).join('');
+
+      // Add handlers
+      this.results.querySelectorAll('.search-result-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const url = item.getAttribute('data-url');
+          if (url && url !== '#') {
+            window.location.href = url;
+          }
+        });
+      });
+    }
+
+    highlightNext() {
+      const items = this.results.querySelectorAll('.search-result-item');
+      if (items.length === 0) return;
+
+      this.highlightedIndex = Math.min(this.highlightedIndex + 1, items.length - 1);
+      this.updateHighlight(items);
+    }
+
+    highlightPrev() {
+      const items = this.results.querySelectorAll('.search-result-item');
+      if (items.length === 0) return;
+
+      this.highlightedIndex = Math.max(this.highlightedIndex - 1, 0);
+      this.updateHighlight(items);
+    }
+
+    updateHighlight(items) {
+      items.forEach((item, index) => {
+        item.classList.toggle('highlighted', index === this.highlightedIndex);
+        if (index === this.highlightedIndex) {
+          item.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    }
+
+    selectHighlighted() {
+      const items = this.results.querySelectorAll('.search-result-item');
+      if (this.highlightedIndex >= 0 && this.highlightedIndex < items.length) {
+        items[this.highlightedIndex].click();
+      }
+    }
+
+    escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  }
+
+  // Initialize and expose globally
+  window.GlobalSearch = null;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      window.GlobalSearch = new GlobalSearchWidget();
+    });
+  } else {
+    window.GlobalSearch = new GlobalSearchWidget();
+  }
+})();
+</script>

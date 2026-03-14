@@ -1,0 +1,446 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * RESPONSIVE UTILITIES - CONSOLIDATED
+ *
+ * Standardized responsive breakpoints and utilities for Sa Đéc Marketing Hub
+ *
+ * Breakpoints:
+ *   - Mobile Small:  375px  (iPhone SE, small Android)
+ *   - Mobile:        768px  (iPhone, iPad Mini portrait)
+ *   - Tablet:        1024px (iPad landscape, small laptops)
+ *   - Desktop:       1200px+ (standard desktop)
+ *
+ * Usage:
+ *   @include responsive-breakpoint(mobile-small) { ... }
+ *   or use raw @media queries with the values above
+ *
+ * @version 1.0.0 | 2026-03-14
+ * @module responsive-utils
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ============================================================================
+   BREAKPOINT VARIABLES (for reference)
+   ============================================================================ */
+
+/*
+Mobile Small:  @media (max-width: 375px)
+Mobile:        @media (max-width: 768px)
+Tablet:        @media (max-width: 1024px)
+Desktop Large: @media (min-width: 1201px)
+*/
+
+/* ============================================================================
+   ADMIN RESPONSIVE - LAYOUT
+   ============================================================================ */
+
+/* Admin layout - Tablet and below */
+@media (max-width: 1024px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar,
+    .sidebar {
+        display: none;
+    }
+
+    .admin-main-content,
+    .main-content {
+        padding: 16px;
+    }
+
+    /* Hide desktop-only elements */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Show mobile hamburger menu */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+}
+
+/* Admin layout - Mobile and below */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    .page-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* Cards stack on mobile */
+    .stats-grid,
+    .metrics-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Tables become scrollable */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* Buttons full width on mobile */
+    .btn,
+    .button,
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn + .btn,
+    .button + .button {
+        margin-top: 8px;
+        margin-left: 0;
+    }
+}
+
+/* Admin layout - Mobile Small */
+@media (max-width: 375px) {
+    .main-content {
+        padding: 12px;
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+
+    .card-section {
+        padding: 16px;
+    }
+
+    /* Reduce font sizes for small screens */
+    body {
+        font-size: 14px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+}
+
+/* ============================================================================
+   PORTAL RESPONSIVE - LAYOUT
+   ============================================================================ */
+
+/* Portal layout - Tablet and below */
+@media (max-width: 1024px) {
+    .portal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-sidebar,
+    .portal-sidebar-web-component {
+        display: none;
+    }
+
+    .portal-main-content {
+        padding: 16px;
+    }
+
+    /* Portal header adjustments */
+    .portal-header {
+        padding: 16px;
+    }
+}
+
+/* Portal layout - Mobile and below */
+@media (max-width: 768px) {
+    .portal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .portal-nav {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    .portal-nav-item {
+        padding: 8px 16px;
+    }
+
+    /* Dashboard grids */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* KPI cards */
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* Project cards */
+    .project-card {
+        width: 100%;
+    }
+
+    /* Timeline */
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-marker {
+        margin-bottom: 8px;
+    }
+}
+
+/* Portal layout - Mobile Small */
+@media (max-width: 375px) {
+    .portal-main-content {
+        padding: 12px;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-value {
+        font-size: 20px;
+    }
+
+    .kpi-label {
+        font-size: 11px;
+    }
+
+    .card {
+        border-radius: 8px;
+    }
+
+    .card-header {
+        padding: 12px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+}
+
+/* ============================================================================
+   COMMON RESPONSIVE UTILITIES
+   ============================================================================ */
+
+/* Hide elements by breakpoint */
+@media (max-width: 375px) {
+    .hide-mobile-small {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Show elements only on specific breakpoints */
+@media (min-width: 1025px) {
+    .show-desktop-only {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .show-tablet-only {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .show-mobile-only {
+        display: block !important;
+    }
+}
+
+/* Responsive text sizing */
+.responsive-title {
+    font-size: 28px;
+}
+
+@media (max-width: 768px) {
+    .responsive-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 375px) {
+    .responsive-title {
+        font-size: 18px;
+    }
+}
+
+.responsive-body {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .responsive-body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    .responsive-body {
+        font-size: 13px;
+    }
+}
+
+/* Responsive spacing */
+.responsive-section {
+    padding: 32px;
+}
+
+@media (max-width: 768px) {
+    .responsive-section {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .responsive-section {
+        padding: 12px;
+    }
+}
+
+/* Responsive grid */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .responsive-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Responsive images */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive iframe/video embeds */
+.responsive-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.responsive-video-container iframe,
+.responsive-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================================
+   TOUCH-FRIENDLY ENHANCEMENTS FOR MOBILE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Increase touch target sizes */
+    button,
+    a.btn,
+    .btn,
+    .nav-item,
+    .menu-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .card-elevated:hover {
+        transform: none;
+    }
+
+    /* Improve form inputs on mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+    .no-print,
+    .sidebar,
+    .admin-sidebar,
+    .portal-sidebar,
+    .btn,
+    .button,
+    header,
+    footer {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .main-content,
+    .portal-main-content {
+        padding: 0;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}

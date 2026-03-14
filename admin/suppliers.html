@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://esm.run">
+
+
+  <!-- SEO Meta Tags -->
+  <title>Suppliers - Quản Lý Nhà Cung Cấp | Sa Đéc Hub</title>
+  <meta name="description" content="Quản lý nhà cung cấp và đơn mua hàng. So sánh giá, đánh giá supplier và procurement.">
+  <meta name="keywords" content="suppliers, nhà cung cấp, procurement, đơn mua, giá cả">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Sa Đéc Marketing Hub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/admin/suppliers.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Suppliers - Quản Lý Nhà Cung Cấp | Sa Đéc Hub">
+  <meta property="og:description" content="Quản lý nhà cung cấp và đơn mua hàng. So sánh giá, đánh giá supplier và procurement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/admin/suppliers.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Suppliers - Quản Lý Nhà Cung Cấp | Sa Đéc Hub">
+  <meta name="twitter:description" content="Quản lý nhà cung cấp và đơn mua hàng. So sánh giá, đánh giá supplier và procurement.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Suppliers - Quản Lý Nhà Cung Cấp | Sa Đéc Hub",
+    "description": "Quản lý nhà cung cấp và đơn mua hàng. So sánh giá, đánh giá supplier và procurement.",
+    "url": "https://sadecmarketinghub.com/admin/suppliers.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+
+
+
+  
+
+
+
+  
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+<!-- DNS Prefetch (Deduplicated) -->
+
+<link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/agency-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/admin-unified.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/responsive-table-layout.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+    <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Web Components -->
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+
+    <style>
+        /* Suppliers Layout */
+        .suppliers-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            overflow: hidden;
+            height: calc(100vh - 200px);
+        }
+
+        /* Stat Cards */
+        .suppliers-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .supplier-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .supplier-stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .supplier-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .supplier-stat-card:nth-child(1) .supplier-stat-value { color: #00e5ff; }
+        .supplier-stat-card:nth-child(2) .supplier-stat-value { color: #76ff03; }
+        .supplier-stat-card:nth-child(3) .supplier-stat-value { color: #ff6ec7; }
+        .supplier-stat-card:nth-child(4) .supplier-stat-value { color: #ffd600; }
+
+        /* Supplier Table */
+        .suppliers-table-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 280px);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .table-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-cyber-sm {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            background: rgba(0, 229, 255, 0.1);
+            color: #00e5ff;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-cyber-sm:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.6);
+        }
+
+        .suppliers-table-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .suppliers-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .suppliers-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            background: rgba(20, 30, 40, 0.98);
+        }
+
+        .suppliers-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .suppliers-table tr:hover td {
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: rgba(118, 255, 3, 0.15);
+            color: #76ff03;
+            border: 1px solid rgba(118, 255, 3, 0.3);
+        }
+
+        .status-inactive {
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            border: 1px solid rgba(255, 82, 82, 0.3);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 2px;
+            color: #ffd600;
+        }
+
+        .rating-star {
+            font-size: 14px;
+        }
+
+        .rating-star.empty {
+            color: rgba(255, 255, 255, 0.15);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-btn.edit {
+            background: rgba(0, 229, 255, 0.15);
+            color: #00e5ff;
+        }
+
+        .action-btn.edit:hover {
+            background: rgba(0, 229, 255, 0.3);
+        }
+
+        .action-btn.delete {
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+        }
+
+        .action-btn.delete:hover {
+            background: rgba(255, 82, 82, 0.3);
+        }
+
+        /* PO Panel */
+        .po-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 280px);
+            overflow-y: auto;
+        }
+
+        .po-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .po-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .po-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .po-tab {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .po-tab:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .po-tab.active {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: #00e5ff;
+        }
+
+        .create-po-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-select {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: rgba(0, 229, 255, 0.5);
+        }
+
+        .po-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .po-item-row {
+            display: grid;
+            grid-template-columns: 1fr 80px 100px 40px;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .po-item-row input {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .btn-remove-item {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-add-item {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px dashed rgba(0, 229, 255, 0.4);
+            background: transparent;
+            color: #00e5ff;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .btn-add-item:hover {
+            background: rgba(0, 229, 255, 0.1);
+        }
+
+        .po-summary {
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .summary-row.total {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .btn-create-po {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+            color: #000;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-create-po:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-create-po:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* PO History */
+        .po-history-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .po-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .po-history-id {
+            font-size: 13px;
+            font-weight: 700;
+            color: #00e5ff;
+        }
+
+        .po-history-date {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .po-history-supplier {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 4px;
+        }
+
+        .po-history-total {
+            font-size: 15px;
+            font-weight: 700;
+            color: #76ff03;
+        }
+
+        .po-history-items {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: rgba(20, 30, 40, 0.98);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 82, 82, 0.2);
+            color: #ff5252;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-modal {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-modal.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-modal.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-modal.primary {
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+            color: #000;
+        }
+
+        .btn-modal.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Supplier Categories */
+        .category-select {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .category-chip {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .category-chip:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .category-chip.active {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.5);
+            color: #00e5ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .suppliers-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                overflow: visible;
+            }
+            .suppliers-table-card, .po-panel {
+                height: auto;
+                min-height: 500px;
+            }
+            .suppliers-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .suppliers-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .po-item-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="layout-2026">
+        <!-- Sidebar -->
+        <sadec-sidebar active="suppliers"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content">
+  <main id="main" role="main" class="sr-main">
+            <!-- Header -->
+            <div class="header-section animate-entry delay-1">
+                <div>
+                    <h1 class="dashboard-title">🚛 Nhà Cung Cấp</h1>
+                    <p class="text-secondary">Quản lý NCC &amp; Đơn hàng</p>
+                </div>
+                <div class="flex">
+                    <div class="search-glass">
+                        <span class="material-symbols-outlined" aria-label="Tìm kiếm" role="img">search</span>
+                        <input type="text" placeholder="Tìm NCC..." id="searchInput" aria-label="Search suppliers">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="suppliers-stats animate-entry delay-2">
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-value" id="stat-total-suppliers">0</div>
+                    <div class="supplier-stat-label">Tổng NCC</div>
+                </div>
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-value" id="stat-active-suppliers">0</div>
+                    <div class="supplier-stat-label">Đang hoạt động</div>
+                </div>
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-value" id="stat-orders-month">0</div>
+                    <div class="supplier-stat-label">Đơn tháng này</div>
+                </div>
+                <div class="supplier-stat-card">
+                    <div class="supplier-stat-value" id="stat-spend-month">0₫</div>
+                    <div class="supplier-stat-label">Tổng chi tháng</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="suppliers-container animate-entry delay-3">
+                <!-- Left: Suppliers Table -->
+                <div class="suppliers-table-card">
+                    <div class="table-header">
+                        <div class="table-title">
+                            <span class="material-symbols-outlined" aria-label="Local Shipping" role="img">local_shipping</span>
+                            Danh sách NCC
+                        </div>
+                        <div class="table-actions">
+                            <button type="button" class="btn-cyber-sm" onclick="openCategoryFilter()">
+                                <span class="material-symbols-outlined" aria-label="Bộ lọc" role="img">filter_list</span>
+                                Lọc
+                            </button>
+                            <button type="button" class="btn-cyber-sm" onclick="openAddSupplierModal()">
+                                <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+                                Thêm NCC
+                            </button>
+                        </div>
+                    </div>
+                    <div class="suppliers-table-wrapper">
+                        <table class="table-responsive" class="suppliers-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên NCC</th>
+                                    <th>Loại hàng</th>
+                                    <th>Liên hệ</th>
+                                    <th>Rating</th>
+                                    <th>Tổng đơn</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="suppliersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right: PO Panel -->
+                <div class="po-panel">
+                    <div class="po-header">
+                        <div class="po-title">
+                            <span class="material-symbols-outlined" aria-label="Shopping Cart Checkout" role="img">shopping_cart_checkout</span>
+                            Purchase Orders
+                        </div>
+                    </div>
+
+                    <div class="po-tabs">
+                        <button type="button" class="po-tab active" data-tab="create" onclick="switchTab('create')">Tạo mới</button>
+                        <button type="button" class="po-tab" data-tab="history" onclick="switchTab('history')">Lịch sử</button>
+                    </div>
+
+                    <!-- Create PO Tab -->
+                    <div id="createTab">
+                        <div class="create-po-form">
+                            <div class="form-group">
+                                <label class="form-label">Nhà cung cấp</label>
+                                <select class="form-select" id="poSupplier" onchange="updatePOItems()">
+                                    <option value="">-- Chọn NCC --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ngày giao hàng</label>
+                                <input type="date" class="form-input" id="poDeliveryDate" aria-label="po Delivery Date">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ghi chú</label>
+                                <input type="text" class="form-input" id="poNotes" placeholder="Ghi chú thêm..." aria-label="Ghi chú thêm...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Danh sách hàng</label>
+                        </div>
+                        <div class="po-items-list" id="poItemsList"></div>
+                        <button type="button" class="btn-add-item" onclick="addPOItem()">
+                            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+                            Thêm hàng
+                        </button>
+
+                        <div class="po-summary">
+                            <div class="summary-row">
+                                <span>Tạm tính</span>
+                                <span id="poSubtotal">0₫</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Thuế (10%)</span>
+                                <span id="poTax">0₫</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>TỔNG CỘNG</span>
+                                <span id="poTotal">0₫</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-create-po" id="createPOBtn" onclick="createPO()" disabled="">
+                            <span class="material-symbols-outlined" aria-label="Hoàn thành" role="img">check_circle</span>
+                            Tạo Đơn Hàng
+                        </button>
+                    </div>
+
+                    <!-- PO History Tab -->
+                    <div id="historyTab" style="display: none;">
+                        <div id="poHistoryList"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Supplier Modal -->
+    <div class="modal-overlay" id="supplierModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">🚛 Thêm Nhà Cung Cấp</h2>
+                <button type="button" class="modal-close" onclick="closeSupplierModal()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Tên NCC *</label>
+                    <input type="text" class="form-input" id="supplierName" placeholder="Ví dụ: Cà phê Trung Nguyên" aria-label="Ví dụ: Cà phê Trung Nguyên">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Loại hàng *</label>
+                    <select class="form-select" id="supplierCategory">
+                        <option value="">-- Chọn loại --</option>
+                        <option value="cafe">Cà phê &amp; Nguyên liệu</option>
+                        <option value="sua">Sữa &amp; Chế phẩm</option>
+                        <option value="tra">Trà &amp; Đồ uống</option>
+                        <option value="syrop">Syrup &amp; Hương liệu</option>
+                        <option value="ly">Ly &amp; Bao bì</option>
+                        <option value="da">Đá viên</option>
+                        <option value="banh">Bánh &amp; Snacks</option>
+                        <option value="vat-tu">Vật tư thiết bị</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Số điện thoại *</label>
+                    <input type="tel" class="form-input" id="supplierPhone" placeholder="0901234567" aria-label="0901234567">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="supplierEmail" placeholder="contact@supplier.com" aria-label="contact@supplier.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Địa chỉ</label>
+                    <input type="text" class="form-input" id="supplierAddress" placeholder="Địa chỉ giao hàng" aria-label="Địa chỉ giao hàng">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Rating</label>
+                    <div class="category-select" id="ratingSelect">
+                        <span class="category-chip" onclick="setRating(1)">⭐</span>
+                        <span class="category-chip" onclick="setRating(2)">⭐⭐</span>
+                        <span class="category-chip" onclick="setRating(3)">⭐⭐⭐</span>
+                        <span class="category-chip" onclick="setRating(4)">⭐⭐⭐⭐</span>
+                        <span class="category-chip" onclick="setRating(5)">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <input type="hidden" id="supplierRating" value="5">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Trạng thái</label>
+                    <select class="form-select" id="supplierStatus">
+                        <option value="active">Hoạt động</option>
+                        <option value="inactive">Tạm ngưng</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-modal secondary" onclick="closeSupplierModal()">Hủy</button>
+                <button type="button" class="btn-modal primary" onclick="saveSupplier()">Lưu NCC</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Filter Modal -->
+    <div class="modal-overlay" id="categoryFilterModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2 class="modal-title">🔍 Lọc theo loại</h2>
+                <button type="button" class="modal-close" onclick="closeCategoryFilter()" aria-label="Đóng"
+                    <span class="material-symbols-outlined" aria-label="Đóng" role="img">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="category-select" id="categoryFilterList">
+                    <span class="category-chip active" data-cat="all" onclick="filterByCategory('all')">Tất cả</span>
+                    <span class="category-chip" data-cat="cafe" onclick="filterByCategory('cafe')">Cà phê</span>
+                    <span class="category-chip" data-cat="sua" onclick="filterByCategory('sua')">Sữa</span>
+                    <span class="category-chip" data-cat="tra" onclick="filterByCategory('tra')">Trà</span>
+                    <span class="category-chip" data-cat="syrop" onclick="filterByCategory('syrop')">Syrup</span>
+                    <span class="category-chip" data-cat="ly" onclick="filterByCategory('ly')">Ly &amp; Bao bì</span>
+                    <span class="category-chip" data-cat="da" onclick="filterByCategory('da')">Đá viên</span>
+                    <span class="category-chip" data-cat="banh" onclick="filterByCategory('banh')">Bánh</span>
+                    <span class="category-chip" data-cat="vat-tu" onclick="filterByCategory('vat-tu')">Vật tư</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="/supabase-config.js?v=mmp5r1rf"></script>
+    <script type="module" src="/auth.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/admin-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/enhanced-utils.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script>
+        // ============ DATA ============
+        const DEFAULT_SUPPLIERS = [
+            { id: 'sp01', name: 'Cà phê Trung Nguyên', category: 'cafe', phone: '0901234567', email: 'contact@trungnguyen.com', rating: 5, orderCount: 24, status: 'active', address: 'TP. Buôn Ma Thuột' },
+            { id: 'sp02', name: 'Sữa Vinamilk', category: 'sua', phone: '0902345678', email: 'sales@vinamilk.com.vn', rating: 5, orderCount: 45, status: 'active', address: 'TP. Hồ Chí Minh' },
+            { id: 'sp03', name: 'Đá Hải Âu', category: 'da', phone: '0903456789', email: 'dahau@email.com', rating: 4, orderCount: 120, status: 'active', address: 'Sa Đéc, Đồng Tháp' },
+            { id: 'sp04', name: 'Ly giấy Phú An', category: 'ly', phone: '0904567890', email: 'phuan@packaging.vn', rating: 4, orderCount: 18, status: 'active', address: 'TP. Hồ Chí Minh' },
+            { id: 'sp05', name: 'Syrup Monin VN', category: 'syrop', phone: '0905678901', email: 'monin@syrop.vn', rating: 5, orderCount: 12, status: 'active', address: 'TP. Hồ Chí Minh' },
+            { id: 'sp06', name: 'Trà Phúc Long', category: 'tra', phone: '0906789012', email: 'phuclong@tea.vn', rating: 4, orderCount: 8, status: 'active', address: 'Tiền Giang' },
+            { id: 'sp07', name: 'Bơ Anchor', category: 'sua', phone: '0907890123', email: 'anchor@dairy.com', rating: 5, orderCount: 15, status: 'active', address: 'Nhập khẩu NZ' },
+            { id: 'sp08', name: 'Vật tư đóng gói ABC', category: 'vat-tu', phone: '0908901234', email: 'abc@packaging.com', rating: 3, orderCount: 6, status: 'active', address: 'TP. Hồ Chí Minh' }
+        ];
+
+        const CATEGORY_LABELS = {
+            'cafe': '☕ Cà phê',
+            'sua': '🥛 Sữa',
+            'tra': '🍵 Trà',
+            'syrop': '🧴 Syrup',
+            'ly': '🥤 Ly & Bao bì',
+            'da': '🧊 Đá viên',
+            'banh': '🥐 Bánh',
+            'vat-tu': '🔧 Vật tư'
+        };
+
+        let suppliers = [];
+        let purchaseOrders = [];
+        let currentFilter = 'all';
+        let editingSupplierId = null;
+        let poItems = [{ name: '', qty: 1, unitPrice: 0 }];
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            renderSuppliersTable();
+            updateStats();
+            updateSupplierSelect();
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                renderSuppliersTable(e.target.value);
+            });
+
+            // Set default date
+            document.getElementById('poDeliveryDate').valueAsDate = new Date(Date.now() + 86400000);
+        });
+
+        function loadData() {
+            // Load suppliers
+            const savedSuppliers = localStorage.getItem('sadec_suppliers');
+            if (savedSuppliers) {
+                suppliers = JSON.parse(savedSuppliers);
+            } else {
+                suppliers = [...DEFAULT_SUPPLIERS];
+                saveSuppliers();
+            }
+
+            // Load POs
+            const savedPOs = localStorage.getItem('sadec_purchase_orders');
+            if (savedPOs) {
+                purchaseOrders = JSON.parse(savedPOs);
+            } else {
+                purchaseOrders = [];
+                savePOs();
+            }
+        }
+
+        function saveSuppliers() {
+            localStorage.setItem('sadec_suppliers', JSON.stringify(suppliers));
+        }
+
+        function savePOs() {
+            localStorage.setItem('sadec_purchase_orders', JSON.stringify(purchaseOrders));
+        }
+
+        // ============ RENDER ============
+        function renderSuppliersTable(search = '') {
+            const tbody = document.getElementById('suppliersTableBody');
+            let data = suppliers;
+
+            // Filter by category
+            if (currentFilter !== 'all') {
+                data = data.filter(s => s.category === currentFilter);
+            }
+
+            // Filter by search
+            if (search) {
+                data = data.filter(s =>
+                    s.name.toLowerCase().includes(search.toLowerCase()) ||
+                    s.phone.includes(search) ||
+                    s.email.toLowerCase().includes(search.toLowerCase())
+                );
+            }
+
+            if (data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3);">
+                            <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;" aria-label="Inbox" role="img">inbox</span>
+                            Không tìm thấy NCC nào
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = data.map(s => `
+                <tr>
+                    <td>
+                        <div style="font-weight: 600; color: #fff;">${s.name}</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.4);">${s.address || ''}</div>
+                    </td>
+                    <td>${CATEGORY_LABELS[s.category] || s.category}</td>
+                    <td>
+                        <div style="font-size: 13px;">${s.phone}</div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.5);">${s.email || ''}</div>
+                    </td>
+                    <td>${renderStars(s.rating)}</td>
+                    <td style="color: #00e5ff; font-weight: 600;">${s.orderCount}</td>
+                    <td>
+                        <span class="status-badge ${s.status === 'active' ? 'status-active' : 'status-inactive'}">
+                            ${s.status === 'active' ? '✓ Active' : '⏸ Tạm ngưng'}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="action-btns">
+                            <button type="button" class="action-btn edit" onclick="openEditSupplierModal('${s.id}')" title="Sửa" aria-label="Chỉnh sửa"
+                                <span class="material-symbols-outlined" aria-label="Chỉnh sửa" role="img">edit</span>
+                            </button>
+                            <button type="button" class="action-btn delete" onclick="deleteSupplier('${s.id}')" title="Xóa" aria-label="Xóa"
+                                <span class="material-symbols-outlined" aria-label="Xóa" role="img">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+
+            updateStats();
+        }
+
+        function renderStars(rating) {
+            let html = '<div class="rating-stars">';
+            for (let i = 1; i <= 5; i++) {
+                html += `<span class="rating-star ${i <= rating ? '' : 'empty'}">★</span>`;
+            }
+            html += '</div>';
+            return html;
+        }
+
+        function updateStats() {
+            const total = suppliers.length;
+            const active = suppliers.filter(s => s.status === 'active').length;
+
+            // Current month
+            const now = new Date();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+
+            const monthOrders = purchaseOrders.filter(po => {
+                const poDate = new Date(po.date);
+                return poDate.getMonth() === currentMonth && poDate.getFullYear() === currentYear;
+            });
+
+            const ordersCount = monthOrders.length;
+            const spendMonth = monthOrders.reduce((sum, po) => sum + po.total, 0);
+
+            document.getElementById('stat-total-suppliers').textContent = total;
+            document.getElementById('stat-active-suppliers').textContent = active;
+            document.getElementById('stat-orders-month').textContent = ordersCount;
+            document.getElementById('stat-spend-month').textContent = formatVND(spendMonth);
+        }
+
+        function updateSupplierSelect() {
+            const select = document.getElementById('poSupplier');
+            const activeSuppliers = suppliers.filter(s => s.status === 'active');
+            select.innerHTML = `
+                <option value="">-- Chọn NCC --</option>
+                ${activeSuppliers.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}
+            `;
+        }
+
+        // ============ PO FUNCTIONS ============
+        function switchTab(tab) {
+            document.querySelectorAll('.po-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+            document.getElementById('createTab').style.display = tab === 'create' ? 'block' : 'none';
+            document.getElementById('historyTab').style.display = tab === 'history' ? 'block' : 'none';
+
+            if (tab === 'history') {
+                renderPOHistory();
+            }
+        }
+
+        function updatePOItems() {
+            const container = document.getElementById('poItemsList');
+            container.innerHTML = poItems.map((item, idx) => `
+                <div class="po-item-row">
+                    <input type="text" placeholder="Tên hàng" value="${item.name}" onchange="updatePOItem(${idx}, 'name', this.value)" aria-label="Tên hàng">
+                    <input type="number" placeholder="SL" value="${item.qty}" min="1" onchange="updatePOItem(${idx}, 'qty', this.value)" aria-label="SL">
+                    <input type="number" placeholder="Đơn giá" value="${item.unitPrice}" min="0" onchange="updatePOItem(${idx}, 'unitPrice', this.value)" aria-label="Đơn giá">
+                    <button type="button" class="btn-remove-item" onclick="removePOItem(${idx})" aria-label="Remove"
+                        <span class="material-symbols-outlined" aria-label="Remove" role="img">remove</span>
+                    </button>
+                </div>
+            `).join('');
+            calculatePOTotal();
+        }
+
+        function addPOItem() {
+            poItems.push({ name: '', qty: 1, unitPrice: 0 });
+            updatePOItems();
+        }
+
+        function removePOItem(idx) {
+            if (poItems.length > 1) {
+                poItems.splice(idx, 1);
+                updatePOItems();
+            }
+        }
+
+        function updatePOItem(idx, field, value) {
+            poItems[idx][field] = field === 'name' ? value : Number(value);
+            calculatePOTotal();
+        }
+
+        function calculatePOTotal() {
+            const subtotal = poItems.reduce((sum, item) => sum + (item.qty * item.unitPrice), 0);
+            const tax = subtotal * 0.1;
+            const total = subtotal + tax;
+
+            document.getElementById('poSubtotal').textContent = formatVND(subtotal);
+            document.getElementById('poTax').textContent = formatVND(tax);
+            document.getElementById('poTotal').textContent = formatVND(total);
+
+            const supplierId = document.getElementById('poSupplier').value;
+            const hasItems = poItems.some(i => i.name && i.qty > 0 && i.unitPrice > 0);
+            document.getElementById('createPOBtn').disabled = !supplierId || !hasItems;
+        }
+
+        function createPO() {
+            const supplierId = document.getElementById('poSupplier').value;
+            if (!supplierId) return;
+
+            const supplier = suppliers.find(s => s.id === supplierId);
+            const validItems = poItems.filter(i => i.name && i.qty > 0 && i.unitPrice > 0);
+            if (validItems.length === 0) return;
+
+            const subtotal = validItems.reduce((sum, i) => sum + (i.qty * i.unitPrice), 0);
+            const total = subtotal * 1.1;
+
+            const po = {
+                id: `PO-${Date.now()}`,
+                number: (purchaseOrders.length + 1).toString().padStart(4, '0'),
+                supplierId,
+                supplierName: supplier.name,
+                date: new Date().toISOString(),
+                deliveryDate: document.getElementById('poDeliveryDate').value,
+                notes: document.getElementById('poNotes').value,
+                items: [...validItems],
+                subtotal,
+                tax: subtotal * 0.1,
+                total,
+                status: 'pending'
+            };
+
+            purchaseOrders.unshift(po);
+            supplier.orderCount++;
+
+            savePOs();
+            saveSuppliers();
+
+            // Reset form
+            poItems = [{ name: '', qty: 1, unitPrice: 0 }];
+            document.getElementById('poSupplier').value = '';
+            document.getElementById('poNotes').value = '';
+            document.getElementById('poDeliveryDate').valueAsDate = new Date(Date.now() + 86400000);
+
+            updatePOItems();
+            updateSupplierSelect();
+            renderSuppliersTable();
+
+            alert(`✅ Đã tạo đơn hàng #${po.number}\nTổng: ${formatVND(total)}`);
+        }
+
+        function renderPOHistory() {
+            const container = document.getElementById('poHistoryList');
+
+            if (purchaseOrders.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3);">
+                        <span class="material-symbols-outlined" style="font-size: 48px; display: block; margin-bottom: 8px;" aria-label="Receipt Long" role="img">receipt_long</span>
+                        Chưa có đơn hàng nào
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = purchaseOrders.map(po => `
+                <div class="po-history-item">
+                    <div class="po-history-header">
+                        <div>
+                            <div class="po-history-id">#${po.number} — ${po.id}</div>
+                            <div class="po-history-date">${new Date(po.date).toLocaleDateString('vi-VN')} ${new Date(po.date).toLocaleTimeString('vi-VN')}</div>
+                        </div>
+                        <div class="po-history-total">${formatVND(po.total)}</div>
+                    </div>
+                    <div class="po-history-supplier">📦 ${po.supplierName}</div>
+                    <div class="po-history-items">${po.items.map(i => `${i.name} x${i.qty}`).join(' • ')}</div>
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 6px;">
+                        📅 Giao: ${new Date(po.deliveryDate).toLocaleDateString('vi-VN')} • ${po.notes || 'Không ghi chú'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============ MODAL FUNCTIONS ============
+        function openAddSupplierModal() {
+            editingSupplierId = null;
+            document.getElementById('modalTitle').textContent = '🚛 Thêm Nhà Cung Cấp';
+            document.getElementById('supplierName').value = '';
+            document.getElementById('supplierCategory').value = '';
+            document.getElementById('supplierPhone').value = '';
+            document.getElementById('supplierEmail').value = '';
+            document.getElementById('supplierAddress').value = '';
+            document.getElementById('supplierRating').value = '5';
+            document.getElementById('supplierStatus').value = 'active';
+            updateRatingDisplay(5);
+            document.getElementById('supplierModal').classList.add('show');
+        }
+
+        function openEditSupplierModal(id) {
+            editingSupplierId = id;
+            const supplier = suppliers.find(s => s.id === id);
+            if (!supplier) return;
+
+            document.getElementById('modalTitle').textContent = '✏️ Sửa Nhà Cung Cấp';
+            document.getElementById('supplierName').value = supplier.name;
+            document.getElementById('supplierCategory').value = supplier.category;
+            document.getElementById('supplierPhone').value = supplier.phone;
+            document.getElementById('supplierEmail').value = supplier.email || '';
+            document.getElementById('supplierAddress').value = supplier.address || '';
+            document.getElementById('supplierRating').value = supplier.rating;
+            document.getElementById('supplierStatus').value = supplier.status;
+            updateRatingDisplay(supplier.rating);
+            document.getElementById('supplierModal').classList.add('show');
+        }
+
+        function closeSupplierModal() {
+            document.getElementById('supplierModal').classList.remove('show');
+            editingSupplierId = null;
+        }
+
+        function setRating(rating) {
+            document.getElementById('supplierRating').value = rating;
+            updateRatingDisplay(rating);
+        }
+
+        function updateRatingDisplay(rating) {
+            document.querySelectorAll('#ratingSelect .category-chip').forEach((chip, idx) => {
+                chip.classList.toggle('active', idx < rating);
+            });
+        }
+
+        function saveSupplier() {
+            const name = document.getElementById('supplierName').value.trim();
+            const category = document.getElementById('supplierCategory').value;
+            const phone = document.getElementById('supplierPhone').value.trim();
+            const email = document.getElementById('supplierEmail').value.trim();
+            const address = document.getElementById('supplierAddress').value.trim();
+            const rating = parseInt(document.getElementById('supplierRating').value);
+            const status = document.getElementById('supplierStatus').value;
+
+            if (!name || !category || !phone) {
+                alert('⚠️ Vui lòng điền đầy đủ thông tin bắt buộc!');
+                return;
+            }
+
+            if (editingSupplierId) {
+                // Edit existing
+                const idx = suppliers.findIndex(s => s.id === editingSupplierId);
+                if (idx >= 0) {
+                    suppliers[idx] = {
+                        ...suppliers[idx],
+                        name, category, phone, email, address, rating, status
+                    };
+                }
+            } else {
+                // Add new
+                const newSupplier = {
+                    id: `sp-${Date.now()}`,
+                    name, category, phone, email, address, rating, status,
+                    orderCount: 0
+                };
+                suppliers.push(newSupplier);
+            }
+
+            saveSuppliers();
+            renderSuppliersTable();
+            updateSupplierSelect();
+            closeSupplierModal();
+        }
+
+        function deleteSupplier(id) {
+            if (!confirm('⚠️ Bạn có chắc muốn xóa NCC này?\n\nLịch sử đơn hàng sẽ vẫn được giữ lại.')) return;
+
+            suppliers = suppliers.filter(s => s.id !== id);
+            saveSuppliers();
+            renderSuppliersTable();
+            updateSupplierSelect();
+        }
+
+        // ============ CATEGORY FILTER ============
+        function openCategoryFilter() {
+            document.getElementById('categoryFilterModal').classList.add('show');
+        }
+
+        function closeCategoryFilter() {
+            document.getElementById('categoryFilterModal').classList.remove('show');
+        }
+
+        function filterByCategory(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('#categoryFilterList .category-chip').forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.cat === cat);
+            });
+            renderSuppliersTable(document.getElementById('searchInput').value);
+            closeCategoryFilter();
+        }
+
+        // ============ UTILS ============
+        function formatVND(n) {
+            return new Intl.NumberFormat('vi-VN').format(Math.round(n)) + '₫';
+        }
+    </script>
+    <!-- Content AI -->
+    <script type="module" src="/assets/js/content-ai.js?v=mmp5r1rf"></script>
+    <!-- Mobile Menu -->
+    <script type="module" src="/assets/js/mobile-menu.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer=""></script>
+
+
+
+    <!-- UX Widgets -->
+    <script type="module" src="/admin/widgets/command-palette.js?v=mmpm5wei" defer></script>
+    <script type="module" src="/admin/widgets/help-tour.js?v=mmpm5wei" defer></script>
+    <script src="/assets/js/admin/notification-bell.js" defer></script>
+
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body></html>

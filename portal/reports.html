@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<!-- DNS Prefetch (Deduplicated) -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://esm.run">
+
+  <!-- SEO Meta Tags -->
+  <title>Báo Cáo - Reports | SaĐéc Marketing Hub</title>
+  <meta name="description" content="Báo cáo chi tiết về hiệu suất chiến dịch và ROI">
+  <meta name="keywords" content="báo cáo, reports, ROI, performance, analytics">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="SaĐéc Marketing Hub">
+  <link rel="canonical" href="https://sadecmarketinghub.com/portal/reports.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Báo Cáo - Reports | SaĐéc Marketing Hub">
+  <meta property="og:description" content="Báo cáo chi tiết về hiệu suất chiến dịch và ROI">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/portal/reports.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/og-image.png">
+  <meta property="og:site_name" content="SaĐéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Báo Cáo - Reports | SaĐéc Marketing Hub">
+  <meta name="twitter:description" content="Báo cáo chi tiết về hiệu suất chiến dịch và ROI">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/og-image.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "SaĐéc Marketing Hub",
+    "description": "Báo cáo chi tiết về hiệu suất chiến dịch và ROI",
+    "url": "https://sadecmarketinghub.com/portal/reports.html",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sadecmarketinghub.com/favicon.png",
+      "width": 512,
+      "height": 512
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
+
+
+      <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  
+
+    <script type="importmap">
+    {"imports": {"@material/web/": "https://esm.run/@material/web/"}}
+    </script>
+    <script type="module">import '@material/web/all.js';</script>
+
+    <!-- Chart.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/portal.css?v=mmp5r1rf">
+
+  <link rel="stylesheet" href="/assets/css/responsive-enhancements.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/responsive-table-layout.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-fix-2026.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-2026-complete.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/responsive-portal-admin.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/ui-animations.css?v=mmp5r1rf">
+    <link rel="stylesheet" href="/assets/css/lazy-loading.css?v=mmp5r1rf">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="preload" href="/assets/css/ui-enhancements-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="/assets/css/ui-enhancements-bundle.css">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <div class="portal-layout">
+        <!-- Sidebar -->
+        <sadec-sidebar role="client" active="analytics"></sadec-sidebar>
+
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+  <main id="main" role="main" class="sr-main">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Báo Cáo Campaign</h1>
+                    <div class="body-medium text-muted">Thống kê hiệu suất marketing của bạn</div>
+                </div>
+                <div class="date-filter">
+                    <md-outlined-select id="period-select" label="Thời gian">
+                        <md-select-option value="7d" selected>7 ngày qua</md-select-option>
+                        <md-select-option value="30d">30 ngày qua</md-select-option>
+                        <md-select-option value="90d">3 tháng qua</md-select-option>
+                    </md-outlined-select>
+                    <md-filled-button id="export-btn">
+                        <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
+                        Xuất báo cáo
+                    </md-filled-button>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon reach">
+                            <span class="material-symbols-outlined" aria-label="Xem" role="img">visibility</span>
+                        </div>
+                        <div class="kpi-trend up">
+                            <span class="material-symbols-outlined icon-xs" aria-label="Xu hướng tăng" role="img">trending_up</span>
+                            +32%
+                        </div>
+                    </div>
+                    <div class="kpi-value" id="kpi-reach">125.8K</div>
+                    <div class="kpi-label">Tổng lượt tiếp cận</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon engagement">
+                            <span class="material-symbols-outlined" aria-label="Thích" role="img">thumb_up</span>
+                        </div>
+                        <div class="kpi-trend up">
+                            <span class="material-symbols-outlined icon-xs" aria-label="Xu hướng tăng" role="img">trending_up</span>
+                            +18%
+                        </div>
+                    </div>
+                    <div class="kpi-value" id="kpi-engagement">4.2%</div>
+                    <div class="kpi-label">Tỷ lệ tương tác</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon leads">
+                            <span class="material-symbols-outlined" aria-label="Thêm người dùng" role="img">person_add</span>
+                        </div>
+                        <div class="kpi-trend up">
+                            <span class="material-symbols-outlined icon-xs" aria-label="Xu hướng tăng" role="img">trending_up</span>
+                            +45%
+                        </div>
+                    </div>
+                    <div class="kpi-value" id="kpi-leads">234</div>
+                    <div class="kpi-label">Leads mới</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon roi">
+                            <span class="material-symbols-outlined" aria-label="Payments" role="img">payments</span>
+                        </div>
+                        <div class="kpi-trend up">
+                            <span class="material-symbols-outlined icon-xs" aria-label="Xu hướng tăng" role="img">trending_up</span>
+                            +25%
+                        </div>
+                    </div>
+                    <div class="kpi-value" id="kpi-roi">3.2x</div>
+                    <div class="kpi-label">ROAS</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Xu hướng tiếp cận & Tương tác</div>
+                        <md-icon-button>
+                            <span class="material-symbols-outlined" aria-label="Thêm tùy chọn" role="img">more_vert</span>
+                        </md-icon-button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Phân bổ Platform</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="platformChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign Details Table -->
+            <div class="campaigns-card">
+                <div class="chart-header">
+                    <div class="chart-title">Chi tiết Campaigns</div>
+                    <md-text-button>
+                        <span class="material-symbols-outlined" slot="icon" aria-label="Bộ lọc" role="img">filter_list</span>
+                        Lọc
+                    </md-text-button>
+                </div>
+
+                <table class="table-responsive" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Campaign</th>
+                            <th>Platform</th>
+                            <th>Trạng thái</th>
+                            <th>Reach</th>
+                            <th>Clicks</th>
+                            <th>CTR</th>
+                            <th>Chi phí</th>
+                            <th>ROAS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="campaign-table-body">
+                        <!-- Content populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Report History Section -->
+            <div class="campaigns-card" style="margin-top: 32px;">
+                <div class="chart-header">
+                    <div class="chart-title">Lịch sử báo cáo</div>
+                </div>
+                <table class="table-responsive" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tên báo cáo</th>
+                            <th>Kỳ báo cáo</th>
+                            <th>Ngày tạo</th>
+                            <th>Người tạo</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Báo cáo hiệu suất Tháng 1/2026</strong></td>
+                            <td>01/01/2026 - 31/01/2026</td>
+                            <td>01/02/2026</td>
+                            <td>Hệ thống</td>
+                            <td>
+                                <md-text-button class="download-report-btn" data-period="Jan 2026">
+                                    <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
+                                    Tải về
+                                </md-text-button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Báo cáo chiến dịch Tết</strong></td>
+                            <td>15/12/2025 - 15/01/2026</td>
+                            <td>16/01/2026</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>
+                                <md-text-button class="download-report-btn" data-period="Tet Campaign">
+                                    <span class="material-symbols-outlined" slot="icon" aria-label="Tải xuống" role="img">download</span>
+                                    Tải về
+                                </md-text-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase, auth, campaigns, analytics, utils } from '../assets/js/supabase.js';
+        import { ReportGenerator } from '../assets/js/services/report-generator.js';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadDashboardData('7d');
+
+            // Bind download buttons
+            document.querySelectorAll('.download-report-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const period = e.currentTarget.dataset.period;
+                    generatePDF(period);
+                });
+            });
+
+            // Bind main export button
+            document.getElementById('export-btn').addEventListener('click', () => {
+                const period = document.getElementById('period-select').value;
+                generatePDF(period);
+            });
+        });
+
+        async function generatePDF(period) {
+            const generator = new ReportGenerator();
+
+            // Mock data for report - in real app would come from DB
+            const reportData = {
+                clientName: "Mekong Agency Client",
+                period: period,
+                metrics: {
+                    impressions: document.getElementById('kpi-reach').textContent,
+                    clicks: "1,234",
+                    conversions: document.getElementById('kpi-leads').textContent,
+                    spend: 5000000
+                },
+                insights: "Chiến dịch Tết 2026 đang có hiệu suất tốt với ROAS 4.2x. Tỷ lệ chuyển đổi từ Zalo tăng 20% so với tháng trước.",
+                recommendations: "1. Tăng ngân sách cho nhóm quảng cáo Facebook Reel.\n2. Tối ưu lại landing page để cải thiện tỷ lệ điền form.\n3. Tiếp tục duy trì nội dung trên Zalo OA."
+            };
+
+            await generator.generateReport(reportData);
+        }
+
+
+        // Filter change
+        const periodSelect = document.getElementById('period-select');
+        periodSelect.addEventListener('change', (e) => {
+            loadDashboardData(e.target.value);
+        });
+
+        async function loadDashboardData(period) {
+            const days = parseInt(period) || 7;
+
+            try {
+                const user = await auth.getUser();
+                if (!user) {
+                    renderDemoCharts();
+                    return;
+                }
+
+                // Load in parallel
+                const [statsReq, analyticsReq, campaignsReq] = await Promise.all([
+                    campaigns.getStats(),
+                    analytics.getAggregatedStats(days),
+                    campaigns.getAll({ status: 'active' }) // Get active campaigns for table
+                ]);
+
+                if (statsReq.data) updateKPIs(statsReq.data);
+                if (analyticsReq.data) updateCharts(analyticsReq.data);
+                if (campaignsReq.data) updateCampaignTable(campaignsReq.data);
+
+            } catch (error) {
+                console.error('Error loading report data:', error);
+            }
+        }
+
+        function updateKPIs(data) {
+            // Update KPI cards
+            // Note: In a real scenario, we'd compare with previous period for trends
+            document.getElementById('kpi-reach').textContent = utils.formatCompactNumber(data.totalReach || 0); // Need to ensure getStats returns this
+            document.getElementById('kpi-engagement').textContent = (data.avgEngagement || 0) + '%';
+            document.getElementById('kpi-leads').textContent = data.totalLeads || 0;
+            document.getElementById('kpi-roi').textContent = (data.avgRoi || 0) + 'x';
+        }
+
+        let trendChartInstance = null;
+        let platformChartInstance = null;
+
+        function updateCharts(data) {
+            // Transform data for Trend Chart
+            const labels = data.map(d => {
+                const date = new Date(d.date);
+                return `${date.getDate()}/${date.getMonth() + 1}`;
+            });
+            const reachData = data.map(d => d.reach);
+            const engagementData = data.map(d => d.impressions * 0.05); // Estimate engagement if not tracked directly
+
+            // Update Trend Chart
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            if (trendChartInstance) trendChartInstance.destroy();
+
+            trendChartInstance = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Lượt tiếp cận',
+                            data: reachData,
+                            borderColor: '#1976D2',
+                            backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Tương tác (Est)',
+                            data: engagementData,
+                            borderColor: '#388E3C',
+                            backgroundColor: 'rgba(56, 142, 60, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Platform chart - this would usually require a separate aggregation query
+            // For now, we'll keep the static one or perform a simple breakdown if data available
+        }
+
+        function renderDemoCharts() {
+            // Trend chart - 7 days demo data
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            if (trendChartInstance) trendChartInstance.destroy();
+            const today = new Date();
+            const demoLabels = Array.from({length: 7}, (_, i) => {
+                const d = new Date(today);
+                d.setDate(today.getDate() - (6 - i));
+                return `${d.getDate()}/${d.getMonth() + 1}`;
+            });
+            trendChartInstance = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: demoLabels,
+                    datasets: [
+                        {
+                            label: 'Lượt tiếp cận',
+                            data: [85000, 92000, 88000, 115000, 125000, 110000, 130000],
+                            borderColor: '#1976D2',
+                            backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Tương tác',
+                            data: [3200, 4100, 3800, 5200, 6800, 5500, 7200],
+                            borderColor: '#388E3C',
+                            backgroundColor: 'rgba(56, 142, 60, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Platform chart - doughnut demo
+            const platformCtx = document.getElementById('platformChart').getContext('2d');
+            if (platformChartInstance) platformChartInstance.destroy();
+            platformChartInstance = new Chart(platformCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Facebook', 'Google', 'TikTok', 'Zalo'],
+                    datasets: [{
+                        data: [45, 25, 20, 10],
+                        backgroundColor: ['#1877F2', '#4285F4', '#000000', '#0068FF'],
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Campaign table - 3 demo rows
+            const tbody = document.getElementById('campaign-table-body');
+            if (tbody) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td><strong>Facebook Ads Q1 2026</strong></td>
+                        <td><span class="text-facebook">📘</span> Facebook</td>
+                        <td><span class="status-badge running">🟢 Đang chạy</span></td>
+                        <td>130,000</td>
+                        <td>4,200</td>
+                        <td>3.2%</td>
+                        <td>18,000,000đ</td>
+                        <td><strong class="text-success">3.5x</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Search - Từ khóa thương hiệu</strong></td>
+                        <td><span class="text-google">🔍</span> Google</td>
+                        <td><span class="status-badge running">🟢 Đang chạy</span></td>
+                        <td>52,000</td>
+                        <td>2,800</td>
+                        <td>5.4%</td>
+                        <td>12,000,000đ</td>
+                        <td><strong class="text-success">4.1x</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok Viral Campaign</strong></td>
+                        <td>🎵 TikTok</td>
+                        <td><span class="status-badge paused">⏸️ Tạm dừng</span></td>
+                        <td>89,000</td>
+                        <td>6,100</td>
+                        <td>6.9%</td>
+                        <td>8,500,000đ</td>
+                        <td><strong class="text-warning">1.8x</strong></td>
+                    </tr>
+                `;
+            }
+        }
+
+        function updateCampaignTable(campaignList) {
+            const tbody = document.getElementById('campaign-table-body');
+            if (!campaignList.length) {
+                tbody.innerHTML = '<tr><td colspan="8" class="td-empty-center">Chưa có dữ liệu chiến dịch</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = campaignList.map(camp => {
+                const metrics = camp.metrics || {};
+                const roi = metrics.roi || 0;
+
+                // Determine status badge
+                let statusClass = 'running';
+                let statusText = '🟢 Đang chạy';
+                if (camp.status === 'paused') { statusClass = 'paused'; statusText = '⏸️ Tạm dừng'; }
+                else if (camp.status === 'completed') { statusClass = 'completed'; statusText = '✅ Hoàn thành'; }
+
+                // Platform icon
+                let platformIcon = '';
+                if (camp.platform === 'facebook') platformIcon = '<span class="text-facebook">📘</span> Facebook';
+                else if (camp.platform === 'google') platformIcon = '<span class="text-google">🔍</span> Google';
+                else if (camp.platform === 'tiktok') platformIcon = '🎵 TikTok';
+                else platformIcon = '📢 ' + camp.platform;
+
+                const roiClass = roi >= 2 ? 'text-success' : 'text-warning';
+
+                return `
+                    <tr>
+                        <td><strong>${camp.name}</strong></td>
+                        <td><span class="platform-icon">${platformIcon}</span></td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${utils.formatCompactNumber(metrics.reach || 0)}</td>
+                        <td>${(metrics.clicks || 0).toLocaleString()}</td>
+                        <td>${metrics.ctr || 0}%</td>
+                        <td>${utils.formatCompactNumber(camp.spent || 0)}</td>
+                        <td><strong class="${roiClass}">${roi}x</strong></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+    </script>
+
+    <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/portal-guard.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/portal-client.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+    <script type="module" src="/assets/js/services/ui-utils.js?v=mmp5r1rf"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="/assets/js/mobile-navigation.js" defer></script>
+    <script type="module" src="/assets/js/ui-enhancements-controller.js"></script>
+  </body>
+
+</html>

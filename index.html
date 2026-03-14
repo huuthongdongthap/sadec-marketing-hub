@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Mekong Agency - Digital Marketing cho Doanh Nghiệp Địa Phương</title>
+  <meta name="description" content="Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.">
+  <meta name="keywords" content="Sa Đéc Marketing Hub, digital marketing, agency, SEO, quảng cáo, Sa Đéc, Đồng Tháp">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Mekong Agency - Digital Marketing cho Doanh Nghiệp Địa Phương">
+  <meta property="og:description" content="Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mekong Agency - Digital Marketing cho Doanh Nghiệp Địa Phương">
+  <meta name="twitter:description" content="Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "Mekong Agency",
+    "description": "Giải pháp marketing số toàn diện cho SME vùng ĐBSCL. Tăng trưởng doanh thu, xây dựng thương hiệu với chi phí tiết kiệm.",
+    "url": "https://sadecmarketinghub.com",
+    "logo": "https://sadecmarketinghub.com/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#006A60">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    "name": "Mekong Agency",
+    "description": "Digital Marketing Agency for Mekong Delta SMEs",
+    "url": "https://sadecmarketinghub.com",
+    "logo": "https://sadecmarketinghub.com/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sa Đéc",
+      "addressRegion": "Đồng Tháp",
+      "addressCountry": "VN"
+    },
+    "areaServed": "Mekong Delta",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Material Web Components -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+  </script>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script type="module" src="supabase-config.js" defer></script>
+  <script type="module" src="material-interactions.js" defer></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Styles -->
+  
+    <link rel="preload" href="/assets/css/m3-agency.css?v=1773460275753" as="style">
+    <link rel="preload" href="/assets/css/ui-enhancements-bundle.css?v=1773460275753" as="style">
+    <link rel="stylesheet" href="assets/css/m3-agency.css">
+  <link rel="stylesheet" href="assets/css/refactored-inline.css">
+  <link rel="stylesheet" href="assets/css/ui-animations.css">
+  <link rel="stylesheet" href="assets/css/lazy-loading.css">
+  <link rel="stylesheet" href="assets/css/responsive-enhancements.css">
+  <link rel="stylesheet" href="assets/css/ui-enhancements-2026.css">
+  <link rel="stylesheet" href="assets/css/ui-enhancements-2027.css">
+  <link rel="stylesheet" href="assets/css/ui-enhancements-bundle.css">
+  <script type="module" src="assets/js/unified-login.js" defer></script>
+  <script type="module" src="assets/js/pwa-install.js" defer></script>
+  <script src="assets/js/ui-enhancements.js" defer></script>
+  <script src="assets/js/ui-enhancements-controller.js" defer></script>
+</head>
+
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+    <main role="main" class="main-content">
+  <main id="main" role="main" class="sr-main">
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="spinner-modern lg"></div>
+    <p style="margin-top: 16px; color: var(--md-sys-color-on-surface);">Đang tải...</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" data-broken="true" title="Broken link: /" class="nav-logo">
+        <span class="material-symbols-outlined">water_drop</span>
+        Mekong Agency
+      </a>
+
+      <button type="button" class="nav-toggle" onclick="toggleMenu()" aria-label="menu" title="menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services" class="nav-link" aria-label="Dịch vụ">Dịch vụ</a></li>
+        <li><a href="#case-study" class="nav-link" aria-label="Case Study">Case Study</a></li>
+        <li><a href="#pricing" class="nav-link" aria-label="Bảng giá">Bảng giá</a></li>
+        <li><a href="#testimonials" class="nav-link" aria-label="Đánh giá">Đánh giá</a></li>
+        <li><a href="#contact" class="nav-link" aria-label="Liên hệ">Liên hệ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-outlined btn-pwa-install" id="pwa-install-btn">
+          <span class="material-symbols-outlined">download</span>
+          App
+        </button>
+        <div class="unified-login-dropdown">
+          <button type="button" class="btn btn-text" id="loginToggle">
+            <span class="material-symbols-outlined">login</span>
+            Đăng nhập
+            <span class="material-symbols-outlined dropdown-arrow">expand_more</span>
+          </button>
+          <div class="login-options" id="loginOptions">
+            <a href="auth/login.html?role=admin" class="login-option admin">
+              <span class="material-symbols-outlined">admin_panel_settings</span>
+              <div class="option-content">
+                <span class="option-title">Admin / Nhân viên</span>
+                <span class="option-desc">Quản lý hệ thống</span>
+              </div>
+            </a>
+            <a href="auth/login.html?role=client" class="login-option client">
+              <span class="material-symbols-outlined">business</span>
+              <div class="option-content">
+                <span class="option-title">Client Portal</span>
+                <span class="option-desc">Theo dõi dự án</span>
+              </div>
+            </a>
+            <a href="auth/login.html?role=affiliate" class="login-option affiliate">
+              <span class="material-symbols-outlined">handshake</span>
+              <div class="option-content">
+                <span class="option-title">Affiliate Partner</span>
+                <span class="option-desc">Đăng nhập Affiliate</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-filled" aria-label="Tư vấn miễn phí">Tư vấn miễn phí</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero cyber-hero">
+    <div class="hero-overlay"></div>
+    <div class="container relative-z">
+      <div class="hero-content animate-fade-in">
+        <div class="hero-badge glass-badge badge-pulse-enhanced">
+          <span class="material-symbols-outlined">verified</span>
+          #1 Marketing Agency vùng Mekong
+        </div>
+
+        <h1 class="hero-title reveal-from-left">
+          Tăng trưởng <span class="text-gradient">doanh thu</span> cho doanh nghiệp địa phương
+        </h1>
+
+        <p class="hero-description reveal-from-right">
+          Giải pháp marketing số toàn diện, được thiết kế riêng cho SME vùng ĐBSCL.
+          Tối ưu chi phí, tối đa hiệu quả với công nghệ AI tiên tiến.
+        </p>
+
+        <div class="hero-actions reveal-on-scroll">
+          <a href="#contact" class="btn btn-filled btn-large glow-effect">
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Bắt đầu ngay
+          </a>
+          <a href="#case-study" class="btn btn-outlined btn-large glass-btn" aria-label="Xem case study">
+            Xem case study
+          </a>
+        </div>
+
+        <div class="hero-stats reveal-on-scroll delay-2">
+          <div class="hero-stat glass-card-mini card-hover-lift">
+            <div class="hero-stat-value" data-target="50">50+</div>
+            <div class="hero-stat-label">Đối tác</div>
+          </div>
+          <div class="hero-stat glass-card-mini card-hover-lift">
+            <div class="hero-stat-value" data-target="200">200%</div>
+            <div class="hero-stat-label">Tăng trưởng</div>
+          </div>
+          <div class="hero-stat glass-card-mini card-hover-lift">
+            <div class="hero-stat-value" data-target="13">13</div>
+            <div class="hero-stat-label">Tỉnh ĐBSCL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <div class="section-badge">Dịch vụ</div>
+        <h2 class="section-title">Giải pháp marketing toàn diện</h2>
+        <p class="section-description">
+          Từ xây dựng thương hiệu đến tối ưu chuyển đổi, chúng tôi đồng hành cùng bạn
+        </p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card card-elevated service-card hover-lift reveal-on-scroll delay-1">
+          <div class="service-img-wrapper img-zoom-container">
+            <img loading="lazy" src="assets/images/icon-ads.png" alt="Digital Ads" class="service-3d-icon icon-bounce" width="1024" height="1024">
+          </div>
+          <h3 class="service-title">Quảng cáo số</h3>
+          <p class="service-description">
+            Facebook, Google, Zalo Ads với tối ưu ROI cao nhất cho thị trường địa phương
+          </p>
+        </div>
+
+        <div class="card card-elevated service-card hover-lift reveal-on-scroll delay-2">
+          <div class="service-img-wrapper img-zoom-container">
+            <img loading="lazy" src="assets/images/icon-seo.png" alt="Local SEO" class="service-3d-icon icon-bounce" width="1024" height="1024">
+          </div>
+          <h3 class="service-title">SEO Local</h3>
+          <p class="service-description">
+            Tối ưu tìm kiếm địa phương, Google Maps, đưa doanh nghiệp lên top kết quả
+          </p>
+        </div>
+
+        <div class="card card-elevated service-card hover-lift reveal-on-scroll delay-3">
+          <div class="service-img-wrapper img-zoom-container">
+            <img loading="lazy" src="assets/images/icon-brand.png" alt="Branding" class="service-3d-icon icon-bounce" width="1024" height="1024">
+          </div>
+          <h3 class="service-title">Thiết kế thương hiệu</h3>
+          <p class="service-description">
+            Logo, bộ nhận diện, website chuyên nghiệp phản ánh giá trị doanh nghiệp
+          </p>
+        </div>
+
+        <div class="card card-elevated service-card hover-lift reveal-on-scroll delay-4">
+          <div class="service-img-wrapper img-zoom-container">
+            <img loading="lazy" src="assets/images/icon-ai.png" alt="AI Marketing" class="service-3d-icon icon-bounce" width="1024" height="1024">
+          </div>
+          <h3 class="service-title">AI Marketing</h3>
+          <p class="service-description">
+            Chatbot, tự động hóa, phân tích dữ liệu thông minh với công nghệ mới nhất
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study: Sa Đéc -->
+  <section class="section bg-container relative-z" id="case-study">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Case Study</div>
+        <h2 class="section-title">Sa Đéc Marketing Hub</h2>
+        <p class="section-description">
+          Câu chuyện thành công đầu tiên tại vùng Mekong
+        </p>
+      </div>
+
+      <div class="grid grid-2 case-study-grid">
+        <div class="case-study-visual">
+          <div class="visual-card glass-card">
+            <img loading="lazy" src="assets/images/case-study-growth.png" alt="Growth Chart" class="floating-img" width="1024"
+              height="1024">
+          </div>
+        </div>
+
+        <div>
+          <div class="card card-elevated glasmorphism-panel case-study-card">
+            <div class="headline-medium mb-24">Kết quả sau 3 tháng</div>
+
+            <div class="flex case-study-stats">
+              <div>
+                <div class="display-small text-gradient">+450%</div>
+                <div class="body-medium text-muted">Leads tăng</div>
+              </div>
+              <div>
+                <div class="display-small text-gradient">68%</div>
+                <div class="body-medium text-muted">Chi phí giảm</div>
+              </div>
+              <div>
+                <div class="display-small text-gradient">12x</div>
+                <div class="body-medium text-muted">ROI đạt được</div>
+              </div>
+            </div>
+
+            <div class="mb-32 case-study-solutions">
+              <div class="title-medium mb-16">Giải pháp triển khai:</div>
+              <ul class="case-study-solution-list">
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> SEO Local + Google Business
+                  Profile</li>
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Facebook Ads tối ưu địa
+                  phương</li>
+                <li class="body-large mb-16 flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Chatbot Zalo tự động</li>
+                <li class="body-large flex-center-y"><span
+                    class="material-symbols-outlined text-primary mr-8">check_circle</span> Website M3 responsive</li>
+              </ul>
+            </div>
+
+            <div class="flex gap-16">
+              <a href="#contact" class="btn btn-filled glow-effect" aria-label="Nhận kết quả tương tự">
+                Nhận kết quả tương tự
+              </a>
+              <div class="testimonial-mini">
+                <img loading="lazy" src="assets/images/testimonial_tuan.png" alt="Client" class="testimonial-mini-avatar" width="1024" height="1024">
+                <div>
+                  <div class="testimonial-mini-name">Nguyễn Văn Tùng</div>
+                  <div class="testimonial-mini-role">Giám đốc, Sa Đéc Flower
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Bảng giá</div>
+        <h2 class="section-title">Gói dịch vụ linh hoạt</h2>
+        <p class="section-description">
+          Phù hợp với mọi quy mô doanh nghiệp, từ startup đến SME
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Starter -->
+        <div class="card card-outlined pricing-card card-hover-glow reveal-on-scroll delay-1">
+          <div class="pricing-name">Khởi nghiệp</div>
+          <div class="pricing-price">5.000.000đ</div>
+          <div class="pricing-period">/tháng</div>
+
+          <ul class="pricing-features">
+            <li class="pricing-feature">Quản lý 2 kênh social</li>
+            <li class="pricing-feature">10 bài đăng/tháng</li>
+            <li class="pricing-feature">Báo cáo hàng tuần</li>
+            <li class="pricing-feature">Tư vấn chiến lược cơ bản</li>
+          </ul>
+
+          <button type="button" onclick="openPaymentModal('Khởi nghiệp', 5000000)" class="btn btn-outlined pricing-btn-full">
+            Bắt đầu ngay
+          </button>
+        </div>
+
+        <!-- Growth - Featured -->
+        <div class="card card-elevated pricing-card featured card-glow-border reveal-on-scroll delay-2">
+          <div class="pricing-badge badge-pulse">Phổ biến nhất</div>
+          <div class="pricing-name">Tăng trưởng</div>
+          <div class="pricing-price">12.000.000đ</div>
+          <div class="pricing-period">/tháng</div>
+
+          <ul class="pricing-features">
+            <li class="pricing-feature">Quản lý 4 kênh social</li>
+            <li class="pricing-feature">20 bài đăng/tháng</li>
+            <li class="pricing-feature">Facebook/Google Ads</li>
+            <li class="pricing-feature">SEO Local cơ bản</li>
+            <li class="pricing-feature">Chatbot Zalo</li>
+            <li class="pricing-feature">Báo cáo hàng ngày</li>
+          </ul>
+
+          <button type="button" onclick="openPaymentModal('Tăng trưởng', 12000000)" class="btn btn-filled pricing-btn-featured">
+            Đăng ký ngay
+          </button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="card card-outlined pricing-card card-hover-glow reveal-on-scroll delay-3">
+          <div class="pricing-name">Doanh nghiệp</div>
+          <div class="pricing-price">Liên hệ</div>
+          <div class="pricing-period">Tùy chỉnh</div>
+
+          <ul class="pricing-features">
+            <li class="pricing-feature">Không giới hạn kênh</li>
+            <li class="pricing-feature">Nội dung không giới hạn</li>
+            <li class="pricing-feature">Ads đa nền tảng</li>
+            <li class="pricing-feature">SEO toàn diện</li>
+            <li class="pricing-feature">AI Marketing suite</li>
+            <li class="pricing-feature">Account Manager riêng</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-outlined pricing-btn-outlined" aria-label="Liên hệ tư vấn">
+            Liên hệ tư vấn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Partners -->
+  <section class="section bg-container" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <div class="section-badge">Đối tác tin tưởng</div>
+        <h2 class="section-title">Doanh nghiệp ĐBSCL đã chọn chúng tôi</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card card-elevated testimonial-card card-hover-lift reveal-on-scroll delay-1">
+          <p class="testimonial-text">
+            "Sau 3 tháng triển khai, fanpage từ 2.000 lên 15.000 followers.
+            Doanh thu online tháng đầu tăng 40% so với kênh truyền thống."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar testimonial-avatar-secondary">
+              NTH
+            </div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Nguyễn Thị Hà</div>
+              <div class="testimonial-role">Chủ cửa hàng đặc sản, Sa Đéc</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-elevated testimonial-card card-hover-lift reveal-on-scroll delay-2">
+          <p class="testimonial-text">
+            "Hệ thống quản lý leads tự động tiết kiệm cho tôi 2-3 giờ mỗi ngày.
+            Đội sale chỉ cần tập trung chốt, không phải lo tìm kiếm khách."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar testimonial-avatar-tertiary">
+              LVT
+            </div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Lê Văn Tùng</div>
+              <div class="testimonial-role">Giám đốc, Công ty BĐS Vĩnh Long</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-elevated testimonial-card card-hover-lift reveal-on-scroll delay-3">
+          <p class="testimonial-text">
+            "Google Maps và SEO local giúp khách du lịch tìm thấy nhà hàng dễ hơn.
+            Mùa cao điểm lần này đặt bàn online tăng gấp đôi."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar testimonial-avatar-primary">
+              PTL
+            </div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Phan Thị Lan</div>
+              <div class="testimonial-role">Chủ nhà hàng, Cần Thơ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Sẵn sàng tăng trưởng doanh nghiệp?</h2>
+      <p class="cta-description">
+        Đặt lịch tư vấn miễn phí ngay hôm nay.
+        Chúng tôi sẽ phân tích và đề xuất giải pháp phù hợp nhất cho bạn.
+      </p>
+
+      <div class="card card-elevated contact-form-card">
+        <form id="contactForm">
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Họ tên *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Nguyễn Văn A" required aria-label="Nguyễn Văn A">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-phone">Số điện thoại *</label>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="0909 xxx xxx" required aria-label="0909 xxx xxx">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="email@company.com" aria-label="Email@company.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-company">Doanh nghiệp của bạn</label>
+            <input type="text" id="contact-company" class="form-input" placeholder="Tên công ty / cửa hàng" aria-label="Tên công ty / cửa hàng">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Bạn cần hỗ trợ gì?</label>
+            <textarea id="contact-message" class="form-input"
+              placeholder="Mô tả ngắn gọn nhu cầu của bạn..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-filled btn-large contact-submit-btn">
+            <span class="material-symbols-outlined">send</span>
+            Gửi yêu cầu tư vấn
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="material-symbols-outlined">water_drop</span>
+            Mekong Agency
+          </div>
+          <p class="footer-description">
+            Đối tác marketing số tin cậy cho doanh nghiệp vùng ĐBSCL.
+            Tăng trưởng bền vững với công nghệ tiên tiến.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Dịch vụ</div>
+          <ul class="footer-links">
+            <li><button type="button" class="footer-link" style="background:none;border:none;cursor:pointer;padding:0;color:inherit;font:inherit;" aria-label="Dịch vụ Quảng cáo số">Quảng cáo số</button></li>
+            <li><button type="button" class="footer-link" style="background:none;border:none;cursor:pointer;padding:0;color:inherit;font:inherit;" aria-label="Dịch vụ SEO Local">SEO Local</button></li>
+            <li><button type="button" class="footer-link" style="background:none;border:none;cursor:pointer;padding:0;color:inherit;font:inherit;" aria-label="Dịch vụ Thiết kế thương hiệu">Thiết kế thương hiệu</button></li>
+            <li><button type="button" class="footer-link" style="background:none;border:none;cursor:pointer;padding:0;color:inherit;font:inherit;" aria-label="Dịch vụ AI Marketing">AI Marketing</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Công ty</div>
+          <ul class="footer-links">
+            <li><a href="#services" class="footer-link" aria-label="Về chúng tôi">Về chúng tôi</a></li>
+            <li><a href="#testimonials" class="footer-link" aria-label="Case Studies">Case Studies</a></li>
+            <li><span class="footer-link" style="color: var(--md-sys-color-on-surface-variant);" title="Sắp ra mắt" aria-label="Blog (sắp ra mắt)">Blog</span></li>
+            <li><span class="footer-link" style="color: var(--md-sys-color-on-surface-variant);" title="Sắp ra mắt" aria-label="Tuyển dụng (sắp ra mắt)">Tuyển dụng</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Liên hệ</div>
+          <ul class="footer-links">
+            <li><a href="tel:0915997989" class="footer-link">0915 997 989</a></li>
+            <li><a href="mailto:hello@mekongmarketing.com" class="footer-link">hello@mekongmarketing.com</a></li>
+            <li><span class="footer-link">Sa Đéc, Đồng Tháp</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2026 Mekong Agency. Tất cả quyền được bảo lưu.
+          <span style="margin-left:12px;padding:4px 10px;background:linear-gradient(135deg,#1b5e20,#2e7d32);color:#fff;border-radius:6px;font-size:11px;font-weight:500;">⚡ Powered by OpenClaw & AI Agents</span>
+        </div>
+        <div class="flex footer-links-flex">
+          <a href="terms.html" class="footer-link">Điều khoản</a>
+          <a href="privacy.html" class="footer-link">Bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Payment Modal -->
+  <payment-modal id="paymentModal"></payment-modal>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong 24 giờ.');
+      this.reset();
+    });
+
+    // Payment Modal Handler
+    // Document-level listener (catches composed events from Shadow DOM)
+    document.addEventListener('payment-submitted', handlePaymentSubmitted);
+    document.addEventListener('payment-cancelled', handlePaymentCancelled);
+    // Backup: also attach after custom element is defined
+    customElements.whenDefined('payment-modal').then(() => {
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.addEventListener('payment-submitted', handlePaymentSubmitted);
+        modal.addEventListener('payment-cancelled', handlePaymentCancelled);
+      }
+    });
+
+    function openPaymentModal(packageName, amount) {
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        // Generate a simple invoice ID
+        const invoiceId = 'INV-' + Date.now();
+
+        // Set attributes
+        modal.setAttribute('package-name', packageName);
+        modal.setAttribute('amount', amount);
+        modal.setAttribute('invoice-id', invoiceId);
+
+        // Show modal (remove hidden style if exists)
+        modal.style.display = 'block';
+      }
+    }
+
+    async function handlePaymentSubmitted(event) {
+      const { gateway, amount, packageName, invoiceId } = event.detail;
+
+      // Call payment API with localhost fallback
+      try {
+        await createPayment(gateway, amount, packageName, invoiceId);
+      } catch (e) {
+        console.error('Payment error:', e);
+        // Only hide modal on error so user can retry or see error
+        // On success, we redirect anyway
+        const modal = document.getElementById('paymentModal');
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
+    }
+
+    async function createPayment(gateway, amount, packageName, invoiceId) {
+      // Localhost simulation - skip API calls on development
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1');
+      if (isLocalhost) {
+        window.location.href = `/portal/payment-result.html?code=00&orderCode=${invoiceId}&status=PAID&amount=${amount}&gateway=${gateway}`;
+        return;
+      }
+
+      try {
+        // Show loading indicator
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'paymentLoading';
+        loadingDiv.innerHTML = `
+          <div class="payment-loading-overlay">
+            <div class="payment-loading-card">
+              <div class="payment-loading-spinner"></div>
+              <p class="payment-loading-text">
+                Đang chuyển đến ${gateway.toUpperCase()}...
+              </p>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(loadingDiv);
+
+        // Call Supabase Edge Function based on gateway
+        const SUPABASE_URL = window.__ENV__?.SUPABASE_URL;
+        const SUPABASE_ANON_KEY = window.__ENV__?.SUPABASE_ANON_KEY;
+
+        if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+          console.warn('[Payment] Supabase credentials not configured. Run build to inject env.');
+          alert('Cấu hình thanh toán chưa sẵn sàng. Vui lòng liên hệ quản trị viên.');
+          return;
+        }
+
+        // Select endpoint based on gateway
+        const endpointMap = {
+          'payos': 'create-payos-payment',
+          'vnpay': 'create-payment',
+          'momo': 'create-momo-payment',
+          'bank': 'create-bank-transfer'
+        };
+        const endpoint = endpointMap[gateway] || 'create-payos-payment';
+
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/${endpoint}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({
+            amount: parseInt(amount),
+            description: `Gói ${packageName}`.substring(0, 25),
+            orderCode: Date.now(), // PayOS requires orderCode
+            invoiceId: invoiceId,
+            invoiceNumber: invoiceId,
+            returnUrl: window.location.origin + '/portal/payment-result.html',
+            cancelUrl: window.location.origin + '/#pricing'
+          })
+        });
+
+        const result = await response.json();
+
+        // Remove loading
+        document.getElementById('paymentLoading')?.remove();
+
+
+        if (result.success) {
+          // Redirect to payment gateway
+          // API returns checkoutUrl/paymentUrl at root level OR inside result.data
+          const data = result.data || result;
+          const checkoutUrl = data.checkoutUrl || data.paymentUrl || data.payUrl;
+
+          if (checkoutUrl) {
+            window.location.href = checkoutUrl;
+          } else if (data.qrUrl) {
+            window.location.href = `/portal/payment-result.html?qr=${encodeURIComponent(data.qrUrl)}&amount=${amount}`;
+          } else {
+            alert('Không thể khởi tạo thanh toán. Vui lòng thử lại.');
+          }
+        } else {
+          alert('Lỗi: ' + (result.error || 'Không thể tạo thanh toán'));
+        }
+      } catch (error) {
+        document.getElementById('paymentLoading')?.remove();
+        console.error('Payment error:', error);
+        alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      }
+    }
+
+    function handlePaymentCancelled() {
+      // Hide modal
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+
+  <!-- Payment Modal Component -->
+  <script type="module" src="assets/js/components/payment-modal.js?v=20260224"></script>
+
+  <!-- Mobile Navigation -->
+  <script src="assets/js/mobile-navigation.js" defer></script>
+    </main>
+</body>
+
+</html>
