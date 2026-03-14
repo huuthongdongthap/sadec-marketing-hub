@@ -160,7 +160,7 @@ export function hideSkeleton(target, content, options = {}) {
  * @param {Function} fn - Async function to run
  * @param {Element|string} target - Target element
  * @param {Object} options
- * @returns {Promise<any>}
+ * @returns {Promise<unknown>}
  */
 export async function withSkeleton(fn, target, options = {}) {
     const { type = 'text', count = 1 } = options;

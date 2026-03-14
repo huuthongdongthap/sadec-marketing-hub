@@ -33,7 +33,7 @@ export class ApiClientBase {
    * Load data with error handling and caching
    * @param {string} cacheKey - Cache key for this data
    * @param {Function} fetchFn - Async fetch function
-   * @returns {Promise<any>} Loaded data
+   * @returns {Promise<unknown>} Loaded data
    */
   async load(cacheKey, fetchFn) {
     // Check cache first

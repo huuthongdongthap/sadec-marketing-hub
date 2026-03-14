@@ -276,7 +276,7 @@ export function handleApiError(error, context = '') {
  * @param {Function} fn - Async function to retry
  * @param {number} [maxRetries=3] - Maximum retry attempts
  * @param {number} [delayMs=1000] - Delay between retries
- * @returns {Promise<any>} Result from successful call
+ * @returns {Promise<unknown>} Result from successful call
  */
 export async function withRetry(fn, maxRetries = 3, delayMs = 1000) {
     let lastError;
