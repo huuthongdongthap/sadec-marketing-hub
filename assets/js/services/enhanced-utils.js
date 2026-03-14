@@ -10,13 +10,28 @@
  * ==============================================
  */
 
+// Import format utilities from shared/format-utils.js
+import {
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime,
+    formatNumber,
+    truncate,
+    debounce,
+    throttle
+} from '../shared/format-utils.js';
+
 // ===== ID GENERATION =====
 export function generateId(prefix = 'id') {
     return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
 export function formatPercent(value, decimals = 0) {
-    return `${value.toFixed(decimals)}%`;
+    if (value == null || isNaN(value)) return '--';
+    return `${Number(value).toFixed(decimals)}%`;
 }
 
 // ===== STRING UTILITIES =====
@@ -28,10 +43,10 @@ export function getInitials(name) {
     if (!name) return '';
     return name
         .split(' ')
+        .filter(n => n.length > 0)
         .map(n => n[0])
         .join('')
-        .toUpperCase()
-        .slice(0, 2);
+        .toUpperCase();
 }
 
 export function slugify(str) {
@@ -280,9 +295,4 @@ if (typeof window !== 'undefined') {
     window.MekongUtils = MekongUtils;
     // Also expose individual functions
     Object.assign(window, MekongUtils);
-}
-
-// Export for Node.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MekongUtils;
 }

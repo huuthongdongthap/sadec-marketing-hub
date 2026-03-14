@@ -12,6 +12,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from '../shared/logger.js';
+
 let refreshState = 'idle'; // idle, loading, success, error
 let lastRefreshTime = null;
 let autoRefreshInterval = null;
@@ -142,7 +144,7 @@ async function triggerRefresh() {
     } catch (error) {
         refreshState = 'error';
         updateIndicator('error');
-        console.error('Refresh failed:', error);
+        Logger.error('Refresh failed', { error });
 
         setTimeout(() => {
             refreshState = 'idle';
