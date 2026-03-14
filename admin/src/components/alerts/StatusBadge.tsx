@@ -1,6 +1,5 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { AlertCircle, CheckCircle, XCircle, AlertTriangle } from 'lucide-react'
 
 export interface StatusBadgeProps {
   /** Status variant */

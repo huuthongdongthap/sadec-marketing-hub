@@ -362,7 +362,7 @@ function App() {
               <h4 className="font-medium text-gray-900 mb-2">Tổng quan chiến dịch</h4>
               <p className="text-gray-600">Hiển thị thông tin tổng quan về tất cả chiến dịch đang chạy.</p>
               <div className="mt-4 grid grid-cols-2 gap-4">
-                <ProgressBar value={75} label="Hoàn thành" showLabel />
+                <ProgressBar value={75} showLabel />
                 <ProgressBar value={45} variant="success" showLabel />
               </div>
             </div>
