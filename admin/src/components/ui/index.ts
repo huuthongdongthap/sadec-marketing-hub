@@ -32,3 +32,16 @@ export {
   CardFooter
 } from './Card.js'
 export type { CardProps } from './Card.js'
+
+// Additional UI Components
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './Tabs.js'
+export type { TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps } from './Tabs.js'
+
+export { Select } from './Select.js'
+export type { SelectProps, SelectOption } from './Select.js'
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './Accordion.js'
+export type { AccordionProps, AccordionItemProps, AccordionTriggerProps, AccordionContentProps } from './Accordion.js'
+
+export { ProgressBar } from './ProgressBar.js'
+export type { ProgressBarProps } from './ProgressBar.js'

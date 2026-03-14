@@ -34,6 +34,12 @@ export interface DataTableProps<T> {
   pageSize?: number
   /** Additional className */
   className?: string
+  /** Enable CSV export */
+  enableExport?: boolean
+  /** Export filename */
+  exportFilename?: string
+  /** Custom export data transformer */
+  exportTransformer?: (item: T) => Record<string, string | number>
 }
 
 export function DataTable<T extends Record<string, unknown>>({
@@ -47,7 +53,10 @@ export function DataTable<T extends Record<string, unknown>>({
   onSelectionChange,
   pagination = true,
   pageSize = 10,
-  className
+  className,
+  enableExport = false,
+  exportFilename = 'export',
+  exportTransformer
 }: DataTableProps<T>) {
   const [sortConfig, setSortConfig] = useState<{
     key: string
@@ -61,6 +70,54 @@ export function DataTable<T extends Record<string, unknown>>({
       return rowKey(item)
     }
     return String(item[rowKey])
+  }
+
+  // Export to CSV
+  const exportToCsv = () => {
+    // Get all data (not just paginated)
+    const dataToExport = exportTransformer
+      ? sortedData.map(exportTransformer)
+      : sortedData.map(item => {
+          const result: Record<string, string | number> = {}
+          columns.forEach(col => {
+            const value = item[col.key as keyof T]
+            result[col.title] = typeof value === 'number' ? value : String(value ?? '')
+          })
+          return result
+        })
+
+    if (dataToExport.length === 0) return
+
+    // Get headers
+    const headers = Object.keys(dataToExport[0])
+
+    // Build CSV content
+    const csvContent = [
+      headers.join(','),
+      ...dataToExport.map(row =>
+        headers.map(header => {
+          const value = row[header]
+          // Escape quotes and wrap in quotes if contains comma
+          const stringValue = String(value ?? '')
+          const escaped = stringValue.replace(/"/g, '""')
+          return escaped.includes(',') || escaped.includes('"') || escaped.includes('\n')
+            ? `"${escaped}"`
+            : escaped
+        }).join(',')
+      )
+    ].join('\n')
+
+    // Download file
+    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `${exportFilename}.csv`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
   }
 
   // Sort data
