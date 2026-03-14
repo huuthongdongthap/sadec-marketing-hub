@@ -1,6 +1,6 @@
 {
-  "version": "vmmpx7hdi.4996ed952d51",
-  "timestamp": "2026-03-14T06:04:12.342Z",
+  "version": "vmmpzt6qr.c28141ea52d4",
+  "timestamp": "2026-03-14T07:17:04.227Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -176,7 +176,7 @@
     },
     {
       "path": "assets/css/bundle/animations.css",
-      "hash": "596ad797"
+      "hash": "b213dd66"
     },
     {
       "path": "assets/css/bundle/portal-common.css",
@@ -201,6 +201,10 @@
     {
       "path": "assets/css/components/keyboard-shortcuts.css",
       "hash": "f8ad3380"
+    },
+    {
+      "path": "assets/css/components/loading-states.css",
+      "hash": "a9298dfa"
     },
     {
       "path": "assets/css/components/notification-bell.css",
@@ -239,6 +243,10 @@
       "hash": "f7b0e6d1"
     },
     {
+      "path": "assets/css/features/quick-actions.css",
+      "hash": "95db7dff"
+    },
+    {
       "path": "assets/css/features/quick-settings.css",
       "hash": "05570ee3"
     },
@@ -265,6 +273,10 @@
     {
       "path": "assets/css/lazy-loading.css",
       "hash": "0ec16f86"
+    },
+    {
+      "path": "assets/css/loading-states.css",
+      "hash": "0cc22339"
     },
     {
       "path": "assets/css/m3-agency.css",
@@ -305,6 +317,14 @@
     {
       "path": "assets/css/refactored-inline.css",
       "hash": "bb60ffe6"
+    },
+    {
+      "path": "assets/css/responsive-enhancements.css",
+      "hash": "4f92ac70"
+    },
+    {
+      "path": "assets/css/responsive-fix-2026.css",
+      "hash": "7d6d632c"
     },
     {
       "path": "assets/css/responsive-utils.css",
@@ -580,7 +600,7 @@
     },
     {
       "path": "assets/js/components/stepper.js",
-      "hash": "e7b84b1a"
+      "hash": "711cfaef"
     },
     {
       "path": "assets/js/components/tabs.js",
@@ -812,11 +832,11 @@
     },
     {
       "path": "assets/js/features/ux-features-2026.js",
-      "hash": "1e7c06a6"
+      "hash": "29e4d0eb"
     },
     {
       "path": "assets/js/features/ux-improvements-v2.js",
-      "hash": "53d507dd"
+      "hash": "cc91e122"
     },
     {
       "path": "assets/js/features/widget-customizer.js",
@@ -1052,7 +1072,7 @@
     },
     {
       "path": "assets/js/services/service-worker.js",
-      "hash": "c8e74744"
+      "hash": "deb7fcd4"
     },
     {
       "path": "assets/js/services/toast-notification.js",
@@ -1168,7 +1188,7 @@
     },
     {
       "path": "assets/js/utils/auto-save.js",
-      "hash": "b0de0223"
+      "hash": "250b51a9"
     },
     {
       "path": "assets/js/utils/back-to-top.js",
@@ -1272,11 +1292,11 @@
     },
     {
       "path": "assets/js/widgets/conversion-funnel.js",
-      "hash": "4cc6d0e3"
+      "hash": "143cb753"
     },
     {
       "path": "assets/js/widgets/data-table-widget.js",
-      "hash": "e7c5c7e6"
+      "hash": "c99c9007"
     },
     {
       "path": "assets/js/widgets/help-tour.js",
@@ -1292,7 +1312,7 @@
     },
     {
       "path": "assets/js/widgets/line-chart-widget.js",
-      "hash": "5bd416fd"
+      "hash": "43ba1fd6"
     },
     {
       "path": "assets/js/widgets/notification-bell.js",
@@ -1300,7 +1320,7 @@
     },
     {
       "path": "assets/js/widgets/performance-gauge-widget.js",
-      "hash": "61cb4f4e"
+      "hash": "962cafa4"
     },
     {
       "path": "assets/js/widgets/pie-chart-widget.js",

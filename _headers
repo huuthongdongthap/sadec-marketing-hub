@@ -1,22 +1,35 @@
 # Cloudflare Pages — _headers
 # Replaces vercel.json headers section
+# Updated: 2026-03-14 - Performance optimization with cache busting
 
-# Static assets — long-term cache
+# Static assets — long-term cache (with cache busting hashes)
 /dist/assets/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
 
+# Minified assets - aggressive caching
+/assets/minified/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
+
+# CSS files
 /css/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
 
+# JS files
 /js/*
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
 
 /images/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
