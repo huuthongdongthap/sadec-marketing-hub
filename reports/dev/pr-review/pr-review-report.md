@@ -12,10 +12,10 @@
 |----------|-------|--------|
 | **Security Headers** | 10/10 | ✅ PASS |
 | **Code Quality** | ⚠️ 91 console.log | NEEDS WORK |
-| **Tech Debt** | 875 TODO/FIXME | ⚠️ LOW |
-| **Accessibility** | 2539 aria-label, 199 skip-link | ✅ GOOD |
+| **Tech Debt** | 783 TODO/FIXME | ⚠️ LOW |
+| **Accessibility** | 2537 aria-label, 151 skip-link | ✅ GOOD |
 | **Test Coverage** | 69 spec files | ✅ GOOD |
-| **SEO Metadata** | 2002 OG tags, 1705 JSON-LD | ✅ GOOD |
+| **SEO Metadata** | 1850 OG tags, 1705 JSON-LD | ✅ GOOD |
 
 ---
 
@@ -57,7 +57,7 @@ Header set Access-Control-Max-Age "86400"
 | Metric | Count | Priority |
 |--------|-------|----------|
 | console.log statements | 91 | HIGH |
-| TODO/FIXME comments | 875 | MEDIUM |
+| TODO/FIXME comments | 783 | MEDIUM |
 
 ---
 
@@ -65,8 +65,8 @@ Header set Access-Control-Max-Age "86400"
 
 | Metric | Count | Status |
 |--------|-------|--------|
-| aria-label attributes | 1544 | ✅ GOOD |
-| skip-link/skip-to-content | 188 | ⚠️ NEEDS IMPROVEMENT |
+| aria-label attributes | 2537 | ✅ GOOD |
+| skip-link/skip-to-content | 151 | ⚠️ NEEDS IMPROVEMENT |
 
 ---
 
@@ -74,8 +74,8 @@ Header set Access-Control-Max-Age "86400"
 
 | Tag | Count | Status |
 |-----|-------|--------|
-| Open Graph (og:) | 872 | ✅ |
-| JSON-LD (schema.org) | 207 | ✅ |
+| Open Graph (og:) | 1850 | ✅ |
+| JSON-LD (schema.org) | 1705 | ✅ |
 
 ---
 
@@ -94,7 +94,7 @@ Header set Access-Control-Max-Age "86400"
 - [ ] Clean console.log from assets/js/ production widgets (~100+)
 
 ### P2 - Medium Priority
-- [ ] Address TODO/FIXME comments (1705)
+- [ ] Address TODO/FIXME comments (783)
 - [ ] Improve skip-link coverage (187 files)
 
 ### P3 - Low Priority
