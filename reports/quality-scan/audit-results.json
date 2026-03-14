@@ -1,0 +1,2714 @@
+{
+  "summary": {
+    "error": 206,
+    "warning": 149,
+    "info": 0
+  },
+  "files_scanned": 98,
+  "results": [
+    {
+      "file": "offline.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 12
+    },
+    {
+      "file": "verify-email.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 16
+    },
+    {
+      "file": "index.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 6,
+      "images_count": 6,
+      "meta_count": 17
+    },
+    {
+      "file": "forgot-password.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 2,
+      "images_count": 0,
+      "meta_count": 12
+    },
+    {
+      "file": "audit-report.html",
+      "issues": [
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 38
+    },
+    {
+      "file": "terms.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "register.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 16
+    },
+    {
+      "file": "login.html",
+      "issues": [
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "lp.html",
+      "issues": [
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 12
+    },
+    {
+      "file": "privacy.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "test-toast.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 9,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "portal/payment-result.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/roi-report.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/subscription-plans.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 13,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/roi-analytics.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/assets.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 1,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/notifications.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/payments.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/roiaas-dashboard.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 10,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/subscriptions.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/login.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/dashboard.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/projects.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/ocop-catalog.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 9,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/ocop-exporter.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 7,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/roiaas-onboarding.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 22,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/invoices.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 7,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/approve.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/missions.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 9,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 2,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/credits.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/onboarding.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "portal/reports.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "auth/login.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "admin/brand-guide.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 11,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 6,
+      "images_count": 4,
+      "meta_count": 18
+    },
+    {
+      "file": "admin/video-workflow.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/ui-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 9,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 4,
+      "meta_count": 24
+    },
+    {
+      "file": "admin/pipeline.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/suppliers.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 27,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/landing-builder.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/finance.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/community.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/legal.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/index.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/vc-readiness.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 11,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 13,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/approvals.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/inventory.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 10,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/auth.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 6,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/pricing.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/raas-overview.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/notifications.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 16,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/leads.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/payments.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/ui-components-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 11,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/menu.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/widgets-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 7,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/dashboard.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 19,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/features-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/lms.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/proposals.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/agents.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 6,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/customer-success.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 5,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/ecommerce.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 7,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 4,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/campaigns.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/roiaas-admin.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/zalo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/components-demo.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/workflows.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 17
+    },
+    {
+      "file": "admin/quality.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 9,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/loyalty.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 10,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/binh-phap.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 19,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/shifts.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 12,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/deploy.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/retention.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 7,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/ai-analysis.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/events.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/hr-hiring.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/api-builder.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 15,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/docs.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 8,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/content-calendar.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 4,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/mvp-launch.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/onboarding.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 21,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/pos.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 15,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/components/phase-tracker.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing <main> element",
+          "severity": "warning"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "admin/widgets/kpi-card.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 14
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing <main> element",
+          "severity": "warning"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing <main> element",
+          "severity": "warning"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing <main> element",
+          "severity": "warning"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 18
+    },
+    {
+      "file": "affiliate/profile.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/media.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/dashboard.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 1,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/commissions.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/links.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 2,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/settings.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "affiliate/referrals.html",
+      "issues": [
+        {
+          "type": "best-practice",
+          "issue": "Inline onclick handlers (use addEventListener)",
+          "count": 1,
+          "severity": "warning"
+        },
+        {
+          "type": "best-practice",
+          "issue": "Inline onload handlers (use addEventListener)",
+          "count": 3,
+          "severity": "warning"
+        },
+        {
+          "type": "seo",
+          "issue": "Missing <title> tag",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 13
+    },
+    {
+      "file": "audit-reports/full-audit-report.html",
+      "issues": [
+        {
+          "type": "accessibility",
+          "issue": "Missing lang attribute on <html>",
+          "severity": "error"
+        },
+        {
+          "type": "accessibility",
+          "issue": "Missing viewport meta tag",
+          "severity": "error"
+        }
+      ],
+      "links_count": 0,
+      "images_count": 0,
+      "meta_count": 15
+    }
+  ]
+}

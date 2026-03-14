@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Audit Report - Sa Đéc Marketing Hub</title>
+    <style>
+        :root {
+            --md-sys-color-primary: #006c4c;
+            --md-sys-color-error: #ba1a1a;
+            --md-sys-color-warning: #995d00;
+            --md-sys-color-surface: #fdfdf5;
+            --md-sys-color-on-surface: #1a1c18;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            padding: 24px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--md-sys-color-primary); margin-bottom: 8px; }
+        h2 { margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--md-sys-color-primary); }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .card.error { border-left: 4px solid var(--md-sys-color-error); }
+        .card.warning { border-left: 4px solid var(--md-sys-color-warning); }
+        .card.success { border-left: 4px solid var(--md-sys-color-primary); }
+        .stat { font-size: 36px; font-weight: bold; margin-bottom: 8px; }
+        .stat.error { color: var(--md-sys-color-error); }
+        .stat.warning { color: var(--md-sys-color-warning); }
+        .stat.success { color: var(--md-sys-color-primary); }
+        .file-issue {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+        .file-issue h3 { font-size: 14px; color: #666; margin-bottom: 12px; }
+        .issue {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .issue:last-child { border-bottom: none; }
+        .severity {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .severity.error { background: #fde8e8; color: var(--md-sys-color-error); }
+        .severity.warning { background: #fef3c7; color: var(--md-sys-color-warning); }
+        .severity.info { background: #e0e7ff; color: #4338ca; }
+        .progress {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            display: flex;
+        }
+        .progress-error { background: var(--md-sys-color-error); }
+        .progress-warning { background: var(--md-sys-color-warning); }
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .summary { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Quality Audit Report</h1>
+        <p><strong>Sa Đéc Marketing Hub</strong> - Broken Links, Meta Tags, Accessibility</p>
+        <p><small>Generated: 2026-03-14 21:14:36</small></p>
+
+        <div class="progress">
+            <div class="progress-bar" style="width: 58.028169014084504%">
+                <span class="progress-error" style="width: 100%"></span>
+                <span class="progress-warning" style="width: 100%"></span>
+            </div>
+        </div>
+
+        <div class="summary">
+            <div class="card success">
+                <div class="stat success">98</div>
+                <div>Files Scanned</div>
+            </div>
+            <div class="card error">
+                <div class="stat error">206</div>
+                <div>Errors</div>
+            </div>
+            <div class="card warning">
+                <div class="stat warning">149</div>
+                <div>Warnings</div>
+            </div>
+        </div>
+
+        <h2>❌ Errors (98 files)</h2>
+<div class="file-issue"><h3>📄 offline.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 verify-email.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 index.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 forgot-password.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 audit-report.html</h3><div class="issue"><span class="severity error">Error</span> Missing <title> tag</div><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 terms.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 register.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 login.html</h3><div class="issue"><span class="severity error">Error</span> Missing <title> tag</div><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 lp.html</h3><div class="issue"><span class="severity error">Error</span> Missing <title> tag</div><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 privacy.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 test-toast.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/payment-result.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/roi-report.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/subscription-plans.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/roi-analytics.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/assets.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/notifications.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/payments.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/roiaas-dashboard.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/subscriptions.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/login.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/dashboard.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/projects.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/ocop-catalog.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/ocop-exporter.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/roiaas-onboarding.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/invoices.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/approve.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/missions.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><div class="file-issue"><h3>📄 portal/credits.html</h3><div class="issue"><span class="severity error">Error</span> Missing lang attribute on <html></div><div class="issue"><span class="severity error">Error</span> Missing viewport meta tag</div></div><p>... and 68 more files</p>
+        <h2>⚠️ Warnings (86 files)</h2>
+<div class="file-issue"><h3>📄 offline.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (1)</div></div><div class="file-issue"><h3>📄 index.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 test-toast.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (9)</div></div><div class="file-issue"><h3>📄 portal/payment-result.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (4)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/roi-report.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (2)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/subscription-plans.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (13)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/roi-analytics.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/assets.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (2)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/notifications.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/payments.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (1)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/roiaas-dashboard.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (10)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/subscriptions.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (4)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/login.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/dashboard.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/projects.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/ocop-catalog.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (9)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/ocop-exporter.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (7)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/roiaas-onboarding.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (22)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/invoices.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (7)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/approve.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (1)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/missions.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (9)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/credits.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (4)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/onboarding.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (8)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 portal/reports.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 auth/login.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 admin/brand-guide.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (11)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 admin/video-workflow.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (2)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 admin/ui-demo.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (9)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 admin/pipeline.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><div class="file-issue"><h3>📄 admin/suppliers.html</h3><div class="issue"><span class="severity warning">Warning</span> Inline onclick handlers (use addEventListener) (27)</div><div class="issue"><span class="severity warning">Warning</span> Inline onload handlers (use addEventListener) (3)</div></div><p>... and 56 more files</p>
+        <footer>
+            <p><strong>Recommendations:</strong></p>
+            <ul>
+                <li>Add <code>lang="vi"</code> to all &lt;html&gt; elements</li>
+                <li>Add viewport meta tags for mobile responsiveness</li>
+                <li>Replace inline onclick handlers with addEventListener</li>
+                <li>Add &lt;title&gt; tags to all pages</li>
+                <li>Add alt attributes to all images</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
