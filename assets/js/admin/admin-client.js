@@ -11,6 +11,7 @@
  */
 
 import { mekongStore } from '../services/mekong-store.js';
+import { Logger } from '../shared/logger.js';
 
 const AdminClient = {
     // ═══════════════════════════════════════════════════════════════════════
@@ -73,7 +74,7 @@ const AdminClient = {
 
             return data;
         } catch (error) {
-            console.error(`[AdminClient] Failed to fetch ${entity}:`, error);
+            Logger.error(`[AdminClient] Failed to fetch ${entity}:`, error);
             throw error;
         }
     },
@@ -108,7 +109,7 @@ const AdminClient = {
 
             return result;
         } catch (error) {
-            console.error(`[AdminClient] Failed to create ${entity}:`, error);
+            Logger.error(`[AdminClient] Failed to create ${entity}:`, error);
             throw error;
         }
     },
@@ -144,7 +145,7 @@ const AdminClient = {
 
             return result;
         } catch (error) {
-            console.error(`[AdminClient] Failed to update ${entity}:`, error);
+            Logger.error(`[AdminClient] Failed to update ${entity}:`, error);
             throw error;
         }
     },
@@ -171,7 +172,7 @@ const AdminClient = {
             // Refresh store
             await this.refreshEntity(entity);
         } catch (error) {
-            console.error(`[AdminClient] Failed to delete ${entity}:`, error);
+            Logger.error(`[AdminClient] Failed to delete ${entity}:`, error);
             throw error;
         }
     },
@@ -184,7 +185,7 @@ const AdminClient = {
         try {
             await this.fetch(entity);
         } catch (error) {
-            console.error(`[AdminClient] Failed to refresh ${entity}:`, error);
+            Logger.error(`[AdminClient] Failed to refresh ${entity}:`, error);
         }
     },
 
