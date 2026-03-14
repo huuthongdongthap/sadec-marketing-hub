@@ -1,0 +1,189 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * RESPONSIVE ENHANCEMENTS - 2026
+ *
+ * Additional responsive enhancements for Sa Đéc Marketing Hub
+ *
+ * @version 1.0.0 | 2026-03-14
+ * @module responsive-enhancements
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ============================================================================
+   TOUCH-FRIENDLY BUTTONS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* WCAG compliant touch targets */
+    .btn,
+    .button,
+    button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 20px;
+    }
+
+    /* Full width buttons on mobile */
+    .btn + .btn,
+    .button + .button {
+        margin-top: 8px;
+        margin-left: 0;
+    }
+}
+
+/* ============================================================================
+   FORM ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Prevent zoom on iOS when focusing inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px;
+        min-height: 44px;
+    }
+
+    /* Stack form actions on mobile */
+    .form-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* ============================================================================
+   CARD ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ============================================================================
+   MODAL ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: calc(100% - 32px);
+        max-height: calc(100vh - 64px);
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+/* ============================================================================
+   TABLE ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+/* ============================================================================
+   TYPOGRAPHY ENHANCEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    h1, .h1 {
+        font-size: 24px;
+    }
+
+    h2, .h2 {
+        font-size: 20px;
+    }
+
+    h3, .h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 375px) {
+    h1, .h1 {
+        font-size: 20px;
+    }
+
+    h2, .h2 {
+        font-size: 18px;
+    }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+/* Hide utilities */
+@media (max-width: 375px) {
+    .hide-mobile-small {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .show-desktop-only {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Show utilities */
+@media (min-width: 1025px) {
+    .show-desktop-only {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .show-mobile-only {
+        display: block !important;
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
