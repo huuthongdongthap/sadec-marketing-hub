@@ -1,7 +1,7 @@
 # SEO Auto-Fix Report
 
 **Date:** 2026-03-14
-**Files Modified:** 15
+**Files Modified:** 14
 **Errors:** 0
 
 ## Modified Files
@@ -79,18 +79,6 @@ Changes:
 
 Changes:
 - Added skip link
-
-### playwright-report/index.html
-
-Changes:
-- Added viewport
-- Added description
-- Added Open Graph tags
-- Added Twitter Card tags
-- Added canonical URL
-- Added JSON-LD structured data
-- Added skip link
-- Added main landmark (wrapper)
 
 ### portal/onboarding.html
 

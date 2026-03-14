@@ -503,15 +503,14 @@ function simulateWork(ms) {
 }
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        WorkflowChain,
-        WorkflowStep,
-        createWorkflowChain,
-        workflowRegistry,
-        workflowBus,
-        clientOnboarding,
-        contentPublishing,
-        leadNurturing
-    };
-}
+export {
+    WorkflowChain,
+    WorkflowStep,
+    createWorkflowChain,
+    workflowRegistry,
+    workflowBus,
+    clientOnboarding,
+    contentPublishing,
+    leadNurturing
+};
+export default WorkflowChain;

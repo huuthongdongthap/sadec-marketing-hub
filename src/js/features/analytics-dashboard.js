@@ -854,6 +854,5 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { AnalyticsDashboard };
-}
+export { AnalyticsDashboard };
+export default AnalyticsDashboard;

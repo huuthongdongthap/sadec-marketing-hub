@@ -421,16 +421,15 @@ function simulateWork(ms) {
 const approvalManager = new ApprovalManager();
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        ApprovalManager,
-        ApprovalRequest,
-        approvalManager,
-        approvalBus,
-        approvalRules,
-        requiresApproval,
-        proposalWithApproval,
-        expenseWithApproval,
-        formatCurrency
-    };
-}
+export {
+    ApprovalManager,
+    ApprovalRequest,
+    approvalManager,
+    approvalBus,
+    approvalRules,
+    requiresApproval,
+    proposalWithApproval,
+    expenseWithApproval,
+    formatCurrency
+};
+export default ApprovalManager;

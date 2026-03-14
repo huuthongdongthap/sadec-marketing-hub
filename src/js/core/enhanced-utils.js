@@ -286,15 +286,30 @@ const MekongUtils = {
     MobileSidebar
 };
 export default MekongUtils;
-
-// Export for browser
-if (typeof window !== 'undefined') {
-    window.MekongUtils = MekongUtils;
-    // Also expose individual functions
-    Object.assign(window, MekongUtils);
-}
-
-// Export for Node.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MekongUtils;
-}
+export {
+    generateId,
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime,
+    formatNumber,
+    formatPercent,
+    truncate,
+    capitalize,
+    getInitials,
+    slugify,
+    groupBy,
+    sortBy,
+    sum,
+    average,
+    debounce,
+    throttle,
+    escapeHTML,
+    createElement,
+    Toast,
+    ThemeManager,
+    ScrollProgress,
+    MobileSidebar
+};
