@@ -1,0 +1,19 @@
+{
+    "name": "sadec-marketing-hub-workers",
+    "version": "1.0.0",
+    "description": "Cloudflare Workers API — Sa Đéc Marketing Hub",
+    "scripts": {
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "type-check": "tsc --noEmit",
+        "lint": "eslint src --ext .ts"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20240725.0",
+        "typescript": "^5.5.4",
+        "wrangler": "^3.67.1"
+    },
+    "dependencies": {
+        "hono": "^4.5.1"
+    }
+}
