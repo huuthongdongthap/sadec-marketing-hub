@@ -41,12 +41,19 @@ function getAllHtmlFiles(dir, files = []) {
         const fullPath = path.join(dir, entry.name);
 
         if (entry.isDirectory()) {
-            if (!entry.name.startsWith('.') && entry.name !== 'node_modules') {
+            // Skip node_modules, coverage, and other auto-generated dirs
+            if (!entry.name.startsWith('.') &&
+                entry.name !== 'node_modules' &&
+                entry.name !== 'coverage' &&
+                entry.name !== 'playwright-report') {
                 getAllHtmlFiles(fullPath, files);
             }
         } else if (entry.isFile() && entry.name.endsWith('.html')) {
             const relPath = path.relative(rootDir, fullPath);
-            if (!relPath.includes('node_modules')) {
+            // Skip auto-generated files
+            if (!relPath.includes('node_modules') &&
+                !relPath.includes('coverage/') &&
+                !relPath.includes('playwright-report/')) {
                 files.push({ path: fullPath, relPath });
             }
         }
