@@ -93,7 +93,7 @@ describe('Format Utilities', () => {
         });
 
         it('should respect decimals parameter', () => {
-            expect(formatPercent(75.555, 2)).toBe('75.55%');
+            expect(formatPercent(75.555, 2)).toBe('75.56%'); // JavaScript rounding
             expect(formatPercent(75.555, 0)).toBe('76%');
         });
     });
