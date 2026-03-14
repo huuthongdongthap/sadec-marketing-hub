@@ -1,137 +1,11 @@
 {
-  "timestamp": "2026-03-14 19:09:41",
+  "timestamp": "2026-03-14 19:26:41",
   "results": {
     "broken_links": [
-      {
-        "file": "dist/offline.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/index.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/payment-result.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/roi-report.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/subscription-plans.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 7,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/assets.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/payments.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/roiaas-dashboard.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 10,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/subscriptions.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/ocop-catalog.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 3,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/ocop-exporter.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/roiaas-onboarding.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 15,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/invoices.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 3,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/approve.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/missions.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 4,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/credits.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 4,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/onboarding.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 7,
-        "severity": "warning"
-      },
       {
         "file": "dist/admin/brand-guide.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 11,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/video-workflow.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/ui-demo.html",
-        "issue": "Empty anchor links (href=\"#\")",
-        "count": 6,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/ui-demo.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 5,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/suppliers.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 27,
         "severity": "warning"
       },
       {
@@ -144,12 +18,6 @@
         "file": "dist/admin/finance.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/vc-readiness.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
         "severity": "warning"
       },
       {
@@ -183,33 +51,15 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/ui-components-demo.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 11,
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/menu.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 8,
         "severity": "warning"
       },
       {
-        "file": "dist/admin/widgets-demo.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/dashboard.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 8,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/proposals.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 3,
         "severity": "warning"
       },
       {
@@ -231,27 +81,9 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/roiaas-admin.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/components-demo.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/workflows.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 4,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/quality.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 5,
         "severity": "warning"
       },
       {
@@ -267,21 +99,9 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/shifts.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 12,
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/deploy.html",
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/retention.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 7,
         "severity": "warning"
       },
       {
@@ -325,81 +145,11 @@
         "issue": "Inline onclick handlers (use addEventListener)",
         "count": 15,
         "severity": "warning"
-      },
-      {
-        "file": "dist/affiliate/dashboard.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 1,
-        "severity": "warning"
-      },
-      {
-        "file": "dist/affiliate/links.html",
-        "issue": "Inline onclick handlers (use addEventListener)",
-        "count": 2,
-        "severity": "warning"
       }
     ],
     "missing_meta": [
       {
-        "file": "dist/offline.html",
-        "issues": [
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/forgot-password.html",
-        "issues": [
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/login.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/auth/login.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/video-workflow.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/pipeline.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/suppliers.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag",
@@ -442,15 +192,6 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/vc-readiness.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/features-demo-2027.html",
         "issues": [
           "Missing viewport meta tag",
@@ -477,24 +218,6 @@
       },
       {
         "file": "dist/admin/auth.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/pricing.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/raas-overview.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag",
@@ -530,24 +253,7 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/ui-components-demo.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/menu.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/widgets-demo.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag",
@@ -571,27 +277,10 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/ux-components-demo.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/lms.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/proposals.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
         ],
         "severity": "warning"
       },
@@ -630,41 +319,7 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/roiaas-admin.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/zalo.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/components-demo.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/workflows.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/quality.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag",
@@ -691,25 +346,7 @@
         "severity": "warning"
       },
       {
-        "file": "dist/admin/shifts.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
         "file": "dist/admin/deploy.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/admin/retention.html",
         "issues": [
           "Missing viewport meta tag",
           "Missing charset meta tag",
@@ -806,169 +443,11 @@
           "Missing canonical link"
         ],
         "severity": "warning"
-      },
-      {
-        "file": "dist/admin/widgets/kpi-card.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag",
-          "Missing canonical link"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/affiliate/profile.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/media.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/dashboard.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/links.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/settings.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/referrals.html",
-        "issues": [
-          "Missing <title> tag",
-          "Missing meta description",
-          "Missing charset meta tag",
-          "Missing og:title",
-          "Missing og:description",
-          "Missing og:image",
-          "Missing canonical link"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/assets/partials/seo-head.html",
-        "issues": [
-          "Missing viewport meta tag",
-          "Missing charset meta tag"
-        ],
-        "severity": "warning"
       }
     ],
     "accessibility_issues": [
       {
-        "file": "dist/offline.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/forgot-password.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/login.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/portal/payment-result.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/portal/login.html",
-        "issues": [
-          "2 buttons may lack accessible text"
-        ],
-        "severity": "warning"
-      },
-      {
-        "file": "dist/portal/onboarding.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/auth/login.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/video-workflow.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/pipeline.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/suppliers.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -997,13 +476,6 @@
       },
       {
         "file": "dist/admin/legal.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/vc-readiness.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -1040,20 +512,6 @@
         "severity": "error"
       },
       {
-        "file": "dist/admin/pricing.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/raas-overview.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/notifications.html",
         "issues": [
           "Missing lang attribute on <html> tag"
@@ -1075,22 +533,7 @@
         "severity": "error"
       },
       {
-        "file": "dist/admin/ui-components-demo.html",
-        "issues": [
-          "Missing lang attribute on <html> tag",
-          "1 buttons may lack accessible text"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/menu.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets-demo.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -1111,21 +554,7 @@
         "severity": "error"
       },
       {
-        "file": "dist/admin/ux-components-demo.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/lms.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/proposals.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -1160,35 +589,7 @@
         "severity": "error"
       },
       {
-        "file": "dist/admin/roiaas-admin.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/zalo.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/components-demo.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/workflows.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/quality.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -1209,21 +610,7 @@
         "severity": "error"
       },
       {
-        "file": "dist/admin/shifts.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
         "file": "dist/admin/deploy.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/retention.html",
         "issues": [
           "Missing lang attribute on <html> tag"
         ],
@@ -1299,106 +686,13 @@
           "Missing lang attribute on <html> tag"
         ],
         "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets/theme-toggle.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets/kpi-card.html",
-        "issues": [
-          "Missing lang attribute on <html> tag",
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets/notification-bell.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets/conversion-funnel.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/admin/widgets/global-search.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/profile.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/media.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/dashboard.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/links.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/settings.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/affiliate/referrals.html",
-        "issues": [
-          "Missing lang attribute on <html> tag"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/assets/partials/seo-head.html",
-        "issues": [
-          "Missing lang attribute on <html> tag",
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
-      },
-      {
-        "file": "dist/reports/frontend/responsive-fix/responsive-audit-report.html",
-        "issues": [
-          "Missing skip link for keyboard navigation"
-        ],
-        "severity": "error"
       }
     ],
     "summary": {
-      "total_files": 94,
-      "broken_links_count": 301,
-      "missing_meta_count": 196,
-      "accessibility_issues_count": 75
+      "total_files": 36,
+      "broken_links_count": 147,
+      "missing_meta_count": 92,
+      "accessibility_issues_count": 37
     }
   }
 }
