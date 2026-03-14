@@ -45,8 +45,7 @@ export const LazyImage: React.FC<{
   src: string
   alt: string
   className?: string
-  placeholder?: string
-}> = ({ src, alt, className, placeholder }) => {
+}> = ({ src, alt, className }) => {
   return (
     <img
       src={src}

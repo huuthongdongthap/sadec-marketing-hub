@@ -45,3 +45,7 @@ export type { AccordionProps, AccordionItemProps, AccordionTriggerProps, Accordi
 
 export { ProgressBar } from './ProgressBar.tsx'
 export type { ProgressBarProps } from './ProgressBar.tsx'
+
+// Interactive Components
+export { Button } from './Button.tsx'
+export type { ButtonProps } from './Button.tsx'

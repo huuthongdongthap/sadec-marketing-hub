@@ -33,7 +33,6 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   autoFocus = false
 }) => {
   const [localValue, setLocalValue] = useState(value)
-  const timeoutRef = useTimeoutCleanup()
 
   // Sync with controlled value
   React.useEffect(() => {
