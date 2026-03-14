@@ -69,6 +69,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
 
 <!-- DNS Prefetch (Deduplicated) -->
 
@@ -720,7 +725,7 @@
                             </div>
                         </div>
                         <div class="checklist-actions">
-                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')" aria-label="Chuyển đổi">
                                 <span class="material-symbols-outlined" aria-label="Done" role="img">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>
@@ -918,7 +923,7 @@
                             </div>
                         </div>
                         <div class="checklist-actions">
-                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')">
+                            <button type="button" class="btn-check" ${isChecked ? 'disabled' : ''} onclick="toggleCheck('${key}', '${item.name}')" aria-label="Chuyển đổi">
                                 <span class="material-symbols-outlined" aria-label="Done" role="img">done</span>
                                 ${isChecked ? 'Đã check' : 'Check'}
                             </button>

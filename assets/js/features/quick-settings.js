@@ -17,6 +17,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import Logger from '../shared/logger.js';
+
 const QuickSettings = {
     panel: null,
     isOpen: false,
@@ -52,7 +54,7 @@ const QuickSettings = {
                 this.settings = { ...this.defaults, ...JSON.parse(saved) };
             }
         } catch (e) {
-            console.warn('[QuickSettings] Failed to load settings:', e);
+            Logger.warn('[QuickSettings] Failed to load settings', { error: e });
         }
     },
 
@@ -63,7 +65,7 @@ const QuickSettings = {
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(this.settings));
         } catch (e) {
-            console.warn('[QuickSettings] Failed to save settings:', e);
+            Logger.warn('[QuickSettings] Failed to save settings', { error: e });
         }
     },
 

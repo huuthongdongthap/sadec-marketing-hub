@@ -45,6 +45,11 @@
     <meta name="msapplication-TileColor" content="#006A60">
     <meta name="msapplication-config" content="/browserconfig.xml">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -159,7 +164,7 @@
 <main id="main" role="main">
   <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to content">Skip to content</a>
     <!-- Theme Toggle -->
-    <button type="button" class="theme-toggle-fixed btn btn-primary btn-hover-glow" onclick="Theme.toggle()">
+    <button type="button" class="theme-toggle-fixed btn btn-primary btn-hover-glow" onclick="Theme.toggle()" aria-label="Chuyển đổi giao diện">
         🌓 Toggle Theme
     </button>
 

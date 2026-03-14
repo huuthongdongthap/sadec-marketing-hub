@@ -18,6 +18,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import Logger from '../shared/logger.js';
+
 const FavoritesManager = {
     panel: null,
     isOpen: false,
@@ -45,7 +47,7 @@ const FavoritesManager = {
                 this.favorites = JSON.parse(saved);
             }
         } catch (e) {
-            console.warn('[Favorites] Failed to load favorites:', e);
+            Logger.warn('[Favorites] Failed to load favorites', { error: e });
         }
     },
 
@@ -59,7 +61,7 @@ const FavoritesManager = {
                 detail: { favorites: this.favorites }
             }));
         } catch (e) {
-            console.warn('[Favorites] Failed to save favorites:', e);
+            Logger.warn('[Favorites] Failed to save favorites', { error: e });
         }
     },
 
