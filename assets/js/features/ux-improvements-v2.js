@@ -531,8 +531,6 @@ export function initUXEnhancements(options = {}) {
             }
         });
     }
-
-    console.log('[UX Enhancements] Initialized with options:', options);
 }
 
 // Export all functions

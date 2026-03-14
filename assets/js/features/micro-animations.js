@@ -706,8 +706,6 @@ export function initMicroAnimations() {
         const end = parseInt(el.dataset.animateCounter, 10);
         animateCounter(el, end);
     });
-
-    console.log('[Micro Animations] Initialized');
 }
 
 // Auto-initialize on DOM ready
