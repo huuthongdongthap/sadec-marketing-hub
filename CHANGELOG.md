@@ -2,6 +2,85 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.62.0] - 2026-03-14 — Build Optimization & UI Components
+
+### 🎯 Summary
+
+Hoàn thiện build system và UI components cho Admin Dashboard với code splitting và tree-shaking.
+
+**Health Score:** 100/100 ✅
+**Build Size:** ~193 KB gzipped
+
+### 📝 Changes
+
+#### Build Optimization
+| Config | Improvement |
+|--------|-------------|
+| Vite config | Code splitting (vendor, charts, icons) |
+| esbuild | Fast minification |
+| Tailwind v4 | PostCSS compatibility |
+| Tree-shaking | Unused code elimination |
+
+#### UI Components
+| Category | Components |
+|----------|------------|
+| KPI Widgets | KPICard, StatCard, Metric |
+| Charts | LineChart, BarChart, PieChart, AreaChart |
+| Alerts | Alert, Toast, StatusBadge |
+| Layout | DashboardLayout (responsive sidebar) |
+
+#### Build Output (gzipped)
+| Chunk | Size |
+|-------|------|
+| index.html | 0.96 KB |
+| index.css | 5.68 KB |
+| vendor.js | 0.07 KB |
+| icons.js | 5.19 KB |
+| index.js | 71.05 KB |
+| charts.js | 116.49 KB |
+| **Total** | **~193 KB** |
+
+### 📊 Stats
+- 8 files changed
+- 1135 insertions(+)
+- 13 deletions(-)
+
+### ✅ Verification
+- [x] Build passing
+- [x] Code splitting functional
+- [x] Production green (HTTP 200)
+
+---
+
+## [v4.61.0] - 2026-03-14 — PR Review & Code Quality Audit
+
+### 🎯 Summary
+
+Release cải thiện code quality với PR review comprehensive và fix các issues.
+
+**Quality Score:** 7.4/10
+
+### 📝 Changes
+
+#### PR Review Findings
+| Category | Status | Issues |
+|----------|--------|--------|
+| Code Quality | ⚠️ Warning | 5 |
+| Dead Code | ❌ Critical | 18 console.log |
+| Security | ⚠️ Warning | 3 |
+| Type Safety | ✅ Pass | 0 |
+
+#### Recommendations
+- P0: Strip console.log from production builds
+- P0: Remove mock secret constants
+- P1: Add unit tests for new widgets
+- P2: Split large widget files (>500 lines)
+
+### 📊 Stats
+- PR review report: `reports/dev/pr-review-2026-03-14.md`
+
+---
+
 ## [v4.60.0] - 2026-03-14 — Bug Sprint & Architecture Improvements
 
 ### 🎯 Summary
