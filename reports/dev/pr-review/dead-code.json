@@ -238,6 +238,13 @@
     "line": 1
   },
   {
+    "file": "assets/js/features/back-to-top.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
     "file": "assets/js/features/command-palette-enhanced.js",
     "type": "commented-code",
     "severity": "warning",
@@ -267,6 +274,13 @@
   },
   {
     "file": "assets/js/features/features-2026.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/help-tour.js",
     "type": "commented-code",
     "severity": "warning",
     "issue": "Large comment block (17 lines) - consider removing or documenting",
@@ -329,32 +343,25 @@
     "line": 19
   },
   {
-    "file": "assets/js/features/quick-notes.js",
-    "type": "unused-function",
+    "file": "assets/js/features/quick-notes/notes-renderer.js",
+    "type": "unreachable",
     "severity": "warning",
-    "issue": "Function 'toggleCollapse' appears unused",
-    "line": 136
+    "issue": "Code after return statement",
+    "line": 54
   },
   {
-    "file": "assets/js/features/quick-notes.js",
-    "type": "unused-function",
+    "file": "assets/js/features/quick-notes/notes-renderer.js",
+    "type": "unreachable",
     "severity": "warning",
-    "issue": "Function 'createNewNote' appears unused",
-    "line": 309
+    "issue": "Code after return statement",
+    "line": 69
   },
   {
     "file": "assets/js/features/quick-notes.js",
     "type": "commented-code",
     "severity": "warning",
-    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "issue": "Large comment block (24 lines) - consider removing or documenting",
     "line": 1
-  },
-  {
-    "file": "assets/js/features/quick-notes.js",
-    "type": "unreachable",
-    "severity": "warning",
-    "issue": "Code after return statement",
-    "line": 439
   },
   {
     "file": "assets/js/features/quick-tools-panel.js",
@@ -382,6 +389,13 @@
     "type": "commented-code",
     "severity": "warning",
     "issue": "Large comment block (19 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/reading-progress.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
     "line": 1
   },
   {
@@ -861,6 +875,13 @@
     "line": 306
   },
   {
+    "file": "assets/js/utils/skeleton.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 196
+  },
+  {
     "file": "assets/js/utils/sort-utils.js",
     "type": "unreachable",
     "severity": "warning",
@@ -896,6 +917,34 @@
     "line": 43
   },
   {
+    "file": "assets/js/widgets/alerts-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 167
+  },
+  {
+    "file": "assets/js/widgets/chart-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/widgets/command-palette.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 89
+  },
+  {
+    "file": "assets/js/widgets/performance-gauge-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 59
+  },
+  {
     "file": "assets/js/widgets/quick-stats-widget.js",
     "type": "commented-code",
     "severity": "warning",
@@ -915,6 +964,13 @@
     "severity": "warning",
     "issue": "Code after return statement",
     "line": 167
+  },
+  {
+    "file": "admin/widgets/chart-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
   },
   {
     "file": "admin/widgets/command-palette.js",

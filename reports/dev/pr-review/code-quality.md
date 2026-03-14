@@ -1,8 +1,8 @@
 # Code Quality Review Report
 
-**Generated:** 2026-03-14T00:42:06.277Z
-**Files Scanned:** 808
-**Total Issues:** 2421
+**Generated:** 2026-03-14T03:57:02.005Z
+**Files Scanned:** 945
+**Total Issues:** 2809
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Errors | 427 |
-| 🟡 Warnings | 1600 |
-| ℹ️ Info | 394 |
+| 🔴 Errors | 492 |
+| 🟡 Warnings | 1874 |
+| ℹ️ Info | 443 |
 
 ---
 
@@ -20,17 +20,26 @@
 
 | Type | Count |
 |------|-------|
-| Dead Code | 149 |
+| Dead Code | 160 |
 | Tech Debt | 0 |
-| Code Smell | 337 |
-| Naming | 69 |
-| Security | 1707 |
-| Duplicate | 159 |
+| Code Smell | 374 |
+| Naming | 73 |
+| Security | 2018 |
+| Duplicate | 184 |
 
 ---
 
 ## 🔴 Critical Issues
 
+### admin/src/hooks/performance.ts
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/src/hooks/useDebounce.ts
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/src/hooks/useDebounce.ts
+- **Line 0:** eval() usage detected - potential security risk
+
 ### admin/widgets/activity-feed.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -71,6 +80,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/line-chart-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/line-chart-widget.js
@@ -305,6 +320,9 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/data-refresh-indicator.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/help-tour.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/keyboard-shortcuts.js
@@ -577,6 +595,15 @@
 ### assets/js/utils/auto-save.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -589,10 +616,88 @@
 ### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/utils/notification-badge.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/offline-detection.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/offline-detection.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/activity-feed.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/alerts-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/alerts-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/area-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/bar-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/command-palette.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/command-palette.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/conversion-funnel.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/pie-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/widgets/quick-stats-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/widgets/quick-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/src/hooks/performance.ts
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/src/hooks/useDebounce.ts
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/src/hooks/useDebounce.ts
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/activity-feed.js
@@ -635,6 +740,12 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### admin/widgets/line-chart-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### admin/widgets/line-chart-widget.js
@@ -863,6 +974,9 @@
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/data-refresh-indicator.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/features/help-tour.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/features/keyboard-shortcuts.js
@@ -1135,6 +1249,15 @@
 ### assets/js/utils/auto-save.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/clipboard.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/utils/function.js
 - **Line 0:** eval() usage detected - potential security risk
 
@@ -1147,10 +1270,79 @@
 ### assets/js/utils/keyboard-shortcuts.js
 - **Line 0:** eval() usage detected - potential security risk
 
+### assets/js/utils/notification-badge.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/offline-detection.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/utils/offline-detection.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/activity-feed.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/alerts-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/alerts-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/area-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/bar-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/command-palette.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/command-palette.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/conversion-funnel.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/help-tour.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/line-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/pie-chart-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
 ### assets/js/widgets/quick-stats-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### assets/js/widgets/quick-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/realtime-stats-widget.js
+- **Line 0:** eval() usage detected - potential security risk
+
+### assets/js/widgets/realtime-stats-widget.js
 - **Line 0:** eval() usage detected - potential security risk
 
 ### material-interactions.js
@@ -1309,6 +1501,9 @@
 ### tests/payos-flow.spec.ts
 - **Line 44:** eval() usage detected - potential security risk
 
+### tests/widgets-dashboard.spec.ts
+- **Line 72:** eval() usage detected - potential security risk
+
 ### tests/widgets.vitest.ts
 - **Line 86:** eval() usage detected - potential security risk
 
@@ -1318,26 +1513,26 @@
 
 - **admin/components/head-template.js** (Line 96): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
 - **admin/components/head-template.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/activity-feed.js** (Line 27): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/activity-feed.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/alerts-widget.js** (Line 155): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/alerts-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/area-chart-widget.js** (Line 267): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/area-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/bar-chart-widget.js** (Line 238): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/bar-chart-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/command-palette.js** (Line 142): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/command-palette.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/conversion-funnel.js** (Line 41): 2 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/conversion-funnel.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/data-table-widget.js** (Line 32): 3 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/data-table-widget.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/help-tour.js** (Line 208): 1 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/help-tour.js** (Line 0): document.write() usage - consider using DOM manipulation methods
-- **admin/widgets/index.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
-- **admin/widgets/index.js** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/postcss.config.js** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/postcss.config.js** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/components/alerts/index.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/components/alerts/index.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/components/charts/index.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/components/charts/index.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/components/kpi/index.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/components/kpi/index.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/components/layout/index.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/components/layout/index.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/components/ui/index.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/components/ui/index.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/hooks/performance.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/hooks/performance.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/hooks/useDarkMode.ts** (Line 17): Long function (59 lines) - consider breaking into smaller functions
+- **admin/src/hooks/useDarkMode.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
+- **admin/src/hooks/useDarkMode.ts** (Line 0): document.write() usage - consider using DOM manipulation methods
+- **admin/src/hooks/useDebounce.ts** (Line 0): 0 innerHTML assignments - ensure content is sanitized to prevent XSS
 
-... and 1580 more warnings
+... and 1854 more warnings
 
 
 ---
@@ -1349,13 +1544,14 @@
 - code-smell: 2
 - security: 24
 
+### assets/js/ui-enhancements-controller.js (26 issues)
+- code-smell: 2
+- naming: 2
+- security: 22
+
 ### assets/js/admin/admin-ux-enhancements.js (24 issues)
 - code-smell: 4
 - security: 20
-
-### assets/js/ui-enhancements-controller.js (24 issues)
-- naming: 2
-- security: 22
 
 ### assets/js/ui-enhancements.js (24 issues)
 - code-smell: 2
@@ -1383,16 +1579,15 @@
 - code-smell: 2
 - security: 16
 
+### assets/js/widgets/help-tour.js (20 issues)
+- code-smell: 2
+- security: 16
+- duplicate: 2
+
 ### assets/js/features/data-refresh-indicator.js (18 issues)
 - dead-code: 2
 - code-smell: 2
 - security: 12
-- duplicate: 2
-
-### assets/js/features/ux-enhancements-2026.js (18 issues)
-- dead-code: 2
-- code-smell: 6
-- security: 8
 - duplicate: 2
 
 ---

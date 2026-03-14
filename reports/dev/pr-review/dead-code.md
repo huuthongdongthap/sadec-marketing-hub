@@ -1,8 +1,8 @@
 # Dead Code Detection Report
 
-**Generated:** 2026-03-14T00:42:06.422Z
-**Files Scanned:** 210
-**Total Issues:** 139
+**Generated:** 2026-03-14T03:57:01.720Z
+**Files Scanned:** 254
+**Total Issues:** 147
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Type | Count |
 |------|-------|
-| Unused Functions | 68 |
-| Commented Code | 34 |
-| Unreachable Code | 37 |
+| Unused Functions | 66 |
+| Commented Code | 39 |
+| Unreachable Code | 42 |
 | Duplicate | 0 |
 
 ---
@@ -73,13 +73,6 @@
 - **Line 402:** Function 'animate' appears unused
 - **Line 1:** Large comment block (17 lines) - consider removing or documenting
 
-### assets/js/features/quick-notes.js (4 issues)
-
-- **Line 136:** Function 'toggleCollapse' appears unused
-- **Line 309:** Function 'createNewNote' appears unused
-- **Line 1:** Large comment block (18 lines) - consider removing or documenting
-- **Line 439:** Code after return statement
-
 ### assets/js/features/quick-tools-panel.js (4 issues)
 
 - **Line 526:** Function 'hexToRgb' appears unused
@@ -130,6 +123,11 @@
 
 - **Line 208:** Function 'enableAutoRefresh' appears unused
 - **Line 221:** Function 'disableAutoRefresh' appears unused
+
+### assets/js/features/quick-notes/notes-renderer.js (2 issues)
+
+- **Line 54:** Code after return statement
+- **Line 69:** Code after return statement
 
 ### assets/js/finance-client.js (2 issues)
 
