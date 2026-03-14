@@ -157,10 +157,8 @@ describe('Accordion', () => {
     // Open the item
     fireEvent.click(trigger)
 
-    // After opening, need to re-query
-    const newTrigger = screen.getByText('Item 1')
-    const rotatedChevron = newTrigger.parentElement?.querySelector('svg')
-    // Note: This might need adjustment based on actual class implementation
+    // After opening, the content should be visible
+    expect(screen.getByText('Content 1')).toBeInTheDocument()
   })
 
   it('supports custom icon in trigger', () => {
