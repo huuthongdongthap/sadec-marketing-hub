@@ -2,17 +2,18 @@ name = "sadec-marketing-hub-api"
 main = "src/index.ts"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-
-# ── R2 Storage (thay Supabase Storage) ──────────────────────────────
-[[r2_buckets]]
-binding = "ASSETS_BUCKET"
-bucket_name = "sadec-assets"
+account_id = "b69fee03bdd94234eea8e4114cfc36ab"
 
 # ── D1 Database (thay Supabase Postgres data tables) ─────────────────
 [[d1_databases]]
 binding = "DB"
 database_name = "sadec-db"
-database_id = "YOUR_D1_DATABASE_ID"  # Fill after: wrangler d1 create sadec-db
+database_id = "0ec55f8d-b366-4530-a6e7-e5d67ac95830"
+
+# ── R2 Storage — uncomment after enabling R2 in Cloudflare dashboard ──
+# [[r2_buckets]]
+# binding = "ASSETS_BUCKET"
+# bucket_name = "sadec-assets"
 
 # ── Environment Variables ────────────────────────────────────────────
 [vars]
@@ -22,7 +23,7 @@ APP_URL = "https://sadec-marketing-hub.pages.dev"
 
 # Secrets (set via: wrangler secret put <NAME>)
 # SUPABASE_URL
-# SUPABASE_JWT_SECRET       ← verify auth tokens from frontend
+# SUPABASE_JWT_SECRET
 # VNPAY_TMN_CODE
 # VNPAY_SECRET_KEY
 # MOMO_PARTNER_CODE
@@ -37,8 +38,3 @@ APP_URL = "https://sadec-marketing-hub.pages.dev"
 [dev]
 port = 8787
 local_protocol = "http"
-
-# ── Routes ───────────────────────────────────────────────────────────
-[[routes]]
-pattern = "sadec-marketing-hub.pages.dev/api/*"
-zone_name = "pages.dev"
