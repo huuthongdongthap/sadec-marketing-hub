@@ -13,7 +13,7 @@
 | **SEO Metadata** | 201/201 (100%) | ✅ Excellent | ✅ Complete |
 | **Security Headers** | 10/10 | ✅ Excellent | ➡️ Stable |
 | **Code Quality** | 82/100 | ✅ Good | ⬆️ +17% |
-| **Accessibility** | 66/201 (33%) | 🟡 Needs Work | ⬆️ +4% |
+| **Accessibility** | 67/201 (33%) | 🟡 Needs Work | ⬆️ +4% |
 | **npm Vulnerabilities** | 3 (dev only) | 🟡 Low | ➡️ Stable |
 
 ---

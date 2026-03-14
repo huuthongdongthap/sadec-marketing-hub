@@ -15,7 +15,7 @@
 | **Tech Debt** | 115 TODO/FIXME | ⚠️ LOW |
 | **Accessibility** | 1628 aria-label, 115 skip-link | ✅ GOOD |
 | **Test Coverage** | 69 spec files | ✅ GOOD |
-| **SEO Metadata** | 1378 OG/JSON-LD | ✅ GOOD |
+| **SEO Metadata** | 604 OG/JSON-LD | ✅ GOOD |
 
 ---
 
@@ -89,7 +89,7 @@ Header set Access-Control-Max-Age "86400"
 
 | Tag | Count | Status |
 |-----|-------|--------|
-| Open Graph (og:) + JSON-LD | 1378 | ✅ GOOD |
+| Open Graph (og:) + JSON-LD | 604 | ✅ GOOD |
 
 ---
 

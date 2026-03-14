@@ -1,7 +1,7 @@
 # SEO Auto-Fix Report
 
 **Date:** 2026-03-14
-**Files Modified:** 134
+**Files Modified:** 135
 **Errors:** 0
 
 ## Modified Files
@@ -944,4 +944,15 @@ Changes:
 
 Changes:
 - Added skip link
+
+### reports/quality-scan/audit-report.html
+
+Changes:
+- Added description
+- Added Open Graph tags
+- Added Twitter Card tags
+- Added canonical URL
+- Added JSON-LD structured data
+- Added skip link
+- Added main landmark
 
