@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 import { Search, X } from 'lucide-react'
-import { useTimeoutCleanup, useDebouncedCallback } from '@/hooks/useDebounce'
+import { useDebouncedCallback } from '@/hooks/useDebounce'
 
 export interface SearchInputProps {
   /** Current value */

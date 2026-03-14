@@ -344,7 +344,7 @@ function App() {
           </Tooltip>
         </h3>
 
-        <Tabs defaultValue="overview" onValueChange={setActiveTab}>
+        <Tabs defaultValue="overview">
           <TabsList>
             <TabsTrigger value="overview" icon={<TrendingUp className="w-4 h-4" />}>
               Tổng quan
