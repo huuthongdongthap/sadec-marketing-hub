@@ -115,6 +115,14 @@ function App() {
           <p className="text-gray-500">Tổng quan hiệu suất marketing</p>
         </div>
         <div className="flex gap-2">
+          <button
+            onClick={toggleTheme}
+            className="btn-outline flex items-center gap-2"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {isDark ? 'Sáng' : 'Tối'}
+          </button>
           <button onClick={handleTestToast} className="btn-outline">
             Test Toast
           </button>
@@ -276,7 +284,7 @@ function App() {
       {/* New Features Demo */}
       <div className="card mb-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          <Tooltip content="DataTable với sorting, pagination, selection">
+          <Tooltip content="DataTable với sorting, pagination, selection, export">
             <span className="flex items-center gap-2">
               Features Mới
               <Info className="w-4 h-4 text-gray-400" />
@@ -284,17 +292,28 @@ function App() {
           </Tooltip>
         </h3>
 
-        {/* Search Input */}
-        <div className="mb-4">
+        {/* Search Input and Filter */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-4">
           <SearchInput
             value={searchQuery}
             onChange={setSearchQuery}
             placeholder="Tìm kiếm chiến dịch..."
-            className="max-w-md"
+            className="flex-1 max-w-md"
+          />
+          <Select
+            value={selectedStatus}
+            onChange={setSelectedStatus}
+            options={[
+              { value: 'all', label: 'Tất cả trạng thái' },
+              { value: 'active', label: 'Đang hoạt động' },
+              { value: 'pending', label: 'Chờ duyệt' },
+              { value: 'inactive', label: 'Không hoạt động' }
+            ]}
+            className="sm:w-48"
           />
         </div>
 
-        {/* Data Table */}
+        {/* Data Table with Export */}
         <DataTable
           data={filteredData}
           columns={columns}
@@ -302,6 +321,8 @@ function App() {
           selectedKeys={selectedRows}
           onSelectionChange={setSelectedRows}
           pageSize={3}
+          enableExport
+          exportFilename="chiến-dịch-marketing"
         />
 
         {selectedRows.length > 0 && (
@@ -311,6 +332,190 @@ function App() {
             </p>
           </div>
         )}
+      </div>
+
+      {/* Tabs Demo */}
+      <div className="card mb-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <Tooltip content="Tabs component với nội dung chuyển đổi">
+            <span className="flex items-center gap-2">
+              Tabs Component
+              <Info className="w-4 h-4 text-gray-400" />
+            </span>
+          </Tooltip>
+        </h3>
+
+        <Tabs defaultValue="overview" onValueChange={setActiveTab}>
+          <TabsList>
+            <TabsTrigger value="overview" icon={<TrendingUp className="w-4 h-4" />}>
+              Tổng quan
+            </TabsTrigger>
+            <TabsTrigger value="analytics" icon={<Search className="w-4 h-4" />}>
+              Phân tích
+            </TabsTrigger>
+            <TabsTrigger value="reports" icon={<Download className="w-4 h-4" />}>
+              Báo cáo
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview">
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h4 className="font-medium text-gray-900 mb-2">Tổng quan chiến dịch</h4>
+              <p className="text-gray-600">Hiển thị thông tin tổng quan về tất cả chiến dịch đang chạy.</p>
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <ProgressBar value={75} label="Hoàn thành" showLabel />
+                <ProgressBar value={45} variant="success" showLabel />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="analytics">
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h4 className="font-medium text-gray-900 mb-2">Phân tích hiệu suất</h4>
+              <p className="text-gray-600">Biểu đồ và số liệu phân tích chi tiết.</p>
+              <div className="mt-4 flex gap-4">
+                <ProgressBar value={60} variant="warning" animated showLabel />
+                <ProgressBar value={85} variant="info" showLabel />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="reports">
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h4 className="font-medium text-gray-900 mb-2">Báo cáo</h4>
+              <p className="text-gray-600">Tải xuống các báo cáo hiệu suất chiến dịch.</p>
+              <button className="btn-primary mt-4 flex items-center gap-2">
+                <Download className="w-4 h-4" />
+                Tải báo cáo PDF
+              </button>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+
+      {/* Accordion & Select Demo */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        {/* Accordion Demo */}
+        <div className="card">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <Tooltip content="Accordion component với collapsible sections">
+              <span className="flex items-center gap-2">
+                Accordion Component
+                <Info className="w-4 h-4 text-gray-400" />
+              </span>
+            </Tooltip>
+          </h3>
+
+          <Accordion allowMultiple defaultValue={['general']}>
+            <AccordionItem value="general">
+              <AccordionTrigger icon={<Info className="w-5 h-5" />}>
+                Cài đặt chung
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600">
+                  Cấu hình các tùy chọn chung cho chiến dịch của bạn.
+                  Bao gồm tên, ngân sách, và thời gian chạy.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="targeting">
+              <AccordionTrigger icon={<Search className="w-5 h-5" />}>
+                Targeting
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600">
+                  Thiết lập đối tượng mục tiêu theo nhân khẩu học,
+                  sở thích, và hành vi.
+                </p>
+                <Select
+                  options={[
+                    { value: 'all', label: 'Tất cả mọi người' },
+                    { value: '18-24', label: '18-24 tuổi' },
+                    { value: '25-34', label: '25-34 tuổi' },
+                    { value: '35-44', label: '35-44 tuổi' }
+                  ]}
+                  placeholder="Chọn độ tuổi"
+                  className="mt-2"
+                />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="advanced">
+              <AccordionTrigger icon={<Filter className="w-5 h-5" />}>
+                Nâng cao
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-gray-600">
+                  Các tùy chọn nâng cao như A/B testing,
+                  optimization, và bidding strategy.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* ProgressBar Demo */}
+        <div className="card">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <Tooltip content="ProgressBar component với variants">
+              <span className="flex items-center gap-2">
+                ProgressBar Component
+                <Info className="w-4 h-4 text-gray-400" />
+              </span>
+            </Tooltip>
+          </h3>
+
+          <div className="space-y-6">
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Primary</span>
+                <span className="text-gray-500">75%</span>
+              </div>
+              <ProgressBar value={75} showLabel={false} />
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Success</span>
+                <span className="text-gray-500">90%</span>
+              </div>
+              <ProgressBar value={90} variant="success" />
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Warning</span>
+                <span className="text-gray-500">45%</span>
+              </div>
+              <ProgressBar value={45} variant="warning" />
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Danger</span>
+                <span className="text-gray-500">25%</span>
+              </div>
+              <ProgressBar value={25} variant="danger" />
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Animated</span>
+                <span className="text-gray-500">60%</span>
+              </div>
+              <ProgressBar value={60} animated variant="info" />
+            </div>
+
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-gray-700">Large Size</span>
+                <span className="text-gray-500">80%</span>
+              </div>
+              <ProgressBar value={80} size="lg" variant="primary" />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Modal */}
