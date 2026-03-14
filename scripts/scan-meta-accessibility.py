@@ -140,12 +140,20 @@ def check_form_labels(content, file_path):
         inp_tag = inp.group()
         inp_id = re.search(r'id=["\']([^"\']+)["\']', inp_tag)
 
+        # Check if input has accessible label
+        has_aria_label = 'aria-label=' in inp_tag.lower()
+        has_aria_labelledby = 'aria-labelledby=' in inp_tag.lower()
+        has_placeholder = 'placeholder=' in inp_tag.lower()
+
         if inp_id:
             # Check if there's a label for this id
             label_pattern = rf'<label[^>]*for=["\']{inp_id.group(1)}["\']'
-            if not re.search(label_pattern, content, re.IGNORECASE):
+            has_label_for = re.search(label_pattern, content, re.IGNORECASE)
+
+            # Input is accessible if it has label[for], aria-label, or aria-labelledby
+            if not has_label_for and not has_aria_label and not has_aria_labelledby:
                 issues.append(f"Input#{inp_id.group(1)} missing label")
-        elif 'aria-label' not in inp_tag.lower() and 'placeholder' not in inp_tag.lower():
+        elif not has_aria_label and not has_aria_labelledby and not has_placeholder:
             issues.append(f"Input without id/aria-label: {inp_tag[:50]}")
 
     if issues:
