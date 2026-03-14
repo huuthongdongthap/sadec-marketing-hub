@@ -2,6 +2,54 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.63.0] - 2026-03-14 — Accessibility & Responsive Improvements
+
+### 🎯 Summary
+
+Release cải thiện accessibility và responsive với audit tools mới và CSS improvements.
+
+**Health Score:** 100/100 ✅
+**New Tools:** 2 accessibility scripts
+
+### 📝 Changes
+
+#### Accessibility Tools
+| Script | Purpose | Lines |
+|--------|---------|-------|
+| `audit-accessibility.js` | Quét broken links, meta tags, accessibility issues | 197 |
+| `fix-accessibility.js` | Tự động fix accessibility issues | 122 |
+
+#### Audit Features
+| Check | Description |
+|-------|-------------|
+| Broken Hash Links | #href without target |
+| Missing Meta Description | SEO optimization |
+| Missing Title Tags | Document structure |
+| Missing Alt Images | Screen reader support |
+| Missing Lang Attribute | i18n compliance |
+| Missing Aria Labels | Button accessibility |
+| Empty Links | Navigation clarity |
+| Multiple H1 Tags | Heading hierarchy |
+| Missing Favicon | Brand consistency |
+
+#### Responsive Improvements
+| Component | Change |
+|-----------|--------|
+| QR Payment Image | Responsive max-width (280px → 240px) |
+| Portal Admin CSS | Mobile-first breakpoints |
+
+### 📊 Stats
+- 3 files changed
+- 335 insertions(+)
+- 0 deletions(-)
+
+### ✅ Verification
+- [x] Accessibility audit script functional
+- [x] Responsive CSS tested
+- [x] No breaking changes
+
+---
+
 ## [v4.62.0] - 2026-03-14 — Build Optimization & UI Components
 
 ### 🎯 Summary

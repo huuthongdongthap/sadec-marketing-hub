@@ -94,6 +94,17 @@
         border: 1px solid #ddd;
     }
 
+    /* QR Payment Image - Responsive */
+    .qr-payment-image {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+        margin: 16px auto;
+        display: block;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+    }
+
     /* Main content: Full width */
     .main-content,
     .admin-content,
@@ -391,6 +402,11 @@
     .stat-card,
     .kpi-card {
         padding: var(--space-3);
+    }
+
+    /* QR Payment Image - Smallest screens */
+    .qr-payment-image {
+        max-width: 240px !important;
     }
 
     /* Buttons: Smaller padding */
