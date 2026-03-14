@@ -1701,6 +1701,41 @@
     "line": 0
   },
   {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (13 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 115
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/components/pagination-component.js",
     "type": "security",
     "severity": "warning",
@@ -1783,6 +1818,34 @@
     "severity": "info",
     "issue": "1 duplicate code patterns found - consider extracting to functions",
     "line": 1
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "3 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 75
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
   },
   {
     "file": "assets/js/components/reading-progress.js",
@@ -1993,6 +2056,34 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (23 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 76
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/components/tabs.js",
@@ -2366,6 +2457,27 @@
     "line": 0
   },
   {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (22 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "0 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 0
+  },
+  {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/data-sync-init.js",
     "type": "dead-code",
     "severity": "warning",
@@ -2723,6 +2835,69 @@
     "line": 188
   },
   {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (13 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (72 lines) - consider breaking into smaller functions",
+    "line": 24
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "1 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 27
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "2 duplicate code patterns found - consider extracting to functions",
+    "line": 1
+  },
+  {
     "file": "assets/js/features/features-2026.js",
     "type": "dead-code",
     "severity": "warning",
@@ -3036,6 +3211,69 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (14 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (59 lines) - consider breaking into smaller functions",
+    "line": 19
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (57 lines) - consider breaking into smaller functions",
+    "line": 19
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "info",
+    "issue": "6 magic numbers found - consider using named constants",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "4 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 69
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/features/widget-customizer.js",
@@ -4155,7 +4393,7 @@
     "type": "security",
     "severity": "warning",
     "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
-    "line": 88
+    "line": 103
   },
   {
     "file": "assets/js/services/enhanced-utils.js",
@@ -4998,6 +5236,83 @@
     "line": 0
   },
   {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (59 lines) - consider breaking into smaller functions",
+    "line": 25
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "info",
+    "issue": "6 magic numbers found - consider using named constants",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "6 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 123
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/ui-enhancements-controller.js",
     "type": "naming",
     "severity": "info",
@@ -5269,6 +5584,48 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (24 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "1 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 245
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/utils/dom.js",
@@ -7175,6 +7532,41 @@
     "line": 0
   },
   {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (13 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 115
+  },
+  {
+    "file": "assets/js/components/notification-preferences.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/components/pagination-component.js",
     "type": "security",
     "severity": "warning",
@@ -7257,6 +7649,34 @@
     "severity": "info",
     "issue": "1 duplicate code patterns found - consider extracting to functions",
     "line": 1
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "3 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 75
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
   },
   {
     "file": "assets/js/components/reading-progress.js",
@@ -7467,6 +7887,34 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (23 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 76
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/components/tabs.js",
@@ -7840,6 +8288,27 @@
     "line": 0
   },
   {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (22 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "0 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 0
+  },
+  {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/data-sync-init.js",
     "type": "dead-code",
     "severity": "warning",
@@ -8197,6 +8666,69 @@
     "line": 188
   },
   {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (13 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (72 lines) - consider breaking into smaller functions",
+    "line": 24
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "1 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 27
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "2 duplicate code patterns found - consider extracting to functions",
+    "line": 1
+  },
+  {
     "file": "assets/js/features/features-2026.js",
     "type": "dead-code",
     "severity": "warning",
@@ -8510,6 +9042,69 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (14 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (59 lines) - consider breaking into smaller functions",
+    "line": 19
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (57 lines) - consider breaking into smaller functions",
+    "line": 19
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "info",
+    "issue": "6 magic numbers found - consider using named constants",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "4 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 69
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/features/widget-customizer.js",
@@ -9629,7 +10224,7 @@
     "type": "security",
     "severity": "warning",
     "issue": "2 innerHTML assignments - ensure content is sanitized to prevent XSS",
-    "line": 88
+    "line": 103
   },
   {
     "file": "assets/js/services/enhanced-utils.js",
@@ -10472,6 +11067,83 @@
     "line": 0
   },
   {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (59 lines) - consider breaking into smaller functions",
+    "line": 25
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "code-smell",
+    "severity": "info",
+    "issue": "6 magic numbers found - consider using named constants",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "6 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 123
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
     "file": "assets/js/ui-enhancements-controller.js",
     "type": "naming",
     "severity": "info",
@@ -10743,6 +11415,48 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "dead-code",
+    "severity": "warning",
+    "issue": "Large comment block (24 lines) - possibly commented-out code",
+    "line": 1
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "error",
+    "issue": "eval() usage detected - potential security risk",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "1 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 245
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "1 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "assets/js/utils/dom.js",
@@ -11929,6 +12643,27 @@
   },
   {
     "file": "scripts/find-broken.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "scripts/fix-affiliate-html.js",
+    "type": "code-smell",
+    "severity": "warning",
+    "issue": "Long function (64 lines) - consider breaking into smaller functions",
+    "line": 25
+  },
+  {
+    "file": "scripts/fix-affiliate-html.js",
+    "type": "security",
+    "severity": "warning",
+    "issue": "0 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 0
+  },
+  {
+    "file": "scripts/fix-affiliate-html.js",
     "type": "security",
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
@@ -15127,6 +15862,27 @@
     "line": 1
   },
   {
+    "file": "tests/dashboard-widgets-e2e.spec.ts",
+    "type": "security",
+    "severity": "warning",
+    "issue": "0 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 0
+  },
+  {
+    "file": "tests/dashboard-widgets-e2e.spec.ts",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "tests/dashboard-widgets-e2e.spec.ts",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "3 duplicate code patterns found - consider extracting to functions",
+    "line": 1
+  },
+  {
     "file": "tests/dashboard-widgets.spec.ts",
     "type": "security",
     "severity": "warning",
@@ -15972,6 +16728,27 @@
     "severity": "warning",
     "issue": "document.write() usage - consider using DOM manipulation methods",
     "line": 0
+  },
+  {
+    "file": "tests/ui-enhancements-e2e.spec.ts",
+    "type": "security",
+    "severity": "warning",
+    "issue": "3 innerHTML assignments - ensure content is sanitized to prevent XSS",
+    "line": 49
+  },
+  {
+    "file": "tests/ui-enhancements-e2e.spec.ts",
+    "type": "security",
+    "severity": "warning",
+    "issue": "document.write() usage - consider using DOM manipulation methods",
+    "line": 0
+  },
+  {
+    "file": "tests/ui-enhancements-e2e.spec.ts",
+    "type": "duplicate",
+    "severity": "info",
+    "issue": "3 duplicate code patterns found - consider extracting to functions",
+    "line": 1
   },
   {
     "file": "tests/ui-motion-animations.spec.ts",
