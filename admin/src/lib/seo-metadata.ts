@@ -209,43 +209,5 @@ export function generateJsonLd(metadata: PageMetadata): string {
   }, null, 2)
 }
 
-/* eslint-disable */
-/**
- * React Helmet helper component usage example:
- *
- * import { getPageMetadata, generateJsonLd } from '@/lib/seo-metadata'
- *
- * function Page() {
- *   const metadata = getPageMetadata(location.pathname)
- *
- *   return (
- *     <>
- *       <Helmet>
- *         <title>{metadata.title}</title>
- *         <meta name="description" content={metadata.description} />
- *         <meta name="keywords" content={metadata.keywords} />
- *         {metadata.robots && <meta name="robots" content={metadata.robots} />}
- *         <link rel="canonical" href={metadata.canonical} />
- *
- *         {/* Open Graph */}
- *         <meta property="og:title" content={metadata.title} />
- *         <meta property="og:description" content={metadata.description} />
- *         <meta property="og:type" content={metadata.ogType || 'website'} />
- *         <meta property="og:url" content={metadata.canonical} />
- *         <meta property="og:image" content={`${BASE_URL}/og-image.png`} />
- *
- *         {/* Twitter Card */}
- *         <meta name="twitter:card" content="summary_large_image" />
- *         <meta name="twitter:title" content={metadata.title} />
- *         <meta name="twitter:description" content={metadata.description} />
- *         <meta name="twitter:image" content={`${BASE_URL}/og-image.png`} />
- *
- *         {/* JSON-LD */}
- *         <script type="application/ld+json" children={generateJsonLd(metadata)} />
- *       </Helmet>
- *       {/* Page content */}
- *     </>
- *   )
- * }
- */
-/* eslint-enable */
+// Usage: import { getPageMetadata, generateJsonLd } from '@/lib/seo-metadata'
+// See documentation for React Helmet integration example

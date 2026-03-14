@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { VitePWA } from 'vite-plugin-pwa';
-import brotli from 'rollup-plugin-brotli';
-import visualizer from 'rollup-plugin-visualizer';
+// import brotli from 'rollup-plugin-brotli'
+// import visualizer from 'rollup-plugin-visualizer'
 export default defineConfig({
     plugins: [
         react(),
@@ -77,19 +77,19 @@ export default defineConfig({
                 ]
             }
         }),
-        // Brotli compression for production
-        process.env.NODE_ENV === 'production' && brotli({
-            asset: '[path].br',
-            test: /\.(js|css|svg|json|html|ico)$/,
-            threshold: 10240 // Only files > 10KB
-        }),
-        // Bundle visualization for analysis
-        visualizer({
-            open: false,
-            gzipSize: true,
-            brotliSize: true,
-            filename: 'dist/stats.html'
-        })
+        // Brotli compression for production (disabled - install with: npm i -D rollup-plugin-brotli)
+        // process.env.NODE_ENV === 'production' && brotli({
+        //   asset: '[path].br',
+        //   test: /\.(js|css|svg|json|html|ico)$/,
+        //   threshold: 10240 // Only files > 10KB
+        // }),
+        // Bundle visualization for analysis (disabled - install with: npm i -D rollup-plugin-visualizer)
+        // visualizer({
+        //   open: false,
+        //   gzipSize: true,
+        //   brotliSize: true,
+        //   filename: 'dist/stats.html'
+        // })
     ].filter(Boolean),
     resolve: {
         alias: {

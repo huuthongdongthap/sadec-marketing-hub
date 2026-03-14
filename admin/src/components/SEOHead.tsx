@@ -112,7 +112,7 @@ export const DocumentHead: React.FC<{
           key={url}
           rel="preconnect"
           href={url}
-          crossOrigin={url.includes('supabase') || url.includes('jsdelivr') ? 'true' : undefined}
+          crossOrigin={url.includes('supabase') || url.includes('jsdelivr') ? 'anonymous' : undefined}
         />
       ))}
 
