@@ -168,6 +168,294 @@ const PAGE_SEO = {
         robots: 'index, follow',
         url: 'https://sadecmarketinghub.com/admin/raas-overview.html'
     },
+    'admin/ai-analysis.html': {
+        title: 'AI Analysis - Phân tích Thông minh',
+        description: 'Phân tích dữ liệu bằng AI - Insights tự động, dự báo xu hướng marketing',
+        keywords: 'AI analysis, marketing analytics, machine learning, predictive analytics',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/ai-analysis.html'
+    },
+    'admin/api-builder.html': {
+        title: 'API Builder - Xây dựng API',
+        description: 'Công cụ xây dựng API không cần code - Tạo endpoints tùy chỉnh',
+        keywords: 'API builder, no-code API, endpoint builder, integration',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/api-builder.html'
+    },
+    'admin/approvals.html': {
+        title: 'Approvals - Phê duyệt',
+        description: 'Hệ thống phê duyệt - Quản lý workflow và approval requests',
+        keywords: 'approvals, workflow, approval requests, management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/approvals.html'
+    },
+    'admin/auth.html': {
+        title: 'Authentication - Xác thực',
+        description: 'Quản lý xác thực và phân quyền người dùng',
+        keywords: 'authentication, authorization, user management, security',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/auth.html'
+    },
+    'admin/agents.html': {
+        title: 'AI Agents - Agents Thông minh',
+        description: 'Đội ngũ AI agents - Tự động hóa tasks marketing và sales',
+        keywords: 'AI agents, marketing automation, autonomous agents, AI team',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/agents.html'
+    },
+    'admin/community.html': {
+        title: 'Community - Cộng đồng',
+        description: 'Cộng đồng marketers - Kết nối, học hỏi và chia sẻ kinh nghiệm',
+        keywords: 'community, marketing community, networking, collaboration',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/community.html'
+    },
+    'admin/content-calendar.html': {
+        title: 'Content Calendar - Lịch nội dung',
+        description: 'Lịch biên tập nội dung - Lên kế hoạch và quản lý content đa kênh',
+        keywords: 'content calendar, editorial calendar, content planning, social media scheduler',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/content-calendar.html'
+    },
+    'admin/customer-success.html': {
+        title: 'Customer Success - Thành công Khách hàng',
+        description: 'Quản lý customer success - Đảm bảo khách hàng đạt được giá trị',
+        keywords: 'customer success, customer satisfaction, retention, account management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/customer-success.html'
+    },
+    'admin/deploy.html': {
+        title: 'Deploy - Triển khai',
+        description: 'Triển khai dự án - CI/CD pipeline và deployment management',
+        keywords: 'deploy, deployment, CI/CD, release management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/deploy.html'
+    },
+    'admin/events.html': {
+        title: 'Events - Sự kiện',
+        description: 'Quản lý sự kiện - Tổ chức webinars, workshops và marketing events',
+        keywords: 'events, event management, webinars, workshops, marketing events',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/events.html'
+    },
+    'admin/hr-hiring.html': {
+        title: 'HR & Hiring - Tuyển dụng',
+        description: 'Quản lý nhân sự và tuyển dụng - ATS và employee management',
+        keywords: 'HR, hiring, recruitment, ATS, employee management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/hr-hiring.html'
+    },
+    'admin/inventory.html': {
+        title: 'Inventory - Quản lý Kho',
+        description: 'Quản lý kho và tồn kho - Theo dõi sản phẩm và nguyên vật liệu',
+        keywords: 'inventory management, stock management, warehouse, inventory tracking',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/inventory.html'
+    },
+    'admin/landing-builder.html': {
+        title: 'Landing Builder - Trình tạo Landing Page',
+        description: 'Trình tạo landing page kéo thả - Tạo trang đích chuyển đổi cao',
+        keywords: 'landing page builder, page builder, drag-and-drop, conversion optimization',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/landing-builder.html'
+    },
+    'admin/lms.html': {
+        title: 'LMS - Learning Management System',
+        description: 'Hệ thống quản lý học tập - Đào tạo và certification',
+        keywords: 'LMS, learning management, e-learning, training, certification',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/lms.html'
+    },
+    'admin/loyalty.html': {
+        title: 'Loyalty - Chương trình Thành viên',
+        description: 'Chương trình loyalty và rewards - Giữ chân khách hàng',
+        keywords: 'loyalty program, rewards, membership, customer retention',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/loyalty.html'
+    },
+    'admin/menu.html': {
+        title: 'Menu - Quản lý Thực đơn',
+        description: 'Quản lý thực đơn cho F&B - Menu builder và pricing',
+        keywords: 'menu management, F&B menu, restaurant menu, pricing',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/menu.html'
+    },
+    'admin/mvp-launch.html': {
+        title: 'MVP Launch - Ra mắt Sản phẩm',
+        description: 'Quy trình ra mắt MVP - Go-to-market strategy và launch checklist',
+        keywords: 'MVP launch, product launch, go-to-market, product release',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/mvp-launch.html'
+    },
+    'admin/notifications.html': {
+        title: 'Notifications - Thông báo',
+        description: 'Hệ thống thông báo - Real-time notifications và alerts',
+        keywords: 'notifications, alerts, real-time updates, push notifications',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/notifications.html'
+    },
+    'admin/payments.html': {
+        title: 'Payments - Thanh toán',
+        description: 'Quản lý thanh toán - Payment gateway và billing',
+        keywords: 'payments, payment gateway, billing, invoicing, payment processing',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/payments.html'
+    },
+    'admin/pipeline.html': {
+        title: 'Pipeline - Quản lý Dự án',
+        description: 'Quản lý pipeline dự án - Theo dõi tiến độ và milestones',
+        keywords: 'pipeline, project management, project tracking, milestones',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/pipeline.html'
+    },
+    'admin/pos.html': {
+        title: 'POS - Point of Sale',
+        description: 'Hệ thống POS - Bán hàng tại quầy và quản lý giao dịch',
+        keywords: 'POS, point of sale, retail POS, sales management, cash register',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/pos.html'
+    },
+    'admin/proposals.html': {
+        title: 'Proposals - Đề xuất',
+        description: 'Tạo và quản lý proposals - Sales proposals và client quotes',
+        keywords: 'proposals, sales proposals, quotes, client proposals, bid management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/proposals.html'
+    },
+    'admin/quality.html': {
+        title: 'Quality - Quản lý Chất lượng',
+        description: 'Quản lý chất lượng - QA/QC và quality assurance',
+        keywords: 'quality management, QA, QC, quality assurance, quality control',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/quality.html'
+    },
+    'admin/retention.html': {
+        title: 'Retention - Giữ chân Khách hàng',
+        description: 'Chiến lược retention - Giảm churn và tăng customer lifetime value',
+        keywords: 'retention, customer retention, churn reduction, CLV, loyalty',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/retention.html'
+    },
+    'admin/roiaas-admin.html': {
+        title: 'ROIaaS Admin - Quản trị ROI',
+        description: 'Quản trị ROI-as-a-Service - Theo dõi và tối ưu ROI marketing',
+        keywords: 'ROI management, ROIaaS, marketing ROI, performance tracking',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/roiaas-admin.html'
+    },
+    'admin/shifts.html': {
+        title: 'Shifts - Quản lý Ca làm việc',
+        description: 'Quản lý ca làm việc - Scheduling và attendance tracking',
+        keywords: 'shift management, scheduling, attendance, workforce management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/shifts.html'
+    },
+    'admin/suppliers.html': {
+        title: 'Suppliers - Nhà cung cấp',
+        description: 'Quản lý nhà cung cấp - Vendor management và procurement',
+        keywords: 'suppliers, vendor management, procurement, supplier relationships',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/suppliers.html'
+    },
+    'admin/vc-readiness.html': {
+        title: 'VC Readiness - Sẵn gọi vốn',
+        description: 'Chuẩn bị gọi vốn - Investor deck và fundraising preparation',
+        keywords: 'VC readiness, fundraising, investor pitch, venture capital, startup funding',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/vc-readiness.html'
+    },
+    'admin/video-workflow.html': {
+        title: 'Video Workflow - Quy trình Video',
+        description: 'Quy trình sản xuất video - Content creation và video marketing',
+        keywords: 'video workflow, video production, content creation, video marketing',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/video-workflow.html'
+    },
+    'admin/workflows.html': {
+        title: 'Workflows - Quy trình Tự động',
+        description: 'Automation workflows - Thiết lập và quản lý automated workflows',
+        keywords: 'workflows, automation, workflow builder, process automation',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/workflows.html'
+    },
+    'admin/zalo.html': {
+        title: 'Zalo Integration - Kết nối Zalo',
+        description: 'Tích hợp Zalo - Zalo OA, messaging và marketing trên Zalo',
+        keywords: 'Zalo integration, Zalo OA, Zalo marketing, messaging platform',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/zalo.html'
+    },
+    'admin/components-demo.html': {
+        title: 'Components Demo - UI Components',
+        description: 'Demo các UI components - Material Design 3 components',
+        keywords: 'UI components, component library, design system, Material Design 3',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/components-demo.html'
+    },
+    'admin/ui-components-demo.html': {
+        title: 'UI Components Demo - Giao diện',
+        description: 'Demo các component UI - Buttons, forms, cards và layouts',
+        keywords: 'UI components, UI library, frontend components, web UI',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/ui-components-demo.html'
+    },
+    'admin/ux-components-demo.html': {
+        title: 'UX Components Demo - Trải nghiệm',
+        description: 'Demo các UX components - Micro-interactions và animations',
+        keywords: 'UX components, user experience, micro-interactions, animations',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/ux-components-demo.html'
+    },
+    'admin/widgets-demo.html': {
+        title: 'Widgets Demo - Tiện ích',
+        description: 'Demo các widgets - Notification bell, theme toggle, global search',
+        keywords: 'widgets, UI widgets, web widgets, interactive components',
+        robots: 'index, follow',
+        url: 'https://sadecmarketinghub.com/admin/widgets-demo.html'
+    },
+    'admin/components/phase-tracker.html': {
+        title: 'Phase Tracker - Theo dõi Giai đoạn',
+        description: 'Component theo dõi phases - Project phase tracking',
+        keywords: 'phase tracker, project phases, progress tracking',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/components/phase-tracker.html'
+    },
+    'admin/widgets/kpi-card.html': {
+        title: 'KPI Card Widget - Thẻ KPI',
+        description: 'Widget hiển thị KPI - KPI cards và metrics display',
+        keywords: 'KPI card, metrics widget, dashboard widget, KPI display',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/widgets/kpi-card.html'
+    },
+    'admin/widgets/global-search.html': {
+        title: 'Global Search Widget - Tìm kiếm',
+        description: 'Widget tìm kiếm toàn cục - Command palette và search',
+        keywords: 'global search, command palette, search widget, keyboard search',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/widgets/global-search.html'
+    },
+    'admin/widgets/notification-bell.html': {
+        title: 'Notification Bell - Chuông Thông báo',
+        description: 'Widget thông báo - Real-time notifications',
+        keywords: 'notification bell, notifications, alerts, real-time updates',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/widgets/notification-bell.html'
+    },
+    'admin/widgets/theme-toggle.html': {
+        title: 'Theme Toggle - Chuyển Chế độ',
+        description: 'Widget chuyển chế độ sáng/tối - Dark mode toggle',
+        keywords: 'theme toggle, dark mode, light mode, theme switcher',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/widgets/theme-toggle.html'
+    },
+    'admin/widgets/conversion-funnel.html': {
+        title: 'Conversion Funnel Widget - Phễu Chuyển đổi',
+        description: 'Widget hiển thị conversion funnel - Funnel analytics',
+        keywords: 'conversion funnel, funnel widget, analytics widget, conversion tracking',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/admin/widgets/conversion-funnel.html'
+    },
+
 
     // Portal pages
     'portal/dashboard.html': {
@@ -192,6 +480,41 @@ const PAGE_SEO = {
         keywords: 'affiliate dashboard, affiliate marketing, commission tracking',
         robots: 'noindex, nofollow',
         url: 'https://sadecmarketinghub.com/affiliate/dashboard.html'
+    },
+    'affiliate/links.html': {
+        title: 'Affiliate Links - Liên kết Tiếp thị',
+        description: 'Quản lý affiliate links - Tạo và theo dõi liên kết',
+        keywords: 'affiliate links, tracking links, referral links, link management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/affiliate/links.html'
+    },
+    'affiliate/media.html': {
+        title: 'Affiliate Media - Tài nguyên Marketing',
+        description: 'Tài nguyên marketing cho affiliates - Banners, creatives, media kit',
+        keywords: 'affiliate media, marketing assets, banners, creatives, media kit',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/affiliate/media.html'
+    },
+    'affiliate/profile.html': {
+        title: 'Affiliate Profile - Hồ sơ',
+        description: 'Hồ sơ affiliate - Quản lý thông tin và thiết lập tài khoản',
+        keywords: 'affiliate profile, account settings, profile management',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/affiliate/profile.html'
+    },
+    'affiliate/referrals.html': {
+        title: 'Referrals - Giới thiệu',
+        description: 'Theo dõi referrals - Quản lý giới thiệu và conversions',
+        keywords: 'referrals, referral tracking, conversions, affiliate referrals',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/affiliate/referrals.html'
+    },
+    'affiliate/settings.html': {
+        title: 'Affiliate Settings - Cài đặt',
+        description: 'Cài đặt affiliate - Payment methods và preferences',
+        keywords: 'affiliate settings, payment settings, affiliate preferences',
+        robots: 'noindex, nofollow',
+        url: 'https://sadecmarketinghub.com/affiliate/settings.html'
     },
 
     // Auth pages

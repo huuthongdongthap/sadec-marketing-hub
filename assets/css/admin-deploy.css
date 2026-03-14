@@ -141,3 +141,109 @@
             text-decoration: none;
             font-weight: 600;
         }
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+/* Tablet and below (1024px) */
+@media (max-width: 1024px) {
+    .launch-container {
+        padding: 32px 24px;
+    }
+
+    .launch-card {
+        max-width: 500px;
+    }
+}
+
+/* Mobile and below (768px) */
+@media (max-width: 768px) {
+    .launch-container {
+        padding: 24px 16px;
+        justify-content: flex-start;
+        padding-top: 80px;
+    }
+
+    .launch-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .launch-title {
+        font-size: 36px;
+    }
+
+    .checklist {
+        padding: 20px 16px;
+    }
+
+    .go-live-btn {
+        width: 160px;
+        height: 160px;
+        font-size: 18px;
+    }
+
+    .deploy-log {
+        font-size: 12px;
+        max-height: 150px;
+    }
+
+    .prod-url {
+        padding: 12px;
+    }
+
+    /* Touch target sizing */
+    .go-live-btn {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Mobile Small (375px) */
+@media (max-width: 375px) {
+    .launch-container {
+        padding: 16px 12px;
+        padding-top: 60px;
+    }
+
+    .launch-title {
+        font-size: 28px;
+    }
+
+    .launch-subtitle {
+        font-size: 14px;
+    }
+
+    .checklist {
+        padding: 16px 12px;
+        border-radius: 12px;
+    }
+
+    .check-item {
+        padding: 10px 0;
+    }
+
+    .go-live-btn {
+        width: 140px;
+        height: 140px;
+        font-size: 16px;
+        border-width: 3px;
+    }
+
+    .deploy-log {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .status-text {
+        font-size: 13px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}

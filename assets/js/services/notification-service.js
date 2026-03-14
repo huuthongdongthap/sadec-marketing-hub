@@ -7,7 +7,7 @@
  * Replaces duplicate showToast functions across multiple files.
  *
  * USAGE:
- *   import { notify } from './services/notification-service.js';
+ *   import { notify } from './notification-service.js';
  *
  *   notify.success('Operation completed!');
  *   notify.error('Something went wrong');
@@ -15,7 +15,7 @@
  *   notify.info('New message received');
  *
  *   // Or use shorthand
- *   import { success, error, warning, info } from './services/notification-service.js';
+ *   import { success, error, warning, info } from './notification-service.js';
  *   success('Done!');
  *   error('Failed!');
  */

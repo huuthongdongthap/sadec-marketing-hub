@@ -5,7 +5,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  *
  * Usage:
- *   import ScrollListener from './shared/scroll-listener.js';
+ *   import ScrollListener from './scroll-listener.js';
  *
  *   // Add scroll listener
  *   ScrollListener.add('back-to-top', () => {

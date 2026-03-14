@@ -5,7 +5,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  *
  * Usage:
- *   import AnalyticsDashboard from './features/analytics-dashboard.js';
+ *   import AnalyticsDashboard from './analytics-dashboard.js';
  *   const dashboard = new AnalyticsDashboard('dashboard-container');
  */
 

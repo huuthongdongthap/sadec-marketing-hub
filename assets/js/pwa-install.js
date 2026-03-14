@@ -12,19 +12,16 @@ class PWAInstall {
     }
 
     init() {
-        console.log('[PWAInstall] Initialized');
         this.setupInstallListener();
     }
 
     setupInstallListener() {
         window.addEventListener('beforeinstallprompt', (e) => {
-            console.log('[PWAInstall] Install prompt available');
             this.deferredPrompt = e;
             this.showInstallButton();
         });
 
         window.addEventListener('appinstalled', () => {
-            console.log('[PWAInstall] App installed successfully');
             this.deferredPrompt = null;
             this.hideInstallButton();
         });
@@ -46,13 +43,11 @@ class PWAInstall {
 
     async promptInstall() {
         if (!this.deferredPrompt) {
-            console.log('[PWAInstall] No install prompt available');
             return;
         }
 
         this.deferredPrompt.prompt();
         const { outcome } = await this.deferredPrompt.userChoice;
-        console.log('[PWAInstall] User choice:', outcome);
         this.deferredPrompt = null;
         this.hideInstallButton();
     }

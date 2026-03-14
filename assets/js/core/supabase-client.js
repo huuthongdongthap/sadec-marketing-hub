@@ -6,12 +6,12 @@
  *
  * Usage:
  *   // Method 1: Direct imports (recommended)
- *   import { auth } from './core/auth-service.js';
- *   import { leads, clients, projects } from './core/database-service.js';
- *   import { assets, realtime } from './core/storage-service.js';
+ *   import { auth } from './auth-service.js';
+ *   import { leads, clients, projects } from './database-service.js';
+ *   import { assets, realtime } from './storage-service.js';
  *
  *   // Method 2: Unified export (backward compatible)
- *   import { auth, db, storage, realtime } from './core/supabase-client.js';
+ *   import { auth, db, storage, realtime } from './supabase-client.js';
  *
  *   // Auth
  *   const { data, error } = await auth.signIn(email, password);
@@ -42,6 +42,8 @@ export {
     approvals
 } from './database-service.js';
 export { assets, realtime, automation, fileUtils } from './storage-service.js';
+
+// Legacy self-import removed - this file IS supabase-client.js
 
 const TAG = '[SupabaseClient]';
 

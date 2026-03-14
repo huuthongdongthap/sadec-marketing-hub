@@ -7,7 +7,7 @@
  * Replaces native browser dialogs with custom styled modals.
  *
  * USAGE:
- *   import { dialog } from './services/dialog-service.js';
+ *   import { dialog } from './dialog-service.js';
  *
  *   // Confirm
  *   const confirmed = await dialog.confirm('Are you sure?');

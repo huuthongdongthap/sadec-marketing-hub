@@ -1,281 +1,238 @@
 #!/usr/bin/env node
 /**
- * 🕵️  SADÉC MARKETING HUB — COMPREHENSIVE AUDIT SCRIPT
- * Quét: Broken Links, Meta Tags, Accessibility Issues
+ * Sa Đéc Marketing Hub - Comprehensive Audit Script
+ * Quét broken links, meta tags, và accessibility issues
+ *
+ * Usage: node scripts/audit-full.js
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT_DIR = 'assets';
-const HTML_DIR = '.';
-const REPORTS_DIR = 'reports/dev/bug-sprint';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Tạo thư mục reports
-if (!fs.existsSync(REPORTS_DIR)) {
-    fs.mkdirSync(REPORTS_DIR, { recursive: true });
-}
+const ROOT_DIR = process.cwd();
+const EXCLUDE_DIRS = ['node_modules', 'dist', '.git', 'vendor'];
 
+// Audit results
 const results = {
-    brokenLinks: [],
-    metaIssues: [],
-    accessibilityIssues: [],
-    consoleStatements: [],
-    summary: {}
+    links: { broken: [], valid: 0, total: 0 },
+    meta: { missing: [], incomplete: [], complete: 0, total: 0 },
+    a11y: { issues: [], passed: 0, total: 0 }
 };
 
-// ============================================
-// 1. BROKEN LINKS SCANNER
-// ============================================
-function scanBrokenLinks(dir, relativePath = '') {
-    const files = fs.readdirSync(path.join(ROOT_DIR, dir));
+/**
+ * Get all HTML files recursively
+ */
+function getHtmlFiles(dir, fileList = []) {
+    if (!fs.existsSync(dir) || EXCLUDE_DIRS.some(ex => dir.includes(ex))) return fileList;
 
-    files.forEach(file => {
-        const fullPath = path.join(ROOT_DIR, dir, file);
-        const relPath = path.join(relativePath, file);
-        const stat = fs.statSync(fullPath);
-
-        if (stat.isDirectory() && !file.startsWith('.')) {
-            scanBrokenLinks(path.join(dir, file), relPath);
-        } else if (file.endsWith('.html')) {
-            const content = fs.readFileSync(fullPath, 'utf8');
-
-            // Tìm tất cả href attributes
-            const hrefRegex = /href=["']([^"']+)["']/g;
-            let match;
-            while ((match = hrefRegex.exec(content)) !== null) {
-                const href = match[1];
-                const lineNum = content.substring(0, match.index).split('\n').length;
-
-                // Bỏ qua external links, anchors, tel:, mailto:, javascript:
-                if (href.startsWith('http') || href.startsWith('mailto:') ||
-                    href.startsWith('tel:') || href.startsWith('javascript:') ||
-                    href.startsWith('#')) {
-                    continue;
-                }
-
-                // Check relative links
-                if (!href.startsWith('/')) {
-                    const fileDir = path.dirname(fullPath);
-                    const resolved = path.resolve(fileDir, href.split('?')[0].split('#')[0]);
-                    if (!fs.existsSync(resolved)) {
-                        results.brokenLinks.push({
-                            file: relPath,
-                            href: href,
-                            line: lineNum,
-                            issue: 'File không tồn tại'
-                        });
-                    }
-                } else {
-                    // Absolute paths từ root
-                    const resolved = path.resolve(ROOT_DIR, href.substring(1).split('?')[0].split('#')[0]);
-                    if (!fs.existsSync(resolved)) {
-                        results.brokenLinks.push({
-                            file: relPath,
-                            href: href,
-                            line: lineNum,
-                            issue: 'File không tồn tại (absolute path)'
-                        });
-                    }
-                }
-            }
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            getHtmlFiles(fullPath, fileList);
+        } else if (entry.isFile() && entry.name.endsWith('.html') && !fullPath.includes('node_modules')) {
+            fileList.push(fullPath);
         }
-    });
+    }
+    return fileList;
 }
 
-// ============================================
-// 2. META TAGS SCANNER
-// ============================================
-function scanMetaTags(dir, relativePath = '') {
-    const files = fs.readdirSync(path.join(ROOT_DIR, dir));
+/**
+ * Audit links in HTML file
+ */
+function auditLinks(filePath, content) {
+    const linkRegex = /href=["']([^"']+)["']/gi;
+    const links = [];
+    let match;
 
-    files.forEach(file => {
-        const fullPath = path.join(ROOT_DIR, dir, file);
-        const relPath = path.join(relativePath, file);
-        const stat = fs.statSync(fullPath);
+    while ((match = linkRegex.exec(content)) !== null) {
+        const href = match[1];
+        if (href.startsWith('http') || href.startsWith('#') || href.startsWith('data:') || href.startsWith('tel:') || href.startsWith('mailto:')) {
+            continue;
+        }
 
-        if (stat.isDirectory() && !file.startsWith('.')) {
-            scanMetaTags(path.join(dir, file), relPath);
-        } else if (file.endsWith('.html')) {
-            const content = fs.readFileSync(fullPath, 'utf8');
+        const relativePath = href.split('?')[0].split('#')[0];
+        const fullPath = path.join(path.dirname(filePath), relativePath);
 
-            // Check required meta tags
-            const hasViewport = /<meta[^>]*name=["']viewport["']/.test(content);
-            const hasDescription = /<meta[^>]*name=["']description["']/.test(content);
-            const hasTitle = /<title>.*<\/title>/.test(content);
-            const hasCharset = /<meta[^>]*charset=["']utf-8["']/.test(content);
-
-            if (!hasTitle) {
-                results.metaIssues.push({
-                    file: relPath,
-                    issue: 'THIẾU <title> tag',
-                    severity: 'HIGH'
-                });
-            }
-            if (!hasViewport) {
-                results.metaIssues.push({
-                    file: relPath,
-                    issue: 'THIẾU viewport meta tag (mobile responsiveness)',
-                    severity: 'HIGH'
-                });
-            }
-            if (!hasDescription) {
-                results.metaIssues.push({
-                    file: relPath,
-                    issue: 'THIẾU description meta tag (SEO)',
-                    severity: 'MEDIUM'
-                });
-            }
-            if (!hasCharset) {
-                results.metaIssues.push({
-                    file: relPath,
-                    issue: 'THIẾU charset meta tag',
-                    severity: 'MEDIUM'
-                });
-            }
-
-            // Check duplicate meta tags
-            const viewportMatches = content.match(/<meta[^>]*name=["']viewport["']/g);
-            if (viewportMatches && viewportMatches.length > 1) {
-                results.metaIssues.push({
-                    file: relPath,
-                    issue: 'DUPLICATE viewport meta tag (' + viewportMatches.length + ' lần)',
-                    severity: 'MEDIUM'
+        if (!relativePath.startsWith('/') && !fs.existsSync(fullPath)) {
+            const rootPath = path.join(ROOT_DIR, relativePath);
+            if (!fs.existsSync(rootPath)) {
+                results.links.broken.push({
+                    file: path.relative(ROOT_DIR, filePath),
+                    link: href,
+                    reason: 'File not found'
                 });
             }
         }
-    });
+        results.links.total++;
+    }
 }
 
-// ============================================
-// 3. ACCESSIBILITY SCANNER
-// ============================================
-function scanAccessibility(dir, relativePath = '') {
-    const files = fs.readdirSync(path.join(ROOT_DIR, dir));
+/**
+ * Audit meta tags in HTML file
+ */
+function auditMetaTags(filePath, content) {
+    const relPath = path.relative(ROOT_DIR, filePath);
 
-    files.forEach(file => {
-        const fullPath = path.join(ROOT_DIR, dir, file);
-        const relPath = path.join(relativePath, file);
-        const stat = fs.statSync(fullPath);
+    const checks = {
+        title: /<title[^>]*>.*?<\/title>/i.test(content),
+        description: /<meta[^>]*name=["']description["'][^>]*>/i.test(content),
+        viewport: /<meta[^>]*name=["']viewport["'][^>]*>/i.test(content),
+        charset: /<meta[^>]*charset=["'][^"'>]+["'][^>]*>/i.test(content),
+        ogTitle: /<meta[^>]*property=["']og:title["'][^>]*>/i.test(content),
+        ogDescription: /<meta[^>]*property=["']og:description["'][^>]*>/i.test(content),
+        ogImage: /<meta[^>]*property=["']og:image["'][^>]*>/i.test(content),
+        twitterCard: /<meta[^>]*name=["']twitter:card["'][^>]*>/i.test(content),
+        canonical: /<link[^>]*rel=["']canonical["'][^>]*>/i.test(content)
+    };
 
-        if (stat.isDirectory() && !file.startsWith('.')) {
-            scanAccessibility(path.join(dir, file), relPath);
-        } else if (file.endsWith('.html')) {
-            const content = fs.readFileSync(fullPath, 'utf8');
-            const lines = content.split('\n');
-
-            lines.forEach((line, idx) => {
-                // Check images without alt
-                if (/<img[^>]*>/i.test(line) && !/alt=["'][^"']*["']/i.test(line)) {
-                    results.accessibilityIssues.push({
-                        file: relPath,
-                        line: idx + 1,
-                        issue: 'IMG không có alt attribute (WCAG 1.1.1)',
-                        wcag: '1.1.1 Non-text Content',
-                        severity: 'HIGH'
-                    });
-                }
-
-                // Check buttons without accessible text
-                if (/<button[^>]*>[\s]*<\/button>/i.test(line.trim())) {
-                    results.accessibilityIssues.push({
-                        file: relPath,
-                        line: idx + 1,
-                        issue: 'BUTTON không có nội dung (WCAG 4.1.2)',
-                        wcag: '4.1.2 Name, Role, Value',
-                        severity: 'HIGH'
-                    });
-                }
-
-                // Check links without text
-                if (/<a[^>]*>[\s]*<\/a>/i.test(line.trim()) && !/aria-label/i.test(line)) {
-                    results.accessibilityIssues.push({
-                        file: relPath,
-                        line: idx + 1,
-                        issue: 'LINK không có nội dung (WCAG 2.4.4)',
-                        wcag: '2.4.4 Link Purpose',
-                        severity: 'MEDIUM'
-                    });
-                }
-
-                // Check form inputs without labels
-                if (/<input[^>]*>/i.test(line) && !/id=["']/i.test(line) && !/aria-label/i.test(line)) {
-                    results.accessibilityIssues.push({
-                        file: relPath,
-                        line: idx + 1,
-                        issue: 'INPUT không có id hoặc aria-label (WCAG 1.3.1)',
-                        wcag: '1.3.1 Info and Relationships',
-                        severity: 'MEDIUM'
-                    });
-                }
-            });
-        }
-    });
-}
-
-// ============================================
-// 4. CONSOLE STATEMENTS SCANNER (JS files)
-// ============================================
-function scanConsoleStatements(dir, relativePath) {
-    const jsDir = path.join(ROOT_DIR, 'js');
-    if (!fs.existsSync(jsDir)) return;
-
-    function scanDir(currentDir, relPath) {
-        const currentFiles = fs.readdirSync(currentDir);
-        currentFiles.forEach(file => {
-            const fullPath = path.join(currentDir, file);
-            const fileRelPath = path.join(relPath, file);
-            const stat = fs.statSync(fullPath);
-
-            if (stat.isDirectory() && !file.startsWith('.')) {
-                scanDir(fullPath, fileRelPath);
-            } else if (file.endsWith('.js')) {
-                const content = fs.readFileSync(fullPath, 'utf8');
-                const lines = content.split('\n');
-
-                lines.forEach((line, idx) => {
-                    if (/console\.(log|error|warn|debug)/i.test(line)) {
-                        results.consoleStatements.push({
-                            file: fileRelPath,
-                            line: idx + 1,
-                            statement: line.trim().substring(0, 80)
-                        });
-                    }
-                });
-            }
-        });
+    const missing = [];
+    for (const [tag, present] of Object.entries(checks)) {
+        if (!present) missing.push(tag);
     }
 
-    scanDir(jsDir, 'js');
+    if (missing.length > 3) {
+        results.meta.missing.push({ file: relPath, missing, severity: 'high' });
+    } else if (missing.length > 0) {
+        results.meta.incomplete.push({ file: relPath, missing, severity: 'low' });
+    } else {
+        results.meta.complete++;
+    }
+    results.meta.total++;
 }
 
-// ============================================
-// RUN ALL SCANS
-// ============================================
+/**
+ * Audit accessibility in HTML file
+ */
+function auditAccessibility(filePath, content) {
+    const relPath = path.relative(ROOT_DIR, filePath);
 
-scanBrokenLinks(HTML_DIR);
+    const checks = [
+        {
+            pattern: /<img[^>]*>/gi,
+            test: (match) => !match.includes('alt='),
+            message: 'Image missing alt attribute'
+        },
+        {
+            pattern: /<html[^>]*>/gi,
+            test: (match) => !match.includes('lang='),
+            message: 'HTML element missing lang attribute'
+        },
+        {
+            pattern: /<a[^>]*>/gi,
+            test: (match) => !match.includes('href') && !match.includes('aria-label') && !match.includes('role='),
+            message: 'Link missing href or accessible name'
+        }
+    ];
 
-scanMetaTags(HTML_DIR);
+    const issues = [];
+    for (const check of checks) {
+        let match;
+        while ((match = check.pattern.exec(content)) !== null) {
+            if (check.test(match[0])) {
+                issues.push({
+                    file: relPath,
+                    type: check.message,
+                    element: match[0].substring(0, 80),
+                    line: content.substring(0, match.index).split('\n').length
+                });
+            }
+        }
+    }
 
-scanAccessibility(HTML_DIR);
+    if (issues.length === 0) {
+        results.a11y.passed++;
+    } else {
+        results.a11y.issues.push(...issues);
+    }
+    results.a11y.total++;
+}
 
-scanConsoleStatements('js');
+/**
+ * Main audit function
+ */
+function runAudit() {
+    console.log('🔍 Comprehensive Audit - Broken Links, Meta Tags, Accessibility\n');
+    console.log('═'.repeat(60) + '\n');
 
-// ============================================
-// SUMMARY
-// ============================================
-results.summary = {
-    totalBrokenLinks: results.brokenLinks.length,
-    totalMetaIssues: results.metaIssues.length,
-    totalAccessibilityIssues: results.accessibilityIssues.length,
-    totalConsoleStatements: results.consoleStatements.length,
-    highSeverity: results.metaIssues.filter(function(i) { return i.severity === 'HIGH'; }).length +
-                  results.accessibilityIssues.filter(function(i) { return i.severity === 'HIGH'; }).length,
-    mediumSeverity: results.metaIssues.filter(function(i) { return i.severity === 'MEDIUM'; }).length +
-                    results.accessibilityIssues.filter(function(i) { return i.severity === 'MEDIUM'; }).length
-};
+    const htmlFiles = getHtmlFiles(ROOT_DIR);
+    console.log(`📁 Found ${htmlFiles.length} HTML files to audit...\n`);
 
-// Save reports
-const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-fs.writeFileSync(REPORTS_DIR + '/audit-' + timestamp + '.json', JSON.stringify(results, null, 2));
+    for (const file of htmlFiles) {
+        try {
+            const content = fs.readFileSync(file, 'utf8');
+            auditLinks(file, content);
+            auditMetaTags(file, content);
+            auditAccessibility(file, content);
+        } catch (error) {
+            console.error(`Error reading ${file}:`, error.message);
+        }
+    }
 
+    printResults();
+}
+
+/**
+ * Print audit results
+ */
+function printResults() {
+    console.log('\n' + '═'.repeat(60));
+    console.log('📊 AUDIT RESULTS');
+    console.log('═'.repeat(60) + '\n');
+
+    console.log('🔗 LINKS:');
+    console.log(`   Total checked: ${results.links.total}`);
+    console.log(`   Broken: ${results.links.broken.length}`);
+    if (results.links.broken.length > 0) {
+        console.log('   Broken links:');
+        results.links.broken.slice(0, 10).forEach(broken => {
+            console.log(`     - ${broken.file}: ${broken.link} (${broken.reason})`);
+        });
+    }
+    console.log();
+
+    console.log('🏷️  META TAGS:');
+    console.log(`   Total pages: ${results.meta.total}`);
+    console.log(`   Complete: ${results.meta.complete}`);
+    console.log(`   Incomplete: ${results.meta.incomplete.length}`);
+    console.log(`   Missing critical: ${results.meta.missing.length}`);
+    if (results.meta.missing.length > 0) {
+        console.log('   Pages missing meta tags:');
+        results.meta.missing.slice(0, 5).forEach(page => {
+            console.log(`     - ${page.file}: missing ${page.missing.join(', ')}`);
+        });
+    }
+    console.log();
+
+    console.log('♿ ACCESSIBILITY:');
+    console.log(`   Total pages: ${results.a11y.total}`);
+    console.log(`   Passed: ${results.a11y.passed}`);
+    console.log(`   Issues found: ${results.a11y.issues.length}`);
+    if (results.a11y.issues.length > 0) {
+        console.log('   Top issues:');
+        results.a11y.issues.slice(0, 10).forEach(issue => {
+            console.log(`     - ${issue.file} (line ${issue.line}): ${issue.type}`);
+        });
+    }
+    console.log();
+
+    console.log('═'.repeat(60));
+    const hasIssues = results.links.broken.length > 0 || results.meta.missing.length > 0 || results.a11y.issues.length > 0;
+    if (hasIssues) {
+        console.log(`   ⚠️  Found ${results.links.broken.length + results.meta.missing.length + results.a11y.issues.length} issues to fix`);
+    } else {
+        console.log('   ✅ No critical issues found!');
+    }
+    console.log('═'.repeat(60) + '\n');
+
+    const reportPath = path.join(ROOT_DIR, 'audit-reports', `audit-${new Date().toISOString().split('T')[0]}.json`);
+    fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+    fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
+    console.log(`📄 Full report saved to: ${path.relative(ROOT_DIR, reportPath)}\n`);
+}
+
+runAudit();

@@ -12,16 +12,14 @@ const LMS = {
     },
 
     init() {
-        console.log('[LMS] Initialized');
+        // Silent initialization
     },
 
     async getCourses() {
-        console.log('[LMS] Getting courses...');
         return [];
     },
 
     async getCourse(id) {
-        console.log('[LMS] Getting course:', id);
         return null;
     }
 };

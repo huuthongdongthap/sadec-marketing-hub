@@ -1,0 +1,272 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SA ĐÉC MARKETING HUB - UI INTERACTIONS 2026
+ * Mouse tracking, scroll-triggered animations, interactive feedback
+ *
+ * @version 1.0 | 2026-03-14
+ * @author Mekong Agency
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+const UIInteractions = {
+  /**
+   * Initialize all UI interactions
+   */
+  init() {
+    this.initSpotlightCards();
+    this.initScrollReveals();
+    this.initPressEffects();
+    this.initRippleEffects();
+    // Initialization complete - console.log removed for production
+  },
+
+  /**
+   * 1. SPOTLIGHT CARDS - Mouse tracking for gradient spotlight effect
+   * Requires: .spotlight-card elements
+   */
+  initSpotlightCards() {
+    const cards = document.querySelectorAll('.spotlight-card');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    if (cards.length > 0) {
+      // Spotlight cards initialized - console.log removed for production
+    }
+  },
+
+  /**
+   * 2. SCROLL REVEALS - IntersectionObserver for scroll-triggered animations
+   * Requires: .blur-reveal, .scale-blur-reveal, .rotor-reveal, .flip-reveal
+   */
+  initScrollReveals() {
+    const revealElements = document.querySelectorAll(
+      '.blur-reveal, .scale-blur-reveal, .rotor-reveal, .flip-reveal'
+    );
+
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optional: unobserve after revealed
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => observer.observe(el));
+
+    if (revealElements.length > 0) {
+      // Scroll reveals initialized - console.log removed for production
+    }
+  },
+
+  /**
+   * 3. PRESS EFFECTS - Scale down on active state
+   * Requires: .press-effect class on buttons/interactive elements
+   */
+  initPressEffects() {
+    const pressElements = document.querySelectorAll('.press-effect');
+
+    pressElements.forEach(el => {
+      el.addEventListener('mousedown', () => {
+        el.style.transform = 'scale(0.96)';
+      });
+
+      el.addEventListener('mouseup', () => {
+        el.style.transform = '';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+
+    if (pressElements.length > 0) {
+      // Press effects initialized - console.log removed for production
+    }
+  },
+
+  /**
+   * 4. RIPPLE EFFECTS - Create ripple on click
+   * Requires: .ripple-container class on parent elements
+   */
+  initRippleEffects() {
+    const containers = document.querySelectorAll('.ripple-container');
+
+    containers.forEach(container => {
+      container.addEventListener('click', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        const size = Math.max(container.clientWidth, container.clientHeight);
+        ripple.style.width = ripple.style.height = `${size}px`;
+
+        container.appendChild(ripple);
+
+        // Remove ripple after animation
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    if (containers.length > 0) {
+      // Ripple effects initialized - console.log removed for production
+    }
+  },
+
+  /**
+   * 5. BUTTON LOADING STATE - Show loading spinner on buttons
+   * Usage: UIInteractions.setButtonLoading(button, true/false)
+   */
+  setButtonLoading(button, isLoading, loadingText = '') {
+    if (isLoading) {
+      button.disabled = true;
+      button.classList.add('btn-loading-spinner');
+      button.dataset.originalText = button.textContent;
+      if (loadingText) {
+        button.textContent = loadingText;
+      }
+    } else {
+      button.disabled = false;
+      button.classList.remove('btn-loading-spinner');
+      if (button.dataset.originalText) {
+        button.textContent = button.dataset.originalText;
+      }
+    }
+  },
+
+  /**
+   * 6. INPUT VALIDATION FEEDBACK - Show error state
+   * Usage: UIInteractions.setInputError(input, true/false)
+   */
+  setInputError(input, hasError) {
+    if (hasError) {
+      input.classList.add('error-shake-input');
+      setTimeout(() => {
+        input.classList.remove('error-shake-input');
+      }, 500);
+    }
+  },
+
+  /**
+   * 7. SUCCESS TOAST - Show success notification
+   * Usage: UIInteractions.showToast('Thành công!', 'success')
+   */
+  showToast(message, type = 'info', duration = 4000) {
+    // Remove existing toast container if any
+    let container = document.getElementById('ui-toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'ui-toast-container';
+      container.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        pointer-events: none;
+      `;
+      document.body.appendChild(container);
+    }
+
+    const toastEl = document.createElement('div');
+    toastEl.className = 'card-shimmer';
+    toastEl.style.cssText = `
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      pointer-events: auto;
+      min-width: 300px;
+      max-width: 90vw;
+      animation: toastSlideUp 0.3s ease forwards;
+      border-left: 4px solid var(--md-sys-color-primary, #006A60);
+      border-radius: 8px;
+      background: var(--md-sys-color-surface, #FEFDFC);
+    `;
+
+    const typeColors = {
+      'success': '#4CAF50',
+      'error': '#F44336',
+      'warning': '#FFC107',
+      'info': '#2196F3'
+    };
+
+    const typeIcons = {
+      'success': '✅',
+      'error': '🚨',
+      'warning': '⚠️',
+      'info': 'ℹ️'
+    };
+
+    toastEl.style.borderLeftColor = typeColors[type] || typeColors['info'];
+
+    toastEl.innerHTML = `
+      <span style="font-size: 20px;">${typeIcons[type] || typeIcons['info']}</span>
+      <div style="flex:1; color: var(--md-sys-color-on-surface, #191C1B);">
+        <div style="font-weight: 500;">${message}</div>
+      </div>
+    `;
+
+    container.appendChild(toastEl);
+
+    setTimeout(() => {
+      toastEl.style.animation = 'toastFadeOut 0.3s forwards';
+      setTimeout(() => toastEl.remove(), 300);
+    }, duration);
+
+    // Add animations if not exist
+    if (!document.getElementById('ui-toast-styles')) {
+      const style = document.createElement('style');
+      style.id = 'ui-toast-styles';
+      style.innerHTML = `
+        @keyframes toastSlideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes toastFadeOut {
+          to { opacity: 0; transform: translateY(-10px); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+};
+
+// Auto initialize on DOM ready
+if (typeof window !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', () => {
+    UIInteractions.init();
+
+    // Expose to global scope for manual usage
+    window.UIInteractions = UIInteractions;
+  });
+}
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = UIInteractions;
+}

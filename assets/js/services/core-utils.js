@@ -7,9 +7,9 @@
  * Import from this file or from 'services/index.js' (which re-exports this).
  *
  * USAGE:
- *   import { formatCurrency, Toast, ThemeManager } from './services/core-utils.js';
+ *   import { formatCurrency, Toast, ThemeManager } from './core-utils.js';
  *   // OR
- *   import { formatCurrency, Toast, ThemeManager } from './services/index.js';
+ *   import { formatCurrency, Toast, ThemeManager } from './index.js';
  */
 
 // ============================================================================
@@ -48,3 +48,6 @@ export {
     ScrollProgress,
     MobileSidebar
 } from './enhanced-utils.js';
+
+// Re-export services index for convenience
+export * from './index.js';

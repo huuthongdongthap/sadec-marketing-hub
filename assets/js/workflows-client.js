@@ -10,7 +10,7 @@ const WorkflowsClient = {
         baseUrl: '/functions/v1/workflows',
         timeout: 60000
     },
-    init() { console.log('[WorkflowsClient] Initialized'); },
+    init() { /* Silent init */ },
     async list() { return []; },
     async get(workflowId) { return null; },
     async create(definition) { return { id: 'new' }; },

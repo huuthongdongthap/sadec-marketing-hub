@@ -5,7 +5,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  *
  * Usage:
- *   import KeyboardManager from './shared/keyboard-manager.js';
+ *   import KeyboardManager from './keyboard-manager.js';
  *
  *   // Register shortcut
  *   KeyboardManager.register('ctrl+k', (e) => {

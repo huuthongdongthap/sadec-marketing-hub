@@ -30,7 +30,7 @@ export {
 } from '../core/enhanced-utils.js';
 
 // Re-export ThemeManager from components
-export { ThemeManager } from '../components/theme-manager.js';
+export { ThemeManager } from '../../assets/js/components/theme-manager.js';
 
 // Re-export ModalManager from shared
 export { ModalManager, modal, modalHelpers } from '../shared/modal-utils.js';

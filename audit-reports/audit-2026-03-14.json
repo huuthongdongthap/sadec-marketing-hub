@@ -1,0 +1,1041 @@
+{
+  "links": {
+    "broken": [
+      {
+        "file": "assets/partials/seo-head.html",
+        "link": "{{URL}}",
+        "reason": "File not found"
+      },
+      {
+        "file": "forgot-password.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "index.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "login.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "lp.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "offline.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "privacy.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "register.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "terms.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      },
+      {
+        "file": "verify-email.html",
+        "link": "assets/css/responsive-enhancements.css",
+        "reason": "File not found"
+      }
+    ],
+    "valid": 0,
+    "total": 1349
+  },
+  "meta": {
+    "missing": [
+      {
+        "file": "admin/agents.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/ai-analysis.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/api-builder.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/approvals.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/auth.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/binh-phap.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/campaigns.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/community.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/components/phase-tracker.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/components-demo.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/content-calendar.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/customer-success.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/dashboard.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/deploy.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/docs.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/ecommerce.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/events.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/finance.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/hr-hiring.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/inventory.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/landing-builder.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/leads.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/legal.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/lms.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/loyalty.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/menu.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/mvp-launch.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/notifications.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/onboarding.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/payments.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/pipeline.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/pos.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/pricing.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/proposals.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/quality.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/raas-overview.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/retention.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/roiaas-admin.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/shifts.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/suppliers.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/ui-components-demo.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/ux-components-demo.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/vc-readiness.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/video-workflow.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/widgets/kpi-card.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/widgets-demo.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/workflows.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "admin/zalo.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/dashboard.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/links.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/media.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/profile.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/referrals.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "affiliate/settings.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "audit-report.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "audit-reports/full-audit-report.html",
+        "missing": [
+          "description",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "auth/login.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "login.html",
+        "missing": [
+          "title",
+          "description",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "lp.html",
+        "missing": [
+          "title",
+          "description",
+          "viewport",
+          "charset",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      },
+      {
+        "file": "playwright-report/index.html",
+        "missing": [
+          "description",
+          "ogTitle",
+          "ogDescription",
+          "ogImage",
+          "twitterCard",
+          "canonical"
+        ],
+        "severity": "high"
+      }
+    ],
+    "incomplete": [
+      {
+        "file": "admin/features-demo-2027.html",
+        "missing": [
+          "viewport",
+          "charset"
+        ],
+        "severity": "low"
+      },
+      {
+        "file": "admin/features-demo.html",
+        "missing": [
+          "viewport",
+          "charset"
+        ],
+        "severity": "low"
+      },
+      {
+        "file": "forgot-password.html",
+        "missing": [
+          "charset"
+        ],
+        "severity": "low"
+      },
+      {
+        "file": "offline.html",
+        "missing": [
+          "charset"
+        ],
+        "severity": "low"
+      }
+    ],
+    "complete": 36,
+    "total": 100
+  },
+  "a11y": {
+    "issues": [
+      {
+        "file": "admin/features-demo.html",
+        "type": "Link missing href or accessible name",
+        "element": "<advanced-filters \n        id=\"demo-filters\"\n        target=\"#demo-table-2\"\n    ",
+        "line": 298
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<a&&(n=[]),p=0;p<a;p++)n[p]=0;for(p=0;p<Tt+1;p++)r[p]=0;for(p=0;p<3;p++)o[p]=0;s",
+        "line": 26
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<ao)throw new Error(Oo);r.chunkSize=ig(o);const s=await Om(r,Yh,r.size,ao,Lt*16)",
+        "line": 26
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<arguments.length;n++)t+=\"&args[]=\"+encodeURIComponent(arguments[n]);return\"Mini",
+        "line": 42
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<anonymous>",
+        "line": 46
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<anonymous>",
+        "line": 46
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<a.length&&(p=new Za(\"onBeforeInput\",\"beforeinput\",null,n,p),m.push({event:p,lis",
+        "line": 46
+      },
+      {
+        "file": "playwright-report/index.html",
+        "type": "Link missing href or accessible name",
+        "element": "<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:Tn,ke",
+        "line": 49
+      },
+      {
+        "file": "portal/ocop-catalog.html",
+        "type": "Link missing href or accessible name",
+        "element": "<article class=\"product-card\" onclick=\"viewProduct(${product.id})\">",
+        "line": 1155
+      }
+    ],
+    "passed": 97,
+    "total": 100
+  }
+}

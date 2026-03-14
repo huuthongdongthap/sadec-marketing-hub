@@ -12,21 +12,18 @@ const PipelineClient = {
     },
 
     init() {
-        console.log('[PipelineClient] Initialized');
+        // Silent initialization
     },
 
     async getPipelines() {
-        console.log('[PipelineClient] Getting pipelines...');
         return [];
     },
 
     async getPipeline(id) {
-        console.log('[PipelineClient] Getting pipeline:', id);
         return null;
     },
 
     async getDeals() {
-        console.log('[PipelineClient] Getting deals...');
         return [];
     }
 };

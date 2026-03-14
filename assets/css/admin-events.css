@@ -361,3 +361,189 @@
             padding: 64px;
             color: var(--md-sys-color-on-surface-variant);
         }
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+/* Tablet and below (1024px) */
+@media (max-width: 1024px) {
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .email-sequence {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-content {
+        padding: 24px;
+    }
+}
+
+/* Mobile and below (768px) */
+@media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .dashboard-content {
+        padding: 16px;
+    }
+
+    .tabs {
+        gap: 4px;
+        padding: 6px;
+        overflow-x: auto;
+    }
+
+    .tab {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .metric-card {
+        padding: 20px;
+    }
+
+    .event-card {
+        border-radius: 12px;
+    }
+
+    .event-thumbnail {
+        height: 120px;
+    }
+
+    .event-thumbnail .material-symbols-outlined {
+        font-size: 40px;
+    }
+
+    .event-body {
+        padding: 16px;
+    }
+
+    .event-title {
+        font-size: 18px;
+    }
+
+    .event-actions {
+        flex-direction: column;
+    }
+
+    .event-btn {
+        width: 100%;
+    }
+
+    .registration-list {
+        border-radius: 12px;
+    }
+
+    .registration-item {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .registration-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .registration-status {
+        align-self: flex-start;
+    }
+
+    .email-sequence {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-field {
+        min-width: 100%;
+    }
+
+    .create-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .empty-state {
+        padding: 48px 24px;
+    }
+
+    /* Touch target sizing */
+    .tab, .event-btn, .create-btn {
+        min-height: 44px;
+    }
+}
+
+/* Mobile Small (375px) */
+@media (max-width: 375px) {
+    .dashboard-content {
+        padding: 12px;
+    }
+
+    .launch-container {
+        padding: 20px 12px;
+    }
+
+    .launch-title {
+        font-size: 28px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        padding: 16px;
+    }
+
+    .metric-value {
+        font-size: 28px;
+    }
+
+    .metric-label {
+        font-size: 13px;
+    }
+
+    .event-thumbnail {
+        height: 100px;
+    }
+
+    .event-title {
+        font-size: 16px;
+    }
+
+    .event-datetime {
+        font-size: 12px;
+    }
+
+    .registration-item {
+        padding: 10px 12px;
+    }
+
+    .email-card {
+        padding: 16px;
+    }
+
+    .create-form {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}

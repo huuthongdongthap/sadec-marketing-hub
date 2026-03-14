@@ -6,11 +6,15 @@
  * Usage: npm run build:minify
  */
 
-const fs = require('fs');
-const path = require('path');
-const { minify: minifyHtml } = require('html-minifier-terser');
-const CleanCSS = require('clean-css');
-const Terser = require('terser');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { minify as minifyHtml } from 'html-minifier-terser';
+import CleanCSS from 'clean-css';
+import * as Terser from 'terser';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration
 const ROOT_DIR = path.resolve(__dirname, '../..');

@@ -6,9 +6,13 @@
  * Usage: node scripts/build/css-bundle.js
  */
 
-const fs = require('fs');
-const path = require('path');
-const CleanCSS = require('clean-css');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import CleanCSS from 'clean-css';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const CSS_DIR = path.join(ROOT_DIR, 'assets/css');
@@ -94,6 +98,7 @@ const CSS_OPTIONS = {
 };
 
 function bundleCSS() {
+    console.log('🎨 CSS Bundling...\n');
 
     // Create dist directory
     if (!fs.existsSync(DIST_DIR)) {
@@ -127,10 +132,12 @@ function bundleCSS() {
             fs.writeFileSync(outputPath, outputContent);
 
             const originalSize = Buffer.byteLength(combined, 'utf8');
-            const minifiedSize = Buffer.byteLength(minified.styles, 'utf8');
+            const minifiedSize = Buffer.byteLength(outputContent, 'utf8');
             const savings = ((originalSize - minifiedSize) / originalSize * 100).toFixed(1);
 
+            console.log(`   ✓ ${outputFile}: ${formatSize(originalSize)} → ${formatSize(minifiedSize)} (-${savings}%)`);
         } catch (error) {
+            console.error(`   ✗ Error bundling ${outputFile}: ${error.message}`);
         }
     }
 

@@ -1,4 +1,4 @@
-export { SimpleLineChart, type SimpleLineChartProps } from './LineChart.js'
-export { SimpleBarChart, type SimpleBarChartProps } from './BarChart.js'
-export { SimplePieChart, type SimplePieChartProps } from './PieChart.js'
-export { SimpleAreaChart, type SimpleAreaChartProps } from './AreaChart.js'
+export { SimpleLineChart, type SimpleLineChartProps } from './LineChart'
+export { SimpleBarChart, type SimpleBarChartProps } from './BarChart'
+export { SimplePieChart, type SimplePieChartProps } from './PieChart'
+export { SimpleAreaChart, type SimpleAreaChartProps } from './AreaChart'

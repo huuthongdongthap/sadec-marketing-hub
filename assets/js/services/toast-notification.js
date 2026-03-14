@@ -4,7 +4,7 @@
  *
  * Re-exported from src/js/components/enhanced-toast.js for backward compatibility
  *
- * @deprecated Use `import { toast, ToastManager } from '../../src/js/components/enhanced-toast.js'`
+ * @deprecated Use `import { toast, ToastManager } from '../../../src/js/components/enhanced-toast.js'`
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -13,7 +13,7 @@ export {
   ToastManager,
   toast,
   injectToastStyles
-} from '../../src/js/components/enhanced-toast.js';
+} from '../../../src/js/components/enhanced-toast.js';
 
 // Legacy global assignment for backward compatibility
 if (typeof window !== 'undefined' && !window.toast) {

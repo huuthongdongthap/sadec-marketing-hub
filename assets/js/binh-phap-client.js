@@ -10,8 +10,8 @@ const BinhPhapClient = {
         baseUrl: '/functions/v1/binh-phap',
         timeout: 30000
     },
-    init() { console.log('[BinhPhapClient] Initialized'); },
-    async audit(projectId) { console.log('[BinhPhapClient] Auditing:', projectId); return {}; },
+    init() { /* Silent init */ },
+    async audit(projectId) { return {}; },
     async getStandards() { return []; },
     async checkCompliance(projectId, standardId) { return { compliant: true }; }
 };

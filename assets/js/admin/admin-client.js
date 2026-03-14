@@ -26,7 +26,7 @@ const AdminClient = {
     // INITIALIZATION
     // ═══════════════════════════════════════════════════════════════════════
     init() {
-        console.log('[AdminClient] Initialized');
+        // Silent initialization
         this.setupEventListeners();
     },
 
@@ -183,7 +183,6 @@ const AdminClient = {
     async refreshEntity(entity) {
         try {
             await this.fetch(entity);
-            console.log(`[AdminClient] Refreshed ${entity}`);
         } catch (error) {
             console.error(`[AdminClient] Failed to refresh ${entity}:`, error);
         }

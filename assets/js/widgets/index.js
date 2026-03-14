@@ -4,7 +4,7 @@
  */
 
 // Export widget classes for programmatic use
-import './kpi-card.html';
+import './kpi-card.js';
 import './revenue-chart.js';
 import './activity-feed.js';
 import './project-progress.js';

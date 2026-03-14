@@ -10,7 +10,7 @@ const ContentCalendarClient = {
         baseUrl: '/functions/v1/content-calendar',
         timeout: 30000
     },
-    init() { console.log('[ContentCalendarClient] Initialized'); },
+    init() { /* Silent init */ },
     async getCalendar(start, end) { return []; },
     async get(contentId) { return null; },
     async create(content) { return { id: 'new' }; },

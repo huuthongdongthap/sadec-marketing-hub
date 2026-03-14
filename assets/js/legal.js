@@ -12,16 +12,14 @@ const Legal = {
     },
 
     init() {
-        console.log('[Legal] Initialized');
+        // Silent initialization
     },
 
     async getDocuments() {
-        console.log('[Legal] Getting documents...');
         return [];
     },
 
     async getDocument(id) {
-        console.log('[Legal] Getting document:', id);
         return null;
     }
 };

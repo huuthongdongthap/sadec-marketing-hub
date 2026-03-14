@@ -5,9 +5,9 @@
  * Unified API client and utilities for Sa Đéc Marketing Hub
  * Combined from: utils/api.js, shared/api-client.js, shared/api-utils.js
  *
- * Usage:
- *   import { apiFetch, apiGet, apiPost, handleApiError } from './shared/api.js';
- *   import { ApiClientBase, onReady, renderTable, renderActivities } from './shared/api.js';
+ * USAGE:
+ *   import { apiFetch, apiGet, apiPost, handleApiError } from './api.js';
+ *   import { ApiClientBase, onReady, renderTable, renderActivities } from './api.js';
  *
  * @version 2.0.0 | 2026-03-14
  * @module shared/api
