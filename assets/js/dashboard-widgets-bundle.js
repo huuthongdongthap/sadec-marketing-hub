@@ -26,7 +26,7 @@ import './widgets/kpi-card.js';
 import './widgets/bar-chart-widget.js';
 import './widgets/line-chart-widget.js';
 import './widgets/area-chart-widget.js';
-import './widgets/doughnut-chart-widget.js';
+import './widgets/pie-chart-widget.js';
 import './widgets/alerts-widget.js';
 import './widgets/activity-feed.js';
 import './widgets/data-table-widget.js';

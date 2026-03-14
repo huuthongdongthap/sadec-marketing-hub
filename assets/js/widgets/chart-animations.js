@@ -19,7 +19,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
-import { Logger } from '../../assets/js/shared/logger.js';
+import { Logger } from '../shared/logger.js';
 
 /**
  * Scroll-triggered animation observer for charts
