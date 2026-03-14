@@ -1,150 +1,1540 @@
 {
-  "date": "2026-03-14T11:44:12.686144",
-  "total_files": 98,
-  "broken_links_count": 118,
-  "meta_issues_count": 4,
-  "a11y_issues_count": 15,
-  "broken_links": [
-    "  index.html: / -> ",
-    "  index.html: assets/js/pwa-install.js -> assets/js/pwa-install.js",
-    "  portal/subscription-plans.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/assets.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/payments.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/roiaas-dashboard.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/subscriptions.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/dashboard.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/projects.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/ocop-exporter.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/invoices.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/approve.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/missions.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/credits.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  portal/reports.html: /assets/js/portal-guard.js?v=mmp5r1rf -> assets/js/portal-guard.js",
-    "  admin/brand-guide.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/brand-guide.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/video-workflow.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/video-workflow.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/pipeline.html: /assets/js/pipeline-client.js?v=mmp5r1rf -> assets/js/pipeline-client.js",
-    "  admin/pipeline.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/pipeline.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/suppliers.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/suppliers.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/landing-builder.html: ../dashboard.html -> dashboard.html",
-    "  admin/finance.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/finance.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/community.html: ../dashboard.html -> dashboard.html",
-    "  admin/community.html: /assets/js/community.js?v=mmp5r1rf -> assets/js/community.js",
-    "  admin/community.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/community.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/legal.html: /assets/js/legal.js?v=mmp5r1rf -> assets/js/legal.js",
-    "  admin/legal.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/legal.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/index.html: /vite.svg -> vite.svg",
-    "  admin/index.html: /src/main.tsx -> src/main.tsx",
-    "  admin/vc-readiness.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/vc-readiness.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/approvals.html: ../dashboard.html -> dashboard.html",
-    "  admin/approvals.html: /assets/js/approvals.js?v=mmp5r1rf -> assets/js/approvals.js",
-    "  admin/approvals.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/approvals.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/inventory.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/inventory.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/auth.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/auth.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/pricing.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/pricing.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/leads.html: /assets/js/admin-client.js?v=mmp5r1rf -> assets/js/admin-client.js",
-    "  admin/leads.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/leads.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/payments.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/payments.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/ui-components-demo.html: @material/web/all.js?v=mmp5r1rf -> admin/@material/web/all.js",
-    "  admin/menu.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/menu.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/dashboard.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/dashboard.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/dashboard.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/lms.html: /assets/js/lms.js?v=mmp5r1rf -> assets/js/lms.js",
-    "  admin/lms.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/lms.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/proposals.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/proposals.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/agents.html: ../dashboard.html -> dashboard.html",
-    "  admin/agents.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/agents.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/customer-success.html: ../dashboard.html -> dashboard.html",
-    "  admin/customer-success.html: /assets/js/customer-success.js?v=mmp5r1rf -> assets/js/customer-success.js",
-    "  admin/customer-success.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/customer-success.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/ecommerce.html: ../dashboard.html -> dashboard.html",
-    "  admin/ecommerce.html: /assets/js/ecommerce.js?v=mmp5r1rf -> assets/js/ecommerce.js",
-    "  admin/ecommerce.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/ecommerce.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/campaigns.html: /assets/js/admin-client.js?v=mmp5r1rf -> assets/js/admin-client.js",
-    "  admin/campaigns.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/campaigns.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/roiaas-admin.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/workflows.html: ../dashboard.html -> dashboard.html",
-    "  admin/workflows.html: /assets/js/workflows.js?v=mmp5r1rf -> assets/js/workflows.js",
-    "  admin/workflows.html: /assets/js/workflows-client.js?v=mmp5r1rf -> assets/js/workflows-client.js",
-    "  admin/workflows.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/workflows.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/quality.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/quality.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/loyalty.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/loyalty.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/binh-phap.html: /assets/js/binh-phap-client.js?v=mmp5r1rf -> assets/js/binh-phap-client.js",
-    "  admin/binh-phap.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/binh-phap.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/shifts.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/shifts.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/deploy.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/deploy.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/retention.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/retention.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/ai-analysis.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/ai-analysis.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/events.html: /assets/js/events.js?v=mmp5r1rf -> assets/js/events.js",
-    "  admin/events.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/events.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/hr-hiring.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/hr-hiring.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/api-builder.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/api-builder.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/docs.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/docs.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/content-calendar.html: /assets/js/content-calendar-client.js?v=mmp5r1rf -> assets/js/content-calendar-client.js",
-    "  admin/content-calendar.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/content-calendar.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/mvp-launch.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/mvp-launch.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/onboarding.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  admin/onboarding.html: /assets/js/mekong-store.js?v=mmp5r1rf -> assets/js/mekong-store.js",
-    "  admin/pos.html: /assets/js/admin-guard.js?v=mmp5r1rf -> assets/js/admin-guard.js",
-    "  admin/pos.html: /assets/js/content-ai.js?v=mmp5r1rf -> assets/js/content-ai.js",
-    "  assets/partials/seo-head.html: /apple-touch-icon.png -> apple-touch-icon.png"
-  ],
-  "meta_issues": [
-    "  playwright-report/index.html: Missing description meta tag",
-    "  assets/partials/seo-head.html: Missing charset meta tag",
-    "  assets/partials/seo-head.html: Missing viewport meta tag",
-    "  assets/partials/seo-head.html: Missing lang attribute on <html>"
-  ],
-  "a11y_issues": [
-    "  terms.html: <nav> without aria-label or role",
-    "  privacy.html: <nav> without aria-label or role",
-    "  portal/ocop-catalog.html: <a> without href",
-    "  portal/ocop-catalog.html: <nav> without aria-label or role",
-    "  admin/dashboard.html: <a> without href",
-    "  admin/dashboard.html: <a> without href",
-    "  admin/dashboard.html: <a> without href",
-    "  admin/features-demo.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href",
-    "  playwright-report/index.html: <a> without href"
-  ]
+  "timestamp": "2026-03-14T05:28:55.470Z",
+  "filesScanned": 185,
+  "healthScore": 72,
+  "healthRating": "Good",
+  "summary": {
+    "brokenLinks": 14,
+    "missingMetaTags": 0,
+    "accessibilityIssues": 0,
+    "duplicateIDs": 0,
+    "totalIssues": 14
+  },
+  "details": {
+    "links": {
+      "files": [
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/agents.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "../dashboard.html",
+            "brand-guide.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
+          "links": [
+            "#main",
+            "https://aistudio.google.com/api-keys"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/api-builder.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/approvals.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/binh-phap.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/brand-guide.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/admin/dashboard.html",
+            "/assets/images/logo-primary.png",
+            "/assets/images/logo-icon.png",
+            "/assets/images/logo-dark.png",
+            "/assets/images/logo-light.png"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/campaigns.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/community.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "events.html",
+            "lms.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/content-calendar.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/customer-success.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "community.html",
+            "events.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
+          "links": [
+            "#main",
+            "/admin/pipeline.html?action=new",
+            "pos.html",
+            "menu.html",
+            "inventory.html",
+            "shifts.html",
+            "quality.html",
+            "suppliers.html",
+            "loyalty.html",
+            "/admin/pipeline.html?action=new",
+            "/admin/campaigns.html?action=new",
+            "/admin/leads.html",
+            "/admin/ai-analysis.html",
+            "/admin/pricing.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/deploy.html",
+          "links": [
+            "#main",
+            "https://sadec-marketing-hub.pages.dev"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/docs.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ecommerce.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "approvals.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/features-demo-2027.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/features-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/finance.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/hr-hiring.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/index.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/inventory.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
+          "links": [
+            "#main",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/legal.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/lms.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/loyalty.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/menu.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/mvp-launch.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pipeline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pos.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pricing.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/proposals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/quality.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/raas-overview.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/retention.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/roiaas-admin.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/shifts.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/suppliers.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ux-components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/vc-readiness.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/video-workflow.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/notification-bell.html",
+          "links": [
+            "/portal/notifications.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/workflows.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/approve.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/assets.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/credits.html",
+          "links": [
+            "#main",
+            "missions.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/dashboard.html",
+          "links": [
+            "#main",
+            "payments.html",
+            "payments.html",
+            "projects.html",
+            "projects.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/invoices.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/login.html",
+          "links": [
+            "#main",
+            "/index.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/missions.html",
+          "links": [
+            "#main",
+            "credits.html",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-catalog.html",
+          "links": [
+            "#main",
+            "#home",
+            "#about",
+            "#products",
+            "#contact",
+            "#faq",
+            "#shipping",
+            "#returns",
+            "#privacy"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-exporter.html",
+          "links": [
+            "#main",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/projects.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/reports.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-analytics.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-report.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-dashboard.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscription-plans.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscriptions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/commissions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/dashboard.html",
+          "links": [
+            "#main",
+            "referrals.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/links.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/media.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/profile.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/referrals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/settings.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/forgot-password.html",
+            "/register.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/agents.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "../dashboard.html",
+            "brand-guide.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
+          "links": [
+            "#main",
+            "https://aistudio.google.com/api-keys"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/api-builder.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/approvals.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/binh-phap.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/brand-guide.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/admin/dashboard.html",
+            "/assets/images/logo-primary.png",
+            "/assets/images/logo-icon.png",
+            "/assets/images/logo-dark.png",
+            "/assets/images/logo-light.png"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/campaigns.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/community.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "events.html",
+            "lms.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/content-calendar.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/customer-success.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "community.html",
+            "events.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
+          "links": [
+            "#main",
+            "/admin/pipeline.html?action=new",
+            "pos.html",
+            "menu.html",
+            "inventory.html",
+            "shifts.html",
+            "quality.html",
+            "suppliers.html",
+            "loyalty.html",
+            "/admin/pipeline.html?action=new",
+            "/admin/campaigns.html?action=new",
+            "/admin/leads.html",
+            "/admin/ai-analysis.html",
+            "/admin/pricing.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/deploy.html",
+          "links": [
+            "#main",
+            "https://sadec-marketing-hub.pages.dev"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/docs.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ecommerce.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "workflows.html",
+            "approvals.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/features-demo-2027.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/features-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/finance.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/hr-hiring.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/index.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/inventory.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
+          "links": [
+            "#main",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/legal.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/lms.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/loyalty.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/menu.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/mvp-launch.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pipeline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pos.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/pricing.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/proposals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/quality.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/raas-overview.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/retention.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/roiaas-admin.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/shifts.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/suppliers.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
+          "links": [
+            "#main",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)",
+            "javascript:void(0)"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ux-components-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/vc-readiness.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/video-workflow.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets/notification-bell.html",
+          "links": [
+            "/portal/notifications.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/widgets-demo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/workflows.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "agents.html",
+            "../dashboard.html"
+          ],
+          "broken": [
+            "../dashboard.html"
+          ]
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/commissions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/dashboard.html",
+          "links": [
+            "#main",
+            "referrals.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/links.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/media.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/profile.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/referrals.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/affiliate/settings.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/audit-report.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html",
+          "links": [
+            "#main",
+            "/index.html",
+            "/forgot-password.html",
+            "/register.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/forgot-password.html",
+          "links": [
+            "#main",
+            "/login.html",
+            "/login.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/index.html",
+          "links": [
+            "#main",
+            "/",
+            "#services",
+            "#case-study",
+            "#pricing",
+            "#testimonials",
+            "#contact",
+            "auth/login.html?role=admin",
+            "auth/login.html?role=client",
+            "auth/login.html?role=affiliate",
+            "#contact",
+            "#contact",
+            "#case-study",
+            "#contact",
+            "#contact",
+            "#services",
+            "#testimonials",
+            "tel:0915997989",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/login.html",
+          "links": [
+            "#main",
+            "forgot-password.html",
+            "register.html",
+            "index.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/lp.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/offline.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/approve.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/assets.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/credits.html",
+          "links": [
+            "#main",
+            "missions.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/dashboard.html",
+          "links": [
+            "#main",
+            "payments.html",
+            "payments.html",
+            "projects.html",
+            "projects.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/invoices.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/login.html",
+          "links": [
+            "#main",
+            "/index.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/missions.html",
+          "links": [
+            "#main",
+            "credits.html",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/notifications.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-catalog.html",
+          "links": [
+            "#main",
+            "#home",
+            "#about",
+            "#products",
+            "#contact",
+            "#faq",
+            "#shipping",
+            "#returns",
+            "#privacy"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/ocop-exporter.html",
+          "links": [
+            "#main",
+            "credits.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/payments.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/projects.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/reports.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-analytics.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roi-report.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-dashboard.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/roiaas-onboarding.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscription-plans.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/portal/subscriptions.html",
+          "links": [
+            "#main"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/privacy.html",
+          "links": [
+            "#main",
+            "index.html",
+            "index.html",
+            "mailto:hello@mekongmarketing.com",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/register.html",
+          "links": [
+            "#main",
+            "/login.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/terms.html",
+          "links": [
+            "#main",
+            "index.html",
+            "index.html",
+            "mailto:hello@mekongmarketing.com",
+            "terms.html",
+            "privacy.html"
+          ],
+          "broken": []
+        },
+        {
+          "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/verify-email.html",
+          "links": [
+            "#main",
+            "login.html",
+            "register.html",
+            "login.html",
+            "login.html"
+          ],
+          "broken": []
+        }
+      ],
+      "broken": [
+        {
+          "file": "admin/agents.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 129
+        },
+        {
+          "file": "admin/approvals.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/community.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/customer-success.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 130
+        },
+        {
+          "file": "admin/ecommerce.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/landing-builder.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 121
+        },
+        {
+          "file": "admin/workflows.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 130
+        },
+        {
+          "file": "admin/agents.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 129
+        },
+        {
+          "file": "admin/approvals.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/community.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/customer-success.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 130
+        },
+        {
+          "file": "admin/ecommerce.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 131
+        },
+        {
+          "file": "admin/landing-builder.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 121
+        },
+        {
+          "file": "admin/workflows.html",
+          "href": "../dashboard.html",
+          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
+          "line": 130
+        }
+      ],
+      "external": [
+        {
+          "file": "admin/ai-analysis.html",
+          "href": "https://aistudio.google.com/api-keys",
+          "text": "key\n                    Get API Key"
+        },
+        {
+          "file": "admin/deploy.html",
+          "href": "https://sadec-marketing-hub.pages.dev",
+          "text": "https://sadec-marketing-hub.pages.dev"
+        },
+        {
+          "file": "admin/ai-analysis.html",
+          "href": "https://aistudio.google.com/api-keys",
+          "text": "key\n                    Get API Key"
+        },
+        {
+          "file": "admin/deploy.html",
+          "href": "https://sadec-marketing-hub.pages.dev",
+          "text": "https://sadec-marketing-hub.pages.dev"
+        }
+      ]
+    },
+    "meta": {
+      "files": [],
+      "missing": []
+    },
+    "a11y": {
+      "files": [],
+      "issues": []
+    },
+    "ids": {
+      "files": [],
+      "duplicates": []
+    }
+  }
 }
