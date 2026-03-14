@@ -106,7 +106,6 @@ window.SadecFeatures2026 = {
 
     // Initialize all features
     initAll() {
-        console.log('[SadecFeatures2026] Initializing all features...');
         // Features are auto-initialized on import
     }
 };

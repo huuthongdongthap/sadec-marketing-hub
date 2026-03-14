@@ -90,15 +90,16 @@ export {
 // GUARD UTILITIES (validation, type checking)
 // ============================================================================
 export {
-    isDefined,
-    isNullOrUndefined,
-    isEmpty,
-    isNumeric,
-    isValidEmail,
-    isValidPhone,
-    sanitizeHtml,
-    escapeHtml,
-    validateForm
+    waitForAuth,
+    isAdmin,
+    isStaff,
+    isAffiliate,
+    requireAdmin,
+    requireStaff,
+    requireAffiliate,
+    requireAuth,
+    getCurrentUser,
+    getCurrentUserId
 } from './guard-utils.js';
 
 // ============================================================================
