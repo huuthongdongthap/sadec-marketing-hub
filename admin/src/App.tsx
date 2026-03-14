@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { DashboardLayout } from './components/layout'
 import { KPICard, StatCard, Metric } from './components/kpi'
 import { Alert, useToast, StatusBadge } from './components/alerts'
-import { DollarSign, Users, ShoppingBag, TrendingUp, Info, Search, Plus, Moon, Sun, Download, Filter } from 'lucide-react'
+import { DollarSign, Users, ShoppingBag, TrendingUp, Info, Search, Plus, Moon, Sun, Download, Filter, Home, Settings, BarChart3, FileText, FolderOpen, HelpCircle, Zap } from 'lucide-react'
 import { useServiceWorker } from './hooks/useServiceWorker'
 import { useDarkMode } from './hooks/useDarkMode'
 import { LazyChartWrapper } from './components/ui/LazyChart'
@@ -11,7 +11,10 @@ import {
   Tabs, TabsList, TabsTrigger, TabsContent,
   Select,
   Accordion, AccordionItem, AccordionTrigger, AccordionContent,
-  ProgressBar
+  ProgressBar,
+  CommandPalette, CommandItem,
+  NotificationBell, Notification,
+  Skeleton, SkeletonKPI, SkeletonChart
 } from './components/ui'
 
 // Initialize service worker
@@ -55,6 +58,49 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedRows, setSelectedRows] = useState<string[]>([])
   const [selectedStatus, setSelectedStatus] = useState<string>('all')
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
+  const [commandPaletteSearch, setCommandPaletteSearch] = useState('')
+
+  // Mock notifications
+  const [notifications] = useState<Notification[]>([
+    {
+      id: '1',
+      title: 'Chiến dịch mới',
+      message: 'Chiến dịch Google Ads Q1 đã được tạo thành công',
+      type: 'success',
+      read: false,
+      timestamp: new Date(Date.now() - 300000) // 5 minutes ago
+    },
+    {
+      id: '2',
+      title: 'Ngân sách thấp',
+      message: 'Chiến dịch TikTok Influencer đã sử dụng 90% ngân sách',
+      type: 'warning',
+      read: false,
+      timestamp: new Date(Date.now() - 3600000) // 1 hour ago
+    },
+    {
+      id: '3',
+      title: 'Báo cáo sẵn sàng',
+      message: 'Báo cáo ROI tháng 3 đã được tạo xong',
+      type: 'info',
+      read: true,
+      timestamp: new Date(Date.now() - 86400000) // 1 day ago
+    }
+  ])
+
+  // Command palette items
+  const commands: CommandItem[] = [
+    { id: 'dashboard', label: 'Dashboard', icon: <Home className="w-4 h-4" />, category: 'Navigation', shortcut: 'G D', action: () => toast.info('Navigating to Dashboard') },
+    { id: 'campaigns', label: 'Chiến dịch', icon: <BarChart3 className="w-4 h-4" />, category: 'Navigation', shortcut: 'G C', action: () => toast.info('Navigating to Campaigns') },
+    { id: 'leads', label: 'Khách hàng tiềm năng', icon: <Users className="w-4 h-4" />, category: 'Navigation', action: () => toast.info('Navigating to Leads') },
+    { id: 'reports', label: 'Báo cáo', icon: <FileText className="w-4 h-4" />, category: 'Navigation', action: () => toast.info('Navigating to Reports') },
+    { id: 'settings', label: 'Cài đặt', icon: <Settings className="w-4 h-4" />, category: 'Navigation', shortcut: ',', action: () => toast.info('Opening Settings') },
+    { id: 'docs', label: 'Tài liệu', icon: <FolderOpen className="w-4 h-4" />, category: 'Help', action: () => toast.info('Opening Documentation') },
+    { id: 'help', label: 'Trợ giúp', icon: <HelpCircle className="w-4 h-4" />, category: 'Help', action: () => toast.info('Opening Help Center') },
+    { id: 'toast', label: 'Test Toast', icon: <Zap className="w-4 h-4" />, category: 'Actions', action: () => handleTestToast() },
+    { id: 'modal', label: 'Open Modal', icon: <Plus className="w-4 h-4" />, category: 'Actions', action: () => setIsModalOpen(true) }
+  ]
 
   const handleTestToast = () => {
     toast.success('Dashboard đã được cập nhật thành công!')
@@ -93,6 +139,14 @@ function App() {
   return (
     <DashboardLayout>
       <ToastContainer />
+
+      {/* Command Palette */}
+      <CommandPalette
+        open={isCommandPaletteOpen}
+        onOpenChange={setIsCommandPaletteOpen}
+        commands={commands}
+        onSelect={(cmd) => toast.info(`Selected: ${cmd.label}`)}
+      />
 
       {/* Welcome Alert */}
       {!alertDismissed && (
