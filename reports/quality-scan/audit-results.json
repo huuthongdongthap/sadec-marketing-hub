@@ -1,6 +1,6 @@
 {
   "summary": {
-    "error": 206,
+    "error": 122,
     "warning": 149,
     "info": 0
   },
@@ -19,11 +19,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -32,18 +27,7 @@
     },
     {
       "file": "verify-email.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 4,
       "images_count": 0,
       "meta_count": 16
@@ -56,16 +40,6 @@
           "issue": "Inline onclick handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 6,
@@ -78,11 +52,6 @@
         {
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
           "severity": "error"
         }
       ],
@@ -115,36 +84,14 @@
     },
     {
       "file": "terms.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 4,
       "images_count": 0,
       "meta_count": 13
     },
     {
       "file": "register.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 1,
       "images_count": 0,
       "meta_count": 16
@@ -160,11 +107,6 @@
         {
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
           "severity": "error"
         }
       ],
@@ -197,18 +139,7 @@
     },
     {
       "file": "privacy.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 4,
       "images_count": 0,
       "meta_count": 13
@@ -221,16 +152,6 @@
           "issue": "Inline onclick handlers (use addEventListener)",
           "count": 9,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -251,16 +172,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -281,16 +192,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -311,16 +212,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -335,16 +226,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -365,16 +246,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -389,16 +260,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -419,16 +280,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -449,16 +300,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -479,16 +320,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -503,16 +334,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 1,
@@ -527,16 +348,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 4,
@@ -551,16 +362,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -581,16 +382,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -611,16 +402,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 1,
@@ -641,16 +422,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -671,16 +442,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -701,16 +462,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -731,16 +482,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 2,
@@ -761,16 +502,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 1,
@@ -791,16 +522,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -815,16 +536,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -849,11 +560,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 3,
@@ -874,16 +580,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 6,
@@ -934,16 +630,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -1120,18 +806,7 @@
     },
     {
       "file": "admin/index.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 0,
       "images_count": 0,
       "meta_count": 14
@@ -1522,16 +1197,6 @@
           "issue": "Inline onclick handlers (use addEventListener)",
           "count": 8,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 19,
@@ -2359,16 +2024,6 @@
         },
         {
           "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
           "issue": "Missing <main> element",
           "severity": "warning"
         }
@@ -2406,16 +2061,6 @@
         },
         {
           "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
           "issue": "Missing <main> element",
           "severity": "warning"
         }
@@ -2427,16 +2072,6 @@
     {
       "file": "admin/widgets/conversion-funnel.html",
       "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        },
         {
           "type": "accessibility",
           "issue": "Missing <main> element",
@@ -2455,16 +2090,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         },
         {
           "type": "accessibility",
@@ -2494,11 +2119,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -2522,11 +2142,6 @@
         {
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
           "severity": "error"
         }
       ],
@@ -2558,11 +2173,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 1,
@@ -2577,16 +2187,6 @@
           "issue": "Inline onload handlers (use addEventListener)",
           "count": 3,
           "severity": "warning"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -2617,11 +2217,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -2645,11 +2240,6 @@
         {
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
           "severity": "error"
         }
       ],
@@ -2681,11 +2271,6 @@
           "type": "accessibility",
           "issue": "Missing lang attribute on <html>",
           "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
         }
       ],
       "links_count": 0,
@@ -2694,18 +2279,7 @@
     },
     {
       "file": "audit-reports/full-audit-report.html",
-      "issues": [
-        {
-          "type": "accessibility",
-          "issue": "Missing lang attribute on <html>",
-          "severity": "error"
-        },
-        {
-          "type": "accessibility",
-          "issue": "Missing viewport meta tag",
-          "severity": "error"
-        }
-      ],
+      "issues": [],
       "links_count": 0,
       "images_count": 0,
       "meta_count": 15
