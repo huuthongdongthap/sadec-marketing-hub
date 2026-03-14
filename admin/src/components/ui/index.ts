@@ -39,3 +39,8 @@ export type { ProgressBarProps } from './ProgressBar.tsx'
 // Interactive Components
 export { Button } from './Button.tsx'
 export type { ButtonProps } from './Button.tsx'
+
+// Performance Components
+export { LazyChartWrapper, createLazyChart, LazyImage } from './LazyChart.tsx'
+export { LazyImage as LazyImageAdvanced } from './LazyImage.tsx'
+export type { LazyImageProps } from './LazyImage.tsx'
