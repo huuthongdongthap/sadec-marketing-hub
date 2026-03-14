@@ -38,7 +38,9 @@
     "perf:inject-critical": "node scripts/perf/inject-critical-css.js",
     "perf:optimize": "node scripts/perf/optimize-all.js",
     "build:critical": "npm run perf:critical-css && npm run perf:inject-critical",
-    "perf:all": "npm run optimize:full && npm run perf:optimize"
+    "perf:all": "npm run optimize:full && npm run perf:optimize",
+    "perf:cache-headers": "node scripts/perf/generate-cache-headers.js",
+    "perf:dedupe": "node scripts/dedupe-dns-prefetch.js"
   },
   "keywords": [
     "marketing",
