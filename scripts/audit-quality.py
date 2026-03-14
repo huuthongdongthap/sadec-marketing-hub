@@ -35,6 +35,15 @@ class HTMLAnalyzer(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs_dict = dict(attrs)
 
+        # Check for <html> lang attribute
+        if tag == 'html':
+            if 'lang' in attrs_dict:
+                self.has_lang = True
+
+        # Check for viewport meta
+        if tag == 'meta' and attrs_dict.get('name') == 'viewport':
+            self.has_viewport = True
+
         # Check for inline event handlers
         for attr, value in attrs:
             if attr.startswith('on'):
@@ -82,16 +91,6 @@ class HTMLAnalyzer(HTMLParser):
             self.has_main = True
         elif tag == 'a' and 'skip' in attrs_dict.get('class', ''):
             self.has_skip_link = True
-
-    def handle_starttag_html(self, tag, attrs):
-        attrs_dict = dict(attrs)
-        if 'lang' in attrs_dict:
-            self.has_lang = True
-
-    def handle_meta_viewport(self, attrs):
-        attrs_dict = dict(attrs)
-        if attrs_dict.get('name') == 'viewport':
-            self.has_viewport = True
 
 def analyze_file(file_path):
     """Analyze a single HTML file"""
