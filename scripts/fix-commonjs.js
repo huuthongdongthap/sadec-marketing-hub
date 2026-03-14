@@ -23,6 +23,12 @@ const REPLACEMENTS = [
         name: 'CommonJS default export'
     },
     {
+        // Pattern: if (typeof module !== 'undefined') module.exports = { X, Y };
+        pattern: /if \(typeof module !== 'undefined'\) module\.exports = \{([^\}]+)\};/g,
+        replacement: '// Export for ES modules\nexport {$1};',
+        name: 'CommonJS one-liner export'
+    },
+    {
         // Pattern: if (typeof module !== 'undefined' && module.exports) { module.exports = { X, Y }; }
         pattern: /if \(typeof module !== 'undefined' && module\.exports\) \{\s*module\.exports = \{([^\}]+)\};\s*\}/g,
         replacement: 'export {$1};',

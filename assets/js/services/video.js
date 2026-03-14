@@ -133,4 +133,5 @@ function createDemoVideo(manager) {
 }
 
 const videoManager = new VideoManager();
-if (typeof module !== 'undefined') module.exports = { VideoManager, VideoProject, VideoStages, VideoTypes, videoManager, createDemoVideo };
+// Export for ES modules
+export { VideoManager, VideoProject, VideoStages, VideoTypes, videoManager, createDemoVideo };

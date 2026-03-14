@@ -115,4 +115,5 @@ function createDemoVCReadiness(tracker) {
 }
 
 const vcTracker = new VCReadinessTracker();
-if (typeof module !== 'undefined') module.exports = { VCReadinessTracker, VCMetrics, ReadinessChecklist, vcTracker, createDemoVCReadiness };
+// Export for ES modules
+export { VCReadinessTracker, VCMetrics, ReadinessChecklist, vcTracker, createDemoVCReadiness };

@@ -129,4 +129,5 @@ function createDemoFinance(manager) {
 }
 
 const financeManager = new FinanceManager();
-if (typeof module !== 'undefined') module.exports = { FinanceManager, Transaction, Invoice, AccountTypes, financeManager, createDemoFinance };
+// Export for ES modules
+export { FinanceManager, Transaction, Invoice, AccountTypes, financeManager, createDemoFinance };

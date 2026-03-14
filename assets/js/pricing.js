@@ -109,4 +109,5 @@ function createDemoPricing(manager) {
 }
 
 const pricingManager = new PricingManager();
-if (typeof module !== 'undefined') module.exports = { PricingManager, PriceQuote, PricingCalculator, PricingModels, ServiceTiers, pricingManager, createDemoPricing };
+// Export for ES modules
+export { PricingManager, PriceQuote, PricingCalculator, PricingModels, ServiceTiers, pricingManager, createDemoPricing };

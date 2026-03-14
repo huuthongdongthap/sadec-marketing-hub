@@ -132,4 +132,5 @@ function createDemoLegal(manager) {
 }
 
 const legalManager = new LegalManager();
-if (typeof module !== 'undefined') module.exports = { LegalManager, Contract, ContractTypes, ContractStatus, legalManager, createDemoLegal };
+// Export for ES modules
+export { LegalManager, Contract, ContractTypes, ContractStatus, legalManager, createDemoLegal };

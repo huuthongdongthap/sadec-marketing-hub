@@ -129,4 +129,5 @@ function createDemoMVP(manager) {
 }
 
 const mvpManager = new MVPManager();
-if (typeof module !== 'undefined') module.exports = { MVPManager, MVPProject, LaunchPhases, FeatureFlags, mvpManager, createDemoMVP };
+// Export for ES modules
+export { MVPManager, MVPProject, LaunchPhases, FeatureFlags, mvpManager, createDemoMVP };

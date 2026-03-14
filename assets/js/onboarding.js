@@ -93,4 +93,5 @@ function createDemoOnboarding(manager) {
 }
 
 const onboardingManager = new OnboardingManager();
-if (typeof module !== 'undefined') module.exports = { OnboardingManager, OnboardingClient, OnboardingSteps, onboardingManager, createDemoOnboarding };
+// Export for ES modules
+export { OnboardingManager, OnboardingClient, OnboardingSteps, onboardingManager, createDemoOnboarding };

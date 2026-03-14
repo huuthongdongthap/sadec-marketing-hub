@@ -127,7 +127,8 @@ export {
 // ============================================================================
 // LOGGER
 // ============================================================================
-export { Logger } from './logger.js';
+import LoggerModule from './logger.js';
+export const Logger = LoggerModule;
 
 // ============================================================================
 // NAMESPACE EXPORTS (for backward compatibility)

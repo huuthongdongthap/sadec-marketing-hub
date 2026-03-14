@@ -98,4 +98,5 @@ function createDemoAnalysis(analysis) {
 }
 
 const marketAnalysis = new MarketAnalysis();
-if (typeof module !== 'undefined') module.exports = { MarketAnalysis, Competitor, BinhPhapPrinciples, marketAnalysis, createDemoAnalysis };
+// Export for ES modules
+export { MarketAnalysis, Competitor, BinhPhapPrinciples, marketAnalysis, createDemoAnalysis };

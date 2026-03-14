@@ -129,4 +129,5 @@ function createDemoHR(manager) {
 }
 
 const hrManager = new HRManager();
-if (typeof module !== 'undefined') module.exports = { HRManager, Candidate, HiringStages, JobPositions, hrManager, createDemoHR };
+// Export for ES modules
+export { HRManager, Candidate, HiringStages, JobPositions, hrManager, createDemoHR };

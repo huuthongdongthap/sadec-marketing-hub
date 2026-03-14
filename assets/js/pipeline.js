@@ -98,4 +98,5 @@ function createDemoPipeline(manager) {
 }
 
 const pipelineManager = new PipelineManager();
-if (typeof module !== 'undefined') module.exports = { PipelineManager, Deal, PipelineStages, pipelineManager, createDemoPipeline };
+// Export for ES modules
+export { PipelineManager, Deal, PipelineStages, pipelineManager, createDemoPipeline };

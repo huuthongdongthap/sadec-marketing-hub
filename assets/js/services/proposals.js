@@ -106,4 +106,5 @@ function createDemoProposals(manager) {
 }
 
 const proposalManager = new ProposalManager();
-if (typeof module !== 'undefined') module.exports = { ProposalManager, Proposal, ProposalTemplates, proposalManager, createDemoProposals };
+// Export for ES modules
+export { ProposalManager, Proposal, ProposalTemplates, proposalManager, createDemoProposals };

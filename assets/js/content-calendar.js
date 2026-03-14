@@ -138,4 +138,5 @@ function createDemoContent(manager) {
 }
 
 const contentManager = new ContentCalendarManager();
-if (typeof module !== 'undefined') module.exports = { ContentCalendarManager, ContentItem, ContentTypes, ContentStatus, contentManager, createDemoContent };
+// Export for ES modules
+export { ContentCalendarManager, ContentItem, ContentTypes, ContentStatus, contentManager, createDemoContent };

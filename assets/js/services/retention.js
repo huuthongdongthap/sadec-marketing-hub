@@ -103,4 +103,5 @@ function createDemoRetention(manager) {
 }
 
 const retentionManager = new RetentionManager();
-if (typeof module !== 'undefined') module.exports = { RetentionManager, RetentionClient, RetentionPlays, ChurnSignals, retentionManager, createDemoRetention };
+// Export for ES modules
+export { RetentionManager, RetentionClient, RetentionPlays, ChurnSignals, retentionManager, createDemoRetention };
