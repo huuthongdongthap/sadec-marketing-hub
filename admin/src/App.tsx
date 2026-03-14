@@ -1,13 +1,13 @@
-import React, { useState, Suspense } from 'react'
+import React, { useState } from 'react'
 import { DashboardLayout } from './components/layout'
 import { KPICard, StatCard, Metric } from './components/kpi'
-import { Alert, ToastContainer, useToast, StatusBadge } from './components/alerts'
+import { Alert, useToast, StatusBadge } from './components/alerts'
 import { DollarSign, Users, ShoppingBag, TrendingUp, Info, Search, Plus, Moon, Sun, Download, Filter } from 'lucide-react'
 import { useServiceWorker } from './hooks/useServiceWorker'
 import { useDarkMode } from './hooks/useDarkMode'
 import { LazyChartWrapper } from './components/ui/LazyChart'
 import {
-  DataTable, Modal, SearchInput, Tooltip, ErrorBoundary,
+  DataTable, Modal, SearchInput, Tooltip,
   Tabs, TabsList, TabsTrigger, TabsContent,
   Select,
   Accordion, AccordionItem, AccordionTrigger, AccordionContent,
@@ -48,13 +48,12 @@ const trafficSourceData = [
 ]
 
 function App() {
-  const { toasts, toast, ToastContainer, dismissToast } = useToast()
-  const { theme, toggleTheme, isDark } = useDarkMode()
+  const { toast, ToastContainer } = useToast()
+  const { toggleTheme, isDark } = useDarkMode()
   const [alertDismissed, setAlertDismissed] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedRows, setSelectedRows] = useState<string[]>([])
-  const [activeTab, setActiveTab] = useState('overview')
   const [selectedStatus, setSelectedStatus] = useState<string>('all')
 
   const handleTestToast = () => {
