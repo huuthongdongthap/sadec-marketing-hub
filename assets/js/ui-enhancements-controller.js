@@ -22,6 +22,7 @@ class UIEnhancements {
         this.setupRippleEffect();
         this.setupPageLoader();
         this.setupReducedMotion();
+        this.initAllCardTilt();
     }
 
     /**
@@ -216,6 +217,40 @@ class UIEnhancements {
         children.forEach((child, index) => {
             child.style.animationDelay = `${index * 50}ms`;
         });
+    }
+
+    /**
+     * 3D Card Tilt Effect on mousemove
+     * @param {HTMLElement} card
+     */
+    initCardTilt(card) {
+        if (!card) return;
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    }
+
+    /**
+     * Initialize all card tilt effects
+     */
+    initAllCardTilt() {
+        document.querySelectorAll('.card-tilt-effect').forEach(card => {
+            this.initCardTilt(card);
+        });
+        console.log('[UI] Card tilt effects initialized');
     }
 
     /**
