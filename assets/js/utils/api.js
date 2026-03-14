@@ -1,13 +1,23 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * API UTILITIES
- * 
- * Safe API fetch wrapper with error handling
- * 
+ * API UTILITIES - DEPRECATED
+ *
+ * This file is deprecated. Use shared/api.js instead.
+ * Kept for backward compatibility only.
+ *
  * ═══════════════════════════════════════════════════════════════════════════
+ * @deprecated Use shared/api.js
  */
 
-import { Logger } from '../shared/logger.js';
+// Re-export from consolidated API module
+export {
+    apiFetch,
+    handleApiError,
+    apiGet,
+    apiPost,
+    apiPut,
+    apiDelete
+} from '../shared/api.js';
 
 // Supabase URL from environment (global)
 const API_BASE_URL = typeof SUPABASE_URL !== 'undefined' 

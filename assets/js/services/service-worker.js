@@ -1,11 +1,18 @@
 /**
  * Sa Đéc Marketing Hub - Service Worker
  * Caching strategies for optimal performance
+ *
+ * Usage: Build with MINIFY_LOG=true to strip debug logs
  */
 
 const CACHE_NAME = 'sadec-hub-v1';
 const STATIC_CACHE = 'sadec-static-v1';
 const DYNAMIC_CACHE = 'sadec-dynamic-v1';
+const LOG_ENABLED = typeof SW_LOG !== 'undefined' ? SW_LOG : (location?.hostname === 'localhost');
+
+// Debug logger - stripped in production build
+const swLog = (...args) => LOG_ENABLED && console.log('[SW]', ...args);
+const swError = (...args) => console.error('[SW]', ...args);
 
 // Static assets to cache immediately
 const STATIC_ASSETS = [
@@ -28,20 +35,20 @@ const NETWORK_TIMEOUT = 3000;
 // ============================================================================
 
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker...');
+    swLog('Installing service worker...');
 
     event.waitUntil(
         caches.open(STATIC_CACHE)
             .then((cache) => {
-                console.log('[SW] Caching static assets');
+                swLog('Caching static assets');
                 return cache.addAll(STATIC_ASSETS);
             })
             .then(() => {
-                console.log('[SW] Installation complete, skipping waiting');
+                swLog('Installation complete, skipping waiting');
                 return self.skipWaiting();
             })
             .catch((error) => {
-                console.error('[SW] Installation error:', error);
+                swError('Installation error:', error);
             })
     );
 });
@@ -51,7 +58,7 @@ self.addEventListener('install', (event) => {
 // ============================================================================
 
 self.addEventListener('activate', (event) => {
-    console.log('[SW] Activating service worker...');
+    swLog('Activating service worker...');
 
     event.waitUntil(
         caches.keys()
@@ -59,19 +66,18 @@ self.addEventListener('activate', (event) => {
                 return Promise.all(
                     cacheNames
                         .filter((cacheName) => {
-                            // Delete old caches that don't match current names
                             return cacheName.startsWith('sadec-') &&
                                 cacheName !== STATIC_CACHE &&
                                 cacheName !== DYNAMIC_CACHE;
                         })
                         .map((cacheName) => {
-                            console.log('[SW] Deleting old cache:', cacheName);
+                            swLog('Deleting old cache:', cacheName);
                             return caches.delete(cacheName);
                         })
                 );
             })
             .then(() => {
-                console.log('[SW] Activation complete, claiming clients');
+                swLog('Activation complete, claiming clients');
                 return self.clients.claim();
             })
     );

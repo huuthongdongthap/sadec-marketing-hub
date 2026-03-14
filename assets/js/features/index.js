@@ -23,6 +23,7 @@ export { FavoritesManager } from './favorites.js';
 export { WidgetCustomizer, WidgetCustomizerInstance, initWidgetCustomizer } from './widget-customizer.js';
 export { AIContentPanel, AIContentPanelInstance, initAIContentPanel } from './ai-content-panel.js';
 export { QuickToolsPanel, QuickToolsPanelInstance, initQuickToolsPanel } from './quick-tools-panel.js';
+export { SmartTaskManager } from './smart-task-manager.js';
 
 // New UX Enhancements 2026
 export { initUXEnhancements } from './ux-enhancements-2026.js';
@@ -69,6 +70,7 @@ window.MekongFeatures = {
     initQuickNotes: window.initQuickNotes,
     QuickSettings: window.QuickSettings,
     FavoritesManager: window.FavoritesManager,
+    SmartTaskManager: window.SmartTaskManager,
     init: initializeFeatures,
     // UX Utilities
     Loading: window.Loading,
