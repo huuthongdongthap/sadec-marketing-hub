@@ -114,11 +114,7 @@ export {
 // ============================================================================
 // SCROLL UTILITIES
 // ============================================================================
-export {
-    scrollToElement,
-    smoothScrollTo,
-    initScrollListener
-} from './scroll-listener.js';
+export { default as ScrollListener } from './scroll-listener.js';
 
 // ============================================================================
 // KEYBOARD UTILITIES
