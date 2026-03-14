@@ -15,6 +15,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import ScrollListener from '../shared/scroll-listener.js';
+
 const ReadingProgress = {
     progressBar: null,
     currentProgress: 0,
@@ -54,7 +56,7 @@ const ReadingProgress = {
             this.toggleVisibility(scrollTop);
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        ScrollListener.add('reading-progress', onScroll, { passive: true, debounce: 50 });
         onScroll(); // Initial check
     },
 

@@ -15,6 +15,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import ScrollListener from '../shared/scroll-listener.js';
+
 const BackToTop = {
     button: null,
     scrollThreshold: 300,
@@ -59,7 +61,7 @@ const BackToTop = {
             }
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        ScrollListener.add('back-to-top', onScroll, { passive: true, debounce: 50 });
         onScroll(); // Initial check
     },
 

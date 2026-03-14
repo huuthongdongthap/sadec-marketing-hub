@@ -18,6 +18,7 @@
  */
 
 import { Logger } from '../shared/logger.js';
+import KeyboardManager from '../shared/keyboard-manager.js';
 
 const SHORTCUTS = {
     search: { key: 'k', modifier: 'ctrl', action: 'openSearch' },
@@ -41,8 +42,31 @@ export function initKeyboardShortcuts() {
         return;
     }
 
-    // Add event listener
-    document.addEventListener('keydown', handleKeyDown);
+    // Register shortcuts using KeyboardManager
+    KeyboardManager.register('ctrl+k', (e) => {
+        e.preventDefault();
+        openSearch();
+    });
+    KeyboardManager.register('ctrl+/', (e) => {
+        e.preventDefault();
+        openHelp();
+    });
+    KeyboardManager.register('ctrl+b', (e) => {
+        e.preventDefault();
+        toggleSidebar();
+    });
+    KeyboardManager.register('ctrl+s', (e) => {
+        e.preventDefault();
+        quickSave();
+    });
+    KeyboardManager.register('ctrl+r', (e) => {
+        e.preventDefault();
+        refreshData();
+    });
+    KeyboardManager.register('escape', (e) => {
+        e.preventDefault();
+        closeModals();
+    });
 
     // Create shortcuts help modal (hidden by default)
     createHelpModal();
