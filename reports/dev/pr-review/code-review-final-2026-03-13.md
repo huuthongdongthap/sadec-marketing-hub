@@ -1,0 +1,204 @@
+# 🔍 Code Review Report — Sa Đéc Marketing Hub
+
+**Ngày:** 2026-03-13
+**Version:** v4.16.1
+**Scope:** Code quality, patterns, dead code detection
+
+---
+
+## 📊 Executive Summary
+
+| Category | Status | Severity |
+|----------|--------|----------|
+| Tech Debt (TODO/FIXME) | ✅ 1 file | LOW |
+| Console.log in Prod | ⚠️ 17 statements | MEDIUM |
+| `any` Types | ✅ 0 occurrences | NONE |
+| Dead Code | ⚠️ 1 file | MEDIUM |
+| Import Patterns | ✅ Clean | NONE |
+
+---
+
+## 🔎 Findings
+
+### 1. Tech Debt Comments
+
+**Found 1 file with TODO/FIXME:**
+
+| File | Issue |
+|------|-------|
+| `utils/id.js` | Has TODO comment (need to review) |
+
+**Recommendation:** Review and remove TODO if not applicable, or create tracking issue.
+
+---
+
+### 2. Console.log Statements (Production Code)
+
+**17 console.error statements across 10 files:**
+
+#### Critical Errors (Should Keep)
+These are appropriate for error handling:
+
+| File | Count | Context |
+|------|-------|---------|
+| `utils/export-utils.js` | 7 | Export errors (appropriate) |
+| `utils/api.js` | 2 | API error logging (appropriate) |
+| `components/*` | 5 | Component error boundaries (appropriate) |
+| `utils/id.js` | 0 | None found |
+| `features/data-export.js` | 1 | Wrapped in `_debug()` ✅ |
+
+#### Analysis
+- ✅ Most console.error are in error handling context
+- ✅ Features/data-export.js already wrapped in `_debug()`
+- ⚠️ Consider wrapping component errors in dev-only helper
+
+**Recommendation:**
+```javascript
+// Add _debug helper to utils/logger.js
+export const _debug = (message, ...args) => {
+    if (process.env.NODE_ENV === 'development') {
+        console.error(message, ...args);
+    }
+};
+```
+
+---
+
+### 3. Dead Code Detection
+
+#### Duplicate Format Utilities
+
+**Status:** Already identified in tech debt audit
+
+| File | Lines | Imports |
+|------|-------|---------|
+| `shared/format-utils.js` | 147 | ✅ Used by core-utils.js |
+| `utils/format.js` | 133 | ❌ No imports found |
+
+**Recommendation:** Remove `utils/format.js` - no files import it.
+
+---
+
+### 4. Code Patterns
+
+#### ✅ Good Patterns Found
+
+**1. Consistent Error Handling:**
+```javascript
+// utils/api.js - Proper error wrapping
+try {
+    const response = await fetch(url, config);
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
+    }
+    return await response.json();
+} catch (error) {
+    console.error('[API Error]', { endpoint, error: error.message });
+    throw error;
+}
+```
+
+**2. ES Module Exports:**
+```javascript
+// Proper export pattern
+export { formatCurrency, formatCurrencyVN } from '../shared/format-utils.js';
+```
+
+**3. Component Error Boundaries:**
+```javascript
+// components/error-boundary.js - Proper error recovery
+class ErrorBoundary extends HTMLElement {
+    handleError(error) {
+        console.error('[ErrorBoundary]', error);
+        this.renderFallback();
+    }
+}
+```
+
+#### ⚠️ Patterns to Improve
+
+**1. Inconsistent Error Logging:**
+Some files use `console.error`, others use Toast notifications.
+
+**Recommendation:** Standardize error handling:
+```javascript
+// services/error-handler.js (new)
+export function handleError(error, options = {}) {
+    const { showToast = true, logToConsole = true } = options;
+
+    if (logToConsole) {
+        console.error('[App Error]', error);
+    }
+
+    if (showToast && window.Toast) {
+        Toast.error(error.message || 'Có lỗi xảy ra');
+    }
+}
+```
+
+**2. Missing Type JSDoc:**
+Some functions missing complete JSDoc @param types.
+
+---
+
+### 5. Security Check
+
+| Check | Status |
+|-------|--------|
+| No secrets in code | ✅ Pass |
+| No `@ts-ignore` | ✅ Pass |
+| Input validation | ⚠️ Partial |
+| CORS configured | ✅ N/A (client-side) |
+
+**Security Findings:**
+- ✅ No API keys or secrets committed
+- ✅ No eval() or dangerous patterns
+- ⚠️ Some API calls could use input sanitization
+
+---
+
+## 📋 Action Items
+
+### Priority 1: Remove Dead Code
+- [ ] Delete `utils/format.js` (no imports)
+- [ ] Review TODO in `utils/id.js`
+
+### Priority 2: Standardize Error Handling
+- [ ] Create `services/error-handler.js`
+- [ ] Update components to use centralized error handler
+- [ ] Keep console.error for dev-only with `_debug()` wrapper
+
+### Priority 3: Documentation
+- [ ] Add complete JSDoc to public APIs
+- [ ] Document error handling patterns in README
+
+---
+
+## 📈 Code Quality Score
+
+| Metric | Score | Target |
+|--------|-------|--------|
+| Tech Debt | 9/10 | 10/10 |
+| Type Safety | 10/10 | 10/10 |
+| Error Handling | 7/10 | 9/10 |
+| Documentation | 8/10 | 9/10 |
+| Security | 9/10 | 10/10 |
+| **Overall** | **8.6/10** | **9.5/10** |
+
+---
+
+## ✅ Summary
+
+**Code quality is GOOD** with minor improvements needed:
+
+1. **Dead code:** 1 file to remove (`utils/format.js`)
+2. **Error handling:** Standardize pattern across components
+3. **Documentation:** Add JSDoc to remaining functions
+
+No critical issues found. Code is production-ready.
+
+---
+
+**Generated by:** /dev-pr-review skill
+**Timestamp:** 2026-03-13T23:15:00+07:00

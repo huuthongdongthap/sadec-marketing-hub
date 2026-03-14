@@ -1,0 +1,2989 @@
+{
+  "js": {
+    "files": [
+      {
+        "path": "assets/js/features/quick-tools-panel.js",
+        "name": "quick-tools-panel.js",
+        "rawSize": 35572,
+        "gzipSize": 6876,
+        "ratio": "19.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ux-features-2026.js",
+        "name": "ux-features-2026.js",
+        "rawSize": 32275,
+        "gzipSize": 7227,
+        "ratio": "22.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/seo-metadata-injector.js",
+        "name": "seo-metadata-injector.js",
+        "rawSize": 29944,
+        "gzipSize": 6552,
+        "ratio": "21.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/user-preferences.js",
+        "name": "user-preferences.js",
+        "rawSize": 28266,
+        "gzipSize": 5611,
+        "ratio": "19.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/sadec-sidebar.js",
+        "name": "sadec-sidebar.js",
+        "rawSize": 25764,
+        "gzipSize": 6073,
+        "ratio": "23.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/database-service.js",
+        "name": "database-service.js",
+        "rawSize": 23511,
+        "gzipSize": 3113,
+        "ratio": "13.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/data-table.js",
+        "name": "data-table.js",
+        "rawSize": 22544,
+        "gzipSize": 5716,
+        "ratio": "25.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/keyboard-shortcuts.js",
+        "name": "keyboard-shortcuts.js",
+        "rawSize": 22382,
+        "gzipSize": 5028,
+        "ratio": "22.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ai-content-panel.js",
+        "name": "ai-content-panel.js",
+        "rawSize": 22096,
+        "gzipSize": 5094,
+        "ratio": "23.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/project-health-monitor.js",
+        "name": "project-health-monitor.js",
+        "rawSize": 21429,
+        "gzipSize": 5241,
+        "ratio": "24.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/activity-timeline.js",
+        "name": "activity-timeline.js",
+        "rawSize": 21204,
+        "gzipSize": 5011,
+        "ratio": "23.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/notification-center.js",
+        "name": "notification-center.js",
+        "rawSize": 20827,
+        "gzipSize": 5424,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/micro-animations.js",
+        "name": "micro-animations.js",
+        "rawSize": 20691,
+        "gzipSize": 4419,
+        "ratio": "21.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/smart-task-manager.js",
+        "name": "smart-task-manager.js",
+        "rawSize": 20065,
+        "gzipSize": 4538,
+        "ratio": "22.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ai-content-generator.js",
+        "name": "ai-content-generator.js",
+        "rawSize": 19228,
+        "gzipSize": 5810,
+        "ratio": "30.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/menu-manager.js",
+        "name": "menu-manager.js",
+        "rawSize": 19191,
+        "gzipSize": 4545,
+        "ratio": "23.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/micro-animations.js",
+        "name": "micro-animations.js",
+        "rawSize": 19089,
+        "gzipSize": 3569,
+        "ratio": "18.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/line-chart-widget.js",
+        "name": "line-chart-widget.js",
+        "rawSize": 18973,
+        "gzipSize": 4135,
+        "ratio": "21.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/notification-bell.js",
+        "name": "notification-bell.js",
+        "rawSize": 18401,
+        "gzipSize": 4445,
+        "ratio": "24.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-ux-enhancements.js",
+        "name": "admin-ux-enhancements.js",
+        "rawSize": 17952,
+        "gzipSize": 4430,
+        "ratio": "24.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/mekong-store.js",
+        "name": "mekong-store.js",
+        "rawSize": 17714,
+        "gzipSize": 3373,
+        "ratio": "19.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/search-autocomplete.js",
+        "name": "search-autocomplete.js",
+        "rawSize": 17622,
+        "gzipSize": 4973,
+        "ratio": "28.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ux-improvements-v2.js",
+        "name": "ux-improvements-v2.js",
+        "rawSize": 17535,
+        "gzipSize": 4425,
+        "ratio": "25.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/alerts-widget.js",
+        "name": "alerts-widget.js",
+        "rawSize": 17255,
+        "gzipSize": 3452,
+        "ratio": "20.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/ecommerce.js",
+        "name": "ecommerce.js",
+        "rawSize": 16718,
+        "gzipSize": 4325,
+        "ratio": "25.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/workflows.js",
+        "name": "workflows.js",
+        "rawSize": 16526,
+        "gzipSize": 3684,
+        "ratio": "22.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/command-palette-enhanced.js",
+        "name": "command-palette-enhanced.js",
+        "rawSize": 16517,
+        "gzipSize": 4743,
+        "ratio": "28.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/chart-animations.js",
+        "name": "chart-animations.js",
+        "rawSize": 16436,
+        "gzipSize": 4233,
+        "ratio": "25.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/notification-preferences.js",
+        "name": "notification-preferences.js",
+        "rawSize": 16403,
+        "gzipSize": 3064,
+        "ratio": "18.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/admin-shared.js",
+        "name": "admin-shared.js",
+        "rawSize": 15879,
+        "gzipSize": 4379,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/payment-gateway.js",
+        "name": "payment-gateway.js",
+        "rawSize": 15739,
+        "gzipSize": 3765,
+        "ratio": "23.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/loading-states.js",
+        "name": "loading-states.js",
+        "rawSize": 15579,
+        "gzipSize": 3406,
+        "ratio": "21.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ui-motion-controller.js",
+        "name": "ui-motion-controller.js",
+        "rawSize": 15528,
+        "gzipSize": 3835,
+        "ratio": "24.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/area-chart-widget.js",
+        "name": "area-chart-widget.js",
+        "rawSize": 15454,
+        "gzipSize": 3237,
+        "ratio": "20.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-leads.js",
+        "name": "admin-leads.js",
+        "rawSize": 15220,
+        "gzipSize": 3567,
+        "ratio": "23.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/bar-chart-widget.js",
+        "name": "bar-chart-widget.js",
+        "rawSize": 15199,
+        "gzipSize": 3082,
+        "ratio": "20.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ai-search-enhancement.js",
+        "name": "ai-search-enhancement.js",
+        "rawSize": 14424,
+        "gzipSize": 4259,
+        "ratio": "29.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/help-tour.js",
+        "name": "help-tour.js",
+        "rawSize": 14330,
+        "gzipSize": 3718,
+        "ratio": "25.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/realtime-stats-widget.js",
+        "name": "realtime-stats-widget.js",
+        "rawSize": 14082,
+        "gzipSize": 3083,
+        "ratio": "21.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/conversion-funnel.js",
+        "name": "conversion-funnel.js",
+        "rawSize": 14034,
+        "gzipSize": 3714,
+        "ratio": "26.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/data-table-widget.js",
+        "name": "data-table-widget.js",
+        "rawSize": 13698,
+        "gzipSize": 2995,
+        "ratio": "21.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/quick-stats-widget.js",
+        "name": "quick-stats-widget.js",
+        "rawSize": 13661,
+        "gzipSize": 4220,
+        "ratio": "30.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ui-enhancements.js",
+        "name": "ui-enhancements.js",
+        "rawSize": 13501,
+        "gzipSize": 3514,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/data-export.js",
+        "name": "data-export.js",
+        "rawSize": 13469,
+        "gzipSize": 3596,
+        "ratio": "26.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/widget-customizer.js",
+        "name": "widget-customizer.js",
+        "rawSize": 13461,
+        "gzipSize": 3415,
+        "ratio": "25.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/events.js",
+        "name": "events.js",
+        "rawSize": 13399,
+        "gzipSize": 3860,
+        "ratio": "28.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ui-enhancements-2026.js",
+        "name": "ui-enhancements-2026.js",
+        "rawSize": 13305,
+        "gzipSize": 3013,
+        "ratio": "22.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/approvals.js",
+        "name": "approvals.js",
+        "rawSize": 13105,
+        "gzipSize": 3001,
+        "ratio": "22.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-campaigns.js",
+        "name": "admin-campaigns.js",
+        "rawSize": 13059,
+        "gzipSize": 3226,
+        "ratio": "24.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-styles.js",
+        "name": "notes-styles.js",
+        "rawSize": 12974,
+        "gzipSize": 2029,
+        "ratio": "15.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/command-palette.js",
+        "name": "command-palette.js",
+        "rawSize": 12890,
+        "gzipSize": 3354,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-settings.js",
+        "name": "quick-settings.js",
+        "rawSize": 12833,
+        "gzipSize": 2796,
+        "ratio": "21.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/notification-panel.js",
+        "name": "notification-panel.js",
+        "rawSize": 12800,
+        "gzipSize": 3207,
+        "ratio": "25.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/content-ai.js",
+        "name": "content-ai.js",
+        "rawSize": 12777,
+        "gzipSize": 3301,
+        "ratio": "25.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/help-tour.js",
+        "name": "help-tour.js",
+        "rawSize": 12746,
+        "gzipSize": 3893,
+        "ratio": "30.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/api.js",
+        "name": "api.js",
+        "rawSize": 12726,
+        "gzipSize": 3600,
+        "ratio": "28.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/community.js",
+        "name": "community.js",
+        "rawSize": 12672,
+        "gzipSize": 3965,
+        "ratio": "31.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/favorites.js",
+        "name": "favorites.js",
+        "rawSize": 12593,
+        "gzipSize": 3095,
+        "ratio": "24.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/loading-states.js",
+        "name": "loading-states.js",
+        "rawSize": 12579,
+        "gzipSize": 2623,
+        "ratio": "20.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/revenue-chart.js",
+        "name": "revenue-chart.js",
+        "rawSize": 12501,
+        "gzipSize": 3096,
+        "ratio": "24.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/analytics-dashboard.js",
+        "name": "analytics-dashboard.js",
+        "rawSize": 12494,
+        "gzipSize": 3335,
+        "ratio": "26.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/empty-state.js",
+        "name": "empty-state.js",
+        "rawSize": 12433,
+        "gzipSize": 3551,
+        "ratio": "28.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/advanced-filters.js",
+        "name": "advanced-filters.js",
+        "rawSize": 12381,
+        "gzipSize": 3145,
+        "ratio": "25.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/lazy-loader.js",
+        "name": "lazy-loader.js",
+        "rawSize": 12334,
+        "gzipSize": 3240,
+        "ratio": "26.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/keyboard-shortcuts.js",
+        "name": "keyboard-shortcuts.js",
+        "rawSize": 12292,
+        "gzipSize": 3362,
+        "ratio": "27.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/ai-assistant.js",
+        "name": "ai-assistant.js",
+        "rawSize": 12270,
+        "gzipSize": 3632,
+        "ratio": "29.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/mobile-responsive.js",
+        "name": "mobile-responsive.js",
+        "rawSize": 12253,
+        "gzipSize": 3475,
+        "ratio": "28.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/keyboard-shortcuts.js",
+        "name": "keyboard-shortcuts.js",
+        "rawSize": 12218,
+        "gzipSize": 3439,
+        "ratio": "28.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/premium-interactions.js",
+        "name": "premium-interactions.js",
+        "rawSize": 12137,
+        "gzipSize": 2633,
+        "ratio": "21.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/dialog-service.js",
+        "name": "dialog-service.js",
+        "rawSize": 12105,
+        "gzipSize": 2912,
+        "ratio": "24.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/chat-widget.js",
+        "name": "chat-widget.js",
+        "rawSize": 12038,
+        "gzipSize": 3259,
+        "ratio": "27.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/accordion.js",
+        "name": "accordion.js",
+        "rawSize": 12002,
+        "gzipSize": 2891,
+        "ratio": "24.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/payment-modal.js",
+        "name": "payment-modal.js",
+        "rawSize": 11799,
+        "gzipSize": 3111,
+        "ratio": "26.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/index.js",
+        "name": "index.js",
+        "rawSize": 11791,
+        "gzipSize": 2152,
+        "ratio": "18.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/form-validation.js",
+        "name": "form-validation.js",
+        "rawSize": 11745,
+        "gzipSize": 3331,
+        "ratio": "28.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/cache-helper.js",
+        "name": "cache-helper.js",
+        "rawSize": 11714,
+        "gzipSize": 2689,
+        "ratio": "23.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes-widget.js",
+        "name": "quick-notes-widget.js",
+        "rawSize": 11548,
+        "gzipSize": 3186,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/tabs.js",
+        "name": "tabs.js",
+        "rawSize": 11536,
+        "gzipSize": 3031,
+        "ratio": "26.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/error-boundary.js",
+        "name": "error-boundary.js",
+        "rawSize": 11490,
+        "gzipSize": 3762,
+        "ratio": "32.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-actions.js",
+        "name": "quick-actions.js",
+        "rawSize": 11479,
+        "gzipSize": 2998,
+        "ratio": "26.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/mobile-navigation.js",
+        "name": "mobile-navigation.js",
+        "rawSize": 11448,
+        "gzipSize": 3257,
+        "ratio": "28.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/storage-service.js",
+        "name": "storage-service.js",
+        "rawSize": 11406,
+        "gzipSize": 2859,
+        "ratio": "25.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-clients.js",
+        "name": "admin-clients.js",
+        "rawSize": 11291,
+        "gzipSize": 2936,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/sadec-toast.js",
+        "name": "sadec-toast.js",
+        "rawSize": 11265,
+        "gzipSize": 3027,
+        "ratio": "26.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/pie-chart-widget.js",
+        "name": "pie-chart-widget.js",
+        "rawSize": 11222,
+        "gzipSize": 2824,
+        "ratio": "25.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/scroll-to-top.js",
+        "name": "scroll-to-top.js",
+        "rawSize": 10993,
+        "gzipSize": 3152,
+        "ratio": "28.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-invoices.js",
+        "name": "portal-invoices.js",
+        "rawSize": 10957,
+        "gzipSize": 2890,
+        "ratio": "26.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/notification-bell.js",
+        "name": "notification-bell.js",
+        "rawSize": 10817,
+        "gzipSize": 3066,
+        "ratio": "28.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/activity-feed.js",
+        "name": "activity-feed.js",
+        "rawSize": 10791,
+        "gzipSize": 2470,
+        "ratio": "22.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ui-enhancements-controller.js",
+        "name": "ui-enhancements-controller.js",
+        "rawSize": 10782,
+        "gzipSize": 2800,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/stepper.js",
+        "name": "stepper.js",
+        "rawSize": 10725,
+        "gzipSize": 2560,
+        "ratio": "23.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/project-progress.js",
+        "name": "project-progress.js",
+        "rawSize": 10720,
+        "gzipSize": 2336,
+        "ratio": "21.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/service-worker.js",
+        "name": "service-worker.js",
+        "rawSize": 10570,
+        "gzipSize": 2750,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/customer-success.js",
+        "name": "customer-success.js",
+        "rawSize": 10273,
+        "gzipSize": 3026,
+        "ratio": "29.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/auto-save.js",
+        "name": "auto-save.js",
+        "rawSize": 10106,
+        "gzipSize": 2612,
+        "ratio": "25.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/notification-manager.js",
+        "name": "notification-manager.js",
+        "rawSize": 10101,
+        "gzipSize": 3053,
+        "ratio": "30.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/notification-bell.js",
+        "name": "notification-bell.js",
+        "rawSize": 9716,
+        "gzipSize": 2496,
+        "ratio": "25.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/theme-manager.js",
+        "name": "theme-manager.js",
+        "rawSize": 9649,
+        "gzipSize": 2666,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/empty-states.js",
+        "name": "empty-states.js",
+        "rawSize": 9627,
+        "gzipSize": 2612,
+        "ratio": "27.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/performance-gauge-widget.js",
+        "name": "performance-gauge-widget.js",
+        "rawSize": 9569,
+        "gzipSize": 2274,
+        "ratio": "23.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/base-component.js",
+        "name": "base-component.js",
+        "rawSize": 9561,
+        "gzipSize": 2518,
+        "ratio": "26.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/theme-manager.js",
+        "name": "theme-manager.js",
+        "rawSize": 9552,
+        "gzipSize": 2771,
+        "ratio": "29.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/help-tour.js",
+        "name": "help-tour.js",
+        "rawSize": 9522,
+        "gzipSize": 2455,
+        "ratio": "25.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/keyboard-shortcuts.js",
+        "name": "keyboard-shortcuts.js",
+        "rawSize": 9506,
+        "gzipSize": 2802,
+        "ratio": "29.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/skeleton-loader.js",
+        "name": "skeleton-loader.js",
+        "rawSize": 9437,
+        "gzipSize": 2409,
+        "ratio": "25.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/modal-utils.js",
+        "name": "modal-utils.js",
+        "rawSize": 9351,
+        "gzipSize": 2532,
+        "ratio": "27.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/test-components.js",
+        "name": "test-components.js",
+        "rawSize": 9208,
+        "gzipSize": 2135,
+        "ratio": "23.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/command-palette.js",
+        "name": "command-palette.js",
+        "rawSize": 9205,
+        "gzipSize": 2467,
+        "ratio": "26.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/dom-utils.js",
+        "name": "dom-utils.js",
+        "rawSize": 9148,
+        "gzipSize": 2309,
+        "ratio": "25.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/quick-actions.js",
+        "name": "quick-actions.js",
+        "rawSize": 9062,
+        "gzipSize": 2513,
+        "ratio": "27.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/loading-button.js",
+        "name": "loading-button.js",
+        "rawSize": 9045,
+        "gzipSize": 2369,
+        "ratio": "26.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/lazy-loader.js",
+        "name": "lazy-loader.js",
+        "rawSize": 9006,
+        "gzipSize": 2552,
+        "ratio": "28.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/api-utils.js",
+        "name": "api-utils.js",
+        "rawSize": 8945,
+        "gzipSize": 2163,
+        "ratio": "24.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-dashboard.js",
+        "name": "portal-dashboard.js",
+        "rawSize": 8877,
+        "gzipSize": 2486,
+        "ratio": "28.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-payments.js",
+        "name": "portal-payments.js",
+        "rawSize": 8745,
+        "gzipSize": 2641,
+        "ratio": "30.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/payment-status-chip.js",
+        "name": "payment-status-chip.js",
+        "rawSize": 8715,
+        "gzipSize": 2419,
+        "ratio": "27.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/agents.js",
+        "name": "agents.js",
+        "rawSize": 8675,
+        "gzipSize": 2410,
+        "ratio": "27.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/sadec-navbar.js",
+        "name": "sadec-navbar.js",
+        "rawSize": 8627,
+        "gzipSize": 2099,
+        "ratio": "24.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/toast-manager.js",
+        "name": "toast-manager.js",
+        "rawSize": 8612,
+        "gzipSize": 2699,
+        "ratio": "31.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/toast-manager.js",
+        "name": "toast-manager.js",
+        "rawSize": 8592,
+        "gzipSize": 2266,
+        "ratio": "26.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-data.js",
+        "name": "admin-data.js",
+        "rawSize": 8587,
+        "gzipSize": 2364,
+        "ratio": "27.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/kpi-card.js",
+        "name": "kpi-card.js",
+        "rawSize": 8539,
+        "gzipSize": 2604,
+        "ratio": "30.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/error-boundary.js",
+        "name": "error-boundary.js",
+        "rawSize": 8511,
+        "gzipSize": 2656,
+        "ratio": "31.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/enhanced-utils.js",
+        "name": "enhanced-utils.js",
+        "rawSize": 8489,
+        "gzipSize": 2672,
+        "ratio": "31.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/quick-actions.js",
+        "name": "quick-actions.js",
+        "rawSize": 8454,
+        "gzipSize": 2246,
+        "ratio": "26.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/ui-utils.js",
+        "name": "ui-utils.js",
+        "rawSize": 8441,
+        "gzipSize": 2278,
+        "ratio": "27.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core-utils.test.js",
+        "name": "core-utils.test.js",
+        "rawSize": 8408,
+        "gzipSize": 1821,
+        "ratio": "21.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/toast-component.js",
+        "name": "toast-component.js",
+        "rawSize": 8391,
+        "gzipSize": 2361,
+        "ratio": "28.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/pagination-component.js",
+        "name": "pagination-component.js",
+        "rawSize": 8293,
+        "gzipSize": 1981,
+        "ratio": "23.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ui-interactions.js",
+        "name": "ui-interactions.js",
+        "rawSize": 8081,
+        "gzipSize": 2586,
+        "ratio": "32.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/api-client.js",
+        "name": "api-client.js",
+        "rawSize": 8031,
+        "gzipSize": 2492,
+        "ratio": "31.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/tooltip.js",
+        "name": "tooltip.js",
+        "rawSize": 7946,
+        "gzipSize": 2073,
+        "ratio": "26.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/file-upload.js",
+        "name": "file-upload.js",
+        "rawSize": 7927,
+        "gzipSize": 2548,
+        "ratio": "32.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-client.js",
+        "name": "admin-client.js",
+        "rawSize": 7894,
+        "gzipSize": 1354,
+        "ratio": "17.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/ux-enhancements-2026.js",
+        "name": "ux-enhancements-2026.js",
+        "rawSize": 7588,
+        "gzipSize": 2188,
+        "ratio": "28.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/data-refresh-indicator.js",
+        "name": "data-refresh-indicator.js",
+        "rawSize": 7480,
+        "gzipSize": 2176,
+        "ratio": "29.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/toast-manager.js",
+        "name": "toast-manager.js",
+        "rawSize": 7309,
+        "gzipSize": 2009,
+        "ratio": "27.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/agency-2026-premium.js",
+        "name": "agency-2026-premium.js",
+        "rawSize": 7286,
+        "gzipSize": 1891,
+        "ratio": "26.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-projects.js",
+        "name": "portal-projects.js",
+        "rawSize": 7266,
+        "gzipSize": 2096,
+        "ratio": "28.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/chart-components.js",
+        "name": "chart-components.js",
+        "rawSize": 7261,
+        "gzipSize": 1328,
+        "ratio": "18.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/gateway-selector.js",
+        "name": "gateway-selector.js",
+        "rawSize": 7159,
+        "gzipSize": 1925,
+        "ratio": "26.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/toast.js",
+        "name": "toast.js",
+        "rawSize": 7100,
+        "gzipSize": 2207,
+        "ratio": "31.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/search-enhancements.js",
+        "name": "search-enhancements.js",
+        "rawSize": 7070,
+        "gzipSize": 1975,
+        "ratio": "27.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/finance-client.js",
+        "name": "finance-client.js",
+        "rawSize": 6920,
+        "gzipSize": 2278,
+        "ratio": "32.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/performance.js",
+        "name": "performance.js",
+        "rawSize": 6898,
+        "gzipSize": 2089,
+        "ratio": "30.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/theme-manager.js",
+        "name": "theme-manager.js",
+        "rawSize": 6888,
+        "gzipSize": 2216,
+        "ratio": "32.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/lms.js",
+        "name": "lms.js",
+        "rawSize": 6725,
+        "gzipSize": 1936,
+        "ratio": "28.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/notification-service.js",
+        "name": "notification-service.js",
+        "rawSize": 6619,
+        "gzipSize": 2145,
+        "ratio": "32.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/kpi-card.js",
+        "name": "kpi-card.js",
+        "rawSize": 6543,
+        "gzipSize": 1823,
+        "ratio": "27.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/search-autocomplete.js",
+        "name": "search-autocomplete.js",
+        "rawSize": 6394,
+        "gzipSize": 2124,
+        "ratio": "33.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/share.js",
+        "name": "share.js",
+        "rawSize": 6375,
+        "gzipSize": 1793,
+        "ratio": "28.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-data.js",
+        "name": "portal-data.js",
+        "rawSize": 6365,
+        "gzipSize": 1619,
+        "ratio": "25.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/filter-component.js",
+        "name": "filter-component.js",
+        "rawSize": 6336,
+        "gzipSize": 1696,
+        "ratio": "26.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/realtime-dashboard.js",
+        "name": "realtime-dashboard.js",
+        "rawSize": 6331,
+        "gzipSize": 1901,
+        "ratio": "30.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/export-buttons.js",
+        "name": "export-buttons.js",
+        "rawSize": 6317,
+        "gzipSize": 2143,
+        "ratio": "33.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/supabase-client.js",
+        "name": "supabase-client.js",
+        "rawSize": 6283,
+        "gzipSize": 1690,
+        "ratio": "26.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/landing-builder.js",
+        "name": "landing-builder.js",
+        "rawSize": 6275,
+        "gzipSize": 2083,
+        "ratio": "33.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/bell-component.js",
+        "name": "bell-component.js",
+        "rawSize": 6129,
+        "gzipSize": 1890,
+        "ratio": "30.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-component.js",
+        "name": "notes-component.js",
+        "rawSize": 5759,
+        "gzipSize": 1617,
+        "ratio": "28.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/index.js",
+        "name": "index.js",
+        "rawSize": 5742,
+        "gzipSize": 1199,
+        "ratio": "20.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/lazy-load-component.js",
+        "name": "lazy-load-component.js",
+        "rawSize": 5724,
+        "gzipSize": 1658,
+        "ratio": "29.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/mobile-menu.js",
+        "name": "mobile-menu.js",
+        "rawSize": 5708,
+        "gzipSize": 1680,
+        "ratio": "29.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-ui.js",
+        "name": "portal-ui.js",
+        "rawSize": 5688,
+        "gzipSize": 1715,
+        "ratio": "30.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/supabase.js",
+        "name": "supabase.js",
+        "rawSize": 5624,
+        "gzipSize": 1542,
+        "ratio": "27.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/export-utils.js",
+        "name": "export-utils.js",
+        "rawSize": 5503,
+        "gzipSize": 1986,
+        "ratio": "36.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/data-sync-init.js",
+        "name": "data-sync-init.js",
+        "rawSize": 5457,
+        "gzipSize": 1524,
+        "ratio": "27.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/theme-switcher.js",
+        "name": "theme-switcher.js",
+        "rawSize": 5453,
+        "gzipSize": 1742,
+        "ratio": "31.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/sort-utils.js",
+        "name": "sort-utils.js",
+        "rawSize": 5384,
+        "gzipSize": 1419,
+        "ratio": "26.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/finance.js",
+        "name": "finance.js",
+        "rawSize": 5337,
+        "gzipSize": 1455,
+        "ratio": "27.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/skeleton.js",
+        "name": "skeleton.js",
+        "rawSize": 5310,
+        "gzipSize": 1593,
+        "ratio": "30.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/core/auth-service.js",
+        "name": "auth-service.js",
+        "rawSize": 5282,
+        "gzipSize": 1200,
+        "ratio": "22.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-dashboard.js",
+        "name": "admin-dashboard.js",
+        "rawSize": 5250,
+        "gzipSize": 1663,
+        "ratio": "31.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/content-calendar.js",
+        "name": "content-calendar.js",
+        "rawSize": 5104,
+        "gzipSize": 1589,
+        "ratio": "31.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/alert-system.js",
+        "name": "alert-system.js",
+        "rawSize": 5096,
+        "gzipSize": 1701,
+        "ratio": "33.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-modal.js",
+        "name": "notes-modal.js",
+        "rawSize": 4973,
+        "gzipSize": 1451,
+        "ratio": "29.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/dark-mode.js",
+        "name": "dark-mode.js",
+        "rawSize": 4930,
+        "gzipSize": 1512,
+        "ratio": "30.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/vc-readiness.js",
+        "name": "vc-readiness.js",
+        "rawSize": 4917,
+        "gzipSize": 1551,
+        "ratio": "31.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/clipboard.js",
+        "name": "clipboard.js",
+        "rawSize": 4883,
+        "gzipSize": 1634,
+        "ratio": "33.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/charts/doughnut-chart.js",
+        "name": "doughnut-chart.js",
+        "rawSize": 4824,
+        "gzipSize": 1657,
+        "ratio": "34.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/mvp-launch.js",
+        "name": "mvp-launch.js",
+        "rawSize": 4817,
+        "gzipSize": 1525,
+        "ratio": "31.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/theme-toggle.js",
+        "name": "theme-toggle.js",
+        "rawSize": 4813,
+        "gzipSize": 1599,
+        "ratio": "33.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/back-to-top.js",
+        "name": "back-to-top.js",
+        "rawSize": 4798,
+        "gzipSize": 1533,
+        "ratio": "32.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/video.js",
+        "name": "video.js",
+        "rawSize": 4771,
+        "gzipSize": 1393,
+        "ratio": "29.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/legal.js",
+        "name": "legal.js",
+        "rawSize": 4731,
+        "gzipSize": 1411,
+        "ratio": "29.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/hr-hiring.js",
+        "name": "hr-hiring.js",
+        "rawSize": 4707,
+        "gzipSize": 1502,
+        "ratio": "31.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared-head.js",
+        "name": "shared-head.js",
+        "rawSize": 4662,
+        "gzipSize": 1547,
+        "ratio": "33.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/affiliate-api.js",
+        "name": "affiliate-api.js",
+        "rawSize": 4626,
+        "gzipSize": 1615,
+        "ratio": "34.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/report-generator.js",
+        "name": "report-generator.js",
+        "rawSize": 4494,
+        "gzipSize": 1482,
+        "ratio": "33.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/dashboard-client.js",
+        "name": "dashboard-client.js",
+        "rawSize": 4486,
+        "gzipSize": 1570,
+        "ratio": "35.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/retention.js",
+        "name": "retention.js",
+        "rawSize": 4402,
+        "gzipSize": 1431,
+        "ratio": "32.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/pricing.js",
+        "name": "pricing.js",
+        "rawSize": 4317,
+        "gzipSize": 1446,
+        "ratio": "33.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/landing-renderer.js",
+        "name": "landing-renderer.js",
+        "rawSize": 4262,
+        "gzipSize": 1674,
+        "ratio": "39.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/reading-progress.js",
+        "name": "reading-progress.js",
+        "rawSize": 4252,
+        "gzipSize": 1331,
+        "ratio": "31.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/offline-detection.js",
+        "name": "offline-detection.js",
+        "rawSize": 4202,
+        "gzipSize": 1403,
+        "ratio": "33.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/guard-utils.js",
+        "name": "guard-utils.js",
+        "rawSize": 4176,
+        "gzipSize": 1014,
+        "ratio": "24.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/pipeline.js",
+        "name": "pipeline.js",
+        "rawSize": 4160,
+        "gzipSize": 1277,
+        "ratio": "30.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/binh-phap.js",
+        "name": "binh-phap.js",
+        "rawSize": 4094,
+        "gzipSize": 1494,
+        "ratio": "36.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/back-to-top.js",
+        "name": "back-to-top.js",
+        "rawSize": 4084,
+        "gzipSize": 1490,
+        "ratio": "36.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/format-utils.js",
+        "name": "format-utils.js",
+        "rawSize": 4064,
+        "gzipSize": 1301,
+        "ratio": "32.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/proposals.js",
+        "name": "proposals.js",
+        "rawSize": 4012,
+        "gzipSize": 1256,
+        "ratio": "31.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/index.js",
+        "name": "index.js",
+        "rawSize": 3957,
+        "gzipSize": 1209,
+        "ratio": "30.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/back-to-top.js",
+        "name": "back-to-top.js",
+        "rawSize": 3836,
+        "gzipSize": 1125,
+        "ratio": "29.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/charts/line-chart.js",
+        "name": "line-chart.js",
+        "rawSize": 3802,
+        "gzipSize": 1505,
+        "ratio": "39.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/unified-login.js",
+        "name": "unified-login.js",
+        "rawSize": 3799,
+        "gzipSize": 1176,
+        "ratio": "31.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-widget.js",
+        "name": "notes-widget.js",
+        "rawSize": 3781,
+        "gzipSize": 1079,
+        "ratio": "28.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/api.js",
+        "name": "api.js",
+        "rawSize": 3744,
+        "gzipSize": 1195,
+        "ratio": "31.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/notification-badge.js",
+        "name": "notification-badge.js",
+        "rawSize": 3737,
+        "gzipSize": 1214,
+        "ratio": "32.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/logger.js",
+        "name": "logger.js",
+        "rawSize": 3722,
+        "gzipSize": 1015,
+        "ratio": "27.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-auth.js",
+        "name": "portal-auth.js",
+        "rawSize": 3674,
+        "gzipSize": 1130,
+        "ratio": "30.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-storage.js",
+        "name": "notes-storage.js",
+        "rawSize": 3627,
+        "gzipSize": 1008,
+        "ratio": "27.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/dashboard-widgets-bundle.js",
+        "name": "dashboard-widgets-bundle.js",
+        "rawSize": 3615,
+        "gzipSize": 1116,
+        "ratio": "30.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/onboarding.js",
+        "name": "onboarding.js",
+        "rawSize": 3598,
+        "gzipSize": 1181,
+        "ratio": "32.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/keyboard-manager.js",
+        "name": "keyboard-manager.js",
+        "rawSize": 3550,
+        "gzipSize": 974,
+        "ratio": "27.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/reading-progress.js",
+        "name": "reading-progress.js",
+        "rawSize": 3537,
+        "gzipSize": 1073,
+        "ratio": "30.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/index.js",
+        "name": "index.js",
+        "rawSize": 3499,
+        "gzipSize": 1179,
+        "ratio": "33.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/kpi-component.js",
+        "name": "kpi-component.js",
+        "rawSize": 3454,
+        "gzipSize": 1144,
+        "ratio": "33.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/base-manager.js",
+        "name": "base-manager.js",
+        "rawSize": 3441,
+        "gzipSize": 1054,
+        "ratio": "30.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-utils.js",
+        "name": "portal-utils.js",
+        "rawSize": 3418,
+        "gzipSize": 1164,
+        "ratio": "34.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-renderer.js",
+        "name": "notes-renderer.js",
+        "rawSize": 3337,
+        "gzipSize": 1057,
+        "ratio": "31.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/features-2026-index.js",
+        "name": "features-2026-index.js",
+        "rawSize": 3322,
+        "gzipSize": 994,
+        "ratio": "29.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/breadcrumbs.js",
+        "name": "breadcrumbs.js",
+        "rawSize": 3249,
+        "gzipSize": 1277,
+        "ratio": "39.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/admin-utils.js",
+        "name": "admin-utils.js",
+        "rawSize": 3156,
+        "gzipSize": 1127,
+        "ratio": "35.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/reading-progress.js",
+        "name": "reading-progress.js",
+        "rawSize": 3105,
+        "gzipSize": 1174,
+        "ratio": "37.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/charts/bar-chart.js",
+        "name": "bar-chart.js",
+        "rawSize": 3075,
+        "gzipSize": 1275,
+        "ratio": "41.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/index.js",
+        "name": "index.js",
+        "rawSize": 2909,
+        "gzipSize": 936,
+        "ratio": "32.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/activity-component.js",
+        "name": "activity-component.js",
+        "rawSize": 2865,
+        "gzipSize": 794,
+        "ratio": "27.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/pwa-install.js",
+        "name": "pwa-install.js",
+        "rawSize": 2858,
+        "gzipSize": 1084,
+        "ratio": "37.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin/ux-components-index.js",
+        "name": "ux-components-index.js",
+        "rawSize": 2855,
+        "gzipSize": 924,
+        "ratio": "32.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-dnd.js",
+        "name": "notes-dnd.js",
+        "rawSize": 2805,
+        "gzipSize": 907,
+        "ratio": "32.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/dark-mode.js",
+        "name": "dark-mode.js",
+        "rawSize": 2793,
+        "gzipSize": 969,
+        "ratio": "34.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/function.js",
+        "name": "function.js",
+        "rawSize": 2674,
+        "gzipSize": 740,
+        "ratio": "27.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/string.js",
+        "name": "string.js",
+        "rawSize": 2581,
+        "gzipSize": 1004,
+        "ratio": "38.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/events.js",
+        "name": "events.js",
+        "rawSize": 2517,
+        "gzipSize": 759,
+        "ratio": "30.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/features-2026.js",
+        "name": "features-2026.js",
+        "rawSize": 2418,
+        "gzipSize": 676,
+        "ratio": "28.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/guards/admin-guard.js",
+        "name": "admin-guard.js",
+        "rawSize": 2415,
+        "gzipSize": 988,
+        "ratio": "40.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/shared/scroll-listener.js",
+        "name": "scroll-listener.js",
+        "rawSize": 2382,
+        "gzipSize": 725,
+        "ratio": "30.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/widgets/index.js",
+        "name": "index.js",
+        "rawSize": 2265,
+        "gzipSize": 837,
+        "ratio": "37.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal/portal-guard.js",
+        "name": "portal-guard.js",
+        "rawSize": 2230,
+        "gzipSize": 771,
+        "ratio": "34.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/pwa-install.js",
+        "name": "pwa-install.js",
+        "rawSize": 2114,
+        "gzipSize": 584,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/components/skip-link.js",
+        "name": "skip-link.js",
+        "rawSize": 2101,
+        "gzipSize": 944,
+        "ratio": "44.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/notifications.js",
+        "name": "notifications.js",
+        "rawSize": 2090,
+        "gzipSize": 744,
+        "ratio": "35.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes.js",
+        "name": "quick-notes.js",
+        "rawSize": 1993,
+        "gzipSize": 630,
+        "ratio": "31.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/index.js",
+        "name": "index.js",
+        "rawSize": 1879,
+        "gzipSize": 586,
+        "ratio": "31.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/guards/portal-guard.js",
+        "name": "portal-guard.js",
+        "rawSize": 1868,
+        "gzipSize": 800,
+        "ratio": "42.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/scroll-to-top.js",
+        "name": "scroll-to-top.js",
+        "rawSize": 1710,
+        "gzipSize": 713,
+        "ratio": "41.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/core-utils.js",
+        "name": "core-utils.js",
+        "rawSize": 1525,
+        "gzipSize": 511,
+        "ratio": "33.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/notes-constants.js",
+        "name": "notes-constants.js",
+        "rawSize": 1438,
+        "gzipSize": 530,
+        "ratio": "36.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/features/quick-notes/index.js",
+        "name": "index.js",
+        "rawSize": 1390,
+        "gzipSize": 459,
+        "ratio": "33.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/content-calendar-client.js",
+        "name": "content-calendar-client.js",
+        "rawSize": 1384,
+        "gzipSize": 464,
+        "ratio": "33.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/zalo-chat.js",
+        "name": "zalo-chat.js",
+        "rawSize": 1311,
+        "gzipSize": 647,
+        "ratio": "49.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/workflows-client.js",
+        "name": "workflows-client.js",
+        "rawSize": 1310,
+        "gzipSize": 456,
+        "ratio": "34.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/id.js",
+        "name": "id.js",
+        "rawSize": 1261,
+        "gzipSize": 401,
+        "ratio": "31.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/pipeline-client.js",
+        "name": "pipeline-client.js",
+        "rawSize": 1114,
+        "gzipSize": 376,
+        "ratio": "33.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/dom.js",
+        "name": "dom.js",
+        "rawSize": 1098,
+        "gzipSize": 371,
+        "ratio": "33.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/binh-phap-client.js",
+        "name": "binh-phap-client.js",
+        "rawSize": 1097,
+        "gzipSize": 405,
+        "ratio": "36.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/services/toast-notification.js",
+        "name": "toast-notification.js",
+        "rawSize": 1048,
+        "gzipSize": 337,
+        "ratio": "32.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/utils/index.js",
+        "name": "index.js",
+        "rawSize": 1010,
+        "gzipSize": 455,
+        "ratio": "45.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/legal.js",
+        "name": "legal.js",
+        "rawSize": 995,
+        "gzipSize": 339,
+        "ratio": "34.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/lms.js",
+        "name": "lms.js",
+        "rawSize": 976,
+        "gzipSize": 343,
+        "ratio": "35.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal-client.js",
+        "name": "portal-client.js",
+        "rawSize": 882,
+        "gzipSize": 392,
+        "ratio": "44.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/supabase.js",
+        "name": "supabase.js",
+        "rawSize": 877,
+        "gzipSize": 358,
+        "ratio": "40.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ai-assistant.js",
+        "name": "ai-assistant.js",
+        "rawSize": 695,
+        "gzipSize": 371,
+        "ratio": "53.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/customer-success.js",
+        "name": "customer-success.js",
+        "rawSize": 682,
+        "gzipSize": 187,
+        "ratio": "27.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/mekong-store.js",
+        "name": "mekong-store.js",
+        "rawSize": 667,
+        "gzipSize": 188,
+        "ratio": "28.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/portal-guard.js",
+        "name": "portal-guard.js",
+        "rawSize": 666,
+        "gzipSize": 185,
+        "ratio": "27.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin-guard.js",
+        "name": "admin-guard.js",
+        "rawSize": 661,
+        "gzipSize": 184,
+        "ratio": "27.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/approvals.js",
+        "name": "approvals.js",
+        "rawSize": 656,
+        "gzipSize": 181,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/content-ai.js",
+        "name": "content-ai.js",
+        "rawSize": 656,
+        "gzipSize": 181,
+        "ratio": "27.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/admin-client.js",
+        "name": "admin-client.js",
+        "rawSize": 653,
+        "gzipSize": 175,
+        "ratio": "26.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/workflows.js",
+        "name": "workflows.js",
+        "rawSize": 651,
+        "gzipSize": 177,
+        "ratio": "27.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/ecommerce.js",
+        "name": "ecommerce.js",
+        "rawSize": 649,
+        "gzipSize": 172,
+        "ratio": "26.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/community.js",
+        "name": "community.js",
+        "rawSize": 648,
+        "gzipSize": 172,
+        "ratio": "26.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/events.js",
+        "name": "events.js",
+        "rawSize": 643,
+        "gzipSize": 174,
+        "ratio": "27.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/js/guards/index.js",
+        "name": "index.js",
+        "rawSize": 412,
+        "gzipSize": 227,
+        "ratio": "55.1%",
+        "severity": "ok"
+      }
+    ],
+    "total": 2318024
+  },
+  "css": {
+    "files": [
+      {
+        "path": "assets/css/bundle/admin-modules.css",
+        "name": "admin-modules.css",
+        "rawSize": 134281,
+        "gzipSize": 16848,
+        "ratio": "12.5%",
+        "severity": "critical"
+      },
+      {
+        "path": "assets/css/portal.css",
+        "name": "portal.css",
+        "rawSize": 61971,
+        "gzipSize": 9356,
+        "ratio": "15.1%",
+        "severity": "warning"
+      },
+      {
+        "path": "assets/css/bundle/admin-common.css",
+        "name": "admin-common.css",
+        "rawSize": 38727,
+        "gzipSize": 7027,
+        "ratio": "18.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/m3-agency.css",
+        "name": "m3-agency.css",
+        "rawSize": 29303,
+        "gzipSize": 6170,
+        "ratio": "21.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-enhancements-2026-animations.css",
+        "name": "ui-enhancements-2026-animations.css",
+        "rawSize": 26308,
+        "gzipSize": 4220,
+        "ratio": "16.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/micro-animations.css",
+        "name": "micro-animations.css",
+        "rawSize": 25278,
+        "gzipSize": 4435,
+        "ratio": "17.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-motion-system.css",
+        "name": "ui-motion-system.css",
+        "rawSize": 23043,
+        "gzipSize": 4333,
+        "ratio": "18.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-enhancements-2026.css",
+        "name": "ui-enhancements-2026.css",
+        "rawSize": 22338,
+        "gzipSize": 3536,
+        "ratio": "15.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-enhancements-2026-premium.css",
+        "name": "ui-enhancements-2026-premium.css",
+        "rawSize": 21938,
+        "gzipSize": 3756,
+        "ratio": "17.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-enhancements-2027.css",
+        "name": "ui-enhancements-2027.css",
+        "rawSize": 21319,
+        "gzipSize": 3788,
+        "ratio": "17.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/bundle/animations.css",
+        "name": "animations.css",
+        "rawSize": 21311,
+        "gzipSize": 4065,
+        "ratio": "19.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-unified.css",
+        "name": "admin-unified.css",
+        "rawSize": 20861,
+        "gzipSize": 4273,
+        "ratio": "20.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/quick-tools-panel.css",
+        "name": "quick-tools-panel.css",
+        "rawSize": 20519,
+        "gzipSize": 3015,
+        "ratio": "14.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/animations/micro-animations.css",
+        "name": "micro-animations.css",
+        "rawSize": 20244,
+        "gzipSize": 3344,
+        "ratio": "16.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/micro-interactions.css",
+        "name": "micro-interactions.css",
+        "rawSize": 18715,
+        "gzipSize": 3248,
+        "ratio": "17.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/data-table.css",
+        "name": "data-table.css",
+        "rawSize": 18183,
+        "gzipSize": 2847,
+        "ratio": "15.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-enhancements-bundle.css",
+        "name": "ui-enhancements-bundle.css",
+        "rawSize": 17906,
+        "gzipSize": 3341,
+        "ratio": "18.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ui-animations.css",
+        "name": "ui-animations.css",
+        "rawSize": 17602,
+        "gzipSize": 3257,
+        "ratio": "18.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/widgets-bundle.css",
+        "name": "widgets-bundle.css",
+        "rawSize": 16923,
+        "gzipSize": 2809,
+        "ratio": "16.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/hover-effects.css",
+        "name": "hover-effects.css",
+        "rawSize": 16782,
+        "gzipSize": 2597,
+        "ratio": "15.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/responsive.css",
+        "name": "responsive.css",
+        "rawSize": 16563,
+        "gzipSize": 3159,
+        "ratio": "19.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/premium-hover-effects.css",
+        "name": "premium-hover-effects.css",
+        "rawSize": 16539,
+        "gzipSize": 2794,
+        "ratio": "16.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ux-features-2026.css",
+        "name": "ux-features-2026.css",
+        "rawSize": 16189,
+        "gzipSize": 2746,
+        "ratio": "17.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/loading-states.css",
+        "name": "loading-states.css",
+        "rawSize": 15154,
+        "gzipSize": 2485,
+        "ratio": "16.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ai-content-panel.css",
+        "name": "ai-content-panel.css",
+        "rawSize": 14767,
+        "gzipSize": 2396,
+        "ratio": "16.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/smart-task-manager.css",
+        "name": "smart-task-manager.css",
+        "rawSize": 13917,
+        "gzipSize": 2546,
+        "ratio": "18.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/new-features-2027.css",
+        "name": "new-features-2027.css",
+        "rawSize": 13708,
+        "gzipSize": 2853,
+        "ratio": "20.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/premium-animations.css",
+        "name": "premium-animations.css",
+        "rawSize": 13651,
+        "gzipSize": 2685,
+        "ratio": "19.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-agents.css",
+        "name": "admin-agents.css",
+        "rawSize": 13599,
+        "gzipSize": 2314,
+        "ratio": "17.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/loading-states.css",
+        "name": "loading-states.css",
+        "rawSize": 13589,
+        "gzipSize": 2725,
+        "ratio": "20.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-events.css",
+        "name": "admin-events.css",
+        "rawSize": 13325,
+        "gzipSize": 2196,
+        "ratio": "16.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/bundle/portal-common.css",
+        "name": "portal-common.css",
+        "rawSize": 12428,
+        "gzipSize": 3074,
+        "ratio": "24.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-ecommerce.css",
+        "name": "admin-ecommerce.css",
+        "rawSize": 12376,
+        "gzipSize": 1950,
+        "ratio": "15.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features.css",
+        "name": "features.css",
+        "rawSize": 12332,
+        "gzipSize": 2259,
+        "ratio": "18.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/agency-2026.css",
+        "name": "agency-2026.css",
+        "rawSize": 12229,
+        "gzipSize": 3128,
+        "ratio": "25.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-menu.css",
+        "name": "admin-menu.css",
+        "rawSize": 12115,
+        "gzipSize": 2634,
+        "ratio": "21.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-video-workflow.css",
+        "name": "admin-video-workflow.css",
+        "rawSize": 11957,
+        "gzipSize": 1981,
+        "ratio": "16.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-pipeline.css",
+        "name": "admin-pipeline.css",
+        "rawSize": 11939,
+        "gzipSize": 2162,
+        "ratio": "18.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-auth.css",
+        "name": "admin-auth.css",
+        "rawSize": 11597,
+        "gzipSize": 1981,
+        "ratio": "17.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-ai-analysis.css",
+        "name": "admin-ai-analysis.css",
+        "rawSize": 11143,
+        "gzipSize": 1892,
+        "ratio": "17.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-retention.css",
+        "name": "admin-retention.css",
+        "rawSize": 11079,
+        "gzipSize": 1900,
+        "ratio": "17.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-vc-readiness.css",
+        "name": "admin-vc-readiness.css",
+        "rawSize": 10835,
+        "gzipSize": 1994,
+        "ratio": "18.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-content-calendar.css",
+        "name": "admin-content-calendar.css",
+        "rawSize": 10823,
+        "gzipSize": 1869,
+        "ratio": "17.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-hr-hiring.css",
+        "name": "admin-hr-hiring.css",
+        "rawSize": 10744,
+        "gzipSize": 1753,
+        "ratio": "16.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/error-boundary.css",
+        "name": "error-boundary.css",
+        "rawSize": 10598,
+        "gzipSize": 1926,
+        "ratio": "18.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-payments.css",
+        "name": "admin-payments.css",
+        "rawSize": 10516,
+        "gzipSize": 1808,
+        "ratio": "17.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-pricing.css",
+        "name": "admin-pricing.css",
+        "rawSize": 10073,
+        "gzipSize": 1799,
+        "ratio": "17.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-mvp-launch.css",
+        "name": "admin-mvp-launch.css",
+        "rawSize": 10053,
+        "gzipSize": 1829,
+        "ratio": "18.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-finance.css",
+        "name": "admin-finance.css",
+        "rawSize": 9805,
+        "gzipSize": 1670,
+        "ratio": "17.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-onboarding.css",
+        "name": "admin-onboarding.css",
+        "rawSize": 9680,
+        "gzipSize": 1605,
+        "ratio": "16.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/toast-notifications.css",
+        "name": "toast-notifications.css",
+        "rawSize": 9649,
+        "gzipSize": 1760,
+        "ratio": "18.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-customer-success.css",
+        "name": "admin-customer-success.css",
+        "rawSize": 9619,
+        "gzipSize": 1373,
+        "ratio": "14.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-workflows.css",
+        "name": "admin-workflows.css",
+        "rawSize": 9574,
+        "gzipSize": 1657,
+        "ratio": "17.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-approvals.css",
+        "name": "admin-approvals.css",
+        "rawSize": 9472,
+        "gzipSize": 1491,
+        "ratio": "15.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/notification-bell.css",
+        "name": "notification-bell.css",
+        "rawSize": 9370,
+        "gzipSize": 1906,
+        "ratio": "20.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/new-features.css",
+        "name": "new-features.css",
+        "rawSize": 9367,
+        "gzipSize": 2015,
+        "ratio": "21.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-api-builder.css",
+        "name": "admin-api-builder.css",
+        "rawSize": 9312,
+        "gzipSize": 1532,
+        "ratio": "16.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-binh-phap.css",
+        "name": "admin-binh-phap.css",
+        "rawSize": 9155,
+        "gzipSize": 1742,
+        "ratio": "19.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-community.css",
+        "name": "admin-community.css",
+        "rawSize": 8955,
+        "gzipSize": 1307,
+        "ratio": "14.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/ux-enhancements-2026.css",
+        "name": "ux-enhancements-2026.css",
+        "rawSize": 8815,
+        "gzipSize": 1524,
+        "ratio": "17.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/quick-actions.css",
+        "name": "quick-actions.css",
+        "rawSize": 8452,
+        "gzipSize": 1743,
+        "ratio": "20.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/quick-settings.css",
+        "name": "quick-settings.css",
+        "rawSize": 8334,
+        "gzipSize": 1669,
+        "ratio": "20.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-brand-guide.css",
+        "name": "admin-brand-guide.css",
+        "rawSize": 8177,
+        "gzipSize": 1527,
+        "ratio": "18.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-docs.css",
+        "name": "admin-docs.css",
+        "rawSize": 7943,
+        "gzipSize": 1372,
+        "ratio": "17.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/favorites.css",
+        "name": "favorites.css",
+        "rawSize": 7791,
+        "gzipSize": 1669,
+        "ratio": "21.4%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-proposals.css",
+        "name": "admin-proposals.css",
+        "rawSize": 7777,
+        "gzipSize": 1312,
+        "ratio": "16.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/widget-customizer.css",
+        "name": "widget-customizer.css",
+        "rawSize": 7776,
+        "gzipSize": 1747,
+        "ratio": "22.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/dark-theme.css",
+        "name": "dark-theme.css",
+        "rawSize": 7657,
+        "gzipSize": 2011,
+        "ratio": "26.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/command-palette.css",
+        "name": "command-palette.css",
+        "rawSize": 7630,
+        "gzipSize": 1704,
+        "ratio": "22.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/utils/ux-utilities.css",
+        "name": "ux-utilities.css",
+        "rawSize": 7387,
+        "gzipSize": 1830,
+        "ratio": "24.8%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/notification-preferences.css",
+        "name": "notification-preferences.css",
+        "rawSize": 7179,
+        "gzipSize": 1713,
+        "ratio": "23.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/pipeline-pro.css",
+        "name": "pipeline-pro.css",
+        "rawSize": 7034,
+        "gzipSize": 1597,
+        "ratio": "22.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/refactored-inline.css",
+        "name": "refactored-inline.css",
+        "rawSize": 6936,
+        "gzipSize": 1264,
+        "ratio": "18.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/accordion.css",
+        "name": "accordion.css",
+        "rawSize": 6935,
+        "gzipSize": 1656,
+        "ratio": "23.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-refactored.css",
+        "name": "admin-refactored.css",
+        "rawSize": 6735,
+        "gzipSize": 1654,
+        "ratio": "24.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/tabs.css",
+        "name": "tabs.css",
+        "rawSize": 6607,
+        "gzipSize": 1732,
+        "ratio": "26.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/ux-features-2026.css",
+        "name": "ux-features-2026.css",
+        "rawSize": 6352,
+        "gzipSize": 1744,
+        "ratio": "27.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-deploy.css",
+        "name": "admin-deploy.css",
+        "rawSize": 6008,
+        "gzipSize": 1365,
+        "ratio": "22.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/brand-colors.css",
+        "name": "brand-colors.css",
+        "rawSize": 5842,
+        "gzipSize": 1748,
+        "ratio": "29.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/keyboard-shortcuts.css",
+        "name": "keyboard-shortcuts.css",
+        "rawSize": 5735,
+        "gzipSize": 1447,
+        "ratio": "25.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/lazy-loading.css",
+        "name": "lazy-loading.css",
+        "rawSize": 5538,
+        "gzipSize": 1315,
+        "ratio": "23.7%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/quick-actions.css",
+        "name": "quick-actions.css",
+        "rawSize": 5418,
+        "gzipSize": 1552,
+        "ratio": "28.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/help-tour.css",
+        "name": "help-tour.css",
+        "rawSize": 5356,
+        "gzipSize": 1236,
+        "ratio": "23.1%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/tooltip.css",
+        "name": "tooltip.css",
+        "rawSize": 5319,
+        "gzipSize": 1400,
+        "ratio": "26.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-landing-builder.css",
+        "name": "admin-landing-builder.css",
+        "rawSize": 5161,
+        "gzipSize": 1150,
+        "ratio": "22.3%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/brand-typography.css",
+        "name": "brand-typography.css",
+        "rawSize": 5060,
+        "gzipSize": 1448,
+        "ratio": "28.6%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-leads.css",
+        "name": "admin-leads.css",
+        "rawSize": 4896,
+        "gzipSize": 927,
+        "ratio": "18.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-dashboard.css",
+        "name": "admin-dashboard.css",
+        "rawSize": 4815,
+        "gzipSize": 1082,
+        "ratio": "22.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-zalo.css",
+        "name": "admin-zalo.css",
+        "rawSize": 4710,
+        "gzipSize": 1014,
+        "ratio": "21.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/empty-states.css",
+        "name": "empty-states.css",
+        "rawSize": 4038,
+        "gzipSize": 1172,
+        "ratio": "29.0%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-lms.css",
+        "name": "admin-lms.css",
+        "rawSize": 3998,
+        "gzipSize": 797,
+        "ratio": "19.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-campaigns.css",
+        "name": "admin-campaigns.css",
+        "rawSize": 3903,
+        "gzipSize": 971,
+        "ratio": "24.9%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/widgets.css",
+        "name": "widgets.css",
+        "rawSize": 3883,
+        "gzipSize": 785,
+        "ratio": "20.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/help-tour.css",
+        "name": "help-tour.css",
+        "rawSize": 3009,
+        "gzipSize": 1098,
+        "ratio": "36.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/admin-legal.css",
+        "name": "admin-legal.css",
+        "rawSize": 2933,
+        "gzipSize": 808,
+        "ratio": "27.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/back-to-top.css",
+        "name": "back-to-top.css",
+        "rawSize": 2710,
+        "gzipSize": 790,
+        "ratio": "29.2%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/components/theme-toggle.css",
+        "name": "theme-toggle.css",
+        "rawSize": 2603,
+        "gzipSize": 950,
+        "ratio": "36.5%",
+        "severity": "ok"
+      },
+      {
+        "path": "assets/css/features/reading-progress.css",
+        "name": "reading-progress.css",
+        "rawSize": 1578,
+        "gzipSize": 498,
+        "ratio": "31.6%",
+        "severity": "ok"
+      }
+    ],
+    "total": 1279378
+  },
+  "summary": {}
+}

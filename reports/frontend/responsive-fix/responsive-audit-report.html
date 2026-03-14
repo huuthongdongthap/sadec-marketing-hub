@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Audit Report</title>
+  <meta name="description" content="Responsive audit report - Responsive-fix | RaaS Agency Operating System - Sa Đéc Marketing Hub. Nền tảng quản trị marketing tự động - ROI Analytics, Campaign Management, Multi-Gateway Payments">
+
+    <style>
+        :root {
+            --pass: #4caf50;
+            --fail: #f44336;
+            --warn: #ff9800;
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --outline: #e0e0e0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+            background: var(--bg);
+            color: #333;
+        }
+        h1, h2, h3 { color: #1a1a1a; }
+        .summary {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-card.green { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .stat-card.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .stat-value {
+            font-size: 42px;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        .section {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--outline);
+        }
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f9f9f9;
+        }
+        .pass { color: var(--pass); font-weight: 600; }
+        .fail { color: var(--fail); font-weight: 600; }
+        .warn { color: var(--warn); font-weight: 600; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-pass { background: #e8f5e9; color: var(--pass); }
+        .badge-fail { background: #ffebee; color: var(--fail); }
+        .coverage-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .coverage-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        .file-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid var(--outline);
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+        .file-item {
+            padding: 8px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+        .file-item:last-child { border-bottom: none; }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Responsive audit report - Responsive-fix | RaaS Agency Operating System">
+  <meta property="og:description" content="Responsive audit report - Responsive-fix | RaaS Agency Operating System - Sa Đéc Marketing Hub. Nền tảng quản trị marketing tự động - ROI Analytics, Campaign Management, Multi-Gateway Payments">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/reports/frontend/responsive-fix/responsive-audit-report.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta property="og:site_name" content="Sa Đéc Marketing Hub">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Responsive audit report - Responsive-fix | RaaS Agency Operating System">
+  <meta name="twitter:description" content="Responsive audit report - Responsive-fix | RaaS Agency Operating System - Sa Đéc Marketing Hub. Nền tảng quản trị marketing tự động - ROI Analytics, Campaign Management, Multi-Gateway Payments">
+  <meta name="twitter:image" content="https://sadecmarketinghub.com/favicon.png">
+  <meta name="twitter:creator" content="@sadecmarketinghub">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://sadecmarketinghub.com/reports/frontend/responsive-fix/responsive-audit-report.html">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Responsive audit report - Responsive-fix | RaaS Agency Operating System",
+    "description": "Responsive audit report - Responsive-fix | RaaS Agency Operating System - Sa Đéc Marketing Hub. Nền tảng quản trị marketing tự động - ROI Analytics, Campaign Management, Multi-Gateway Payments",
+    "url": "https://sadecmarketinghub.com/reports/frontend/responsive-fix/responsive-audit-report.html",
+    "image": "https://sadecmarketinghub.com/favicon.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sa Đéc Marketing Hub",
+      "url": "https://sadecmarketinghub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sadecmarketinghub.com/favicon.png"
+      }
+    },
+    "inLanguage": "vi-VN"
+  }
+  </script>
+</head>
+<body>
+<main id="main" role="main">
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;">Skip to main content</a>
+    <div class="summary">
+        <h1>📱 Responsive Audit Report</h1>
+        <p>Generated: 2026-03-14 14:11</p>
+        <p>Root: /Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub</p>
+
+        <div class="summary-grid">
+            <div class="stat-card">
+                <div class="stat-value">271</div>
+                <div class="stat-label">CSS Files</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-value">185</div>
+                <div class="stat-label">Responsive CSS</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">201</div>
+                <div class="stat-label">HTML Files</div>
+            </div>
+            <div class="stat-card orange">
+                <div class="stat-value">101</div>
+                <div class="stat-label">Responsive HTML</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Breakpoint Coverage (CSS)</h2>
+        <p>Files with media queries for each breakpoint:</p>
+        <table>
+            <tr>
+                <th>Breakpoint</th>
+                <th>Files</th>
+                <th>Coverage</th>
+            </tr>
+            
+            <tr>
+                <td><code>375px</code></td>
+                <td>47/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 17.3%"></div>
+                    </div>
+                    <small>17.3%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>768px</code></td>
+                <td>138/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 50.9%"></div>
+                    </div>
+                    <small>50.9%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>1024px</code></td>
+                <td>93/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 34.3%"></div>
+                    </div>
+                    <small>34.3%</small>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Pattern Detection</h2>
+        <p>Responsive design patterns found in CSS files:</p>
+        <table>
+            <tr>
+                <th>Pattern</th>
+                <th>Files</th>
+                <th>Coverage</th>
+            </tr>
+            
+            <tr>
+                <td><code>flexbox</code></td>
+                <td>250/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 92.3%"></div>
+                    </div>
+                    <small>92.3%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>grid</code></td>
+                <td>143/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 52.8%"></div>
+                    </div>
+                    <small>52.8%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>touchTargets</code></td>
+                <td>21/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 7.7%"></div>
+                    </div>
+                    <small>7.7%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>fluidTypography</code></td>
+                <td>4/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 1.5%"></div>
+                    </div>
+                    <small>1.5%</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>containerQueries</code></td>
+                <td>0/271</td>
+                <td>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 0.0%"></div>
+                    </div>
+                    <small>0.0%</small>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>CSS Coverage by Directory</h2>
+        <table>
+            <tr>
+                <th>Directory</th>
+                <th>Responsive/Total</th>
+                <th>Coverage</th>
+            </tr>
+            
+            <tr>
+                <td><code>admin/assets/css</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/dist/assets</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/src</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/widgets</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css</code></td>
+                <td>48/72</td>
+                <td>
+                    <span class="badge badge-warn">66.7%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css/animations</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css/bundle</code></td>
+                <td>3/4</td>
+                <td>
+                    <span class="badge badge-warn">75.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css/components</code></td>
+                <td>9/11</td>
+                <td>
+                    <span class="badge badge-pass">81.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css/features</code></td>
+                <td>7/9</td>
+                <td>
+                    <span class="badge badge-warn">77.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/css/utils</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/minified/css</code></td>
+                <td>38/62</td>
+                <td>
+                    <span class="badge badge-warn">61.3%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/minified/css/bundle</code></td>
+                <td>3/3</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/minified/css/features</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin/assets/css</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin/src</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin/widgets</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css</code></td>
+                <td>48/72</td>
+                <td>
+                    <span class="badge badge-warn">66.7%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css/animations</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css/bundle</code></td>
+                <td>3/4</td>
+                <td>
+                    <span class="badge badge-warn">75.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css/components</code></td>
+                <td>9/11</td>
+                <td>
+                    <span class="badge badge-pass">81.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css/features</code></td>
+                <td>7/9</td>
+                <td>
+                    <span class="badge badge-warn">77.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/css/utils</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/portal/css</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>portal/css</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>HTML Coverage by Directory</h2>
+        <table>
+            <tr>
+                <th>Directory</th>
+                <th>Responsive/Total</th>
+                <th>Coverage</th>
+            </tr>
+            
+            <tr>
+                <td><code>admin</code></td>
+                <td>4/51</td>
+                <td>
+                    <span class="badge badge-fail">7.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/components</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/dist</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>admin/widgets</code></td>
+                <td>4/5</td>
+                <td>
+                    <span class="badge badge-pass">80.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>affiliate</code></td>
+                <td>7/7</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>assets/partials</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>.</code></td>
+                <td>10/11</td>
+                <td>
+                    <span class="badge badge-pass">90.9%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>audit-reports</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>auth</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin</code></td>
+                <td>4/51</td>
+                <td>
+                    <span class="badge badge-fail">7.8%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin/components</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/admin/widgets</code></td>
+                <td>4/5</td>
+                <td>
+                    <span class="badge badge-pass">80.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/affiliate</code></td>
+                <td>7/7</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/assets/partials</code></td>
+                <td>0/1</td>
+                <td>
+                    <span class="badge badge-fail">0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/auth</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist</code></td>
+                <td>6/6</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/portal</code></td>
+                <td>21/21</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/reports/frontend/responsive-fix</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>dist/reports/quality-scan</code></td>
+                <td>2/2</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>playwright-report</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>portal</code></td>
+                <td>21/21</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>reports/frontend/responsive-fix</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>reports/quality-scan</code></td>
+                <td>2/2</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><code>scripts/reports/frontend/responsive-fix</code></td>
+                <td>1/1</td>
+                <td>
+                    <span class="badge badge-pass">100.0%</span>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Files Missing Responsive CSS</h2>
+        
+            <p class="fail">86 files without responsive breakpoints:</p>
+            <div class="file-list">
+                <div class="file-item"><code>admin/src/index.css</code></div><div class="file-item"><code>assets/css/admin-api-builder.css</code></div><div class="file-item"><code>assets/css/admin-approvals.css</code></div><div class="file-item"><code>assets/css/admin-brand-guide.css</code></div><div class="file-item"><code>assets/css/admin-community.css</code></div><div class="file-item"><code>assets/css/admin-customer-success.css</code></div><div class="file-item"><code>assets/css/admin-legal.css</code></div><div class="file-item"><code>assets/css/admin-lms.css</code></div><div class="file-item"><code>assets/css/admin-proposals.css</code></div><div class="file-item"><code>assets/css/admin-refactored.css</code></div><div class="file-item"><code>assets/css/admin-workflows.css</code></div><div class="file-item"><code>assets/css/agency-2026.css</code></div><div class="file-item"><code>assets/css/animations/micro-animations.css</code></div><div class="file-item"><code>assets/css/brand-colors.css</code></div><div class="file-item"><code>assets/css/bundle/animations.css</code></div><div class="file-item"><code>assets/css/components/keyboard-shortcuts.css</code></div><div class="file-item"><code>assets/css/components/loading-states.css</code></div><div class="file-item"><code>assets/css/features/quick-actions.css</code></div><div class="file-item"><code>assets/css/features/ux-features-2026.css</code></div><div class="file-item"><code>assets/css/hover-effects.css</code></div><div class="file-item"><code>assets/css/micro-animations.css</code></div><div class="file-item"><code>assets/css/micro-interactions.css</code></div><div class="file-item"><code>assets/css/premium-animations.css</code></div><div class="file-item"><code>assets/css/premium-hover-effects.css</code></div><div class="file-item"><code>assets/css/refactored-inline.css</code></div><div class="file-item"><code>assets/css/ui-animations.css</code></div><div class="file-item"><code>assets/css/ui-enhancements-2026-premium.css</code></div><div class="file-item"><code>assets/css/ui-enhancements-2026.css</code></div><div class="file-item"><code>assets/css/ui-enhancements-2027.css</code></div><div class="file-item"><code>assets/css/ui-enhancements-bundle.css</code></div><div class="file-item"><code>assets/css/ui-motion-system.css</code></div><div class="file-item"><code>assets/minified/css/admin-agents.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-ai-analysis.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-api-builder.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-approvals.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-brand-guide.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-community.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-customer-success.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-deploy.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-ecommerce.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-events.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-legal.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-lms.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-pricing.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-proposals.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-refactored.min.css</code></div><div class="file-item"><code>assets/minified/css/admin-workflows.min.css</code></div><div class="file-item"><code>assets/minified/css/agency-2026.min.css</code></div><div class="file-item"><code>assets/minified/css/brand-colors.min.css</code></div><div class="file-item"><code>assets/minified/css/hover-effects.min.css</code></div>
+            </div>
+            <p>...and 36 more</p>
+            
+    </div>
+
+    <div class="section">
+        <h2>Files Missing Responsive HTML</h2>
+        
+            <p class="fail">100 files without responsive CSS:</p>
+            <div class="file-list">
+                <div class="file-item"><code>admin/agents.html</code></div><div class="file-item"><code>admin/ai-analysis.html</code></div><div class="file-item"><code>admin/api-builder.html</code></div><div class="file-item"><code>admin/approvals.html</code></div><div class="file-item"><code>admin/auth.html</code></div><div class="file-item"><code>admin/binh-phap.html</code></div><div class="file-item"><code>admin/campaigns.html</code></div><div class="file-item"><code>admin/community.html</code></div><div class="file-item"><code>admin/components/phase-tracker.html</code></div><div class="file-item"><code>admin/components-demo.html</code></div><div class="file-item"><code>admin/content-calendar.html</code></div><div class="file-item"><code>admin/customer-success.html</code></div><div class="file-item"><code>admin/deploy.html</code></div><div class="file-item"><code>admin/docs.html</code></div><div class="file-item"><code>admin/ecommerce.html</code></div><div class="file-item"><code>admin/events.html</code></div><div class="file-item"><code>admin/features-demo-2027.html</code></div><div class="file-item"><code>admin/features-demo.html</code></div><div class="file-item"><code>admin/finance.html</code></div><div class="file-item"><code>admin/hr-hiring.html</code></div><div class="file-item"><code>admin/inventory.html</code></div><div class="file-item"><code>admin/landing-builder.html</code></div><div class="file-item"><code>admin/leads.html</code></div><div class="file-item"><code>admin/legal.html</code></div><div class="file-item"><code>admin/lms.html</code></div><div class="file-item"><code>admin/loyalty.html</code></div><div class="file-item"><code>admin/menu.html</code></div><div class="file-item"><code>admin/mvp-launch.html</code></div><div class="file-item"><code>admin/notifications.html</code></div><div class="file-item"><code>admin/onboarding.html</code></div><div class="file-item"><code>admin/payments.html</code></div><div class="file-item"><code>admin/pipeline.html</code></div><div class="file-item"><code>admin/pos.html</code></div><div class="file-item"><code>admin/pricing.html</code></div><div class="file-item"><code>admin/proposals.html</code></div><div class="file-item"><code>admin/quality.html</code></div><div class="file-item"><code>admin/raas-overview.html</code></div><div class="file-item"><code>admin/retention.html</code></div><div class="file-item"><code>admin/roiaas-admin.html</code></div><div class="file-item"><code>admin/shifts.html</code></div><div class="file-item"><code>admin/suppliers.html</code></div><div class="file-item"><code>admin/ui-components-demo.html</code></div><div class="file-item"><code>admin/ux-components-demo.html</code></div><div class="file-item"><code>admin/vc-readiness.html</code></div><div class="file-item"><code>admin/video-workflow.html</code></div><div class="file-item"><code>admin/widgets/kpi-card.html</code></div><div class="file-item"><code>admin/widgets-demo.html</code></div><div class="file-item"><code>admin/workflows.html</code></div><div class="file-item"><code>admin/zalo.html</code></div><div class="file-item"><code>audit-report.html</code></div>
+            </div>
+            <p>...and 50 more</p>
+            
+    </div>
+
+    <div class="section">
+        <h2>Recommendations</h2>
+        <ul>
+            <li class="warn">Add more 375px breakpoint coverage for small phones (iPhone SE)</li><li class="warn">Increase 768px breakpoint coverage for mobile devices</li><li class="warn">Add 1024px breakpoint for tablet landscape</li><li class="warn">Add touch target sizing (min 44px) for mobile accessibility</li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>
+    

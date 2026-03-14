@@ -1,0 +1,525 @@
+{
+  "total_html_files": 115,
+  "total_tested_paths": 86,
+  "covered": [
+    {
+      "path": "admin/brand-guide.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/video-workflow.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/ui-demo.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/pipeline.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/suppliers.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/landing-builder.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/finance.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/community.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/legal.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/vc-readiness.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/approvals.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/inventory.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/auth.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/pricing.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/raas-overview.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/notifications.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/leads.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/payments.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/menu.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/widgets-demo.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/dashboard.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/lms.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/proposals.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/agents.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/customer-success.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/ecommerce.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/campaigns.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/roiaas-admin.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/zalo.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/workflows.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/quality.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/loyalty.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/binh-phap.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/shifts.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/deploy.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/retention.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/ai-analysis.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/events.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/hr-hiring.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/api-builder.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/docs.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/content-calendar.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/mvp-launch.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/onboarding.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/pos.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/components/phase-tracker.html",
+      "category": "admin"
+    },
+    {
+      "path": "admin/widgets/kpi-card.html",
+      "category": "admin"
+    },
+    {
+      "path": "portal/payment-result.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/roi-report.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/subscription-plans.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/roi-analytics.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/assets.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/notifications.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/payments.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/roiaas-dashboard.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/subscriptions.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/login.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/dashboard.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/projects.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/ocop-catalog.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/ocop-exporter.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/roiaas-onboarding.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/invoices.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/approve.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/missions.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/credits.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/onboarding.html",
+      "category": "portal"
+    },
+    {
+      "path": "portal/reports.html",
+      "category": "portal"
+    },
+    {
+      "path": "affiliate/profile.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/media.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/dashboard.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/commissions.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/links.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/settings.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "affiliate/referrals.html",
+      "category": "affiliate"
+    },
+    {
+      "path": "auth/login.html",
+      "category": "auth"
+    },
+    {
+      "path": "offline.html",
+      "category": "root"
+    },
+    {
+      "path": "verify-email.html",
+      "category": "root"
+    },
+    {
+      "path": "index.html",
+      "category": "root"
+    },
+    {
+      "path": "forgot-password.html",
+      "category": "root"
+    },
+    {
+      "path": "terms.html",
+      "category": "root"
+    },
+    {
+      "path": "register.html",
+      "category": "root"
+    },
+    {
+      "path": "login.html",
+      "category": "root"
+    },
+    {
+      "path": "lp.html",
+      "category": "root"
+    },
+    {
+      "path": "privacy.html",
+      "category": "root"
+    }
+  ],
+  "untested": [
+    {
+      "path": "admin/index.html",
+      "category": "admin",
+      "filename": "index.html"
+    },
+    {
+      "path": "admin/features-demo-2027.html",
+      "category": "admin",
+      "filename": "features-demo-2027.html"
+    },
+    {
+      "path": "admin/ui-components-demo.html",
+      "category": "admin",
+      "filename": "ui-components-demo.html"
+    },
+    {
+      "path": "admin/features-demo.html",
+      "category": "admin",
+      "filename": "features-demo.html"
+    },
+    {
+      "path": "admin/ux-components-demo.html",
+      "category": "admin",
+      "filename": "ux-components-demo.html"
+    },
+    {
+      "path": "admin/components-demo.html",
+      "category": "admin",
+      "filename": "components-demo.html"
+    },
+    {
+      "path": "admin/dist/index.html",
+      "category": "admin",
+      "filename": "index.html"
+    },
+    {
+      "path": "admin/node_modules/decimal.js-light/doc/API.html",
+      "category": "admin",
+      "filename": "API.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/dynamic-import/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta-worker/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/more-workers/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/public-path/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/module-worker/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/assets-in-worker/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/single-default/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/amd-function-name/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url-custom-scheme/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/simple-bundle/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/worker/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/url-import-meta-worker/build/runner.html",
+      "category": "admin",
+      "filename": "runner.html"
+    },
+    {
+      "path": "admin/node_modules/terser/tools/props.html",
+      "category": "admin",
+      "filename": "props.html"
+    },
+    {
+      "path": "admin/node_modules/recharts/umd/report.html",
+      "category": "admin",
+      "filename": "report.html"
+    },
+    {
+      "path": "admin/node_modules/lz-string/tests/SpecRunner.html",
+      "category": "admin",
+      "filename": "SpecRunner.html"
+    },
+    {
+      "path": "admin/widgets/theme-toggle.html",
+      "category": "admin",
+      "filename": "theme-toggle.html"
+    },
+    {
+      "path": "admin/widgets/notification-bell.html",
+      "category": "admin",
+      "filename": "notification-bell.html"
+    },
+    {
+      "path": "admin/widgets/conversion-funnel.html",
+      "category": "admin",
+      "filename": "conversion-funnel.html"
+    },
+    {
+      "path": "admin/widgets/global-search.html",
+      "category": "admin",
+      "filename": "global-search.html"
+    },
+    {
+      "path": "audit-report.html",
+      "category": "root",
+      "filename": "audit-report.html"
+    }
+  ],
+  "by_category": {
+    "admin": {
+      "total": 76,
+      "covered": 47,
+      "untested": 29
+    },
+    "portal": {
+      "total": 21,
+      "covered": 21,
+      "untested": 0
+    },
+    "affiliate": {
+      "total": 7,
+      "covered": 7,
+      "untested": 0
+    },
+    "auth": {
+      "total": 1,
+      "covered": 1,
+      "untested": 0
+    },
+    "root": {
+      "total": 10,
+      "covered": 9,
+      "untested": 1
+    }
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-03-14T00:36:43.718Z",
+  "total": 53,
+  "passed": 48,
+  "failed": 5,
+  "tests": [
+    {
+      "name": "Hover effects CSS file exists",
+      "status": "pass"
+    },
+    {
+      "name": "Hover effects CSS has meaningful size",
+      "status": "pass"
+    },
+    {
+      "name": "Has button hover effects",
+      "status": "pass"
+    },
+    {
+      "name": "Has card hover effects",
+      "status": "pass"
+    },
+    {
+      "name": "Has link hover effects",
+      "status": "pass"
+    },
+    {
+      "name": "Has image hover effects",
+      "status": "fail",
+      "error": "Content not found: .img-hover-grayscale"
+    },
+    {
+      "name": "Has icon hover effects",
+      "status": "fail",
+      "error": "Content not found: .icon-hover-glow"
+    },
+    {
+      "name": "Has input hover effects",
+      "status": "fail",
+      "error": "Content not found: .input-hover-border"
+    },
+    {
+      "name": "Has dark mode support",
+      "status": "fail",
+      "error": "Content not found: [data-theme=\"dark\"]"
+    },
+    {
+      "name": "Has mobile hover detection",
+      "status": "fail",
+      "error": "Content not found: @media (hover: none)"
+    },
+    {
+      "name": "Micro animations JS file exists",
+      "status": "pass"
+    },
+    {
+      "name": "Micro animations JS has meaningful size",
+      "status": "pass"
+    },
+    {
+      "name": "Has shake animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has pop animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has pulse animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has bounce animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has fadeIn/fadeOut animations",
+      "status": "pass"
+    },
+    {
+      "name": "Has slideUp/slideDown animations",
+      "status": "pass"
+    },
+    {
+      "name": "Has zoomIn animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has countUp animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has typeWriter animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has gradientShift animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has stagger animation",
+      "status": "pass"
+    },
+    {
+      "name": "Has parallax effect",
+      "status": "pass"
+    },
+    {
+      "name": "Has magneticPull effect",
+      "status": "pass"
+    },
+    {
+      "name": "Has revealText animation",
+      "status": "pass"
+    },
+    {
+      "name": "Exports to window",
+      "status": "pass"
+    },
+    {
+      "name": "Loading states JS file exists",
+      "status": "pass"
+    },
+    {
+      "name": "Loading states JS has meaningful size",
+      "status": "pass"
+    },
+    {
+      "name": "Has Loading.show()",
+      "status": "pass"
+    },
+    {
+      "name": "Has Loading.hide()",
+      "status": "pass"
+    },
+    {
+      "name": "Has Loading.skeleton()",
+      "status": "pass"
+    },
+    {
+      "name": "Has Loading.fullscreen()",
+      "status": "pass"
+    },
+    {
+      "name": "Has ARIA support",
+      "status": "pass"
+    },
+    {
+      "name": "Has loading counter",
+      "status": "pass"
+    },
+    {
+      "name": "UI demo page exists",
+      "status": "pass"
+    },
+    {
+      "name": "Has proper HTML structure",
+      "status": "pass"
+    },
+    {
+      "name": "Has theme toggle",
+      "status": "pass"
+    },
+    {
+      "name": "Has button hover effects demo",
+      "status": "pass"
+    },
+    {
+      "name": "Has card hover effects demo",
+      "status": "pass"
+    },
+    {
+      "name": "Has loading states demo",
+      "status": "pass"
+    },
+    {
+      "name": "Has icon hover effects demo",
+      "status": "pass"
+    },
+    {
+      "name": "Has toast notifications demo",
+      "status": "pass"
+    },
+    {
+      "name": "Has micro animations demo",
+      "status": "pass"
+    },
+    {
+      "name": "Includes required scripts",
+      "status": "pass"
+    },
+    {
+      "name": "Widgets CSS file exists",
+      "status": "pass"
+    },
+    {
+      "name": "Widgets CSS has meaningful size",
+      "status": "pass"
+    },
+    {
+      "name": "Theme manager exists",
+      "status": "pass"
+    },
+    {
+      "name": "Has Theme.set()",
+      "status": "pass"
+    },
+    {
+      "name": "Has Theme.toggle()",
+      "status": "pass"
+    },
+    {
+      "name": "Has Theme.get()",
+      "status": "pass"
+    },
+    {
+      "name": "Has localStorage persistence",
+      "status": "pass"
+    },
+    {
+      "name": "Has system preference detection",
+      "status": "pass"
+    }
+  ],
+  "successRate": "90.6"
+}
