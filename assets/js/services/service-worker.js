@@ -129,46 +129,38 @@ self.addEventListener('fetch', (event) => {
  * Best for: Static assets (CSS, JS, fonts, images)
  */
 async function cacheFirst(request, options = {}) {
-    const { maxAge = 604800 } = options; // Default 7 days
-
+    const { maxAge = 604800 } = options;
     const cached = await caches.match(request);
 
     if (cached) {
         const cachedTime = new Date(cached.headers.get('sw-cache-time') || Date.now());
-        const now = new Date();
-        const age = (now - cachedTime) / 1000;
+        const age = (Date.now() - cachedTime) / 1000;
 
         if (age < maxAge) {
-            console.log('[SW] Cache hit (fresh):', request.url);
+            swLog('Cache hit (fresh):', request.url);
             return cached;
         } else {
-            console.log('[SW] Cache hit (stale), fetching update:', request.url);
+            swLog('Cache hit (stale), fetching update:', request.url);
         }
     }
 
     try {
         const response = await fetch(request);
-
         if (response.ok) {
             const cache = await caches.open(STATIC_CACHE);
             const clonedResponse = response.clone();
-
-            // Add cache-time header
             const headers = new Headers(clonedResponse.headers);
             headers.set('sw-cache-time', new Date().toISOString());
-
             const responseToCache = new Response(clonedResponse.body, {
                 status: clonedResponse.status,
                 headers: headers
             });
-
             cache.put(request, responseToCache);
-            console.log('[SW] Cached:', request.url);
+            swLog('Cached:', request.url);
         }
-
         return response;
     } catch (error) {
-        console.error('[SW] Fetch failed, returning cached:', request.url);
+        swError('Fetch failed, returning cached:', request.url);
         return cached || caches.match('/offline.html');
     }
 }
@@ -179,25 +171,19 @@ async function cacheFirst(request, options = {}) {
  */
 async function networkFirst(request) {
     try {
-        // Try network with timeout
         const response = await fetchWithTimeout(request, NETWORK_TIMEOUT);
-
         if (response.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, response.clone());
-            console.log('[SW] Network success, cached:', request.url);
+            swLog('Network success, cached:', request.url);
         }
-
         return response;
     } catch (error) {
-        console.log('[SW] Network failed, trying cache:', request.url);
-
+        swLog('Network failed, trying cache:', request.url);
         const cached = await caches.match(request);
         if (cached) {
             return cached;
         }
-
-        // Return offline response for API failures
         return new Response(JSON.stringify({ error: 'Offline' }), {
             status: 503,
             headers: { 'Content-Type': 'application/json' }
@@ -221,17 +207,16 @@ async function staleWhileRevalidate(request) {
             return response;
         })
         .catch((error) => {
-            console.error('[SW] Background fetch failed:', request.url);
+            swError('Background fetch failed:', request.url);
             return cached;
         });
 
-    // Return cached immediately, update in background
     if (cached) {
-        console.log('[SW] Cache hit (stale-while-revalidate):', request.url);
+        swLog('Cache hit (stale-while-revalidate):', request.url);
         return cached;
     }
 
-    console.log('[SW] No cache, waiting for network:', request.url);
+    swLog('No cache, waiting for network:', request.url);
     return fetchPromise;
 }
 
@@ -313,17 +298,14 @@ function isHTMLRequest(request) {
 // ============================================================================
 
 self.addEventListener('sync', (event) => {
-    console.log('[SW] Sync event:', event.tag);
-
+    swLog('Sync event:', event.tag);
     if (event.tag === 'sync-form-data') {
         event.waitUntil(syncFormData());
     }
 });
 
 async function syncFormData() {
-    // Get pending form data from IndexedDB
-    // This would be implemented with actual form data storage
-    console.log('[SW] Syncing form data...');
+    swLog('Syncing form data...');
 }
 
 // ============================================================================
@@ -331,8 +313,7 @@ async function syncFormData() {
 // ============================================================================
 
 self.addEventListener('push', (event) => {
-    console.log('[SW] Push received');
-
+    swLog('Push received');
     const options = {
         body: event.data?.text() || 'Notification from Sa Đéc Hub',
         icon: '/favicon.png',
@@ -343,33 +324,19 @@ self.addEventListener('push', (event) => {
             primaryKey: 1
         },
         actions: [
-            {
-                action: 'view',
-                title: 'Xem',
-                icon: '/favicon.png'
-            },
-            {
-                action: 'close',
-                title: 'Đóng'
-            }
+            { action: 'view', title: 'Xem', icon: '/favicon.png' },
+            { action: 'close', title: 'Đóng' }
         ]
     };
-
-    event.waitUntil(
-        self.registration.showNotification('Sa Đéc Hub', options)
-    );
+    event.waitUntil(self.registration.showNotification('Sa Đéc Hub', options));
 });
 
 self.addEventListener('notificationclick', (event) => {
-    console.log('[SW] Notification click:', event.action);
-
+    swLog('Notification click:', event.action);
     event.notification.close();
-
     if (event.action === 'view') {
-        event.waitUntil(
-            clients.openWindow('/')
-        );
+        event.waitUntil(clients.openWindow('/'));
     }
 });
 
-console.log('[SW] Service Worker loaded');
+swLog('Service Worker loaded');
