@@ -250,7 +250,6 @@ class UIEnhancements {
         document.querySelectorAll('.card-tilt-effect').forEach(card => {
             this.initCardTilt(card);
         });
-        console.log('[UI] Card tilt effects initialized');
     }
 
     /**
