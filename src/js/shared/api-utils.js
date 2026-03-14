@@ -38,7 +38,7 @@ export async function isAuthenticated() {
 /**
  * Handle API response with standard error handling
  * @param {Response} response - Fetch response
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  * @throws {Error} If response is not ok
  */
 async function handleResponse(response) {
@@ -63,7 +63,7 @@ async function handleResponse(response) {
  * Fetch with automatic auth headers and error handling
  * @param {string} url - The URL to fetch
  * @param {Object} [options={}] - Fetch options
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function fetchWithAuth(url, options = {}) {
     const token = await getAuthToken();
@@ -86,7 +86,7 @@ export async function fetchWithAuth(url, options = {}) {
  * GET request with auth
  * @param {string} url - The URL to fetch
  * @param {Object} [params={}] - Query parameters
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function getJSON(url, params = {}) {
     const queryString = new URLSearchParams(params).toString();
@@ -99,7 +99,7 @@ export async function getJSON(url, params = {}) {
  * POST request with auth
  * @param {string} url - The URL to fetch
  * @param {Object} [data={}] - Request body data
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function postJSON(url, data = {}) {
     return fetchWithAuth(url, {
@@ -112,7 +112,7 @@ export async function postJSON(url, data = {}) {
  * PUT request with auth
  * @param {string} url - The URL to fetch
  * @param {Object} [data={}] - Request body data
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function putJSON(url, data = {}) {
     return fetchWithAuth(url, {
@@ -125,7 +125,7 @@ export async function putJSON(url, data = {}) {
  * PATCH request with auth
  * @param {string} url - The URL to fetch
  * @param {Object} [data={}] - Request body data
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function patchJSON(url, data = {}) {
     return fetchWithAuth(url, {
@@ -137,7 +137,7 @@ export async function patchJSON(url, data = {}) {
 /**
  * DELETE request with auth
  * @param {string} url - The URL to fetch
- * @returns {Promise<any>} Parsed response data
+ * @returns {Promise<unknown>} Parsed response data
  */
 export async function deleteJSON(url) {
     return fetchWithAuth(url, { method: 'DELETE' });
