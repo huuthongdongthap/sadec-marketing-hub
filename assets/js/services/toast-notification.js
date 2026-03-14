@@ -15,8 +15,12 @@ export {
   injectToastStyles
 } from '../../../src/js/components/enhanced-toast.js';
 
-// Legacy global assignment for backward compatibility
-if (typeof window !== 'undefined' && !window.toast) {
-  window.toast = toast;
-  window.ToastManager = ToastManager;
+// Legacy global assignment for backward compatibility (browser only)
+if (typeof window !== 'undefined') {
+  import('../../../src/js/components/enhanced-toast.js').then(({ toast, ToastManager }) => {
+    if (!window.toast) {
+      window.toast = toast;
+      window.ToastManager = ToastManager;
+    }
+  }).catch(() => {}); // Ignore import errors in test environment
 }
