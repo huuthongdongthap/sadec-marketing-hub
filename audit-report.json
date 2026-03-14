@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-03-14T05:28:55.470Z",
+  "timestamp": "2026-03-14T07:31:19.606Z",
   "filesScanned": 185,
-  "healthScore": 72,
-  "healthRating": "Good",
+  "healthScore": 56,
+  "healthRating": "Fair",
   "summary": {
-    "brokenLinks": 14,
-    "missingMetaTags": 0,
-    "accessibilityIssues": 0,
+    "brokenLinks": 0,
+    "missingMetaTags": 10,
+    "accessibilityIssues": 12,
     "duplicateIDs": 0,
-    "totalIssues": 14
+    "totalIssues": 22
   },
   "details": {
     "links": {
@@ -18,12 +18,10 @@
           "links": [
             "#main",
             "/index.html",
-            "../dashboard.html",
+            "dashboard.html",
             "brand-guide.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
@@ -47,11 +45,9 @@
             "/index.html",
             "workflows.html",
             "agents.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
@@ -94,11 +90,9 @@
             "/index.html",
             "events.html",
             "lms.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
@@ -128,11 +122,9 @@
             "/index.html",
             "community.html",
             "events.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
@@ -176,11 +168,9 @@
             "/index.html",
             "workflows.html",
             "approvals.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
@@ -235,11 +225,9 @@
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
           "links": [
             "#main",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
@@ -385,12 +373,12 @@
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
           "links": [
             "#main",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)"
+            "#",
+            "#",
+            "#",
+            "#",
+            "#",
+            "#"
           ],
           "broken": []
         },
@@ -435,11 +423,9 @@
             "#main",
             "/index.html",
             "agents.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
@@ -663,12 +649,10 @@
           "links": [
             "#main",
             "/index.html",
-            "../dashboard.html",
+            "dashboard.html",
             "brand-guide.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ai-analysis.html",
@@ -692,11 +676,9 @@
             "/index.html",
             "workflows.html",
             "agents.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/auth.html",
@@ -739,11 +721,9 @@
             "/index.html",
             "events.html",
             "lms.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/components/phase-tracker.html",
@@ -773,11 +753,9 @@
             "/index.html",
             "community.html",
             "events.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/dashboard.html",
@@ -821,11 +799,9 @@
             "/index.html",
             "workflows.html",
             "approvals.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/events.html",
@@ -880,11 +856,9 @@
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/landing-builder.html",
           "links": [
             "#main",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/leads.html",
@@ -1030,12 +1004,12 @@
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/ui-demo.html",
           "links": [
             "#main",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)",
-            "javascript:void(0)"
+            "#",
+            "#",
+            "#",
+            "#",
+            "#",
+            "#"
           ],
           "broken": []
         },
@@ -1080,11 +1054,9 @@
             "#main",
             "/index.html",
             "agents.html",
-            "../dashboard.html"
+            "dashboard.html"
           ],
-          "broken": [
-            "../dashboard.html"
-          ]
+          "broken": []
         },
         {
           "file": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/zalo.html",
@@ -1415,92 +1387,7 @@
           "broken": []
         }
       ],
-      "broken": [
-        {
-          "file": "admin/agents.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 129
-        },
-        {
-          "file": "admin/approvals.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/community.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/customer-success.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 130
-        },
-        {
-          "file": "admin/ecommerce.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/landing-builder.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 121
-        },
-        {
-          "file": "admin/workflows.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 130
-        },
-        {
-          "file": "admin/agents.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 129
-        },
-        {
-          "file": "admin/approvals.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/community.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/customer-success.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 130
-        },
-        {
-          "file": "admin/ecommerce.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 131
-        },
-        {
-          "file": "admin/landing-builder.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 121
-        },
-        {
-          "file": "admin/workflows.html",
-          "href": "../dashboard.html",
-          "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/dashboard.html",
-          "line": 130
-        }
-      ],
+      "broken": [],
       "external": [
         {
           "file": "admin/ai-analysis.html",
@@ -1525,16 +1412,418 @@
       ]
     },
     "meta": {
-      "files": [],
-      "missing": []
+      "files": [
+        {
+          "file": "admin/widgets/kpi-card.html",
+          "missing": [
+            {
+              "file": "admin/widgets/kpi-card.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "viewport",
+            "charset",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url"
+          ]
+        },
+        {
+          "file": "admin/widgets/kpi-card.html",
+          "missing": [
+            {
+              "file": "admin/widgets/kpi-card.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "viewport",
+            "charset",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url"
+          ]
+        },
+        {
+          "file": "assets/partials/seo-head.html",
+          "missing": [
+            {
+              "file": "assets/partials/seo-head.html",
+              "tag": "viewport",
+              "severity": "error",
+              "message": "Missing required meta tag: viewport"
+            },
+            {
+              "file": "assets/partials/seo-head.html",
+              "tag": "charset",
+              "severity": "error",
+              "message": "Missing required meta tag: charset"
+            }
+          ],
+          "present": [
+            "title",
+            "description",
+            "og:title",
+            "og:description",
+            "og:image",
+            "og:url",
+            "canonical"
+          ]
+        },
+        {
+          "file": "playwright-report/index.html",
+          "missing": [
+            {
+              "file": "playwright-report/index.html",
+              "tag": "description",
+              "severity": "error",
+              "message": "Missing required meta tag: description"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:title",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:title"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:description",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:description"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:image",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:image"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "og:url",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: og:url"
+            },
+            {
+              "file": "playwright-report/index.html",
+              "tag": "canonical",
+              "severity": "warning",
+              "message": "Missing recommended meta tag: canonical"
+            }
+          ],
+          "present": [
+            "title",
+            "viewport",
+            "charset"
+          ]
+        }
+      ],
+      "missing": [
+        {
+          "file": "admin/widgets/kpi-card.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "admin/widgets/kpi-card.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        },
+        {
+          "file": "assets/partials/seo-head.html",
+          "tag": "viewport",
+          "severity": "error",
+          "message": "Missing required meta tag: viewport"
+        },
+        {
+          "file": "assets/partials/seo-head.html",
+          "tag": "charset",
+          "severity": "error",
+          "message": "Missing required meta tag: charset"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "description",
+          "severity": "error",
+          "message": "Missing required meta tag: description"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:title",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:title"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:description",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:description"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:image",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:image"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "og:url",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: og:url"
+        },
+        {
+          "file": "playwright-report/index.html",
+          "tag": "canonical",
+          "severity": "warning",
+          "message": "Missing recommended meta tag: canonical"
+        }
+      ],
+      "summary": {
+        "totalFiles": 185,
+        "filesWithMissingMeta": 4,
+        "missingRequired": 3,
+        "missingRecommended": 7
+      }
     },
     "a11y": {
-      "files": [],
-      "issues": []
+      "files": [
+        {
+          "file": "admin/ui-demo.html",
+          "issues": [
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            }
+          ]
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "issues": [
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            },
+            {
+              "file": "admin/ui-demo.html",
+              "type": "link-empty-href",
+              "severity": "warning",
+              "element": "<a href=\"#\">Hover Me...</a>",
+              "message": "Link with empty href.",
+              "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+            }
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        },
+        {
+          "file": "admin/ui-demo.html",
+          "type": "link-empty-href",
+          "severity": "warning",
+          "element": "<a href=\"#\">Hover Me...</a>",
+          "message": "Link with empty href.",
+          "suggestion": "Use href=\"javascript:void(0)\" for placeholder links"
+        }
+      ],
+      "summary": {
+        "totalIssues": 12,
+        "byType": {
+          "link-empty-href": 12
+        },
+        "bySeverity": {
+          "error": 0,
+          "warning": 12
+        }
+      }
     },
     "ids": {
       "files": [],
-      "duplicates": []
+      "duplicates": [],
+      "summary": {
+        "totalFiles": 185,
+        "filesWithDuplicates": 0,
+        "totalDuplicates": 0,
+        "totalIDs": 1504
+      }
     }
   }
 }
