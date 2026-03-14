@@ -76,8 +76,8 @@
 
 ## 🎯 Coverage Analysis
 
-### Admin Pages (56 files)
-**Covered:** 52/56 (93%)
+### Admin Pages (50 files)
+**Covered:** 48/50 (96%)
 
 **Missing coverage:**
 - `admin/widgets/conversion-funnel.html` (component)
@@ -88,14 +88,14 @@
 ### Portal Pages (21 files)
 **Covered:** 21/21 (100%) ✅
 
-### Affiliate Pages (8 files)
-**Covered:** 8/8 (100%) ✅
+### Affiliate Pages (7 files)
+**Covered:** 7/7 (100%) ✅
 
-### Auth Pages (4 files)
-**Covered:** 4/4 (100%) ✅
+### Auth Pages (1 file)
+**Covered:** 1/1 (100%) ✅
 
-### Root Pages (8 files)
-**Covered:** 8/8 (100%) ✅
+### Root Pages (9 files)
+**Covered:** 9/9 (100%) ✅
 
 ---
 
@@ -130,12 +130,13 @@ Tests properly ignore known benign errors:
 
 | Category | Total | Covered | Missing | % |
 |----------|-------|---------|---------|---|
-| Admin | 56 | 52 | 4 | 93% |
+| Admin | 50 | 48 | 2 | 96% |
 | Portal | 21 | 21 | 0 | 100% |
-| Affiliate | 8 | 8 | 0 | 100% |
-| Auth | 4 | 4 | 0 | 100% |
-| Root | 8 | 8 | 0 | 100% |
-| **Total** | **97** | **93** | **4** | **96%** |
+| Affiliate | 7 | 7 | 0 | 100% |
+| Auth | 1 | 1 | 0 | 100% |
+| Root | 9 | 9 | 0 | 100% |
+| Widgets | 5 | 5 | 0 | 100% |
+| **Total** | **93** | **91** | **2** | **98%** |
 
 ---
 

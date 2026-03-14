@@ -37,12 +37,14 @@ import './widgets/help-tour.js';
 import './widgets/command-palette.js';
 import './widgets/notification-bell.js';
 
+import { Logger } from './shared/logger.js';
+
 // Export for programmatic use
 export { initializeWidgets, updateWidgetData, refreshWidget } from './widgets/index.js';
 
 // Auto-initialize on DOMContentLoaded
 function initializeDashboardWidgets() {
-    console.log('[Dashboard Widgets] All widgets loaded');
+    Logger.log('[Dashboard Widgets] All widgets loaded');
 
     // Dispatch custom event for widgets ready
     window.dispatchEvent(new CustomEvent('dashboard-widgets-ready'));
@@ -92,4 +94,4 @@ window.DashboardWidgets = {
     }
 };
 
-console.log('[Dashboard Widgets] Bundle loaded');
+Logger.log('[Dashboard Widgets] Bundle loaded');
