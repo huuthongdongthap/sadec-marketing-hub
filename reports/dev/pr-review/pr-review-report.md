@@ -14,8 +14,8 @@
 | **Code Quality** | ⚠️ 851 console.log | NEEDS WORK |
 | **Tech Debt** | 115 TODO/FIXME | ⚠️ LOW |
 | **Accessibility** | 1628 aria-label, 115 skip-link | ✅ GOOD |
-| **Test Coverage** | 73 spec files | ✅ GOOD |
-| **SEO Metadata** | 1460 OG/JSON-LD | ✅ GOOD |
+| **Test Coverage** | 69 spec files | ✅ GOOD |
+| **SEO Metadata** | 1378 OG/JSON-LD | ✅ GOOD |
 
 ---
 
@@ -64,12 +64,12 @@ Header set Access-Control-Max-Age "86400"
 | File | Count |
 |------|-------|
 | admin/notifications.html | 42 |
+| admin/leads.html | 28 |
 | admin/campaigns.html | 32 |
 | admin/ui-demo.html | 32 |
 | portal/subscription-plans.html | 63 |
 | portal/ocop-catalog.html | 27 |
 | admin/suppliers.html | 30 |
-| admin/leads.html | 28 |
 | admin/shifts.html | 23 |
 | admin/inventory.html | 20 |
 | portal/roiaas-dashboard.html | 20 |
@@ -89,7 +89,7 @@ Header set Access-Control-Max-Age "86400"
 
 | Tag | Count | Status |
 |-----|-------|--------|
-| Open Graph (og:) + JSON-LD | 1460 | ✅ GOOD |
+| Open Graph (og:) + JSON-LD | 1378 | ✅ GOOD |
 
 ---
 
@@ -97,12 +97,7 @@ Header set Access-Control-Max-Age "86400"
 
 | Metric | Count | Status |
 |--------|-------|--------|
-| Test spec files (.spec.ts/.spec.js) | 73 | ✅ GOOD |
-
-**Breakdown:**
-- `.spec.ts` files: 73 files
-- `.spec.js` files: 15 files
-- Total: ~88 test files (excluding node_modules)
+| Test spec files (.spec.ts/.spec.js) | 69 | ✅ GOOD |
 
 ---
 
@@ -119,7 +114,7 @@ Header set Access-Control-Max-Age "86400"
 ### P3 - Low Priority 🟢
 - [ ] Maintain skip-link coverage (115 files - good)
 - [ ] Maintain aria-label coverage (1628 - good)
-- [ ] Expand test coverage (73 spec files - good start)
+- [ ] Expand test coverage (69 spec files - good start)
 
 ---
 
@@ -135,23 +130,6 @@ Header set Access-Control-Max-Age "86400"
 | Code Quality | 🔴 console.log cleanup needed |
 
 **Recommendation:** ⚠️ **CONDITIONAL APPROVAL** - Requires console.log cleanup before production
-
----
-
-## 📊 DETAILED METRICS
-
-### Console.log Distribution
-- **admin/**: ~250 occurrences
-- **portal/**: ~200 occurrences
-- **assets/js/**: ~200 occurrences
-- **scripts/**: ~150 occurrences
-- **tests/**: ~51 occurrences (acceptable)
-
-### TODO/FIXME Distribution
-- **scripts/**: ~40 occurrences
-- **assets/js/**: ~30 occurrences
-- **admin/**: ~25 occurrences
-- **docs/**: ~20 occurrences
 
 ---
 
