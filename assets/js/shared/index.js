@@ -119,12 +119,7 @@ export { default as ScrollListener } from './scroll-listener.js';
 // ============================================================================
 // KEYBOARD UTILITIES
 // ============================================================================
-export {
-    initKeyboardManager,
-    handleGlobalKeydown,
-    registerShortcut,
-    unregisterShortcut
-} from './keyboard-manager.js';
+export { default as KeyboardManager } from './keyboard-manager.js';
 
 // ============================================================================
 // LOGGER (default export re-exported as named)
@@ -201,14 +196,10 @@ export default {
     modalHelpers,
 
     // Scroll
-    scrollToElement,
-    smoothScrollTo,
+    ScrollListener,
 
     // Keyboard
-    initKeyboardManager,
-    handleGlobalKeydown,
-    registerShortcut,
-    unregisterShortcut,
+    KeyboardManager,
 
     // Logger
     Logger
