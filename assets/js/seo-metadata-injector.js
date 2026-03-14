@@ -726,7 +726,5 @@ if (document.readyState === 'loading') {
   injectSEOMetadata()
 }
 
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { getPageMetadata, generateJsonLd, injectSEOMetadata }
-}
+// Export for ES modules
+export { getPageMetadata, generateJsonLd, injectSEOMetadata }

@@ -114,3 +114,4 @@ const Logger = {
 
 // Export for ES modules
 export default Logger;
+export { Logger };

@@ -125,10 +125,9 @@ export {
 } from './keyboard-manager.js';
 
 // ============================================================================
-// LOGGER
+// LOGGER (default export re-exported as named)
 // ============================================================================
-import LoggerModule from './logger.js';
-export const Logger = LoggerModule;
+export { default as Logger } from './logger.js';
 
 // ============================================================================
 // NAMESPACE EXPORTS (for backward compatibility)

@@ -384,7 +384,7 @@ export function renderChart(chartId, chartType, data) {
 // ============================================================================
 
 // Re-export format utilities for convenience
-export { formatCurrencyVN, formatCurrency, formatCurrencyShort } from './format-utils.js';
+export { formatCurrencyVN, formatCurrency, formatNumber } from './format-utils.js';
 
 // ============================================================================
 // DEFAULT EXPORT
