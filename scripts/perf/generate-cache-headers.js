@@ -6,11 +6,13 @@
  * Usage: node scripts/perf/generate-cache-headers.js
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Fix: Use process.cwd() for reliable path resolution
-const ROOT_DIR = process.cwd();
+// Fix: Use proper ES module path resolution
+const __filename = fileURLToPath(import.meta.url);
+const ROOT_DIR = path.resolve(__filename, '../../../');
 const ADMIN_DIR = path.join(ROOT_DIR, 'admin');
 const PORTAL_DIR = path.join(ROOT_DIR, 'portal');
 const AFFILIATE_DIR = path.join(ROOT_DIR, 'affiliate');
