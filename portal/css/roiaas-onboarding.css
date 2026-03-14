@@ -504,14 +504,83 @@
     animation: spin 0.8s linear infinite;
 }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 600px) {
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Tablet Landscape - 1024px */
+@media (max-width: 1024px) {
+    .roiaas-wizard {
+        max-width: 600px;
+        padding: 32px;
+    }
+
+    .plan-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet Portrait - 768px */
+@media (max-width: 768px) {
+    .roiaas-wizard {
+        padding: 28px;
+    }
+
+    .step-title {
+        font-size: 24px;
+    }
+
+    .step-subtitle {
+        font-size: 14px;
+    }
+
+    .plan-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .industry-grid {
+        gap: 10px;
+    }
+
+    .step-indicators {
+        gap: 4px;
+    }
+
+    .step-dot {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile Landscape - 480px */
+@media (max-width: 480px) {
+    .roiaas-onboarding-wrapper {
+        padding: 12px;
+    }
+
     .roiaas-wizard {
         padding: 24px;
+        border-radius: 20px;
     }
 
     .step-title {
         font-size: 22px;
+    }
+
+    .plan-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .channel-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .button-row {
@@ -525,17 +594,60 @@
     .btn-secondary {
         order: 2;
     }
+}
 
-    .industry-grid {
-        grid-template-columns: 1fr;
+/* Mobile Small - 375px */
+@media (max-width: 375px) {
+    .roiaas-onboarding-wrapper {
+        padding: 8px;
     }
 
-    .plan-cards {
-        grid-template-columns: 1fr;
+    .roiaas-wizard {
+        padding: 20px;
+        border-radius: 16px;
     }
 
-    .channel-cards {
-        grid-template-columns: repeat(2, 1fr);
+    .step-title {
+        font-size: 20px;
+    }
+
+    .step-subtitle {
+        font-size: 13px;
+    }
+
+    .plan-card {
+        padding: 16px;
+    }
+
+    .plan-icon {
+        font-size: 28px;
+    }
+
+    .channel-card {
+        padding: 12px;
+    }
+
+    .channel-icon {
+        font-size: 24px;
+    }
+
+    .industry-option {
+        padding: 12px;
+    }
+
+    .industry-icon {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 14px;
     }
 }
 
