@@ -1,5 +1,7 @@
 /// <reference lib="webworker" />
 
+declare const self: ServiceWorkerGlobalScope
+
 const CACHE_NAME = 'sadec-hub-v1'
 const STATIC_ASSETS = [
   '/',
@@ -35,19 +37,19 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
 self.addEventListener('fetch', (event: FetchEvent) => {
   event.respondWith(
     fetch(event.request)
-      .then((response: Response | undefined) => {
+      .then((response) => {
         // Cache successful GET requests
-        if (event.request.method === 'GET' && response?.ok) {
+        if (event.request.method === 'GET' && response.ok) {
           const responseClone = response.clone()
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseClone)
           })
         }
-        return response || caches.match('/index.html')
+        return response
       })
       .catch(() => {
         return caches.match(event.request).then((cachedResponse) => {
-          return cachedResponse || caches.match('/index.html')
+          return cachedResponse ?? caches.match('/index.html')
         })
       })
   )
