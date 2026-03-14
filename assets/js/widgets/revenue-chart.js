@@ -1,0 +1,334 @@
+/**
+ * Revenue Chart Widget
+ * Interactive revenue trajectory chart with real-time updates
+ */
+
+class RevenueChartWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.chartData = [];
+        this.chartInstance = null;
+    }
+
+    static get observedAttributes() {
+        return ['time-range', 'data'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    attributeChangedCallback() {
+        if (this.chartInstance) {
+            this.updateChart();
+        }
+    }
+
+    render() {
+        const timeRange = this.getAttribute('time-range') || 'weekly';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                    width: 100%;
+                }
+                .chart-container {
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    height: 400px;
+                }
+                .chart-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+                .chart-title {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    font-family: 'Space Grotesk', sans-serif;
+                }
+                .chart-controls {
+                    display: flex;
+                    gap: 8px;
+                }
+                .chart-btn {
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 13px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .chart-btn:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                }
+                .chart-btn.active {
+                    background: linear-gradient(135deg, #00e5ff, #00b8d4);
+                    color: #000;
+                    border-color: transparent;
+                }
+                .chart-canvas-container {
+                    position: relative;
+                    height: 320px;
+                    width: 100%;
+                }
+                .chart-loading {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+                .chart-loading .spinner {
+                    width: 24px;
+                    height: 24px;
+                    border: 2px solid rgba(255, 255, 255, 0.1);
+                    border-top-color: #00e5ff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            </style>
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3 class="chart-title">Revenue Trajectory</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn ${timeRange === 'daily' ? 'active' : ''}" data-range="daily">Daily</button>
+                        <button class="chart-btn ${timeRange === 'weekly' ? 'active' : ''}" data-range="weekly">Weekly</button>
+                        <button class="chart-btn ${timeRange === 'monthly' ? 'active' : ''}" data-range="monthly">Monthly</button>
+                    </div>
+                </div>
+                <div class="chart-canvas-container">
+                    <canvas id="revenueChart"></canvas>
+                    <div class="chart-loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <span>Loading data...</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        this.attachEventListeners();
+    }
+
+    attachEventListeners() {
+        const buttons = this.shadowRoot.querySelectorAll('.chart-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                buttons.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.setAttribute('time-range', e.target.dataset.range);
+                this.dispatchEvent(new CustomEvent('time-range-change', {
+                    bubbles: true,
+                    composed: true,
+                    detail: { range: e.target.dataset.range }
+                }));
+            });
+        });
+    }
+
+    initChart() {
+        const canvas = this.shadowRoot.getElementById('revenueChart');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+
+        // Generate demo data
+        const labels = this.generateLabels(this.getAttribute('time-range') || 'weekly');
+        const data = this.generateDemoData(labels.length);
+
+        // Destroy existing chart
+        if (this.chartInstance) {
+            this.chartInstance.destroy();
+        }
+
+        // Create gradient
+        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(0, 229, 255, 0.3)');
+        gradient.addColorStop(1, 'rgba(0, 229, 255, 0)');
+
+        // Create Chart.js chart (if available) or fallback to SVG
+        if (typeof Chart !== 'undefined') {
+            this.chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: data,
+                        borderColor: '#00e5ff',
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#00e5ff',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: (context) => {
+                                    const value = context.parsed.y;
+                                    return new Intl.NumberFormat('vi-VN', {
+                                        style: 'currency',
+                                        currency: 'VND'
+                                    }).format(value);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.6)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.6)',
+                                callback: (value) => {
+                                    if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
+                                    if (value >= 1000) return (value / 1000).toFixed(0) + 'K';
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        } else {
+            // Fallback SVG chart
+            this.renderSVGChart(canvas, labels, data);
+        }
+    }
+
+    renderSVGChart(canvas, labels, data) {
+        const width = canvas.offsetWidth || 800;
+        const height = canvas.offsetHeight || 320;
+        const padding = 40;
+
+        const maxVal = Math.max(...data);
+        const minVal = Math.min(...data);
+        const range = maxVal - minVal || 1;
+
+        const points = data.map((val, i) => {
+            const x = padding + (i / (data.length - 1)) * (width - 2 * padding);
+            const y = height - padding - ((val - minVal) / range) * (height - 2 * padding);
+            return { x, y };
+        });
+
+        const pathD = points.map((p, i) => (i === 0 ? 'M' : 'L') + ` ${p.x},${p.y}`).join(' ');
+        const areaD = pathD + ` L ${points[points.length - 1].x},${height - padding} L ${padding},${height - padding} Z`;
+
+        canvas.innerHTML = `
+            <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+                <defs>
+                    <linearGradient id="revenueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <path d="${areaD}" fill="url(#revenueGradient)" />
+                <path d="${pathD}" fill="none" stroke="#00e5ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                ${points.map(p => `
+                    <circle cx="${p.x}" cy="${p.y}" r="4" fill="#00e5ff" stroke="#fff" stroke-width="2" />
+                `).join('')}
+            </svg>
+        `;
+    }
+
+    updateChart() {
+        if (!this.chartInstance) return;
+
+        const timeRange = this.getAttribute('time-range') || 'weekly';
+        const labels = this.generateLabels(timeRange);
+        const data = this.generateDemoData(labels.length);
+
+        this.chartInstance.data.labels = labels;
+        this.chartInstance.data.datasets[0].data = data;
+        this.chartInstance.update('smooth');
+    }
+
+    generateLabels(timeRange) {
+        const now = new Date();
+        const labels = [];
+
+        switch (timeRange) {
+            case 'daily':
+                for (let i = 0; i < 24; i++) {
+                    labels.push(`${i}:00`);
+                }
+                break;
+            case 'weekly':
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date(now);
+                    date.setDate(date.getDate() - i);
+                    labels.push(date.toLocaleDateString('vi-VN', { weekday: 'short' }));
+                }
+                break;
+            case 'monthly':
+                for (let i = 11; i >= 0; i--) {
+                    const date = new Date(now);
+                    date.setMonth(date.getMonth() - i);
+                    labels.push(date.toLocaleDateString('vi-VN', { month: 'short' }));
+                }
+                break;
+        }
+
+        return labels;
+    }
+
+    generateDemoData(length) {
+        const data = [];
+        let baseValue = 10000000;
+
+        for (let i = 0; i < length; i++) {
+            const variation = (Math.random() - 0.45) * 5000000;
+            const trend = i * 200000;
+            baseValue = Math.max(1000000, baseValue + variation + trend);
+            data.push(Math.floor(baseValue));
+        }
+
+        return data;
+    }
+}
+
+customElements.define('revenue-chart-widget', RevenueChartWidget);
