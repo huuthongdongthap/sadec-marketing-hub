@@ -17,52 +17,35 @@ def process_html_file(file_path):
     try:
         content = file_path.read_text(encoding='utf-8')
         original = content
+        count = 0
 
-        # Pattern 1: Img tags chưa có loading attribute
-        # Thêm loading="lazy" và decoding="async"
+        # Pattern: Img tags - chỉ thêm nếu chưa có cả loading VÀ decoding
+        # Remove existing duplicate attributes first
+        content = re.sub(r'\s+loading="lazy"(?=\s+loading="lazy")', '', content, flags=re.IGNORECASE)
+        content = re.sub(r'\s+decoding="async"(?=\s+decoding="async")', '', content, flags=re.IGNORECASE)
+
+        # Pattern 1: Img tags chưa có loading attribute - thêm cả loading và decoding
         pattern1 = r'<img(?![^>]*\bloading\s*=)([^>]*?)>'
 
         def add_lazy_1(match):
+            nonlocal count
             attrs = match.group(1)
-            # Skip nếu đã có cả loading và decoding
-            if 'loading=' in attrs and 'decoding=' in attrs:
-                return f'<img{attrs}>'
+            count += 1
             return f'<img{attrs} loading="lazy" decoding="async">'
 
         content = re.sub(pattern1, add_lazy_1, content, flags=re.IGNORECASE)
 
         # Pattern 2: Img tags có loading nhưng chưa có decoding
-        pattern2 = r'<img([^>]*?)\s+loading="lazy"([^>]*?)(?!\s+decoding=)([^>]*?)>'
+        pattern2 = r'<img([^>]*?)\s+loading="lazy"(?![^>]*?\s+decoding=)([^>]*?)>'
 
         def add_decoding(match):
-            attrs1 = match.group(1)
-            attrs2 = match.group(2)
-            attrs3 = match.group(3)
-            return f'<img{attrs1} loading="lazy"{attrs2} decoding="async"{attrs3}>'
+            nonlocal count
+            count += 1
+            return f'<img{match.group(1)} loading="lazy" decoding="async"{match.group(2)}>'
 
         content = re.sub(pattern2, add_decoding, content, flags=re.IGNORECASE)
 
-        # Pattern 3: Img tags có decoding nhưng chưa có loading
-        pattern3 = r'<img([^>]*?)\s+decoding="async"([^>]*?)(?!\s+loading=)([^>]*?)>'
-
-        def add_loading(match):
-            attrs1 = match.group(1)
-            attrs2 = match.group(2)
-            attrs3 = match.group(3)
-            return f'<img{attrs1} decoding="async" loading="lazy"{attrs2}{attrs3}>'
-
-        content = re.sub(pattern3, add_loading, content, flags=re.IGNORECASE)
-
-        # Pattern 4: Thêm fetchpriority="high" cho hero/hero banner images
-        # Chỉ thêm cho img đầu tiên trong mỗi file có class chứa hero/banner/main
-        hero_pattern = r'<(img|figure)[^>]*(?:hero|banner|main)[^>]*>'
-
-        match = re.search(hero_pattern, content, re.IGNORECASE)
-        if match and 'fetchpriority' not in match.group(0):
-            # Thêm fetchpriority="high" cho LCP image
-            new_tag = match.group(0).replace('>', ' fetchpriority="high">')
-            content = content.replace(match.group(0), new_tag, 1)
-
+        # Only write if changed
         if content != original:
             file_path.write_text(content, encoding='utf-8')
             return True

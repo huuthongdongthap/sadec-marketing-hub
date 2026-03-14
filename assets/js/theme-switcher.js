@@ -76,8 +76,6 @@ function toggleTheme() {
     window.dispatchEvent(new CustomEvent('themechange', {
         detail: { theme: newTheme }
     }));
-
-    console.log(`[Theme] Switched to ${newTheme} mode`);
 }
 
 /**
@@ -104,8 +102,6 @@ function initThemeToggle() {
 
         // Add click handler
         toggle.addEventListener('click', toggleTheme);
-
-        console.log('[Theme] Toggle button created');
     } else {
         // Toggle already exists, just add handler if not present
         toggle.onclick = toggleTheme;

@@ -1154,7 +1154,7 @@
             grid.innerHTML = productList.map(product => `
                 <article class="product-card" onclick="viewProduct(${product.id})">
                     <div class="product-image">
-                        <img decoding="async" loading="lazy" loading="lazy" decoding="async" src="${product.image}" alt="${product.name}" loading="lazy" decoding="async">
+                        <img decoding="async" loading="lazy" loading="lazy" decoding="async" loading="lazy" decoding="async" src="${product.image}" alt="${product.name}" loading="lazy" decoding="async">
                         ${product.badge ? `<span class="product-badge ${product.badge}">${product.badgeText}</span>` : ''}
                         <button type="button" class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this, ${product.id})" aria-label="Yêu thích"
                             <span class="material-symbols-outlined" aria-label="Yêu thích" role="img">favorite</span>
