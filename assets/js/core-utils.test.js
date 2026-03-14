@@ -89,7 +89,7 @@ describe('Format Utilities', () => {
     describe('formatPercent', () => {
         it('should format percentage', () => {
             expect(formatPercent(75)).toBe('75%');
-            expect(formatPercent(75.5)).toBe('75.5%');
+            expect(formatPercent(75.5)).toBe('76%'); // rounds to nearest int by default
         });
 
         it('should respect decimals parameter', () => {
