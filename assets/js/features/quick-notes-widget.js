@@ -430,6 +430,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = QuickNotesWidget;
-}
+// Export for ES modules
+export default QuickNotesWidget;

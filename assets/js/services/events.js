@@ -428,8 +428,8 @@ function formatDuration(minutes) {
 const eventsManager = new EventsManager();
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         EventsManager,
         VirtualEvent,
         Registration,
@@ -441,4 +441,3 @@ if (typeof module !== 'undefined' && module.exports) {
         formatEventDate,
         formatDuration
     };
-}

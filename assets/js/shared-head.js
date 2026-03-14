@@ -151,6 +151,5 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
 export default MekongHead;
 
 // Export for CommonJS
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MekongHead;
-}
+// Export for ES modules
+export default MekongHead;

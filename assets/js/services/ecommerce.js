@@ -507,8 +507,8 @@ const abandonedCartFlow = new AbandonedCartFlow();
 const retargetingManager = new RetargetingManager();
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         StoreAudit,
         EcommerceAnalytics,
         AbandonedCartFlow,
@@ -520,4 +520,3 @@ if (typeof module !== 'undefined' && module.exports) {
         formatCurrency,
         formatNumber
     };
-}

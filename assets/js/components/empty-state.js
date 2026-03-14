@@ -403,9 +403,8 @@ if (typeof customElements !== 'undefined' && !customElements.get('empty-state'))
 }
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { EmptyState, EmptyStateManager };
-}
+// Export for ES modules
+export default { EmptyState, EmptyStateManager };
 
 // Global access
 window.EmptyState = EmptyState;

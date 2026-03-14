@@ -480,6 +480,5 @@ document.head.appendChild(style);
 const MobileUI = new MobileEnhancements();
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { MobileUI, MobileEnhancements };
-}
+// Export for ES modules
+export default { MobileUI, MobileEnhancements };

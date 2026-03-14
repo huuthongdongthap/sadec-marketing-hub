@@ -503,8 +503,8 @@ function simulateWork(ms) {
 }
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         WorkflowChain,
         WorkflowStep,
         createWorkflowChain,
@@ -514,4 +514,3 @@ if (typeof module !== 'undefined' && module.exports) {
         contentPublishing,
         leadNurturing
     };
-}

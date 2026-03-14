@@ -453,9 +453,8 @@ if (typeof document !== 'undefined') {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { Loading, ScrollAnimations, RippleEffect };
-}
+// Export for ES modules
+export default { Loading, ScrollAnimations, RippleEffect };
 
 // Global access
 window.Loading = Loading;

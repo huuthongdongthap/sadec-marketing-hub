@@ -187,6 +187,5 @@ function createDemoLMS(manager) {
 }
 
 const lmsManager = new LMSManager();
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { LMSManager, Course, Lesson, Student, CourseCategories, LessonTypes, lmsManager, createDemoLMS };
-}
+// Export for ES modules
+export default { LMSManager, Course, Lesson, Student, CourseCategories, LessonTypes, lmsManager, createDemoLMS };

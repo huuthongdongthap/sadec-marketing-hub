@@ -292,8 +292,8 @@ function createDemoCustomers(manager) {
 const csManager = new CustomerSuccessManager();
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         CustomerSuccessManager,
         Customer,
         HealthFactors,
@@ -303,4 +303,3 @@ if (typeof module !== 'undefined' && module.exports) {
         createDemoCustomers,
         formatCurrency
     };
-}

@@ -261,6 +261,5 @@ if (document.readyState === 'loading') {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ThemeManager;
-}
+// Export for ES modules
+export default ThemeManager;

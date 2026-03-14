@@ -88,6 +88,5 @@ if (document.readyState === 'loading') {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = DarkMode;
-}
+// Export for ES modules
+export default DarkMode;

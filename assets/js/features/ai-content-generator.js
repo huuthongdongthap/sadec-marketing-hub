@@ -702,6 +702,5 @@ fab.addEventListener('click', () => {
 });
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { AIGenerator, AIContentGenerator, AIContentPanel };
-}
+// Export for ES modules
+export default { AIGenerator, AIContentGenerator, AIContentPanel };

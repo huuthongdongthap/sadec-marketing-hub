@@ -251,6 +251,5 @@ if (typeof document !== 'undefined') {
 }
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = FileUpload;
-}
+// Export for ES modules
+export default FileUpload;

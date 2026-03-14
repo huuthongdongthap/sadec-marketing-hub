@@ -348,6 +348,5 @@ customElements.define('error-boundary', ErrorBoundary);
 ErrorBoundaryUtils.registerGlobalHandler();
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ErrorBoundary, ErrorBoundaryUtils };
-}
+// Export for ES modules
+export default { ErrorBoundary, ErrorBoundaryUtils };

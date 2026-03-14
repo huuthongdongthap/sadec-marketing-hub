@@ -112,6 +112,5 @@ if (typeof document !== 'undefined') {
 }
 
 // Export for ES modules
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Breadcrumbs;
-}
+// Export for ES modules
+export default Breadcrumbs;

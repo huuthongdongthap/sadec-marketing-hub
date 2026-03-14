@@ -237,9 +237,8 @@ const ToastManager = {
 };
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ToastManager;
-}
+// Export for ES modules
+export default ToastManager;
 
 // Global access
 window.ToastManager = ToastManager;

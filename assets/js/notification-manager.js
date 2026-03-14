@@ -370,6 +370,5 @@ class NotificationManager {
 const NotificationManager = new NotificationManager();
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = NotificationManager;
-}
+// Export for ES modules
+export default NotificationManager;

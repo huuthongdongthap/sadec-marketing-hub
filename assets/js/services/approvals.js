@@ -421,8 +421,8 @@ function simulateWork(ms) {
 const approvalManager = new ApprovalManager();
 
 // ===== EXPORTS =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         ApprovalManager,
         ApprovalRequest,
         approvalManager,
@@ -433,4 +433,3 @@ if (typeof module !== 'undefined' && module.exports) {
         expenseWithApproval,
         formatCurrency
     };
-}

@@ -318,6 +318,5 @@ if (!customElements.get('toast-component')) {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ToastComponent;
-}
+// Export for ES modules
+export default ToastComponent;

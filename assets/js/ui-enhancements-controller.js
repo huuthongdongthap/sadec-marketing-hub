@@ -337,6 +337,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { UIEnhancements, SkeletonLoader };
-}
+// Export for ES modules
+export default { UIEnhancements, SkeletonLoader };

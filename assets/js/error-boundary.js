@@ -412,9 +412,8 @@ if (document.readyState === 'loading') {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ErrorBoundary;
-}
+// Export for ES modules
+export default ErrorBoundary;
 
 // Add CSS animations
 const style = document.createElement('style');

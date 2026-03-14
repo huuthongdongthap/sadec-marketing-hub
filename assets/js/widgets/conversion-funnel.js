@@ -491,6 +491,5 @@ if (!customElements.get('conversion-funnel')) {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ConversionFunnel;
-}
+// Export for ES modules
+export default ConversionFunnel;

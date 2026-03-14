@@ -477,6 +477,5 @@ if (typeof document !== 'undefined') {
 }
 
 // Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = HelpTour;
-}
+// Export for ES modules
+export default HelpTour;

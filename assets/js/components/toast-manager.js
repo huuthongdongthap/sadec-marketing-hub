@@ -345,6 +345,5 @@ class ToastManager {
 const Toast = new ToastManager();
 
 // Export for ES modules
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { Toast, ToastManager };
-}
+// Export for ES modules
+export default { Toast, ToastManager };

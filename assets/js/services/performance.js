@@ -245,6 +245,5 @@ if (typeof window !== 'undefined') {
     Object.assign(window, MekongPerformance);
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MekongPerformance;
-}
+// Export for ES modules
+export default MekongPerformance;

@@ -376,8 +376,8 @@ function createDemoCommunity(manager) {
 const communityManager = new CommunityManager();
 
 // Export
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         CommunityManager,
         Member,
         Post,
@@ -390,4 +390,3 @@ if (typeof module !== 'undefined' && module.exports) {
         communityBus,
         createDemoCommunity
     };
-}

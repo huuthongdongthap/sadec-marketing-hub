@@ -351,8 +351,8 @@ if (typeof document !== 'undefined') {
 }
 
 // Export for ES modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
+// Export for ES modules
+export default {
         initUIEnhancements,
         initScrollReveal,
         initRippleEffect,
@@ -367,4 +367,3 @@ if (typeof module !== 'undefined' && module.exports) {
         shakeElement,
         pulseElement
     };
-}
