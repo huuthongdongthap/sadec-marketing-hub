@@ -63,8 +63,7 @@ const M3 = {
             checkbox.addEventListener('change', (e) => {
                 if (e.target.checked) {
                     // Could add subtle sound effect here
-                    console.log('Checkbox checked');
-                }
+                    }
             });
         });
     },
@@ -427,8 +426,7 @@ const M3 = {
             checkbox.addEventListener('change', (e) => {
                 if (e.target.checked) {
                     // Could add subtle haptic feedback here
-                    console.log('Checkbox checked');
-                }
+                    }
             });
         });
     },

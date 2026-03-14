@@ -28,12 +28,10 @@ function test(name, fn) {
         fn();
         results.passed++;
         results.tests.push({ name, status: 'pass' });
-        console.log(`  ✅ ${name}`);
-    } catch (err) {
+        } catch (err) {
         results.failed++;
         results.tests.push({ name, status: 'fail', error: err.message });
-        console.log(`  ❌ ${name}: ${err.message}`);
-    }
+        }
 }
 
 /**
@@ -57,10 +55,7 @@ function assertContains(content, search, message) {
  * Run tests
  */
 async function runTests() {
-    console.log('🧪 Widget Tests — Sa Đéc Marketing Hub\n');
-
     // Test 1: Theme Toggle Widget
-    console.log('📦 Theme Toggle Widget\n');
     const themeTogglePath = path.join(WIDGETS_DIR, 'theme-toggle.html');
 
     test('Theme toggle file exists', () => {
@@ -104,7 +99,6 @@ async function runTests() {
     });
 
     // Test 2: Notification Bell Widget
-    console.log('\n📦 Notification Bell Widget\n');
     const notificationBellPath = path.join(WIDGETS_DIR, 'notification-bell.html');
 
     test('Notification bell file exists', () => {
@@ -151,7 +145,6 @@ async function runTests() {
     });
 
     // Test 3: Global Search Widget
-    console.log('\n📦 Global Search Widget\n');
     const globalSearchPath = path.join(WIDGETS_DIR, 'global-search.html');
 
     test('Global search file exists', () => {
@@ -199,8 +192,6 @@ async function runTests() {
     });
 
     // Test 4: Existing Widgets
-    console.log('\n📦 Existing Widgets\n');
-
     test('KPI Card widget exists', () => {
         assertFileExists(path.join(WIDGETS_DIR, 'kpi-card.html'));
     });
@@ -238,8 +229,6 @@ async function runTests() {
     });
 
     // Test 5: Core Features
-    console.log('\n📦 Core Features\n');
-
     test('Toast Notification exists', () => {
         assertFileExists(path.join(ROOT_DIR, 'assets/js/toast-notification.js'));
     });
@@ -257,14 +246,10 @@ async function runTests() {
     });
 
     // Summary
-    console.log('\n📊 Test Summary\n');
-    console.log(`  Total: ${results.total}`);
-    console.log(`  Passed: ${results.passed}`);
-    console.log(`  Failed: ${results.failed}`);
-    console.log(`  Success Rate: ${((results.passed / results.total) * 100).toFixed(1)}%`);
+    * 100).toFixed(1)}%`);
 
     const success = results.failed === 0;
-    console.log(`\n${success ? '✅' : '❌'} ${success ? 'All tests passed!' : `${results.failed} test(s) failed`}\n`);
+    failed`}\n`);
 
     // Write report
     const reportPath = path.join(ROOT_DIR, 'reports/dev/widget-tests.json');
@@ -279,8 +264,6 @@ async function runTests() {
         ...results,
         successRate: ((results.passed / results.total) * 100).toFixed(1)
     }, null, 2));
-
-    console.log(`📄 Report saved to: ${reportPath}\n`);
 
     process.exit(success ? 0 : 1);
 }

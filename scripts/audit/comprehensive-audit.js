@@ -123,10 +123,7 @@ function generateReport(summary, issues, brokenLinks) {
 }
 
 // Main
-console.log('🔍 Starting Comprehensive Audit...\n');
 const htmlFiles = getAllFiles(rootDir);
-console.log(`📂 Found ${htmlFiles.length} HTML files\n`);
-
 const allIssues = [];
 const allLinks = [];
 
@@ -183,11 +180,3 @@ fs.writeFileSync(path.join(reportDir, `comprehensive-audit-${date}.json`), JSON.
     date: new Date().toISOString(), summary, issues: allIssues, brokenLinks
 }, null, 2));
 
-console.log('📊 AUDIT SUMMARY\n');
-console.log(`Files: ${summary.totalFiles}`);
-console.log(`Issues: ${allIssues.length}`);
-console.log(`Errors: ${summary.bySeverity.error}`);
-console.log(`Warnings: ${summary.bySeverity.warning}`);
-console.log(`Info: ${summary.bySeverity.info}`);
-console.log(`Broken Links: ${brokenLinks.length}`);
-console.log(`\n📄 Report: reports/audit/comprehensive-audit-${date}.md`);

@@ -196,13 +196,11 @@ AddType image/svg+xml .svg
  */
 function createHtaccess(dirPath, filename = '.htaccess') {
     if (!fs.existsSync(dirPath)) {
-        console.log(`   ⚠️  Thư mục không tồn tại: ${dirPath}`);
         return false;
     }
 
     const filePath = path.join(dirPath, filename);
     fs.writeFileSync(filePath, htaccessContent, 'utf8');
-    console.log(`   ✓ Đã tạo ${filename} tại ${dirPath}`);
     return true;
 }
 
@@ -210,8 +208,6 @@ function createHtaccess(dirPath, filename = '.htaccess') {
  * Main function
  */
 function main() {
-    console.log('🔧 Tạo HTTP Cache Headers Configuration...\n');
-
     const dirs = [
         { path: ROOT_DIR, name: 'Root' },
         { path: ADMIN_DIR, name: 'Admin' },
@@ -231,21 +227,11 @@ function main() {
         }
     }
 
-    console.log('\n' + '='.repeat(50));
-    console.log('📊 Kết quả:');
-    console.log(`   Đã tạo: ${created} files`);
-    console.log(`   Bỏ qua: ${skipped} files`);
-    console.log('='.repeat(50));
-    console.log('\n✅ Cache headers configuration complete!\n');
-    console.log('📝 Các headers đã được cấu hình:');
-    console.log('   - Gzip/Deflate compression');
-    console.log('   - Expires headers (1 year cho static assets)');
-    console.log('   - Cache-Control headers (public/private, max-age)');
-    console.log('   - Security headers (X-Content-Type-Options, X-Frame-Options)');
-    console.log('   - CORS headers cho fonts');
-    console.log('   - MIME type configuration');
-    console.log('\n⚠️  Lưu ý: .htaccess chỉ hoạt động với Apache server.');
-    console.log('   Đối với Nginx/Cloudflare, cần cấu hình tương tự trong server block.\n');
-}
+    );
+    );
+    ');
+    ');
+    ');
+    }
 
 main();

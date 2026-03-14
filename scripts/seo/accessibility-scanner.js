@@ -335,8 +335,6 @@ function generateReport(issues) {
  * Main scanner
  */
 function runScanner() {
-    console.log('🔍 Scanning for broken links, missing meta tags, and accessibility issues...\n');
-
     const allFiles = [];
     for (const dir of SCAN_DIRS) {
         const dirPath = path.join(ROOT_DIR, dir);
@@ -344,8 +342,6 @@ function runScanner() {
             allFiles.push(...getAllHTMLFiles(dirPath));
         }
     }
-
-    console.log(`Found ${allFiles.length} HTML files to scan\n`);
 
     const allIssues = [];
     for (const file of allFiles) {
@@ -358,8 +354,6 @@ function runScanner() {
         }
     }
 
-    console.log(`\n\nScan complete! Found ${allIssues.length} issues\n`);
-
     // Generate and save report
     const report = generateReport(allIssues);
     const reportPath = path.join(ROOT_DIR, 'reports', 'seo', 'accessibility-scan-2026-03-14.md');
@@ -370,9 +364,6 @@ function runScanner() {
     const jsonPath = path.join(ROOT_DIR, 'reports', 'seo', 'accessibility-scan-2026-03-14.json');
     fs.writeFileSync(jsonPath, JSON.stringify(allIssues, null, 2), 'utf8');
 
-    console.log(`Reports saved to:`);
-    console.log(`  - ${reportPath}`);
-    console.log(`  - ${jsonPath}`);
-}
+    }
 
 runScanner();

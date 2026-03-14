@@ -230,10 +230,3 @@ fs.mkdirSync(reportDir, { recursive: true });
 const reportPath = path.join(reportDir, `seo-audit-${new Date().toISOString().split('T')[0]}.md`);
 fs.writeFileSync(reportPath, markdown);
 
-console.log(`✅ SEO Audit Complete!`);
-console.log(`📊 Files scanned: ${report.summary.total}`);
-console.log(`📄 Report saved: ${reportPath}`);
-console.log(`\n📈 Summary:`);
-console.log(`   Required: ${report.summary.passRequired}/${report.summary.total} passed`);
-console.log(`   SEO: ${report.summary.passRecommended}/${report.summary.total} passed`);
-console.log(`   A11y: ${report.summary.passAccessibility}/${report.summary.total} passed`);

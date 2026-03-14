@@ -114,39 +114,20 @@ function scanDirectory(dir) {
  * Run check
  */
 function runCheck() {
-    console.log('🔍 Checking imports in', JS_DIR, '\n');
-
     scanDirectory(JS_DIR);
 
     // Report
-    console.log('═══════════════════════════════════════════════════════════');
-    console.log('BROKEN IMPORTS');
-    console.log('═══════════════════════════════════════════════════════════\n');
-
     if (brokenImports.length === 0) {
-        console.log('✅ No broken imports found!\n');
-    } else {
+        } else {
         brokenImports.forEach((imp, i) => {
-            console.log(`${i + 1}. ${imp.file}`);
-            console.log(`   Import: ${imp.import}`);
-            console.log(`   Resolved: ${imp.resolvedPath}`);
-            console.log(`   Line: ${imp.line}\n`);
-        });
-        console.log(`Total: ${brokenImports.length} broken imports\n`);
-    }
-
-    console.log('═══════════════════════════════════════════════════════════');
-    console.log('CONSOLE.LOG STATEMENTS');
-    console.log('═══════════════════════════════════════════════════════════\n');
+            });
+        }
 
     if (consoleLogs.length === 0) {
-        console.log('✅ No console.log statements found!\n');
-    } else {
+        } else {
         consoleLogs.forEach((log, i) => {
-            console.log(`${i + 1}. ${log.file} - console.${log.type} at line ${log.line}`);
-        });
-        console.log(`\nTotal: ${consoleLogs.length} console statements\n`);
-    }
+            });
+        }
 
     // Write report
     const reportDir = path.join(ROOT_DIR, '..', '..', 'reports', 'dev', 'bug-sprint');
@@ -164,8 +145,6 @@ function runCheck() {
             consoleLogsCount: consoleLogs.length
         }
     }, null, 2));
-
-    console.log(`📄 Report saved to: ${reportPath}\n`);
 
     process.exit(brokenImports.length > 0 ? 1 : 0);
 }

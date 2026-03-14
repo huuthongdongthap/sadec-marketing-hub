@@ -30,12 +30,10 @@ function test(name, fn) {
         fn();
         results.passed++;
         results.tests.push({ name, status: 'pass' });
-        console.log(`  ✅ ${name}`);
-    } catch (err) {
+        } catch (err) {
         results.failed++;
         results.tests.push({ name, status: 'fail', error: err.message });
-        console.log(`  ❌ ${name}: ${err.message}`);
-    }
+        }
 }
 
 /**
@@ -64,10 +62,7 @@ function assertFileSize(filePath, minSize, message) {
  * Run tests
  */
 async function runTests() {
-    console.log('🧪 UI Build Tests — Sa Đéc Marketing Hub\n');
-
     // Test 1: Hover Effects CSS
-    console.log('📦 Hover Effects CSS\n');
     const hoverEffectsPath = path.join(CSS_DIR, 'hover-effects.css');
 
     test('Hover effects CSS file exists', () => {
@@ -124,7 +119,6 @@ async function runTests() {
     });
 
     // Test 2: Micro Animations JS
-    console.log('\n📦 Micro Animations JavaScript\n');
     const microAnimationsPath = path.join(JS_DIR, 'micro-animations.js');
 
     test('Micro animations JS file exists', () => {
@@ -200,7 +194,6 @@ async function runTests() {
     });
 
     // Test 3: Loading States JS
-    console.log('\n📦 Loading States JavaScript\n');
     const loadingStatesPath = path.join(JS_DIR, 'loading-states.js');
 
     test('Loading states JS file exists', () => {
@@ -239,7 +232,6 @@ async function runTests() {
     });
 
     // Test 4: UI Demo Page
-    console.log('\n📦 UI Demo Page\n');
     const uiDemoPath = path.join(ADMIN_DIR, 'ui-demo.html');
 
     test('UI demo page exists', () => {
@@ -295,7 +287,6 @@ async function runTests() {
     });
 
     // Test 5: Widgets CSS
-    console.log('\n📦 Widgets CSS\n');
     const widgetsCssPath = path.join(ROOT_DIR, 'admin/widgets/widgets.css');
 
     test('Widgets CSS file exists', () => {
@@ -307,7 +298,6 @@ async function runTests() {
     });
 
     // Test 6: Dark Mode Support
-    console.log('\n📦 Dark Mode Support\n');
     const themeManagerPath = path.join(JS_DIR, 'components/theme-manager.js');
 
     test('Theme manager exists', () => {
@@ -337,14 +327,10 @@ async function runTests() {
     });
 
     // Summary
-    console.log('\n📊 Test Summary\n');
-    console.log(`  Total: ${results.total}`);
-    console.log(`  Passed: ${results.passed}`);
-    console.log(`  Failed: ${results.failed}`);
-    console.log(`  Success Rate: ${((results.passed / results.total) * 100).toFixed(1)}%`);
+    * 100).toFixed(1)}%`);
 
     const success = results.failed === 0;
-    console.log(`\n${success ? '✅' : '❌'} ${success ? 'All tests passed!' : `${results.failed} test(s) failed`}\n`);
+    failed`}\n`);
 
     // Write report
     const reportPath = path.join(ROOT_DIR, 'reports/frontend/ui-build-tests.json');
@@ -359,8 +345,6 @@ async function runTests() {
         ...results,
         successRate: ((results.passed / results.total) * 100).toFixed(1)
     }, null, 2));
-
-    console.log(`📄 Report saved to: ${reportPath}\n`);
 
     process.exit(success ? 0 : 1);
 }

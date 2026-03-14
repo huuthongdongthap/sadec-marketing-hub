@@ -69,8 +69,6 @@ function scanConsoleUsage(filePath, relPath) {
 }
 
 // Main
-console.log('🔍 Scanning Console Errors...\n');
-
 const allIssues = [];
 const filesToScan = [];
 
@@ -80,8 +78,6 @@ for (const dir of CONFIG.scanDirs) {
         filesToScan.push(...getAllFiles(dirPath));
     }
 }
-
-console.log(`📂 Found ${filesToScan.length} files to scan\n`);
 
 for (const { path: filePath, relPath } of filesToScan) {
     try {
@@ -94,8 +90,6 @@ for (const { path: filePath, relPath } of filesToScan) {
     }
 }
 
-console.log(`📊 Console Issues Found: ${allIssues.length}\n`);
-
 if (allIssues.length > 0) {
     // Group by file
     const byFile = {};
@@ -104,15 +98,12 @@ if (allIssues.length > 0) {
         byFile[issue.file].push(issue);
     }
 
-    console.log('Issues by file:');
     for (const [file, issues] of Object.entries(byFile)) {
-        console.log(`\n  ${file} (${issues.length} issues):`);
+        :`);
         for (const issue of issues.slice(0, 5)) {
-            console.log(`    Line ${issue.line}: console.${issue.type}`);
-        }
+            }
         if (issues.length > 5) {
-            console.log(`    ... and ${issues.length - 5} more`);
-        }
+            }
     }
 }
 
@@ -121,8 +112,4 @@ const reportDir = path.join(rootDir, 'reports', 'dev', 'bug-sprint');
 fs.mkdirSync(reportDir, { recursive: true });
 const reportPath = path.join(reportDir, `console-errors-${new Date().toISOString().split('T')[0]}.json`);
 fs.writeFileSync(reportPath, JSON.stringify(allIssues, null, 2));
-console.log(`\n📄 Report: ${reportPath}`);
-
 // Summary
-console.log('\n✅ Note: console.error and console.warn are acceptable for error logging');
-console.log('⚠️  Only console.log, console.debug, console.trace are flagged');

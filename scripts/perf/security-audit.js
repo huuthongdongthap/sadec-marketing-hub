@@ -103,10 +103,6 @@ function checkHtaccessSecurity() {
   const htaccessPath = path.join(ADMIN_DIR, '.htaccess');
   const content = fs.readFileSync(htaccessPath, 'utf8');
 
-  console.log('🔒 SECURITY HEADERS AUDIT\n');
-  console.log('File: admin/.htaccess\n');
-  console.log('═══════════════════════════════════════════\n');
-
   const found = [];
   const missing = [];
   const weak = [];
@@ -115,35 +111,24 @@ function checkHtaccessSecurity() {
     const regex = new RegExp(`Header\\s+(?:set|append|add)\\s+${header.replace('-', '[-]')}`, 'i');
     if (regex.test(content)) {
       found.push({ header, ...config });
-      console.log(`   ✅ ${config.name} (${header})`);
-      console.log(`      ${config.description}`);
     } else {
       missing.push({ header, ...config });
-      console.log(`   ❌ ${config.name} (${header}) - MISSING`);
-      console.log(`      Severity: ${config.severity}`);
     }
-    console.log();
   }
-
-  console.log('═══════════════════════════════════════════\n');
-  console.log('📋 CORS CONFIGURATION\n');
 
   for (const [header, config] of Object.entries(corsConfig)) {
     const regex = new RegExp(`${header.replace('-', '[-]')}`, 'i');
     if (regex.test(content)) {
-      console.log(`   ✅ ${header}`);
+      // CORS configured
     } else {
-      console.log(`   ⚠️  ${header} - Not explicitly set`);
+      // CORS missing
     }
   }
 
-  console.log('\n═══════════════════════════════════════════');
   console.log(`\n📊 SUMMARY`);
-  console.log(`   Found: ${found.length}/${Object.keys(securityHeaders).length}`);
-  console.log(`   Missing: ${missing.length}/${Object.keys(securityHeaders).length}`);
+  console.log(`   Found: ${found.length}/10`);
+  console.log(`   Missing: ${missing.length}/10`);
   console.log(`   High Severity Missing: ${missing.filter(h => h.severity === 'HIGH').length}`);
-  console.log('\n═══════════════════════════════════════════\n');
-
   return { found, missing, weak };
 }
 
@@ -151,14 +136,8 @@ function checkHtaccessSecurity() {
  * Generate recommended CSP
  */
 function generateRecommendedCSP() {
-  console.log('📝 RECOMMENDED CONTENT SECURITY POLICY\n');
-  console.log('Add this to your .htaccess file:\n');
-  console.log('───────────────────────────────────────\n');
-
   const csp = `Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; connect-src 'self' https://supabase.co https://api.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"`;
-
-  console.log(csp);
-  console.log('\n');
+  return csp;
 }
 
 /**
@@ -221,13 +200,9 @@ function securityAudit() {
   const { found, missing } = checkHtaccessSecurity();
   generateRecommendedCSP();
 
-  console.log('🔧 RECOMMENDED FIXES\n');
-  console.log('Add these security headers to your .htaccess:\n');
-  console.log('───────────────────────────────────────\n');
-
   const fixes = generateSecurityFixes(missing);
   fixes.forEach((fix, i) => {
-    console.log(`${i + 1}.${fix}`);
+    console.log(`\n🔧 FIX ${i + 1}: ${fix.split('\n')[0]}`);
   });
 
   // Save report
@@ -253,8 +228,7 @@ ${generateSecurityFixes(missing).join('\n---\n')}
 `;
 
   fs.writeFileSync(reportPath, report);
-  console.log(`\n📄 Full report saved to: ${reportPath}\n`);
-}
+  }
 
 // Run audit
 securityAudit();

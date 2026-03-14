@@ -221,16 +221,12 @@ function updateHTMLFiles() {
  * Main function
  */
 function main() {
-    console.log('🔧 Critical CSS Extractor - Sa Đéc Marketing Hub\n');
-
     // Create critical directory
     if (!fs.existsSync(CRITICAL_DIR)) {
         fs.mkdirSync(CRITICAL_DIR, { recursive: true });
     }
 
     // Generate critical CSS for each page
-    console.log('📦 Generating page-specific critical CSS...\n');
-
     let totalRawSize = 0;
     let totalMinifiedSize = 0;
 
@@ -245,13 +241,10 @@ function main() {
         totalMinifiedSize += result.minifiedSize;
 
         const savings = ((1 - result.minifiedSize / result.rawSize) * 100).toFixed(1);
-        console.log(`  ✓ ${pagePath} → ${fileName}`);
-        console.log(`    Modules: ${result.modules.length} | Raw: ${(result.rawSize/1024).toFixed(1)}KB | Minified: ${(result.minifiedSize/1024).toFixed(1)}KB (${savings}% savings)`);
+        .toFixed(1)}KB | Minified: ${(result.minifiedSize/1024).toFixed(1)}KB (${savings}% savings)`);
     }
 
     // Generate lazy bundles
-    console.log('\n📦 Generating lazy-loaded bundles...\n');
-
     const lazyBundles = generateLazyBundles();
     const lazyDir = path.join(DIST_DIR, 'assets/css/lazy');
 
@@ -264,27 +257,21 @@ function main() {
         fs.writeFileSync(outputPath, bundle.minified);
 
         const savings = ((1 - bundle.minifiedSize / bundle.rawSize) * 100).toFixed(1);
-        console.log(`  ✓ ${fileName}`);
-        console.log(`    Modules: ${bundle.modules.length} | Raw: ${(bundle.rawSize/1024).toFixed(1)}KB | Minified: ${(bundle.minifiedSize/1024).toFixed(1)}KB (${savings}% savings)`);
+        .toFixed(1)}KB | Minified: ${(bundle.minifiedSize/1024).toFixed(1)}KB (${savings}% savings)`);
     }
 
     // Summary
-    console.log('\n📊 Summary:');
-    console.log(`  Total pages with critical CSS: ${Object.keys(PAGE_CSS_MAP).length}`);
-    console.log(`  Total raw CSS size: ${(totalRawSize / 1024).toFixed(1)} KB`);
-    console.log(`  Total minified CSS size: ${(totalMinifiedSize / 1024).toFixed(1)} KB`);
-    console.log(`  Average savings: ${((1 - totalMinifiedSize / totalRawSize) * 100).toFixed(1)}%`);
-    console.log(`  Lazy bundles created: ${Object.keys(lazyBundles).length}`);
+    .length}`);
+    .toFixed(1)} KB`);
+    .toFixed(1)} KB`);
+    * 100).toFixed(1)}%`);
+    .length}`);
 
     // Update HTML files
     const updatedCount = updateHTMLFiles();
-    console.log(`\n📝 Updated ${updatedCount} HTML files with critical CSS pattern`);
-
-    console.log('\n✅ Critical CSS extraction complete!');
-    console.log('\n💡 Usage:');
-    console.log('  - Critical CSS: /assets/css/critical/{page}.css (preload + onload)');
-    console.log('  - Lazy bundles: /assets/css/lazy/{bundle}.css (load on demand)');
-    console.log('  - Global CSS: /assets/css/{global}.css (always loaded)');
+    ');
+    ');
+    ');
 }
 
 main();

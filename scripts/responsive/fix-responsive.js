@@ -111,8 +111,6 @@ function fixResponsiveCSS(filePath) {
  * Main fix function
  */
 function runFix() {
-    console.log('🔧 Responsive Auto-Fix\n');
-
     const results = {
         viewportFixed: 0,
         cssFixed: 0,
@@ -132,21 +130,14 @@ function runFix() {
             // Fix viewport
             if (fixViewport(file)) {
                 results.viewportFixed++;
-                console.log(`✅ Added viewport: ${relativePath}`);
-            }
+                }
 
             // Fix responsive CSS
             if (fixResponsiveCSS(file)) {
                 results.cssFixed++;
-                console.log(`✅ Added responsive CSS: ${relativePath}`);
-            }
+                }
         }
     }
-
-    console.log(`\n📊 Summary:`);
-    console.log(`   Files Processed: ${results.filesProcessed}`);
-    console.log(`   Viewport Tags Added: ${results.viewportFixed}`);
-    console.log(`   Responsive CSS Added: ${results.cssFixed}`);
 
     return results;
 }

@@ -641,9 +641,6 @@ function injectSEO(filePath, seo) {
  * Main function
  */
 function main() {
-    console.log('🔍 SEO Metadata Injector\n');
-    console.log('════════════════════════════════════════\n');
-
     let injected = 0;
     let skipped = 0;
     let errors = 0;
@@ -652,7 +649,6 @@ function main() {
         const filePath = path.join(ROOT_DIR, pagePath);
 
         if (!fs.existsSync(filePath)) {
-            console.log(`⚠️  File not found: ${pagePath}`);
             skipped++;
             continue;
         }
@@ -660,26 +656,15 @@ function main() {
         const result = injectSEO(filePath, seo);
 
         if (result.injected) {
-            console.log(`✓ ${pagePath}`);
             injected++;
         } else {
-            console.log(`⊘ ${pagePath} - ${result.reason}`);
             skipped++;
         }
     }
 
-    console.log('\n════════════════════════════════════════');
-    console.log(`📊 Kết quả:`);
-    console.log(`   Injected: ${injected} files`);
-    console.log(`   Skipped: ${skipped} files`);
-    console.log(`   Errors: ${errors} files`);
-    console.log('════════════════════════════════════════\n');
-
     if (injected > 0) {
-        console.log('✅ SEO metadata injection complete!\n');
-    } else {
-        console.log('⚠️  No files were modified.\n');
-    }
+        } else {
+        }
 }
 
 // Run

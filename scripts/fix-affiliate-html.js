@@ -88,8 +88,6 @@ function fixAffiliateFile(filePath) {
 }
 
 // Main execution
-console.log('🔧 Fixing affiliate HTML files...\n');
-
 const files = fs.readdirSync(AFFILIATE_DIR);
 for (const file of files) {
     if (file.endsWith('.html')) {
@@ -98,10 +96,3 @@ for (const file of files) {
     }
 }
 
-console.log('✅ Done!\n');
-console.log('Summary:');
-console.log(`  Files Scanned: ${stats.filesScanned}`);
-console.log(`  Files Fixed: ${stats.filesFixed}`);
-console.log(`  DOCTYPE Added: ${stats.doctypeAdded}`);
-console.log(`  Lang Added: ${stats.langAdded}`);
-console.log(`  Charset Fixed: ${stats.charsetFixed}`);

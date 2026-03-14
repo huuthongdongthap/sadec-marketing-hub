@@ -156,12 +156,9 @@ function auditAccessibility(filePath, content) {
  * Main audit function
  */
 function runAudit() {
-    console.log('🔍 Comprehensive Audit - Broken Links, Meta Tags, Accessibility\n');
-    console.log('═'.repeat(60) + '\n');
+    + '\n');
 
     const htmlFiles = getHtmlFiles(ROOT_DIR);
-    console.log(`📁 Found ${htmlFiles.length} HTML files to audit...\n`);
-
     for (const file of htmlFiles) {
         try {
             const content = fs.readFileSync(file, 'utf8');
@@ -180,59 +177,35 @@ function runAudit() {
  * Print audit results
  */
 function printResults() {
-    console.log('\n' + '═'.repeat(60));
-    console.log('📊 AUDIT RESULTS');
-    console.log('═'.repeat(60) + '\n');
+    );
+    + '\n');
 
-    console.log('🔗 LINKS:');
-    console.log(`   Total checked: ${results.links.total}`);
-    console.log(`   Broken: ${results.links.broken.length}`);
     if (results.links.broken.length > 0) {
-        console.log('   Broken links:');
         results.links.broken.slice(0, 10).forEach(broken => {
-            console.log(`     - ${broken.file}: ${broken.link} (${broken.reason})`);
+            `);
         });
     }
-    console.log();
-
-    console.log('🏷️  META TAGS:');
-    console.log(`   Total pages: ${results.meta.total}`);
-    console.log(`   Complete: ${results.meta.complete}`);
-    console.log(`   Incomplete: ${results.meta.incomplete.length}`);
-    console.log(`   Missing critical: ${results.meta.missing.length}`);
     if (results.meta.missing.length > 0) {
-        console.log('   Pages missing meta tags:');
         results.meta.missing.slice(0, 5).forEach(page => {
-            console.log(`     - ${page.file}: missing ${page.missing.join(', ')}`);
+            }`);
         });
     }
-    console.log();
-
-    console.log('♿ ACCESSIBILITY:');
-    console.log(`   Total pages: ${results.a11y.total}`);
-    console.log(`   Passed: ${results.a11y.passed}`);
-    console.log(`   Issues found: ${results.a11y.issues.length}`);
     if (results.a11y.issues.length > 0) {
-        console.log('   Top issues:');
         results.a11y.issues.slice(0, 10).forEach(issue => {
-            console.log(`     - ${issue.file} (line ${issue.line}): ${issue.type}`);
+            : ${issue.type}`);
         });
     }
-    console.log();
-
-    console.log('═'.repeat(60));
+    );
     const hasIssues = results.links.broken.length > 0 || results.meta.missing.length > 0 || results.a11y.issues.length > 0;
     if (hasIssues) {
-        console.log(`   ⚠️  Found ${results.links.broken.length + results.meta.missing.length + results.a11y.issues.length} issues to fix`);
-    } else {
-        console.log('   ✅ No critical issues found!');
-    }
-    console.log('═'.repeat(60) + '\n');
+        } else {
+        }
+    + '\n');
 
     const reportPath = path.join(ROOT_DIR, 'audit-reports', `audit-${new Date().toISOString().split('T')[0]}.json`);
     fs.mkdirSync(path.dirname(reportPath), { recursive: true });
     fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
-    console.log(`📄 Full report saved to: ${path.relative(ROOT_DIR, reportPath)}\n`);
+    }\n`);
 }
 
 runAudit();

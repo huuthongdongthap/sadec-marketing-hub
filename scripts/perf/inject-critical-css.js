@@ -153,8 +153,6 @@ function processHTMLFile(filePath, pagePath) {
  * Main function
  */
 function main() {
-    console.log('🔧 Critical CSS Injector - Sa Đéc Marketing Hub\n');
-
     let updatedCount = 0;
     let skippedCount = 0;
 
@@ -164,20 +162,13 @@ function main() {
         if (fs.existsSync(filePath)) {
             processHTMLFile(filePath, pagePath);
             updatedCount++;
-            console.log(`  ✓ ${pagePath} → critical/${pagePath.replace('.html', '.css')}`);
+            }`);
         } else {
             skippedCount++;
         }
     }
 
-    console.log(`\n📊 Summary:`);
-    console.log(`  Updated: ${updatedCount} files`);
-    console.log(`  Skipped: ${skippedCount} files (not found in dist)`);
-    console.log(`\n💡 Critical CSS Pattern:`);
-    console.log(`  1. Preload critical CSS with onload pattern`);
-    console.log(`  2. Lazy load non-critical bundles after render`);
-    console.log(`  3. Noscript fallback for accessibility`);
-    console.log(`\n✅ Critical CSS injection complete!`);
-}
+    `);
+    }
 
 main();

@@ -85,8 +85,6 @@ function scanAndFix() {
   
   walkDir(ROOT_DIR);
   
-  console.log(`📂 Found ${htmlFiles.length} HTML files to scan\n`);
-  
   let fixed = 0;
   let skipped = 0;
   
@@ -96,7 +94,6 @@ function scanAndFix() {
     
     // Check if already has og:title
     if (content.includes('<meta property="og:title"')) {
-      console.log(`✅ ${relativePath} - Already has SEO tags`);
       skipped++;
       continue;
     }
@@ -109,7 +106,6 @@ function scanAndFix() {
     // Find </head> and insert SEO tags
     const headCloseIndex = content.indexOf('</head>');
     if (headCloseIndex === -1) {
-      console.log(`❌ ${relativePath} - No </head> tag found`);
       continue;
     }
     
@@ -117,15 +113,11 @@ function scanAndFix() {
     const newContent = content.slice(0, headCloseIndex) + seoTags + '\n' + content.slice(headCloseIndex);
     
     fs.writeFileSync(filePath, newContent, 'utf8');
-    console.log(`🔧 ${relativePath} - Added SEO tags`);
     fixed++;
   }
   
-  console.log(`\n📊 Summary:`);
-  console.log(`   Fixed: ${fixed}`);
-  console.log(`   Skipped (already have SEO): ${skipped}`);
-  console.log(`   Total: ${htmlFiles.length}`);
-}
+  : ${skipped}`);
+  }
 
 function extractTitle(content) {
   const titleMatch = content.match(/<title>([^<]+)<\/title>/);

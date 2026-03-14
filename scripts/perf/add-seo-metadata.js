@@ -207,7 +207,6 @@ function addSeoMetadata(filePath, metadata) {
   const hasOgTitle = /<meta[^>]*property=["']og:title["'][^>]*>/i.test(content);
 
   if (hasTitle && hasDescription && hasOgTitle) {
-    console.log(`   ✓ ${relativePath}: Already has SEO metadata`);
     return false;
   }
 
@@ -246,7 +245,6 @@ function addSeoMetadata(filePath, metadata) {
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
-  console.log(`   ✓ ${relativePath}: Added SEO metadata`);
   return true;
 }
 
@@ -254,9 +252,6 @@ function addSeoMetadata(filePath, metadata) {
  * Main function
  */
 function addSeoMetadataAll() {
-  console.log('📝 Sa Đéc Marketing Hub - SEO Metadata Injector\n');
-  console.log('───────────────────────────────────────\n');
-
   const htmlFiles = getHtmlFiles(ADMIN_DIR);
   let updated = 0;
   let skipped = 0;
@@ -286,12 +281,8 @@ function addSeoMetadataAll() {
     }
   }
 
-  console.log('\n═══════════════════════════════════════════');
-  console.log(`✅ SEO Metadata Complete!`);
-  console.log(`   Updated: ${updated} files`);
-  console.log(`   Skipped: ${skipped} files (already optimized)`);
-  console.log('═══════════════════════════════════════════\n');
-}
+  `);
+  }
 
 // Run
 addSeoMetadataAll();

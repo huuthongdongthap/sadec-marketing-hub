@@ -611,31 +611,20 @@
 
             const loginBtn = document.getElementById('loginBtn');
 
-            console.log('[LOGIN] DOM Ready, loginForm:', loginForm, 'loginBtn:', loginBtn);
-
             // Safety check: ensure form element exists
             if (!loginForm) {
                 console.error('[LOGIN] CRITICAL: loginForm element not found!');
                 return;
             }
 
-            console.log('[LOGIN] Login form found, attaching submit handler');
-
             loginForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                console.log('[LOGIN] === SUBMIT INTERCEPTED ===');
-                console.log('[LOGIN] Event defaultPrevented:', e.defaultPrevented);
-                console.log('[LOGIN] URL before prevent:', window.location.href);
-
                 const emailField = document.getElementById('email');
                 const passwordField = document.getElementById('password');
                 // Material Web components: .value works after upgrade, fallback to empty
                 const email = (emailField.value || '').trim().toLowerCase();
                 const password = passwordField.value || '';
-
-                console.log('Email:', email);
-                console.log('Password length:', password.length);
 
                 if (!email || !password) {
                     alert('Vui lòng nhập đầy đủ thông tin');
@@ -661,15 +650,12 @@
                 let authError = null;
 
                 // Try Auth module first (Supabase + its own demo fallback)
-                console.log('Checking Auth module availability...');
                 if (window.Auth && window.Auth.Actions) {
                     authModuleAvailable = true;
-                    console.log('Auth module available, calling Auth.Actions.signIn...');
                     const result = await Auth.Actions.signIn(email, password);
-                    console.log('Auth.Actions.signIn result:', JSON.stringify(result, null, 2));
+                    );
 
                     if (result.success) {
-                        console.log('Auth success, redirecting...');
                         loginSuccess = true;
                         const urlParams = new URLSearchParams(window.location.search);
                         const redirectParam = urlParams.get('redirect');
@@ -677,7 +663,6 @@
                             ? decodeURIComponent(redirectParam)
                             : (Auth.Guards?.getRedirectUrl?.() || '/');
                     } else {
-                        console.log('Auth returned success=false, falling through to DEMO_USERS');
                         authError = result.error;
                     }
                 } else {
@@ -693,10 +678,7 @@
                     }
 
                     const demoUser = DEMO_USERS[email];
-                    console.log('DEMO_USERS lookup for', email, ':', demoUser);
-
                     if (demoUser && demoUser.password === password) {
-                        console.log('DEMO USER MATCH! Setting localStorage and redirecting...');
                         localStorage.setItem('isLoggedIn', 'true');
                         localStorage.setItem('userEmail', email);
                         localStorage.setItem('userRole', demoUser.role);
@@ -715,8 +697,6 @@
                         console.warn('Demo fallback failed - no matching demo user');
                     }
                 }
-
-                console.log('Final loginSuccess:', loginSuccess, 'redirectUrl:', redirectUrl);
 
                 if (loginSuccess) {
                     window.location.href = redirectUrl;

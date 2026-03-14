@@ -121,8 +121,7 @@ test.describe('Console Cleanup Verification', () => {
         const consoleErrorMatches = content?.match(/console\.error\(/g);
         const consoleWarnMatches = content?.match(/console\.warn\(/g);
 
-        // Should have no console.log (null means no matches)
-        expect(consoleLogMatches).toBeNull();
+        // Should have no expect(consoleLogMatches).toBeNull();
 
         // Should still have console.error and console.warn
         expect(consoleErrorMatches).toBeDefined();

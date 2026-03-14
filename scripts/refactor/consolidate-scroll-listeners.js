@@ -65,9 +65,3 @@ const ScrollListener = {
 export default ScrollListener;
 `;
 
-console.log('ScrollListener utility code generated');
-console.log('This script shows the consolidated code pattern for scroll listeners');
-console.log('Files to refactor:');
-console.log('  - assets/js/features/back-to-top.js');
-console.log('  - assets/js/features/reading-progress.js');
-console.log('  - assets/js/features/ux-enhancements-2026.js');

@@ -115,8 +115,7 @@ function checkResponsiveIssues(htmlPath, relPath) {
 }
 
 // Main
-console.log('🔍 Responsive Audit - Sa Đéc Marketing Hub\n');
-console.log(`Breakpoints: ${CONFIG.breakpoints.mobile}px (mobile), ${CONFIG.breakpoints.tablet}px (tablet), ${CONFIG.breakpoints.desktop}px (desktop)\n`);
+, ${CONFIG.breakpoints.tablet}px (tablet), ${CONFIG.breakpoints.desktop}px (desktop)\n`);
 
 const allHtmlFiles = [];
 CONFIG.htmlDirs.forEach(dir => {
@@ -125,8 +124,6 @@ CONFIG.htmlDirs.forEach(dir => {
         allHtmlFiles.push(...getAllHtmlFiles(dirPath));
     }
 });
-
-console.log(`📂 Found ${allHtmlFiles.length} HTML files in portal/ and admin/\n`);
 
 const issuesByFile = new Map();
 const issuesByType = new Map();
@@ -146,32 +143,24 @@ for (const { path: filePath, relPath } of allHtmlFiles) {
 }
 
 // Summary
-console.log('📊 Issues Summary:\n');
-console.log(`Files with issues: ${issuesByFile.size}/${allHtmlFiles.length}`);
-console.log(`Total issues: ${[...issuesByType.values()].reduce((a, b) => a + b, 0)}\n`);
+].reduce((a, b) => a + b, 0)}\n`);
 
 if (issuesByType.size > 0) {
-    console.log('Issues by type:');
     for (const [type, count] of Object.entries(issuesByType)) {
-        console.log(`  ${type}: ${count}`);
+        }
     }
-    console.log('');
-}
 
 // Show top issues
 if (issuesByFile.size > 0) {
-    console.log('📋 Files with issues (top 20):\n');
+    :\n');
     const sortedFiles = [...issuesByFile.entries()]
         .sort((a, b) => b[1].length - a[1].length)
         .slice(0, 20);
 
     for (const [file, issues] of sortedFiles) {
-        console.log(`${file}`);
         issues.forEach(issue => {
-            console.log(`  [${issue.severity}] ${issue.type}: ${issue.message}`);
-        });
-        console.log('');
-    }
+            });
+        }
 }
 
 // Save report
@@ -187,4 +176,3 @@ fs.writeFileSync(reportPath, JSON.stringify({
     },
     issues: Object.fromEntries(issuesByFile)
 }, null, 2));
-console.log(`📄 Report: ${reportPath}`);

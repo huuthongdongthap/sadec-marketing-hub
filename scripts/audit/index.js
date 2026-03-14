@@ -164,8 +164,7 @@ async function audit(options = {}) {
             log.success(`Fixed ${fixed} accessibility issues`);
         }
 
-        console.log('');
-    }
+        }
 
     // Generate report
     log.progress(`Generating ${output} report...\n`);
@@ -221,15 +220,7 @@ if (require.main === module) {
         } else if (args[i] === '--verbose') {
             options.verbose = true;
         } else if (args[i] === '--help' || args[i] === '-h') {
-            console.log(`
-Sa Đéc Marketing Hub — Audit Framework
-
-Usage: node scripts/audit/index.js [options]
-
-Options:
-  --fix              Auto-fix detected issues
-  --scan <type>      Scan specific check (links|meta|a11y|ids|all)
-  --output <format>  Output format (markdown|json)
+            --output <format>  Output format (markdown|json)
   --verbose          Enable verbose logging
   --help, -h         Show this help message
 

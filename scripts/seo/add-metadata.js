@@ -274,8 +274,7 @@ function processDirectory(dir) {
 }
 
 function main() {
-    console.log('🔍 Sa Đéc Marketing Hub - SEO Metadata Automation');
-    console.log('='.repeat(60));
+    );
     const allResults = [];
     for (const dir of DIRECTORIES) {
         const dirPath = path.join(ROOT_DIR, dir);
@@ -286,16 +285,9 @@ function main() {
     const alreadyComplete = allResults.filter(r => r.status === 'already-complete' || r.status === 'already-has-seo').length;
     const errors = allResults.filter(r => r.status === 'error').length;
 
-    console.log('\n📊 SUMMARY');
-    console.log('-'.repeat(60));
-    console.log(`Total files processed: ${allResults.length}`);
-    console.log(`✅ Updated: ${updated}`);
-    console.log(`ℹ️  Already complete: ${alreadyComplete}`);
-    console.log(`❌ Errors: ${errors}`);
-
+    );
     if (errors > 0) {
-        console.log('\n⚠️  Errors:');
-        allResults.filter(r => r.status === 'error').forEach(r => console.log(`  - ${r.filePath}: ${r.error}`));
+        allResults.filter(r => r.status === 'error').forEach(r => );
     }
 
     const reportPath = path.join(ROOT_DIR, 'reports', 'seo-metadata-report.json');
@@ -306,8 +298,7 @@ function main() {
         results: allResults
     }, null, 2));
 
-    console.log(`\n📄 Report saved to: reports/seo-metadata-report.json`);
-    console.log('='.repeat(60));
+    );
 }
 
 main();

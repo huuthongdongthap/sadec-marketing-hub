@@ -197,13 +197,7 @@ function scanAccessibility(filePath, content) {
  * Main scan function
  */
 function scan(mode = 'all') {
-  console.log('🔍 Sa Đéc Marketing Hub - Audit Scanner\n');
-  console.log(`Mode: ${mode}`);
-  console.log('───────────────────────────────────────\n');
-
   const htmlFiles = getHtmlFiles(ADMIN_DIR);
-  console.log(`Found ${htmlFiles.length} HTML files\n`);
-
   for (const file of htmlFiles) {
     const content = fs.readFileSync(file, 'utf8');
     const relativePath = path.relative(ROOT_DIR, file);
@@ -220,8 +214,7 @@ function scan(mode = 'all') {
 
     const progress = htmlFiles.indexOf(file) + 1;
     if (progress % 10 === 0) {
-      console.log(`   Processing ${progress}/${htmlFiles.length}: ${relativePath}`);
-    }
+      }
   }
 
   printReport();
@@ -232,57 +225,29 @@ function scan(mode = 'all') {
  * Print report
  */
 function printReport() {
-  console.log('\n═══════════════════════════════════════════');
-  console.log('📊 AUDIT REPORT');
-  console.log('═══════════════════════════════════════════\n');
-
   // Links
-  console.log('🔗 LINKS');
-  console.log(`   Total checked: ${report.links.total}`);
-  console.log(`   Missing files: ${report.links.missing.length}`);
   if (report.links.missing.length > 0) {
-    console.log('\n   Missing:');
     report.links.missing.slice(0, 10).forEach(item => {
-      console.log(`     - ${item.file}: ${item.link} (${item.type})`);
+      `);
     });
     if (report.links.missing.length > 10) {
-      console.log(`     ... and ${report.links.missing.length - 10} more`);
-    }
+      }
   }
-  console.log();
-
   // Meta
-  console.log('📝 META TAGS');
-  console.log(`   Total checked: ${report.meta.total}`);
-  console.log(`   Incomplete: ${report.meta.incomplete.length}`);
   if (report.meta.incomplete.length > 0) {
-    console.log('\n   Missing tags:');
     report.meta.incomplete.slice(0, 10).forEach(item => {
-      console.log(`     - ${item.file}: ${item.missing.join(', ')}`);
+      }`);
     });
   }
-  console.log();
-
   // Accessibility
-  console.log('♿ ACCESSIBILITY');
-  console.log(`   Total checked: ${report.a11y.total}`);
-  console.log(`   Missing alt: ${report.a11y.missingAlt.length}`);
-  console.log(`   Missing aria: ${report.a11y.missingAria.length}`);
-  console.log(`   Duplicate IDs: ${report.a11y.duplicateIds.length}`);
   if (report.a11y.missingAlt.length > 0) {
-    console.log('\n   Missing alt:');
     report.a11y.missingAlt.slice(0, 5).forEach(item => {
-      console.log(`     - ${item.file}: line ${item.line}`);
-    });
+      });
   }
   if (report.a11y.duplicateIds.length > 0) {
-    console.log('\n   Duplicate IDs:');
     report.a11y.duplicateIds.slice(0, 5).forEach(item => {
-      console.log(`     - ${item.file}: "${item.id}" at line ${item.line}`);
-    });
+      });
   }
-  console.log();
-
   // Summary
   const totalIssues =
     report.links.missing.length +
@@ -291,16 +256,11 @@ function printReport() {
     report.a11y.missingAria.length +
     report.a11y.duplicateIds.length;
 
-  console.log('═══════════════════════════════════════════');
   if (totalIssues === 0) {
-    console.log('✅ No issues found!');
-  } else if (totalIssues < 20) {
-    console.log(`⚠️  ${totalIssues} issues found`);
-  } else {
-    console.log(`❌ ${totalIssues} issues found`);
+    } else if (totalIssues < 20) {
+    } else {
+    }
   }
-  console.log('═══════════════════════════════════════════\n');
-}
 
 /**
  * Save report to JSON
@@ -313,8 +273,7 @@ function saveReport() {
   const reportPath = path.join(reportDir, `audit-report-${timestamp}.json`);
 
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-  console.log(`📄 Report saved to: ${reportPath}\n`);
-}
+  }
 
 // Parse command line args
 const mode = process.argv.includes('--links') ? 'links' :

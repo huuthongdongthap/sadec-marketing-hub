@@ -338,8 +338,6 @@ let modifiedCount = 0;
 let errorCount = 0;
 const modifiedFiles = [];
 
-console.log(`🔧 Starting SEO auto-fix for ${htmlFiles.length} files...\n`);
-
 for (const { path: filePath, relPath } of htmlFiles) {
     try {
         const content = fs.readFileSync(filePath, 'utf8');
@@ -349,17 +347,12 @@ for (const { path: filePath, relPath } of htmlFiles) {
             fs.writeFileSync(filePath, modified, 'utf8');
             modifiedCount++;
             modifiedFiles.push({ relPath, changes });
-            console.log(`✅ ${relPath}: ${changes.length} changes`);
-        }
+            }
     } catch (error) {
         errorCount++;
         console.error(`❌ ${relPath}: ${error.message}`);
     }
 }
-
-console.log(`\n📊 SEO Auto-Fix Complete!`);
-console.log(`📝 Files modified: ${modifiedCount}`);
-console.log(`❌ Errors: ${errorCount}`);
 
 // Save report
 const reportDir = path.join(rootDir, 'reports', 'seo');
@@ -378,4 +371,3 @@ ${modifiedFiles.map(f => `### ${f.relPath}\n\nChanges:\n${f.changes.map(c => `- 
 
 const reportPath = path.join(reportDir, `seo-auto-fix-${new Date().toISOString().split('T')[0]}.md`);
 fs.writeFileSync(reportPath, report);
-console.log(`📄 Report saved: ${reportPath}`);

@@ -54,11 +54,8 @@ dirs.forEach(dir => {
         if (modified) {
             fs.writeFileSync(filePath, content, 'utf8');
             filesModified++;
-            console.log(`✅ ${dir}${file}`);
-        }
+            }
     });
 });
 
-console.log(`\n📊 Summary:`);
-console.log(`   Modified: ${filesModified} files`);
-console.log(`   Skipped: ${filesSkipped} files (already have UI enhancements)`);
+`);

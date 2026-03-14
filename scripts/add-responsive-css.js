@@ -32,15 +32,14 @@ function addResponsiveCss(dir) {
                     content = content.replace(targetPattern, `$1\n    ${CSS_LINK}`);
                     fs.writeFileSync(filePath, content, 'utf8');
                     count++;
-                    console.log(`Added responsive CSS: ${filePath}`);
-                } else {
+                    } else {
                     // Fallback: add before </head>
                     const headPattern = /(<\/head>)/;
                     if (headPattern.test(content)) {
                         content = content.replace(headPattern, `    ${CSS_LINK}\n$1`);
                         fs.writeFileSync(filePath, content, 'utf8');
                         count++;
-                        console.log(`Added responsive CSS (fallback): ${filePath}`);
+                        : ${filePath}`);
                     }
                 }
             }
@@ -52,12 +51,7 @@ function addResponsiveCss(dir) {
     return count;
 }
 
-console.log('Adding responsive-portal-admin.css to admin pages...');
 const adminCount = addResponsiveCss(path.join(ROOT_DIR, 'admin'));
 
-console.log('\nAdding responsive-portal-admin.css to portal pages...');
 const portalCount = addResponsiveCss(path.join(ROOT_DIR, 'portal'));
 
-console.log(`\nDone! Added responsive CSS to ${adminCount + portalCount} files.`);
-console.log(`- Admin: ${adminCount} files`);
-console.log(`- Portal: ${portalCount} files`);

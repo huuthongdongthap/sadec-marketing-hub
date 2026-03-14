@@ -133,7 +133,7 @@ function optimizeHtmlFile(filePath) {
     // Only write if changed
     if (content !== original) {
         fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`   ✓ ${path.basename(filePath)}: ${changes} optimizations`);
+        }: ${changes} optimizations`);
         return changes;
     }
 
@@ -144,9 +144,6 @@ function optimizeHtmlFile(filePath) {
  * Main optimization runner
  */
 function optimizeAll() {
-    console.log('🚀 Performance Optimization');
-    console.log('════════════════════════════════════════\n');
-
     let totalFiles = 0;
     let totalChanges = 0;
 
@@ -155,8 +152,6 @@ function optimizeAll() {
         if (!fs.existsSync(dirPath)) continue;
 
         const files = getHtmlFiles(dirPath);
-        console.log(`📁 ${dir}/ - ${files.length} files`);
-
         for (const file of files) {
             const changes = optimizeHtmlFile(file);
             totalFiles++;
@@ -164,11 +159,7 @@ function optimizeAll() {
         }
     }
 
-    console.log('\n════════════════════════════════════════');
-    console.log(`✅ Optimized: ${totalFiles} files`);
-    console.log(`📊 Total changes: ${totalChanges}`);
-    console.log('════════════════════════════════════════\n');
-}
+    }
 
 // Run
 optimizeAll();

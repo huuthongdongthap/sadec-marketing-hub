@@ -28,8 +28,7 @@ class Logger {
    */
   info(message) {
     if (this.enabled) {
-      console.log(`ℹ️  [${this.prefix}] ${message}`);
-    }
+      }
   }
 
   /**
@@ -38,8 +37,7 @@ class Logger {
    */
   success(message) {
     if (this.enabled) {
-      console.log(`✅ [${this.prefix}] ${message}`);
-    }
+      }
   }
 
   /**
@@ -64,8 +62,7 @@ class Logger {
    */
   debug(message) {
     if (this.enabled) {
-      console.log(`🔍 [${this.prefix}] ${message}`);
-    }
+      }
   }
 
   /**
@@ -74,8 +71,7 @@ class Logger {
    */
   progress(message) {
     if (this.enabled) {
-      console.log(`⏳ [${this.prefix}] ${message}`);
-    }
+      }
   }
 
   /**
@@ -86,8 +82,7 @@ class Logger {
   file(filePath, action) {
     if (this.enabled) {
       const relPath = path.relative(process.cwd(), filePath);
-      console.log(`   ${relPath}: ${action}`);
-    }
+      }
   }
 
   /**
@@ -95,12 +90,10 @@ class Logger {
    * @param {object} data - Summary data
    */
   summary(data) {
-    console.log('\n📊 SUMMARY');
-    console.log('─'.repeat(40));
+    );
     for (const [key, value] of Object.entries(data)) {
-      console.log(`   ${key}: ${value}`);
-    }
-    console.log('─'.repeat(40));
+      }
+    );
   }
 }
 
@@ -134,7 +127,7 @@ class ProgressBar {
     process.stdout.write(`\r[${bar}] ${percent}% ${message}`);
 
     if (current >= this.total) {
-      console.log(); // New line when complete
+      // New line when complete
     }
   }
 

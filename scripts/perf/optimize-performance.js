@@ -15,12 +15,8 @@ const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 
-console.log('🚀 Performance Optimization...\n');
-
 // 1. Thêm lazy loading cho tất cả img tags
 function optimizeLazyLoad() {
-    console.log('📷 Adding lazy loading to images...');
-
     const htmlDirs = ['admin', 'portal', 'affiliate', 'auth', 'reports'];
     const rootFiles = ['index.html', 'login.html', 'register.html', 'forgot-password.html',
                        'verify-email.html', 'privacy.html', 'terms.html', 'offline.html'];
@@ -43,8 +39,7 @@ function optimizeLazyLoad() {
         }
     }
 
-    console.log(`   ✓ Updated ${count} images with lazy loading\n`);
-}
+    }
 
 function processDirectory(dir) {
     let count = 0;
@@ -101,12 +96,9 @@ function processHTMLFile(filePath) {
 
 // 2. Tối ưu cache headers
 function optimizeCacheHeaders() {
-    console.log('📦 Optimizing cache headers...');
-
     const headersPath = path.join(ROOT_DIR, '_headers');
 
     if (!fs.existsSync(headersPath)) {
-        console.log('   ⚠️  _headers file not found\n');
         return;
     }
 
@@ -129,17 +121,13 @@ function optimizeCacheHeaders() {
     }
 
     fs.writeFileSync(headersPath, content, 'utf8');
-    console.log('   ✓ Cache headers optimized\n');
-}
+    }
 
 // 3. Tối ưu Service Worker
 function optimizeServiceWorker() {
-    console.log('🔧 Optimizing Service Worker...');
-
     const swPath = path.join(ROOT_DIR, 'sw.js');
 
     if (!fs.existsSync(swPath)) {
-        console.log('   ⚠️  sw.js not found\n');
         return;
     }
 
@@ -198,13 +186,10 @@ async function cleanupCache(cacheName) {
     }
 
     fs.writeFileSync(swPath, content, 'utf8');
-    console.log('   ✓ Service Worker optimized\n');
-}
+    }
 
 // 4. Generate optimization report
 function generateReport() {
-    console.log('📊 Generating optimization report...');
-
     const report = {
         timestamp: new Date().toISOString(),
         optimizations: {
@@ -223,8 +208,7 @@ function generateReport() {
     fs.mkdirSync(path.dirname(reportPath), { recursive: true });
     fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
 
-    console.log('   ✓ Report saved to reports/performance-optimization.json\n');
-}
+    }
 
 // Main execution
 function main() {
@@ -237,9 +221,8 @@ function main() {
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
-    console.log('=' .repeat(60));
-    console.log(`✅ Optimization complete in ${duration}s`);
-    console.log('=' .repeat(60));
+    );
+    );
 }
 
 main();

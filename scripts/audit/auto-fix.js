@@ -88,7 +88,6 @@ function autoFix(content, filePath) {
 }
 
 // Main
-console.log('🔧 Starting Auto-Fix...\n');
 const htmlFiles = getAllFiles(rootDir);
 let modifiedCount = 0;
 const modifiedFiles = [];
@@ -101,15 +100,11 @@ for (const { path: filePath, relPath } of htmlFiles) {
             fs.writeFileSync(filePath, modified, 'utf8');
             modifiedCount++;
             modifiedFiles.push({ relPath, changes });
-            console.log(`✅ ${relPath}: ${changes.length} changes`);
-        }
+            }
     } catch (error) {
         console.error(`❌ ${relPath}: ${error.message}`);
     }
 }
-
-console.log(`\n📊 Auto-Fix Complete!`);
-console.log(`📝 Files modified: ${modifiedCount}`);
 
 // Report
 const reportDir = path.join(rootDir, 'reports', 'audit');
@@ -124,4 +119,4 @@ const report = `# Auto-Fix Report
 ${modifiedFiles.map(f => `### ${f.relPath}\n\nChanges:\n${f.changes.map(c => `- ${c}`).join('\n')}\n`).join('\n')}
 `;
 fs.writeFileSync(path.join(reportDir, `auto-fix-${new Date().toISOString().split('T')[0]}.md`), report);
-console.log(`📄 Report: reports/audit/auto-fix-${new Date().toISOString().split('T')[0]}.md`);
+.toISOString().split('T')[0]}.md`);

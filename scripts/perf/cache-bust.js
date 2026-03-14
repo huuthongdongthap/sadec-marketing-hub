@@ -11,8 +11,6 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const CACHE_VERSION = Date.now().toString(36); // Short timestamp
-console.log(`[Cache Busting] Version: ${CACHE_VERSION}`);
-
 // Get all HTML files
 function getHtmlFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
@@ -77,8 +75,6 @@ for (const file of htmlFiles) {
     }
 }
 
-console.log(`[Cache Busting] Modified ${modifiedCount}/${htmlFiles.length} files`);
-
 // Update service worker version
 const swPath = path.join(ROOT_DIR, 'sw.js');
 if (fs.existsSync(swPath)) {
@@ -88,7 +84,5 @@ if (fs.existsSync(swPath)) {
         `const CACHE_VERSION = '${CACHE_VERSION}'`
     );
     fs.writeFileSync(swPath, swContent, 'utf8');
-    console.log('[Cache Busting] Updated service worker version');
-}
+    }
 
-console.log('[Cache Busting] Complete!');

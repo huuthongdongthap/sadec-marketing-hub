@@ -71,22 +71,11 @@ function scanDir(dir) {
 
 scanDir(JS_DIR);
 
-console.log('Broken Imports Report:');
-console.log('======================\n');
-console.log('Total broken imports:', brokenImports.length);
-console.log('Missing files:', missingFiles.size, '\n');
-
 brokenImports.slice(0, 20).forEach(imp => {
-    console.log('File:', imp.file);
-    console.log('Import:', imp.import);
-    console.log('Resolved:', imp.resolved);
-    console.log('Line:', imp.line);
-    console.log('---');
-});
+    });
 
 if (brokenImports.length > 20) {
-    console.log('... and', brokenImports.length - 20, 'more');
-}
+    }
 
 // Save report
 const reportDir = 'reports/dev/bug-sprint';
@@ -95,4 +84,3 @@ fs.writeFileSync(
     path.join(reportDir, 'broken-imports.json'),
     JSON.stringify(brokenImports, null, 2)
 );
-console.log('\nReport saved to: reports/dev/bug-sprint/broken-imports.json');

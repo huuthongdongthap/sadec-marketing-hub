@@ -58,7 +58,7 @@ function integrateWidgets(filePath) {
   const bodyCloseIndex = content.lastIndexOf('</body>');
 
   if (bodyCloseIndex === -1) {
-    console.log(`⚠️  ${path.basename(filePath)}: No </body> tag found`);
+    }: No </body> tag found`);
     return false;
   }
 
@@ -79,11 +79,7 @@ function integrateWidgets(filePath) {
 }
 
 // Main execution
-console.log('🔧 Widget Integration — Sa Đéc Marketing Hub\n');
-
 const htmlFiles = getAdminHTMLFiles();
-console.log(`📁 Found ${htmlFiles.length} admin HTML files\n`);
-
 let integrated = 0;
 let skipped = 0;
 
@@ -91,18 +87,13 @@ for (const file of htmlFiles) {
   const basename = path.basename(file);
 
   if (hasWidgets(file)) {
-    console.log(`⏭️  ${basename} — Already has widgets`);
     skipped++;
     continue;
   }
 
   if (integrateWidgets(file)) {
-    console.log(`✅ ${basename} — Widgets integrated`);
     integrated++;
   }
 }
 
-console.log(`\n📊 Integration Complete!`);
-console.log(`   Integrated: ${integrated} files`);
-console.log(`   Skipped: ${skipped} files (already have widgets)`);
-console.log(`   Total: ${htmlFiles.length} files\n`);
+`);

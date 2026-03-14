@@ -184,7 +184,6 @@ function injectSEO(filePath, seoData) {
   const fullPath = path.join(ROOT_DIR, filePath)
 
   if (!fs.existsSync(fullPath)) {
-    console.log(`⚠️  File not found: ${filePath}`)
     return
   }
 
@@ -196,7 +195,6 @@ function injectSEO(filePath, seoData) {
   // Find position after <head> tag
   const headMatch = content.match(/<head[^>]*>/i)
   if (!headMatch) {
-    console.log(`⚠️  No <head> tag found in ${filePath}`)
     return
   }
 
@@ -207,15 +205,10 @@ function injectSEO(filePath, seoData) {
   const newContent = content.slice(0, insertPosition) + '\n' + seoTags + content.slice(insertPosition)
 
   fs.writeFileSync(fullPath, newContent, 'utf8')
-  console.log(`✅ Updated: ${filePath}`)
-}
+  }
 
 // Main execution
-console.log('🚀 Injecting SEO metadata into HTML files...\n')
-
 Object.entries(seoData).forEach(([filePath, data]) => {
   injectSEO(filePath, data)
 })
 
-console.log('\n✨ SEO injection complete!')
-console.log('📝 Check SEO_IMPLEMENTATION_GUIDE.md for usage details.')

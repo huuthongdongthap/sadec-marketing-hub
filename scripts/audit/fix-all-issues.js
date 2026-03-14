@@ -70,8 +70,6 @@ for (const dir of SCAN_DIRS) {
   }
 }
 
-console.log(`🔧 Fixing ${allFiles.length} HTML files...\n`);
-
 for (const file of allFiles) {
   try {
     const content = fs.readFileSync(file, 'utf8');
@@ -80,7 +78,6 @@ for (const file of allFiles) {
     if (fixed) {
       fs.writeFileSync(file, fixedContent, 'utf8');
       const relPath = path.relative(ROOT_DIR, file);
-      console.log(`  ✅ ${relPath}`);
       fixedFiles++;
     }
   } catch (err) {
@@ -88,4 +85,3 @@ for (const file of allFiles) {
   }
 }
 
-console.log(`\n✅ Fixed ${fixedFiles}/${allFiles.length} files`);

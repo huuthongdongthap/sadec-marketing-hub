@@ -17,8 +17,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const SCRIPTS_DIR = path.join(ROOT_DIR, 'scripts');
 
-console.log('🚀 Sa Đéc Marketing Hub - Full Performance Optimization');
-console.log('=' .repeat(60));
+);
 
 const optimizationSteps = [
     {
@@ -52,9 +51,7 @@ const results = [];
 let startTime = Date.now();
 
 for (const step of optimizationSteps) {
-    console.log(`\n⚡ Running: ${step.name}`);
-    console.log(`   ${step.description}`);
-    console.log('-'.repeat(60));
+    );
 
     const stepStart = Date.now();
     const scriptPath = path.join(SCRIPTS_DIR, step.script);
@@ -71,15 +68,14 @@ for (const step of optimizationSteps) {
                 status: '✅ Success',
                 duration: `${duration}s`
             });
-            console.log(`✅ Completed: ${step.name} (${duration}s)`);
+            `);
         } else {
             results.push({
                 name: step.name,
                 status: '⚠️ Script not found',
                 duration: '0s'
             });
-            console.log(`⚠️ Script not found: ${step.script}`);
-        }
+            }
     } catch (error) {
         results.push({
             name: step.name,
@@ -93,9 +89,8 @@ for (const step of optimizationSteps) {
 
 const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
 
-console.log('\n' + '='.repeat(60));
-console.log('📊 OPTIMIZATION SUMMARY');
-console.log('='.repeat(60));
+);
+);
 
 console.table(results.map(r => ({
     'Step': r.name,
@@ -103,17 +98,14 @@ console.table(results.map(r => ({
     'Duration': r.duration
 })));
 
-console.log(`\n⏱️  Total time: ${totalTime}s`);
-
 // Check dist folder
 const distDir = path.join(ROOT_DIR, 'dist');
 if (fs.existsSync(distDir)) {
     const distSize = getDirectorySize(distDir);
-    console.log(`📦 Dist folder size: ${formatSize(distSize)}`);
+    }`);
 }
 
-console.log('\n✅ Optimization complete!');
-console.log('='.repeat(60));
+);
 
 /**
  * Calculate directory size recursively

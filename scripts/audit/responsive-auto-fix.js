@@ -60,14 +60,11 @@ function addResponsiveMetaAndCSS(content, filePath) {
 }
 
 // Main
-console.log('🔧 Responsive Auto-Fix - Sa Đéc Marketing Hub\n');
-
 let fixedCount = 0;
 for (const file of FILES_TO_FIX) {
     const filePath = path.join(rootDir, file);
 
     if (!fs.existsSync(filePath)) {
-        console.log(`⚠️  Skipping ${file} - not found`);
         continue;
     }
 
@@ -77,15 +74,12 @@ for (const file of FILES_TO_FIX) {
 
         if (changes.length > 0) {
             fs.writeFileSync(filePath, modified, 'utf8');
-            console.log(`✅ ${file}:`);
-            changes.forEach(change => console.log(`   - ${change}`));
+            changes.forEach(change => );
             fixedCount++;
         } else {
-            console.log(`⏭️  ${file}: No changes needed`);
-        }
+            }
     } catch (error) {
         console.error(`❌ ${file}: ${error.message}`);
     }
 }
 
-console.log(`\n📊 Fixed ${fixedCount}/${FILES_TO_FIX.length} files`);

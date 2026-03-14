@@ -111,8 +111,7 @@ function printReport() {
         .forEach(file => {
             const icon = file.severity === 'critical' ? '🔴' :
                         file.severity === 'warning' ? '🟡' : '🟢';
-            console.log(
-                file.path.padEnd(45) +
+            +
                 formatBytes(file.rawSize).padStart(10) +
                 formatBytes(file.gzipSize).padStart(10) +
                 file.ratio.padStart(8) +
@@ -127,8 +126,7 @@ function printReport() {
         .forEach(file => {
             const icon = file.severity === 'critical' ? '🔴' :
                         file.severity === 'warning' ? '🟡' : '🟢';
-            console.log(
-                file.path.padEnd(45) +
+            +
                 formatBytes(file.rawSize).padStart(10) +
                 formatBytes(file.gzipSize).padStart(10) +
                 file.ratio.padStart(8) +

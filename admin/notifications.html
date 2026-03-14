@@ -1549,8 +1549,6 @@
                 formData.channels.push(ch.value);
             });
 
-            console.log('Sending broadcast:', formData);
-
             showToast('Broadcast queued successfully!', 'success');
 
             // Reset form
@@ -1587,7 +1585,6 @@
                 senderEmail: document.getElementById('senderEmail').value,
             };
 
-            console.log('Saving settings:', settings);
             showToast('Settings saved successfully!', 'success');
         }
 

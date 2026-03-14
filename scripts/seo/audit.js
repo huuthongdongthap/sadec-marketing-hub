@@ -81,8 +81,7 @@ function extractTitle(filePath) {
 
 // Main audit function
 function auditSeo() {
-    console.log('🔍 SEO Metadata Audit\n');
-    console.log('=' .repeat(70));
+    );
 
     const htmlFiles = findHtmlFiles(ROOT_DIR);
     const results = htmlFiles.map(checkSeoMetadata);
@@ -96,50 +95,31 @@ function auditSeo() {
     const avgScore = Math.round(results.reduce((sum, r) => sum + r.score, 0) / totalFiles);
 
     // Report files with missing tags
-    console.log('\n📋 Files Missing SEO Tags:\n');
-
     let issueCount = 0;
     for (const result of results) {
         if (result.missing.length > 0) {
             issueCount++;
             const title = extractTitle(path.join(ROOT_DIR, result.file));
-            console.log(`\n❌ ${result.file}`);
-            console.log(`   Title: ${title}`);
-            console.log(`   Score: ${result.score}/100`);
-            console.log(`   Missing: ${result.missing.join(', ')}`);
+            }`);
         }
     }
 
     if (issueCount === 0) {
-        console.log('✅ All files have complete SEO metadata!');
-    }
+        }
 
     // Summary
-    console.log('\n' + '='.repeat(70));
-    console.log('\n📊 Summary:\n');
-    console.log(`   Total HTML files: ${totalFiles}`);
-    console.log(`   Perfect SEO (100/100): ${perfectScore} (${Math.round(perfectScore/totalFiles*100)}%)`);
-    console.log(`   Files with issues: ${issueCount}`);
-    console.log(`   Average score: ${avgScore}/100`);
-
+    );
+    : ${perfectScore} (${Math.round(perfectScore/totalFiles*100)}%)`);
     // Recommendations
-    console.log('\n📝 Recommendations:\n');
-
     if (issueCount > 0) {
-        console.log('   1. Add missing meta tags to flagged files');
-        console.log('   2. Ensure each page has unique title & description');
-        console.log('   3. Add JSON-LD structured data for better SEO');
-        console.log('   4. Set proper canonical URLs');
-    } else {
-        console.log('   ✅ All files follow SEO best practices');
-        console.log('   ✅ Consider adding more specific JSON-LD types per page');
-    }
+        } else {
+        }
 
     // Generate report file
     const reportPath = path.join(ROOT_DIR, '.cto-reports', 'seo-audit-' + new Date().toISOString().split('T')[0] + '.md');
     generateReport(results, reportPath);
 
-    console.log(`\n📄 Full report: ${path.relative(ROOT_DIR, reportPath)}\n`);
+    }\n`);
 }
 
 // Generate markdown report

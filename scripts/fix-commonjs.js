@@ -63,7 +63,7 @@ function fixFile(filePath) {
         if (pattern.test(content)) {
             content = content.replace(pattern, replacement);
             changed = true;
-            console.log(`   ✓ ${path.relative(ROOT_DIR, filePath)}: Fixed ${name}`);
+            }: Fixed ${name}`);
         }
     }
 
@@ -102,8 +102,6 @@ function scanDirectory(dirPath) {
 }
 
 function main() {
-    console.log('🔧 Fixing CommonJS exports to ES modules...\n');
-
     let totalFixed = 0;
 
     for (const dir of JS_DIRS) {
@@ -113,7 +111,6 @@ function main() {
         }
     }
 
-    console.log(`\n✅ Fixed ${totalFixed} files\n`);
-}
+    }
 
 main();

@@ -121,11 +121,7 @@ function fixMetaTags(content) {
 }
 
 // Main
-console.log('🔧 Comprehensive Auto-Fix\n');
-
 const htmlFiles = getAllHtmlFiles();
-console.log(`📂 Found ${htmlFiles.length} HTML files\n`);
-
 let fixedCount = 0;
 for (const { path: filePath, relPath } of htmlFiles) {
     try {
@@ -150,8 +146,7 @@ for (const { path: filePath, relPath } of htmlFiles) {
 
         if (allChanges.length > 0) {
             fs.writeFileSync(filePath, modified, 'utf8');
-            console.log(`✅ ${relPath}:`);
-            allChanges.forEach(c => console.log(`   - ${c}`));
+            allChanges.forEach(c => );
             fixedCount++;
         }
     } catch (error) {
@@ -159,4 +154,3 @@ for (const { path: filePath, relPath } of htmlFiles) {
     }
 }
 
-console.log(`\n📊 Fixed ${fixedCount}/${htmlFiles.length} files`);

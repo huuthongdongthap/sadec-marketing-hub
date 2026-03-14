@@ -108,8 +108,6 @@ function fixFile(htmlPath, relPath) {
 }
 
 // Main
-console.log('🔧 Responsive Auto-Fix - Sa Đéc Marketing Hub\n');
-
 const allHtmlFiles = [];
 for (const dir of CONFIG.htmlDirs) {
     const dirPath = path.join(rootDir, dir);
@@ -118,7 +116,7 @@ for (const dir of CONFIG.htmlDirs) {
     }
 }
 
-console.log(`📂 Found ${allHtmlFiles.length} HTML files in ${CONFIG.htmlDirs.join(', ')}\n`);
+}\n`);
 
 let fixedCount = 0;
 let skippedCount = 0;
@@ -127,11 +125,9 @@ for (const { path: filePath, relPath } of allHtmlFiles) {
     try {
         const result = fixFile(filePath, relPath);
         if (result) {
-            console.log(`✅ ${relPath}:`);
-            result.changes.forEach(change => console.log(`   - ${change}`));
+            result.changes.forEach(change => );
             fixedCount++;
         } else {
-            console.log(`⏭️  ${relPath}: No changes needed`);
             skippedCount++;
         }
     } catch (error) {
@@ -139,5 +135,4 @@ for (const { path: filePath, relPath } of allHtmlFiles) {
     }
 }
 
-console.log(`\n📊 Fixed ${fixedCount}/${allHtmlFiles.length} files`);
-console.log(`⏭️  Skipped ${skippedCount} files (already have viewport/CSS)`);
+`);

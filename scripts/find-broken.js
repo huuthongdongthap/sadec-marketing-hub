@@ -48,10 +48,5 @@ for (const filePath of htmlFiles) {
     }
 }
 
-console.log(`\n📊 Broken Links: ${broken.length}\n`);
 broken.forEach(b => {
-    console.log(`  File: ${b.file}`);
-    console.log(`  Link: ${b.href}`);
-    console.log(`  Resolved: ${b.resolved}`);
-    console.log('');
-});
+    });

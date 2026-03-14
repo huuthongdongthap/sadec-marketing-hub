@@ -74,14 +74,11 @@ function addResponsiveCSS(content, filePath) {
 }
 
 // Main
-console.log('🔧 Adding Responsive CSS Links\n');
-
 let updatedCount = 0;
 for (const file of FILES_TO_UPDATE) {
     const filePath = path.join(rootDir, file);
 
     if (!fs.existsSync(filePath)) {
-        console.log(`⚠️  Skipping ${file} - not found`);
         continue;
     }
 
@@ -91,15 +88,12 @@ for (const file of FILES_TO_UPDATE) {
 
         if (changes.length > 0) {
             fs.writeFileSync(filePath, modified, 'utf8');
-            console.log(`✅ ${file}:`);
-            changes.forEach(change => console.log(`   - ${change}`));
+            changes.forEach(change => );
             updatedCount++;
         } else {
-            console.log(`⏭️  ${file}: No changes needed`);
-        }
+            }
     } catch (error) {
         console.error(`❌ ${file}: ${error.message}`);
     }
 }
 
-console.log(`\n📊 Updated ${updatedCount}/${FILES_TO_UPDATE.length} files`);

@@ -127,18 +127,15 @@ function processFile(filePath, pageData, pagePath) {
 
     // Write back
     fs.writeFileSync(filePath, newContent, 'utf8');
-    console.log(`✅ Added SEO tags: ${pagePath}`);
     return true;
   } catch (error) {
-    console.log(`❌ Error processing ${pagePath}: ${error.message}`);
     return false;
   }
 }
 
 // Main function for root pages
 function processRootPages() {
-  console.log('🔍 Sa Đéc Marketing Hub — Root Pages SEO Fix\n');
-  console.log('='.repeat(60));
+  );
 
   let totalFiles = 0;
   let successCount = 0;
@@ -147,7 +144,6 @@ function processRootPages() {
     const filePath = path.join(PROJECT_DIR, fileName);
 
     if (!fs.existsSync(filePath)) {
-      console.log(`⚠️  File not found: ${fileName}`);
       continue;
     }
 
@@ -157,11 +153,8 @@ function processRootPages() {
     }
   }
 
-  console.log('\n' + '='.repeat(60));
-  console.log(`✅ Root Pages SEO Fix Complete!`);
-  console.log(`   Files Processed: ${totalFiles}`);
-  console.log(`   Success: ${successCount}`);
-}
+  );
+  }
 
 // Run
 processRootPages();

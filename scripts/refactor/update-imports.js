@@ -39,7 +39,6 @@ function updateFile(filePath) {
     
     if (updated) {
         fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`  ✓ ${relativePath}`);
         return true;
     }
     return false;
@@ -60,13 +59,11 @@ function walkDir(dir) {
 }
 
 function main() {
-    console.log('🔧 Refactor: Update imports to use core-utils.js\n');
     const files = walkDir(JS_DIR);
     let updatedCount = 0;
     for (const file of files) {
         if (updateFile(file)) updatedCount++;
     }
-    console.log(`\n📊 Summary: Updated ${updatedCount}/${files.length} files\n✅ Complete!`);
-}
+    }
 
 main();

@@ -453,53 +453,27 @@ function generateReport(cssResults, htmlResults) {
 
 // Main
 function main() {
-    console.log('📱 Responsive Audit Runner');
-    console.log('===========================');
-    console.log('');
-
     // Create report directory
     if (!fs.existsSync(REPORT_DIR)) {
         fs.mkdirSync(REPORT_DIR, { recursive: true });
     }
 
     // Find and analyze CSS files
-    console.log('Finding CSS files...');
     const cssFiles = findCssFiles(ROOT_DIR);
-    console.log(`Found ${cssFiles.length} CSS files`);
-
-    console.log('Analyzing CSS files...');
     const cssResults = cssFiles.map(f => analyzeCssFile(f));
     const responsiveCount = cssResults.filter(r => r.hasResponsive).length;
-    console.log(`  ${responsiveCount}/${cssFiles.length} files have responsive breakpoints`);
-
     // Find and analyze HTML files
-    console.log('Finding HTML files...');
     const htmlFiles = findHtmlFiles(ROOT_DIR);
-    console.log(`Found ${htmlFiles.length} HTML files`);
-
-    console.log('Analyzing HTML files...');
     const htmlResults = htmlFiles.map(f => analyzeHtmlFile(f));
     const responsiveHtmlCount = htmlResults.filter(r => r.hasResponsiveCss || r.viewportMeta).length;
-    console.log(`  ${responsiveHtmlCount}/${htmlFiles.length} files have responsive CSS or viewport`);
-
     // Generate report
-    console.log('');
-    console.log('Generating report...');
     const reportHtml = generateReport(cssResults, htmlResults);
     fs.writeFileSync(path.join(REPORT_DIR, 'responsive-audit-report.html'), reportHtml);
 
     // Summary
-    console.log('');
-    console.log('===========================');
-    console.log('Audit Summary');
-    console.log('===========================');
-    console.log(`CSS Files:    ${cssResults.length}`);
-    console.log(`  Responsive: ${responsiveCount} (${((responsiveCount/cssResults.length)*100).toFixed(1)}%)`);
-    console.log(`HTML Files:   ${htmlResults.length}`);
-    console.log(`  Responsive: ${responsiveHtmlCount} (${((responsiveHtmlCount/htmlResults.length)*100).toFixed(1)}%)`);
-    console.log('');
-    console.log(`Report: file://${path.join(REPORT_DIR, 'responsive-audit-report.html')}`);
-    console.log('');
-}
+    *100).toFixed(1)}%)`);
+    *100).toFixed(1)}%)`);
+    }`);
+    }
 
 main();

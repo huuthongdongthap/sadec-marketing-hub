@@ -463,7 +463,6 @@ function addSEOMetadata(filePath, pageName, pageType) {
   // Check if full SEO metadata already exists (OG tags)
   if (content.includes('<meta property="og:title"') &&
       content.includes('<meta property="og:description"')) {
-    console.log(`  ⚠️  SEO metadata already exists in ${pageName}.html`);
     return false;
   }
 
@@ -472,7 +471,6 @@ function addSEOMetadata(filePath, pageName, pageType) {
   // Insert SEO metadata after existing meta tags
   const headMatch = content.match(/<head[^>]*>/);
   if (!headMatch) {
-    console.log(`  ❌ No <head> tag found in ${pageName}.html`);
     return false;
   }
 
@@ -491,7 +489,6 @@ function addSEOMetadata(filePath, pageName, pageType) {
   content = content.substring(0, existingMetaEnd) + '\n' + seoMetadata + content.substring(existingMetaEnd);
 
   fs.writeFileSync(filePath, content, 'utf-8');
-  console.log(`  ✅ Added SEO metadata to ${pageName}.html`);
   return true;
 }
 
@@ -513,7 +510,6 @@ function updateSEOMetadata(filePath, pageName, pageType) {
   // Insert fresh SEO metadata after existing meta tags
   const headMatch = content.match(/<head[^>]*>/);
   if (!headMatch) {
-    console.log(`  ❌ No <head> tag found in ${pageName}.html`);
     return false;
   }
 
@@ -532,7 +528,6 @@ function updateSEOMetadata(filePath, pageName, pageType) {
   content = content.substring(0, existingMetaEnd) + '\n' + seoMetadata + content.substring(existingMetaEnd);
 
   fs.writeFileSync(filePath, content, 'utf-8');
-  console.log(`  ✅ Updated SEO metadata to ${pageName}.html`);
   return true;
 }
 
@@ -566,40 +561,33 @@ function scanAndAddSEO(dir, pageType) {
  * Main function
  */
 function main() {
-  console.log('🔍 Adding SEO Metadata to Sa Đéc Marketing Hub\n');
-
   let total = 0;
 
   // Admin pages
-  console.log('📦 Admin Pages');
   const adminDir = path.join(ROOT_DIR, 'admin');
   if (fs.existsSync(adminDir)) {
     total += scanAndAddSEO(adminDir, 'admin');
   }
 
   // Portal pages
-  console.log('\n📦 Portal Pages');
   const portalDir = path.join(ROOT_DIR, 'portal');
   if (fs.existsSync(portalDir)) {
     total += scanAndAddSEO(portalDir, 'portal');
   }
 
   // Affiliate pages
-  console.log('\n📦 Affiliate Pages');
   const affiliateDir = path.join(ROOT_DIR, 'affiliate');
   if (fs.existsSync(affiliateDir)) {
     total += scanAndAddSEO(affiliateDir, 'affiliate');
   }
 
   // Auth pages
-  console.log('\n📦 Auth Pages');
   const authDir = path.join(ROOT_DIR, 'auth');
   if (fs.existsSync(authDir)) {
     total += scanAndAddSEO(authDir, 'auth');
   }
 
   // Root pages
-  console.log('\n📦 Root Pages');
   const rootFiles = ['index.html', 'login.html', 'register.html', 'forgot-password.html'];
   rootFiles.forEach(file => {
     const filePath = path.join(ROOT_DIR, file);
@@ -610,8 +598,6 @@ function main() {
       }
     }
   });
-
-  console.log(`\n✅ Total files updated: ${total}`);
 
   // Write report
   const reportDir = path.join(ROOT_DIR, '..', '..', 'reports', 'dev', 'seo-metadata');
@@ -626,8 +612,7 @@ function main() {
     directories: ['admin', 'portal', 'affiliate', 'auth', 'root']
   }, null, 2));
 
-  console.log(`📄 Report saved to: ${reportPath}\n`);
-}
+  }
 
 // Run
 main();

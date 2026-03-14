@@ -90,7 +90,6 @@ async function runMigrations() {
 const args = process.argv.slice(2);
 
 if (args.includes('--help') || args.includes('-h')) {
-    console.log('Database Migration Tool - Sa Đéc Marketing Hub');
-} else {
+    } else {
     runMigrations().catch(console.error);
 }

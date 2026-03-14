@@ -119,26 +119,21 @@ a.btn {
  * Main fix function
  */
 function runFix() {
-    console.log('🔧 Touch Target Fix - WCAG 2.1 Compliance\n');
-
     let totalFixed = 0;
 
     // Fix individual files
     for (const file of FILES_TO_FIX) {
         const count = fixTouchTargets(file);
         if (count > 0) {
-            console.log(`✅ Fixed ${count} touch targets: ${file}`);
             totalFixed += count;
         }
     }
 
     // Add CSS enhancement
     if (addTouchTargetCSS()) {
-        console.log('✅ Added touch target CSS rules');
         totalFixed++;
     }
 
-    console.log(`\n📊 Total Fixed: ${totalFixed}`);
-}
+    }
 
 runFix();

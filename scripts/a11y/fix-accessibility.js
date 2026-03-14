@@ -136,8 +136,7 @@ function fixAccessibility(document, filePath) {
             const ariaLabel = getAriaLabelFromPlaceholder(input);
             input.setAttribute('aria-label', ariaLabel);
             fixed.inputs++;
-            console.log(`  ✅ [INPUT] ${relativePath} - Added aria-label="${ariaLabel}"`);
-        }
+            }
     }
 
     // Fix 2: Buttons without accessible text
@@ -161,8 +160,7 @@ function fixAccessibility(document, filePath) {
         const ariaLabel = getAriaLabelFromIcon(button);
         button.setAttribute('aria-label', ariaLabel);
         fixed.buttons++;
-        console.log(`  ✅ [BUTTON] ${relativePath} - Added aria-label="${ariaLabel}"`);
-    }
+        }
 
     return fixed;
 }
@@ -171,9 +169,6 @@ function fixAccessibility(document, filePath) {
  * Main function
  */
 async function main() {
-    console.log('🔧 Accessibility Auto-Fix\n');
-    console.log('Scanning for accessibility issues...\n');
-
     const allFiles = [];
     for (const dir of SCAN_DIRS) {
         const scanDir = path.join(ROOT_DIR, dir);
@@ -189,8 +184,6 @@ async function main() {
         return !rel.includes('node_modules') && !rel.includes('dist');
     });
     allFiles.push(...rootFiles);
-
-    console.log(`Found ${allFiles.length} HTML files to process\n`);
 
     for (const filePath of allFiles) {
         try {
@@ -214,18 +207,7 @@ async function main() {
         }
     }
 
-    console.log('\n📊 Summary:');
-    console.log(`   Files Processed: ${stats.filesProcessed}`);
-    console.log(`   Inputs Fixed: ${stats.inputsFixed}`);
-    console.log(`   Buttons Fixed: ${stats.buttonsFixed}`);
-    console.log(`   Total Fixed: ${stats.totalFixed}`);
-
-    console.log('\n✅ Accessibility Auto-Fix Complete!\n');
-    console.log('Next steps:');
-    console.log('1. Review the changes');
-    console.log('2. Test with screen reader');
-    console.log('3. Run: node scripts/audit/index.js --scan a11y');
-}
+    }
 
 // Run
 if (require.main === module) {

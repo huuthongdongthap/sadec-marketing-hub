@@ -188,34 +188,23 @@ function auditFile(filePath) {
 // Print section helper
 function printSection(title, items, max = 10) {
   if (items.length === 0) {
-    console.log(`✅ ${title}`)
-  } else {
-    console.log(`❌ ${title} (${items.length} issues)`)
+    } else {
+    `)
     items.slice(0, max).forEach(item => {
       if (typeof item === 'string') {
-        console.log(`   - ${item}`)
-      } else {
+        } else {
         const detail = item.file ? item.file : 'unknown'
         const extra = item.hash ? ` ${item.hash}` : item.count ? ` (${item.count} tags)` : ''
-        console.log(`   - ${detail}${extra}`)
-      }
+        }
     })
     if (items.length > max) {
-      console.log(`   ... and ${items.length - max} more`)
-    }
+      }
   }
-  console.log('')
-}
+  }
 
 // Main execution
-console.log('═══════════════════════════════════════════════════════════')
-console.log('🔍 SA ĐÉC MARKETING HUB - COMPREHENSIVE AUDIT')
-console.log('═══════════════════════════════════════════════════════════\n')
-
 const htmlFiles = getHtmlFiles(ROOT_DIR)
 results.summary.totalFiles = htmlFiles.length
-console.log(`📁 Found ${htmlFiles.length} HTML files to scan\n`)
-
 for (const file of htmlFiles) {
   auditFile(file)
 }
@@ -227,13 +216,6 @@ results.summary.totalIssues = Object.values(results).reduce((sum, value) => {
 }, 0)
 
 // Print results
-console.log('═══════════════════════════════════════════════════════════')
-console.log('📊 AUDIT SUMMARY')
-console.log('═══════════════════════════════════════════════════════════\n')
-
-console.log(`Total files scanned: ${results.summary.totalFiles}`)
-console.log(`Total issues found: ${results.summary.totalIssues}\n`)
-
 printSection('Broken Hash Links', results.brokenLinks)
 printSection('Missing Meta Description', results.missingMetaDescription)
 printSection('Missing Title Tags', results.missingTitle)
@@ -256,15 +238,10 @@ const dateStr = new Date().toISOString().split('T')[0]
 const reportPath = path.join(reportsDir, `comprehensive-audit-${dateStr}.json`)
 fs.writeFileSync(reportPath, JSON.stringify(results, null, 2))
 
-console.log('═══════════════════════════════════════════════════════════')
-console.log(`📄 Full report saved to: ${path.relative(process.cwd(), reportPath)}`)
-console.log('═══════════════════════════════════════════════════════════\n')
-
+, reportPath)}`)
 // Exit with error code if issues found
 if (results.summary.totalIssues > 0) {
-  console.log(`⚠️  Audit found ${results.summary.totalIssues} issues that need attention\n`)
   process.exit(1)
 } else {
-  console.log('🎉 No issues found! Great job!\n')
   process.exit(0)
 }

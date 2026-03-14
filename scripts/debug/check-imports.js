@@ -73,30 +73,22 @@ function checkImports(filePath, relPath) {
 }
 
 // Main
-console.log('🔍 Checking Broken Imports...\n');
 const jsFiles = getAllFiles(rootDir);
-console.log(`📂 Found ${jsFiles.length} JS/TS files\n`);
-
 const allIssues = [];
 for (const { path: filePath, relPath } of jsFiles) {
     try {
         const issues = checkImports(filePath, relPath);
         if (issues.length > 0) {
             allIssues.push(...issues);
-            console.log(`❌ ${relPath}: ${issues.length} broken imports`);
-        }
+            }
     } catch (error) {
         console.error(`❌ ${relPath}: ${error.message}`);
     }
 }
 
-console.log(`\n📊 Broken Imports: ${allIssues.length}`);
-
 if (allIssues.length > 0) {
-    console.log('\nTop 20 broken imports:');
     for (const issue of allIssues.slice(0, 20)) {
-        console.log(`  ${issue.file}:${issue.line} - ${issue.import}`);
-    }
+        }
 }
 
 // Save report
@@ -104,4 +96,3 @@ const reportDir = path.join(rootDir, 'reports', 'dev', 'bug-sprint');
 fs.mkdirSync(reportDir, { recursive: true });
 const reportPath = path.join(reportDir, `broken-imports-${new Date().toISOString().split('T')[0]}.json`);
 fs.writeFileSync(reportPath, JSON.stringify(allIssues, null, 2));
-console.log(`\n📄 Report: ${reportPath}`);

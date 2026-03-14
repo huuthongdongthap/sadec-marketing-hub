@@ -120,51 +120,26 @@ function auditFile(filePath) {
 }
 
 // Main execution
-console.log('🔍 Scanning HTML files for accessibility and SEO issues...\n')
-
 const htmlFiles = getHtmlFiles(ROOT_DIR)
-console.log(`Found ${htmlFiles.length} HTML files\n`)
-
 for (const file of htmlFiles) {
   auditFile(file)
 }
 
 // Print results
-console.log('═══════════════════════════════════════════════════════════')
-console.log('AUDIT RESULTS')
-console.log('═══════════════════════════════════════════════════════════\n')
-
-console.log(`📊 Summary:`)
-console.log(`   Broken Links: ${results.brokenLinks.length}`)
-console.log(`   Missing Meta Description: ${results.missingMetaDescription.length}`)
-console.log(`   Missing Title: ${results.missingTitle.length}`)
-console.log(`   Missing Alt Images: ${results.missingAltImages.length}`)
-console.log(`   Missing Lang Attribute: ${results.missingLangAttribute.length}`)
-console.log(`   Missing Aria Labels: ${results.missingAriaLabels.length}`)
-console.log(`   Empty Links: ${results.emptyLinks.length}`)
-console.log(`   Multiple H1 Tags: ${results.multipleH1.length}`)
-console.log(`   Missing Favicon: ${results.missingFavicon.length}`)
-console.log('')
-
 // Print details for each category
 function printDetails(title, items, max = 10) {
   if (items.length === 0) {
-    console.log(`✅ ${title}`)
-  } else {
-    console.log(`❌ ${title} (${items.length} issues)`)
+    } else {
+    `)
     items.slice(0, max).forEach(item => {
       if (typeof item === 'string') {
-        console.log(`   - ${item}`)
-      } else {
-        console.log(`   - ${item.file}: ${item.link || item.tag || item.count + ' tags'}`)
-      }
+        } else {
+        }
     })
     if (items.length > max) {
-      console.log(`   ... and ${items.length - max} more`)
-    }
+      }
   }
-  console.log('')
-}
+  }
 
 printDetails('Broken Hash Links', results.brokenLinks)
 printDetails('Missing Meta Description', results.missingMetaDescription)
@@ -183,15 +158,11 @@ if (!fs.existsSync(path.join(ROOT_DIR, 'reports'))) {
 }
 fs.writeFileSync(reportPath, JSON.stringify(results, null, 2))
 
-console.log(`📄 Full report saved to: ${path.relative(process.cwd(), reportPath)}`)
-console.log('\n✨ Audit complete!')
-
+, reportPath)}`)
 // Exit with error code if issues found
 const totalIssues = Object.values(results).reduce((sum, arr) => sum + arr.length, 0)
 if (totalIssues > 0) {
-  console.log(`\n⚠️  Total issues found: ${totalIssues}`)
   process.exit(1)
 } else {
-  console.log('\n🎉 No issues found!')
   process.exit(0)
 }

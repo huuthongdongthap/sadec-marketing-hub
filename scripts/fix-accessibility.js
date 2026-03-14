@@ -28,8 +28,7 @@ function fixFile(filePath) {
       const lastMetaIndex = content.indexOf(lastMeta) + lastMeta.length
       content = content.slice(0, lastMetaIndex) + '\n' + faviconLink + content.slice(lastMetaIndex)
       changes++
-      console.log(`  ✅ Added favicon: ${relativePath}`)
-    }
+      }
   }
 
   // 2. Fix buttons missing aria-label (pattern matching for common buttons)
@@ -64,7 +63,7 @@ function fixFile(filePath) {
       h1Count++
       if (h1Count === 1) return match
       changes++
-      console.log(`  ✅ Changed H1 to H2: ${relativePath} - "${text.trim()}"`)
+      }"`)
       return `<h2${attrs}>${text}</h2>`
     })
   }
@@ -98,8 +97,6 @@ function getHtmlFiles(dir, fileList = []) {
 }
 
 // Main execution
-console.log('🔧 Fixing accessibility issues...\n')
-
 const htmlFiles = getHtmlFiles(ROOT_DIR)
 let totalChanges = 0
 let filesFixed = 0
@@ -112,11 +109,3 @@ for (const file of htmlFiles) {
   }
 }
 
-console.log('\n═══════════════════════════════════════════════════════════')
-console.log(`✅ Fixed ${totalChanges} issues in ${filesFixed} files`)
-console.log('═══════════════════════════════════════════════════════════')
-console.log('\n✨ Accessibility fix complete!')
-console.log('\n📝 Note: Some issues may require manual fixes:')
-console.log('   - Buttons with dynamic content')
-console.log('   - Images without meaningful alt text')
-console.log('   - Custom ARIA landmarks')

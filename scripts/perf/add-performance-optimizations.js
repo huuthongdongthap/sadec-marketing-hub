@@ -95,14 +95,10 @@ dirs.forEach(dir => {
         if (modified) {
             fs.writeFileSync(filePath, content, 'utf8');
             filesModified++;
-            console.log(`✅ ${dir}${file}`);
-        } else {
+            } else {
             filesSkipped++;
         }
     });
 });
 
-console.log(`\n📊 Summary:`);
-console.log(`   Modified: ${filesModified} files`);
-console.log(`   Skipped: ${filesSkipped} files (already optimized)`);
-console.log(`   Cache bust: ${CACHE_BUST}`);
+`);
