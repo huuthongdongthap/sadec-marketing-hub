@@ -47,7 +47,7 @@ export class ApiClientBase {
       this.cache.set(cacheKey, { data, timestamp: Date.now() });
       return data;
     } catch (error) {
-      console.warn(`[${this.moduleName}] Data load error:`, error.message);
+      // Error handled by demoDataFn fallback or caller
       if (this.demoDataFn) {
         return this.demoDataFn();
       }
@@ -249,16 +249,15 @@ export function renderActivities(activities, containerId = 'live-activity-list')
  */
 export function renderChart(chartId, chartType, data) {
   if (!window.MekongAdmin || !MekongAdmin.DashboardCharts) {
-    console.warn('[ApiClient] MekongAdmin.DashboardCharts not loaded');
+    // Silent fail - charts loaded asynchronously
     return;
   }
 
   const chartFn = MekongAdmin.DashboardCharts[`${chartType}Chart`];
   if (typeof chartFn === 'function') {
     chartFn(chartId, data);
-  } else {
-    console.warn(`[ApiClient] Chart type "${chartType}" not found`);
   }
+  // Silent fail - chart type not found
 }
 
 // ============================================================================
