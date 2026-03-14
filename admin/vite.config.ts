@@ -15,9 +15,10 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    minify: 'esbuild',
+    sourcemap: false, // Disable sourcemap for production to reduce bundle size
+    minify: 'esbuild', // Faster minifier
     cssCodeSplit: true,
+    target: 'esnext', // Modern browser target for smaller bundle
     rollupOptions: {
       output: {
         manualChunks: {
@@ -26,6 +27,19 @@ export default defineConfig({
           icons: ['lucide-react']
         }
       }
-    }
+    },
+    // Enable compression report
+    reportCompressedSize: true
+  },
+  // Performance optimizations
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'recharts', 'lucide-react']
+  },
+  // Test configuration
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+    include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
   }
 } as any)

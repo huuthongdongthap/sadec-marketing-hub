@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import { DashboardLayout } from './components/layout'
 import { KPICard, StatCard, Metric } from './components/kpi'
-import { SimpleLineChart, SimpleBarChart, SimplePieChart, SimpleAreaChart } from './components/charts'
 import { Alert, ToastContainer, useToast, StatusBadge } from './components/alerts'
-import { DollarSign, Users, ShoppingBag, TrendingUp, Eye, MousePointerClick } from 'lucide-react'
+import { DollarSign, Users, ShoppingBag, TrendingUp, Info, Search, Plus } from 'lucide-react'
+import { useServiceWorker } from './hooks/useServiceWorker'
+import { LazyChartWrapper } from './components/ui/LazyChart'
+import { DataTable, Modal, SearchInput, Tooltip, ErrorBoundary } from './components/ui'
+
+// Initialize service worker
+useServiceWorker()
+
+// Lazy load charts for code splitting
+const SimpleLineChart = React.lazy(() => import('./components/charts/LineChart').then(m => ({ default: m.SimpleLineChart })))
+const SimpleBarChart = React.lazy(() => import('./components/charts/BarChart').then(m => ({ default: m.SimpleBarChart })))
+const SimplePieChart = React.lazy(() => import('./components/charts/PieChart').then(m => ({ default: m.SimplePieChart })))
+const SimpleAreaChart = React.lazy(() => import('./components/charts/AreaChart').then(m => ({ default: m.SimpleAreaChart })))
 
 // Sample data for charts
 const revenueData = [
@@ -32,10 +43,43 @@ const trafficSourceData = [
 function App() {
   const { toasts, toast, ToastContainer, dismissToast } = useToast()
   const [alertDismissed, setAlertDismissed] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedRows, setSelectedRows] = useState<string[]>([])
 
   const handleTestToast = () => {
     toast.success('Dashboard đã được cập nhật thành công!')
   }
+
+  // Sample data for DataTable
+  const campaignDataList = [
+    { id: '1', name: 'Google Ads Q1', status: 'active', budget: '$5,000', spent: '$3,500', conversions: 240 },
+    { id: '2', name: 'Facebook Spring Sale', status: 'pending', budget: '$3,000', spent: '$0', conversions: 0 },
+    { id: '3', name: 'TikTok Influencer', status: 'active', budget: '$2,000', spent: '$1,800', conversions: 229 },
+    { id: '4', name: 'Email Marketing', status: 'inactive', budget: '$1,000', spent: '$950', conversions: 200 },
+    { id: '5', name: 'SEO Content', status: 'active', budget: '$4,000', spent: '$2,800', conversions: 156 }
+  ]
+
+  const filteredData = campaignDataList.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const columns = [
+    { key: 'name', title: 'Chiến dịch', sortable: true },
+    {
+      key: 'status',
+      title: 'Trạng thái',
+      sortable: true,
+      render: (item: typeof campaignDataList[0]) => (
+        <StatusBadge
+          variant={item.status as 'active' | 'pending' | 'inactive'}
+        />
+      )
+    },
+    { key: 'budget', title: 'Ngân sách', sortable: true },
+    { key: 'spent', title: 'Đã chi', sortable: true },
+    { key: 'conversions', title: 'Chuyển đổi', sortable: true }
+  ]
 
   return (
     <DashboardLayout>
@@ -60,9 +104,18 @@ function App() {
           <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
           <p className="text-gray-500">Tổng quan hiệu suất marketing</p>
         </div>
-        <button onClick={handleTestToast} className="btn-primary">
-          Test Toast
-        </button>
+        <div className="flex gap-2">
+          <button onClick={handleTestToast} className="btn-outline">
+            Test Toast
+          </button>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="btn-primary flex items-center gap-2"
+          >
+            <Plus className="w-4 h-4" />
+            New Campaign
+          </button>
+        </div>
       </div>
 
       {/* KPI Cards Row */}
@@ -144,37 +197,45 @@ function App() {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <SimpleLineChart
-          title="Doanh thu theo tháng"
-          data={revenueData}
-          dataKey="name"
-          height={250}
-        />
-        <SimplePieChart
-          title="Nguồn traffic"
-          data={trafficSourceData}
-          height={250}
-          innerRadius={60}
-        />
+        <LazyChartWrapper>
+          <SimpleLineChart
+            title="Doanh thu theo tháng"
+            data={revenueData}
+            dataKey="name"
+            height={250}
+          />
+        </LazyChartWrapper>
+        <LazyChartWrapper>
+          <SimplePieChart
+            title="Nguồn traffic"
+            data={trafficSourceData}
+            height={250}
+            innerRadius={60}
+          />
+        </LazyChartWrapper>
       </div>
 
       {/* Bar Chart Full Width */}
-      <SimpleBarChart
-        title="Hiệu suất chiến dịch"
-        data={campaignData}
-        dataKeys={['clicks', 'impressions', 'conversions']}
-        height={300}
-        className="mb-6"
-      />
+      <LazyChartWrapper>
+        <SimpleBarChart
+          title="Hiệu suất chiến dịch"
+          data={campaignData}
+          dataKeys={['clicks', 'impressions', 'conversions']}
+          height={300}
+          className="mb-6"
+        />
+      </LazyChartWrapper>
 
       {/* Area Chart */}
-      <SimpleAreaChart
-        title="Lượt truy cập theo thời gian"
-        data={revenueData}
-        dataKey="value"
-        height={250}
-        className="mb-6"
-      />
+      <LazyChartWrapper>
+        <SimpleAreaChart
+          title="Lượt truy cập theo thời gian"
+          data={revenueData}
+          dataKey="value"
+          height={250}
+          className="mb-6"
+        />
+      </LazyChartWrapper>
 
       {/* Status Badges Demo */}
       <div className="card mb-6">
@@ -201,6 +262,96 @@ function App() {
           Không thể kết nối API - Vui lòng thử lại sau
         </Alert>
       </div>
+
+      {/* New Features Demo */}
+      <div className="card mb-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <Tooltip content="DataTable với sorting, pagination, selection">
+            <span className="flex items-center gap-2">
+              Features Mới
+              <Info className="w-4 h-4 text-gray-400" />
+            </span>
+          </Tooltip>
+        </h3>
+
+        {/* Search Input */}
+        <div className="mb-4">
+          <SearchInput
+            value={searchQuery}
+            onChange={setSearchQuery}
+            placeholder="Tìm kiếm chiến dịch..."
+            className="max-w-md"
+          />
+        </div>
+
+        {/* Data Table */}
+        <DataTable
+          data={filteredData}
+          columns={columns}
+          selectable
+          selectedKeys={selectedRows}
+          onSelectionChange={setSelectedRows}
+          pageSize={3}
+        />
+
+        {selectedRows.length > 0 && (
+          <div className="mt-4 p-3 bg-primary-50 rounded-lg">
+            <p className="text-sm text-primary-700">
+              Đã chọn {selectedRows.length} chiến dịch
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Tạo chiến dịch mới"
+        description="Điền thông tin chiến dịch mới của bạn"
+        footer={
+          <div className="flex justify-end gap-2">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="btn-outline"
+            >
+              Hủy
+            </button>
+            <button
+              onClick={() => {
+                toast.success('Chiến dịch đã được tạo!')
+                setIsModalOpen(false)
+              }}
+              className="btn-primary"
+            >
+              Tạo chiến dịch
+            </button>
+          </div>
+        }
+      >
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Tên chiến dịch
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="Nhập tên chiến dịch"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Ngân sách
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="$5,000"
+            />
+          </div>
+        </div>
+      </Modal>
     </DashboardLayout>
   )
 }

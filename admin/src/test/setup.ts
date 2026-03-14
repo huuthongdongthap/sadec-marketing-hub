@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 // Mock matchMedia for Recharts
 Object.defineProperty(window, 'matchMedia', {
@@ -21,3 +22,9 @@ global.ResizeObserver = vi.fn().mockImplementation(() => ({
   unobserve: vi.fn(),
   disconnect: vi.fn()
 }))
+
+// Mock global Document for tests
+export const mockDocument = {
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn()
+} as unknown as Document
