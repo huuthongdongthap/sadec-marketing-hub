@@ -44,3 +44,7 @@ export type { ButtonProps } from './Button.tsx'
 export { LazyChartWrapper, createLazyChart, LazyImage } from './LazyChart.tsx'
 export { LazyImage as LazyImageAdvanced } from './LazyImage.tsx'
 export type { LazyImageProps } from './LazyImage.tsx'
+
+// SEO Components
+export { SEOHead, DocumentHead } from '../SEOHead.tsx'
+export type { SEOHeadProps } from '../SEOHead.tsx'
