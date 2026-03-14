@@ -209,6 +209,7 @@ export function generateJsonLd(metadata: PageMetadata): string {
   }, null, 2)
 }
 
+/* eslint-disable */
 /**
  * React Helmet helper component usage example:
  *
@@ -247,3 +248,4 @@ export function generateJsonLd(metadata: PageMetadata): string {
  *   )
  * }
  */
+/* eslint-enable */
