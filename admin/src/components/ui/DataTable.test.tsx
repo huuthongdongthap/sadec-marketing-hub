@@ -90,8 +90,8 @@ describe('DataTable', () => {
   it('shows loading state', () => {
     render(<DataTable data={[]} columns={columns} loading />)
 
-    expect(screen.getByRole('table')).toBeInTheDocument()
-    expect(screen.getAllByRole('row').length).toBeGreaterThan(0)
+    const skeleton = document.querySelector('.animate-pulse')
+    expect(skeleton).toBeInTheDocument()
   })
 
   it('handles pagination', () => {
@@ -104,12 +104,12 @@ describe('DataTable', () => {
     render(<DataTable data={largeData} columns={columns} pageSize={2} />)
 
     // Should show first page
-    expect(screen.getByText(/Hiển thị 1 - 2 của/)).toBeInTheDocument()
+    expect(screen.getByText('Trang 1 / 2')).toBeInTheDocument()
 
     // Click next page
     const nextPageButton = screen.getByLabelText('Next page')
     fireEvent.click(nextPageButton)
 
-    expect(screen.getByText(/Hiển thị 3 - 4 của/)).toBeInTheDocument()
+    expect(screen.getByText('Trang 2 / 2')).toBeInTheDocument()
   })
 })

@@ -1,0 +1,493 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * RESPONSIVE CSS 2026 — PORTAL & ADMIN
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Breakpoints:
+ *   - 375px: Mobile Small (iPhone SE/Mini)
+ *   - 768px: Mobile (iPhone Plus, small tablets)
+ *   - 1024px: Tablet (iPad landscape, small desktop)
+ *
+ * Coverage:
+ *   - Portal: 15 pages
+ *   - Admin: 50+ pages
+ *
+ * @version 2.0.0 | 2026-03-14
+ */
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================================ */
+
+:root {
+    /* Breakpoints */
+    --bp-mobile-small: 375px;
+    --bp-mobile: 768px;
+    --bp-tablet: 1024px;
+    --bp-desktop: 1440px;
+
+    /* Touch targets */
+    --touch-min: 44px;
+    --touch-comfortable: 48px;
+
+    /* Spacing scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+}
+
+/* ============================================================================
+   1024px TABLET — Landscape iPad, small desktop
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+    /* Layout: Single column */
+    .dashboard-grid,
+    .admin-grid,
+    .portal-grid,
+    .layout-2-col,
+    .layout-3-col {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sidebar: Hide by default, show on toggle */
+    .sidebar,
+    .admin-sidebar,
+    .portal-sidebar,
+    sadec-sidebar {
+        position: fixed;
+        left: -280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar-open .sidebar,
+    .sidebar-open sadec-sidebar {
+        left: 0;
+    }
+
+    /* Sidebar overlay */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .sidebar-open .sidebar-overlay {
+        display: block;
+    }
+
+    /* Main content: Full width */
+    .main-content,
+    .admin-content,
+    .portal-content {
+        margin-left: 0 !important;
+        padding: var(--space-4);
+    }
+
+    /* Cards: 2 columns max */
+    .card-grid,
+    .stats-grid,
+    .kpi-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tables: Enable horizontal scroll */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* Charts: Full width */
+    .chart-container,
+    .analytics-chart {
+        width: 100% !important;
+    }
+
+    /* Header: Stack actions */
+    .page-header,
+    .header-actions {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+
+    /* Navigation: Compact */
+    .top-nav,
+    .header-nav {
+        gap: var(--space-2);
+    }
+
+    .top-nav a,
+    .header-nav a {
+        padding: var(--space-2) var(--space-3);
+        font-size: 14px;
+    }
+}
+
+/* ============================================================================
+   768px MOBILE — Phones, small tablets (portrait)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    /* Hide non-essential */
+    .hide-mobile,
+    .hide-phone {
+        display: none !important;
+    }
+
+    /* Body: Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+        font-size: 14px;
+    }
+
+    /* Typography: Scale down */
+    h1 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    /* Layout: Single column full width */
+    .dashboard-grid,
+    .admin-grid,
+    .portal-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+    }
+
+    /* Cards: Single column */
+    .card-grid,
+    .stats-grid,
+    .kpi-container,
+    .metric-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Sidebar: Full overlay */
+    .sidebar,
+    .admin-sidebar,
+    .portal-sidebar,
+    sadec-sidebar {
+        width: 100% !important;
+        max-width: 320px;
+    }
+
+    /* Main content */
+    .main-content,
+    .admin-content,
+    .portal-content {
+        padding: var(--space-3);
+    }
+
+    /* Header: Vertical stack */
+    .page-header,
+    .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+
+    .page-header .actions,
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .page-header .actions button,
+    .header-actions button {
+        width: 100%;
+    }
+
+    /* Buttons: Touch-friendly */
+    button,
+    .btn,
+    .btn-filled,
+    .btn-outlined {
+        min-height: var(--touch-min);
+        padding: var(--space-3) var(--space-4);
+        font-size: 15px;
+    }
+
+    /* Action buttons stack */
+    .action-buttons,
+    .button-group {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    /* Inputs: Full width */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+        min-height: var(--touch-min);
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Forms: Stack labels */
+    .form-group,
+    .form-row {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .form-group label {
+        margin-bottom: var(--space-1);
+    }
+
+    /* Tables: Card layout */
+    .responsive-table table {
+        display: block;
+    }
+
+    .responsive-table thead {
+        display: none;
+    }
+
+    .responsive-table tbody {
+        display: block;
+    }
+
+    .responsive-table tr {
+        display: block;
+        margin-bottom: var(--space-4);
+        padding: var(--space-3);
+        background: var(--md-sys-color-surface-container, #f8f9fa);
+        border-radius: 8px;
+        border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    }
+
+    .responsive-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-2) 0;
+        border: none;
+        border-bottom: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    }
+
+    .responsive-table td:last-child {
+        border-bottom: none;
+    }
+
+    .responsive-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--md-sys-color-on-surface-variant);
+        min-width: 100px;
+    }
+
+    /* Charts: Full width with padding */
+    .chart-container {
+        padding: var(--space-3);
+    }
+
+    /* Modal: Full screen */
+    .modal-content,
+    .dialog-content {
+        width: 100% !important;
+        max-width: none !important;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    /* Navigation: Mobile menu */
+    .nav-menu,
+    .main-nav {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+
+    /* Footer: Stack */
+    .footer,
+    .page-footer {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+}
+
+/* ============================================================================
+   375px MOBILE SMALL — iPhone SE, small phones
+   ============================================================================ */
+
+@media (max-width: 375px) {
+    /* Hide more elements */
+    .hide-mobile-small {
+        display: none !important;
+    }
+
+    /* Typography: Extra small */
+    body {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    /* Layout: Minimal padding */
+    .main-content,
+    .admin-content,
+    .portal-content {
+        padding: var(--space-2);
+    }
+
+    /* Cards: Compact */
+    .card,
+    .stat-card,
+    .kpi-card {
+        padding: var(--space-3);
+    }
+
+    /* Buttons: Smaller padding */
+    button,
+    .btn {
+        min-height: 40px;
+        padding: var(--space-2) var(--space-3);
+        font-size: 14px;
+    }
+
+    /* Inputs: Compact */
+    input,
+    select,
+    textarea {
+        min-height: 40px;
+        padding: var(--space-2) var(--space-3);
+        font-size: 14px;
+    }
+
+    /* Tables: Extra compact */
+    .responsive-table tr {
+        padding: var(--space-2);
+    }
+
+    .responsive-table td {
+        font-size: 13px;
+        padding: var(--space-1) 0;
+    }
+
+    .responsive-table td::before {
+        min-width: 80px;
+        font-size: 13px;
+    }
+
+    /* Charts: Minimal padding */
+    .chart-container {
+        padding: var(--space-2);
+    }
+
+    /* Spacing overrides */
+    .gap-4,
+    .gap-5,
+    .gap-6 {
+        gap: var(--space-2) !important;
+    }
+
+    .p-4,
+    .p-5,
+    .p-6 {
+        padding: var(--space-2) !important;
+    }
+
+    .m-4,
+    .m-5,
+    .m-6 {
+        margin: var(--space-2) !important;
+    }
+}
+
+/* ============================================================================
+   HELPER CLASSES
+   ============================================================================ */
+
+/* Show/hide by breakpoint */
+.show-mobile,
+.show-mobile-small {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .show-mobile-small {
+        display: block !important;
+    }
+}
+
+/* Touch-friendly spacing */
+.touch-spacer {
+    min-height: var(--touch-min);
+}
+
+/* Prevent text shrink */
+.text-no-shrink {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+    .sidebar,
+    .header,
+    .footer,
+    .no-print {
+        display: none !important;
+    }
+
+    .main-content,
+    .admin-content,
+    .portal-content {
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -37,7 +37,8 @@ describe('LoadingSpinner', () => {
 
   it('renders fullscreen overlay when fullscreen prop is true', () => {
     render(<LoadingSpinner fullscreen />)
-    expect(screen.getByRole('status').parentElement).toHaveClass('fixed inset-0')
+    const fullscreen = document.querySelector('.fixed.inset-0.bg-black\\/10')
+    expect(fullscreen).toBeInTheDocument()
   })
 
   it('applies custom className', () => {

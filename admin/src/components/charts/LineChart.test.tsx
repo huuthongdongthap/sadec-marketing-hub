@@ -29,7 +29,8 @@ describe('SimpleLineChart', () => {
       />
     )
 
-    expect(screen.getByRole('presentation')).toHaveClass('animate-pulse')
+    const card = document.querySelector('.card.animate-pulse')
+    expect(card).toBeInTheDocument()
   })
 
   it('renders chart when not loading', () => {
@@ -40,6 +41,7 @@ describe('SimpleLineChart', () => {
       />
     )
 
-    expect(screen.queryByRole('presentation')).not.toHaveClass('animate-pulse')
+    const card = document.querySelector('.card')
+    expect(card).not.toHaveClass('animate-pulse')
   })
 })

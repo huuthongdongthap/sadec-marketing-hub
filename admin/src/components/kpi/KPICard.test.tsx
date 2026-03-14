@@ -36,7 +36,8 @@ describe('KPICard', () => {
       />
     )
 
-    expect(screen.getByRole('presentation')).toHaveClass('animate-pulse')
+    const card = document.querySelector('.card.animate-pulse')
+    expect(card).toBeInTheDocument()
   })
 
   it('renders description when provided', () => {
