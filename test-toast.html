@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notifications Test</title>
+    <link rel="stylesheet" href="assets/css/components/toast-notifications.css">
+    <script type="module" src="assets/js/utils/toast-manager.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { color: #1a1a1a; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 30px; }
+        .test-section {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .test-section h2 {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+        }
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover { transform: translateY(-2px); }
+        .btn-success { background: #22c55e; color: white; }
+        .btn-error { background: #ef4444; color: white; }
+        .btn-warning { background: #f59e0b; color: white; }
+        .btn-info { background: #3b82f6; color: white; }
+        .btn-secondary { background: #6b7280; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🍞 Toast Notifications Test</h1>
+    <p>Test page for toast notification system</p>
+
+    <div class="test-section">
+        <h2>Basic Toasts</h2>
+        <div class="button-group">
+            <button class="btn-success" onclick="Toast.success('Operation completed successfully!')">Success</button>
+            <button class="btn-error" onclick="Toast.error('Something went wrong!')">Error</button>
+            <button class="btn-warning" onclick="Toast.warning('Please check your input')">Warning</button>
+            <button class="btn-info" onclick="Toast.info('New update available')">Info</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Toast with Title</h2>
+        <div class="button-group">
+            <button class="btn-success" onclick="Toast.show('File uploaded successfully', { type: 'success', title: 'Upload Complete' })">
+                Success + Title
+            </button>
+            <button class="btn-error" onclick="Toast.show('Connection failed', { type: 'error', title: 'Network Error' })">
+                Error + Title
+            </button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Toast with Actions</h2>
+        <div class="button-group">
+            <button class="btn-info" onclick="showActionToast()">Show Action Toast</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Multiple Toasts</h2>
+        <div class="button-group">
+            <button class="btn-secondary" onclick="showMultiple()">Show 3 Toasts</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Clear All</h2>
+        <div class="button-group">
+            <button class="btn-secondary" onclick="Toast.clear()">Clear All Toasts</button>
+        </div>
+    </div>
+
+    <script>
+        function showActionToast() {
+            Toast.show('New message received', {
+                type: 'info',
+                title: 'Notification',
+                duration: 8000,
+                actions: [
+                    { id: 'view', label: 'View', primary: true },
+                    { id: 'dismiss', label: 'Dismiss', primary: false }
+                ]
+            });
+        }
+
+        function showMultiple() {
+            Toast.success('First toast');
+            setTimeout(() => Toast.info('Second toast'), 300);
+            setTimeout(() => Toast.warning('Third toast'), 600);
+        }
+    </script>
+</body>
+</html>
