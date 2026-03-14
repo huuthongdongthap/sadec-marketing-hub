@@ -22,7 +22,7 @@ export function useIntersectionObserver<T extends Element>(
   options: IntersectionObserverInit = {}
 ): [React.RefObject<T | null>, boolean] {
   const [isIntersecting, setIsIntersecting] = useState(false)
-  const ref = React.useRef<T | null>(null)
+  const ref = useRef<T | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {

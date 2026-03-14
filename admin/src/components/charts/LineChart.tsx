@@ -7,8 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-  type LineChartProps
+  ResponsiveContainer
 } from 'recharts'
 
 export interface SimpleLineChartProps {

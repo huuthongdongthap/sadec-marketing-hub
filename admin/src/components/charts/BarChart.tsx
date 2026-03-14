@@ -8,8 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
-  type BarChartProps
+  ResponsiveContainer
 } from 'recharts'
 
 export interface SimpleBarChartProps {

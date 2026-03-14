@@ -1,6 +1,7 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 import { Search, X } from 'lucide-react'
+import { useDebounce, useTimeoutCleanup, useDebouncedCallback } from '@/hooks/useDebounce'
 
 export interface SearchInputProps {
   /** Current value */
@@ -32,42 +33,27 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   autoFocus = false
 }) => {
   const [localValue, setLocalValue] = useState(value)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useTimeoutCleanup()
 
   // Sync with controlled value
-  useEffect(() => {
+  React.useEffect(() => {
     setLocalValue(value)
   }, [value])
+
+  // Use debounced callback
+  const debouncedOnChange = useDebouncedCallback(onChange, debounceMs)
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
     setLocalValue(newValue)
-
-    // Clear existing timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-
-    // Set new timeout for debounced onChange
-    timeoutRef.current = setTimeout(() => {
-      onChange(newValue)
-    }, debounceMs)
-  }, [onChange, debounceMs])
+    debouncedOnChange(newValue)
+  }, [debouncedOnChange])
 
   const handleClear = useCallback(() => {
     setLocalValue('')
     onChange('')
     onClear?.()
   }, [onChange, onClear])
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
 
   return (
     <div className={cn('relative', className)}>

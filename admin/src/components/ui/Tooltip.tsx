@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { cn } from '@/lib/utils'
+import { useTimeoutCleanup } from '@/hooks/useDebounce'
 
 export interface TooltipProps {
   /** Tooltip content */
@@ -25,7 +26,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   disabled = false
 }) => {
   const [isVisible, setIsVisible] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useTimeoutCleanup()
   const triggerRef = useRef<HTMLDivElement>(null)
 
   const showTooltip = () => {
@@ -41,14 +42,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
     setIsVisible(false)
   }
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
 
   const positionClasses = {
     top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',

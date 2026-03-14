@@ -2,17 +2,17 @@
 export { cn } from '@/lib/utils'
 
 // UI Components
-export { DataTable } from './DataTable'
-export type { Column, DataTableProps } from './DataTable'
+export { DataTable } from './DataTable.tsx'
+export type { Column, DataTableProps } from './DataTable.tsx'
 
-export { Modal } from './Modal'
-export type { ModalProps } from './Modal'
+export { Modal } from './Modal.tsx'
+export type { ModalProps } from './Modal.tsx'
 
-export { SearchInput } from './SearchInput'
-export type { SearchInputProps } from './SearchInput'
+export { SearchInput } from './SearchInput.tsx'
+export type { SearchInputProps } from './SearchInput.tsx'
 
-export { Tooltip } from './Tooltip'
-export type { TooltipProps } from './Tooltip'
+export { Tooltip } from './Tooltip.tsx'
+export type { TooltipProps } from './Tooltip.tsx'
 
-export { ErrorBoundary } from './ErrorBoundary'
-export type { ErrorBoundaryProps } from './ErrorBoundary'
+export { ErrorBoundary } from './ErrorBoundary.tsx'
+export type { ErrorBoundaryProps } from './ErrorBoundary.tsx'
