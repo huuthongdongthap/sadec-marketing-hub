@@ -52,16 +52,25 @@ export {
     $,
     $$,
     createElement,
-    createFragment,
     setAttributes,
-    getAttributes,
-    removeElement,
-    replaceElement,
-    insertBefore,
-    insertAfter,
+    remove as removeElement,
     waitForElement,
-    onElementReady,
-    querySelectorDeep
+    toggleClass,
+    addClass,
+    removeClass,
+    hasClass,
+    closest,
+    matches,
+    delegate,
+    ready,
+    empty,
+    show,
+    hide,
+    isVisible,
+    getOffset,
+    scrollIntoView,
+    getData,
+    setData
 } from './dom-utils.js';
 
 // ============================================================================
@@ -74,8 +83,7 @@ export {
     apiPut,
     apiDelete,
     handleApiError,
-    ApiClientBase,
-    createApiClient
+    ApiClientBase
 } from './api.js';
 
 // ============================================================================
