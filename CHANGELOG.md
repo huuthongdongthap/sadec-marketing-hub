@@ -2,6 +2,63 @@
 
 All notable changes to the **Sa Đéc Marketing Hub** project will be documented in this file.
 
+## [v4.58.0] - 2026-03-14 — UX Enhancements & Responsive Redesign
+
+### 🎯 Summary
+
+Release hoàn thiện UX với 3 tính năng mới: Reading Progress, Back to Top, Help Tour cùng responsive redesign toàn diện.
+
+**Health Score:** 100/100 ✅
+
+### 📝 Changes
+
+#### New Features
+| Feature | Files | Description |
+|---------|-------|-------------|
+| Reading Progress Bar | `assets/css/features/reading-progress.css`, `assets/js/features/reading-progress.js` | Hiển thị tiến độ đọc bài viết |
+| Back to Top Button | `assets/css/features/back-to-top.css`, `assets/js/features/back-to-top.js` | Nút cuộn lên đầu trang |
+| Help Tour | `assets/css/features/help-tour.css`, `assets/js/features/help-tour.js` | Hướng dẫn người dùng mới |
+
+#### UI Components
+| Component | Files | Description |
+|-----------|-------|-------------|
+| Quick Actions | `assets/css/quick-actions.css`, `assets/js/components/quick-actions.js` | Action panel với keyboard shortcuts |
+| Notification Preferences | `assets/css/notification-preferences.css`, `assets/js/components/notification-preferences.js` | Quản lý thông báo |
+| Stepper | `assets/js/components/stepper.js` | Multi-step form component |
+| Micro Interactions | `assets/css/micro-interactions.css` | Micro animations cho UX |
+
+#### Utilities
+| Utility | File | Description |
+|---------|------|-------------|
+| Auto Save | `assets/js/utils/auto-save.js` | Tự động lưu dữ liệu |
+| Clipboard | `assets/js/utils/clipboard.js` | Clipboard utilities |
+| Dark Mode | `assets/js/utils/dark-mode.js` | Dark mode toggle |
+| Offline Detection | `assets/js/utils/offline-detection.js` | Phát hiện kết nối offline |
+| Toast Manager | `assets/js/toast-manager.js` | Toast notification system |
+| Notification Badge | `assets/js/utils/notification-badge.js` | Badge cho notifications |
+
+#### Responsive Improvements
+- `assets/css/responsive-2026-complete.css` - Complete responsive redesign
+- Mobile-first approach cho tất cả pages
+
+#### Widgets
+- `assets/css/widgets-bundle.css` - Widgets bundle
+- `assets/js/dashboard-widgets-bundle.js` - Dashboard widgets
+
+#### Pages Updated (85 files)
+- Admin dashboard (50+ pages)
+- Affiliate module (8 pages)
+- Portal dashboard (15+ pages)
+- Auth pages (login, register, forgot-password, verify-email)
+- Landing pages
+
+### 📊 Stats
+- 85 files changed
+- 1,769 insertions(+)
+- 13 deletions(-)
+
+---
+
 ## [v4.37.0] - 2026-03-14 — Widget Fixes
 
 ### 🎯 Summary

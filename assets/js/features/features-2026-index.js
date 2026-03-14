@@ -22,4 +22,4 @@ window.SadecFeatures2026 = {
     HelpTour: window.HelpTour
 };
 
-console.log('[Features 2026] Loaded - Reading Progress, Back to Top, Help Tour');
+// Console log removed for production

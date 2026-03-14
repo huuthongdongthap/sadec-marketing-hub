@@ -670,7 +670,7 @@ function showAddDealModal() {
 // ================================================
 
 export {
-    toast,
+    Toast,
     modal,
     showDealDetail,
     renderPipeline,

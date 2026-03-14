@@ -1,6 +1,6 @@
 {
-  "version": "vmmph9qda.3c8cdcec3830",
-  "timestamp": "2026-03-13T22:38:03.454Z",
+  "version": "vmmppqq5w.d2e3e420bde8",
+  "timestamp": "2026-03-14T02:35:13.269Z",
   "files": [
     {
       "path": "assets/css/admin-agents.css",
@@ -223,8 +223,20 @@
       "hash": "f160b1e8"
     },
     {
+      "path": "assets/css/features/back-to-top.css",
+      "hash": "9acc4be5"
+    },
+    {
+      "path": "assets/css/features/help-tour.css",
+      "hash": "26e9e835"
+    },
+    {
       "path": "assets/css/features/new-features.css",
       "hash": "f7b0e6d1"
+    },
+    {
+      "path": "assets/css/features/reading-progress.css",
+      "hash": "501f2b2a"
     },
     {
       "path": "assets/css/features.css",
@@ -251,8 +263,16 @@
       "hash": "f87688d6"
     },
     {
+      "path": "assets/css/micro-interactions.css",
+      "hash": "c2b55191"
+    },
+    {
       "path": "assets/css/new-features-2027.css",
       "hash": "daef416f"
+    },
+    {
+      "path": "assets/css/notification-preferences.css",
+      "hash": "0fda641a"
     },
     {
       "path": "assets/css/pipeline-pro.css",
@@ -263,12 +283,20 @@
       "hash": "df943815"
     },
     {
+      "path": "assets/css/quick-actions.css",
+      "hash": "871aa181"
+    },
+    {
       "path": "assets/css/quick-tools-panel.css",
       "hash": "bc67ad1a"
     },
     {
       "path": "assets/css/refactored-inline.css",
       "hash": "bb60ffe6"
+    },
+    {
+      "path": "assets/css/responsive-2026-complete.css",
+      "hash": "83821f9f"
     },
     {
       "path": "assets/css/responsive-enhancements.css",
@@ -288,7 +316,7 @@
     },
     {
       "path": "assets/css/ui-enhancements-2026.css",
-      "hash": "f3bdc418"
+      "hash": "1e65de60"
     },
     {
       "path": "assets/css/ui-enhancements-2027.css",
@@ -299,12 +327,20 @@
       "hash": "edddce19"
     },
     {
+      "path": "assets/css/utils/ux-utilities.css",
+      "hash": "1bdafa7f"
+    },
+    {
       "path": "assets/css/ux-enhancements-2026.css",
       "hash": "3d71296b"
     },
     {
       "path": "assets/css/widget-customizer.css",
       "hash": "eec5990c"
+    },
+    {
+      "path": "assets/css/widgets-bundle.css",
+      "hash": "cb22abaa"
     },
     {
       "path": "assets/css/widgets.css",
@@ -487,6 +523,10 @@
       "hash": "195bd2e1"
     },
     {
+      "path": "assets/js/components/notification-preferences.js",
+      "hash": "13625c40"
+    },
+    {
       "path": "assets/js/components/pagination-component.js",
       "hash": "d83f1e3d"
     },
@@ -497,6 +537,10 @@
     {
       "path": "assets/js/components/payment-status-chip.js",
       "hash": "e6ecd2d8"
+    },
+    {
+      "path": "assets/js/components/quick-actions.js",
+      "hash": "ff849a89"
     },
     {
       "path": "assets/js/components/reading-progress.js",
@@ -525,6 +569,10 @@
     {
       "path": "assets/js/components/skip-link.js",
       "hash": "70db57bb"
+    },
+    {
+      "path": "assets/js/components/stepper.js",
+      "hash": "e7b84b1a"
     },
     {
       "path": "assets/js/components/tabs.js",
@@ -564,7 +612,7 @@
     },
     {
       "path": "assets/js/core/storage-service.js",
-      "hash": "be0053db"
+      "hash": "7b7bc8ff"
     },
     {
       "path": "assets/js/core/supabase-client.js",
@@ -580,11 +628,15 @@
     },
     {
       "path": "assets/js/core-utils.test.js",
-      "hash": "9fa54131"
+      "hash": "f0260db1"
     },
     {
       "path": "assets/js/dashboard-client.js",
       "hash": "db2c6541"
+    },
+    {
+      "path": "assets/js/dashboard-widgets-bundle.js",
+      "hash": "229374db"
     },
     {
       "path": "assets/js/data-sync-init.js",
@@ -592,7 +644,7 @@
     },
     {
       "path": "assets/js/empty-states.js",
-      "hash": "4bea6092"
+      "hash": "14252409"
     },
     {
       "path": "assets/js/error-boundary.js",
@@ -619,6 +671,10 @@
       "hash": "0a354846"
     },
     {
+      "path": "assets/js/features/back-to-top.js",
+      "hash": "d0fb3827"
+    },
+    {
       "path": "assets/js/features/command-palette-enhanced.js",
       "hash": "655a31e2"
     },
@@ -631,12 +687,24 @@
       "hash": "1f0f5860"
     },
     {
+      "path": "assets/js/features/data-refresh-indicator.js",
+      "hash": "fa82ef69"
+    },
+    {
+      "path": "assets/js/features/features-2026-index.js",
+      "hash": "ddd1f63d"
+    },
+    {
       "path": "assets/js/features/features-2026.js",
       "hash": "ca14712a"
     },
     {
+      "path": "assets/js/features/help-tour.js",
+      "hash": "918cc01d"
+    },
+    {
       "path": "assets/js/features/index.js",
-      "hash": "18b1f5d4"
+      "hash": "ec321119"
     },
     {
       "path": "assets/js/features/keyboard-shortcuts.js",
@@ -663,8 +731,16 @@
       "hash": "58af7478"
     },
     {
+      "path": "assets/js/features/reading-progress.js",
+      "hash": "b3376481"
+    },
+    {
       "path": "assets/js/features/search-autocomplete.js",
       "hash": "bf7c6f8b"
+    },
+    {
+      "path": "assets/js/features/ux-enhancements-2026.js",
+      "hash": "8bec5e4f"
     },
     {
       "path": "assets/js/features/widget-customizer.js",
@@ -712,7 +788,7 @@
     },
     {
       "path": "assets/js/loading-states.js",
-      "hash": "1db6066b"
+      "hash": "62899efd"
     },
     {
       "path": "assets/js/micro-animations.js",
@@ -836,7 +912,7 @@
     },
     {
       "path": "assets/js/services/enhanced-utils.js",
-      "hash": "0f92bfd7"
+      "hash": "7ccab3ac"
     },
     {
       "path": "assets/js/services/events.js",
@@ -897,6 +973,10 @@
     {
       "path": "assets/js/services/retention.js",
       "hash": "0351c328"
+    },
+    {
+      "path": "assets/js/services/service-worker.js",
+      "hash": "49041686"
     },
     {
       "path": "assets/js/services/toast-notification.js",
@@ -964,11 +1044,19 @@
     },
     {
       "path": "assets/js/theme-manager.js",
-      "hash": "03d33fb3"
+      "hash": "5bfc8c04"
     },
     {
       "path": "assets/js/toast-component.js",
       "hash": "66e23c51"
+    },
+    {
+      "path": "assets/js/toast-manager.js",
+      "hash": "41443b73"
+    },
+    {
+      "path": "assets/js/ui-enhancements-2026.js",
+      "hash": "7a3e7649"
     },
     {
       "path": "assets/js/ui-enhancements-controller.js",
@@ -989,6 +1077,22 @@
     {
       "path": "assets/js/utils/api.js",
       "hash": "d8ef1fa0"
+    },
+    {
+      "path": "assets/js/utils/auto-save.js",
+      "hash": "b0de0223"
+    },
+    {
+      "path": "assets/js/utils/back-to-top.js",
+      "hash": "ac4f9dda"
+    },
+    {
+      "path": "assets/js/utils/clipboard.js",
+      "hash": "c5ebc708"
+    },
+    {
+      "path": "assets/js/utils/dark-mode.js",
+      "hash": "ad90a1c2"
     },
     {
       "path": "assets/js/utils/dom.js",
@@ -1012,11 +1116,39 @@
     },
     {
       "path": "assets/js/utils/index.js",
-      "hash": "9e00fc2a"
+      "hash": "15bdf4d3"
     },
     {
       "path": "assets/js/utils/keyboard-shortcuts.js",
       "hash": "df76c553"
+    },
+    {
+      "path": "assets/js/utils/notification-badge.js",
+      "hash": "54cdc5d6"
+    },
+    {
+      "path": "assets/js/utils/offline-detection.js",
+      "hash": "a62548aa"
+    },
+    {
+      "path": "assets/js/utils/quick-actions.js",
+      "hash": "13ec4f6a"
+    },
+    {
+      "path": "assets/js/utils/reading-progress.js",
+      "hash": "1cd18425"
+    },
+    {
+      "path": "assets/js/utils/scroll-to-top.js",
+      "hash": "938a76da"
+    },
+    {
+      "path": "assets/js/utils/share.js",
+      "hash": "a9246f41"
+    },
+    {
+      "path": "assets/js/utils/skeleton.js",
+      "hash": "88998dd5"
     },
     {
       "path": "assets/js/utils/sort-utils.js",
@@ -1033,6 +1165,998 @@
     {
       "path": "assets/js/widgets/quick-stats-widget.js",
       "hash": "4e3aa82c"
+    },
+    {
+      "path": "assets/minified/css/admin-agents.min.css",
+      "hash": "e5178475"
+    },
+    {
+      "path": "assets/minified/css/admin-ai-analysis.min.css",
+      "hash": "3768753f"
+    },
+    {
+      "path": "assets/minified/css/admin-api-builder.min.css",
+      "hash": "7e6d9822"
+    },
+    {
+      "path": "assets/minified/css/admin-approvals.min.css",
+      "hash": "cd872f6d"
+    },
+    {
+      "path": "assets/minified/css/admin-auth.min.css",
+      "hash": "de510c50"
+    },
+    {
+      "path": "assets/minified/css/admin-binh-phap.min.css",
+      "hash": "b193fdc4"
+    },
+    {
+      "path": "assets/minified/css/admin-brand-guide.min.css",
+      "hash": "63039d65"
+    },
+    {
+      "path": "assets/minified/css/admin-campaigns.min.css",
+      "hash": "001bd4cd"
+    },
+    {
+      "path": "assets/minified/css/admin-community.min.css",
+      "hash": "1c15a4f3"
+    },
+    {
+      "path": "assets/minified/css/admin-content-calendar.min.css",
+      "hash": "feaec1e6"
+    },
+    {
+      "path": "assets/minified/css/admin-customer-success.min.css",
+      "hash": "12af06a9"
+    },
+    {
+      "path": "assets/minified/css/admin-dashboard.min.css",
+      "hash": "0664bfe1"
+    },
+    {
+      "path": "assets/minified/css/admin-deploy.min.css",
+      "hash": "5b81d5f9"
+    },
+    {
+      "path": "assets/minified/css/admin-docs.min.css",
+      "hash": "2459cea3"
+    },
+    {
+      "path": "assets/minified/css/admin-ecommerce.min.css",
+      "hash": "6c0beceb"
+    },
+    {
+      "path": "assets/minified/css/admin-events.min.css",
+      "hash": "bc76a93e"
+    },
+    {
+      "path": "assets/minified/css/admin-finance.min.css",
+      "hash": "71d45be8"
+    },
+    {
+      "path": "assets/minified/css/admin-hr-hiring.min.css",
+      "hash": "8513be57"
+    },
+    {
+      "path": "assets/minified/css/admin-landing-builder.min.css",
+      "hash": "335114c3"
+    },
+    {
+      "path": "assets/minified/css/admin-leads.min.css",
+      "hash": "a3df170e"
+    },
+    {
+      "path": "assets/minified/css/admin-legal.min.css",
+      "hash": "3d3087e8"
+    },
+    {
+      "path": "assets/minified/css/admin-lms.min.css",
+      "hash": "2b1a3e46"
+    },
+    {
+      "path": "assets/minified/css/admin-menu.min.css",
+      "hash": "6840182f"
+    },
+    {
+      "path": "assets/minified/css/admin-mvp-launch.min.css",
+      "hash": "daf5d018"
+    },
+    {
+      "path": "assets/minified/css/admin-onboarding.min.css",
+      "hash": "af0a7a7b"
+    },
+    {
+      "path": "assets/minified/css/admin-payments.min.css",
+      "hash": "6ba67270"
+    },
+    {
+      "path": "assets/minified/css/admin-pipeline.min.css",
+      "hash": "533ff922"
+    },
+    {
+      "path": "assets/minified/css/admin-pricing.min.css",
+      "hash": "08bb7ec0"
+    },
+    {
+      "path": "assets/minified/css/admin-proposals.min.css",
+      "hash": "da242343"
+    },
+    {
+      "path": "assets/minified/css/admin-refactored.min.css",
+      "hash": "8f45033d"
+    },
+    {
+      "path": "assets/minified/css/admin-retention.min.css",
+      "hash": "b68fa354"
+    },
+    {
+      "path": "assets/minified/css/admin-unified.min.css",
+      "hash": "0cb8c81d"
+    },
+    {
+      "path": "assets/minified/css/admin-vc-readiness.min.css",
+      "hash": "7757c3b2"
+    },
+    {
+      "path": "assets/minified/css/admin-video-workflow.min.css",
+      "hash": "cf6706e1"
+    },
+    {
+      "path": "assets/minified/css/admin-workflows.min.css",
+      "hash": "2654acfd"
+    },
+    {
+      "path": "assets/minified/css/admin-zalo.min.css",
+      "hash": "5d01e889"
+    },
+    {
+      "path": "assets/minified/css/agency-2026.min.css",
+      "hash": "301e54f8"
+    },
+    {
+      "path": "assets/minified/css/ai-content-panel.min.css",
+      "hash": "24274141"
+    },
+    {
+      "path": "assets/minified/css/brand-colors.min.css",
+      "hash": "591c6feb"
+    },
+    {
+      "path": "assets/minified/css/brand-typography.min.css",
+      "hash": "a8ac7fd0"
+    },
+    {
+      "path": "assets/minified/css/bundle/admin-common.min.css",
+      "hash": "38b6fc09"
+    },
+    {
+      "path": "assets/minified/css/bundle/admin-modules.min.css",
+      "hash": "f7f52541"
+    },
+    {
+      "path": "assets/minified/css/bundle/portal-common.min.css",
+      "hash": "110c7684"
+    },
+    {
+      "path": "assets/minified/css/empty-states.min.css",
+      "hash": "687fb1c6"
+    },
+    {
+      "path": "assets/minified/css/features/new-features.min.css",
+      "hash": "dc7ed26e"
+    },
+    {
+      "path": "assets/minified/css/features.min.css",
+      "hash": "f8ad560b"
+    },
+    {
+      "path": "assets/minified/css/help-tour.min.css",
+      "hash": "f97bc93a"
+    },
+    {
+      "path": "assets/minified/css/hover-effects.min.css",
+      "hash": "5e0437ba"
+    },
+    {
+      "path": "assets/minified/css/lazy-loading.min.css",
+      "hash": "c058bcea"
+    },
+    {
+      "path": "assets/minified/css/m3-agency.min.css",
+      "hash": "2f1e5363"
+    },
+    {
+      "path": "assets/minified/css/micro-interactions.min.css",
+      "hash": "e6d06600"
+    },
+    {
+      "path": "assets/minified/css/new-features-2027.min.css",
+      "hash": "6031331e"
+    },
+    {
+      "path": "assets/minified/css/pipeline-pro.min.css",
+      "hash": "66e00fdf"
+    },
+    {
+      "path": "assets/minified/css/portal.min.css",
+      "hash": "c27b6641"
+    },
+    {
+      "path": "assets/minified/css/quick-tools-panel.min.css",
+      "hash": "8c35e9af"
+    },
+    {
+      "path": "assets/minified/css/refactored-inline.min.css",
+      "hash": "b9e3613b"
+    },
+    {
+      "path": "assets/minified/css/responsive-2026-complete.min.css",
+      "hash": "5b22945e"
+    },
+    {
+      "path": "assets/minified/css/responsive-enhancements.min.css",
+      "hash": "c67b3103"
+    },
+    {
+      "path": "assets/minified/css/responsive-fix-2026.min.css",
+      "hash": "c8aff085"
+    },
+    {
+      "path": "assets/minified/css/responsive-table-layout.min.css",
+      "hash": "e01e7b14"
+    },
+    {
+      "path": "assets/minified/css/ui-enhancements-2026.min.css",
+      "hash": "4337214b"
+    },
+    {
+      "path": "assets/minified/css/ui-enhancements-2027.min.css",
+      "hash": "2779dd08"
+    },
+    {
+      "path": "assets/minified/css/ui-motion-system.min.css",
+      "hash": "6785f0e1"
+    },
+    {
+      "path": "assets/minified/css/ux-enhancements-2026.min.css",
+      "hash": "5e5b9de5"
+    },
+    {
+      "path": "assets/minified/css/widget-customizer.min.css",
+      "hash": "6368a864"
+    },
+    {
+      "path": "assets/minified/css/widgets.min.css",
+      "hash": "e070fb37"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-campaigns.min.js",
+      "hash": "1004dd7a"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-clients.min.js",
+      "hash": "a04a2525"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-dashboard.min.js",
+      "hash": "d3c79b8b"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-data.min.js",
+      "hash": "49b34b97"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-leads.min.js",
+      "hash": "dacd26e8"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-utils.min.js",
+      "hash": "990e0ef6"
+    },
+    {
+      "path": "assets/minified/js/admin/admin-ux-enhancements.min.js",
+      "hash": "168f6fda"
+    },
+    {
+      "path": "assets/minified/js/admin/bell-component.min.js",
+      "hash": "0543079b"
+    },
+    {
+      "path": "assets/minified/js/admin/index.min.js",
+      "hash": "f2c97bd1"
+    },
+    {
+      "path": "assets/minified/js/admin/keyboard-shortcuts.min.js",
+      "hash": "91f461b9"
+    },
+    {
+      "path": "assets/minified/js/admin/menu-manager.min.js",
+      "hash": "908ad775"
+    },
+    {
+      "path": "assets/minified/js/admin/notification-bell.min.js",
+      "hash": "1242e72c"
+    },
+    {
+      "path": "assets/minified/js/admin/notification-panel.min.js",
+      "hash": "b9b7d962"
+    },
+    {
+      "path": "assets/minified/js/admin/skeleton-loader.min.js",
+      "hash": "24015357"
+    },
+    {
+      "path": "assets/minified/js/admin/ux-components-index.min.js",
+      "hash": "17dd568a"
+    },
+    {
+      "path": "assets/minified/js/affiliate-api.min.js",
+      "hash": "3ee95d27"
+    },
+    {
+      "path": "assets/minified/js/agency-2026-premium.min.js",
+      "hash": "65f6e161"
+    },
+    {
+      "path": "assets/minified/js/ai-assistant.min.js",
+      "hash": "cc12092f"
+    },
+    {
+      "path": "assets/minified/js/alert-system.min.js",
+      "hash": "1322d91c"
+    },
+    {
+      "path": "assets/minified/js/base-manager.min.js",
+      "hash": "143d5b70"
+    },
+    {
+      "path": "assets/minified/js/binh-phap.min.js",
+      "hash": "dd81d373"
+    },
+    {
+      "path": "assets/minified/js/charts/bar-chart.min.js",
+      "hash": "5471449d"
+    },
+    {
+      "path": "assets/minified/js/charts/doughnut-chart.min.js",
+      "hash": "26d1bac6"
+    },
+    {
+      "path": "assets/minified/js/charts/line-chart.min.js",
+      "hash": "57b71e51"
+    },
+    {
+      "path": "assets/minified/js/components/accordion.min.js",
+      "hash": "9cbf8ddf"
+    },
+    {
+      "path": "assets/minified/js/components/activity-component.min.js",
+      "hash": "7733aa9d"
+    },
+    {
+      "path": "assets/minified/js/components/advanced-filters.min.js",
+      "hash": "632b56e2"
+    },
+    {
+      "path": "assets/minified/js/components/back-to-top.min.js",
+      "hash": "7fb2a8da"
+    },
+    {
+      "path": "assets/minified/js/components/breadcrumbs.min.js",
+      "hash": "88277306"
+    },
+    {
+      "path": "assets/minified/js/components/chart-components.min.js",
+      "hash": "c408ad38"
+    },
+    {
+      "path": "assets/minified/js/components/command-palette.min.js",
+      "hash": "191d5f47"
+    },
+    {
+      "path": "assets/minified/js/components/data-table.min.js",
+      "hash": "6e33fbb5"
+    },
+    {
+      "path": "assets/minified/js/components/empty-state.min.js",
+      "hash": "b1da30d8"
+    },
+    {
+      "path": "assets/minified/js/components/error-boundary.min.js",
+      "hash": "34c45229"
+    },
+    {
+      "path": "assets/minified/js/components/export-buttons.min.js",
+      "hash": "262a6bfb"
+    },
+    {
+      "path": "assets/minified/js/components/file-upload.min.js",
+      "hash": "03b81103"
+    },
+    {
+      "path": "assets/minified/js/components/filter-component.min.js",
+      "hash": "7f1a9001"
+    },
+    {
+      "path": "assets/minified/js/components/gateway-selector.min.js",
+      "hash": "a98350d8"
+    },
+    {
+      "path": "assets/minified/js/components/index.min.js",
+      "hash": "3aacb3e4"
+    },
+    {
+      "path": "assets/minified/js/components/kpi-card.min.js",
+      "hash": "c26a9284"
+    },
+    {
+      "path": "assets/minified/js/components/kpi-component.min.js",
+      "hash": "cab633a2"
+    },
+    {
+      "path": "assets/minified/js/components/loading-button.min.js",
+      "hash": "35f229d5"
+    },
+    {
+      "path": "assets/minified/js/components/mobile-responsive.min.js",
+      "hash": "312729c5"
+    },
+    {
+      "path": "assets/minified/js/components/notification-bell.min.js",
+      "hash": "5ac95557"
+    },
+    {
+      "path": "assets/minified/js/components/pagination-component.min.js",
+      "hash": "450476fe"
+    },
+    {
+      "path": "assets/minified/js/components/payment-modal.min.js",
+      "hash": "76186da9"
+    },
+    {
+      "path": "assets/minified/js/components/payment-status-chip.min.js",
+      "hash": "03beeba8"
+    },
+    {
+      "path": "assets/minified/js/components/reading-progress.min.js",
+      "hash": "e8f59a62"
+    },
+    {
+      "path": "assets/minified/js/components/sadec-navbar.min.js",
+      "hash": "257a23e4"
+    },
+    {
+      "path": "assets/minified/js/components/sadec-sidebar.min.js",
+      "hash": "5b5c8902"
+    },
+    {
+      "path": "assets/minified/js/components/sadec-toast.min.js",
+      "hash": "3f4ae710"
+    },
+    {
+      "path": "assets/minified/js/components/scroll-to-top.min.js",
+      "hash": "ad7fe258"
+    },
+    {
+      "path": "assets/minified/js/components/search-autocomplete.min.js",
+      "hash": "0160155c"
+    },
+    {
+      "path": "assets/minified/js/components/skip-link.min.js",
+      "hash": "75f81a5a"
+    },
+    {
+      "path": "assets/minified/js/components/tabs.min.js",
+      "hash": "0dd8c33b"
+    },
+    {
+      "path": "assets/minified/js/components/theme-manager.min.js",
+      "hash": "8091cea7"
+    },
+    {
+      "path": "assets/minified/js/components/theme-toggle.min.js",
+      "hash": "8b12f530"
+    },
+    {
+      "path": "assets/minified/js/components/toast-manager.min.js",
+      "hash": "c3761c09"
+    },
+    {
+      "path": "assets/minified/js/components/toast.min.js",
+      "hash": "20d7a229"
+    },
+    {
+      "path": "assets/minified/js/components/tooltip.min.js",
+      "hash": "10dd1a2a"
+    },
+    {
+      "path": "assets/minified/js/content-calendar.min.js",
+      "hash": "0a91d689"
+    },
+    {
+      "path": "assets/minified/js/core/auth-service.min.js",
+      "hash": "87d4f521"
+    },
+    {
+      "path": "assets/minified/js/core/database-service.min.js",
+      "hash": "a659dbb0"
+    },
+    {
+      "path": "assets/minified/js/core/storage-service.min.js",
+      "hash": "09424aca"
+    },
+    {
+      "path": "assets/minified/js/core/supabase-client.min.js",
+      "hash": "c34ccf10"
+    },
+    {
+      "path": "assets/minified/js/core/theme-manager.min.js",
+      "hash": "cf3bfba3"
+    },
+    {
+      "path": "assets/minified/js/core/user-preferences.min.js",
+      "hash": "6f8e919b"
+    },
+    {
+      "path": "assets/minified/js/dashboard-client.min.js",
+      "hash": "8a14df45"
+    },
+    {
+      "path": "assets/minified/js/data-sync-init.min.js",
+      "hash": "4f0fa51d"
+    },
+    {
+      "path": "assets/minified/js/empty-states.min.js",
+      "hash": "824feb86"
+    },
+    {
+      "path": "assets/minified/js/error-boundary.min.js",
+      "hash": "fbccb06a"
+    },
+    {
+      "path": "assets/minified/js/features/activity-timeline.min.js",
+      "hash": "700ed1d0"
+    },
+    {
+      "path": "assets/minified/js/features/ai-content-generator.min.js",
+      "hash": "c4af7411"
+    },
+    {
+      "path": "assets/minified/js/features/ai-content-panel.min.js",
+      "hash": "9c70b951"
+    },
+    {
+      "path": "assets/minified/js/features/ai-search-enhancement.min.js",
+      "hash": "afc7c811"
+    },
+    {
+      "path": "assets/minified/js/features/analytics-dashboard.min.js",
+      "hash": "3b4dd884"
+    },
+    {
+      "path": "assets/minified/js/features/command-palette-enhanced.min.js",
+      "hash": "5e9d1475"
+    },
+    {
+      "path": "assets/minified/js/features/dark-mode.min.js",
+      "hash": "85eca45a"
+    },
+    {
+      "path": "assets/minified/js/features/data-export.min.js",
+      "hash": "b69c3c08"
+    },
+    {
+      "path": "assets/minified/js/features/features-2026.min.js",
+      "hash": "292050d5"
+    },
+    {
+      "path": "assets/minified/js/features/index.min.js",
+      "hash": "9ccc167c"
+    },
+    {
+      "path": "assets/minified/js/features/keyboard-shortcuts.min.js",
+      "hash": "e187dbad"
+    },
+    {
+      "path": "assets/minified/js/features/notification-center.min.js",
+      "hash": "fac5ae4f"
+    },
+    {
+      "path": "assets/minified/js/features/project-health-monitor.min.js",
+      "hash": "bda0aa11"
+    },
+    {
+      "path": "assets/minified/js/features/quick-actions.min.js",
+      "hash": "8293dcfc"
+    },
+    {
+      "path": "assets/minified/js/features/quick-notes.min.js",
+      "hash": "bafc07f2"
+    },
+    {
+      "path": "assets/minified/js/features/quick-tools-panel.min.js",
+      "hash": "bb942845"
+    },
+    {
+      "path": "assets/minified/js/features/search-autocomplete.min.js",
+      "hash": "524d1eb0"
+    },
+    {
+      "path": "assets/minified/js/features/widget-customizer.min.js",
+      "hash": "5d62d01a"
+    },
+    {
+      "path": "assets/minified/js/finance-client.min.js",
+      "hash": "6059dc04"
+    },
+    {
+      "path": "assets/minified/js/finance.min.js",
+      "hash": "16ccc42e"
+    },
+    {
+      "path": "assets/minified/js/guards/admin-guard.min.js",
+      "hash": "ae1aaee3"
+    },
+    {
+      "path": "assets/minified/js/guards/index.min.js",
+      "hash": "fb32e6f6"
+    },
+    {
+      "path": "assets/minified/js/guards/portal-guard.min.js",
+      "hash": "1cca2607"
+    },
+    {
+      "path": "assets/minified/js/help-tour.min.js",
+      "hash": "40b843c3"
+    },
+    {
+      "path": "assets/minified/js/keyboard-shortcuts.min.js",
+      "hash": "8771582a"
+    },
+    {
+      "path": "assets/minified/js/landing-builder.min.js",
+      "hash": "4dd7f03f"
+    },
+    {
+      "path": "assets/minified/js/landing-renderer.min.js",
+      "hash": "0441a90d"
+    },
+    {
+      "path": "assets/minified/js/lazy-load-component.min.js",
+      "hash": "9d6a1fc6"
+    },
+    {
+      "path": "assets/minified/js/loading-states.min.js",
+      "hash": "ec04f2d2"
+    },
+    {
+      "path": "assets/minified/js/micro-animations.min.js",
+      "hash": "5144879d"
+    },
+    {
+      "path": "assets/minified/js/mobile-menu.min.js",
+      "hash": "d0347c11"
+    },
+    {
+      "path": "assets/minified/js/mobile-navigation.min.js",
+      "hash": "f87afdd4"
+    },
+    {
+      "path": "assets/minified/js/mvp-launch.min.js",
+      "hash": "925b5a2b"
+    },
+    {
+      "path": "assets/minified/js/notification-manager.min.js",
+      "hash": "02c070c9"
+    },
+    {
+      "path": "assets/minified/js/onboarding.min.js",
+      "hash": "1ad2d49c"
+    },
+    {
+      "path": "assets/minified/js/pipeline.min.js",
+      "hash": "03b91bc9"
+    },
+    {
+      "path": "assets/minified/js/portal/index.min.js",
+      "hash": "34ba9c26"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-auth.min.js",
+      "hash": "eb5c373b"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-dashboard.min.js",
+      "hash": "50fe48bc"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-data.min.js",
+      "hash": "e9a081ac"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-guard.min.js",
+      "hash": "015b851b"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-invoices.min.js",
+      "hash": "1f399762"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-payments.min.js",
+      "hash": "7e94f2d9"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-projects.min.js",
+      "hash": "e0c876e5"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-ui.min.js",
+      "hash": "a19f694a"
+    },
+    {
+      "path": "assets/minified/js/portal/portal-utils.min.js",
+      "hash": "46636a2f"
+    },
+    {
+      "path": "assets/minified/js/portal/supabase.min.js",
+      "hash": "320af9db"
+    },
+    {
+      "path": "assets/minified/js/portal-client.min.js",
+      "hash": "943df169"
+    },
+    {
+      "path": "assets/minified/js/pricing.min.js",
+      "hash": "076bdd71"
+    },
+    {
+      "path": "assets/minified/js/realtime-dashboard.min.js",
+      "hash": "4f5c47b8"
+    },
+    {
+      "path": "assets/minified/js/services/admin-shared.min.js",
+      "hash": "bd598149"
+    },
+    {
+      "path": "assets/minified/js/services/agents.min.js",
+      "hash": "ad2724b8"
+    },
+    {
+      "path": "assets/minified/js/services/ai-assistant.min.js",
+      "hash": "b03c603a"
+    },
+    {
+      "path": "assets/minified/js/services/approvals.min.js",
+      "hash": "8525c9c4"
+    },
+    {
+      "path": "assets/minified/js/services/community.min.js",
+      "hash": "70ecd491"
+    },
+    {
+      "path": "assets/minified/js/services/content-ai.min.js",
+      "hash": "a4ed3f20"
+    },
+    {
+      "path": "assets/minified/js/services/core-utils.min.js",
+      "hash": "4a94f29a"
+    },
+    {
+      "path": "assets/minified/js/services/customer-success.min.js",
+      "hash": "0b1e2f0b"
+    },
+    {
+      "path": "assets/minified/js/services/ecommerce.min.js",
+      "hash": "3360aca2"
+    },
+    {
+      "path": "assets/minified/js/services/enhanced-utils.min.js",
+      "hash": "579e20bd"
+    },
+    {
+      "path": "assets/minified/js/services/events.min.js",
+      "hash": "cc96c61e"
+    },
+    {
+      "path": "assets/minified/js/services/form-validation.min.js",
+      "hash": "5b088bc2"
+    },
+    {
+      "path": "assets/minified/js/services/hr-hiring.min.js",
+      "hash": "4a4d8489"
+    },
+    {
+      "path": "assets/minified/js/services/index.min.js",
+      "hash": "629948cc"
+    },
+    {
+      "path": "assets/minified/js/services/lazy-loader.min.js",
+      "hash": "ab25d21e"
+    },
+    {
+      "path": "assets/minified/js/services/legal.min.js",
+      "hash": "6134436e"
+    },
+    {
+      "path": "assets/minified/js/services/lms.min.js",
+      "hash": "549eb5ac"
+    },
+    {
+      "path": "assets/minified/js/services/mekong-store.min.js",
+      "hash": "65aca066"
+    },
+    {
+      "path": "assets/minified/js/services/notifications.min.js",
+      "hash": "d4dd5327"
+    },
+    {
+      "path": "assets/minified/js/services/payment-gateway.min.js",
+      "hash": "5e5f679c"
+    },
+    {
+      "path": "assets/minified/js/services/performance.min.js",
+      "hash": "c63226c6"
+    },
+    {
+      "path": "assets/minified/js/services/proposals.min.js",
+      "hash": "df362e30"
+    },
+    {
+      "path": "assets/minified/js/services/pwa-install.min.js",
+      "hash": "298081d1"
+    },
+    {
+      "path": "assets/minified/js/services/report-generator.min.js",
+      "hash": "323b7aaa"
+    },
+    {
+      "path": "assets/minified/js/services/retention.min.js",
+      "hash": "bb9007a1"
+    },
+    {
+      "path": "assets/minified/js/services/service-worker.min.js",
+      "hash": "a58f2e7c"
+    },
+    {
+      "path": "assets/minified/js/services/toast-notification.min.js",
+      "hash": "f2d5c9a4"
+    },
+    {
+      "path": "assets/minified/js/services/ui-utils.min.js",
+      "hash": "ddbda4dd"
+    },
+    {
+      "path": "assets/minified/js/services/vc-readiness.min.js",
+      "hash": "33fe657d"
+    },
+    {
+      "path": "assets/minified/js/services/video.min.js",
+      "hash": "e100f2d0"
+    },
+    {
+      "path": "assets/minified/js/services/workflows.min.js",
+      "hash": "3b66eca2"
+    },
+    {
+      "path": "assets/minified/js/services/zalo-chat.min.js",
+      "hash": "53f75270"
+    },
+    {
+      "path": "assets/minified/js/shared/api-client.min.js",
+      "hash": "6e1ab452"
+    },
+    {
+      "path": "assets/minified/js/shared/api-utils.min.js",
+      "hash": "9394a5e6"
+    },
+    {
+      "path": "assets/minified/js/shared/base-component.min.js",
+      "hash": "6bdf09d2"
+    },
+    {
+      "path": "assets/minified/js/shared/dom-utils.min.js",
+      "hash": "43a14a88"
+    },
+    {
+      "path": "assets/minified/js/shared/format-utils.min.js",
+      "hash": "1a1c281b"
+    },
+    {
+      "path": "assets/minified/js/shared/guard-utils.min.js",
+      "hash": "ddd8e8c9"
+    },
+    {
+      "path": "assets/minified/js/shared/logger.min.js",
+      "hash": "c41e6bdc"
+    },
+    {
+      "path": "assets/minified/js/shared/modal-utils.min.js",
+      "hash": "c7586bfa"
+    },
+    {
+      "path": "assets/minified/js/shared-head.min.js",
+      "hash": "3ed796d5"
+    },
+    {
+      "path": "assets/minified/js/supabase.min.js",
+      "hash": "0e37f4fd"
+    },
+    {
+      "path": "assets/minified/js/theme-manager.min.js",
+      "hash": "a92d3a85"
+    },
+    {
+      "path": "assets/minified/js/toast-component.min.js",
+      "hash": "d30dfbd0"
+    },
+    {
+      "path": "assets/minified/js/toast-manager.min.js",
+      "hash": "a03fb975"
+    },
+    {
+      "path": "assets/minified/js/ui-enhancements-controller.min.js",
+      "hash": "f778d1f9"
+    },
+    {
+      "path": "assets/minified/js/ui-enhancements.min.js",
+      "hash": "f8c4453c"
+    },
+    {
+      "path": "assets/minified/js/ui-motion-controller.min.js",
+      "hash": "8f7358bc"
+    },
+    {
+      "path": "assets/minified/js/unified-login.min.js",
+      "hash": "2db6baba"
+    },
+    {
+      "path": "assets/minified/js/utils/api.min.js",
+      "hash": "8a7a8360"
+    },
+    {
+      "path": "assets/minified/js/utils/dom.min.js",
+      "hash": "9d493f8a"
+    },
+    {
+      "path": "assets/minified/js/utils/events.min.js",
+      "hash": "eb978a2c"
+    },
+    {
+      "path": "assets/minified/js/utils/export-utils.min.js",
+      "hash": "cfc40eb0"
+    },
+    {
+      "path": "assets/minified/js/utils/function.min.js",
+      "hash": "b35e1a8e"
+    },
+    {
+      "path": "assets/minified/js/utils/id.min.js",
+      "hash": "2802051d"
+    },
+    {
+      "path": "assets/minified/js/utils/index.min.js",
+      "hash": "5d574392"
+    },
+    {
+      "path": "assets/minified/js/utils/keyboard-shortcuts.min.js",
+      "hash": "0f2e46dc"
+    },
+    {
+      "path": "assets/minified/js/utils/sort-utils.min.js",
+      "hash": "3449498f"
+    },
+    {
+      "path": "assets/minified/js/utils/string.min.js",
+      "hash": "3c6e1364"
+    },
+    {
+      "path": "assets/minified/js/widgets/index.min.js",
+      "hash": "99ba9a1b"
+    },
+    {
+      "path": "assets/minified/js/widgets/quick-stats-widget.min.js",
+      "hash": "551b47ff"
     }
   ]
 }
