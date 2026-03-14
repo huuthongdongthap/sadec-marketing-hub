@@ -5,7 +5,7 @@
  * Unit tests for core utility functions
  */
 
-import { describe, it, expect, beforeEach, afterEach } from '@playwright/test';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 // Test utilities
 import {

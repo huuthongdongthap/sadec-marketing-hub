@@ -16,6 +16,8 @@
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+import { Logger } from './shared/logger.js';
+
 // ═══════════════════════════════════════════════════════════════════════════
 // SCROLL REVEAL ANIMATIONS
 // ═══════════════════════════════════════════════════════════════════════════
@@ -308,7 +310,7 @@ function stopPulse(element) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 function initUIEnhancements() {
-    console.log('[UI Enhancements] Initializing...');
+    Logger.log('[UI Enhancements] Initializing...');
 
     // Initialize scroll reveal
     initScrollReveal();
@@ -336,7 +338,7 @@ function initUIEnhancements() {
         triggerAnimation
     };
 
-    console.log('[UI Enhancements] Ready');
+    Logger.log('[UI Enhancements] Ready');
 }
 
 // Auto-initialize on DOMContentLoaded
