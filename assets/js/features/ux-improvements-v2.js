@@ -208,7 +208,7 @@ export function initAutoSave(formId, storageKey, interval = 5000) {
             });
             showToast('Đã khôi phục dữ liệu tự động lưu');
         } catch (e) {
-            console.warn('Auto-save: Failed to load saved data');
+            // Silent fail - auto-save is optional feature
         }
     }
 

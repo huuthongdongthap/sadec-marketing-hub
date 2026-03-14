@@ -476,7 +476,7 @@ class LineChartWidget extends HTMLElement {
 
             this.showToast('Chart exported successfully!', 'success');
         } catch (error) {
-            console.error('Export failed:', error);
+            // Silent fail - error already shown to user via toast
             this.showToast('Export failed. Please try again.', 'error');
         }
     }

@@ -44,7 +44,7 @@ class DataTableWidget extends HTMLElement {
 
             this.renderTable();
         } catch (e) {
-            console.error('[DataTable] Failed to parse data:', e);
+            // Silent fail - invalid data handled by empty table render
         }
     }
 

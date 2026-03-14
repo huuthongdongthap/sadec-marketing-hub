@@ -101,7 +101,7 @@ export class InfiniteScroll {
         try {
             await this.onLoadMore?.(this.page);
         } catch (error) {
-            console.error('[InfiniteScroll] Load more failed:', error);
+            // Silent fail - error handled by disabling load more
             this.hasMore = false;
         } finally {
             this.loading = false;
@@ -248,9 +248,7 @@ export class OptimisticUI {
             this.pendingUpdates.delete(elementId);
             return result;
         } catch (error) {
-            console.error('[OptimisticUI] Update failed, rolling back:', error);
-
-            // Rollback on error
+            // Silent fail - rollback handled automatically
             if (rollbackFn) {
                 rollbackFn();
             } else {

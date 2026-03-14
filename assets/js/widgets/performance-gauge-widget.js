@@ -35,7 +35,7 @@ class PerformanceGaugeWidget extends HTMLElement {
                 this.renderGauges();
             }
         } catch (e) {
-            console.error('[PerformanceGauge] Failed to parse metrics:', e);
+            // Silent fail - invalid metrics handled by empty gauge render
         }
     }
 

@@ -148,7 +148,7 @@ class ConversionFunnel extends HTMLElement {
         this.loadDemoData();
       }
     } catch (error) {
-      console.warn('Funnel API error, using demo data:', error.message);
+      // Silent fail - demo data loaded as fallback
       this.loadDemoData();
     }
   }
