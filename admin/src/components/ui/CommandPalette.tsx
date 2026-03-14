@@ -4,7 +4,7 @@
  */
 import React, { useState, useEffect, useCallback } from 'react'
 import { cn } from '@/lib/utils'
-import { Search, Command, X } from 'lucide-react'
+import { Search, Command } from 'lucide-react'
 
 export interface CommandPaletteProps {
   /** Open state */

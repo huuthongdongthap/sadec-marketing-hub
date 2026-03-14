@@ -13,8 +13,7 @@ import {
   Accordion, AccordionItem, AccordionTrigger, AccordionContent,
   ProgressBar,
   CommandPalette, CommandItem,
-  NotificationBell, Notification,
-  Skeleton, SkeletonKPI, SkeletonChart
+  NotificationBell, Notification
 } from './components/ui'
 
 // Initialize service worker
@@ -59,7 +58,6 @@ function App() {
   const [selectedRows, setSelectedRows] = useState<string[]>([])
   const [selectedStatus, setSelectedStatus] = useState<string>('all')
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
-  const [commandPaletteSearch, setCommandPaletteSearch] = useState('')
 
   // Mock notifications
   const [notifications] = useState<Notification[]>([
@@ -168,6 +166,21 @@ function App() {
           <p className="text-gray-500">Tổng quan hiệu suất marketing</p>
         </div>
         <div className="flex gap-2">
+          <button
+            onClick={() => setIsCommandPaletteOpen(true)}
+            className="btn-outline flex items-center gap-2"
+            aria-label="Open command palette (Ctrl+K)"
+          >
+            <Search className="w-4 h-4" />
+            <span className="hidden sm:inline">Tìm kiếm...</span>
+            <kbd className="hidden sm:inline-flex px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 rounded">⌘K</kbd>
+          </button>
+          <NotificationBell
+            notifications={notifications}
+            onNotificationClick={(n) => toast.info(`Clicked: ${n.title}`)}
+            onMarkAllRead={() => toast.info('Marked all as read')}
+            onClearAll={() => toast.info('Cleared all notifications')}
+          />
           <button
             onClick={toggleTheme}
             className="btn-outline flex items-center gap-2"

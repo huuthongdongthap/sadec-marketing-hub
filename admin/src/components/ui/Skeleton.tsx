@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 export interface SkeletonProps {
   className?: string
   animation?: 'pulse' | 'shine' | 'none'
+  style?: React.CSSProperties
 }
 
 /**
@@ -121,7 +122,7 @@ export const SkeletonChart: React.FC<{ height?: number }> = ({ height = 200 }) =
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4">
       <SkeletonTitle className="mb-4" />
-      <Skeleton className="w-full" style={{ height }} />
+      <Skeleton className="w-full" style={{ height: `${height}px` }} />
     </div>
   )
 }

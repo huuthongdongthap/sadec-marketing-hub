@@ -4,7 +4,7 @@
  */
 import React, { useState } from 'react'
 import { cn } from '@/lib/utils'
-import { Bell, Check, Trash2 } from 'lucide-react'
+import { Bell } from 'lucide-react'
 import { Tooltip } from './Tooltip'
 
 export interface NotificationBellProps {

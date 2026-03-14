@@ -414,7 +414,7 @@
                 document.getElementById('result-title').textContent = 'Quét mã để thanh toán';
                 document.getElementById('result-message').innerHTML = `
                     Vui lòng quét mã VietQR bên dưới để hoàn tất giao dịch.<br>
-                    <img decoding="async" src="${decodeURIComponent(qrUrl)}" alt="VietQR" style="max-width: 300px; margin-top: 16px; border-radius: 12px; border: 1px solid #ddd;" loading="lazy">
+                    <img decoding="async" src="${decodeURIComponent(qrUrl)}" alt="VietQR" class="qr-payment-image" loading="lazy">
                 `;
             } else {
                 document.getElementById('result-title').textContent = '⏳ Đang chờ thanh toán';
