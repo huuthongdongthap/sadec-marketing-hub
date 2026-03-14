@@ -21,6 +21,11 @@ build/
 env.js
 *.log
 
+# Vite/Vitest build artifacts
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
 # Build scripts (allowed)
 !scripts/build/
 !scripts/perf/
