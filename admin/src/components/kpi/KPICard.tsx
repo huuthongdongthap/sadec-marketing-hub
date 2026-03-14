@@ -37,11 +37,9 @@ export const KPICard: React.FC<KPICardProps> = ({
 }) => {
   const isPositive = change !== undefined && change > 0
   const isNegative = change !== undefined && change < 0
-  const isNeutral = change === 0 || change === undefined
 
   const TrendIcon = isPositive ? TrendingUp : isNegative ? TrendingDown : Minus
   const trendColor = isPositive ? 'text-success-600' : isNegative ? 'text-danger-600' : 'text-gray-400'
-  const trendBgColor = isPositive ? 'bg-success-50' : isNegative ? 'bg-danger-50' : 'bg-gray-100'
 
   if (loading) {
     return (
