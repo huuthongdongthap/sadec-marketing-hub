@@ -1,0 +1,98 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * BACK TO TOP BUTTON — Styles
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--md-sys-color-surface, #ffffff);
+    border: 1px solid var(--md-sys-color-outline, #e0e0e0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    color: var(--md-sys-color-on-surface, #1a1a1a);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--md-sys-color-primary, #1976d2);
+    color: var(--md-sys-color-on-primary, #ffffff);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.3);
+    transform: translateY(-4px);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+}
+
+.back-to-top:focus {
+    outline: 2px solid var(--md-sys-color-primary, #1976d2);
+    outline-offset: 2px;
+}
+
+.back-to-top .material-symbols-outlined {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.back-to-top:hover .material-symbols-outlined {
+    transform: translateY(-2px);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .back-to-top {
+    background: var(--md-sys-color-surface-dark, #1e1e1e);
+    border-color: var(--md-sys-color-outline-dark, #444444);
+    color: var(--md-sys-color-on-surface-dark, #ffffff);
+}
+
+[data-theme="dark"] .back-to-top:hover {
+    background: var(--md-sys-color-primary-dark, #90caf9);
+    color: var(--md-sys-color-on-primary-dark, #000000);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .back-to-top .material-symbols-outlined {
+        font-size: 20px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        transform: none;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:active {
+        transform: none;
+    }
+}

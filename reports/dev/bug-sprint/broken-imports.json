@@ -1,5 +1,35 @@
 [
   {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/auth-service.js",
+    "resolved": "assets/js/core/core/auth-service.js",
+    "line": 9
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/database-service.js",
+    "resolved": "assets/js/core/core/database-service.js",
+    "line": 10
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/storage-service.js",
+    "resolved": "assets/js/core/core/storage-service.js",
+    "line": 11
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/supabase-client.js",
+    "resolved": "assets/js/core/core/supabase-client.js",
+    "line": 14
+  },
+  {
+    "file": "assets/js/features/analytics-dashboard.js",
+    "import": "./features/analytics-dashboard.js",
+    "resolved": "assets/js/features/features/analytics-dashboard.js",
+    "line": 8
+  },
+  {
     "file": "assets/js/services/core-utils.js",
     "import": "./services/core-utils.js",
     "resolved": "assets/js/services/services/core-utils.js",

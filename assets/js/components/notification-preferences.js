@@ -12,7 +12,7 @@
  *   NotificationPreferences.init('#prefs-container');
  */
 
-import { supabase } from '../../portal/supabase.js';
+import { auth, db } from '../core/supabase-client.js';
 import { Logger } from '../shared/logger.js';
 
 class NotificationPreferences {
@@ -59,7 +59,7 @@ class NotificationPreferences {
      */
     async loadPreferences() {
         try {
-            const { data: { user } } = await supabase.auth.getUser();
+            const { data: { user } } = await auth.getUser();
             if (!user) return;
 
             const { data, error } = await supabase
@@ -84,7 +84,7 @@ class NotificationPreferences {
      */
     async savePreferences() {
         try {
-            const { data: { user } } = await supabase.auth.getUser();
+            const { data: { user } } = await auth.getUser();
             if (!user) return;
 
             const { error } = await supabase
