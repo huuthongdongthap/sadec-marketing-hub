@@ -4,7 +4,7 @@
     "warning": 149,
     "info": 0
   },
-  "files_scanned": 98,
+  "files_scanned": 138,
   "results": [
     {
       "file": "offline.html",
@@ -53,7 +53,7 @@
       "issues": [],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 40
+      "meta_count": 41
     },
     {
       "file": "terms.html",
@@ -74,14 +74,14 @@
       "issues": [],
       "links_count": 3,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "lp.html",
       "issues": [],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 14
+      "meta_count": 15
     },
     {
       "file": "privacy.html",
@@ -500,7 +500,7 @@
       ],
       "links_count": 3,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "admin/brand-guide.html",
@@ -1557,7 +1557,7 @@
       ],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "affiliate/media.html",
@@ -1571,7 +1571,7 @@
       ],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "affiliate/dashboard.html",
@@ -1591,7 +1591,7 @@
       ],
       "links_count": 1,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "affiliate/commissions.html",
@@ -1625,7 +1625,7 @@
       ],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "affiliate/settings.html",
@@ -1639,7 +1639,7 @@
       ],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "affiliate/referrals.html",
@@ -1659,12 +1659,292 @@
       ],
       "links_count": 0,
       "images_count": 0,
-      "meta_count": 15
+      "meta_count": 16
     },
     {
       "file": "audit-reports/full-audit-report.html",
       "issues": [],
       "links_count": 0,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/index.html",
+      "issues": [],
+      "links_count": 6,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "issues": [],
+      "links_count": 32,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "issues": [],
+      "links_count": 3,
+      "images_count": 0,
+      "meta_count": 15
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "issues": [],
+      "links_count": 3,
       "images_count": 0,
       "meta_count": 15
     }
