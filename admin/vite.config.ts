@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
+import brotli from 'rollup-plugin-brotli'
+import visualizer from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   plugins: [
@@ -75,8 +77,21 @@ export default defineConfig({
           }
         ]
       }
+    }),
+    // Brotli compression for production
+    process.env.NODE_ENV === 'production' && brotli({
+      asset: '[path].br',
+      test: /\.(js|css|svg|json|html|ico)$/,
+      threshold: 10240 // Only files > 10KB
+    }),
+    // Bundle visualization for analysis
+    visualizer({
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+      filename: 'dist/stats.html'
     })
-  ],
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -94,7 +109,14 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: process.env.NODE_ENV === 'production' ? ['console.log', 'console.info'] : []
+        pure_funcs: process.env.NODE_ENV === 'production' ? ['console.log', 'console.info'] : [],
+        passes: 2 // Multiple passes for better minification
+      },
+      mangle: {
+        safari10: false,
+        properties: {
+          regex: /^_/ // Mangle private properties only
+        }
       }
     },
     cssCodeSplit: true,
@@ -112,7 +134,11 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
-    reportCompressedSize: true
+    reportCompressedSize: true,
+    // Preload strategy
+    modulePreload: {
+      polyfill: true
+    }
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'recharts', 'lucide-react'],
