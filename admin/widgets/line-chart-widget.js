@@ -271,6 +271,7 @@ class LineChartWidget extends HTMLElement {
                     display: flex;
                     gap: 8px;
                     flex-wrap: wrap;
+                    align-items: center;
                 }
                 .chart-btn {
                     padding: 6px 12px;
@@ -292,6 +293,27 @@ class LineChartWidget extends HTMLElement {
                     background: linear-gradient(135deg, #00e5ff, #00b8d4);
                     color: #000;
                     border-color: transparent;
+                }
+                .export-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .export-btn:hover {
+                    background: rgba(0, 229, 255, 0.15);
+                    color: #00e5ff;
+                    border-color: #00e5ff;
+                }
+                .export-btn .material-symbols-outlined {
+                    font-size: 16px;
                 }
                 .chart-container {
                     position: relative;
@@ -368,6 +390,25 @@ class LineChartWidget extends HTMLElement {
                     .chart-stats {
                         grid-template-columns: repeat(2, 1fr);
                     }
+                    .chart-header {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    .chart-controls {
+                        width: 100%;
+                    }
+                }
+                @media (max-width: 375px) {
+                    .chart-container {
+                        height: 200px;
+                    }
+                    .chart-title {
+                        font-size: 14px;
+                    }
+                    .chart-btn, .export-btn {
+                        padding: 4px 8px;
+                        font-size: 10px;
+                    }
                 }
             </style>
             <div class="line-chart-widget">
@@ -381,6 +422,10 @@ class LineChartWidget extends HTMLElement {
                         <button class="chart-btn" data-range="weekly">Weekly</button>
                         <button class="chart-btn" data-range="monthly">Monthly</button>
                         <button class="chart-btn" data-range="yearly">Yearly</button>
+                        <button class="export-btn" id="export-btn" title="Export chart as PNG">
+                            <span class="material-symbols-outlined">download</span>
+                            Export
+                        </button>
                     </div>
                 </div>
                 <div class="chart-container">
@@ -400,7 +445,81 @@ class LineChartWidget extends HTMLElement {
                     this.initChart();
                 });
             });
+
+            // Add export button handler
+            const exportBtn = this.shadowRoot.getElementById('export-btn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', () => {
+                    this.exportChart();
+                });
+            }
         }, 0);
+    }
+
+    /**
+     * Export chart as PNG
+     */
+    exportChart() {
+        if (!this.chart) {
+            this.showToast('Chart not ready', 'warning');
+            return;
+        }
+
+        try {
+            const canvas = this.chart.canvas;
+            const dataUrl = canvas.toDataURL('image/png', 1.0);
+
+            const link = document.createElement('a');
+            link.download = `chart-${this.getAttribute('title')?.toLowerCase().replace(/\s+/g, '-') || 'chart'}-${Date.now()}.png`;
+            link.href = dataUrl;
+            link.click();
+
+            this.showToast('Chart exported successfully!', 'success');
+        } catch (error) {
+            console.error('Export failed:', error);
+            this.showToast('Export failed. Please try again.', 'error');
+        }
+    }
+
+    /**
+     * Show toast notification
+     */
+    showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `toast-notification toast-${type}`;
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: ${type === 'success' ? 'linear-gradient(135deg, #00e676, #00c853)' : type === 'error' ? 'linear-gradient(135deg, #ff1744, #d50000)' : 'linear-gradient(135deg, #00e5ff, #00b8d4)'};
+            color: ${type === 'error' ? '#ffffff' : '#000'};
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10000;
+            animation: toastEnter 0.3s ease forwards;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        `;
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes toastEnter {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes toastExit {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'toastExit 0.3s ease forwards';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
     }
 }
 

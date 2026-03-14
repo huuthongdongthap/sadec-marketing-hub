@@ -793,3 +793,297 @@
     color: #000;
     border-color: transparent;
 }
+
+/* ================================================
+   EXPORT BUTTON STYLES
+   ================================================ */
+
+.export-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.export-btn:hover {
+    background: rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+    border-color: #00e5ff;
+}
+
+.export-btn .material-symbols-outlined {
+    font-size: 16px;
+}
+
+/* ================================================
+   CHART ANIMATIONS (SCROLL-TRIGGERED)
+   ================================================ */
+
+.chart-animate-in {
+    animation: chartFadeIn 0.6s ease forwards;
+}
+
+@keyframes chartFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Canvas initial state for animation */
+.line-chart-widget canvas,
+.bar-chart-widget canvas,
+.area-chart-widget canvas,
+.pie-chart-widget canvas {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.chart-animate-in canvas {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================================================
+   SKELETON LOADING STATES
+   ================================================ */
+
+.chart-skeleton {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.skeleton-title {
+    width: 150px;
+    height: 24px;
+    border-radius: 8px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.05) 25%,
+        rgba(255,255,255,0.1) 50%,
+        rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.skeleton-btn {
+    width: 80px;
+    height: 28px;
+    border-radius: 14px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.05) 25%,
+        rgba(255,255,255,0.1) 50%,
+        rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-chart {
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.03) 25%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+.skeleton-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-stat {
+    height: 60px;
+    border-radius: 8px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.03) 25%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ================================================
+   RESPONSIVE IMPROVEMENTS (375px, 768px, 1024px)
+   ================================================ */
+
+/* Mobile: 375px - Ultra compact */
+@media (max-width: 375px) {
+    .widget-container {
+        padding: 12px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .kpi-value {
+        font-size: 20px;
+    }
+
+    .kpi-label {
+        font-size: 10px;
+    }
+
+    .chart-container {
+        height: 180px !important;
+    }
+
+    .chart-title {
+        font-size: 14px;
+    }
+
+    .chart-btn,
+    .chart-type-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .skeleton-stats,
+    .chart-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobile: 376px - 767px - Standard mobile */
+@media (max-width: 767px) {
+    .widget-container {
+        padding: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .chart-stats,
+    .skeleton-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .chart-container {
+        height: 220px !important;
+    }
+
+    .chart-controls {
+        gap: 4px;
+    }
+
+    .chart-btn,
+    .export-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .skeleton-chart {
+        height: 220px !important;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        height: 280px !important;
+    }
+
+    .widget-container:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .widgets-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .widgets-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .widgets-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .widget-container:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 229, 255, 0.1);
+    }
+}
+
+/* ================================================
+   PRINT STYLES
+   ================================================ */
+
+@media print {
+    .widget-container {
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    .chart-btn,
+    .chart-type-btn,
+    .export-btn,
+    .chart-controls,
+    .widget-action-btn {
+        display: none !important;
+    }
+
+    .chart-container {
+        height: 400px !important;
+    }
+}
