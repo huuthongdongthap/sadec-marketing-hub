@@ -63,6 +63,27 @@
   --payment-failed: #F87171;
 }
 
+/* ===== TRANSITION ANIMATIONS ===== */
+
+/* Smooth theme transition - áp dụng cho tất cả elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Giảm animation cho users nhạy cảm với chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ===== DARK THEME STYLES ===== */
 
 /* Smooth theme transition */
