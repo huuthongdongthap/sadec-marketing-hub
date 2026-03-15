@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Tool - Sadec Marketing Hub</title>
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/admin-unified.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/responsive.css?v=mmp5r1rf">
+
+  <!-- SEO Audit Styles -->
+  <style>
+    .seo-audit-container {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .seo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .seo-title h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .seo-title p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .seo-input-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .seo-input-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .seo-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .seo-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+    }
+
+    .btn-seo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .seo-results {
+      display: grid;
+      gap: 16px;
+    }
+
+    .seo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .seo-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .seo-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .seo-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .seo-card-icon.good {
+      background: rgba(0, 230, 118, 0.15);
+      color: var(--success);
+    }
+
+    .seo-card-icon.warning {
+      background: rgba(255, 145, 0, 0.15);
+      color: var(--warning);
+    }
+
+    .seo-card-icon.error {
+      background: rgba(255, 23, 68, 0.15);
+      color: var(--error);
+    }
+
+    .seo-card-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .seo-metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .seo-metric:last-child {
+      border-bottom: none;
+    }
+
+    .seo-metric-label {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .seo-metric-value {
+      font-weight: 600;
+    }
+
+    .seo-score {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.5s ease;
+      border-radius: 4px;
+    }
+
+    .seo-recommendations {
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--bg-glass);
+      border-radius: 12px;
+    }
+
+    .recommendation-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .recommendation-item:last-child {
+      border-bottom: none;
+    }
+
+    .recommendation-icon {
+      color: var(--info);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <sadec-sidebar active="seo-audit"></sadec-sidebar>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="seo-audit-container">
+        <!-- Header -->
+        <div class="seo-header">
+          <div class="seo-title">
+            <h2>🔍 SEO Audit Tool</h2>
+            <p>Kiểm tra SEO on-page: Meta Title, Description, và các yếu tố quan trọng</p>
+          </div>
+          <div class="dashboard-actions">
+            <button type="button" class="btn btn-outline" id="exportBtn">
+              <span class="material-symbols-outlined">download</span>
+              Xuất báo cáo
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="seo-input-section">
+          <div class="seo-input-group">
+            <input type="url" id="urlInput" class="seo-input" placeholder="Nhập URL cần kiểm tra (ví dụ: https://sadecmarketinghub.com)" aria-label="URL cần kiểm tra">
+            <button type="button" class="btn btn-primary" id="analyzeBtn">
+              <span class="material-symbols-outlined">analytics</span>
+              Phân tích
+            </button>
+          </div>
+          <div class="seo-input-group">
+            <textarea id="htmlInput" class="seo-input" rows="4" placeholder="Hoặc dán HTML code vào đây để phân tích..." aria-label="HTML code"></textarea>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="seo-results" style="display: none;">
+          <!-- Overall Score -->
+          <div class="seo-card">
+            <div class="seo-card-header">
+              <div class="seo-card-icon good">
+                <span class="material-symbols-outlined">fact_check</span>
+              </div>
+              <div>
+                <div class="seo-card-title">Điểm SEO Tổng Thể</div>
+                <div class="seo-score" id="overallScore">0/100</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="scoreProgress" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Meta Title -->
+          <div class="seo-card">
+            <div class="seo-card-header">
+              <div class="seo-card-icon" id="titleIcon">
+                <span class="material-symbols-outlined">title</span>
+              </div>
+              <div class="seo-card-title">Meta Title</div>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Độ dài</span>
+              <span class="seo-metric-value" id="titleLength">0 ký tự</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Trạng thái</span>
+              <span class="seo-metric-value" id="titleStatus">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Nội dung</span>
+              <span class="seo-metric-value" id="titleContent" style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">-</span>
+            </div>
+            <div class="seo-recommendations" id="titleRecommendations"></div>
+          </div>
+
+          <!-- Meta Description -->
+          <div class="seo-card">
+            <div class="seo-card-header">
+              <div class="seo-card-icon" id="descIcon">
+                <span class="material-symbols-outlined">description</span>
+              </div>
+              <div class="seo-card-title">Meta Description</div>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Độ dài</span>
+              <span class="seo-metric-value" id="descLength">0 ký tự</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Trạng thái</span>
+              <span class="seo-metric-value" id="descStatus">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Nội dung</span>
+              <span class="seo-metric-value" id="descContent" style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">-</span>
+            </div>
+            <div class="seo-recommendations" id="descRecommendations"></div>
+          </div>
+
+          <!-- Additional SEO Factors -->
+          <div class="seo-card">
+            <div class="seo-card-header">
+              <div class="seo-card-icon" id="factorsIcon">
+                <span class="material-symbols-outlined">search_insights</span>
+              </div>
+              <div class="seo-card-title">Các Yếu Tố SEO Khác</div>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">H1 Heading</span>
+              <span class="seo-metric-value" id="h1Status">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">H2-H6 Headings</span>
+              <span class="seo-metric-value" id="h2h6Status">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Canonical URL</span>
+              <span class="seo-metric-value" id="canonicalStatus">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Open Graph Tags</span>
+              <span class="seo-metric-value" id="ogStatus">-</span>
+            </div>
+            <div class="seo-metric">
+              <span class="seo-metric-label">Schema Markup</span>
+              <span class="seo-metric-value" id="schemaStatus">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+  <script type="module">
+    class SEOAuditTool {
+      constructor() {
+        this.urlInput = document.getElementById('urlInput');
+        this.htmlInput = document.getElementById('htmlInput');
+        this.analyzeBtn = document.getElementById('analyzeBtn');
+        this.exportBtn = document.getElementById('exportBtn');
+        this.resultsSection = document.getElementById('resultsSection');
+
+        this.init();
+      }
+
+      init() {
+        this.analyzeBtn.addEventListener('click', () => this.analyze());
+        this.exportBtn.addEventListener('click', () => this.export());
+
+        // Allow Enter key to trigger analysis
+        this.urlInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') this.analyze();
+        });
+      }
+
+      async analyze() {
+        const url = this.urlInput.value.trim();
+        const html = this.htmlInput.value.trim();
+
+        if (!url && !html) {
+          this.showToast('Vui lòng nhập URL hoặc dán HTML code', 'warning');
+          return;
+        }
+
+        this.analyzeBtn.disabled = true;
+        this.analyzeBtn.innerHTML = '<span class="material-symbols-outlined">progress_activity</span> Đang phân tích...';
+
+        try {
+          let htmlContent = html;
+
+          if (url && !html) {
+            // Fetch URL content
+            const response = await fetch(`/api/seo-analyze?url=${encodeURIComponent(url)}`);
+            if (!response.ok) throw new Error('Không thể truy cập URL');
+            const data = await response.json();
+            htmlContent = data.html;
+          }
+
+          const results = this.parseHTML(htmlContent);
+          this.displayResults(results);
+          this.showToast('Phân tích SEO hoàn tất!', 'success');
+        } catch (error) {
+          this.showToast('Lỗi: ' + error.message, 'error');
+        } finally {
+          this.analyzeBtn.disabled = false;
+          this.analyzeBtn.innerHTML = '<span class="material-symbols-outlined">analytics</span> Phân tích';
+        }
+      }
+
+      parseHTML(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Meta Title
+        const title = doc.querySelector('title');
+        const titleText = title ? title.textContent.trim() : '';
+
+        // Meta Description
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        const descText = metaDesc ? metaDesc.getAttribute('content') : '';
+
+        // Headings
+        const h1 = doc.querySelectorAll('h1');
+        const h2h6 = doc.querySelectorAll('h2, h3, h4, h5, h6');
+
+        // Canonical
+        const canonical = doc.querySelector('link[rel="canonical"]');
+
+        // Open Graph
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        const ogImage = doc.querySelector('meta[property="og:image"]');
+
+        // Schema
+        const schema = doc.querySelector('script[type="application/ld+json"]');
+
+        return {
+          title: {
+            content: titleText,
+            length: titleText.length,
+            status: this.getTitleStatus(titleText.length)
+          },
+          description: {
+            content: descText || '(Không có)',
+            length: descText ? descText.length : 0,
+            status: this.getDescStatus(descText ? descText.length : 0)
+          },
+          headings: {
+            h1: h1.length,
+            h2h6: h2h6.length
+          },
+          canonical: canonical ? canonical.getAttribute('href') : null,
+          openGraph: {
+            hasTitle: !!ogTitle,
+            hasDesc: !!ogDesc,
+            hasImage: !!ogImage
+          },
+          schema: !!schema
+        };
+      }
+
+      getTitleStatus(length) {
+        if (length === 0) return { score: 'error', text: 'Thiếu Meta Title' };
+        if (length < 30) return { score: 'warning', text: 'Quá ngắn (< 30 ký tự)' };
+        if (length > 60) return { score: 'warning', text: 'Quá dài (> 60 ký tự)' };
+        return { score: 'good', text: 'Tốt (30-60 ký tự)' };
+      }
+
+      getDescStatus(length) {
+        if (length === 0) return { score: 'error', text: 'Thiếu Meta Description' };
+        if (length < 120) return { score: 'warning', text: 'Quá ngắn (< 120 ký tự)' };
+        if (length > 160) return { score: 'warning', text: 'Quá dài (> 160 ký tự)' };
+        return { score: 'good', text: 'Tốt (120-160 ký tự)' };
+      }
+
+      displayResults(results) {
+        this.resultsSection.style.display = 'grid';
+
+        // Calculate overall score
+        let score = 0;
+        if (results.title.status.score === 'good') score += 25;
+        else if (results.title.status.score === 'warning') score += 15;
+
+        if (results.description.status.score === 'good') score += 25;
+        else if (results.description.status.score === 'warning') score += 15;
+
+        if (results.headings.h1 > 0) score += 15;
+        if (results.headings.h2h6 > 0) score += 10;
+        if (results.canonical) score += 10;
+        if (results.openGraph.hasTitle && results.openGraph.hasDesc) score += 10;
+        if (results.schema) score += 10;
+
+        // Update overall score
+        document.getElementById('overallScore').textContent = `${score}/100`;
+        document.getElementById('scoreProgress').style.width = `${score}%`;
+
+        // Update Title section
+        this.updateIcon('titleIcon', results.title.status.score);
+        document.getElementById('titleLength').textContent = `${results.title.length} ký tự`;
+        document.getElementById('titleStatus').textContent = results.title.status.text;
+        document.getElementById('titleContent').textContent = results.title.content || '(Không có)';
+        this.updateRecommendations('titleRecommendations', this.getTitleRecommendations(results.title));
+
+        // Update Description section
+        this.updateIcon('descIcon', results.description.status.score);
+        document.getElementById('descLength').textContent = `${results.description.length} ký tự`;
+        document.getElementById('descStatus').textContent = results.description.status.text;
+        document.getElementById('descContent').textContent = results.description.content;
+        this.updateRecommendations('descRecommendations', this.getDescRecommendations(results.description));
+
+        // Update Other Factors
+        document.getElementById('h1Status').textContent = results.headings.h1 > 0
+          ? `${results.headings.h1} thẻ H1`
+          : '⚠️ Thiếu H1';
+        document.getElementById('h2h6Status').textContent = `${results.headings.h2h6} thẻ`;
+        document.getElementById('canonicalStatus').textContent = results.canonical
+          ? '✅ Có'
+          : '⚠️ Thiếu';
+        document.getElementById('ogStatus').textContent = results.openGraph.hasTitle && results.openGraph.hasDesc
+          ? '✅ Đủ'
+          : '⚠️ Thiếu';
+        document.getElementById('schemaStatus').textContent = results.schema
+          ? '✅ Có'
+          : '⚠️ Thiếu';
+      }
+
+      updateIcon(elementId, status) {
+        const icon = document.getElementById(elementId);
+        icon.className = `seo-card-icon ${status}`;
+      }
+
+      updateRecommendations(elementId, recommendations) {
+        const container = document.getElementById(elementId);
+        if (recommendations.length === 0) {
+          container.style.display = 'none';
+          return;
+        }
+
+        container.style.display = 'block';
+        container.innerHTML = recommendations.map(rec => `
+          <div class="recommendation-item">
+            <span class="material-symbols-outlined recommendation-icon">${rec.icon}</span>
+            <span>${rec.text}</span>
+          </div>
+        `).join('');
+      }
+
+      getTitleRecommendations(title) {
+        const recs = [];
+        if (title.length === 0) {
+          recs.push({ icon: 'error', text: 'Thêm Meta Title (30-60 ký tự)' });
+        } else if (title.length < 30) {
+          recs.push({ icon: 'warning', text: 'Kéo dài Title ra 30-60 ký tự' });
+        } else if (title.length > 60) {
+          recs.push({ icon: 'warning', text: 'Rút ngắn Title xuống 30-60 ký tự' });
+        }
+        return recs;
+      }
+
+      getDescRecommendations(desc) {
+        const recs = [];
+        if (desc.length === 0) {
+          recs.push({ icon: 'error', text: 'Thêm Meta Description (120-160 ký tự)' });
+        } else if (desc.length < 120) {
+          recs.push({ icon: 'warning', text: 'Kéo dài Description ra 120-160 ký tự' });
+        } else if (desc.length > 160) {
+          recs.push({ icon: 'warning', text: 'Rút ngắn Description xuống 120-160 ký tự' });
+        }
+        return recs;
+      }
+
+      showToast(message, type = 'info') {
+        // Simple toast implementation
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          padding: 16px 24px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          box-shadow: var(--shadow-lg);
+          z-index: 10000;
+          animation: slideIn 0.3s ease;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
+
+      export() {
+        this.showToast('Tính năng xuất báo cáo đang phát triển...', 'info');
+      }
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => new SEOAuditTool());
+    } else {
+      new SEOAuditTool();
+    }
+  </script>
+</body>
+</html>
