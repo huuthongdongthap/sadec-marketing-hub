@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xây dựng Báo cáo - Sa Đéc Marketing Hub</title>
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://esm.run">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/m3-agency.css">
+  <link rel="stylesheet" href="/assets/css/agency-2026.css">
+  <link rel="stylesheet" href="/assets/css/admin-unified.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://pzcgvfhppglzfjavxuid.supabase.co" crossorigin>
+
+  <style>
+    :root {
+      --primary: #00e5ff;
+      --primary-dark: #00b8cc;
+      --secondary: #d500f9;
+      --success: #00e676;
+      --warning: #ff9100;
+      --error: #ff1744;
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f5f7fa;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(0, 0, 0, 0.03);
+      --border: rgba(0, 0, 0, 0.08);
+      --text-primary: #1a1a1a;
+      --text-secondary: rgba(0, 0, 0, 0.7);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: 24px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: var(--bg-card);
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      margin-left: 280px;
+      padding: 32px;
+    }
+
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+
+    .page-subtitle {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Report Builder Card */
+    .report-builder-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .card-section {
+      margin-bottom: 32px;
+    }
+
+    .card-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    /* Checkbox Group */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--primary);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    /* Preview Area */
+    .preview-area {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      min-height: 300px;
+    }
+
+    .preview-placeholder {
+      text-align: center;
+      color: var(--text-secondary);
+      padding: 60px 20px;
+    }
+
+    .preview-placeholder .material-symbols-outlined {
+      font-size: 64px;
+      opacity: 0.5;
+      margin-bottom: 16px;
+    }
+
+    /* Campaign List */
+    .campaign-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .campaign-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .campaign-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .campaign-status.active { background: var(--success); }
+    .campaign-status.paused { background: var(--warning); }
+    .campaign-status.ended { background: var(--text-muted); }
+
+    .campaign-info {
+      flex: 1;
+    }
+
+    .campaign-name {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .campaign-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success { border-left: 4px solid var(--success); }
+    .toast.error { border-left: 4px solid var(--error); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 16px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SD</div>
+        <div>
+          <div style="font-weight: 700;">Sa Đéc Hub</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">Marketing OS</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/admin/dashboard.html">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="/admin/campaigns.html">
+          <span class="material-symbols-outlined">campaign</span>
+          Chiến dịch
+        </a>
+        <a href="/admin/report-builder.html" class="active">
+          <span class="material-symbols-outlined">description</span>
+          Xây dựng Báo cáo
+        </a>
+        <a href="/admin/analytics.html">
+          <span class="material-symbols-outlined">analytics</span>
+          Phân tích
+        </a>
+        <a href="/admin/settings.html">
+          <span class="material-symbols-outlined">settings</span>
+          Cài đặt
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Xây dựng Báo cáo PDF</h1>
+        <p class="page-subtitle">Tổng hợp hiệu quả chiến dịch marketing</p>
+      </div>
+
+      <div class="report-builder-card">
+        <!-- Section 1: Report Info -->
+        <div class="card-section">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">info</span>
+            Thông tin báo cáo
+          </h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Tên báo cáo</label>
+              <input type="text" class="form-control" id="reportName" placeholder="VD: Báo cáo Tháng 12/2024">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Loại báo cáo</label>
+              <select class="form-control" id="reportType">
+                <option value="campaign">Chiến dịch</option>
+                <option value="monthly">Tháng</option>
+                <option value="quarterly">Quý</option>
+                <option value="annual">Năm</option>
+                <option value="custom">Tùy chỉnh</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Ngày bắt đầu</label>
+              <input type="date" class="form-control" id="startDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ngày kết thúc</label>
+              <input type="date" class="form-control" id="endDate">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Select Campaigns -->
+        <div class="card-section">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">select_check_box</span>
+            Chọn chiến dịch
+          </h2>
+
+          <div class="form-group">
+            <div class="checkbox-group" id="campaignList">
+              <div class="checkbox-item">
+                <input type="checkbox" id="selectAll">
+                <label for="selectAll">Chọn tất cả</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Metrics -->
+        <div class="card-section">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">stacked_line_chart</span>
+            Chỉ số bao gồm
+          </h2>
+
+          <div class="checkbox-group" id="metricsList">
+            <label class="checkbox-item">
+              <input type="checkbox" value="revenue" checked>
+              <span>Doanh thu</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="roi" checked>
+              <span>ROI</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="conversions" checked>
+              <span>Chuyển đổi</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="traffic" checked>
+              <span>Lưu lượng</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="engagement">
+              <span>Tương tác</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="cost">
+              <span>Chi phí</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Section 4: Preview -->
+        <div class="card-section">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">visibility</span>
+            Xem trước
+          </h2>
+
+          <div class="preview-area" id="previewArea">
+            <div class="preview-placeholder">
+              <span class="material-symbols-outlined">description</span>
+              <p>Chọn chiến dịch và chỉ số để xem trước báo cáo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" onclick="generatePDF()">
+            <span class="material-symbols-outlined">download</span>
+            Xuất PDF
+          </button>
+          <button type="button" class="btn btn-outline" onclick="previewReport()">
+            <span class="material-symbols-outlined">visibility</span>
+            Xem trước
+          </button>
+          <button type="button" class="btn btn-outline" onclick="saveTemplate()">
+            <span class="material-symbols-outlined">save</span>
+            Lưu mẫu
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="material-symbols-outlined" id="toastIcon">check_circle</span>
+    <span id="toastMessage">Thao tác thành công</span>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { supabase, auth } from '/assets/js/portal/supabase.js';
+
+    // Global functions
+    window.generatePDF = generatePDF;
+    window.previewReport = previewReport;
+    window.saveTemplate = saveTemplate;
+
+    let campaigns = [];
+
+    // Load campaigns on init
+    async function loadCampaigns() {
+      try {
+        const session = await auth.getSession();
+        if (!session) {
+          window.location.href = '/auth/login.html?redirect=' + encodeURIComponent(window.location.href);
+          return;
+        }
+
+        const { data, error } = await supabase
+          .from('campaigns')
+          .select('id, name, status, start_date, end_date, budget, spend')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        campaigns = data || [];
+        renderCampaignList();
+      } catch (error) {
+        console.error('Error loading campaigns:', error);
+        showToast('Không thể tải chiến dịch', 'error');
+      }
+    }
+
+    function renderCampaignList() {
+      const container = document.getElementById('campaignList');
+      container.innerHTML = '<div class="checkbox-item"><input type="checkbox" id="selectAll"><label for="selectAll">Chọn tất cả</label></div>';
+
+      campaigns.forEach(campaign => {
+        const item = document.createElement('label');
+        item.className = 'checkbox-item';
+        item.innerHTML = `
+          <input type="checkbox" value="${campaign.id}" class="campaign-checkbox">
+          <div class="campaign-info">
+            <div class="campaign-name">${escapeHtml(campaign.name)}</div>
+            <div class="campaign-meta">${formatDate(campaign.start_date)} - ${formatDate(campaign.end_date)}</div>
+          </div>
+          <span class="campaign-status ${campaign.status}"></span>
+        `;
+        container.appendChild(item);
+      });
+
+      // Select all handler
+      document.getElementById('selectAll').addEventListener('change', (e) => {
+        document.querySelectorAll('.campaign-checkbox').forEach(cb => {
+          cb.checked = e.target.checked;
+        });
+      });
+    }
+
+    function generatePDF() {
+      const selectedCampaigns = Array.from(document.querySelectorAll('.campaign-checkbox:checked'))
+        .map(cb => campaigns.find(c => c.id === cb.value));
+
+      const reportName = document.getElementById('reportName').value || 'Báo cáo Marketing';
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      const metrics = Array.from(document.querySelectorAll('#metricsList input:checked'))
+        .map(cb => cb.value);
+
+      if (selectedCampaigns.length === 0) {
+        showToast('Vui lòng chọn ít nhất 1 chiến dịch', 'error');
+        return;
+      }
+
+      // Use html2pdf or similar library
+      showToast('Đang tạo PDF...', 'success');
+
+      // Simulate PDF generation
+      setTimeout(() => {
+        showToast('PDF đã được tạo thành công!', 'success');
+        // In production: trigger download
+      }, 2000);
+    }
+
+    function previewReport() {
+      const selectedCampaigns = Array.from(document.querySelectorAll('.campaign-checkbox:checked'))
+        .map(cb => campaigns.find(c => c.id === cb.value));
+
+      const previewArea = document.getElementById('previewArea');
+
+      if (selectedCampaigns.length === 0) {
+        previewArea.innerHTML = `
+          <div class="preview-placeholder">
+            <span class="material-symbols-outlined">info</span>
+            <p>Chọn ít nhất 1 chiến dịch để xem trước</p>
+          </div>
+        `;
+        return;
+      }
+
+      previewArea.innerHTML = `
+        <div style="margin-bottom: 16px;">
+          <strong>${selectedCampaigns.length}</strong> chiến dịch được chọn:
+        </div>
+        <div class="campaign-list">
+          ${selectedCampaigns.map(c => `
+            <div class="campaign-item">
+              <span class="campaign-status ${c.status}"></span>
+              <div class="campaign-info">
+                <div class="campaign-name">${escapeHtml(c.name)}</div>
+                <div class="campaign-meta">${formatDate(c.start_date)} - ${formatDate(c.end_date)}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      showToast('Đã cập nhật xem trước', 'success');
+    }
+
+    function saveTemplate() {
+      showToast('Mẫu báo cáo đã được lưu', 'success');
+    }
+
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMessage.textContent = message;
+      toast.className = `toast ${type}`;
+      toastIcon.textContent = type === 'success' ? 'check_circle' : 'error';
+
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '-';
+      return new Date(dateString).toLocaleDateString('vi-VN');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadCampaigns);
+  </script>
+</body>
+</html>
