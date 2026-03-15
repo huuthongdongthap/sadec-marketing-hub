@@ -60,37 +60,36 @@ function scanMetaTags(content) {
 
     return missing.length > 0 ? [`Missing meta tags: ${missing.join(', ')}`] : [];
 }
-    accessibility: {
-        checks: [
-            {
-                name: 'Missing alt attributes',
-                pattern: /<img\s+[^>]*>/gi,
-                validate: (tag) => /\salt\s*=\s*["'][^"']*["']/i.test(tag)
-            },
-            {
-                name: 'Missing ARIA labels on buttons',
-                pattern: /<button\s+[^>]*>/gi,
-                validate: (tag) => /\saria-label\s*=\s*["'][^"']*["']/i.test(tag) || /\saria-labelledby\s*=\s*["'][^"']*["']/i.test(tag)
-            },
-            {
-                name: 'Missing role attributes',
-                pattern: /<(div|span)\s+[^>]*onclick[^>]*>/gi,
-                validate: (tag) => /\srole\s*=\s*["'][^"']*["']/i.test(tag)
-            }
-        ],
-        check: (content) => {
-            const issues = [];
-            SCAN_CONFIG.accessibility.checks.forEach(check => {
-                const matches = content.match(check.pattern) || [];
-                const invalid = matches.filter(tag => !check.validate(tag));
-                if (invalid.length > 0) {
-                    issues.push(`${check.name}: ${invalid.length} instances`);
-                }
-            });
-            return issues;
+
+function scanAccessibility(content) {
+    const issues = [];
+    const checks = [
+        {
+            name: 'Missing alt attributes',
+            pattern: /<img\s+[^>]*>/gi,
+            validate: (tag) => /\salt\s*=\s*["'][^"']*["']/i.test(tag)
+        },
+        {
+            name: 'Missing ARIA labels on buttons',
+            pattern: /<button\s+[^>]*>/gi,
+            validate: (tag) => /\saria-label\s*=\s*["'][^"']*["']/i.test(tag) || /\saria-labelledby\s*=\s*["'][^"']*["']/i.test(tag)
+        },
+        {
+            name: 'Missing role attributes',
+            pattern: /<(div|span)\s+[^>]*onclick[^>]*>/gi,
+            validate: (tag) => /\srole\s*=\s*["'][^"']*["']/i.test(tag)
         }
-    }
-};
+    ];
+
+    checks.forEach(check => {
+        const matches = content.match(check.pattern) || [];
+        const invalid = matches.filter(tag => !check.validate(tag));
+        if (invalid.length > 0) {
+            issues.push(`${check.name}: ${invalid.length} instances`);
+        }
+    });
+    return issues;
+}
 
 // ============================================================================
 // SCANNER FUNCTIONS
@@ -139,13 +138,13 @@ async function scanFile(filePath) {
         };
 
         // Scan broken links
-        issues.brokenLinks = SCAN_CONFIG.brokenLinks.check(content);
+        issues.brokenLinks = scanBrokenLinks(content);
 
         // Scan meta tags
-        issues.metaTags = SCAN_CONFIG.metaTags.check(content, filePath);
+        issues.metaTags = scanMetaTags(content);
 
         // Scan accessibility
-        issues.accessibility = SCAN_CONFIG.accessibility.check(content);
+        issues.accessibility = scanAccessibility(content);
 
         return issues;
     } catch (error) {
