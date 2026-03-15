@@ -17,7 +17,7 @@ export {
     setButtonLoading,
     PageTransitionLoader,
     loading
-} from '../../src/js/components/loading-states.js';
+} from '../../../src/js/components/loading-states.js';
 
 // Re-export default
-export { default } from '../../src/js/components/loading-states.js';
+export { default } from '../../../src/js/components/loading-states.js';
