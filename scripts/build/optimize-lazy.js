@@ -25,29 +25,28 @@ function optimizeHTML(content, filePath) {
 
     // Add lazy loading to images (native loading="lazy")
     // Skip images above fold (in hero sections, headers)
-    const imgPattern = /<img([^>]*)(?!(loading\s*=\s*["']lazy["']))([^>]*)>/gi;
-
-    optimized = optimized.replace(imgPattern, (match, before, after, offset, fullString) => {
-        // Check if image is likely above the fold
-        const contextStart = Math.max(0, offset - 200);
-        const context = fullString.substring(contextStart, offset);
-
-        // Skip images in hero/header sections
-        if (context.includes('hero') ||
-            context.includes('header') ||
-            context.includes('nav') ||
-            context.includes('logo')) {
+    optimized = optimized.replace(/<img([^>]*)>/gi, (match, attrs, offset) => {
+        // Skip if already has loading attribute
+        if (attrs.includes('loading=')) {
             return match;
         }
 
-        // Skip if already has loading attribute
-        if (before.includes('loading=')) {
+        // Check if image is likely above the fold
+        const contextStart = Math.max(0, offset - 300);
+        const context = optimized.substring(contextStart, offset);
+
+        // Skip images in hero/header/nav/logo sections
+        if (context.includes('hero') ||
+            context.includes('header') ||
+            context.includes('nav') ||
+            context.includes('logo') ||
+            context.includes('sidebar')) {
             return match;
         }
 
         changes++;
-        // Add loading="lazy" and class for blur-up effect
-        return `<img${before} loading="lazy" decoding="async" class="${before.includes('class=') ? '' : 'lazy-image '}"${after}>`;
+        // Add loading="lazy" and decoding="async"
+        return `<img${attrs} loading="lazy" decoding="async">`;
     });
 
     // Add lazy loading to iframes (YouTube, etc.)
