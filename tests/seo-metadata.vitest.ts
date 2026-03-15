@@ -15,7 +15,7 @@ import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
 
 const HUB_DIR = join(__dirname, '..');
-const EXCLUDED_DIRS = ['node_modules', 'dist', 'admin/node_modules'];
+const EXCLUDED_DIRS = ['node_modules', 'dist', 'admin/node_modules', 'playwright-report', 'vitest-report'];
 
 /**
  * Recursively find all HTML files

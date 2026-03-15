@@ -127,6 +127,22 @@ export { default as KeyboardManager } from './keyboard-manager.js';
 export { default as Logger } from './logger.js';
 
 // ============================================================================
+// SANITIZATION UTILITIES (Security - DOMPurify wrapper)
+// ============================================================================
+export {
+    sanitizeHTML,
+    safeSetHTML,
+    createSafeElement,
+    sanitizeText,
+    sanitizeURL,
+    batchSanitize,
+    initDOMPurify,
+    STRICT_OPTIONS,
+    RELAXED_OPTIONS,
+    default as sanitizationUtils
+} from './sanitization-utils.js';
+
+// ============================================================================
 // NAMESPACE EXPORTS (for backward compatibility)
 // ============================================================================
 export * as formatUtils from './format-utils.js';

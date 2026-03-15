@@ -5,8 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quality Dashboard - Sa Đéc Marketing Hub</title>
 
+  <!-- SEO Meta -->
+  <meta name="description" content="Real-time quality metrics dashboard for Sa Đéc Marketing Hub - Security headers, Code quality, Accessibility, Test coverage">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Quality Dashboard - Sa Đéc Marketing Hub">
+  <meta property="og:description" content="Real-time quality metrics dashboard - Security, Code Quality, Accessibility, Tests">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadec-marketing-hub.com/admin/quality-dashboard.html">
+  <meta property="og:image" content="https://sadec-marketing-hub.com/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quality Dashboard - Sa Đéc Marketing Hub">
+  <meta name="twitter:description" content="Real-time quality metrics dashboard - Security, Code Quality, Accessibility, Tests">
+  <meta name="twitter:image" content="https://sadec-marketing-hub.com/og-image.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sadec-marketing-hub.com/admin/quality-dashboard.html">
+
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Quality Dashboard",
+    "description": "Real-time quality metrics dashboard for Sa Đéc Marketing Hub",
+    "url": "https://sadec-marketing-hub.com/admin/quality-dashboard.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
 
@@ -172,6 +210,113 @@
     .log-success { color: var(--success); }
     .log-error { color: var(--error); }
     .log-info { color: var(--text-secondary); }
+
+    /* ════════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS - 375px, 768px, 1024px
+       ════════════════════════════════════════════════════════════ */
+
+    /* Tablet - 1024px */
+    @media (max-width: 1024px) {
+      .dashboard-header h1 {
+        font-size: 1.75rem;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .metric-value {
+        font-size: 2rem;
+      }
+    }
+
+    /* Mobile - 768px */
+    @media (max-width: 768px) {
+      .dashboard-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .metric-card {
+        padding: 20px;
+      }
+
+      .metric-value {
+        font-size: 1.75rem;
+      }
+
+      .action-section {
+        padding: 20px;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Mobile Small - 375px */
+    @media (max-width: 375px) {
+      body {
+        padding: 12px;
+      }
+
+      .dashboard-header h1 {
+        font-size: 1.25rem;
+      }
+
+      .dashboard-header p {
+        font-size: 0.75rem;
+      }
+
+      .metrics-grid {
+        gap: 10px;
+      }
+
+      .metric-card {
+        padding: 16px;
+      }
+
+      .metric-card h3 {
+        font-size: 0.75rem;
+      }
+
+      .metric-value {
+        font-size: 1.5rem;
+      }
+
+      .metric-status {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+      }
+
+      .action-section {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .action-section h2 {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 0.875rem;
+      }
+
+      .material-symbols-outlined {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -230,6 +375,10 @@
       <button class="btn btn-primary" onclick="runCleanup()">
         <span class="material-symbols-outlined">cleaning_services</span>
         Cleanup console.log
+      </button>
+      <button class="btn btn-primary" onclick="runTodoCleanup()">
+        <span class="material-symbols-outlined">edit_note</span>
+        Fix TODO/FIXME
       </button>
       <button class="btn btn-primary" onclick="runSecurityAudit()">
         <span class="material-symbols-outlined">security</span>
