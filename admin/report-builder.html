@@ -26,6 +26,9 @@
   <!-- Sidebar Component -->
   <script type="module" src="/assets/js/components/sadec-sidebar.js"></script>
 
+  <!-- PDF Generation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
     :root {
       --primary: #00e5ff;
@@ -524,11 +527,12 @@
       });
     }
 
-    function generatePDF() {
+    async function generatePDF() {
       const selectedCampaigns = Array.from(document.querySelectorAll('.campaign-checkbox:checked'))
         .map(cb => campaigns.find(c => c.id === cb.value));
 
       const reportName = document.getElementById('reportName').value || 'Báo cáo Marketing';
+      const reportType = document.getElementById('reportType').value;
       const startDate = document.getElementById('startDate').value;
       const endDate = document.getElementById('endDate').value;
       const metrics = Array.from(document.querySelectorAll('#metricsList input:checked'))
@@ -539,14 +543,73 @@
         return;
       }
 
-      // Use html2pdf or similar library
       showToast('Đang tạo PDF...', 'success');
 
-      // Simulate PDF generation
-      setTimeout(() => {
-        showToast('PDF đã được tạo thành công!', 'success');
-        // In production: trigger download
-      }, 2000);
+      // Generate PDF content
+      const pdfContent = document.createElement('div');
+      pdfContent.style.padding = '40px';
+      pdfContent.style.fontFamily = 'Inter, system-ui, sans-serif';
+      pdfContent.style.color = '#1a1a1a';
+
+      // Header
+      pdfContent.innerHTML = `
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h1 style="font-size: 28px; margin-bottom: 8px;">${escapeHtml(reportName)}</h1>
+          <p style="color: #666; margin: 0;">Báo cáo hiệu quả chiến dịch Marketing</p>
+          <p style="color: #999; margin: 8px 0 0 0; font-size: 14px;">
+            ${startDate ? new Date(startDate).toLocaleDateString('vi-VN') : '...'} - ${endDate ? new Date(endDate).toLocaleDateString('vi-VN') : '...'}
+          </p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <h2 style="font-size: 18px; border-bottom: 2px solid #00e5ff; padding-bottom: 8px; margin-bottom: 16px;">
+            Tóm tắt
+          </h2>
+          <p><strong>Số chiến dịch:</strong> ${selectedCampaigns.length}</p>
+          <p><strong>Chỉ số:</strong> ${metrics.join(', ')}</p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <h2 style="font-size: 18px; border-bottom: 2px solid #00e5ff; padding-bottom: 8px; margin-bottom: 16px;">
+            Chi tiết chiến dịch
+          </h2>
+          ${selectedCampaigns.map(c => `
+            <div style="margin-bottom: 20px; padding: 16px; background: #f5f7fa; border-radius: 8px;">
+              <h3 style="margin: 0 0 8px 0; color: #00e5ff;">${escapeHtml(c.name)}</h3>
+              <p style="margin: 4px 0; font-size: 14px;">
+                <strong>Trạng thái:</strong> ${c.status} |
+                <strong>Ngân sách:</strong> ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.budget || 0)} |
+                <strong>Đã chi:</strong> ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(c.spend || 0)}
+              </p>
+              <p style="margin: 4px 0; font-size: 14px;">
+                <strong>Thời gian:</strong> ${formatDate(c.start_date)} - ${formatDate(c.end_date)}
+              </p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px;">
+          <p>Báo cáo được tạo bởi Sa Đéc Marketing Hub</p>
+          <p>Ngày xuất: ${new Date().toLocaleDateString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</p>
+        </div>
+      `;
+
+      // Generate PDF
+      const opt = {
+        margin: 0,
+        filename: `${reportName.replace(/\s+/g, '-').toLowerCase()}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      try {
+        await html2pdf().set(opt).from(pdfContent).save();
+        showToast('PDF đã được tải xuống thành công!', 'success');
+      } catch (error) {
+        console.error('PDF generation error:', error);
+        showToast('Lỗi khi tạo PDF', 'error');
+      }
     }
 
     function previewReport() {
