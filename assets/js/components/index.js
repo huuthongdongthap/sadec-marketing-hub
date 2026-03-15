@@ -53,8 +53,7 @@ export { Breadcrumbs } from './breadcrumbs.js';
 
 // Mobile Responsive
 export { MobileUI, MobileEnhancements } from './mobile-responsive.js';
-export { MobileMenu } from './mobile-menu.js';
-export { MobileNavigation } from './mobile-navigation.js';
+// MobileMenu, MobileNavigation merged into mobile-responsive.js
 
 // Sidebar & Navbar (Custom Elements)
 export { SadecSidebar } from './sadec-sidebar.js';

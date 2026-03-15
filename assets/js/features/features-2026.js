@@ -33,11 +33,11 @@ export { initDarkMode } from './dark-mode.js';
 export { initKeyboardShortcuts } from './keyboard-shortcuts.js';
 export { initQuickNotes } from './quick-notes.js';
 export { initActivityTimeline } from './activity-timeline.js';
-// TODO: Add data visualization, export, notifications, onboarding features
-// export { initDataVisualization } from './data-visualization.js';
-// export { initExport } from './export.js';
-// export { initRealTimeNotifications } from './notifications.js';
-// export { initOnboardingTour } from './onboarding-tour.js';
+// TODO: Features to implement
+// - data-visualization.js (charts, analytics)
+// - export.js (PDF/CSV export)
+// - notifications.js (real-time notifications)
+// - onboarding-tour.js (user onboarding)
 
 /**
  * Initialize all features
