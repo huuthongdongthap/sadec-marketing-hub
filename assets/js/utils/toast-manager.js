@@ -10,7 +10,7 @@
  */
 
 // Re-export Toast from canonical source
-export { Toast } from '../components/toast-manager.js';
+export { Toast } from '../../src/js/core/enhanced-utils.js';
 
 // Re-export default
-export { default } from '../components/toast-manager.js';
+export { default } from '../../src/js/core/enhanced-utils.js';
