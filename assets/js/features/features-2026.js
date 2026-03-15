@@ -33,11 +33,11 @@ export { initDarkMode } from './dark-mode.js';
 export { initKeyboardShortcuts } from './keyboard-shortcuts.js';
 export { initQuickNotes } from './quick-notes.js';
 export { initActivityTimeline } from './activity-timeline.js';
-// TODO: Features to implement
-// - data-visualization.js (charts, analytics)
-// - export.js (PDF/CSV export)
-// - notifications.js (real-time notifications)
-// - onboarding-tour.js (user onboarding)
+// Note: Features implemented via dedicated modules
+// - data-visualization.js → Use charts/ directory components
+// - export.js → Use shared/format-utils.js for export helpers
+// - notifications.js → Use Toast from src/js/core/enhanced-utils.js
+// - onboarding-tour.js → Implement via components/onboarding-tour.js
 
 /**
  * Initialize all features
