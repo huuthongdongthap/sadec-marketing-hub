@@ -496,7 +496,6 @@
         campaigns = data || [];
         renderCampaignList();
       } catch (error) {
-        console.error('Error loading campaigns:', error);
         showToast('Không thể tải chiến dịch', 'error');
       }
     }
@@ -607,7 +606,6 @@
         await html2pdf().set(opt).from(pdfContent).save();
         showToast('PDF đã được tải xuống thành công!', 'success');
       } catch (error) {
-        console.error('PDF generation error:', error);
         showToast('Lỗi khi tạo PDF', 'error');
       }
     }
