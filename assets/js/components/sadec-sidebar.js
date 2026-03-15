@@ -17,7 +17,7 @@ class SadecSidebar extends HTMLElement {
     static MVP_ITEMS = [
         'dashboard', 'pipeline', 'leads', 'proposals',
         'campaigns', 'content-calendar', 'finance',
-        'onboarding', 'workflows', 'binh-phap',
+        'onboarding', 'workflows', 'binh-phap', 'seo-audit',
         'lms', 'docs', 'auth',
         'pos', 'menu', 'inventory', 'shifts', 'quality', 'suppliers', 'loyalty'
     ];
@@ -150,6 +150,7 @@ class SadecSidebar extends HTMLElement {
             label: '🎯 STRATEGY',
             items: [
                 { id: 'binh-phap', label: 'Binh Pháp', icon: 'psychology', href: '/admin/binh-phap.html' },
+                { id: 'seo-audit', label: 'SEO Audit', icon: 'fact_check', href: '/admin/seo-audit-tool.html' },
                 { id: 'ai-analysis', label: 'AI Analysis', icon: 'insights', href: '/admin/ai-analysis.html' },
                 { id: 'vc-readiness', label: 'VC Readiness', icon: 'trending_up', href: '/admin/vc-readiness.html' },
                 { id: 'analytics', label: 'Analytics', icon: 'analytics', href: '/admin/analytics.html' },
