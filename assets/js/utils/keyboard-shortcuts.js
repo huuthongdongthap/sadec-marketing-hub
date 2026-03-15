@@ -367,10 +367,7 @@ class KeyboardShortcuts {
       'Phím': combo,
       'Chức năng': description
     }));
-    // Only log in dev mode
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      console.table(shortcuts);
-    }
+    // Debug logging removed for production
     return shortcuts;
   }
 }
