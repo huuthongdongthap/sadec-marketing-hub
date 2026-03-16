@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Funnel - Mekong Agency</title>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://esm.run">
+
+  <!-- Material Icons & Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="/assets/css/m3-agency.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/admin-unified.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/responsive.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/admin-leads.css?v=mmp5r1rf">
+  <link rel="stylesheet" href="/assets/css/components/toast-notifications.css">
+
+  <style>
+    /* Funnel-specific styles */
+    .funnel-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .funnel-column {
+      background: var(--md-sys-color-surface-container);
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 400px;
+    }
+
+    .funnel-column.cold { border-top: 4px solid var(--md-sys-color-error-container); }
+    .funnel-column.warm { border-top: 4px solid var(--md-sys-color-secondary-container); }
+    .funnel-column.hot { border-top: 4px solid var(--md-sys-color-tertiary-container); }
+    .funnel-column.converted { border-top: 4px solid var(--md-sys-color-primary); }
+
+    .funnel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    .funnel-title {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .funnel-count {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .funnel-lead {
+      background: var(--md-sys-color-surface);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+
+    .funnel-lead:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .funnel-lead-name {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .funnel-lead-company {
+      font-size: 13px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-bottom: 8px;
+    }
+
+    .funnel-lead-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .lead-grade-badge {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .lead-grade-a { background: var(--md-sys-color-tertiary); color: white; }
+    .lead-grade-b { background: var(--md-sys-color-secondary); color: white; }
+    .lead-grade-c { background: var(--md-sys-color-primary); color: white; }
+    .lead-grade-d { background: var(--md-sys-color-error-container); color: var(--md-sys-color-on-error-container); }
+
+    .score-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .score-bar {
+      width: 60px;
+      height: 6px;
+      background: var(--md-sys-color-outline-variant);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    .score-fill.high { background: var(--md-sys-color-tertiary); }
+    .score-fill.medium { background: var(--md-sys-color-secondary); }
+    .score-fill.low { background: var(--md-sys-color-error); }
+
+    /* Stats Summary */
+    .funnel-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--md-sys-color-surface-container);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .stat-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;" aria-label="Skip to main content">Skip to main content</a>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <sadec-sidebar active="leads"></sadec-sidebar>
+
+    <!-- Main Content -->
+    <main id="main" role="main" class="sr-main">
+      <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <div>
+            <h1 class="page-title">Lead Funnel</h1>
+            <div class="body-medium text-muted">Phễu chuyển đổi khách hàng từ Cold → Hot</div>
+          </div>
+          <button type="button" class="btn btn-filled" id="addLeadBtn">
+            <span class="material-symbols-outlined" aria-label="Thêm mới" role="img">add</span>
+            Thêm Lead
+          </button>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="material-symbols-outlined text-muted" aria-label="Tìm kiếm" role="img">search</span>
+            <input type="text" placeholder="Tìm kiếm leads..." aria-label="Tìm kiếm leads" id="searchInput">
+          </div>
+          <div class="filter-group">
+            <select class="filter-dropdown" aria-label="Lọc theo grade" id="gradeFilter">
+              <option value="all">Tất cả hạng</option>
+              <option value="A">Grade A (95+)</option>
+              <option value="B">Grade B (75-94)</option>
+              <option value="C">Grade C (50-74)</option>
+              <option value="D">Grade D (0-49)</option>
+            </select>
+            <select class="filter-dropdown" aria-label="Lọc theo nguồn" id="sourceFilter">
+              <option value="all">Tất cả nguồn</option>
+              <option value="facebook">Facebook</option>
+              <option value="website">Website</option>
+              <option value="zalo">Zalo</option>
+              <option value="referral">Referral</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Stats Summary -->
+        <div class="funnel-stats">
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--md-sys-color-error);">❄️</div>
+            <div class="stat-label">Cold Leads</div>
+            <div class="stat-value" id="coldCount">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--md-sys-color-secondary);">⭐</div>
+            <div class="stat-label">Warm Leads</div>
+            <div class="stat-value" id="warmCount">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--md-sys-color-tertiary);">🔥</div>
+            <div class="stat-label">Hot Leads</div>
+            <div class="stat-value" id="hotCount">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--md-sys-color-primary);">✅</div>
+            <div class="stat-label">Converted</div>
+            <div class="stat-value" id="convertedCount">0</div>
+          </div>
+        </div>
+
+        <!-- Funnel View -->
+        <div class="funnel-view">
+          <!-- Cold Leads (D: 0-49) -->
+          <div class="funnel-column cold" data-stage="cold">
+            <div class="funnel-header">
+              <span class="funnel-title">❄️ Cold Leads</span>
+              <span class="funnel-count" id="coldHeaderCount">0</span>
+            </div>
+            <div class="funnel-leads" id="coldLeads">
+              <!-- Leads will be populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Warm Leads (C-B: 50-79) -->
+          <div class="funnel-column warm" data-stage="warm">
+            <div class="funnel-header">
+              <span class="funnel-title">⭐ Warm Leads</span>
+              <span class="funnel-count" id="warmHeaderCount">0</span>
+            </div>
+            <div class="funnel-leads" id="warmLeads">
+              <!-- Leads will be populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Hot Leads (A: 80-100) -->
+          <div class="funnel-column hot" data-stage="hot">
+            <div class="funnel-header">
+              <span class="funnel-title">🔥 Hot Leads</span>
+              <span class="funnel-count" id="hotHeaderCount">0</span>
+            </div>
+            <div class="funnel-leads" id="hotLeads">
+              <!-- Leads will be populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Converted -->
+          <div class="funnel-column converted" data-stage="converted">
+            <div class="funnel-header">
+              <span class="funnel-title">✅ Converted</span>
+              <span class="funnel-count" id="convertedHeaderCount">0</span>
+            </div>
+            <div class="funnel-leads" id="convertedLeads">
+              <!-- Leads will be populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- All Leads Grid -->
+        <div style="margin-top: 32px;">
+          <h2 class="title-large mb-24">Tất cả Leads</h2>
+          <div class="leads-grid" id="allLeadsGrid">
+            <!-- Leads will be populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/assets/js/components/sadec-sidebar.js?v=mmp5r1rf"></script>
+  <script type="module" src="assets/js/utils/toast-manager.js"></script>
+  <script type="module" src="/assets/js/admin-client.js?v=mmp5r1rf"></script>
+  <script type="module" src="/assets/js/services/admin-shared.js?v=mmp5r1rf"></script>
+  <script type="module" src="/assets/js/services/enhanced-utils.js?v=mmp5r1rf"></script>
+  <script type="module" src="/assets/js/mekong-store.js?v=mmp5r1rf"></script>
+  <script type="module" src="/assets/js/mobile-menu.js?v=mmp5r1rf"></script>
+
+  <!-- UX Widgets -->
+  <script type="module" src="/admin/widgets/command-palette.js?v=mmpm5wei" defer></script>
+  <script type="module" src="/admin/widgets/help-tour.js?v=mmpm5wei" defer></script>
+  <script src="/assets/js/admin/notification-bell.js" defer></script>
+
+  <command-palette placeholder="Search commands, pages, actions..."></command-palette>
+  <help-tour></help-tour>
+
+  <script type="module">
+    import { supabase } from '/assets/js/supabase.js';
+    import { Toast } from '/assets/js/utils/toast-manager.js';
+
+    // Sample leads data (replace with Supabase fetch)
+    const sampleLeads = [
+      { id: 1, name: 'Trần Thanh Lan', company: 'Cửa hàng hoa Hương Sen', score: 95, grade: 'A', stage: 'hot', source: 'facebook', phone: '0915 997 989', email: 'lan@huongsen.vn', location: 'Sa Đéc, Đồng Tháp' },
+      { id: 2, name: 'Nguyễn Văn Minh', company: 'Nhà hàng Mekong', score: 75, grade: 'B', stage: 'warm', source: 'website', phone: '0918 765 432', email: 'minh@mekongrest.vn', location: 'Cần Thơ' },
+      { id: 3, name: 'Phạm Hoàng', company: 'Gym Fitness Pro', score: 45, grade: 'D', stage: 'cold', source: 'zalo', phone: '0909 123 456', email: 'hoang@fitness.vn', location: 'TP.HCM' },
+      { id: 4, name: 'Lê Thị Hoa', company: 'Spa & Beauty Center', score: 88, grade: 'A', stage: 'hot', source: 'referral', phone: '0912 345 678', email: 'hoa@spa.vn', location: 'Hà Nội' },
+      { id: 5, name: 'Võ Minh Tuấn', company: 'Tiệm bánh Hạnh Phúc', score: 62, grade: 'C', stage: 'warm', source: 'facebook', phone: '0901 234 567', email: 'tuan@bakery.vn', location: 'Đà Nẵng' },
+      { id: 6, name: 'Đặng Văn Long', company: 'Khách sạn Riverside', score: 92, grade: 'A', stage: 'converted', source: 'website', phone: '0913 456 789', email: 'long@riverside.vn', location: 'Sa Đéc' },
+      { id: 7, name: 'Huỳnh Thanh Mai', company: 'Thời trang XYZ', score: 35, grade: 'D', stage: 'cold', source: 'facebook', phone: '0908 765 432', email: 'mai@fashion.vn', location: 'TP.HCM' },
+      { id: 8, name: 'Trương Công Danh', company: 'Công ty TNHH ABC', score: 98, grade: 'A', stage: 'converted', source: 'referral', phone: '0917 890 123', email: 'danh@abc.vn', location: 'Bình Dương' }
+    ];
+
+    // Grade color mapping
+    const gradeColors = {
+      'A': 'lead-grade-a',
+      'B': 'lead-grade-b',
+      'C': 'lead-grade-c',
+      'D': 'lead-grade-d'
+    };
+
+    // Score color class
+    function getScoreClass(score) {
+      if (score >= 80) return 'high';
+      if (score >= 50) return 'medium';
+      return 'low';
+    }
+
+    // Create lead card HTML
+    function createLeadCard(lead) {
+      const scorePercent = Math.min(100, Math.max(0, lead.score));
+      return `
+        <div class="funnel-lead" data-lead-id="${lead.id}">
+          <div class="funnel-lead-name">${lead.name}</div>
+          <div class="funnel-lead-company">${lead.company}</div>
+          <div class="funnel-lead-meta">
+            <span class="lead-grade-badge ${gradeColors[lead.grade]}">Grade ${lead.grade}</span>
+            <div class="score-indicator">
+              <span class="body-small">${lead.score}</span>
+              <div class="score-bar">
+                <div class="score-fill ${getScoreClass(lead.score)}" style="width: ${scorePercent}%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render leads by stage
+    function renderLeads(leads) {
+      const stages = { cold: [], warm: [], hot: [], converted: [] };
+
+      leads.forEach(lead => {
+        if (stages[lead.stage]) {
+          stages[lead.stage].push(lead);
+        }
+      });
+
+      // Update funnel columns
+      document.getElementById('coldLeads').innerHTML = stages.cold.map(createLeadCard).join('');
+      document.getElementById('warmLeads').innerHTML = stages.warm.map(createLeadCard).join('');
+      document.getElementById('hotLeads').innerHTML = stages.hot.map(createLeadCard).join('');
+      document.getElementById('convertedLeads').innerHTML = stages.converted.map(createLeadCard).join('');
+
+      // Update counts
+      document.getElementById('coldCount').textContent = stages.cold.length;
+      document.getElementById('warmCount').textContent = stages.warm.length;
+      document.getElementById('hotCount').textContent = stages.hot.length;
+      document.getElementById('convertedCount').textContent = stages.converted.length;
+
+      document.getElementById('coldHeaderCount').textContent = stages.cold.length;
+      document.getElementById('warmHeaderCount').textContent = stages.warm.length;
+      document.getElementById('hotHeaderCount').textContent = stages.hot.length;
+      document.getElementById('convertedHeaderCount').textContent = stages.converted.length;
+
+      // Update all leads grid
+      renderAllLeadsGrid(leads);
+    }
+
+    // Render all leads grid
+    function renderAllLeadsGrid(leads) {
+      const grid = document.getElementById('allLeadsGrid');
+      grid.innerHTML = leads.map(lead => `
+        <div class="card card-elevated lead-card">
+          <div class="lead-header">
+            <div class="lead-avatar" style="background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container);">
+              ${lead.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)}
+            </div>
+            <div class="lead-info">
+              <div class="lead-name">${lead.name}</div>
+              <div class="lead-company">${lead.company}</div>
+            </div>
+            <span class="lead-score-badge ${lead.stage === 'hot' || lead.grade === 'A' ? 'hot' : lead.stage === 'warm' ? 'warm' : ''}">${lead.grade} - ${lead.score}</span>
+          </div>
+          <div class="lead-details">
+            <div class="lead-detail">
+              <span class="material-symbols-outlined">phone</span>
+              ${lead.phone}
+            </div>
+            <div class="lead-detail">
+              <span class="material-symbols-outlined">mail</span>
+              ${lead.email}
+            </div>
+            <div class="lead-detail">
+              <span class="material-symbols-outlined">location_on</span>
+              ${lead.location}
+            </div>
+          </div>
+          <div class="lead-source">
+            <span class="material-symbols-outlined" style="font-size: 14px;">
+              ${lead.source === 'facebook' ? 'thumb_up' : lead.source === 'website' ? 'language' : lead.source === 'zalo' ? 'chat' : 'people'}
+            </span>
+            ${lead.source.charAt(0).toUpperCase() + lead.source.slice(1)}
+          </div>
+          <div class="lead-actions">
+            <button type="button" class="lead-action-btn" onclick="callLead('${lead.phone}')">
+              <span class="material-symbols-outlined">call</span>
+              Gọi
+            </button>
+            <button type="button" class="lead-action-btn" onclick="emailLead('${lead.email}')">
+              <span class="material-symbols-outlined">mail</span>
+              Email
+            </button>
+            <button type="button" class="lead-action-btn" onclick="editLead(${lead.id})">
+              <span class="material-symbols-outlined">edit</span>
+              Sửa
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Global functions for buttons
+    window.callLead = (phone) => {
+      window.location.href = `tel:${phone}`;
+      Toast.info(`Đang gọi ${phone}...`);
+    };
+
+    window.emailLead = (email) => {
+      window.location.href = `mailto:${email}`;
+      Toast.info(`Mở email đến ${email}`);
+    };
+
+    window.editLead = (id) => {
+      Toast.info(`Chỉnh sửa lead #${id}`);
+      // Navigate to edit page or open modal
+    };
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = sampleLeads.filter(lead =>
+        lead.name.toLowerCase().includes(query) ||
+        lead.company.toLowerCase().includes(query) ||
+        lead.phone.includes(query)
+      );
+      renderLeads(filtered);
+    });
+
+    // Grade filter
+    document.getElementById('gradeFilter').addEventListener('change', (e) => {
+      const grade = e.target.value;
+      const filtered = grade === 'all'
+        ? sampleLeads
+        : sampleLeads.filter(lead => lead.grade === grade);
+      renderLeads(filtered);
+    });
+
+    // Source filter
+    document.getElementById('sourceFilter').addEventListener('change', (e) => {
+      const source = e.target.value;
+      const filtered = source === 'all'
+        ? sampleLeads
+        : sampleLeads.filter(lead => lead.source === source);
+      renderLeads(filtered);
+    });
+
+    // Add lead button
+    document.getElementById('addLeadBtn').addEventListener('click', () => {
+      Toast.info('Tính năng thêm lead đang phát triển...');
+      // Navigate to add lead page or open modal
+    });
+
+    // Initialize
+    renderLeads(sampleLeads);
+
+    // Show welcome toast
+    Toast.success('Đã tải phễu chuyển đổi!');
+  </script>
+</body>
+</html>
