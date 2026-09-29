@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Material Design 3 Color Tokens - Mekong & Sa Đéc Palette */
+  --md-sys-color-primary: #1B4D3E;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #C8E6C9;
+  --md-sys-color-on-primary-container: #002114;
+
+  --md-sys-color-secondary: #52634F;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #D5E8D0;
+  --md-sys-color-on-secondary-container: #101F10;
+
+  --md-sys-color-tertiary: #8C5338;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFDBCF;
+  --md-sys-color-on-tertiary-container: #360E00;
+
+  --md-sys-color-error: #BA1A1A;
+  --md-sys-color-on-error: #FFFFFF;
+
+  --md-sys-color-background: #F8FAF6;
+  --md-sys-color-on-background: #191C19;
+
+  --md-sys-color-surface: #F8FAF6;
+  --md-sys-color-on-surface: #191C19;
+  --md-sys-color-surface-variant: #DEE5DA;
+  --md-sys-color-on-surface-variant: #424941;
+
+  --md-sys-color-outline: #727970;
+  --md-sys-color-outline-variant: #C2C9BE;
+
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F2F5F0;
+  --md-sys-color-surface-container: #ECF0EA;
+  --md-sys-color-surface-container-high: #E6EAE4;
+  --md-sys-color-surface-container-highest: #E0E4DE;
+
+  /* Material Design 3 Shape Tokens */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+}
+
+/* Material Design 3 Typography Tokens */
+.m3-display-large {
+  font-size: 3.5625rem; /* 57px */
+  line-height: 4rem; /* 64px */
+  font-weight: 400;
+  letter-spacing: -0.25px;
+}
+
+.m3-display-medium {
+  font-size: 2.8125rem; /* 45px */
+  line-height: 3.25rem; /* 52px */
+  font-weight: 400;
+}
+
+.m3-display-small {
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.75rem; /* 44px */
+  font-weight: 400;
+}
+
+.m3-headline-large {
+  font-size: 2rem; /* 32px */
+  line-height: 2.5rem; /* 40px */
+  font-weight: 400;
+}
+
+.m3-headline-medium {
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 400;
+}
+
+.m3-headline-small {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 400;
+}
+
+.m3-title-large {
+  font-size: 1.375rem; /* 22px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 500;
+}
+
+.m3-title-medium {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 500;
+  letter-spacing: 0.15px;
+}
+
+.m3-title-small {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.m3-body-large {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.m3-body-medium {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+
+.m3-body-small {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+body {
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
