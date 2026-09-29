@@ -1,0 +1,248 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * PAGINATION COMPONENT — Sa Đéc Marketing Hub
+ * Reusable Pagination Component
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+export class PaginationComponent {
+    constructor(containerId, options = {}) {
+        this.container = typeof containerId === 'string'
+            ? document.querySelector(containerId)
+            : containerId;
+
+        this.options = {
+            currentPage: options.currentPage ?? 1,
+            pageSize: options.pageSize ?? 10,
+            pageSizes: options.pageSizes || [10, 25, 50, 100],
+            totalItems: options.totalItems ?? 0,
+            showSizeSelector: options.showSizeSelector ?? true,
+            showTotal: options.showTotal ?? true,
+            onChange: options.onChange || null,
+            onPageSizeChange: options.onPageSizeChange || null,
+            ...options
+        };
+
+        this.state = {
+            currentPage: this.options.currentPage,
+            pageSize: this.options.pageSize,
+            totalPages: this.calculateTotalPages()
+        };
+
+        if (this.container) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.render();
+        this.bindEvents();
+    }
+
+    calculateTotalPages() {
+        return Math.max(1, Math.ceil(this.options.totalItems / this.state.pageSize));
+    }
+
+    render() {
+        if (!this.container) return;
+
+        const { currentPage, pageSize, totalPages } = this.state;
+        const startItem = (currentPage - 1) * pageSize + 1;
+        const endItem = Math.min(currentPage * pageSize, this.options.totalItems);
+
+        let html = '<div class="pagination">';
+
+        // Total items
+        if (this.options.showTotal) {
+            html += `
+        <div class="pagination__total">
+          Hiển thị ${startItem} - ${endItem} của ${this.options.totalItems} kết quả
+        </div>
+      `;
+        }
+
+        // Page size selector
+        if (this.options.showSizeSelector) {
+            html += `
+        <div class="pagination__size-selector">
+          <label class="pagination__label">Số dòng:</label>
+          <select class="pagination__select" data-action="pageSize">
+            ${this.options.pageSizes.map(size => `
+              <option value="${size}" ${size === pageSize ? 'selected' : ''}>${size}</option>
+            `).join('')}
+          </select>
+        </div>
+      `;
+        }
+
+        // Pagination buttons
+        html += `
+      <div class="pagination__controls">
+        <button class="pagination__btn pagination__btn--first" data-action="first" ${currentPage === 1 ? 'disabled' : ''}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="11 17 6 12 11 7"/>
+            <polyline points="18 17 13 12 18 7"/>
+          </svg>
+        </button>
+        <button class="pagination__btn pagination__btn--prev" data-action="prev" ${currentPage === 1 ? 'disabled' : ''}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Trước
+        </button>
+
+        <div class="pagination__pages">
+          ${this.renderPageNumbers()}
+        </div>
+
+        <button class="pagination__btn pagination__btn--next" data-action="next" ${currentPage === totalPages ? 'disabled' : ''}>
+          Sau
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+        <button class="pagination__btn pagination__btn--last" data-action="last" ${currentPage === totalPages ? 'disabled' : ''}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="13 17 18 12 13 7"/>
+            <polyline points="6 17 11 12 6 7"/>
+          </svg>
+        </button>
+      </div>
+    `;
+
+        html += '</div>';
+        this.container.innerHTML = html;
+    }
+
+    renderPageNumbers() {
+        const { currentPage, totalPages } = this.state;
+        const pages = [];
+        const maxVisible = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+        // Adjust if we're near the end
+        if (endPage - startPage + 1 < maxVisible) {
+            startPage = Math.max(1, endPage - maxVisible + 1);
+        }
+
+        // First page
+        if (startPage > 1) {
+            pages.push(`<button class="pagination__page" data-page="1">1</button>`);
+            if (startPage > 2) {
+                pages.push(`<span class="pagination__ellipsis">...</span>`);
+            }
+        }
+
+        // Visible pages
+        for (let i = startPage; i <= endPage; i++) {
+            pages.push(`
+        <button class="pagination__page ${i === currentPage ? 'pagination__page--active' : ''}" data-page="${i}">
+          ${i}
+        </button>
+      `);
+        }
+
+        // Last page
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                pages.push(`<span class="pagination__ellipsis">...</span>`);
+            }
+            pages.push(`<button class="pagination__page" data-page="${totalPages}">${totalPages}</button>`);
+        }
+
+        return pages.join('');
+    }
+
+    bindEvents() {
+        this.container.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-action], [data-page]');
+            if (!target) return;
+
+            e.preventDefault();
+
+            const action = target.dataset.action;
+            const page = target.dataset.page;
+
+            if (page) {
+                this.goToPage(parseInt(page));
+            } else if (action) {
+                this.handleAction(action);
+            }
+        });
+
+        this.container.addEventListener('change', (e) => {
+            if (e.target.dataset.action === 'pageSize') {
+                this.setPageSize(parseInt(e.target.value));
+            }
+        });
+    }
+
+    handleAction(action) {
+        const { currentPage, totalPages } = this.state;
+
+        switch (action) {
+            case 'first':
+                this.goToPage(1);
+                break;
+            case 'prev':
+                this.goToPage(Math.max(1, currentPage - 1));
+                break;
+            case 'next':
+                this.goToPage(Math.min(totalPages, currentPage + 1));
+                break;
+            case 'last':
+                this.goToPage(totalPages);
+                break;
+            case 'pageSize':
+                // Handled by change event
+                break;
+        }
+    }
+
+    goToPage(page) {
+        if (page < 1 || page > this.state.totalPages || page === this.state.currentPage) return;
+
+        this.state.currentPage = page;
+        this.render();
+
+        if (this.options.onChange) {
+            this.options.onChange(page, this.state.pageSize);
+        }
+    }
+
+    setPageSize(size) {
+        if (size === this.state.pageSize) return;
+
+        this.state.pageSize = size;
+        this.state.totalPages = this.calculateTotalPages();
+        this.state.currentPage = 1; // Reset to first page
+        this.render();
+
+        if (this.options.onPageSizeChange) {
+            this.options.onPageSizeChange(size);
+        }
+    }
+
+    update(totalItems) {
+        this.options.totalItems = totalItems;
+        this.state.totalPages = this.calculateTotalPages();
+        this.state.currentPage = Math.min(this.state.currentPage, this.state.totalPages);
+        this.render();
+    }
+
+    getState() {
+        return {
+            currentPage: this.state.currentPage,
+            pageSize: this.state.pageSize,
+            totalPages: this.state.totalPages,
+            totalItems: this.options.totalItems
+        };
+    }
+
+    destroy() {
+        this.container.innerHTML = '';
+    }
+}
+
+export default PaginationComponent;

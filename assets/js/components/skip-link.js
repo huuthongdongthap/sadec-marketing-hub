@@ -1,0 +1,94 @@
+/**
+ * Skip Link Component - Accessibility Enhancement
+ * Cho phép users skip đến nội dung chính khi dùng keyboard
+ * @version 1.0.0 | 2026-03-14
+ */
+
+class SkipLink extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  static get observedAttributes() {
+    return ['target', 'text'];
+  }
+
+  connectedCallback() {
+    this.render();
+    this.setupKeyboardNavigation();
+  }
+
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
+
+  attributeChangedCallback() {
+    if (this.shadowRoot) {
+      this.render();
+    }
+  }
+
+  render() {
+    const target = this.getAttribute('target') || '#main-content';
+    const text = this.getAttribute('text') || 'Bỏ qua đến nội dung chính';
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          position: absolute;
+          left: -9999px;
+          z-index: 9999;
+        }
+
+        :host(:focus-within) {
+          left: 0;
+          top: 0;
+        }
+
+        a {
+          display: block;
+          padding: 16px 24px;
+          background: var(--md-sys-color-primary, #0061AB);
+          color: var(--md-sys-color-on-primary, white);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          border-radius: 0 0 8px 0;
+          transition: all 0.2s ease;
+        }
+
+        a:hover {
+          background: var(--md-sys-color-primary-container, #004A85);
+        }
+
+        a:focus {
+          outline: 3px solid var(--md-sys-color-primary, #0061AB);
+          outline-offset: 2px;
+        }
+      </style>
+      <a href="${target}" tabindex="0">${text}</a>
+    `;
+  }
+
+  setupKeyboardNavigation() {
+    this._handleKeyDown = (e) => {
+      if (e.key === 'Tab') {
+        this.shadowRoot.querySelector('a')?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', this._handleKeyDown);
+  }
+
+  removeEventListeners() {
+    document.removeEventListener('keydown', this._handleKeyDown);
+  }
+}
+
+// Auto-register
+if (!customElements.get('skip-link')) {
+  customElements.define('skip-link', SkipLink);
+}
+
+export { SkipLink };

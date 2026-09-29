@@ -1,0 +1,811 @@
+{
+  "passed": [],
+  "warnings": [
+    {
+      "file": "admin/vite.config.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/chart-animations.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/data-table-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/line-chart-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/performance-gauge-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/vite.config.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/chart-animations.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/data-table-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/line-chart-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/performance-gauge-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/advanced-filters.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/export-buttons.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/notification-preferences.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/quick-actions.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/stepper.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/components/stepper.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/data-sync-init.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/error-boundary.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/activity-timeline.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/data-export.js",
+      "issue": "Found 8 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/keyboard-shortcuts.js",
+      "issue": "Found 3 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/quick-actions.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/quick-notes/notes-modal.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/quick-notes/notes-storage.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/quick-notes/notes-widget.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/features/ux-improvements-v2.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/mvp-launch.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/services/mekong-store.js",
+      "issue": "Found 7 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/services/service-worker.js",
+      "issue": "Found 21 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/shared/base-component.js",
+      "issue": "Found 10 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/shared/logger.js",
+      "issue": "Found 3 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/shared/logger.js",
+      "issue": "Found 6 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/theme-manager.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/utils/auto-save.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/utils/auto-save.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/utils/export-utils.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/utils/id.js",
+      "issue": "Found 9 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/widgets/chart-animations.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/widgets/conversion-funnel.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/widgets/data-table-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/widgets/line-chart-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/js/widgets/performance-gauge-widget.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/components/advanced-filters.min.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/components/export-buttons.min.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/features/activity-timeline.min.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/features/data-export.min.js",
+      "issue": "Found 6 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/features/keyboard-shortcuts.min.js",
+      "issue": "Found 3 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/features/quick-actions.min.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/features/quick-notes.min.js",
+      "issue": "Found 5 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/mvp-launch.min.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/services/mekong-store.min.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/services/service-worker.min.js",
+      "issue": "Found 21 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/shared/base-component.min.js",
+      "issue": "Found 9 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/shared/logger.min.js",
+      "issue": "Found 3 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/shared/logger.min.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/utils/export-utils.min.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/minified/js/utils/id.min.js",
+      "issue": "Found 9 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "database/migrate.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/a11y/fix-accessibility.js",
+      "issue": "Found 16 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/add-responsive-css.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/add-seo-metadata.js",
+      "issue": "Found 13 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/add-responsive-css.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/auto-fix.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/comprehensive-audit.js",
+      "issue": "Found 11 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/comprehensive-auto-fix.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/comprehensive-auto-fix.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/fix-all-issues.js",
+      "issue": "Found 4 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/fixers/meta.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/index.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/index.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/responsive-audit.js",
+      "issue": "Found 15 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/responsive-auto-fix.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit/scanners/meta.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit-accessibility.js",
+      "issue": "Found 26 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit-full.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/audit-responsive.js",
+      "issue": "Found 24 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/build/css-bundle.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/build/minify.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/broken-imports.js",
+      "issue": "Found 11 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/broken-imports.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/check-imports.js",
+      "issue": "Found 8 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/check-imports.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/scan-all.js",
+      "issue": "Found 14 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/scan-console-errors.js",
+      "issue": "Found 11 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug/scan-console-errors.js",
+      "issue": "Found 5 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug-imports.js",
+      "issue": "Found 17 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/debug-imports.js",
+      "issue": "Found 4 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/find-broken.js",
+      "issue": "Found 5 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/fix-accessibility.js",
+      "issue": "Found 11 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/fix-affiliate-html.js",
+      "issue": "Found 8 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/fix-audit-issues.js",
+      "issue": "Found 19 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/frontend/add-ui-enhancements.js",
+      "issue": "Found 4 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/inject-seo.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/integrate-widgets.js",
+      "issue": "Found 9 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/migration/create-users.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/migration/push-data.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/migration/setup-db.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/optimize-all.js",
+      "issue": "Found 15 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/add-performance-optimizations.js",
+      "issue": "Found 5 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/audit.js",
+      "issue": "Found 15 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/bundle-report.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/cache-bust.js",
+      "issue": "Found 4 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/critical-css.js",
+      "issue": "Found 20 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/inject-critical-css.js",
+      "issue": "Found 10 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/perf/optimize-all.js",
+      "issue": "Found 8 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/refactor/consolidate-scroll-listeners.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/refactor/update-imports.js",
+      "issue": "Found 3 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/remove-console.js",
+      "issue": "Found 3 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/responsive/fix-responsive.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/responsive/fix-touch-targets.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/review/code-quality.js",
+      "issue": "Found 14 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/accessibility-scanner.js",
+      "issue": "Found 6 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/add-meta-tags.js",
+      "issue": "Found 8 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/add-metadata.js",
+      "issue": "Found 12 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/add-seo-metadata-direct.js",
+      "issue": "Found 9 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/add-seo-metadata.js",
+      "issue": "Found 4 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/audit.js",
+      "issue": "Found 22 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/seo-audit.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/seo/seo-auto-fix.js",
+      "issue": "Found 7 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/test-responsive.js",
+      "issue": "Found 19 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/tools/inject-env.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/utils/cli-utils.js",
+      "issue": "Found 12 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "scripts/utils/cli-utils.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "src/js/admin/skeleton-loader.js",
+      "issue": "Found 1 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "src/js/api/data-sync-init.js",
+      "issue": "Found 1 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "src/js/shared/api-client.js",
+      "issue": "Found 3 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "supabase-config.js",
+      "issue": "Found 2 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "supabase-config.js",
+      "issue": "Found 2 TODO/FIXME comment(s)",
+      "type": "todo",
+      "severity": "warning"
+    },
+    {
+      "file": "tests/ui-build-tests.js",
+      "issue": "Found 16 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    },
+    {
+      "file": "tests/widget-tests.js",
+      "issue": "Found 15 console statement(s)",
+      "type": "console",
+      "severity": "warning"
+    }
+  ],
+  "errors": [
+    {
+      "file": "assets/js/core/auth-service.js",
+      "issue": "Found 1 'any' type usage - use proper types",
+      "type": "type-safety",
+      "severity": "error"
+    },
+    {
+      "file": "scripts/perf/audit.js",
+      "issue": "Found 1 'any' type usage - use proper types",
+      "type": "type-safety",
+      "severity": "error"
+    }
+  ]
+}

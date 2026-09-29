@@ -1,0 +1,426 @@
+{
+  "summary": {
+    "totalFiles": 77,
+    "filesWithIssues": 50,
+    "totalIssues": 52,
+    "issuesByType": {
+      "MISSING_VIEWPORT": 48,
+      "WIDE_TABLE_RISK": 1,
+      "MISSING_RESPONSIVE_CSS": 3
+    }
+  },
+  "issues": {
+    "admin/agents.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/ai-analysis.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/api-builder.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/approvals.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/auth.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/binh-phap.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/campaigns.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/community.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/components-demo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/content-calendar.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/customer-success.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/deploy.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/docs.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/ecommerce.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/events.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/features-demo-2027.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/features-demo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      },
+      {
+        "type": "WIDE_TABLE_RISK",
+        "severity": "LOW",
+        "message": "Có table mà không có class responsive",
+        "suggestion": "Thêm class \"table-responsive\" hoặc wrapper với overflow-x: auto"
+      }
+    ],
+    "admin/finance.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/hr-hiring.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/index.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      }
+    ],
+    "admin/inventory.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/landing-builder.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/leads.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/legal.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/lms.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/loyalty.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/menu.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/mvp-launch.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/notifications.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/onboarding.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/payments.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/pipeline.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/pos.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/pricing.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/proposals.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/quality.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/raas-overview.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/retention.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/roiaas-admin.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/shifts.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/suppliers.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/ui-components-demo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/ux-components-demo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/vc-readiness.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/video-workflow.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/widgets/conversion-funnel.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      }
+    ],
+    "admin/widgets/kpi-card.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/widgets-demo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/workflows.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/zalo.html": [
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ]
+  }
+}

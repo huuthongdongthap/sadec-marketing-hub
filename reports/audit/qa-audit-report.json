@@ -1,0 +1,762 @@
+{
+  "files_scanned": 91,
+  "total_issues": 125,
+  "by_severity": {
+    "MEDIUM": 107,
+    "LOW": 10,
+    "HIGH": 8
+  },
+  "issues": [
+    {
+      "type": "missing_charset",
+      "file": "offline.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "verify-email.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "index.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "forgot-password.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "terms.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "register.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "login.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "lp.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_main",
+      "file": "lp.html",
+      "severity": "LOW",
+      "message": "Missing <main> element for main content"
+    },
+    {
+      "type": "missing_charset",
+      "file": "privacy.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/payment-result.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/roi-report.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/subscription-plans.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/roi-analytics.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "portal/roi-analytics.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/assets.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/notifications.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/payments.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/roiaas-dashboard.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/subscriptions.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/login.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/dashboard.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/projects.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/ocop-catalog.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "portal/ocop-catalog.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/ocop-exporter.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/roiaas-onboarding.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_h1",
+      "file": "portal/roiaas-onboarding.html",
+      "severity": "HIGH",
+      "message": "Missing H1 heading"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/invoices.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/approve.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/missions.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/credits.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/onboarding.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "multiple_h1",
+      "file": "portal/onboarding.html",
+      "severity": "MEDIUM",
+      "message": "Multiple H1 tags found (4)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "portal/reports.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "auth/login.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/brand-guide.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/video-workflow.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/ui-demo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/pipeline.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/suppliers.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/landing-builder.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/finance.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/community.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/community.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/legal.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/legal.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/vc-readiness.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/approvals.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/inventory.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/inventory.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/auth.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/pricing.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/raas-overview.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/notifications.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/notifications.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/leads.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/payments.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/ui-components-demo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "multiple_h1",
+      "file": "admin/ui-components-demo.html",
+      "severity": "MEDIUM",
+      "message": "Multiple H1 tags found (2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/menu.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/widgets-demo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/dashboard.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/ux-components-demo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/lms.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/lms.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/proposals.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/agents.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/customer-success.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/customer-success.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/ecommerce.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/ecommerce.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/campaigns.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/roiaas-admin.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/roiaas-admin.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/zalo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/components-demo.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/workflows.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/quality.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/loyalty.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/binh-phap.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/shifts.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/deploy.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/retention.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/ai-analysis.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/events.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "heading_skip",
+      "file": "admin/events.html",
+      "severity": "MEDIUM",
+      "message": "Heading skip: H1 -> H3 (missing H2)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/hr-hiring.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/api-builder.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/docs.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/content-calendar.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/mvp-launch.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/onboarding.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_h1",
+      "file": "admin/onboarding.html",
+      "severity": "HIGH",
+      "message": "Missing H1 heading"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/pos.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/components/phase-tracker.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_title",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "HIGH",
+      "message": "Missing <title> tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "MEDIUM",
+      "message": "Missing meta description"
+    },
+    {
+      "type": "missing_og_title",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "LOW",
+      "message": "Missing og:title for social sharing"
+    },
+    {
+      "type": "missing_og_image",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "LOW",
+      "message": "Missing og:image for social sharing"
+    },
+    {
+      "type": "missing_viewport",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "HIGH",
+      "message": "Missing viewport meta tag (not mobile-friendly)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_main",
+      "file": "admin/widgets/theme-toggle.html",
+      "severity": "LOW",
+      "message": "Missing <main> element for main content"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/widgets/kpi-card.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_title",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "HIGH",
+      "message": "Missing <title> tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "MEDIUM",
+      "message": "Missing meta description"
+    },
+    {
+      "type": "missing_og_title",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "LOW",
+      "message": "Missing og:title for social sharing"
+    },
+    {
+      "type": "missing_og_image",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "LOW",
+      "message": "Missing og:image for social sharing"
+    },
+    {
+      "type": "missing_viewport",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "HIGH",
+      "message": "Missing viewport meta tag (not mobile-friendly)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_main",
+      "file": "admin/widgets/notification-bell.html",
+      "severity": "LOW",
+      "message": "Missing <main> element for main content"
+    },
+    {
+      "type": "missing_title",
+      "file": "admin/widgets/global-search.html",
+      "severity": "HIGH",
+      "message": "Missing <title> tag"
+    },
+    {
+      "type": "missing_meta_description",
+      "file": "admin/widgets/global-search.html",
+      "severity": "MEDIUM",
+      "message": "Missing meta description"
+    },
+    {
+      "type": "missing_og_title",
+      "file": "admin/widgets/global-search.html",
+      "severity": "LOW",
+      "message": "Missing og:title for social sharing"
+    },
+    {
+      "type": "missing_og_image",
+      "file": "admin/widgets/global-search.html",
+      "severity": "LOW",
+      "message": "Missing og:image for social sharing"
+    },
+    {
+      "type": "missing_viewport",
+      "file": "admin/widgets/global-search.html",
+      "severity": "HIGH",
+      "message": "Missing viewport meta tag (not mobile-friendly)"
+    },
+    {
+      "type": "missing_charset",
+      "file": "admin/widgets/global-search.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_main",
+      "file": "admin/widgets/global-search.html",
+      "severity": "LOW",
+      "message": "Missing <main> element for main content"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/profile.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/media.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/dashboard.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/commissions.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/links.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/settings.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    },
+    {
+      "type": "missing_charset",
+      "file": "affiliate/referrals.html",
+      "severity": "MEDIUM",
+      "message": "Missing charset declaration"
+    }
+  ],
+  "broken_links": []
+}

@@ -1,0 +1,91 @@
+/**
+ * PWA Installation Handler
+ * Manages the "Add to Home Screen" prompt and logic
+ */
+
+class PWAInstaller {
+    constructor() {
+        this.deferredPrompt = null;
+        this.installBtn = null;
+        this.init();
+    }
+
+    init() {
+        // Handle install prompt availability
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            this.deferredPrompt = e;
+
+            // Show custom install UI if it exists
+            this.showInstallPromotion();
+        });
+
+        // Handle successful installation
+        window.addEventListener('appinstalled', () => {
+            this.deferredPrompt = null;
+            // Hide install UI
+            this.hideInstallPromotion();
+        });
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        // Registration successful
+                    })
+                    .catch(err => {
+                        // [DEV] '[PWA] ServiceWorker registration failed:', err);
+                    });
+            });
+        }
+    }
+
+    showInstallPromotion() {
+        // You can dispatch an event here for UI components to listen to
+        // Or directly manipulate a global install button if it exists
+        const btn = document.getElementById('pwa-install-btn');
+        if (btn) {
+            btn.style.display = 'flex'; // Or 'block'
+            btn.addEventListener('click', () => this.install());
+        }
+    }
+
+    hideInstallPromotion() {
+        const btn = document.getElementById('pwa-install-btn');
+        if (btn) {
+            btn.style.display = 'none';
+        }
+    }
+
+    async install() {
+        if (!this.deferredPrompt) {
+            // Fallback for iOS or if prompt is missing
+            this.showIOSInstructions();
+            return;
+        }
+
+        // Show the install prompt
+        this.deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        const { outcome } = await this.deferredPrompt.userChoice;
+
+        // We've used the prompt, and can't use it again, throw it away
+        this.deferredPrompt = null;
+        this.hideInstallPromotion();
+    }
+
+    showIOSInstructions() {
+        // Simple check for iOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+            alert('Để cài đặt trên iOS:\n1. Nhấn nút "Chia sẻ" (Share)\n2. Chọn "Thêm vào MH chính" (Add to Home Screen)');
+        }
+    }
+}
+
+// Initialize PWA Manager
+window.PWA = new PWAInstaller();

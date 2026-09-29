@@ -1,0 +1,414 @@
+/**
+ * Bar Chart Widget Component
+ * Biểu đồ cột ngang cho comparative data với Chart.js
+ */
+
+class BarChartWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.chart = null;
+    }
+
+    static get observedAttributes() {
+        return ['title', 'orientation', 'data-type'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    disconnectedCallback() {
+        if (this.chart) {
+            this.chart.destroy();
+        }
+    }
+
+    async initChart() {
+        if (!window.Chart) {
+            await this.loadChartJS();
+        }
+
+        const ctx = this.shadowRoot.getElementById('bar-chart');
+        if (!ctx) return;
+
+        const chartData = this.getChartData();
+        const orientation = this.getAttribute('orientation') || 'horizontal';
+        const isHorizontal = orientation === 'horizontal';
+
+        const config = {
+            indexAxis: isHorizontal ? 'y' : 'x',
+            type: 'bar',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#ffffff',
+                        bodyColor: 'rgba(255, 255, 255, 0.8)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        borderWidth: 1,
+                        padding: 12,
+                        callbacks: {
+                            label: (context) => {
+                                const value = context.parsed[isHorizontal ? 'x' : 'y'] || 0;
+                                return `Value: ${this.formatValue(value)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.6)',
+                            font: {
+                                size: 11
+                            },
+                            callback: (value) => this.formatValue(value)
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.6)',
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                },
+                elements: {
+                    bar: {
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }
+                }
+            }
+        };
+
+        this.chart = new Chart(ctx, config);
+    }
+
+    getChartData() {
+        const type = this.getAttribute('data-type') || 'performance';
+
+        const dataConfig = {
+            performance: {
+                labels: ['Campaign A', 'Campaign B', 'Campaign C', 'Campaign D', 'Campaign E'],
+                datasets: [{
+                    label: 'Performance',
+                    data: [85, 72, 68, 54, 42],
+                    backgroundColor: [
+                        'rgba(0, 229, 255, 0.8)',
+                        'rgba(124, 77, 255, 0.8)',
+                        'rgba(0, 230, 118, 0.8)',
+                        'rgba(255, 145, 0, 0.8)',
+                        'rgba(255, 23, 68, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 229, 255, 1)',
+                        'rgba(124, 77, 255, 1)',
+                        'rgba(0, 230, 118, 1)',
+                        'rgba(255, 145, 0, 1)',
+                        'rgba(255, 23, 68, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            traffic: {
+                labels: ['Google', 'Facebook', 'Direct', 'Referral', 'Email'],
+                datasets: [{
+                    label: 'Traffic',
+                    data: [4500, 3200, 2800, 1500, 900],
+                    backgroundColor: [
+                        'rgba(0, 229, 255, 0.8)',
+                        'rgba(124, 77, 255, 0.8)',
+                        'rgba(0, 230, 118, 0.8)',
+                        'rgba(255, 145, 0, 0.8)',
+                        'rgba(255, 23, 68, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 229, 255, 1)',
+                        'rgba(124, 77, 255, 1)',
+                        'rgba(0, 230, 118, 1)',
+                        'rgba(255, 145, 0, 1)',
+                        'rgba(255, 23, 68, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            conversion: {
+                labels: ['Landing Page A', 'Landing Page B', 'Landing Page C', 'Product Page', 'Checkout'],
+                datasets: [{
+                    label: 'Conversion Rate',
+                    data: [12.5, 10.8, 9.2, 7.5, 4.2],
+                    backgroundColor: [
+                        'rgba(0, 230, 118, 0.8)',
+                        'rgba(0, 229, 255, 0.8)',
+                        'rgba(255, 145, 0, 0.8)',
+                        'rgba(255, 23, 68, 0.8)',
+                        'rgba(213, 0, 249, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 230, 118, 1)',
+                        'rgba(0, 229, 255, 1)',
+                        'rgba(255, 145, 0, 1)',
+                        'rgba(255, 23, 68, 1)',
+                        'rgba(213, 0, 249, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            revenue: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [125000, 180000, 165000, 240000],
+                    backgroundColor: [
+                        'rgba(0, 229, 255, 0.8)',
+                        'rgba(124, 77, 255, 0.8)',
+                        'rgba(0, 230, 118, 0.8)',
+                        'rgba(255, 145, 0, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 229, 255, 1)',
+                        'rgba(124, 77, 255, 1)',
+                        'rgba(0, 230, 118, 1)',
+                        'rgba(255, 145, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            }
+        };
+
+        return dataConfig[type] || dataConfig.performance;
+    }
+
+    formatValue(value) {
+        if (value >= 1000000) {
+            return `$${(value / 1000000).toFixed(1)}M`;
+        }
+        if (value >= 1000) {
+            return `${(value / 1000).toFixed(0)}K`;
+        }
+        if (value < 100 && value % 1 !== 0) {
+            return `${value.toFixed(1)}%`;
+        }
+        return value.toString();
+    }
+
+    async loadChartJS() {
+        return new Promise((resolve, reject) => {
+            if (window.Chart) {
+                resolve();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    render() {
+        const title = this.getAttribute('title') || 'Bar Chart';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                }
+                .bar-chart-widget {
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                }
+                .bar-chart-widget:hover {
+                    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.1);
+                }
+                .chart-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                }
+                .chart-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .chart-title .material-symbols-outlined {
+                    color: #7c4dff;
+                }
+                .chart-controls {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                }
+                .chart-btn {
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .chart-btn:hover,
+                .chart-btn.active {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #ffffff;
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                .chart-btn.active {
+                    background: linear-gradient(135deg, #7c4dff, #651fff);
+                    color: #ffffff;
+                    border-color: transparent;
+                }
+                .chart-container {
+                    position: relative;
+                    height: 300px;
+                    width: 100%;
+                }
+                .chart-stats {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                    gap: 12px;
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .stat-item {
+                    text-align: center;
+                    padding: 12px;
+                    border-radius: 8px;
+                    background: rgba(255, 255, 255, 0.03);
+                    transition: all 0.2s ease;
+                }
+                .stat-item:hover {
+                    background: rgba(255, 255, 255, 0.06);
+                    transform: translateY(-2px);
+                }
+                .stat-value {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #ffffff;
+                }
+                .stat-label {
+                    font-size: 11px;
+                    color: rgba(255, 255, 255, 0.5);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    margin-top: 4px;
+                }
+                .chart-loading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 300px;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .loading-spinner {
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid rgba(255, 255, 255, 0.1);
+                    border-top-color: #7c4dff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .bar-chart-widget {
+                        padding: 16px;
+                    }
+                    .chart-container {
+                        height: 250px;
+                    }
+                    .chart-stats {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+            </style>
+            <div class="bar-chart-widget">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span class="material-symbols-outlined">bar_chart</span>
+                        ${title}
+                    </h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-type="performance">Performance</button>
+                        <button class="chart-btn" data-type="traffic">Traffic</button>
+                        <button class="chart-btn" data-type="conversion">Conversion</button>
+                        <button class="chart-btn" data-type="revenue">Revenue</button>
+                        <button class="chart-btn" data-orientation="toggle">Horizontal</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+                <div class="chart-stats" id="chart-stats"></div>
+            </div>
+        `;
+
+        // Add controls
+        setTimeout(() => {
+            this.shadowRoot.querySelectorAll('.chart-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const type = e.target.dataset.type;
+                    const orientation = e.target.dataset.orientation;
+
+                    if (type) {
+                        this.shadowRoot.querySelectorAll('.chart-btn[data-type]').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.setAttribute('data-type', type);
+                        this.initChart();
+                    } else if (orientation) {
+                        const currentOrientation = this.getAttribute('orientation') || 'horizontal';
+                        const newOrientation = currentOrientation === 'horizontal' ? 'vertical' : 'horizontal';
+                        this.setAttribute('orientation', newOrientation);
+                        e.target.textContent = newOrientation === 'horizontal' ? 'Horizontal' : 'Vertical';
+                        e.target.classList.toggle('active');
+                        this.initChart();
+                    }
+                });
+            });
+        }, 0);
+    }
+}
+
+customElements.define('bar-chart-widget', BarChartWidget);

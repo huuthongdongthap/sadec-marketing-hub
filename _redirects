@@ -1,0 +1,14 @@
+# Cloudflare Pages — _redirects
+# Replaces vercel.json rewrites and redirects sections
+
+# URL rewrites (without changing browser URL)
+/admin-dashboard.html  /admin/dashboard.html  200
+/portal-dashboard.html  /portal/dashboard.html  200
+/portal/payments  /portal/payments.html  200
+/portal/payment-result  /portal/payment-result.html  200
+/portal/approve  /portal/approve.html  200
+/portal/reports  /portal/reports.html  200
+/portal/assets  /portal/assets.html  200
+
+# Legacy redirects (302 temporary)
+/old-path/*  /:splat  302

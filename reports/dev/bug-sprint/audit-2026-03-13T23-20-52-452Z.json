@@ -1,0 +1,130 @@
+{
+  "brokenLinks": [],
+  "metaIssues": [],
+  "accessibilityIssues": [],
+  "consoleStatements": [
+    {
+      "file": "js/services/service-worker.js",
+      "line": 31,
+      "statement": "console.log('[SW] Installing service worker...');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 36,
+      "statement": "console.log('[SW] Caching static assets');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 40,
+      "statement": "console.log('[SW] Installation complete, skipping waiting');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 44,
+      "statement": "console.error('[SW] Installation error:', error);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 54,
+      "statement": "console.log('[SW] Activating service worker...');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 68,
+      "statement": "console.log('[SW] Deleting old cache:', cacheName);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 74,
+      "statement": "console.log('[SW] Activation complete, claiming clients');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 136,
+      "statement": "console.log('[SW] Cache hit (fresh):', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 139,
+      "statement": "console.log('[SW] Cache hit (stale), fetching update:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 160,
+      "statement": "console.log('[SW] Cached:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 165,
+      "statement": "console.error('[SW] Fetch failed, returning cached:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 182,
+      "statement": "console.log('[SW] Network success, cached:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 187,
+      "statement": "console.log('[SW] Network failed, trying cache:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 218,
+      "statement": "console.error('[SW] Background fetch failed:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 224,
+      "statement": "console.log('[SW] Cache hit (stale-while-revalidate):', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 228,
+      "statement": "console.log('[SW] No cache, waiting for network:', request.url);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 310,
+      "statement": "console.log('[SW] Sync event:', event.tag);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 320,
+      "statement": "console.log('[SW] Syncing form data...');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 328,
+      "statement": "console.log('[SW] Push received');"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 358,
+      "statement": "console.log('[SW] Notification click:', event.action);"
+    },
+    {
+      "file": "js/services/service-worker.js",
+      "line": 369,
+      "statement": "console.log('[SW] Service Worker loaded');"
+    },
+    {
+      "file": "js/shared/logger.js",
+      "line": 30,
+      "statement": "console.error(`[Error] ${message}`, data || '');"
+    },
+    {
+      "file": "js/shared/logger.js",
+      "line": 39,
+      "statement": "console.warn(`[Warn] ${message}`, data || '');"
+    }
+  ],
+  "summary": {
+    "totalBrokenLinks": 0,
+    "totalMetaIssues": 0,
+    "totalAccessibilityIssues": 0,
+    "totalConsoleStatements": 23,
+    "highSeverity": 0,
+    "mediumSeverity": 0
+  }
+}

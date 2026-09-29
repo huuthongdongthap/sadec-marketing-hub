@@ -1,0 +1,1115 @@
+[
+  {
+    "file": "assets/js/admin/admin-campaigns.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 201
+  },
+  {
+    "file": "assets/js/admin/admin-clients.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 142
+  },
+  {
+    "file": "assets/js/admin/admin-leads.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 220
+  },
+  {
+    "file": "assets/js/admin/admin-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 57
+  },
+  {
+    "file": "assets/js/admin/keyboard-shortcuts.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 203
+  },
+  {
+    "file": "assets/js/admin/menu-manager.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 190
+  },
+  {
+    "file": "assets/js/agency-2026-premium.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'update' appears unused",
+    "line": 80
+  },
+  {
+    "file": "assets/js/binh-phap.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoAnalysis' appears unused",
+    "line": 86
+  },
+  {
+    "file": "assets/js/components/accordion.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (37 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/data-table.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (42 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/data-table.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 442
+  },
+  {
+    "file": "assets/js/components/empty-state.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (33 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/kpi-card.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/quick-actions.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/sadec-toast.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/scroll-to-top.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'animate' appears unused",
+    "line": 364
+  },
+  {
+    "file": "assets/js/components/scroll-to-top.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (24 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/stepper.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (23 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/components/tabs.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateIndicator' appears unused",
+    "line": 159
+  },
+  {
+    "file": "assets/js/components/tabs.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (35 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/core/cache-helper.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/core/lazy-loader.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (19 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (21 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/dashboard-client.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'getDemoDashboardData' appears unused",
+    "line": 119
+  },
+  {
+    "file": "assets/js/dashboard-widgets-bundle.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (22 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/data-sync-init.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'check' appears unused",
+    "line": 60
+  },
+  {
+    "file": "assets/js/error-boundary.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/activity-timeline.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'exportActivities' appears unused",
+    "line": 350
+  },
+  {
+    "file": "assets/js/features/activity-timeline.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/activity-timeline.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 252
+  },
+  {
+    "file": "assets/js/features/activity-timeline.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 269
+  },
+  {
+    "file": "assets/js/features/activity-timeline.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 360
+  },
+  {
+    "file": "assets/js/features/ai-content-generator.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ai-content-panel.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 225
+  },
+  {
+    "file": "assets/js/features/ai-search-enhancement.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/back-to-top.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/command-palette-enhanced.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/dark-mode.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'enableAutoRefresh' appears unused",
+    "line": 208
+  },
+  {
+    "file": "assets/js/features/data-refresh-indicator.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'disableAutoRefresh' appears unused",
+    "line": 221
+  },
+  {
+    "file": "assets/js/features/favorites.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (19 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/features-2026.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/help-tour.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/keyboard-shortcuts.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'addStyles' appears unused",
+    "line": 489
+  },
+  {
+    "file": "assets/js/features/keyboard-shortcuts.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/keyboard-shortcuts.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 110
+  },
+  {
+    "file": "assets/js/features/keyboard-shortcuts.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 322
+  },
+  {
+    "file": "assets/js/features/keyboard-shortcuts.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 394
+  },
+  {
+    "file": "assets/js/features/micro-animations.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'update' appears unused",
+    "line": 674
+  },
+  {
+    "file": "assets/js/features/micro-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/notification-center.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/project-health-monitor.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/quick-actions.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function '_debug' appears unused",
+    "line": 19
+  },
+  {
+    "file": "assets/js/features/quick-notes/notes-renderer.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 54
+  },
+  {
+    "file": "assets/js/features/quick-notes/notes-renderer.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 69
+  },
+  {
+    "file": "assets/js/features/quick-notes.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (24 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/quick-settings.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/quick-tools-panel.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'hexToRgb' appears unused",
+    "line": 526
+  },
+  {
+    "file": "assets/js/features/quick-tools-panel.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'rgbToHsl' appears unused",
+    "line": 535
+  },
+  {
+    "file": "assets/js/features/quick-tools-panel.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateStats' appears unused",
+    "line": 592
+  },
+  {
+    "file": "assets/js/features/quick-tools-panel.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (19 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/reading-progress.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/search-autocomplete.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/smart-task-manager.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/smart-task-manager.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 194
+  },
+  {
+    "file": "assets/js/features/ux-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'showWarning' appears unused",
+    "line": 159
+  },
+  {
+    "file": "assets/js/features/ux-features-2026.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (21 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/ux-improvements-v2.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (18 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/features/widget-customizer.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/finance-client.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'getDemoFinanceData' appears unused",
+    "line": 178
+  },
+  {
+    "file": "assets/js/finance-client.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 155
+  },
+  {
+    "file": "assets/js/finance.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoFinance' appears unused",
+    "line": 118
+  },
+  {
+    "file": "assets/js/guards/admin-guard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'adminGuard' appears unused",
+    "line": 14
+  },
+  {
+    "file": "assets/js/guards/portal-guard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'portalGuard' appears unused",
+    "line": 12
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'allowDrop' appears unused",
+    "line": 16
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'drag' appears unused",
+    "line": 20
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'drop' appears unused",
+    "line": 24
+  },
+  {
+    "file": "assets/js/landing-builder.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 80
+  },
+  {
+    "file": "assets/js/loading-states.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 248
+  },
+  {
+    "file": "assets/js/micro-animations.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'easeOutQuart' appears unused",
+    "line": 238
+  },
+  {
+    "file": "assets/js/micro-animations.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'type' appears unused",
+    "line": 269
+  },
+  {
+    "file": "assets/js/micro-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/mobile-navigation.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'toggleSidebar' appears unused",
+    "line": 125
+  },
+  {
+    "file": "assets/js/mobile-navigation.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateGrid' appears unused",
+    "line": 386
+  },
+  {
+    "file": "assets/js/mvp-launch.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoMVP' appears unused",
+    "line": 118
+  },
+  {
+    "file": "assets/js/pipeline.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoPipeline' appears unused",
+    "line": 91
+  },
+  {
+    "file": "assets/js/portal/portal-auth.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 98
+  },
+  {
+    "file": "assets/js/portal/portal-dashboard.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 224
+  },
+  {
+    "file": "assets/js/pricing.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoPricing' appears unused",
+    "line": 104
+  },
+  {
+    "file": "assets/js/realtime-dashboard.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'return' appears unused",
+    "line": 0
+  },
+  {
+    "file": "assets/js/services/community.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoCommunity' appears unused",
+    "line": 348
+  },
+  {
+    "file": "assets/js/services/customer-success.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoCustomers' appears unused",
+    "line": 274
+  },
+  {
+    "file": "assets/js/services/enhanced-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 45
+  },
+  {
+    "file": "assets/js/services/enhanced-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 54
+  },
+  {
+    "file": "assets/js/services/events.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoEvents' appears unused",
+    "line": 360
+  },
+  {
+    "file": "assets/js/services/events.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'formatEventDate' appears unused",
+    "line": 409
+  },
+  {
+    "file": "assets/js/services/form-validation.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'registerCustomValidator' appears unused",
+    "line": 426
+  },
+  {
+    "file": "assets/js/services/hr-hiring.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoHR' appears unused",
+    "line": 115
+  },
+  {
+    "file": "assets/js/services/legal.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoLegal' appears unused",
+    "line": 122
+  },
+  {
+    "file": "assets/js/services/lms.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoLMS' appears unused",
+    "line": 140
+  },
+  {
+    "file": "assets/js/services/mekong-store.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'return' appears unused",
+    "line": 0
+  },
+  {
+    "file": "assets/js/services/proposals.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoProposals' appears unused",
+    "line": 97
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 67
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 70
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 232
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 247
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 262
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 278
+  },
+  {
+    "file": "assets/js/services/service-worker.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 290
+  },
+  {
+    "file": "assets/js/services/vc-readiness.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoVCReadiness' appears unused",
+    "line": 98
+  },
+  {
+    "file": "assets/js/services/video.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createDemoVideo' appears unused",
+    "line": 122
+  },
+  {
+    "file": "assets/js/shared/base-component.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (23 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/shared/keyboard-manager.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (23 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/shared/scroll-listener.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/toast-manager.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createRipple' appears unused",
+    "line": 55
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'showLoading' appears unused",
+    "line": 118
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'hideLoading' appears unused",
+    "line": 142
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'showToast' appears unused",
+    "line": 180
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'createProgress' appears unused",
+    "line": 244
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateProgress' appears unused",
+    "line": 256
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'setIndeterminateProgress' appears unused",
+    "line": 261
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'setDeterminateProgress' appears unused",
+    "line": 266
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'shakeElement' appears unused",
+    "line": 296
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'pulseElement' appears unused",
+    "line": 300
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'stopPulse' appears unused",
+    "line": 304
+  },
+  {
+    "file": "assets/js/ui-enhancements-2026.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/ui-motion-controller.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'updateScrollState' appears unused",
+    "line": 269
+  },
+  {
+    "file": "assets/js/ui-motion-controller.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'cleanup' appears unused",
+    "line": 358
+  },
+  {
+    "file": "assets/js/ui-motion-controller.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'easeOutQuart' appears unused",
+    "line": 400
+  },
+  {
+    "file": "assets/js/ui-motion-controller.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'animate' appears unused",
+    "line": 402
+  },
+  {
+    "file": "assets/js/ui-motion-controller.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (17 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/utils/auto-save.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (24 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/utils/events.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'listener' appears unused",
+    "line": 19
+  },
+  {
+    "file": "assets/js/utils/function.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'later' appears unused",
+    "line": 20
+  },
+  {
+    "file": "assets/js/utils/keyboard-shortcuts.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 306
+  },
+  {
+    "file": "assets/js/utils/skeleton.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 196
+  },
+  {
+    "file": "assets/js/utils/sort-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 158
+  },
+  {
+    "file": "assets/js/utils/sort-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 163
+  },
+  {
+    "file": "assets/js/utils/sort-utils.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 168
+  },
+  {
+    "file": "assets/js/utils/string.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 28
+  },
+  {
+    "file": "assets/js/utils/string.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 43
+  },
+  {
+    "file": "assets/js/widgets/alerts-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 167
+  },
+  {
+    "file": "assets/js/widgets/chart-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "assets/js/widgets/command-palette.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 89
+  },
+  {
+    "file": "assets/js/widgets/performance-gauge-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 59
+  },
+  {
+    "file": "assets/js/widgets/quick-stats-widget.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (16 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "admin/components/head-template.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'generateHeadMetadata' appears unused",
+    "line": 20
+  },
+  {
+    "file": "admin/widgets/alerts-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 167
+  },
+  {
+    "file": "admin/widgets/chart-animations.js",
+    "type": "commented-code",
+    "severity": "warning",
+    "issue": "Large comment block (20 lines) - consider removing or documenting",
+    "line": 1
+  },
+  {
+    "file": "admin/widgets/command-palette.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 89
+  },
+  {
+    "file": "admin/widgets/performance-gauge-widget.js",
+    "type": "unreachable",
+    "severity": "warning",
+    "issue": "Code after return statement",
+    "line": 59
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'selectPlan' appears unused",
+    "line": 31
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'selectIndustry' appears unused",
+    "line": 42
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'toggleChannel' appears unused",
+    "line": 53
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'prevStep' appears unused",
+    "line": 73
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'validateStep2' appears unused",
+    "line": 119
+  },
+  {
+    "file": "portal/js/roiaas-onboarding.js",
+    "type": "unused-function",
+    "severity": "warning",
+    "issue": "Function 'validateStep3' appears unused",
+    "line": 149
+  }
+]

@@ -1,0 +1,177 @@
+/**
+ * Help & Tour Onboarding Styles
+ * Sa Đéc Marketing Hub
+ */
+
+/* Tour Overlay */
+.tour-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Tour Tooltip */
+.tour-tooltip {
+  font-family: var(--md-sys-typescale-body-large, system-ui, sans-serif);
+  animation: tourTooltipPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes tourTooltipPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Tour Progress Bar */
+.tour-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.tour-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00e5ff, #006a60);
+  transition: width 0.3s ease;
+}
+
+/* Tour Title */
+.tour-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #006a60;
+  margin: 0 0 12px 0;
+}
+
+/* Tour Content */
+.tour-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+/* Tour Actions */
+.tour-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Tour Buttons */
+.tour-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.tour-btn-skip {
+  background: transparent;
+  color: #666;
+}
+
+.tour-btn-skip:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.tour-btn-prev,
+.tour-btn-next {
+  background: linear-gradient(135deg, #00e5ff, #006a60);
+  color: white;
+}
+
+.tour-btn-prev:hover,
+.tour-btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 229, 255, 0.4);
+}
+
+.tour-btn-finish {
+  background: linear-gradient(135deg, #00c853, #006a60);
+  color: white;
+}
+
+.tour-btn-finish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
+}
+
+/* Help Button Pulse Animation */
+#help-tour-btn {
+  animation: helpPulse 2s ease-in-out infinite;
+}
+
+@keyframes helpPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(0, 229, 255, 0.7), 0 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+}
+
+/* Highlight Target Element */
+.tour-highlight {
+  position: relative;
+  z-index: 10001;
+  animation: tourGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes tourGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(0, 229, 255, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tour-tooltip {
+    width: 95%;
+    max-width: none;
+    padding: 16px;
+  }
+
+  .tour-title {
+    font-size: 16px;
+  }
+
+  .tour-content {
+    font-size: 13px;
+  }
+
+  .tour-actions {
+    flex-wrap: wrap;
+  }
+
+  .tour-btn {
+    flex: 1;
+    min-width: 80px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .tour-overlay,
+  .tour-tooltip,
+  .tour-progress-bar,
+  .tour-btn,
+  #help-tour-btn,
+  .tour-highlight {
+    animation: none !important;
+    transition: none !important;
+  }
+}

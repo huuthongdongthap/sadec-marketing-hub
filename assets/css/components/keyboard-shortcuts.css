@@ -1,0 +1,267 @@
+/**
+ * Keyboard Shortcuts Help Modal Styles
+ * Sa Đéc Marketing Hub
+ * @version 1.0.0 | 2026-03-13
+ */
+
+/* Keyboard Help Modal */
+.keyboard-help-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  background: var(--md-sys-color-surface, #fff);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2),
+              0 0 0 1px var(--md-sys-color-outline-variant, #e0e0e0);
+  z-index: 10000;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .keyboard-help-modal {
+  background: var(--md-sys-color-surface, #1e1e1e);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+              0 0 0 1px var(--md-sys-color-outline-variant, #404040);
+}
+
+.keyboard-help-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  display: none;
+}
+
+/* Modal Header */
+.keyboard-help-modal .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+}
+
+[data-theme="dark"] .keyboard-help-modal .modal-header {
+  border-bottom-color: var(--md-sys-color-outline-variant, #404040);
+}
+
+.keyboard-help-modal .modal-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface, #333);
+}
+
+[data-theme="dark"] .keyboard-help-modal .modal-header h2 {
+  color: var(--md-sys-color-on-surface, #eee);
+}
+
+.keyboard-help-modal .modal-header .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--md-sys-color-primary, #006A60);
+}
+
+[data-theme="dark"] .keyboard-help-modal .modal-header .material-symbols-outlined {
+  color: var(--md-sys-color-primary, #4ADDD0);
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--md-sys-color-on-surface-variant, #666);
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--md-sys-color-surface-container-hover, rgba(0, 0, 0, 0.08));
+}
+
+[data-theme="dark"] .modal-close {
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+[data-theme="dark"] .modal-close:hover {
+  background: var(--md-sys-color-surface-container-hover, rgba(255, 255, 255, 0.08));
+}
+
+/* Modal Body */
+.keyboard-help-modal .modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px);
+}
+
+/* Shortcuts Grid */
+.shortcuts-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 500px) {
+  .shortcuts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Shortcuts Section */
+.shortcuts-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--md-sys-color-primary, #006A60);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .shortcuts-section h3 {
+  color: var(--md-sys-color-primary, #4ADDD0);
+}
+
+/* Shortcuts List */
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--md-sys-color-surface-container, rgba(0, 0, 0, 0.05));
+}
+
+[data-theme="dark"] .shortcut-item {
+  background: var(--md-sys-color-surface-container, rgba(255, 255, 255, 0.05));
+}
+
+.shortcut-item:hover {
+  background: var(--md-sys-color-surface-container-hover, rgba(0, 0, 0, 0.08));
+}
+
+[data-theme="dark"] .shortcut-item:hover {
+  background: var(--md-sys-color-surface-container-hover, rgba(255, 255, 255, 0.08));
+}
+
+/* Shortcut Keys (kbd) */
+.shortcut-keys {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: var(--md-sys-color-surface, #fff);
+  border: 1px solid var(--md-sys-color-outline, #ccc);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface, #333);
+  box-shadow: 0 2px 0 var(--md-sys-color-outline, #ccc);
+  min-width: fit-content;
+}
+
+[data-theme="dark"] .shortcut-keys {
+  background: var(--md-sys-color-surface, #2a2a2a);
+  border-color: var(--md-sys-color-outline, #555);
+  color: var(--md-sys-color-on-surface, #eee);
+  box-shadow: 0 2px 0 var(--md-sys-color-outline, #555);
+}
+
+/* Shortcut Description */
+.shortcut-desc {
+  flex: 1;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+[data-theme="dark"] .shortcut-desc {
+  color: var(--md-sys-color-on-surface-variant, #888);
+}
+
+/* Animations */
+.keyboard-help-modal[open] {
+  animation: modal-fade-in 0.2s ease;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.keyboard-help-modal[closing] {
+  animation: modal-fade-out 0.2s ease;
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .keyboard-help-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .keyboard-help-modal .modal-header {
+    padding: 16px 20px;
+  }
+
+  .keyboard-help-modal .modal-body {
+    padding: 16px;
+  }
+
+  .shortcuts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shortcut-keys {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .shortcut-desc {
+    font-size: 12px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-help-modal,
+  .keyboard-help-modal[open],
+  .keyboard-help-modal[closing] {
+    animation: none;
+  }
+}

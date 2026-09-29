@@ -1,0 +1,1796 @@
+[
+  {
+    "file": "admin/src/components/alerts/index.ts",
+    "import": "./Alert",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/alerts/Alert.js",
+    "line": 1
+  },
+  {
+    "file": "admin/src/components/alerts/index.ts",
+    "import": "./Toast",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/alerts/Toast.js",
+    "line": 2
+  },
+  {
+    "file": "admin/src/components/alerts/index.ts",
+    "import": "./StatusBadge",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/alerts/StatusBadge.js",
+    "line": 3
+  },
+  {
+    "file": "admin/src/components/charts/index.ts",
+    "import": "./LineChart",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/charts/LineChart.js",
+    "line": 1
+  },
+  {
+    "file": "admin/src/components/charts/index.ts",
+    "import": "./BarChart",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/charts/BarChart.js",
+    "line": 2
+  },
+  {
+    "file": "admin/src/components/charts/index.ts",
+    "import": "./PieChart",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/charts/PieChart.js",
+    "line": 3
+  },
+  {
+    "file": "admin/src/components/charts/index.ts",
+    "import": "./AreaChart",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/charts/AreaChart.js",
+    "line": 4
+  },
+  {
+    "file": "admin/src/components/kpi/index.ts",
+    "import": "./KPICard",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/kpi/KPICard.js",
+    "line": 1
+  },
+  {
+    "file": "admin/src/components/kpi/index.ts",
+    "import": "./StatCard",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/kpi/StatCard.js",
+    "line": 2
+  },
+  {
+    "file": "admin/src/components/kpi/index.ts",
+    "import": "./Metric",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/kpi/Metric.js",
+    "line": 3
+  },
+  {
+    "file": "admin/src/components/layout/index.ts",
+    "import": "./DashboardLayout",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/components/layout/DashboardLayout.js",
+    "line": 1
+  },
+  {
+    "file": "admin/src/hooks/useServiceWorker.ts",
+    "import": "../lib/logger",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/admin/src/lib/logger.js",
+    "line": 2
+  },
+  {
+    "file": "assets/js/features/features-2026.js",
+    "import": "./data-visualization.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/features/data-visualization.js",
+    "line": 37
+  },
+  {
+    "file": "assets/js/features/features-2026.js",
+    "import": "./export.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/features/export.js",
+    "line": 38
+  },
+  {
+    "file": "assets/js/features/features-2026.js",
+    "import": "./notifications.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/features/notifications.js",
+    "line": 39
+  },
+  {
+    "file": "assets/js/features/features-2026.js",
+    "import": "./onboarding-tour.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/js/features/onboarding-tour.js",
+    "line": 40
+  },
+  {
+    "file": "assets/minified/js/admin/admin-campaigns.min.js",
+    "import": "./admin-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-campaigns.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-clients.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-dashboard.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-leads.min.js",
+    "import": "./admin-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-leads.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../components/theme-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/theme-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../shared/modal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/modal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../services/enhanced-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/enhanced-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/admin-utils.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-campaigns.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-campaigns.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-leads.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-leads.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-clients.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-clients.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-campaigns.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-campaigns.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-leads.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-leads.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/index.min.js",
+    "import": "./admin-clients.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/admin-clients.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "../core/theme-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/theme-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./keyboard-shortcuts.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/keyboard-shortcuts.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./keyboard-shortcuts.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/keyboard-shortcuts.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./skeleton-loader.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/skeleton-loader.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./skeleton-loader.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/skeleton-loader.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./bell-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/bell-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./notification-panel.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/notification-panel.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/admin/ux-components-index.min.js",
+    "import": "./notification-panel.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/admin/notification-panel.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/ai-assistant.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/accordion.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/advanced-filters.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/data-table.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/data-table.min.js",
+    "import": "./pagination-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/pagination-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/data-table.min.js",
+    "import": "../utils/sort-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/sort-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/data-table.min.js",
+    "import": "./filter-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/filter-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/export-buttons.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/export-buttons.min.js",
+    "import": "../utils/export-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/export-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/file-upload.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./toast-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/toast-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./error-boundary.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/error-boundary.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./theme-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/theme-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./mobile-responsive.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/mobile-responsive.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./sadec-toast.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/sadec-toast.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./loading-button.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/loading-button.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./payment-status-chip.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/payment-status-chip.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./skip-link.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/skip-link.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./back-to-top.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/back-to-top.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./reading-progress.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/reading-progress.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./tooltip.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/tooltip.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "../features/ai-content-generator.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/ai-content-generator.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "../features/analytics-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/analytics-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "../features/notification-center.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/notification-center.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "../features/command-palette-enhanced.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/command-palette-enhanced.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "../features/project-health-monitor.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/project-health-monitor.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./tooltip.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/tooltip.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./tabs.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/tabs.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./accordion.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/accordion.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./data-table.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/data-table.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./scroll-to-top.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/scroll-to-top.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./kpi-card.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/kpi-card.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./advanced-filters.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/advanced-filters.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./export-buttons.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/export-buttons.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/index.min.js",
+    "import": "./kpi-card.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/kpi-card.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/notification-bell.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/payment-modal.min.js",
+    "import": "./gateway-selector.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/gateway-selector.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/search-autocomplete.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/components/tabs.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/auth-service.min.js",
+    "import": "./supabase-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/supabase-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/database-service.min.js",
+    "import": "./supabase-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/supabase-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/database-service.min.js",
+    "import": "./auth-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/auth-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/storage-service.min.js",
+    "import": "./supabase-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/supabase-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/storage-service.min.js",
+    "import": "./auth-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/auth-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/storage-service.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/supabase-client.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/supabase-client.min.js",
+    "import": "./auth-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/auth-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/supabase-client.min.js",
+    "import": "./database-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/database-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/supabase-client.min.js",
+    "import": "./storage-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/storage-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/theme-manager.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/core/user-preferences.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/dashboard-client.min.js",
+    "import": "./shared/api-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/api-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/dashboard-client.min.js",
+    "import": "./services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/dashboard-client.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/empty-states.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/error-boundary.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/activity-timeline.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/ai-content-panel.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/ai-search-enhancement.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/analytics-dashboard.min.js",
+    "import": "../components/kpi-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/kpi-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/analytics-dashboard.min.js",
+    "import": "../components/chart-components.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/chart-components.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/analytics-dashboard.min.js",
+    "import": "../components/activity-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/activity-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/command-palette-enhanced.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/data-export.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./dark-mode.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/dark-mode.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./keyboard-shortcuts.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/keyboard-shortcuts.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./quick-notes.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/quick-notes.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./activity-timeline.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/activity-timeline.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./data-visualization.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/data-visualization.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./export.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/export.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./notifications.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/notifications.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/features-2026.min.js",
+    "import": "./onboarding-tour.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/onboarding-tour.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./ai-content-generator.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/ai-content-generator.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./analytics-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/analytics-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./data-export.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/data-export.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "../core/user-preferences.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/user-preferences.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./quick-actions.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/quick-actions.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./notification-center.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/notification-center.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./command-palette-enhanced.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/command-palette-enhanced.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./quick-notes.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/quick-notes.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./ai-search-enhancement.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/ai-search-enhancement.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./widget-customizer.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/widget-customizer.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./ai-content-panel.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/ai-content-panel.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "./quick-tools-panel.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/features/quick-tools-panel.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "../loading-states.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/loading-states.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "../toast-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/toast-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "../empty-states.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/empty-states.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/index.min.js",
+    "import": "../toast-component.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/toast-component.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/keyboard-shortcuts.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/notification-center.min.js",
+    "import": "../supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/notification-center.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/project-health-monitor.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/quick-notes.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/quick-tools-panel.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/search-autocomplete.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/features/widget-customizer.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/finance-client.min.js",
+    "import": "./shared/api-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/api-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/finance-client.min.js",
+    "import": "./services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/finance-client.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/guards/admin-guard.min.js",
+    "import": "../shared/guard-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/guard-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/guards/index.min.js",
+    "import": "../shared/guard-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/guard-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/guards/index.min.js",
+    "import": "./admin-guard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/guards/admin-guard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/guards/index.min.js",
+    "import": "./portal-guard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/guards/portal-guard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/guards/portal-guard.min.js",
+    "import": "../shared/guard-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/guard-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/landing-renderer.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/lazy-load-component.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/notification-manager.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-ui.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-ui.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-auth.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-auth.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-projects.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-projects.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-invoices.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-invoices.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-payments.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-payments.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-ui.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-ui.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-projects.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-projects.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-invoices.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-invoices.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/index.min.js",
+    "import": "./portal-dashboard.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-dashboard.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-dashboard.min.js",
+    "import": "./portal-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-dashboard.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-dashboard.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-data.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-guard.min.js",
+    "import": "./portal-auth.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-auth.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-guard.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-invoices.min.js",
+    "import": "./portal-auth.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-auth.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-invoices.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-invoices.min.js",
+    "import": "./portal-ui.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-ui.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-invoices.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-invoices.min.js",
+    "import": "./portal-payments.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-payments.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-payments.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-payments.min.js",
+    "import": "../services/payment-gateway.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/payment-gateway.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-payments.min.js",
+    "import": "./portal-ui.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-ui.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-payments.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-projects.min.js",
+    "import": "./portal-data.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-data.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-projects.min.js",
+    "import": "./supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-projects.min.js",
+    "import": "./portal-ui.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-ui.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-projects.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-ui.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-ui.min.js",
+    "import": "./portal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/portal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-ui.min.js",
+    "import": "../shared/modal-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/modal-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal/portal-utils.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal-client.min.js",
+    "import": "./portal/index.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/index.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/portal-client.min.js",
+    "import": "./portal/index.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/index.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/agents.min.js",
+    "import": "../portal/supabase.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/portal/supabase.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/approvals.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/core-utils.min.js",
+    "import": "../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/format-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/core-utils.min.js",
+    "import": "./enhanced-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/enhanced-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/customer-success.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/ecommerce.min.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/core-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./admin-shared.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/admin-shared.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./agents.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/agents.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./ai-assistant.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/ai-assistant.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./approvals.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/approvals.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./community.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/community.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./content-ai.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/content-ai.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./customer-success.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/customer-success.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./ecommerce.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/ecommerce.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./events.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/events.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./hr-hiring.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/hr-hiring.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./legal.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/legal.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./lms.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/lms.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./payment-gateway.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/payment-gateway.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./proposals.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/proposals.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./retention.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/retention.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./vc-readiness.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/vc-readiness.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./video.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/video.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./workflows.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/workflows.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./zalo-chat.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/zalo-chat.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./form-validation.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/form-validation.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./lazy-loader.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/lazy-loader.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./mekong-store.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/mekong-store.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./notifications.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/notifications.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./performance.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/performance.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./pwa-install.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/pwa-install.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./report-generator.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/report-generator.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/services/index.min.js",
+    "import": "./toast-notification.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/services/toast-notification.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/api-client.min.js",
+    "import": "./format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/format-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/api-utils.min.js",
+    "import": "../../../supabase-config.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/supabase-config.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/base-component.min.js",
+    "import": "./logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/base-component.min.js",
+    "import": "../utils/function.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/function.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/format-utils.min.js",
+    "import": "../utils/function.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/function.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/shared/modal-utils.min.js",
+    "import": "../components/toast-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/components/toast-manager.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/supabase.min.js",
+    "import": "./core/auth-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/auth-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/supabase.min.js",
+    "import": "./core/database-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/database-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/supabase.min.js",
+    "import": "./core/storage-service.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/storage-service.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/supabase.min.js",
+    "import": "./core/supabase-client.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/core/supabase-client.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/theme-manager.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/toast-manager.min.js",
+    "import": "./shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/api.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/export-utils.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/format-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./function.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/function.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./string.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/string.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./function.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/function.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./id.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/id.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./dom.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/dom.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./api.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/api.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./events.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/events.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/index.min.js",
+    "import": "./export-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/utils/export-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/utils/string.min.js",
+    "import": "../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/format-utils.js",
+    "line": 1
+  },
+  {
+    "file": "assets/minified/js/widgets/quick-stats-widget.min.js",
+    "import": "../shared/logger.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/assets/minified/js/shared/logger.js",
+    "line": 1
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/shared/format-utils.js",
+    "line": 14
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/services/core-utils.js",
+    "line": 14
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/shared/format-utils.js",
+    "line": 15
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/services/core-utils.js",
+    "line": 15
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../../shared/format-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/shared/format-utils.js",
+    "line": 16
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/services/core-utils.js",
+    "line": 16
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../services/enhanced-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/services/enhanced-utils.js",
+    "line": 17
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/services/core-utils.js",
+    "line": 17
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../services/enhanced-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/services/enhanced-utils.js",
+    "line": 18
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/services/core-utils.js",
+    "line": 18
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../../services/enhanced-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/services/enhanced-utils.js",
+    "line": 19
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/services/core-utils.js",
+    "line": 19
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../utils/api.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/utils/api.js",
+    "line": 20
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/services/core-utils.js",
+    "line": 20
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../utils/api.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/utils/api.js",
+    "line": 21
+  },
+  {
+    "file": "scripts/refactor/update-imports.js",
+    "import": "../../services/core-utils.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/services/core-utils.js",
+    "line": 21
+  },
+  {
+    "file": "scripts/remove-console.js",
+    "import": "./logger",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/scripts/logger.js",
+    "line": 18
+  },
+  {
+    "file": "src/js/admin/admin-utils.js",
+    "import": "../../assets/js/components/theme-manager.js",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/src/assets/js/components/theme-manager.js",
+    "line": 33
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./routes/payments",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/routes/payments.js",
+    "line": 5
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./routes/webhooks",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/routes/webhooks.js",
+    "line": 6
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./routes/assets",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/routes/assets.js",
+    "line": 7
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./routes/analytics",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/routes/analytics.js",
+    "line": 8
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./routes/cms",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/routes/cms.js",
+    "line": 9
+  },
+  {
+    "file": "workers/src/index.ts",
+    "import": "./types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 10
+  },
+  {
+    "file": "workers/src/lib/auth.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 5
+  },
+  {
+    "file": "workers/src/lib/payment.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 4
+  },
+  {
+    "file": "workers/src/routes/analytics.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 3
+  },
+  {
+    "file": "workers/src/routes/analytics.ts",
+    "import": "../lib/auth",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/auth.js",
+    "line": 4
+  },
+  {
+    "file": "workers/src/routes/assets.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 5
+  },
+  {
+    "file": "workers/src/routes/assets.ts",
+    "import": "../lib/r2",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/r2.js",
+    "line": 6
+  },
+  {
+    "file": "workers/src/routes/assets.ts",
+    "import": "../lib/auth",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/auth.js",
+    "line": 7
+  },
+  {
+    "file": "workers/src/routes/cms.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 3
+  },
+  {
+    "file": "workers/src/routes/cms.ts",
+    "import": "../lib/auth",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/auth.js",
+    "line": 4
+  },
+  {
+    "file": "workers/src/routes/payments.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 5
+  },
+  {
+    "file": "workers/src/routes/payments.ts",
+    "import": "../lib/payment",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/payment.js",
+    "line": 19
+  },
+  {
+    "file": "workers/src/routes/payments.ts",
+    "import": "../lib/auth",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/auth.js",
+    "line": 20
+  },
+  {
+    "file": "workers/src/routes/webhooks.ts",
+    "import": "../types",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/types.js",
+    "line": 3
+  },
+  {
+    "file": "workers/src/routes/webhooks.ts",
+    "import": "../lib/payment",
+    "resolved": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/workers/src/lib/payment.js",
+    "line": 11
+  }
+]

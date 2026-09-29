@@ -1,0 +1,167 @@
+/**
+ * Back To Top Component
+ * Nút cuộn lên đầu trang với smooth scroll
+ * @version 2.0.0 | 2026-03-14
+ */
+
+class BackToTop extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.scrollThreshold = 300;
+    this.isVisible = false;
+    this._ticking = false;
+  }
+
+  static get observedAttributes() {
+    return ['threshold', 'smooth'];
+  }
+
+  connectedCallback() {
+    this.render();
+    this.setupScrollListener();
+    this.setupClickHandler();
+  }
+
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'threshold') {
+      this.scrollThreshold = parseInt(newValue, 10) || 300;
+    }
+  }
+
+  render() {
+    const smooth = this.getAttribute('smooth') !== 'false';
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          z-index: 1000;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(20px);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        :host(.visible) {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 56px;
+          height: 56px;
+          border: none;
+          border-radius: 50%;
+          background: var(--md-sys-color-primary, #0061AB);
+          color: var(--md-sys-color-on-primary, white);
+          cursor: pointer;
+          box-shadow: 0 4px 20px rgba(0, 97, 171, 0.4);
+          transition: all 0.2s ease;
+        }
+
+        button:hover {
+          background: var(--md-sys-color-primary-container, #004A85);
+          transform: scale(1.1);
+          box-shadow: 0 6px 24px rgba(0, 97, 171, 0.5);
+        }
+
+        button:active {
+          transform: scale(0.95);
+        }
+
+        button:focus {
+          outline: 3px solid var(--md-sys-color-primary, #0061AB);
+          outline-offset: 3px;
+        }
+
+        .icon {
+          font-size: 24px;
+          line-height: 1;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          :host {
+            transition: none;
+          }
+          button {
+            transition: none;
+          }
+        }
+      </style>
+      <button aria-label="Cuộn lên đầu trang" title="Về đầu trang">
+        <span class="icon material-symbols-outlined">keyboard_arrow_up</span>
+      </button>
+    `;
+  }
+
+  setupScrollListener() {
+    this._onScroll = () => {
+      if (!this._ticking) {
+        window.requestAnimationFrame(() => {
+          this.toggleVisibility();
+          this._ticking = false;
+        });
+        this._ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this.toggleVisibility(); // Check on mount
+  }
+
+  toggleVisibility() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const shouldBeVisible = scrollTop > this.scrollThreshold;
+
+    if (shouldBeVisible !== this.isVisible) {
+      this.isVisible = shouldBeVisible;
+      this.shadowRoot.host.classList.toggle('visible', this.isVisible);
+    }
+  }
+
+  setupClickHandler() {
+    this._onClick = (e) => {
+      e.preventDefault();
+      this.scrollToTop();
+    };
+
+    this.shadowRoot.querySelector('button')?.addEventListener('click', this._onClick);
+  }
+
+  scrollToTop() {
+    const smooth = this.getAttribute('smooth') !== 'false';
+    
+    if (smooth && 'scrollTo' in window) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  removeEventListeners() {
+    window.removeEventListener('scroll', this._onScroll);
+    this.shadowRoot.querySelector('button')?.removeEventListener('click', this._onClick);
+  }
+}
+
+// Auto-register
+if (!customElements.get('back-to-top')) {
+  customElements.define('back-to-top', BackToTop);
+}
+
+export { BackToTop };

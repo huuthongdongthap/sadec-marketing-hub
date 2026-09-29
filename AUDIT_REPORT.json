@@ -1,0 +1,5722 @@
+{
+  "brokenLinks": [
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/agents.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 120
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/approvals.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 120
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/brand-guide.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 90
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/brand-guide.html",
+      "href": "/admin/dashboard.html",
+      "target": "/admin/dashboard.html",
+      "line": 95
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/community.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 107
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/customer-success.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 107
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/ecommerce.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 120
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "admin/workflows.html",
+      "href": "/index.html",
+      "target": "/index.html",
+      "line": 120
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "auth/login.html",
+      "href": "/forgot-password.html",
+      "target": "/forgot-password.html",
+      "line": 348
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "auth/login.html",
+      "href": "/register.html",
+      "target": "/register.html",
+      "line": 361
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "forgot-password.html",
+      "href": "/login.html",
+      "target": "/login.html",
+      "line": 214
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "forgot-password.html",
+      "href": "/login.html",
+      "target": "/login.html",
+      "line": 232
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "index.html",
+      "href": "auth/login.html?role=admin",
+      "target": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html?role=admin",
+      "line": 146
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "index.html",
+      "href": "auth/login.html?role=client",
+      "target": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html?role=client",
+      "line": 153
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "index.html",
+      "href": "auth/login.html?role=affiliate",
+      "target": "/Users/mac/.gemini/antigravity/scratch/sadec-marketing-hub/auth/login.html?role=affiliate",
+      "line": 160
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "portal/subscription-plans.html",
+      "href": "/portal/roiaas-onboarding.html",
+      "target": "/portal/roiaas-onboarding.html",
+      "line": 1230
+    },
+    {
+      "type": "BROKEN_LINK",
+      "file": "register.html",
+      "href": "/login.html",
+      "target": "/login.html",
+      "line": 321
+    }
+  ],
+  "metaTags": [
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/agents.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/agents.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/agents.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/agents.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/ai-analysis.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/ai-analysis.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/ai-analysis.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/ai-analysis.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/ai-analysis.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/ai-analysis.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/api-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/api-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/api-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/api-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/approvals.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/approvals.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/approvals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/approvals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/approvals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/approvals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/auth.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/auth.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/auth.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/auth.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/binh-phap.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/binh-phap.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/binh-phap.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/binh-phap.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/binh-phap.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/binh-phap.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/campaigns.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/campaigns.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/campaigns.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/campaigns.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/campaigns.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/campaigns.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/community.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/community.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/community.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/community.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/components/phase-tracker.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/components/phase-tracker.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/components/phase-tracker.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/components/phase-tracker.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/components/phase-tracker.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/components/phase-tracker.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/content-calendar.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/content-calendar.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/content-calendar.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/content-calendar.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/customer-success.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/customer-success.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/customer-success.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/customer-success.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/customer-success.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/customer-success.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/deploy.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/deploy.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/deploy.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/deploy.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/deploy.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/deploy.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/docs.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/docs.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/docs.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/docs.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/ecommerce.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/ecommerce.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/ecommerce.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/ecommerce.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/ecommerce.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/ecommerce.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/events.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/events.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/events.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/events.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/finance.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/finance.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/finance.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/finance.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/finance.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/finance.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/hr-hiring.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/hr-hiring.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/hr-hiring.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/hr-hiring.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/inventory.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/inventory.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/inventory.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/inventory.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/inventory.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/inventory.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/landing-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/landing-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/landing-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/landing-builder.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/leads.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/leads.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/leads.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/leads.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/leads.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/leads.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/legal.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/legal.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/legal.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/legal.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/lms.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/lms.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/lms.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/lms.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/lms.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/lms.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/loyalty.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/loyalty.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/loyalty.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/loyalty.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/menu.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/menu.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/menu.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/menu.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/menu.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/menu.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/mvp-launch.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/mvp-launch.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/mvp-launch.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/mvp-launch.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/notifications.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/notifications.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/notifications.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/notifications.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/notifications.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/notifications.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/payments.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/payments.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/pipeline.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/pipeline.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/pipeline.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/pipeline.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/pos.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/pos.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/pos.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/pos.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/pos.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/pos.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/pricing.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/pricing.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/pricing.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/pricing.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/proposals.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/proposals.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/proposals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/proposals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/proposals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/proposals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/quality.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/quality.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/quality.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/quality.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/raas-overview.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/raas-overview.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/raas-overview.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/raas-overview.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/retention.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/retention.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/retention.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/retention.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/retention.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/retention.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/roiaas-admin.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/roiaas-admin.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/roiaas-admin.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/roiaas-admin.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/shifts.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/shifts.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/shifts.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/shifts.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/shifts.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/shifts.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/suppliers.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/suppliers.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/suppliers.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/suppliers.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/vc-readiness.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/vc-readiness.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/vc-readiness.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/vc-readiness.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/vc-readiness.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/video-workflow.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/video-workflow.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/video-workflow.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/video-workflow.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/video-workflow.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/widgets/kpi-card.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/widgets/kpi-card.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/widgets/kpi-card.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/widgets/kpi-card.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/widgets/kpi-card.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/widgets/kpi-card.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/workflows.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/workflows.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/workflows.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/workflows.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "admin/zalo.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "admin/zalo.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "admin/zalo.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "admin/zalo.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "admin/zalo.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "admin/zalo.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/commissions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/commissions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/commissions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/commissions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "affiliate/dashboard.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "affiliate/dashboard.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/links.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/links.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/links.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/links.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "affiliate/media.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "affiliate/media.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/media.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/media.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/media.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/media.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/profile.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/profile.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/profile.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/profile.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "affiliate/referrals.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "affiliate/referrals.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/referrals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/referrals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/referrals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/referrals.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "affiliate/settings.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "affiliate/settings.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "affiliate/settings.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "affiliate/settings.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "auth/login.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "auth/login.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "auth/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "auth/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "auth/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "auth/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "forgot-password.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "forgot-password.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:url",
+      "file": "forgot-password.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "forgot-password.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "forgot-password.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "forgot-password.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "forgot-password.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "index.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "index.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:url",
+      "file": "index.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "index.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "index.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "login.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "login.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:url",
+      "file": "login.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "login.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "login.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "login.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "login.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "lp.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "lp.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "lp.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "lp.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "offline.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "offline.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "offline.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "offline.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "playwright-report/index.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "playwright-report/index.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "playwright-report/index.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "playwright-report/index.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "playwright-report/index.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "playwright-report/index.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/assets.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/assets.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/credits.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/credits.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/credits.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/credits.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/dashboard.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/dashboard.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/invoices.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/invoices.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/invoices.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/invoices.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/login.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/login.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/login.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/missions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/missions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/missions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/missions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/notifications.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/notifications.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/notifications.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/notifications.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/notifications.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/notifications.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/ocop-exporter.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/ocop-exporter.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/ocop-exporter.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/ocop-exporter.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/onboarding.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/onboarding.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/payments.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/payments.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/payments.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/projects.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/projects.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/projects.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/projects.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/reports.html",
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/reports.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/reports.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/reports.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/reports.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/reports.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/roi-analytics.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/roi-analytics.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/roi-analytics.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/roi-analytics.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/roi-analytics.html",
+      "count": 6,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/roi-report.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/roi-report.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/roi-report.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/roi-report.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/roi-report.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/roiaas-dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/roiaas-dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/roiaas-dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/roiaas-dashboard.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/roiaas-onboarding.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/roiaas-onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/roiaas-onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/roiaas-onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/roiaas-onboarding.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "portal/subscription-plans.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/subscription-plans.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/subscription-plans.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/subscription-plans.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/subscription-plans.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "portal/subscriptions.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "portal/subscriptions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "portal/subscriptions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "portal/subscriptions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "portal/subscriptions.html",
+      "count": 8,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "privacy.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "privacy.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "privacy.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "privacy.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "privacy.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "register.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "register.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:url",
+      "file": "register.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "register.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "register.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "register.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "register.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "register.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "description",
+      "file": "terms.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "terms.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "terms.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "terms.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "terms.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:image",
+      "file": "verify-email.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:type",
+      "file": "verify-email.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_META",
+      "subtype": "og:url",
+      "file": "verify-email.html",
+      "count": 2,
+      "line": 1
+    },
+    {
+      "type": "MISSING_META",
+      "subtype": "canonical",
+      "file": "verify-email.html",
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.googleapis.com",
+      "file": "verify-email.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://fonts.gstatic.com",
+      "file": "verify-email.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://cdn.jsdelivr.net",
+      "file": "verify-email.html",
+      "count": 4,
+      "line": 1
+    },
+    {
+      "type": "DUPLICATE_PREFETCH",
+      "url": "https://esm.run",
+      "file": "verify-email.html",
+      "count": 4,
+      "line": 1
+    }
+  ],
+  "accessibility": [
+    {
+      "type": "MISSING_REL_NOOPENER",
+      "file": "admin/ai-analysis.html",
+      "line": 119,
+      "note": "Add rel=\"noopener noreferrer\" to target=\"_blank\" links"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/ai-analysis.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/approvals.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/binh-phap.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/campaigns.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/components/phase-tracker.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/customer-success.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_REL_NOOPENER",
+      "file": "admin/deploy.html",
+      "line": 142,
+      "note": "Add rel=\"noopener noreferrer\" to target=\"_blank\" links"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/deploy.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/ecommerce.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/finance.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/inventory.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/landing-builder.html",
+      "line": 188,
+      "snippet": "<input type=\"text\" class=\"prop-input\" value=\"Khuyến mãi Tết "
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/landing-builder.html",
+      "line": 193,
+      "snippet": "<input type=\"text\" class=\"prop-input\" value=\"khuyen-mai-tet-"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/landing-builder.html",
+      "line": 198,
+      "snippet": "<input type=\"color\" class=\"prop-input\" value=\"#006A60\" style"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/landing-builder.html",
+      "line": 305,
+      "snippet": "<input type=\"text\" placeholder=\"Họ tên\" style=\"width: 100%; "
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/landing-builder.html",
+      "line": 306,
+      "snippet": "<input type=\"text\" placeholder=\"Số điện thoại\" style=\"width:"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/leads.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/lms.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/menu.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/notifications.html",
+      "line": 978,
+      "snippet": "<input type=\"text\" class=\"form-input\" placeholder=\"Search lo"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/notifications.html",
+      "line": 1061,
+      "snippet": "<input type=\"checkbox\" checked value=\"email\">"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/notifications.html",
+      "line": 1066,
+      "snippet": "<input type=\"checkbox\" checked value=\"zalo\">"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/notifications.html",
+      "line": 1071,
+      "snippet": "<input type=\"checkbox\" value=\"push\">"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/notifications.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/payments.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/pos.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/proposals.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/raas-overview.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/roiaas-admin.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/suppliers.html",
+      "line": 1170,
+      "snippet": "<input type=\"text\" placeholder=\"Tên hàng\" value=\"${item.name"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/suppliers.html",
+      "line": 1171,
+      "snippet": "<input type=\"number\" placeholder=\"SL\" value=\"${item.qty}\" mi"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/suppliers.html",
+      "line": 1172,
+      "snippet": "<input type=\"number\" placeholder=\"Đơn giá\" value=\"${item.uni"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/suppliers.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/video-workflow.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "admin/workflows.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "admin/zalo.html",
+      "line": 123,
+      "snippet": "<input type=\"text\" class=\"chat-input\" placeholder=\"Tìm kiếm "
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "affiliate/commissions.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "affiliate/links.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "affiliate/profile.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "affiliate/settings.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "forgot-password.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "login.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "offline.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "playwright-report/index.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_REL_NOOPENER",
+      "file": "portal/approve.html",
+      "line": 410,
+      "note": "Add rel=\"noopener noreferrer\" to target=\"_blank\" links"
+    },
+    {
+      "type": "MISSING_REL_NOOPENER",
+      "file": "portal/assets.html",
+      "line": 456,
+      "note": "Add rel=\"noopener noreferrer\" to target=\"_blank\" links"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/assets.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/dashboard.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/login.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 148,
+      "snippet": "<input type=\"checkbox\" checked>"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 159,
+      "snippet": "<input type=\"checkbox\" checked>"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 170,
+      "snippet": "<input type=\"checkbox\" checked>"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 186,
+      "snippet": "<input type=\"checkbox\" checked>"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 197,
+      "snippet": "<input type=\"checkbox\">"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 213,
+      "snippet": "<input type=\"checkbox\" checked>"
+    },
+    {
+      "type": "INPUT_WITHOUT_LABEL",
+      "file": "portal/notifications.html",
+      "line": 224,
+      "snippet": "<input type=\"checkbox\" checked disabled>"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/notifications.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/ocop-exporter.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/payment-result.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/projects.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/roi-analytics.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/roiaas-dashboard.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "portal/subscription-plans.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "privacy.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    },
+    {
+      "type": "MISSING_LANG",
+      "file": "terms.html",
+      "line": 1,
+      "note": "Add lang attribute to <html> element"
+    }
+  ],
+  "consoleLog": [
+    {
+      "type": "CONSOLE_LOG",
+      "file": "admin/widgets/activity-feed.js",
+      "method": "warn",
+      "line": 196
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "admin/widgets/index.js",
+      "method": "log",
+      "line": 20
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "admin/widgets/index.js",
+      "method": "warn",
+      "line": 34
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "admin/widgets/index.js",
+      "method": "log",
+      "line": 59
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "admin/widgets/project-progress.js",
+      "method": "warn",
+      "line": 207
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/admin-campaigns.js",
+      "method": "error",
+      "line": 161
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/admin-clients.js",
+      "method": "error",
+      "line": 115
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/admin-dashboard.js",
+      "method": "error",
+      "line": 31
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/admin-leads.js",
+      "method": "error",
+      "line": 174
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/menu-manager.js",
+      "method": "error",
+      "line": 81
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin/menu-manager.js",
+      "method": "error",
+      "line": 93
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin-guard.js",
+      "method": "log",
+      "line": 17
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin-guard.js",
+      "method": "error",
+      "line": 67
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin-shared.js",
+      "method": "debug",
+      "line": 305
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/admin-shared.js",
+      "method": "error",
+      "line": 354
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/affiliate-api.js",
+      "method": "error",
+      "line": 39
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/affiliate-api.js",
+      "method": "warn",
+      "line": 41
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/agents.js",
+      "method": "error",
+      "line": 63
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/agents.js",
+      "method": "error",
+      "line": 218
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/ai-assistant.js",
+      "method": "error",
+      "line": 294
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/ai-assistant.js",
+      "method": "warn",
+      "line": 330
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/base-manager.js",
+      "method": "error",
+      "line": 47
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/base-manager.js",
+      "method": "error",
+      "line": 75
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/binh-phap-client.js",
+      "method": "error",
+      "line": 31
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/campaign-optimizer.js",
+      "method": "warn",
+      "line": 21
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/campaign-optimizer.js",
+      "method": "error",
+      "line": 44
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/community.js",
+      "method": "error",
+      "line": 36
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/components/payment-modal.js",
+      "method": "error",
+      "line": 370
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/components/sadec-sidebar.js",
+      "method": "error",
+      "line": 275
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/content-ai.js",
+      "method": "error",
+      "line": 104
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/content-calendar-client.js",
+      "method": "error",
+      "line": 41
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/dashboard-client.js",
+      "method": "error",
+      "line": 72
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/data-sync-init.js",
+      "method": "error",
+      "line": 64
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/data-sync-init.js",
+      "method": "error",
+      "line": 142
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/data-sync-init.js",
+      "method": "error",
+      "line": 164
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/finance-client.js",
+      "method": "error",
+      "line": 60
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/landing-renderer.js",
+      "method": "error",
+      "line": 41
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/lazy-loader.js",
+      "method": "warn",
+      "line": 68
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/lazy-loader.js",
+      "method": "error",
+      "line": 95
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mekong-store.js",
+      "method": "error",
+      "line": 205
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mekong-store.js",
+      "method": "warn",
+      "line": 240
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mekong-store.js",
+      "method": "warn",
+      "line": 262
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mekong-store.js",
+      "method": "error",
+      "line": 361
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mekong-store.js",
+      "method": "error",
+      "line": 408
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mobile-navigation.js",
+      "method": "warn",
+      "line": 26
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mobile-navigation.js",
+      "method": "log",
+      "line": 42
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/mobile-navigation.js",
+      "method": "log",
+      "line": 462
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/notifications.js",
+      "method": "error",
+      "line": 13
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/notifications.js",
+      "method": "error",
+      "line": 22
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/payment-gateway.js",
+      "method": "error",
+      "line": 90
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/payment-gateway.js",
+      "method": "error",
+      "line": 191
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/payment-gateway.js",
+      "method": "error",
+      "line": 314
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/payment-gateway.js",
+      "method": "error",
+      "line": 389
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/pipeline-client.js",
+      "method": "error",
+      "line": 651
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-auth.js",
+      "method": "warn",
+      "line": 114
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-dashboard.js",
+      "method": "error",
+      "line": 37
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-dashboard.js",
+      "method": "error",
+      "line": 147
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-dashboard.js",
+      "method": "error",
+      "line": 210
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-data.js",
+      "method": "error",
+      "line": 139
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-data.js",
+      "method": "error",
+      "line": 165
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-data.js",
+      "method": "error",
+      "line": 189
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-data.js",
+      "method": "error",
+      "line": 214
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-invoices.js",
+      "method": "error",
+      "line": 142
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-invoices.js",
+      "method": "error",
+      "line": 166
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-payments.js",
+      "method": "error",
+      "line": 92
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-payments.js",
+      "method": "error",
+      "line": 169
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-payments.js",
+      "method": "error",
+      "line": 204
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-projects.js",
+      "method": "error",
+      "line": 131
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-projects.js",
+      "method": "error",
+      "line": 162
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-utils.js",
+      "method": "warn",
+      "line": 118
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-utils.js",
+      "method": "warn",
+      "line": 130
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/portal-utils.js",
+      "method": "warn",
+      "line": 141
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/supabase.js",
+      "method": "error",
+      "line": 76
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal/supabase.js",
+      "method": "error",
+      "line": 87
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/portal-guard.js",
+      "method": "warn",
+      "line": 75
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/pwa-install.js",
+      "method": "error",
+      "line": 40
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/realtime-dashboard.js",
+      "method": "warn",
+      "line": 22
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/realtime-dashboard.js",
+      "method": "error",
+      "line": 79
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/ui-utils.js",
+      "method": "log",
+      "line": 259
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "assets/js/workflows-client.js",
+      "method": "error",
+      "line": 33
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "auth.js",
+      "method": "debug",
+      "line": 37
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "error",
+      "line": 33
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "error",
+      "line": 34
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 51
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 55
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 60
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 64
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "error",
+      "line": 67
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 73
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 81
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 83
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 90
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 91
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 92
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 93
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 94
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 100
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "error",
+      "line": 103
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 104
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 105
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 106
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/migrate.js",
+      "method": "log",
+      "line": 117
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 36
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 37
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 45
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 47
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 53
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 54
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "error",
+      "line": 57
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 71
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 75
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 79
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "log",
+      "line": 82
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "database/run-migrations.js",
+      "method": "error",
+      "line": 84
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "error",
+      "line": 31
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "error",
+      "line": 143
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "error",
+      "line": 181
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "error",
+      "line": 189
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "log",
+      "line": 252
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "log",
+      "line": 253
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "ollama-proxy.js",
+      "method": "log",
+      "line": 254
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "error",
+      "line": 240
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "warn",
+      "line": 275
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "warn",
+      "line": 278
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "warn",
+      "line": 320
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "log",
+      "line": 351
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "portal/js/roiaas-onboarding.js",
+      "method": "error",
+      "line": 353
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 367
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 368
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 369
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 370
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 375
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 376
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 377
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 387
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "error",
+      "line": 407
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 412
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "error",
+      "line": 420
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 426
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 427
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 428
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 430
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 432
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 433
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 436
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 439
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 447
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 460
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 463
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 469
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 472
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 481
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 485
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 486
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 487
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 494
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 495
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 496
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 497
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 498
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-full.js",
+      "method": "log",
+      "line": 503
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-seo.js",
+      "method": "log",
+      "line": 27
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-seo.js",
+      "method": "error",
+      "line": 111
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/audit-seo.js",
+      "method": "log",
+      "line": 123
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 81
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 83
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 106
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 116
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 120
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 142
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 152
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 155
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 159
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 168
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 169
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 170
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 171
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/cache-busting.js",
+      "method": "log",
+      "line": 172
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "error",
+      "line": 104
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "error",
+      "line": 117
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "error",
+      "line": 122
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "error",
+      "line": 136
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 186
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 217
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 218
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 219
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 231
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 232
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 233
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 234
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 235
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 237
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 238
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 239
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 240
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 241
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 243
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 244
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 245
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 246
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 247
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 252
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 253
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 254
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 255
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 256
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 259
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 261
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 265
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 272
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 289
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "log",
+      "line": 325
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/minify.js",
+      "method": "error",
+      "line": 330
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/optimize-lazy.js",
+      "method": "log",
+      "line": 94
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/optimize-lazy.js",
+      "method": "error",
+      "line": 123
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/optimize-lazy.js",
+      "method": "log",
+      "line": 133
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/optimize-lazy.js",
+      "method": "log",
+      "line": 137
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/build/optimize-lazy.js",
+      "method": "log",
+      "line": 141
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "warn",
+      "line": 93
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "warn",
+      "line": 94
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 100
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 101
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 107
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 109
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 113
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 115
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 120
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "log",
+      "line": 122
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/create-users.js",
+      "method": "error",
+      "line": 126
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 23
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "error",
+      "line": 26
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 43
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 51
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 56
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 57
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "log",
+      "line": 58
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-content-ai.js",
+      "method": "error",
+      "line": 62
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 98
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 140
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 143
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 146
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 151
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 166
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 168
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 172
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 173
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 174
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 176
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "log",
+      "line": 178
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/integrate-scripts.js",
+      "method": "error",
+      "line": 187
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 37
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 47
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 77
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 82
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 83
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 84
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 97
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 98
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 99
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 100
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/migrate-sidebar.js",
+      "method": "log",
+      "line": 101
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "error",
+      "line": 28
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 41
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 42
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 60
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 61
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 66
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 67
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 78
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 92
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 97
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 98
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 109
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 124
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 129
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 130
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 141
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 147
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "error",
+      "line": 155
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 156
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 160
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 173
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "error",
+      "line": 176
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 201
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 202
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 206
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 209
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "log",
+      "line": 213
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/push-data.js",
+      "method": "error",
+      "line": 217
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 19
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 20
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 21
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 26
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 28
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 29
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 32
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 56
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 57
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 60
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 64
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "warn",
+      "line": 66
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 70
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 74
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "warn",
+      "line": 76
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 80
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 81
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 99
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 100
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 101
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 102
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 103
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 104
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 105
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 106
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 107
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 108
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 109
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 110
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "log",
+      "line": 111
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "error",
+      "line": 114
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/setup-db.js",
+      "method": "error",
+      "line": 115
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "error",
+      "line": 21
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 22
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 48
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 54
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 57
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 61
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "error",
+      "line": 64
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 70
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 79
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 108
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 109
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 110
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 111
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 112
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 113
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 114
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 115
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 116
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 117
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 118
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 119
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 125
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "error",
+      "line": 134
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 140
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 141
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 142
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 149
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 156
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 157
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 158
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 164
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 177
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 178
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 179
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 182
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 183
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 184
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 185
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 186
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 188
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 189
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 192
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 198
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 199
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 202
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 206
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 210
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 214
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 217
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 218
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 219
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 229
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 230
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 231
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 232
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 233
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 234
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 237
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 238
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 239
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 240
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 241
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 242
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "log",
+      "line": 243
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/migration/sync-data.js",
+      "method": "error",
+      "line": 268
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/tools/inject-env.js",
+      "method": "warn",
+      "line": 22
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/tools/inject-env.js",
+      "method": "warn",
+      "line": 23
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/tools/inject-env.js",
+      "method": "log",
+      "line": 40
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/tools/inject-env.js",
+      "method": "log",
+      "line": 41
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "scripts/tools/inject-env.js",
+      "method": "log",
+      "line": 42
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "supabase-config.js",
+      "method": "debug",
+      "line": 906
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "supabase-config.js",
+      "method": "debug",
+      "line": 916
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 56
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 60
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 64
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "error",
+      "line": 68
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 78
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 89
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 95
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "error",
+      "line": 189
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 241
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 322
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 334
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "error",
+      "line": 353
+    },
+    {
+      "type": "CONSOLE_LOG",
+      "file": "sw.js",
+      "method": "log",
+      "line": 423
+    }
+  ]
+}

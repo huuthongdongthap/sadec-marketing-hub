@@ -1,0 +1,493 @@
+{
+  "version": "1.0",
+  "name": "Pricing Cards - M3 Agency",
+  "description": "Pricing section components from Mekong Agency website",
+  "variables": {
+    "primary": "#006A60",
+    "on_primary": "#FFFFFF",
+    "secondary": "#9C6800",
+    "on_secondary": "#FFFFFF",
+    "surface": "#FAFDFC",
+    "on_surface": "#191C1B",
+    "on_surface_variant": "#3F4946",
+    "outline_variant": "#BEC9C6"
+  },
+  "children": [
+    {
+      "id": "pricing_section",
+      "type": "frame",
+      "name": "Pricing Section",
+      "reusable": false,
+      "x": 0,
+      "y": 0,
+      "width": 1200,
+      "height": 600,
+      "layout": "vertical",
+      "gap": 48,
+      "padding": [48, 24, 48, 24],
+      "fill": "#FAFDFC",
+      "children": [
+        {
+          "id": "section_header",
+          "type": "frame",
+          "name": "Section Header",
+          "layout": "vertical",
+          "gap": 8,
+          "width": "fill_container",
+          "height": "hug_contents",
+          "children": [
+            {
+              "id": "section_badge",
+              "type": "text",
+              "name": "Badge",
+              "content": "Bảng giá",
+              "fontSize": 12,
+              "fontWeight": 500,
+              "fontFamily": "Google Sans Text",
+              "textColor": "#00201C",
+              "textAlign": "center",
+              "width": "hug_contents",
+              "height": "hug_contents",
+              "padding": [4, 12, 4, 12],
+              "fill": "#74F8E5",
+              "cornerRadius": [9999, 9999, 9999, 9999]
+            },
+            {
+              "id": "section_title",
+              "type": "text",
+              "name": "Title",
+              "content": "Gói dịch vụ linh hoạt",
+              "fontSize": 28,
+              "fontWeight": 700,
+              "fontFamily": "Google Sans",
+              "textColor": "#191C1B",
+              "textAlign": "center",
+              "width": "fill_container",
+              "height": "hug_contents"
+            },
+            {
+              "id": "section_description",
+              "type": "text",
+              "name": "Description",
+              "content": "Phù hợp với mọi quy mô doanh nghiệp, từ startup đến SME",
+              "fontSize": 14,
+              "fontWeight": 400,
+              "fontFamily": "Google Sans Text",
+              "textColor": "#3F4946",
+              "textAlign": "center",
+              "width": "fill_container",
+              "height": "hug_contents"
+            }
+          ]
+        },
+        {
+          "id": "pricing_grid",
+          "type": "frame",
+          "name": "Pricing Grid",
+          "layout": "horizontal",
+          "gap": 16,
+          "width": "fill_container",
+          "height": "hug_contents",
+          "children": [
+            {
+              "id": "card_starter",
+              "type": "frame",
+              "name": "Starter Card",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [16, 16, 16, 16],
+              "width": 360,
+              "height": "hug_contents",
+              "fill": "#FAFDFC",
+              "stroke": "#BEC9C6",
+              "strokeThickness": 1,
+              "cornerRadius": [16, 16, 16, 16],
+              "children": [
+                {
+                  "id": "starter_name",
+                  "type": "text",
+                  "content": "Khởi nghiệp",
+                  "fontSize": 16,
+                  "fontWeight": 500,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#191C1B",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "starter_price",
+                  "type": "text",
+                  "content": "5.000.000đ",
+                  "fontSize": 24,
+                  "fontWeight": 700,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#191C1B",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "starter_period",
+                  "type": "text",
+                  "content": "/tháng",
+                  "fontSize": 14,
+                  "fontWeight": 400,
+                  "fontFamily": "Google Sans Text",
+                  "textColor": "#3F4946",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "starter_features",
+                  "type": "frame",
+                  "name": "Features List",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "width": "fill_container",
+                  "height": "hug_contents",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "✓ Quản lý 2 kênh social",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ 10 bài đăng/tháng",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Báo cáo hàng tuần",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Tư vấn chiến lược cơ bản",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    }
+                  ]
+                },
+                {
+                  "id": "starter_button",
+                  "type": "frame",
+                  "name": "CTA Button",
+                  "layout": "horizontal",
+                  "padding": [10, 24, 10, 24],
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "transparent",
+                  "stroke": "#BEC9C6",
+                  "strokeThickness": 1,
+                  "cornerRadius": [9999, 9999, 9999, 9999],
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "Bắt đầu ngay",
+                      "fontSize": 14,
+                      "fontWeight": 500,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#006A60",
+                      "textAlign": "center",
+                      "width": "fill_container"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "card_growth",
+              "type": "frame",
+              "name": "Growth Card - Featured",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [16, 16, 16, 16],
+              "width": 360,
+              "height": "hug_contents",
+              "fill": "#006A60",
+              "cornerRadius": [16, 16, 16, 16],
+              "boxShadow": "0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15)",
+              "children": [
+                {
+                  "id": "featured_badge",
+                  "type": "text",
+                  "content": "Phổ biến nhất",
+                  "fontSize": 12,
+                  "fontWeight": 500,
+                  "fontFamily": "Google Sans Text",
+                  "textColor": "#FFFFFF",
+                  "textAlign": "center",
+                  "width": "hug_contents",
+                  "height": "hug_contents",
+                  "padding": [6, 20, 6, 20],
+                  "fill": "#9C6800",
+                  "cornerRadius": [9999, 9999, 9999, 9999],
+                  "y": -12
+                },
+                {
+                  "id": "growth_name",
+                  "type": "text",
+                  "content": "Tăng trưởng",
+                  "fontSize": 16,
+                  "fontWeight": 500,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#FFFFFF",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "growth_price",
+                  "type": "text",
+                  "content": "12.000.000đ",
+                  "fontSize": 24,
+                  "fontWeight": 700,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#FFFFFF",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "growth_period",
+                  "type": "text",
+                  "content": "/tháng",
+                  "fontSize": 14,
+                  "fontWeight": 400,
+                  "fontFamily": "Google Sans Text",
+                  "textColor": "rgba(255, 255, 255, 0.8)",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "growth_features",
+                  "type": "frame",
+                  "name": "Features List",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "width": "fill_container",
+                  "height": "hug_contents",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "✓ Quản lý 4 kênh social",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ 20 bài đăng/tháng",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Facebook/Google Ads",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ SEO Local cơ bản",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Chatbot Zalo",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Báo cáo hàng ngày",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "id": "growth_button",
+                  "type": "frame",
+                  "name": "CTA Button",
+                  "layout": "horizontal",
+                  "padding": [10, 24, 10, 24],
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": [9999, 9999, 9999, 9999],
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "Đăng ký ngay",
+                      "fontSize": 14,
+                      "fontWeight": 500,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#006A60",
+                      "textAlign": "center",
+                      "width": "fill_container"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "card_enterprise",
+              "type": "frame",
+              "name": "Enterprise Card",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [16, 16, 16, 16],
+              "width": 360,
+              "height": "hug_contents",
+              "fill": "#FAFDFC",
+              "stroke": "#BEC9C6",
+              "strokeThickness": 1,
+              "cornerRadius": [16, 16, 16, 16],
+              "children": [
+                {
+                  "id": "enterprise_name",
+                  "type": "text",
+                  "content": "Doanh nghiệp",
+                  "fontSize": 16,
+                  "fontWeight": 500,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#191C1B",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "enterprise_price",
+                  "type": "text",
+                  "content": "Liên hệ",
+                  "fontSize": 24,
+                  "fontWeight": 700,
+                  "fontFamily": "Google Sans",
+                  "textColor": "#191C1B",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "enterprise_period",
+                  "type": "text",
+                  "content": "Tùy chỉnh",
+                  "fontSize": 14,
+                  "fontWeight": 400,
+                  "fontFamily": "Google Sans Text",
+                  "textColor": "#3F4946",
+                  "textAlign": "center",
+                  "width": "fill_container"
+                },
+                {
+                  "id": "enterprise_features",
+                  "type": "frame",
+                  "name": "Features List",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "width": "fill_container",
+                  "height": "hug_contents",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "✓ Không giới hạn kênh",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Nội dung không giới hạn",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Ads đa nền tảng",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ SEO toàn diện",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ AI Marketing suite",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    },
+                    {
+                      "type": "text",
+                      "content": "✓ Account Manager riêng",
+                      "fontSize": 14,
+                      "fontWeight": 400,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#191C1B"
+                    }
+                  ]
+                },
+                {
+                  "id": "enterprise_button",
+                  "type": "frame",
+                  "name": "CTA Button",
+                  "layout": "horizontal",
+                  "padding": [10, 24, 10, 24],
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "transparent",
+                  "stroke": "#BEC9C6",
+                  "strokeThickness": 1,
+                  "cornerRadius": [9999, 9999, 9999, 9999],
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "Liên hệ tư vấn",
+                      "fontSize": 14,
+                      "fontWeight": 500,
+                      "fontFamily": "Google Sans Text",
+                      "textColor": "#006A60",
+                      "textAlign": "center",
+                      "width": "fill_container"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

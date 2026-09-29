@@ -1,0 +1,357 @@
+@media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+.nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--md-sys-color-surface);
+        }
+.nav-item.active {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+            border: 1px solid rgba(0, 212, 106, 0.3);
+        }
+.page-subtitle {
+            font: var(--md-sys-typescale-body-medium);
+            color: rgba(255, 255, 255, 0.5);
+        }
+/* ===== REVENUE STATS ===== */
+        .revenue-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+.stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+.stat-card.mrr::before {
+            background: linear-gradient(90deg, #00D46A, #00FFB3);
+        }
+.stat-card.arr::before {
+            background: linear-gradient(90deg, #635BFF, #A259FF);
+        }
+.stat-card.transactions::before {
+            background: linear-gradient(90deg, #FF6B6B, #FFE66D);
+        }
+.stat-card.customers::before {
+            background: linear-gradient(90deg, #4ECDC4, #44A3FF);
+        }
+.stat-label {
+            font: var(--md-sys-typescale-label-medium);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+        }
+.stat-value {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            color: var(--md-sys-color-surface);
+        }
+.stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+.stat-trend.up {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+.stat-trend.down {
+            background: rgba(255, 107, 107, 0.2);
+            color: #FF6B6B;
+        }
+/* ===== SECTION CONTAINER ===== */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+.section-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+.section-title {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-surface);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+.section-body {
+            padding: 24px;
+        }
+/* ===== PAYMENT PROVIDERS ===== */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+.provider-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+.provider-card:hover {
+            border-color: #00D46A;
+            transform: translateY(-4px);
+        }
+.provider-card.connected {
+            border-color: #00D46A;
+            background: linear-gradient(135deg, rgba(0, 212, 106, 0.05), transparent);
+        }
+.provider-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+.provider-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+.provider-logo.stripe {
+            background: #635BFF;
+            color: var(--md-sys-color-surface);
+        }
+.provider-logo.momo {
+            background: #A50064;
+            color: var(--md-sys-color-surface);
+        }
+.provider-logo.zalopay {
+            background: #00AAFF;
+            color: var(--md-sys-color-surface);
+        }
+.provider-logo.sepay {
+            background: #FF6600;
+            color: var(--md-sys-color-surface);
+        }
+.provider-logo.polar {
+            background: #0055FF;
+            color: var(--md-sys-color-surface);
+        }
+.provider-info {
+            flex: 1;
+        }
+.provider-name {
+            font: var(--md-sys-typescale-title-small);
+            color: var(--md-sys-color-surface);
+        }
+.provider-desc {
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.5);
+        }
+.provider-status {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+        }
+.provider-status.connected {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+.provider-status.pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+.provider-status.disconnected {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+.provider-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+.feature-tag {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.7);
+        }
+/* ===== SUBSCRIPTION TIERS ===== */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+.tier-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+.tier-card.popular {
+            border-color: #635BFF;
+            background: linear-gradient(135deg, rgba(99, 91, 255, 0.1), transparent);
+        }
+.tier-card.popular::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #635BFF, #A259FF);
+            color: var(--md-sys-color-surface);
+            border-radius: 999px;
+            font: var(--md-sys-typescale-label-small);
+            font-weight: 600;
+        }
+.tier-name {
+            font: var(--md-sys-typescale-title-medium);
+            color: var(--md-sys-color-surface);
+            margin-bottom: 8px;
+        }
+.tier-price {
+            font: var(--md-sys-typescale-headline-medium);
+            font-weight: 700;
+            color: #00D46A;
+            margin-bottom: 4px;
+        }
+.tier-period {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 16px;
+        }
+.tier-features {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+.tier-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font: var(--md-sys-typescale-body-small);
+            color: rgba(255, 255, 255, 0.7);
+        }
+.tier-feature::before {
+            content: '✓';
+            color: #00D46A;
+        }
+/* ===== TRANSACTIONS ===== */
+        .transactions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+.transaction-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+        }
+.transaction-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+.transaction-icon.success {
+            background: rgba(0, 212, 106, 0.2);
+            color: #00D46A;
+        }
+.transaction-icon.pending {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+.transaction-icon.failed {
+            background: rgba(255, 107, 107, 0.2);
+            color: #FF6B6B;
+        }
+.transaction-info {
+            flex: 1;
+        }
+.transaction-title {
+            font: var(--md-sys-typescale-body-medium);
+            color: var(--md-sys-color-surface);
+        }
+.transaction-meta {
+            font: var(--md-sys-typescale-label-small);
+            color: rgba(255, 255, 255, 0.4);
+        }
+.transaction-amount {
+            font: var(--md-sys-typescale-title-medium);
+            font-weight: 600;
+        }
+.transaction-amount.positive {
+            color: #00D46A;
+        }
+.transaction-amount.negative {
+            color: #FF6B6B;
+        }
+/* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font: var(--md-sys-typescale-label-large);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+.btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(0, 212, 106, 0.4);
+            transform: translateY(-2px);
+        }
+.btn-secondary {
+            background: transparent;
+            color: #00D46A;
+            border: 1px solid #00D46A;
+        }
+.btn-secondary:hover {
+            background: rgba(0, 212, 106, 0.1);
+        }
+.btn-stripe {
+            background: #635BFF;
+            color: var(--md-sys-color-surface);
+        }
+.btn-stripe:hover {
+            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.4);
+        }
+/* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+.provider-card, .tier-card {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }

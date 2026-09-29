@@ -1,0 +1,888 @@
+{
+  "date": "2026-03-13T20:16:55.497Z",
+  "summary": {
+    "totalFiles": 94,
+    "bySeverity": {
+      "error": 39,
+      "warning": 28,
+      "info": 16
+    },
+    "byType": {
+      "meta": 49,
+      "accessibility": 34,
+      "links": 0
+    },
+    "brokenLinks": 80
+  },
+  "issues": [
+    {
+      "file": "admin/features-demo.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "admin/features-demo.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/features-demo.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "viewport",
+      "severity": "error",
+      "message": "Missing viewport"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "title",
+      "severity": "error",
+      "message": "Missing title"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "viewport",
+      "severity": "error",
+      "message": "Missing viewport"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "title",
+      "severity": "error",
+      "message": "Missing title"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "viewport",
+      "severity": "error",
+      "message": "Missing viewport"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "title",
+      "severity": "error",
+      "message": "Missing title"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "viewport",
+      "severity": "error",
+      "message": "Missing viewport"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "title",
+      "severity": "error",
+      "message": "Missing title"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "affiliate/commissions.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/commissions.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/dashboard.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/dashboard.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/links.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/links.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/media.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/media.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/profile.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/profile.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/referrals.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/referrals.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "affiliate/settings.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "affiliate/settings.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "auth/login.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "auth/login.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "forgot-password.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "forgot-password.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "login.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "login.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "lp.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "lp.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "offline.html",
+      "type": "meta",
+      "name": "charset",
+      "severity": "error",
+      "message": "Missing charset"
+    },
+    {
+      "file": "offline.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "playwright-report/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "portal/onboarding.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "portal/payment-result.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    }
+  ],
+  "brokenLinks": [
+    {
+      "url": "dashboard.html",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "brand-guide.html",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "workflows.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "agents.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "events.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "lms.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "community.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "events.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "widgets/widgets.css",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "pos.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "menu.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "inventory.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "shifts.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "quality.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "suppliers.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "loyalty.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "workflows.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "approvals.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "../assets/css/hover-effects.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "../assets/css/responsive-enhancements.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "../assets/css/responsive-fix-2026.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "../assets/css/responsive-table-layout.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "agents.html",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "referrals.html",
+      "file": "affiliate/dashboard.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "affiliate/dashboard.html"
+    },
+    {
+      "url": "../index.html",
+      "file": "auth/login.html"
+    },
+    {
+      "url": "/",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "index.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/approve.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/assets.html"
+    },
+    {
+      "url": "missions.html",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "payments.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "payments.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "projects.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "projects.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "../index.html",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "../assets/css/bundle/portal-common.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "../assets/css/m3-agency.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "missions.html",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "javascript:void(0)",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "onboarding.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "invoices.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "../assets/css/bundle/portal-common.css",
+      "file": "portal/roi-analytics.html"
+    },
+    {
+      "url": "../assets/css/m3-agency.css",
+      "file": "portal/roi-analytics.html"
+    }
+  ]
+}

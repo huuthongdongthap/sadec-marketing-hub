@@ -1,0 +1,4251 @@
+{
+  "date": "2026-03-14T23:30:27.566Z",
+  "summary": {
+    "totalFiles": 144,
+    "bySeverity": {
+      "error": 1,
+      "warning": 205,
+      "info": 87
+    },
+    "byType": {
+      "meta": 200,
+      "accessibility": 93,
+      "links": 0
+    },
+    "brokenLinks": 568
+  },
+  "issues": [
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/conversion-funnel.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/global-search.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/notification-bell.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "admin/widgets/theme-toggle.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "assets/partials/seo-head.html",
+      "type": "accessibility",
+      "name": "html lang",
+      "severity": "error"
+    },
+    {
+      "file": "assets/partials/seo-head.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "assets/partials/seo-head.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/portal/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/portal/supabase.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/admin-shared.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/agents.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/ai-assistant.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/approvals.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/community.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/content-ai.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/core-utils.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/customer-success.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/ecommerce.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/enhanced-utils.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/events.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/form-validation.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/hr-hiring.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/index.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/lazy-loader.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/legal.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/lms.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/mekong-store.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/notifications.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/payment-gateway.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/performance.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/proposals.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/pwa-install.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/report-generator.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/retention.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/toast-notification.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/vc-readiness.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/video.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/workflows.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/services/zalo-chat.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/shared/format-utils.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/shared/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/utils/function.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/assets/js/utils/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/src/js/components/enhanced-toast.js.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "meta",
+      "name": "description",
+      "severity": "warning",
+      "message": "Missing description"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "meta",
+      "name": "og:title",
+      "severity": "warning",
+      "message": "Missing og:title"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "meta",
+      "name": "og:description",
+      "severity": "warning",
+      "message": "Missing og:description"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "meta",
+      "name": "og:image",
+      "severity": "warning",
+      "message": "Missing og:image"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "meta",
+      "name": "canonical",
+      "severity": "info",
+      "message": "Missing canonical"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "accessibility",
+      "name": "main landmark",
+      "severity": "warning"
+    },
+    {
+      "file": "coverage/src/js/components/index.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "portal/onboarding.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    },
+    {
+      "file": "portal/payment-result.html",
+      "type": "accessibility",
+      "name": "skip link",
+      "severity": "info"
+    }
+  ],
+  "brokenLinks": [
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "brand-guide.html",
+      "file": "admin/agents.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/ai-analysis.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ai-analysis.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ai-analysis.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/ai-analysis.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/api-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/api-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/api-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/api-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "workflows.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "agents.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/approvals.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/auth.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/auth.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/auth.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/auth.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/binh-phap.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/binh-phap.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/binh-phap.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/binh-phap.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/brand-guide.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/brand-guide.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/brand-guide.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/brand-guide.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/campaigns.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/campaigns.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/campaigns.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/campaigns.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/campaigns.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "events.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "lms.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/community.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/components/phase-tracker.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/components/phase-tracker.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/components/phase-tracker.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/content-calendar.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/content-calendar.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/content-calendar.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/content-calendar.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "community.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "events.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/customer-success.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "widgets/widgets.css",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "/admin/settings.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "/admin/settings.html",
+      "file": "admin/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/deploy.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/deploy.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/deploy.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/deploy.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/docs.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/docs.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/docs.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/docs.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "workflows.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "approvals.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/ecommerce.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/events.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/events.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/events.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/events.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/features-demo-2027.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/features-demo-2027.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/features-demo-2027.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/features-demo-2027.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/features-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/features-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/features-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/features-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/finance.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/finance.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/finance.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/finance.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/finance.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/hr-hiring.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/hr-hiring.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/hr-hiring.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/hr-hiring.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/inventory.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/inventory.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/inventory.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/inventory.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/inventory.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/landing-builder.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/leads.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/leads.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/leads.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/leads.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/legal.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/legal.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/legal.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/legal.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/lms.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/lms.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/lms.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/lms.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/loyalty.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/loyalty.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/loyalty.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/loyalty.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/loyalty.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/menu.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/menu.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/menu.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/menu.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/menu.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/mvp-launch.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/mvp-launch.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/mvp-launch.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/mvp-launch.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/pipeline.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pipeline.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pipeline.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/pipeline.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/pos.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pos.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pos.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/pos.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/pricing.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pricing.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/pricing.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/pricing.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/proposals.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/proposals.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/proposals.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/proposals.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/quality.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/quality.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/quality.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/quality.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/raas-overview.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/raas-overview.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/raas-overview.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/raas-overview.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/raas-overview.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/retention.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/retention.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/retention.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/retention.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/roiaas-admin.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/roiaas-admin.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/roiaas-admin.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/roiaas-admin.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/roiaas-admin.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/shifts.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/shifts.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/shifts.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/shifts.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/suppliers.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/suppliers.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/suppliers.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/suppliers.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/suppliers.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ui-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ui-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/ui-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/ui-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/ui-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/ux-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ux-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/ux-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/ux-components-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/vc-readiness.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/vc-readiness.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/vc-readiness.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/vc-readiness.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/video-workflow.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/video-workflow.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/video-workflow.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/video-workflow.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/global-search.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/global-search.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/global-search.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/global-search.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/notification-bell.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/notification-bell.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/notification-bell.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/notification-bell.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/theme-toggle.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/theme-toggle.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/theme-toggle.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets/theme-toggle.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/widgets-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/widgets-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/widgets-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/widgets-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "admin/widgets-demo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "agents.html",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "../dashboard.html",
+      "file": "admin/workflows.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "admin/zalo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/zalo.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "admin/zalo.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "admin/zalo.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/commissions.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/dashboard.html"
+    },
+    {
+      "url": "referrals.html",
+      "file": "affiliate/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/links.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/media.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/profile.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/referrals.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "affiliate/settings.html"
+    },
+    {
+      "url": "{{URL}}",
+      "file": "assets/partials/seo-head.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "auth/login.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/portal/index.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/portal/index.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/portal/index.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/portal/index.html"
+    },
+    {
+      "url": "supabase.js.html",
+      "file": "coverage/assets/js/portal/index.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/portal/supabase.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/portal/supabase.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/portal/supabase.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/portal/supabase.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/admin-shared.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/admin-shared.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/admin-shared.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/admin-shared.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/agents.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/agents.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/agents.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/agents.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/ai-assistant.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/ai-assistant.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/ai-assistant.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/ai-assistant.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/approvals.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/approvals.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/approvals.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/approvals.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/community.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/community.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/community.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/community.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/content-ai.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/content-ai.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/content-ai.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/content-ai.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/core-utils.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/core-utils.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/core-utils.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/core-utils.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/customer-success.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/customer-success.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/customer-success.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/customer-success.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/ecommerce.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/ecommerce.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/ecommerce.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/ecommerce.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/enhanced-utils.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/enhanced-utils.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/enhanced-utils.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/enhanced-utils.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/events.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/events.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/events.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/events.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/form-validation.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/form-validation.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/form-validation.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/form-validation.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/hr-hiring.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/hr-hiring.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/hr-hiring.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/hr-hiring.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "admin-shared.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "agents.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "ai-assistant.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "approvals.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "community.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "content-ai.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "core-utils.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "customer-success.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "ecommerce.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "enhanced-utils.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "events.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "form-validation.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "hr-hiring.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "index.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "lazy-loader.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "legal.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "lms.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "mekong-store.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "notifications.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "payment-gateway.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "performance.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "proposals.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "pwa-install.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "report-generator.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "retention.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "toast-notification.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "vc-readiness.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "video.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "workflows.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "zalo-chat.js.html",
+      "file": "coverage/assets/js/services/index.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/index.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/index.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/index.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/index.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/lazy-loader.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/lazy-loader.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/lazy-loader.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/lazy-loader.js.html"
+    },
+    {
+      "url": "${href}",
+      "file": "coverage/assets/js/services/lazy-loader.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/legal.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/legal.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/legal.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/legal.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/lms.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/lms.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/lms.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/lms.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/mekong-store.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/mekong-store.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/mekong-store.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/mekong-store.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/notifications.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/notifications.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/notifications.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/notifications.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/payment-gateway.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/payment-gateway.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/payment-gateway.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/payment-gateway.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/performance.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/performance.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/performance.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/performance.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/proposals.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/proposals.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/proposals.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/proposals.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/pwa-install.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/pwa-install.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/pwa-install.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/pwa-install.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/report-generator.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/report-generator.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/report-generator.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/report-generator.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/retention.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/retention.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/retention.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/retention.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/toast-notification.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/toast-notification.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/toast-notification.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/toast-notification.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/vc-readiness.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/vc-readiness.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/vc-readiness.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/vc-readiness.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/video.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/video.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/video.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/video.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/workflows.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/workflows.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/workflows.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/workflows.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/services/zalo-chat.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/services/zalo-chat.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/services/zalo-chat.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/services/zalo-chat.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/shared/format-utils.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/shared/format-utils.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/shared/format-utils.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/shared/format-utils.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/shared/index.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/shared/index.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/shared/index.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/shared/index.html"
+    },
+    {
+      "url": "format-utils.js.html",
+      "file": "coverage/assets/js/shared/index.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/utils/function.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/utils/function.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/utils/function.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/utils/function.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/assets/js/utils/index.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/assets/js/utils/index.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/assets/js/utils/index.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/assets/js/utils/index.html"
+    },
+    {
+      "url": "function.js.html",
+      "file": "coverage/assets/js/utils/index.html"
+    },
+    {
+      "url": "prettify.css",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "base.css",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "assets/js/portal/index.html",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "assets/js/services/index.html",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "assets/js/shared/index.html",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "assets/js/utils/index.html",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "src/js/components/index.html",
+      "file": "coverage/index.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/src/js/components/enhanced-toast.js.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/src/js/components/enhanced-toast.js.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/src/js/components/enhanced-toast.js.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/src/js/components/enhanced-toast.js.html"
+    },
+    {
+      "url": "../../../prettify.css",
+      "file": "coverage/src/js/components/index.html"
+    },
+    {
+      "url": "../../../base.css",
+      "file": "coverage/src/js/components/index.html"
+    },
+    {
+      "url": "../../../favicon.png",
+      "file": "coverage/src/js/components/index.html"
+    },
+    {
+      "url": "../../../index.html",
+      "file": "coverage/src/js/components/index.html"
+    },
+    {
+      "url": "enhanced-toast.js.html",
+      "file": "coverage/src/js/components/index.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "forgot-password.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "index.html"
+    },
+    {
+      "url": "/",
+      "file": "index.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "login.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "lp.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "offline.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/approve.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/approve.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/approve.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/approve.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/assets.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/assets.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/assets.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/assets.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "missions.html",
+      "file": "portal/credits.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "payments.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "payments.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "projects.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "projects.html",
+      "file": "portal/dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/invoices.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/invoices.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/invoices.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/invoices.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/invoices.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/login.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/missions.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/notifications.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "missions.html",
+      "file": "portal/ocop-catalog.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "credits.html",
+      "file": "portal/ocop-exporter.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "onboarding.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "dashboard.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "invoices.html",
+      "file": "portal/payment-result.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/payments.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/projects.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/projects.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/projects.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/projects.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/reports.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/reports.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/reports.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/reports.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/reports.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roi-analytics.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roi-analytics.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/roi-analytics.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/roi-analytics.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/roi-report.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/roi-report.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roi-report.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roi-report.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/roi-report.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/roiaas-dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/roiaas-dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roiaas-dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roiaas-dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/roiaas-dashboard.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/roiaas-onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roiaas-onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/roiaas-onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/roiaas-onboarding.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/subscription-plans.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/subscription-plans.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/subscription-plans.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/subscription-plans.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/subscription-plans.html"
+    },
+    {
+      "url": "/assets/css/responsive-enhancements.css",
+      "file": "portal/subscriptions.html"
+    },
+    {
+      "url": "/assets/css/responsive-table-layout.css",
+      "file": "portal/subscriptions.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/subscriptions.html"
+    },
+    {
+      "url": "/assets/css/responsive-fix-2026.css",
+      "file": "portal/subscriptions.html"
+    },
+    {
+      "url": "/assets/css/responsive-utils.css",
+      "file": "portal/subscriptions.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "privacy.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "register.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "terms.html"
+    },
+    {
+      "url": "assets/css/responsive-enhancements.css",
+      "file": "verify-email.html"
+    }
+  ]
+}

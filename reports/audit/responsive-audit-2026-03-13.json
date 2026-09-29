@@ -1,0 +1,64 @@
+{
+  "summary": {
+    "totalFiles": 71,
+    "filesWithIssues": 4,
+    "totalIssues": 7,
+    "issuesByType": {
+      "SMALL_TOUCH_TARGETS": 1,
+      "MISSING_RESPONSIVE_CSS": 3,
+      "MISSING_VIEWPORT": 3
+    }
+  },
+  "issues": {
+    "admin/dashboard.html": [
+      {
+        "type": "SMALL_TOUCH_TARGETS",
+        "severity": "MEDIUM",
+        "message": "Có 1 buttons có thể quá nhỏ cho mobile",
+        "suggestion": "Đảm bảo touch targets >= 44x44px"
+      }
+    ],
+    "admin/widgets/global-search.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/widgets/notification-bell.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ],
+    "admin/widgets/theme-toggle.html": [
+      {
+        "type": "MISSING_RESPONSIVE_CSS",
+        "severity": "HIGH",
+        "message": "Thiếu responsive CSS file",
+        "suggestion": "Thêm <link rel=\"stylesheet\" href=\"/assets/css/responsive-enhancements.css\">"
+      },
+      {
+        "type": "MISSING_VIEWPORT",
+        "severity": "CRITICAL",
+        "message": "Thiếu viewport meta tag",
+        "suggestion": "Thêm <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+      }
+    ]
+  }
+}

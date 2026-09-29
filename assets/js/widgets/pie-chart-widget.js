@@ -1,0 +1,317 @@
+/**
+ * Pie Chart Widget Component
+ * Biểu đồ tròn cho distribution data với Chart.js
+ */
+
+class PieChartWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.chart = null;
+    }
+
+    static get observedAttributes() {
+        return ['title', 'time-range', 'chart-type'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    disconnectedCallback() {
+        if (this.chart) {
+            this.chart.destroy();
+        }
+    }
+
+    async initChart() {
+        // Load Chart.js dynamically
+        if (!window.Chart) {
+            await this.loadChartJS();
+        }
+
+        const ctx = this.shadowRoot.getElementById('pie-chart');
+        if (!ctx) return;
+
+        // Sample data - will be replaced with API call
+        const chartData = this.getChartData();
+
+        const config = {
+            type: this.getAttribute('chart-type') || 'pie',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            font: {
+                                family: "'Plus Jakarta Sans', sans-serif",
+                                size: 12
+                            },
+                            padding: 15,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#ffffff',
+                        bodyColor: 'rgba(255, 255, 255, 0.8)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        borderWidth: 1,
+                        padding: 12,
+                        displayColors: true,
+                        callbacks: {
+                            label: (context) => {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label}: ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true,
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        };
+
+        this.chart = new Chart(ctx, config);
+    }
+
+    getChartData() {
+        const type = this.getAttribute('data-type') || 'revenue';
+
+        const dataConfig = {
+            revenue: {
+                labels: ['Organic Search', 'Paid Ads', 'Social Media', 'Direct', 'Referral'],
+                data: [35, 25, 20, 15, 5],
+                colors: ['#00e5ff', '#d500f9', '#00e676', '#ff9100', '#ff1744']
+            },
+            traffic: {
+                labels: ['Desktop', 'Mobile', 'Tablet'],
+                data: [55, 35, 10],
+                colors: ['#00e5ff', '#7c4dff', '#ff6ec7']
+            },
+            customers: {
+                labels: ['New', 'Returning', 'Enterprise'],
+                data: [45, 40, 15],
+                colors: ['#00e676', '#00e5ff', '#ff9100']
+            },
+            projects: {
+                labels: ['Completed', 'In Progress', 'On Hold', 'Cancelled'],
+                data: [60, 25, 10, 5],
+                colors: ['#00e676', '#00e5ff', '#ff9100', '#ff1744']
+            }
+        };
+
+        const config = dataConfig[type] || dataConfig.revenue;
+
+        return {
+            labels: config.labels,
+            datasets: [{
+                data: config.data,
+                backgroundColor: config.colors,
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 2
+            }]
+        };
+    }
+
+    async loadChartJS() {
+        return new Promise((resolve, reject) => {
+            if (window.Chart) {
+                resolve();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    render() {
+        const title = this.getAttribute('title') || 'Distribution Chart';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                }
+                .pie-chart-widget {
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                }
+                .pie-chart-widget:hover {
+                    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.1);
+                }
+                .chart-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+                .chart-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .chart-title .material-symbols-outlined {
+                    color: #00e5ff;
+                }
+                .chart-controls {
+                    display: flex;
+                    gap: 8px;
+                }
+                .chart-type-btn {
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .chart-type-btn:hover,
+                .chart-type-btn.active {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #ffffff;
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                .chart-type-btn.active {
+                    background: linear-gradient(135deg, #00e5ff, #00b8d4);
+                    color: #000;
+                    border-color: transparent;
+                }
+                .chart-container {
+                    position: relative;
+                    height: 300px;
+                    width: 100%;
+                }
+                .chart-summary {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                    gap: 12px;
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .summary-item {
+                    text-align: center;
+                    padding: 12px;
+                    border-radius: 8px;
+                    background: rgba(255, 255, 255, 0.03);
+                    transition: all 0.2s ease;
+                }
+                .summary-item:hover {
+                    background: rgba(255, 255, 255, 0.06);
+                    transform: translateY(-2px);
+                }
+                .summary-value {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    margin-bottom: 4px;
+                }
+                .summary-label {
+                    font-size: 11px;
+                    color: rgba(255, 255, 255, 0.5);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                .chart-loading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 300px;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .loading-spinner {
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid rgba(255, 255, 255, 0.1);
+                    border-top-color: #00e5ff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+                .loading-text {
+                    color: rgba(255, 255, 255, 0.6);
+                    font-size: 14px;
+                }
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .pie-chart-widget {
+                        padding: 16px;
+                    }
+                    .chart-container {
+                        height: 250px;
+                    }
+                    .chart-summary {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+            </style>
+            <div class="pie-chart-widget">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span class="material-symbols-outlined">pie_chart</span>
+                        ${title}
+                    </h3>
+                    <div class="chart-controls">
+                        <button class="chart-type-btn active" data-type="pie">Pie</button>
+                        <button class="chart-type-btn" data-type="doughnut">Doughnut</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+                <div class="chart-summary" id="chart-summary"></div>
+            </div>
+        `;
+
+        // Add chart type toggle
+        setTimeout(() => {
+            this.shadowRoot.querySelectorAll('.chart-type-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    this.shadowRoot.querySelectorAll('.chart-type-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    if (this.chart) {
+                        this.chart.config.type = e.target.dataset.type;
+                        this.chart.update();
+                    }
+                });
+            });
+        }, 0);
+    }
+}
+
+customElements.define('pie-chart-widget', PieChartWidget);

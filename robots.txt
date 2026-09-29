@@ -1,0 +1,11 @@
+# Mekong Marketing - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sadecmarketinghub.com/sitemap.xml
+
+# Disallow private portals
+Disallow: /admin/
+Disallow: /portal/
+Disallow: /affiliate/

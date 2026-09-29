@@ -1,0 +1,192 @@
+{
+  "brokenLinks": [],
+  "missingMetaDescription": [],
+  "missingTitle": [],
+  "missingAltImages": [],
+  "missingLangAttribute": [],
+  "missingAriaLabels": [
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"overview\" class=\"mekong-tabs__tab\" aria-selected=\"true\">\n"
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"features\" class=\"mekong-tabs__tab\">\n                     "
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"pricing\" class=\"mekong-tabs__tab\">\n                      "
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"reviews\" class=\"mekong-tabs__tab\">\n                      "
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"users\" class=\"mekong-tabs__tab\" aria-selected=\"true\">\n   "
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"settings\" class=\"mekong-tabs__tab\">\n                     "
+    },
+    {
+      "file": "admin/components-demo.html",
+      "tag": "<button type=\"button\" role=\"tab\" data-tab=\"help\" class=\"mekong-tabs__tab\">\n                        ❓"
+    },
+    {
+      "file": "admin/deploy.html",
+      "tag": "<button type=\"button\" class=\"go-live-btn\" id=\"goLiveBtn\" onclick=\"deploy()\">\n                GO LIVE"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showNotification('info')\">\n          📬 Info "
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-success\" onclick=\"showNotification('success')\">\n          ✅ Suc"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-warning\" onclick=\"showNotification('warning')\">\n          ⚠️ Wa"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-error\" onclick=\"showNotification('error')\">\n          ❌ Error N"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-secondary\" onclick=\"window.NotificationCenter?.markAllAsRead()\""
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-secondary\" onclick=\"window.NotificationCenter?.clearAll()\">\n   "
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"window.CommandPalette?.open()\">\n          🔍 "
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-secondary\" onclick=\"addCustomCommand()\">\n          ➕ Add Custom"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"refreshHealth()\">\n          🔄 Refresh Health"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showDashboardDemo()\">\n            Xem Demo\n  "
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showQuickActionsDemo()\">\n            Xem Demo"
+    },
+    {
+      "file": "admin/features-demo-2027.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showRealtimeDemo()\">\n            Xem Demo\n   "
+    },
+    {
+      "file": "admin/inventory.html",
+      "tag": "<button type=\"button\" class=\"filter-chip active\" data-filter=\"all\" onclick=\"filterInventory('all')\">"
+    },
+    {
+      "file": "admin/inventory.html",
+      "tag": "<button type=\"button\" class=\"filter-chip\" data-filter=\"nguyen-lieu\" onclick=\"filterInventory('nguyen"
+    },
+    {
+      "file": "admin/inventory.html",
+      "tag": "<button type=\"button\" class=\"filter-chip\" data-filter=\"dong-goi\" onclick=\"filterInventory('dong-goi'"
+    },
+    {
+      "file": "admin/inventory.html",
+      "tag": "<button type=\"button\" class=\"filter-chip\" data-filter=\"thiet-bi\" onclick=\"filterInventory('thiet-bi'"
+    },
+    {
+      "file": "admin/loyalty.html",
+      "tag": "<button type=\"button\" class=\"btn-redeem-reward\" onclick=\"openRedeemRewardModal('${reward.id}')\">\n   "
+    },
+    {
+      "file": "admin/notifications.html",
+      "tag": "<button type=\"button\" class=\"btn-cyber outline\" onclick=\"showSection('logs')\">\n                     "
+    },
+    {
+      "file": "admin/pos.html",
+      "tag": "<button type=\"button\" class=\"category-tab active\" data-cat=\"all\" onclick=\"filterCategory('all')\">\n  "
+    },
+    {
+      "file": "admin/pos.html",
+      "tag": "<button type=\"button\" class=\"category-tab\" data-cat=\"coffee\" onclick=\"filterCategory('coffee')\">\n   "
+    },
+    {
+      "file": "admin/pos.html",
+      "tag": "<button type=\"button\" class=\"category-tab\" data-cat=\"tea\" onclick=\"filterCategory('tea')\">\n         "
+    },
+    {
+      "file": "admin/pos.html",
+      "tag": "<button type=\"button\" class=\"category-tab\" data-cat=\"blended\" onclick=\"filterCategory('blended')\">\n "
+    },
+    {
+      "file": "admin/pos.html",
+      "tag": "<button type=\"button\" class=\"category-tab\" data-cat=\"snacks\" onclick=\"filterCategory('snacks')\">\n   "
+    },
+    {
+      "file": "admin/ui-components-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showLoading(this)\">\n          Click Me\n      "
+    },
+    {
+      "file": "admin/ui-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showToast('success', 'Thành công!')\">\n       "
+    },
+    {
+      "file": "admin/ui-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showToast('error', 'Có lỗi xảy ra')\">\n       "
+    },
+    {
+      "file": "admin/ui-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showToast('warning', 'Cảnh báo')\">\n          "
+    },
+    {
+      "file": "admin/ui-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"showToast('info', 'Thông tin')\">\n            "
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-primary\" onclick=\"Toast.success('✅ Thao tác thành công!')\">\n   "
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-error\" onclick=\"Toast.error('❌ Có lỗi xảy ra!')\">\n          Err"
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-warning\" onclick=\"Toast.warning('⚠️ Vui lòng kiểm tra lại!')\">\n"
+    },
+    {
+      "file": "admin/ux-components-demo.html",
+      "tag": "<button type=\"button\" class=\"btn btn-info\" onclick=\"Toast.info('ℹ️ Thông báo mới')\">\n          Info "
+    },
+    {
+      "file": "index.html",
+      "tag": "<button type=\"button\" onclick=\"openPaymentModal('Khởi nghiệp', 5000000)\" class=\"btn btn-outlined pri"
+    },
+    {
+      "file": "index.html",
+      "tag": "<button type=\"button\" onclick=\"openPaymentModal('Tăng trưởng', 12000000)\" class=\"btn btn-filled pric"
+    },
+    {
+      "file": "login.html",
+      "tag": "<button type=\"button\" class=\"btn-exp btn-exp-outlined\" id=\"zaloBtn\" style=\"width: 100%; justify-cont"
+    },
+    {
+      "file": "portal/login.html",
+      "tag": "<button type=\"submit\" class=\"btn btn-filled btn-large\" style=\"width: 100%;\">\n                       "
+    },
+    {
+      "file": "register.html",
+      "tag": "<button type=\"button\" class=\"btn-exp btn-exp-outlined\" id=\"zaloBtn\" style=\"width: 100%; justify-cont"
+    }
+  ],
+  "emptyLinks": [],
+  "multipleH1": [],
+  "missingFavicon": []
+}

@@ -1,0 +1,230 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * UX ENHANCEMENTS 2026 — Sa Đéc Marketing Hub
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Features:
+ * 1. Page Transition Animations
+ * 2. Smooth Scroll Behavior
+ * 3. Focus Mode (Distraction-free)
+ * 4. Reading Progress Bar
+ * 5. Session Timeout Warning
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/**
+ * Page Transition Animations
+ */
+function initPageTransitions() {
+    // Add fade-in animation to page load
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s ease-in-out';
+
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+    });
+
+    // Animate links on click
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="/"]');
+        if (link && !link.target && !link.download) {
+            link.addEventListener('click', () => {
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 300);
+            });
+        }
+    });
+}
+
+/**
+ * Smooth Scroll Behavior
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Focus Mode - Distraction-free reading
+ */
+function initFocusMode() {
+    const toggle = document.createElement('button');
+    toggle.className = 'focus-mode-toggle';
+    toggle.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+    toggle.title = 'Focus Mode';
+    toggle.setAttribute('aria-label', 'Toggle focus mode');
+    toggle.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(0,0,0,0.6);
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    `;
+
+    document.body.appendChild(toggle);
+
+    // Show on scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 300 && currentScroll > lastScroll) {
+            toggle.style.opacity = '1';
+        } else {
+            toggle.style.opacity = '0';
+        }
+        lastScroll = currentScroll;
+    });
+
+    let focusMode = false;
+    toggle.addEventListener('click', () => {
+        focusMode = !focusMode;
+        document.body.classList.toggle('focus-mode', focusMode);
+
+        if (focusMode) {
+            // Hide non-essential elements
+            document.querySelectorAll('sadec-sidebar, .admin-sidebar, .quick-actions-fab, footer, aside').forEach(el => {
+                el.style.display = 'none';
+            });
+            toggle.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+        } else {
+            // Restore elements
+            document.querySelectorAll('sadec-sidebar, .admin-sidebar, .quick-actions-fab, footer, aside').forEach(el => {
+                el.style.display = '';
+            });
+            toggle.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+        }
+    });
+}
+
+/**
+ * Reading Progress Bar
+ */
+function initReadingProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress-bar';
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00e5ff, #c6ff00);
+        width: 0%;
+        z-index: 9999;
+        transition: width 0.1s;
+    `;
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = `${scrolled}%`;
+    });
+}
+
+/**
+ * Session Timeout Warning
+ */
+function initSessionTimeout() {
+    let timeoutWarning;
+    const WARNING_TIME = 5 * 60 * 1000; // 5 minutes
+    const SESSION_TIME = 30 * 60 * 1000; // 30 minutes
+
+    function showWarning() {
+        const warning = document.createElement('div');
+        warning.className = 'session-timeout-warning';
+        warning.innerHTML = `
+            <div style="
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 87, 87, 0.9);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                animation: slideIn 0.3s ease;
+            ">
+                <span class="material-symbols-outlined">warning</span>
+                <div>
+                    <strong>Session sắp hết hạn</strong>
+                    <p style="margin: 4px 0 0; font-size: 13px; opacity: 0.9;">Phiên làm việc của bạn sẽ hết hạn sau 5 phút</p>
+                </div>
+                <button onclick="this.parentElement.remove()" style="
+                    background: none;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 20px;
+                    padding: 0;
+                    margin-left: 12px;
+                ">×</button>
+            </div>
+        `;
+        document.body.appendChild(warning);
+    }
+
+    // Reset timeout on user activity
+    function resetTimeout() {
+        clearTimeout(timeoutWarning);
+        timeoutWarning = setTimeout(showWarning, SESSION_TIME - WARNING_TIME);
+    }
+
+    // Listen for user activity
+    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+        document.addEventListener(event, resetTimeout, true);
+    });
+
+    // Initial timeout
+    resetTimeout();
+}
+
+/**
+ * Initialize all UX enhancements
+ */
+export function initUXEnhancements() {
+    if (typeof window !== 'undefined') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initPageTransitions();
+            initSmoothScroll();
+            initFocusMode();
+            initReadingProgress();
+            initSessionTimeout();
+        });
+    }
+}
+
+// Auto-init
+if (typeof window !== 'undefined') {
+    initUXEnhancements();
+}

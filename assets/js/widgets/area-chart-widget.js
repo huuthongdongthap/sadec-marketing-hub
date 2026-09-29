@@ -1,0 +1,430 @@
+/**
+ * Area Chart Widget Component
+ * Biểu đồ vùng (stacked/normal) cho comparative data với Chart.js
+ */
+
+class AreaChartWidget extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.chart = null;
+    }
+
+    static get observedAttributes() {
+        return ['title', 'time-range', 'stacked'];
+    }
+
+    connectedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+        this.initChart();
+    }
+
+    disconnectedCallback() {
+        if (this.chart) {
+            this.chart.destroy();
+        }
+    }
+
+    async initChart() {
+        if (!window.Chart) {
+            await this.loadChartJS();
+        }
+
+        const ctx = this.shadowRoot.getElementById('area-chart');
+        if (!ctx) return;
+
+        const chartData = this.getChartData();
+        const stacked = this.getAttribute('stacked') === 'true';
+
+        const config = {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            font: {
+                                family: "'Plus Jakarta Sans', sans-serif",
+                                size: 12
+                            },
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#ffffff',
+                        bodyColor: 'rgba(255, 255, 255, 0.8)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        borderWidth: 1,
+                        padding: 12,
+                        displayColors: true,
+                        callbacks: {
+                            label: (context) => {
+                                const label = context.dataset.label || '';
+                                const value = context.parsed.y || 0;
+                                return `${label}: ${this.formatValue(value)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.6)',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        stacked: stacked
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.6)',
+                            font: {
+                                size: 11
+                            },
+                            callback: (value) => this.formatValue(value)
+                        },
+                        stacked: stacked
+                    }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                },
+                elements: {
+                    line: {
+                        tension: 0.4,
+                        borderWidth: 2
+                    },
+                    point: {
+                        radius: 3,
+                        hoverRadius: 5,
+                        borderWidth: 2
+                    }
+                }
+            }
+        };
+
+        this.chart = new Chart(ctx, config);
+    }
+
+    getChartData() {
+        const type = this.getAttribute('data-type') || 'channels';
+        const timeRange = this.getAttribute('time-range') || 'weekly';
+
+        const labelsConfig = {
+            daily: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '23:59'],
+            weekly: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            monthly: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            yearly: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        };
+
+        const labels = labelsConfig[timeRange] || labelsConfig.weekly;
+
+        const dataConfig = {
+            channels: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Google Ads',
+                        data: this.generateData(timeRange, 200, 800),
+                        borderColor: '#00e5ff',
+                        backgroundColor: 'rgba(0, 229, 255, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'Facebook Ads',
+                        data: this.generateData(timeRange, 150, 600),
+                        borderColor: '#7c4dff',
+                        backgroundColor: 'rgba(124, 77, 255, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'Organic',
+                        data: this.generateData(timeRange, 100, 500),
+                        borderColor: '#00e676',
+                        backgroundColor: 'rgba(0, 230, 118, 0.3)',
+                        fill: true
+                    }
+                ]
+            },
+            products: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Product A',
+                        data: this.generateData(timeRange, 100, 400),
+                        borderColor: '#ff9100',
+                        backgroundColor: 'rgba(255, 145, 0, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'Product B',
+                        data: this.generateData(timeRange, 80, 350),
+                        borderColor: '#ff1744',
+                        backgroundColor: 'rgba(255, 23, 68, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'Product C',
+                        data: this.generateData(timeRange, 60, 300),
+                        borderColor: '#ffd600',
+                        backgroundColor: 'rgba(255, 214, 0, 0.3)',
+                        fill: true
+                    }
+                ]
+            },
+            regions: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'North',
+                        data: this.generateData(timeRange, 300, 1000),
+                        borderColor: '#00e5ff',
+                        backgroundColor: 'rgba(0, 229, 255, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'South',
+                        data: this.generateData(timeRange, 250, 900),
+                        borderColor: '#d500f9',
+                        backgroundColor: 'rgba(213, 0, 249, 0.3)',
+                        fill: true
+                    },
+                    {
+                        label: 'Central',
+                        data: this.generateData(timeRange, 200, 700),
+                        borderColor: '#00e676',
+                        backgroundColor: 'rgba(0, 230, 118, 0.3)',
+                        fill: true
+                    }
+                ]
+            }
+        };
+
+        return dataConfig[type] || dataConfig.channels;
+    }
+
+    generateData(timeRange, min, max) {
+        const count = { daily: 7, weekly: 7, monthly: 4, yearly: 12 }[timeRange] || 7;
+        const data = [];
+        for (let i = 0; i < count; i++) {
+            const value = Math.floor(Math.random() * (max - min + 1)) + min;
+            data.push(value);
+        }
+        return data;
+    }
+
+    formatValue(value) {
+        if (value >= 1000000) {
+            return `${(value / 1000000).toFixed(1)}M`;
+        }
+        if (value >= 1000) {
+            return `${(value / 1000).toFixed(0)}K`;
+        }
+        return `${value}`;
+    }
+
+    async loadChartJS() {
+        return new Promise((resolve, reject) => {
+            if (window.Chart) {
+                resolve();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    render() {
+        const title = this.getAttribute('title') || 'Area Chart';
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: block;
+                }
+                .area-chart-widget {
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    border-radius: 16px;
+                    padding: 24px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                }
+                .area-chart-widget:hover {
+                    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.1);
+                }
+                .chart-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                }
+                .chart-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .chart-title .material-symbols-outlined {
+                    color: #ff9100;
+                }
+                .chart-controls {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                }
+                .chart-btn {
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+                .chart-btn:hover,
+                .chart-btn.active {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #ffffff;
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                .chart-btn.active {
+                    background: linear-gradient(135deg, #ff9100, #ff6d00);
+                    color: #000;
+                    border-color: transparent;
+                }
+                .chart-container {
+                    position: relative;
+                    height: 300px;
+                    width: 100%;
+                }
+                .chart-legend {
+                    display: flex;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                    margin-top: 16px;
+                    padding-top: 16px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 13px;
+                    color: rgba(255, 255, 255, 0.8);
+                }
+                .legend-color {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 3px;
+                }
+                .chart-loading {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 300px;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .loading-spinner {
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid rgba(255, 255, 255, 0.1);
+                    border-top-color: #ff9100;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .area-chart-widget {
+                        padding: 16px;
+                    }
+                    .chart-container {
+                        height: 250px;
+                    }
+                    .chart-legend {
+                        gap: 12px;
+                    }
+                }
+            </style>
+            <div class="area-chart-widget">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span class="material-symbols-outlined">area_chart</span>
+                        ${title}
+                    </h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-type="channels">Channels</button>
+                        <button class="chart-btn" data-type="products">Products</button>
+                        <button class="chart-btn" data-type="regions">Regions</button>
+                        <button class="chart-btn" data-stacked="true">Stacked</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="area-chart"></canvas>
+                </div>
+                <div class="chart-legend" id="chart-legend"></div>
+            </div>
+        `;
+
+        // Add controls
+        setTimeout(() => {
+            this.shadowRoot.querySelectorAll('.chart-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const type = e.target.dataset.type;
+                    const stacked = e.target.dataset.stacked;
+
+                    if (type) {
+                        this.shadowRoot.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.setAttribute('data-type', type);
+                        this.initChart();
+                    } else if (stacked !== undefined) {
+                        const isStacked = stacked === 'true';
+                        this.setAttribute('stacked', !isStacked);
+                        e.target.classList.toggle('active');
+                        e.target.textContent = !isStacked ? 'Stacked' : 'Normal';
+                        this.initChart();
+                    }
+                });
+            });
+        }, 0);
+    }
+}
+
+customElements.define('area-chart-widget', AreaChartWidget);

@@ -1,0 +1,246 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * LAZY LOADING STYLES
+ *
+ * Performance optimization for images and components
+ * - Blur-up placeholder
+ * - Fade-in animation
+ * - Skeleton loaders
+ * - Intersection Observer hooks
+ *
+ * @version 1.0.0 | 2026-03-15
+ * @module lazy-loading
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ============================================================================
+   LAZY LOAD IMAGE PLACEHOLDER
+   ============================================================================ */
+
+img[data-src],
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img.lazy.loaded {
+    opacity: 1;
+}
+
+img.lazy.blur {
+    filter: blur(10px);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+img.lazy.blur.loaded {
+    filter: blur(0);
+}
+
+/* ============================================================================
+   SKELETON LOADER
+   ============================================================================ */
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 50%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+}
+
+.skeleton-image {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.skeleton-text.skeleton-text--short {
+    width: 60%;
+}
+
+.skeleton-text.skeleton-text--medium {
+    width: 80%;
+}
+
+.skeleton-text.skeleton-text--long {
+    width: 100%;
+}
+
+.skeleton-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.skeleton-card {
+    padding: 16px;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Dark mode skeleton */
+@media (prefers-color-scheme: dark) {
+    .skeleton {
+        background: linear-gradient(
+            90deg,
+            #2a2a2a 0%,
+            #3a3a3a 50%,
+            #2a2a2a 100%
+        );
+    }
+}
+
+/* ============================================================================
+   FADE-IN ANIMATION
+   ============================================================================ */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for lists */
+.fade-in-stagger {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in-stagger.visible:nth-child(1) { transition-delay: 0ms; }
+.fade-in-stagger.visible:nth-child(2) { transition-delay: 50ms; }
+.fade-in-stagger.visible:nth-child(3) { transition-delay: 100ms; }
+.fade-in-stagger.visible:nth-child(4) { transition-delay: 150ms; }
+.fade-in-stagger.visible:nth-child(5) { transition-delay: 200ms; }
+.fade-in-stagger.visible:nth-child(6) { transition-delay: 250ms; }
+.fade-in-stagger.visible:nth-child(7) { transition-delay: 300ms; }
+.fade-in-stagger.visible:nth-child(8) { transition-delay: 350ms; }
+.fade-in-stagger.visible:nth-child(9) { transition-delay: 400ms; }
+.fade-in-stagger.visible:nth-child(10) { transition-delay: 450ms; }
+
+/* ============================================================================
+   LAZY LOAD WRAPPER
+   ============================================================================ */
+
+.lazy-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.lazy-wrapper .lazy-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--md-sys-color-surface-container, #f5f5f5);
+    z-index: 1;
+}
+
+.lazy-wrapper img,
+.lazy-wrapper video {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================================
+   RESPONSIVE IMAGES
+   ============================================================================ */
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+/* Mobile Small (375px) */
+@media (max-width: 375px) {
+    .skeleton-text {
+        height: 14px;
+        margin-bottom: 6px;
+    }
+
+    .skeleton-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fade-in {
+        transform: translateY(10px);
+    }
+}
+
+/* Mobile (768px) */
+@media (max-width: 768px) {
+    .skeleton-card {
+        padding: 12px;
+    }
+}
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .skeleton-image {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Desktop (1200px+) */
+@media (min-width: 1201px) {
+    .skeleton-image {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton,
+    .fade-in,
+    .fade-in-stagger {
+        animation: none;
+        transition: none;
+    }
+
+    img.lazy {
+        transition: none;
+    }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/auth-service.js",
+    "resolved": "assets/js/core/core/auth-service.js",
+    "line": 9
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/database-service.js",
+    "resolved": "assets/js/core/core/database-service.js",
+    "line": 10
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/storage-service.js",
+    "resolved": "assets/js/core/core/storage-service.js",
+    "line": 11
+  },
+  {
+    "file": "assets/js/core/supabase-client.js",
+    "import": "./core/supabase-client.js",
+    "resolved": "assets/js/core/core/supabase-client.js",
+    "line": 14
+  },
+  {
+    "file": "assets/js/services/toast-notification.js",
+    "import": "../../src/js/components/enhanced-toast.js",
+    "resolved": "assets/src/js/components/enhanced-toast.js",
+    "line": 7
+  }
+]
