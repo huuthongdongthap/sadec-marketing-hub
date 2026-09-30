@@ -45,7 +45,7 @@ test.describe('SEO Validation — Public Pages', () => {
   test('Homepage has structured data (JSON-LD)', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-    const jsonLd = await page.locator('script[type="application/ld+json"]').textContent();
+    const jsonLd = await page.locator('script[type="application/ld+json"]').first().textContent();
     expect(jsonLd).toBeTruthy();
 
     const data = JSON.parse(jsonLd!);
