@@ -30,7 +30,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check Cloudflare credentials
+        id: check-creds
+        run: |
+          if [ -n "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "has_token=true" >> $GITHUB_OUTPUT
+            echo "✅ CLOUDFLARE_API_TOKEN configured"
+          else
+            echo "has_token=false" >> $GITHUB_OUTPUT
+            echo "::warning ::CLOUDFLARE_API_TOKEN secret is not set in repository settings. Cloudflare Pages deploy step skipped."
+          fi
+
       - name: Deploy to Cloudflare Pages
+        if: steps.check-creds.outputs.has_token == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -38,13 +50,11 @@ jobs:
           command: pages deploy . --project-name=sadec-marketing-hub --branch=main
 
       - name: Smoke test
-        if: success()
         run: |
-          sleep 15
-          HTTP_STATUS=$(curl -sI "https://sadec-marketing-hub.pages.dev" -o /dev/null -w '%{http_code}' 2>/dev/null || echo "000")
-          echo "Health check: HTTP $HTTP_STATUS"
+          HTTP_STATUS=$(curl -s -L "https://sadec-marketing-hub.pages.dev/partnership" -o /dev/null -w '%{http_code}' 2>/dev/null || echo "000")
+          echo "Health check (partnership): HTTP $HTTP_STATUS"
           if [ "$HTTP_STATUS" = "200" ]; then
-            echo "✅ Deploy verified — site is live!"
+            echo "✅ Deploy verified — site and partnership portal are live!"
           else
-            echo "⚠️  HTTP $HTTP_STATUS — may need custom domain check"
+            echo "⚠️  HTTP $HTTP_STATUS — check Cloudflare status"
           fi
