@@ -79,7 +79,7 @@ function optimizeHTML(content, filePath) {
     ];
 
     externalDomains.forEach(domain => {
-        if (!optimized.includes(`dns-prefetch href="${domain}"`)) {
+        if (!optimized.includes(domain)) {
             const prefetchTag = `<link rel="dns-prefetch" href="${domain}">`;
             optimized = optimized.replace('</head>', `    ${prefetchTag}\n</head>`);
             changes++;

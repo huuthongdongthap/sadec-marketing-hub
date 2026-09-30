@@ -7,6 +7,7 @@ import { test, expect } from '@playwright/test';
 
 const PUBLIC_PAGES = [
   { path: '/', name: 'Homepage' },
+  { path: '/partnership.html', name: 'Co-founder Partnership' },
   { path: '/login.html', name: 'Login' },
   { path: '/register.html', name: 'Register' },
   { path: '/terms.html', name: 'Terms' },
