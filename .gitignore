@@ -34,13 +34,15 @@ vite.config.d.ts
 !scripts/perf/
 
 # Reports (generated)
-reports/
+reports/*
+!reports/scan/
 !reports/audit/
 !reports/perf/
 !reports/frontend/
 !reports/eng/
 !reports/dev/
 !reports/quality-scan/
+!reports/devops/
 
 # Temporary files
 *.tmp
