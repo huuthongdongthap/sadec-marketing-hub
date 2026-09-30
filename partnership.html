@@ -318,6 +318,89 @@
       color: var(--primary);
     }
 
+    /* Native Media Revenue Deep Dive Section */
+    .native-media-section {
+      padding: 4.5rem 0;
+      background: linear-gradient(180deg, #FBFDF9 0%, #F5FBF7 100%);
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .native-media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .native-stream-card {
+      background: #FFFFFF;
+      border: 1px solid #D1E5DB;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .native-stream-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(27, 77, 62, 0.12);
+      border-color: var(--primary);
+    }
+
+    .stream-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .stream-badge {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stream-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stream-who {
+      font-size: 0.85rem;
+      color: #92400E;
+      background: #FEF3C7;
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.5rem;
+      margin: 0.75rem 0;
+      font-weight: 600;
+    }
+
+    .stream-body {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      line-height: 1.6;
+    }
+
+    .stream-bottom {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #CBD5E1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
     /* Comparison Section */
     .compare-section {
       padding: 4rem 0;
@@ -913,6 +996,201 @@
             🎯 Mục tiêu: 1 lớp/tháng (8–12 học viên) • Đóng góp: 25M – 45M/tháng
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bóc Tách Doanh Thu Kênh Văn Hóa Bản Địa Chi Tiết -->
+  <section id="native-media-revenue" class="native-media-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="hero-badge" style="background: #FEF3C7; color: #92400E;">🌾 LÀM RÕ 100% CƠ CHẾ DÒNG TIỀN THỰC CHIẾN</span>
+        <h2 class="section-title">Kênh "Văn Hóa Bản Địa" Tạo Ra Tiền Như Thế Nào?</h2>
+        <p class="section-subtitle">
+          Chúng ta <strong>tuyệt đối không sống bằng tiền view YouTube/TikTok bèo bọt</strong> (1 triệu view tại VN chỉ được vài trăm ngàn). Kênh văn hóa bản địa được thiết kế như một <strong>tài sản thương mại độc quyền</strong> để mở khóa 6 nguồn tiền tươi thực tế:
+        </p>
+      </div>
+
+      <div class="native-media-grid">
+        <!-- Nguồn 1 -->
+        <div class="native-stream-card">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge">Dòng Tiền 1 • Brand Sponsor</span>
+              <span class="stream-price">15M – 35M ₫</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--on-surface);">Tài Trợ Lồng Ghép Thương Hiệu Lớn</h3>
+            <div class="stream-who">🏢 Ai chi trả: FMCG, Phân bón sinh học, Bia, Nước giải khát, Xe máy, Máy đuôi tôm.</div>
+            <p class="stream-body">
+              Các nhãn hàng lớn không thể tự về miền Tây quay những thước phim đời sống có hồn như anh em. Họ trả tiền để sản phẩm xuất hiện tự nhiên: Chai nước mắm trong mâm cơm mùa nước nổi, chiếc ghe chạy động cơ lướt trên đồng sen, bộ bình ắc quy sạc đèn đêm bắt cá linh...
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Khối lượng: 2–3 hợp đồng/tháng</span>
+            <strong style="color: var(--primary);">Đóng góp: 30M – 75M/tháng</strong>
+          </div>
+        </div>
+
+        <!-- Nguồn 2 -->
+        <div class="native-stream-card">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge" style="background: #E0E7FF; color: #3730A3;">Dòng Tiền 2 • Local Booking</span>
+              <span class="stream-price">6M – 12M ₫</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--on-surface);">Review & Check-in Homestay, Điểm Ẩm Thực</h3>
+            <div class="stream-who">🏡 Ai chi trả: Chủ homestay Sa Đéc, nhà hàng sinh thái Cao Lãnh, vườn quýt Lai Vung.</div>
+            <p class="stream-body">
+              Khách Sài Gòn tìm video trên mạng trước khi về miền Tây. Các chủ cơ sở rất cần clip chuẩn điện ảnh 4K nhưng không thể chi hàng chục triệu thuê ekip thành phố. Gói quay gồm 1 video 60s + 20 ảnh nghệ thuật + 1 bài review trên kênh văn hóa.
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Khối lượng: 3–5 điểm/tháng</span>
+            <strong style="color: var(--primary);">Đóng góp: 18M – 45M/tháng</strong>
+          </div>
+        </div>
+
+        <!-- Nguồn 3 -->
+        <div class="native-stream-card">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge" style="background: #FEE2E2; color: #991B1B;">Dòng Tiền 3 • Gov & Festivals</span>
+              <span class="stream-price">40M – 120M ₫</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--on-surface);">Truyền Thông Lễ Hội & Ngân Sách Tỉnh</h3>
+            <div class="stream-who">🏛️ Ai chi trả: Sở VHTT&DL, Trung tâm Xúc tiến Thương mại, Lễ hội Sen, Festival Hoa Sa Đéc.</div>
+            <p class="stream-body">
+              Khi duyệt đề án truyền thông quảng bá tỉnh, các cơ quan ban ngành luôn ưu tiên ekip địa phương có mặt trong 15 phút, máy móc điện ảnh xịn và có sẵn kênh sở hữu đông đảo bà con bản địa theo dõi.
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Khối lượng: 3–4 sự kiện lớn/năm</span>
+            <strong style="color: var(--primary);">Bình quân: 15M – 30M/tháng</strong>
+          </div>
+        </div>
+
+        <!-- Nguồn 4 -->
+        <div class="native-stream-card">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge" style="background: #DCFCE7; color: #166534;">Dòng Tiền 4 • Cinema Tours</span>
+              <span class="stream-price">1.2M – 1.8M ₫/khách</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--on-surface);">Tour Săn Bình Minh Mùa Nước Nổi Cùng Đạo Diễn</h3>
+            <div class="stream-who">🚣 Ai chi trả: Gia đình thượng lưu Sài Gòn, nhóm bạn văn phòng, du khách thích trải nghiệm có gu.</div>
+            <p class="stream-body">
+              Không đi tour đại trà. Nhóm nhỏ 8–15 khách đi tắc ráng len lỏi Tràm Chim, dỡ dớn bắt cá linh, ăn cơm đồng quê. <strong>Điểm đắt giá:</strong> Ekip Co-founder đi cùng quay tặng mỗi gia đình 1 thước phim 4K kỷ niệm để đời. Lãi ròng 600k–1.2M/khách!
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Khối lượng: 30–50 khách/tháng</span>
+            <strong style="color: var(--primary);">Lãi ròng: 20M – 45M/tháng</strong>
+          </div>
+        </div>
+
+        <!-- Nguồn 5 -->
+        <div class="native-stream-card">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge" style="background: #FEF3C7; color: #92400E;">Dòng Tiền 5 • OCOP Commerce</span>
+              <span class="stream-price">15% – 25% Hoa hồng</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--on-surface);">Thương Mại Đặc Sản OCOP Chính Gốc</h3>
+            <div class="stream-who">🌾 Ai chi trả: Người tiêu dùng toàn quốc yêu thích nem Lai Vung, sen Tháp Mười, bột Sa Đéc.</div>
+            <p class="stream-body">
+              Kênh quay quy trình làm nghề thủ công 100 năm chân thực, gắn link TikTok Shop / Zalo Mini App trực tiếp với xưởng OCOP 4 sao, 5 sao. Không phải bỏ vốn nhập hàng, không ôm tồn kho, tiền hoa hồng chuyển thẳng về tài khoản.
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Mô hình tiếp thị liên kết (Affiliate)</span>
+            <strong style="color: var(--primary);">Đóng góp: 10M – 25M/tháng</strong>
+          </div>
+        </div>
+
+        <!-- Nguồn 6 -->
+        <div class="native-stream-card" style="border: 2px solid var(--primary); background: #F8FDF9;">
+          <div>
+            <div class="stream-header">
+              <span class="stream-badge" style="background: var(--primary); color: #FFF;">Dòng Tiền 6 • Client Magnet</span>
+              <span class="stream-price">15M – 35M ₫/tháng</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--primary);">"Phễu Triệu Đô" Hút Hợp Đồng B2B Doanh Nghiệp</h3>
+            <div class="stream-who">👑 Ai chi trả: Chủ công ty lúa gạo, vựa trái cây xuất khẩu, chuỗi F&B, phòng khám tư nhân.</div>
+            <p class="stream-body">
+              Đây là nguồn tiền LỚN NHẤT! Khi các ông chủ doanh nghiệp thấy video kênh quay quá đẹp, góc máy flycam quá hùng vĩ, họ tự chủ động nhắn tin: <em>"Bên em có nhận làm video xây kênh cho công ty anh không?"</em>. Ký hợp đồng Retainer ngay mà không tốn 1 đồng tiền sales hay quảng cáo!
+            </p>
+          </div>
+          <div class="stream-bottom">
+            <span>Tiết kiệm 20M chi phí sales mỗi tháng</span>
+            <strong style="color: var(--primary);">Ký 2–3 khách mới mỗi quý</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bảng Tổng Hợp Doanh Thu Kênh Mùa Mưa vs Mùa Nắng -->
+      <div style="background: #FFFFFF; border-radius: 1.5rem; border: 1px solid var(--outline-variant); padding: 2rem; margin-top: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary); margin: 0 0 1rem;">
+          📊 Bảng Tổng Hợp Dòng Tiền Độc Lập Từ Kênh Bản Địa (Mùa Mưa vs Mùa Nắng)
+        </h3>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--primary-container); color: var(--on-surface-variant); font-size: 0.85rem; text-transform: uppercase;">
+                <th style="padding: 0.75rem 1rem;">Hạng Mục Dòng Tiền</th>
+                <th style="padding: 0.75rem 1rem;">Mùa Mưa (T5 – T9)</th>
+                <th style="padding: 0.75rem 1rem;">Mùa Cưới & Lễ Hội (T10 – T4)</th>
+                <th style="padding: 0.75rem 1rem;">Bình Quân / Tháng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">1. Tài trợ Nhãn hàng lớn (Brand Sponsor)</td>
+                <td style="padding: 0.75rem 1rem;">25.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem;">40.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--primary);">32.500.000 ₫</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">2. Review & Booking Homestay / Ẩm thực</td>
+                <td style="padding: 0.75rem 1rem;">12.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem;">24.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--primary);">18.000.000 ₫</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">3. Ngân sách Lễ hội tỉnh & Cơ quan nhà nước</td>
+                <td style="padding: 0.75rem 1rem;">10.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem;">30.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--primary);">20.000.000 ₫</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">4. Lãi ròng Tour Trải nghiệm Văn hóa Điện ảnh</td>
+                <td style="padding: 0.75rem 1rem;">20.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem;">15.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--primary);">17.500.000 ₫</td>
+              </tr>
+              <tr style="border-bottom: 2px solid var(--primary);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">5. Hoa hồng Nông sản & Đặc sản OCOP</td>
+                <td style="padding: 0.75rem 1rem;">8.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem;">15.000.000 ₫</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--primary);">11.500.000 ₫</td>
+              </tr>
+              <tr style="background: #F0FDF4; font-weight: 800; font-size: 1.05rem;">
+                <td style="padding: 1rem; color: var(--primary);">TỔNG DOANH THU KÊNH ĐỘC LẬP:</td>
+                <td style="padding: 1rem; color: #991B1B;">75.000.000 ₫</td>
+                <td style="padding: 1rem; color: var(--primary);">124.000.000 ₫</td>
+                <td style="padding: 1rem; color: var(--primary);">99.500.000 ₫ / tháng</td>
+              </tr>
+              <tr style="background: #FEF3C7; font-weight: 800; font-size: 1.05rem; color: #92400E;">
+                <td style="padding: 1rem;">👉 LỢI NHUẬN RÒNG SAU CHI PHÍ SẢN XUẤT:</td>
+                <td style="padding: 1rem;">57.000.000 ₫</td>
+                <td style="padding: 1rem;">102.000.000 ₫</td>
+                <td style="padding: 1rem;">79.500.000 ₫ / tháng</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin: 1rem 0 0; font-size: 0.9rem; color: var(--on-surface-variant); font-style: italic;">
+          * Ghi chú: Ngay trong mùa mưa kiêng cưới tháng 6, 7, 8, chỉ riêng kênh văn hóa đã mang về <strong>57 triệu tiền lãi ròng mỗi tháng</strong>. Ekip không bao giờ phải lo máy nằm tủ hay thiếu tiền trang trải cuộc sống!
+        </p>
       </div>
     </div>
   </section>
