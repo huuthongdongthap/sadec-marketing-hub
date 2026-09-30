@@ -8,9 +8,9 @@
 
 | Phase | Tên Giai Đoạn | Trạng Thái | Mục Tiêu Chính |
 | :--- | :--- | :--- | :--- |
-| **Phase 1** | [Kiến Trúc Nội Dung & Giao Diện Pitch Deck](phase-01-partnership-page-design-and-content.md) | In Progress | Cấu trúc Landing Page chuẩn MD3, văn phong hào sảng Nam Bộ, luận điểm sắc bén |
-| **Phase 2** | [Công Cụ Tính ROI & Phân Bổ Dòng Tiền Tương Tác](phase-02-interactive-roi-calculator-and-components.md) | Pending | Component React tính toán thu nhập 3 tầng của Co-founder theo từng kịch bản |
-| **Phase 3** | [Tích Hợp Điều Khoản Bảo Vệ Tài Sản & Kêu Gọi Hành Động](phase-03-partnership-terms-and-cta.md) | Pending | Cam kết an toàn thiết bị, bảo toàn khách cũ, nút chốt lịch cafe duyệt đề án |
+| **Phase 1** | [Kiến Trúc Nội Dung & Giao Diện Pitch Deck](phase-01-partnership-page-design-and-content.md) | Completed | Cấu trúc Landing Page chuẩn MD3, văn phong hào sảng Nam Bộ, luận điểm sắc bén |
+| **Phase 2** | [Công Cụ Tính ROI & Phân Bổ Dòng Tiền Tương Tác](phase-02-interactive-roi-calculator-and-components.md) | Completed | Component tính toán thu nhập 3 tầng của Co-founder theo từng kịch bản |
+| **Phase 3** | [Tích Hợp Điều Khoản Bảo Vệ Tài Sản & Kêu Gọi Hành Động](phase-03-partnership-terms-and-cta.md) | Completed | Cam kết an toàn thiết bị, bảo toàn khách cũ, nút chốt lịch cafe duyệt đề án |
 
 ---
 

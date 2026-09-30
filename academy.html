@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Học Viện AI Problem-Solving & Case Study Hub — Mekong Agency Cao Lãnh 2026</title>
+  <meta name="description" content="Chương trình đào tạo Kỹ năng Giải quyết Vấn đề bằng AI & Đóng gói giải pháp thực chiến cho Doanh nghiệp 1 người, SMEs & OCOP Đất Sen Hồng.">
+  <meta name="keywords" content="AI Problem Solving, Vibe Coding, Doanh nghiệp 1 người, Mekong CLI, OCOP Đồng Tháp, Cao Lãnh, Sa Đéc">
+  <link rel="canonical" href="https://sadecmarketinghub.com/academy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Học Viện AI Problem-Solving & Case Study Hub — Mekong Agency Cao Lãnh 2026">
+  <meta property="og:description" content="Kỹ năng tối thượng thế kỷ 21: Làm chủ AI, Vibe Coding và Cinematography để giải quyết triệt để bài toán kinh doanh bản địa.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sadecmarketinghub.com/academy.html">
+  <meta property="og:image" content="https://sadecmarketinghub.com/favicon.png">
+
+  <!-- Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/m3-agency.css">
+  <link rel="stylesheet" href="assets/css/ui-animations.css">
+  <link rel="stylesheet" href="assets/css/responsive-enhancements.css">
+  <link rel="stylesheet" href="assets/css/ui-enhancements-2026.css">
+
+  <style>
+    :root {
+      --primary: #1B4D3E;
+      --primary-container: #A7F3D8;
+      --on-primary: #FFFFFF;
+      --on-primary-container: #062E23;
+      --surface: #FBFDF9;
+      --surface-container: #F0F5EE;
+      --surface-container-high: #E6EFE3;
+      --outline: #707973;
+      --outline-variant: #C0C9C2;
+      --tertiary: #B25E00;
+      --tertiary-container: #FFDCC1;
+      --on-surface: #191C1A;
+      --on-surface-variant: #404943;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--surface);
+      color: var(--on-surface);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .academy-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(251, 253, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: 0.85rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+
+    .btn-nav-cta {
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.25);
+    }
+
+    /* Hero Section */
+    .academy-hero {
+      padding: 5rem 0 4rem;
+      background: radial-gradient(circle at top right, rgba(167, 243, 216, 0.35), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(255, 220, 193, 0.3), transparent 50%);
+      text-align: center;
+    }
+
+    .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 1px solid #FCD34D;
+    }
+
+    .hero-h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      max-width: 950px;
+      margin: 0 auto 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-p {
+      font-size: 1.15rem;
+      color: var(--on-surface-variant);
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-lg {
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(27, 77, 62, 0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-primary-lg:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(27, 77, 62, 0.3);
+    }
+
+    .btn-secondary-lg {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary-lg:hover {
+      background: var(--surface-container);
+    }
+
+    /* Core Pillars */
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-sub {
+      color: var(--tertiary);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--on-surface);
+      margin: 0 0 1rem;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--on-surface-variant);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--outline-variant);
+      border-radius: 1.5rem;
+      padding: 2.25rem 1.75rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(27, 77, 62, 0.08);
+      border-color: var(--primary);
+    }
+
+    .pillar-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pillar-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--on-surface);
+    }
+
+    .pillar-body {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      line-height: 1.6;
+    }
+
+    /* Case Study Section */
+    .casestudy-section {
+      padding: 5rem 0;
+      background: #F3F8F5;
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .casestudy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .casestudy-card {
+      background: #FFFFFF;
+      border-radius: 1.5rem;
+      border: 1px solid #D1E5DB;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .casestudy-header {
+      padding: 1.75rem 1.75rem 1rem;
+      border-bottom: 1px dashed #E2E8F0;
+    }
+
+    .casestudy-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .casestudy-content {
+      padding: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-container);
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      margin: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+
+    .metric-val {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    /* 4 Packages for SMEs */
+    .packages-section {
+      padding: 5rem 0;
+    }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pkg-card {
+      background: #FFFFFF;
+      border: 1px solid var(--outline-variant);
+      border-radius: 1.25rem;
+      padding: 2rem 1.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+
+    .pkg-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 12px 24px rgba(27, 77, 62, 0.08);
+    }
+
+    .pkg-featured {
+      border: 2px solid var(--primary);
+      background: #FAFEFC;
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .pkg-price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0.75rem 0 1.25rem;
+    }
+
+    .pkg-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+    }
+
+    .pkg-features li {
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Solopreneur State Policy Callout */
+    .policy-callout {
+      background: linear-gradient(135deg, #1B4D3E 0%, #062E23 100%);
+      color: #FFFFFF;
+      border-radius: 1.75rem;
+      padding: 3rem 2.5rem;
+      margin: 4rem 0;
+      box-shadow: 0 20px 40px rgba(6, 46, 35, 0.25);
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .policy-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    /* Footer */
+    .academy-footer {
+      background: var(--on-surface);
+      color: #9CA3AF;
+      padding: 3.5rem 0 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #374151;
+    }
+  </style>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://esm.run">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="academy-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="material-symbols-outlined" style="font-size: 1.75rem;">water_drop</span>
+        Mekong Agency Hub
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#pillars">4 Trụ Cột Kỹ Năng</a></li>
+        <li><a href="#casestudy">Case Study Thật</a></li>
+        <li><a href="#packages">Gói Dịch Vụ SMEs</a></li>
+        <li><a href="#policy">Doanh Nghiệp 1 Người</a></li>
+        <li><a href="partnership.html" style="color: var(--primary); font-weight: 700;">🤝 Co-Founder Portal</a></li>
+      </ul>
+      <a href="#register" class="btn-nav-cta">Đăng Ký Tư Vấn</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="academy-hero">
+    <div class="container">
+      <div class="badge-hero">
+        <span class="material-symbols-outlined" style="font-size: 1.1rem;">psychology</span>
+        HỌC VIỆN AI BẢN ĐỊA & CASE STUDY THỰC CHIẾN ĐẤT SEN HỒNG
+      </div>
+      <h1 class="hero-h1">
+        Kỹ Năng Giải Quyết Vấn Đề Bằng AI:<br>
+        <span style="color: var(--tertiary);">Bộ Kỹ Năng Tối Thượng Thế Kỷ 21</span> Cho Doanh Nghiệp 1 Người
+      </h1>
+      <p class="hero-p">
+        Chúng tôi không dạy prompt AI lý thuyết suông. Chúng tôi <strong>tự làm Case Study thực chiến</strong> tại Đồng Tháp, chứng minh hiệu quả bằng doanh thu tươi, rồi chuyển giao toàn bộ quy trình cho thế hệ trẻ và các Agency vệ tinh tại miền Tây.
+      </p>
+      <div class="hero-btns">
+        <a href="#register" class="btn-primary-lg">Nhận Khảo Sát & Tư Vấn Miễn Phí</a>
+        <a href="#casestudy" class="btn-secondary-lg">Xem 3 Case Study Minh Chứng</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4 Trụ Cột Đào Tạo Cốt Lõi -->
+  <section id="pillars" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-sub">CHƯƠNG TRÌNH HUẤN LUYỆN ĐẶC QUYỀN</span>
+        <h2 class="section-heading">4 Trụ Cột Làm Chủ AI Để Giải Quyết Vấn Đề Thực Tế</h2>
+        <p class="section-desc">Học viên dùng chính sản phẩm làng nghề, vựa trái cây hoặc homestay của gia đình để làm đồ án tốt nghiệp ra tiền ngay trong khóa học.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Trụ cột 1 -->
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-title">Giải Cấu Trúc Vấn Đề (Problem Deconstruction)</h3>
+          <p class="pillar-body">
+            Học cách bóc tách đâu là "căn bệnh cốt tử" khiến sản phẩm ế ẩm, đâu chỉ là "triệu chứng". Dùng phương pháp 5 Whys và First Principles để tìm ra nút thắt chuyển đổi trước khi viết bất kỳ dòng quảng cáo nào.
+          </p>
+        </div>
+
+        <!-- Trụ cột 2 -->
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-title">Chỉ Huy Bầy Đàn AI Agents (Mekong CLI Strategy)</h3>
+          <p class="pillar-body">
+            Không học prompt đơn lẻ. Học cách điều phối 5 chuyên gia AI cùng lúc: Nghiên cứu thị trường OCOP, Phân tích insight khách hàng, Viết kịch bản video ngắn, Soạn thảo hợp đồng pháp lý và Đánh giá rủi ro tài chính.
+          </p>
+        </div>
+
+        <!-- Trụ cột 3 -->
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-title">Vibe Coding: Tự Tạo Web & Công Cụ Trong 3 Giờ</h3>
+          <p class="pillar-body">
+            Không cần 4 năm học lập trình. Hướng dẫn sử dụng Claude Code, Cursor và AI để tự tạo Website bán hàng tích hợp mã VietQR tự động, trang giới thiệu sản phẩm làng nghề không tốn tiền thuê ngoài.
+          </p>
+        </div>
+
+        <!-- Trụ cột 4 -->
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-title">Sản Xuất Video Điện Ảnh Bản Địa Có Hồn</h3>
+          <p class="pillar-body">
+            Học kỹ năng bấm máy, bắt góc flycam và dùng AI tự động dựng thô, làm màu, chèn phụ đề cùng Đạo diễn hình ảnh Co-founder. Biến cảnh giăng lưới bắt cá linh, thu hoạch hoa Sa Đéc thành những tác phẩm triệu view.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase 3 Case Study Thực Chiến Độc Quyền -->
+  <section id="casestudy" class="casestudy-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-sub">NGHIỆP VỤ THẬT • KẾT QUẢ THẬT</span>
+        <h2 class="section-heading">Tự Làm Case Study Trước Khi Dạy Người Khác</h2>
+        <p class="section-desc">Không nói miệng viễn vông. Đây là 3 dự án thực tế đã triển khai thành công tại địa bàn tỉnh Đồng Tháp:</p>
+      </div>
+
+      <div class="casestudy-grid">
+        <!-- Case 1 -->
+        <div class="casestudy-card">
+          <div class="casestudy-header">
+            <span class="casestudy-tag" style="background: #DCFCE7; color: #166534;">Case Study 1 • Media Độc Quyền</span>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--on-surface);">Kênh Văn Hóa Bản Địa Đồng Tháp</h3>
+          </div>
+          <div class="casestudy-content">
+            <p style="font-size: 0.9rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              Kênh truyền thông độc quyền của Agency với góc quay điện ảnh 4K tôn vinh vẻ đẹp mùa nước nổi Tràm Chim, sen Tháp Mười và làng hoa Sa Đéc.
+            </p>
+            <div class="metric-row">
+              <span>Doanh thu độc lập:</span>
+              <span class="metric-val">75M – 124M ₫/tháng</span>
+            </div>
+            <div class="metric-row">
+              <span>Lợi nhuận ròng mùa mưa:</span>
+              <span class="metric-val" style="color: #166534;">57.000.000 ₫/tháng</span>
+            </div>
+            <div class="metric-row">
+              <span>Khách B2B Agency tự tìm tới:</span>
+              <span class="metric-val">2–3 Hợp đồng/quý</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="casestudy-card">
+          <div class="casestudy-header">
+            <span class="casestudy-tag" style="background: #FEF3C7; color: #92400E;">Case Study 2 • Nông Sản OCOP</span>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--on-surface);">Cải Tổ Thương Hiệu Nem & Bột Sa Đéc</h3>
+          </div>
+          <div class="casestudy-content">
+            <p style="font-size: 0.9rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              Tái định vị bao bì chuẩn 4 sao OCOP, kể câu chuyện di sản 40 năm làng nghề bằng video ngắn, tích hợp web đặt hàng chuyển khoản tự động.
+            </p>
+            <div class="metric-row">
+              <span>Tăng trưởng doanh số bán lẻ:</span>
+              <span class="metric-val">+240% dịp cao điểm</span>
+            </div>
+            <div class="metric-row">
+              <span>Biên lợi nhuận tăng thêm:</span>
+              <span class="metric-val" style="color: #166534;">+35% (thoát phụ thuộc lái buôn)</span>
+            </div>
+            <div class="metric-row">
+              <span>Thời gian triển khai:</span>
+              <span class="metric-val">14 ngày trọn gói</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="casestudy-card">
+          <div class="casestudy-header">
+            <span class="casestudy-tag" style="background: #E0E7FF; color: #3730A3;">Case Study 3 • Du Lịch Trải Nghiệm</span>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--on-surface);">Homestay & Vườn Sinh Thái Cao Lãnh</h3>
+          </div>
+          <div class="casestudy-content">
+            <p style="font-size: 0.9rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              Thoát khỏi cảnh phụ thuộc các nền tảng OTA cắt phí 20%. Xây dựng bộ video trải nghiệm đời sống miệt vườn 4K và trang đặt phòng trực tiếp.
+            </p>
+            <div class="metric-row">
+              <span>Tỷ lệ lấp đầy ngày thường:</span>
+              <span class="metric-val">92% trong 3 tháng</span>
+            </div>
+            <div class="metric-row">
+              <span>Chi phí hoa hồng tiết kiệm:</span>
+              <span class="metric-val" style="color: #166534;">~42.000.000 ₫/quý</span>
+            </div>
+            <div class="metric-row">
+              <span>Khách Sài Gòn quay lại:</span>
+              <span class="metric-val">38% tỷ lệ tái đặt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Gói Dịch Vụ Đóng Gói Chuẩn Cho SMEs & OCOP -->
+  <section id="packages" class="packages-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-sub">GIẢI PHÁP ĐÓNG GÓI SẴN</span>
+        <h2 class="section-heading">4 Gói Dịch Vụ Tinh Gọn Cho Doanh Nghiệp Địa Phương</h2>
+        <p class="section-desc">Giá cả minh bạch, thời gian triển khai tính bằng ngày, nghiệm thu bằng sản phẩm thật:</p>
+      </div>
+
+      <div class="pkg-grid">
+        <!-- Gói 1 -->
+        <div class="pkg-card">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--tertiary);">GÓI 1 • NHẬN DIỆN</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0.35rem 0;">Brand Identity Bản Địa</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant);">Logo, tem nhãn OCOP chuẩn siêu thị, bao bì kể câu chuyện Đất Sen Hồng.</p>
+            <div class="pkg-price">12.000.000 ₫</div>
+            <ul class="pkg-features">
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Logo & Brand Guideline bản địa</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Tem nhãn OCOP đạt chuẩn xuất khẩu</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Bàn giao trong 7 ngày làm việc</li>
+            </ul>
+          </div>
+          <a href="#register" class="btn-primary-lg" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">Chọn Gói 1</a>
+        </div>
+
+        <!-- Gói 2 -->
+        <div class="pkg-card">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--tertiary);">GÓI 2 • WEBSITE VIBE</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0.35rem 0;">Web Doanh Nghiệp 1 Người</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant);">Website bán hàng, tích hợp VietQR tự động, chuẩn mobile load dưới 1s.</p>
+            <div class="pkg-price">9.000.000 ₫</div>
+            <ul class="pkg-features">
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Vibe Coding siêu tốc 3 ngày</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Tích hợp thanh toán VietQR / SePay</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Tự quản lý không cần biết code</li>
+            </ul>
+          </div>
+          <a href="#register" class="btn-primary-lg" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">Chọn Gói 2</a>
+        </div>
+
+        <!-- Gói 3 (Featured) -->
+        <div class="pkg-card pkg-featured">
+          <div class="pkg-badge">Được Chọn Nhiều Nhất</div>
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">GÓI 3 • XÂY KÊNH</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0.35rem 0;">Xây Kênh Video Ngắn 4K</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant);">12 video ngắn điện ảnh/tháng quay tận xưởng/vườn, phủ sóng TikTok/Facebook.</p>
+            <div class="pkg-price">15.000.000 ₫<span style="font-size: 0.85rem; font-weight: 500; color: var(--on-surface-variant);">/tháng</span></div>
+            <ul class="pkg-features">
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Ekip đạo diễn Co-founder quay trực tiếp</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> AI kịch bản bám sát insight người mua</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> 12 clip 4K hoàn chỉnh/tháng</li>
+            </ul>
+          </div>
+          <a href="#register" class="btn-primary-lg" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem; background: var(--tertiary);">Chọn Gói 3</a>
+        </div>
+
+        <!-- Gói 4 -->
+        <div class="pkg-card">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--tertiary);">GÓI 4 • CHIẾN DỊCH</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0.35rem 0;">Ra Mắt Sản Phẩm Mới</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant);">Chiến dịch tổng lực từ video teaser, phóng sự truyền thông đến livestream mở bán.</p>
+            <div class="pkg-price">35.000.000 ₫</div>
+            <ul class="pkg-features">
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Phim ngắn câu chuyện thương hiệu</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Phủ sóng báo chí & KOLs bản địa</li>
+              <li><span class="material-symbols-outlined" style="color: var(--primary); font-size: 1.1rem;">check_circle</span> Kịch bản ngày mở bán chốt đơn</li>
+            </ul>
+          </div>
+          <a href="#register" class="btn-primary-lg" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">Chọn Gói 4</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chính Sách Nhà Nước Hỗ Trợ Doanh Nghiệp 1 Người -->
+  <section id="policy" class="container">
+    <div class="policy-callout">
+      <div class="policy-grid">
+        <div>
+          <span style="color: var(--primary-container); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">CƠ HỘI VÀNG NĂM 2026</span>
+          <h2 style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem; line-height: 1.3;">
+            Đón Đầu Chính Sách Hỗ Trợ Doanh Nghiệp 1 Người & Chuyển Đổi Số
+          </h2>
+          <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.9;">
+            Chính phủ và UBND Tỉnh Đồng Tháp đang triển khai mạnh mẽ các gói hỗ trợ chuyển đổi số, hỗ trợ đào tạo nhân lực công nghệ cao và phát triển kinh tế tư nhân. Học viện Mekong Agency đồng hành tư vấn giúp hộ kinh doanh tiếp cận các nguồn trợ lực hợp pháp để tự tin làm chủ.
+          </p>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.1); border-radius: 1.25rem; padding: 1.75rem; border: 1px solid rgba(255, 255, 255, 0.15);">
+          <h4 style="margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700;">Quyền Lợi Học Viên & Khách Hàng:</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li>✓ Hướng dẫn đăng ký hộ kinh doanh cá thể số hóa</li>
+            <li>✓ Hỗ trợ hồ sơ chuẩn OCOP cấp huyện/tỉnh</li>
+            <li>✓ Giảm 50% học phí cho thanh niên khởi nghiệp Đất Sen Hồng</li>
+            <li>✓ Kết nối mạng lưới 100+ doanh nghiệp thành viên Hub</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Đăng Ký Tư Vấn -->
+  <section id="register" style="padding: 4rem 0 6rem; background: var(--surface-container);">
+    <div class="container" style="max-width: 700px; text-align: center;">
+      <span class="section-sub">BẮT ĐẦU NGAY HÔM NAY</span>
+      <h2 style="font-size: 2.2rem; font-weight: 800; margin: 0 0 1rem;">Đăng Ký Tư Vấn & Nhận Lộ Trình</h2>
+      <p style="font-size: 1rem; color: var(--on-surface-variant); margin-bottom: 2.5rem;">
+        Dù bạn muốn tham gia Khóa học AI Problem-Solving hay cần đóng gói giải pháp Marketing cho cơ sở của mình, hãy để lại thông tin để chúng tôi liên hệ hỗ trợ trực tiếp.
+      </p>
+
+      <form style="background: #FFFFFF; border-radius: 1.5rem; padding: 2.5rem; border: 1px solid var(--outline-variant); text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.04);" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Mekong Agency sẽ liên hệ lại trong vòng 2 giờ.');">
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">Họ và Tên của bạn *</label>
+          <input type="text" required placeholder="Nguyễn Văn A" style="width: 100%; box-sizing: border-box; padding: 0.85rem 1rem; border-radius: 0.75rem; border: 1px solid var(--outline-variant); font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">Số điện thoại / Zalo *</label>
+          <input type="tel" required placeholder="0909 xxx xxx" style="width: 100%; box-sizing: border-box; padding: 0.85rem 1rem; border-radius: 0.75rem; border: 1px solid var(--outline-variant); font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">Nhu cầu quan tâm chính:</label>
+          <select style="width: 100%; box-sizing: border-box; padding: 0.85rem 1rem; border-radius: 0.75rem; border: 1px solid var(--outline-variant); font-size: 0.95rem;">
+            <option>Khóa học AI Problem-Solving cho Doanh nghiệp 1 người</option>
+            <option>Gói Nhận diện thương hiệu & bao bì OCOP (12M)</option>
+            <option>Gói Website Vibe Coding VietQR (9M)</option>
+            <option>Gói Xây kênh Video ngắn 4K bản địa (15M/tháng)</option>
+            <option>Hợp tác Agency vệ tinh tại các huyện/tỉnh lân cận</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary-lg" style="width: 100%; text-align: center; border: none; cursor: pointer;">
+          Gửi Đăng Ký Tư Vấn Ngay
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="academy-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div style="font-weight: 800; font-size: 1.25rem; color: #FFFFFF; margin-bottom: 0.5rem;">
+            Mekong Agency Hub — Cao Lãnh 2026
+          </div>
+          <p style="max-width: 400px; font-size: 0.85rem; line-height: 1.6;">
+            Hệ sinh thái kết hợp Trí tuệ Nhân tạo Mekong CLI và Nghệ thuật Quay dựng Bản địa. Tiên phong phụng sự Đất Sen Hồng và 12 tỉnh Đồng bằng Sông Cửu Long.
+          </p>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: #FFFFFF; margin-bottom: 0.75rem;">Liên Kết Nhanh</div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
+            <a href="index.html" style="color: #9CA3AF; text-decoration: none;">Trang Chủ Agency</a>
+            <a href="partnership.html" style="color: #A7F3D8; text-decoration: none; font-weight: 700;">🤝 Đề Án Co-Founder</a>
+            <a href="#casestudy" style="color: #9CA3AF; text-decoration: none;">3 Case Study Thật</a>
+            <a href="#packages" style="color: #9CA3AF; text-decoration: none;">Báo Giá SMEs</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: #6B7280;">
+        © 2026 Mekong Agency Hub. Bảo lưu mọi quyền. Phát triển với Binh Pháp & Mekong CLI.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
