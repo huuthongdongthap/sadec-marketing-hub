@@ -186,7 +186,7 @@
     .hero-lead {
       font-size: 1.15rem;
       color: var(--on-surface-variant);
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto 2.5rem;
       line-height: 1.7;
     }
@@ -196,6 +196,126 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+    }
+
+    /* Open Letter Section */
+    .letter-section {
+      padding: 4rem 0;
+      background: #FDFBF7;
+    }
+
+    .letter-card {
+      background: #FFFFFF;
+      border: 1px solid #E8DFD0;
+      border-radius: 2rem;
+      padding: 3.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .letter-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .letter-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #EFE8DC;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .letter-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #2D3748;
+    }
+
+    .letter-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .letter-highlight-box {
+      background: #F0FDF4;
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 1rem 1rem 0;
+      margin: 2rem 0;
+    }
+
+    .letter-signature {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #CBD5E1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Flywheel Section */
+    .flywheel-section {
+      padding: 4.5rem 0;
+    }
+
+    .flywheel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .flywheel-card {
+      background: var(--surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .flywheel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(27, 77, 62, 0.1);
+      border-color: var(--primary);
+    }
+
+    .flywheel-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .flywheel-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--on-surface);
+    }
+
+    .flywheel-desc {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      line-height: 1.6;
+    }
+
+    .flywheel-stat {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--outline-variant);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
     }
 
     /* Comparison Section */
@@ -295,9 +415,92 @@
       color: #22543D;
     }
 
+    /* Scenarios Section */
+    .scenario-section {
+      padding: 4.5rem 0;
+      background: var(--surface-container);
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .scenario-card {
+      background: var(--surface);
+      border-radius: 1.5rem;
+      padding: 2.25rem;
+      border: 1px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .scenario-featured {
+      border: 2px solid var(--primary);
+      box-shadow: 0 15px 35px rgba(27, 77, 62, 0.12);
+      position: relative;
+    }
+
+    .scenario-ribbon {
+      position: absolute;
+      top: -14px;
+      right: 24px;
+      background: var(--primary);
+      color: #FFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .scenario-takehome {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0.75rem 0 0.25rem;
+    }
+
+    /* Timeline Section */
+    .roadmap-section {
+      padding: 4.5rem 0;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .roadmap-card {
+      background: #FFFFFF;
+      border: 1px solid var(--outline-variant);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .roadmap-day {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
     /* Calculator Section */
     .calculator-section {
       padding: 4.5rem 0;
+      background: var(--surface);
+    }
       background: var(--surface-container);
     }
 
@@ -568,23 +771,148 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <span class="hero-badge">🤝 THƯ NGỎ HỢP TÁC SÁNG LẬP — MEKONG 2026</span>
+      <span class="hero-badge">📜 GRAND SLAM OFFER — LỜI MỜI HỢP TÁC KHÔNG THỂ TỪ CHỐI 2026</span>
       <h1 class="hero-title">
-        Biến Tài Năng Quay Phim & Thiết Bị Sẵn Có<br>
-        <span>Thành Doanh Nghiệp 2.7 Tỷ/Năm Tại Đồng Tháp</span>
+        Biến Dàn Máy Quay & Tay Nghề Thực Chiến<br>
+        <span>Thành Đế Chế Truyền Thông 2.7 Tỷ/Năm Tại Đồng Tháp</span>
       </h1>
       <p class="hero-lead">
-        Gửi anh em đội ngũ quay chụp cưới & sự kiện thể thao: Chúng ta không bỏ nghề truyền thống, mà dùng công nghệ <strong>Mekong CLI</strong> và mô hình Agency đa tầng để <strong>thoát khỏi cảnh cày cuốc theo mùa vụ</strong>, biến mỗi shot quay thành tài sản sinh lời dài hạn!
+        Gửi anh em ekip quay dựng tiệc cưới & sự kiện tại TP. Cao Lãnh: Chúng ta <strong>không bỏ nghề cưới</strong>, mà dùng hệ thống tự động hóa <strong>Mekong CLI</strong> để <strong>xóa sổ cảnh đói show mùa mưa</strong>, giải phóng khỏi cảnh thức đêm dựng phim và bước lên ghế Đồng Sáng Lập Agency dẫn đầu miền Tây!
       </p>
       <div class="hero-actions">
-        <a href="#calculator" class="btn-cta" style="padding: 0.85rem 2rem; font-size: 1rem;">
-          <span>Xem Bảng Tính Dòng Tiền ROI</span>
+        <a href="#letter" class="btn-cta" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <span>Đọc Thư Ngỏ Thân Tình</span>
+          <span class="material-symbols-outlined">mail</span>
+        </a>
+        <a href="#flywheel" class="btn-secondary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <span>Mô Hình 4 Bánh Đà Dòng Tiền</span>
+          <span class="material-symbols-outlined">sync</span>
+        </a>
+        <a href="#calculator" class="btn-secondary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <span>Bảng Tính Dòng Tiền ROI</span>
           <span class="material-symbols-outlined">calculate</span>
         </a>
-        <a href="#safety" class="btn-secondary" style="padding: 0.85rem 2rem; font-size: 1rem;">
-          <span>3 Điều Khoản An Toàn Thiết Bị</span>
-          <span class="material-symbols-outlined">shield</span>
-        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bức Thư Ngỏ Thân Tình Gửi Co-Founder -->
+  <section id="letter" class="letter-section">
+    <div class="container">
+      <div class="letter-card">
+        <div class="letter-badge-row">
+          <div>
+            <span style="font-weight: 800; color: var(--primary); font-size: 1.1rem; letter-spacing: -0.01em;">
+              LÁ THƯ TỪ ĐÁY LÒNG GỬI NGƯỜI ANH EM CẦM MÁY TẠI ĐẤT SEN HỒNG
+            </span>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant); margin-top: 0.25rem;">
+              TP. Cao Lãnh, Tỉnh Đồng Tháp — Mùa Nước Nổi 2026
+            </div>
+          </div>
+          <span class="badge-internal" style="background: #FEF3C7; color: #92400E; font-weight: 700;">
+            Cơ Hội Sáng Lập Độc Quyền
+          </span>
+        </div>
+
+        <div class="letter-body">
+          <p style="font-size: 1.15rem; font-weight: 600; color: var(--primary);">
+            Chào người anh em ekip sản xuất hình ảnh tại Cao Lãnh,
+          </p>
+          <p>
+            Tôi viết những dòng này cho anh em không phải với tư cách một người đi tuyển quân, cũng không phải một công ty từ Sài Gòn về đây săn thầu. Tôi viết với tư cách một người con miền Tây, hiểu từng góc phố Cao Lãnh, từng con nước son Sa Đéc, và hiểu đến thấu ruột những nhọc nhằn của anh em cầm máy trên mảnh đất này.
+          </p>
+
+          <p><strong>Tôi biết những đêm anh em thức trắng không ngủ:</strong></p>
+          <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.8;">
+            <li><strong>Mùa cưới cuối năm:</strong> Anh em quần quật từ 3 giờ sáng vác máy đi rước dâu, phơi lưng 10–12 tiếng ngoài nắng gió, tối về lại gục đầu bên bàn dựng Premiere/DaVinci render xuyên đêm để kịp trả clip. Cày kiệt sức, tiền vô nhiều nhưng không kịp thở và tổn hại sức khỏe.</li>
+            <li><strong>Mùa mưa (tháng 5 đến tháng 9):</strong> Dân miền Tây kiêng cưới mùa mưa. Cả dàn máy Sony FX3, A7IV, dàn lens G-Master, flycam, gimbal nằm im trong tủ chống ẩm. Show tiệc cưới vắng bặt, giải thể thao thưa thớt. Tiền thuê mặt bằng studio, tiền nuôi 1–2 đứa thợ phụ vẫn phải chạy đều từng ngày. Dòng tiền đứt gãy khiến lòng anh em canh cánh âu lo.</li>
+            <li><strong>Nỗi buồn bị ép giá:</strong> Nhiều đứa nhỏ mới mua cái máy crop giá rẻ ra phá giá thị trường, nhận quay cưới 3–4 triệu, khách hàng so đo từng vài trăm ngàn mà quên mất anh em đã đổ bao nhiêu mồ hôi, bao nhiêu năm kinh nghiệm và dàn thiết bị hàng trăm triệu.</li>
+            <li><strong>Trần thu nhập của "người thợ đơn độc":</strong> Có mặt bấm máy thì có tiền, nghỉ một ngày là đứt thu nhập. Không có dòng tiền thụ động, không có cổ phần công ty, không tích lũy được tài sản doanh nghiệp lớn.</li>
+            <li><strong>Nỗi sợ làn sóng AI:</strong> Thấy người ta nói rần rần về AI, về video tự động, trong lòng không khỏi bất an: <em>"5 năm nữa sức khỏe mình giảm, mắt mờ chân run, máy móc lỗi thời, mình sẽ đứng ở đâu?"</em></li>
+          </ul>
+
+          <div class="letter-highlight-box">
+            <h4 style="margin: 0 0 0.5rem; color: var(--primary); font-size: 1.1rem; font-weight: 800;">
+              💡 Lời khẳng định đanh thép: Chúng ta KHÔNG bỏ nghề cưới, chúng ta NÂNG CẤP vị thế!
+            </h4>
+            <p style="margin: 0; font-size: 0.95rem; color: #166534; line-height: 1.6;">
+              Show cưới và thể thao là mồ hôi, là chén cơm, là tiền tươi nuôi quân của anh em. Chúng ta giữ nguyên nó, nhưng ráp vào một cỗ máy kiếm tiền lớn hơn gấp 4 lần. Anh em giữ chiếc máy quay và con mắt nghệ thuật của mình; tôi mang hợp đồng doanh nghiệp (Retainers 15–25 triệu/tháng), hệ thống tự động hóa Mekong CLI và bệ phóng tăng trưởng đến. Hai mảnh ghép này ráp lại, chúng ta không có đối thủ ở đất Cao Lãnh này!
+            </p>
+          </div>
+
+          <div class="letter-signature">
+            <div>
+              <div style="font-weight: 800; color: var(--on-surface);">Lead Founder — Sa Đéc & Cao Lãnh Marketing Hub</div>
+              <div style="font-size: 0.85rem; color: var(--on-surface-variant);">Hệ sinh thái Agency OS & Nền tảng Mekong CLI 2026</div>
+            </div>
+            <a href="#appointment" class="btn-cta">
+              <span>Hẹn Cafe Trực Tiếp Tại Cao Lãnh 👉</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mô Hình Kinh Doanh 4 Bánh Đà Dòng Tiền -->
+  <section id="flywheel" class="flywheel-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="hero-badge">⚙️ CƠ CHẾ SINH LỜI ĐA TẦNG</span>
+        <h2 class="section-title">Mô Hình Kinh Doanh 4 Bánh Đà Dòng Tiền Liên Hoàn</h2>
+        <p class="section-subtitle">
+          Công ty chúng ta không phụ thuộc vào một nguồn thu duy nhất. Dòng tiền được cấu trúc thành 4 bánh đà tự truyền động, giúp doanh thu chảy về tài khoản 12 tháng quanh năm:
+        </p>
+      </div>
+
+      <div class="flywheel-grid">
+        <!-- Bánh đà 1 -->
+        <div class="flywheel-card">
+          <span class="flywheel-badge" style="background: #FEE2E2; color: #991B1B;">Bánh Đà 1 • Tiền Tươi Nhanh</span>
+          <h3 class="flywheel-title">Cưới VIP & Thể Thao Đất Sen Hồng</h3>
+          <p class="flywheel-desc">
+            Bản chất là nguồn tiền mặt thu ngay trong tuần để trang trải chi phí văn phòng và nuôi thợ. Áp dụng quy trình AI Same-Day-Edit: Dựng ngay clip Highlight 60s chiếu LED tại sảnh tiệc trước khi tàn tiệc. Nâng giá trị show từ 8 triệu lên 15–25 triệu/show mà không tốn công thức đêm.
+          </p>
+          <div class="flywheel-stat">
+            🎯 Mục tiêu: 4–8 show/tháng • Đóng góp: 60M – 120M/tháng
+          </div>
+        </div>
+
+        <!-- Bánh đà 2 -->
+        <div class="flywheel-card">
+          <span class="flywheel-badge" style="background: #E0E7FF; color: #3730A3;">Bánh Đà 2 • Dòng Tiền Cố Định</span>
+          <h3 class="flywheel-title">SME & OCOP Retainers (Phòng Media Thuê Ngoài)</h3>
+          <p class="flywheel-desc">
+            Dòng tiền đều như vắt chanh đổ về mùng 1 hàng tháng, triệt tiêu hoàn toàn nỗi sợ mùa mưa tháng 5–9. Cung cấp trọn gói cho doanh nghiệp lúa gạo, sen, xoài, nem Lai Vung: 8–12 video ngắn TikTok/Reels chuẩn 4K, 1 video Brand Story và quản trị kênh.
+          </p>
+          <div class="flywheel-stat">
+            🎯 Mục tiêu: 6–8 khách quen • Đóng góp: 90M – 160M/tháng
+          </div>
+        </div>
+
+        <!-- Bánh đà 3 -->
+        <div class="flywheel-card">
+          <span class="flywheel-badge" style="background: #FEF3C7; color: #92400E;">Bánh Đà 3 • Tài Sản Số Bản Địa</span>
+          <h3 class="flywheel-title">Kênh Triệu View & Tour Văn Hóa Trải Nghiệm</h3>
+          <p class="flywheel-desc">
+            Tận dụng ngày trống lịch xách máy ghi lại văn hóa mùa nước nổi Tràm Chim, sen Tháp Mười, ẩm thực chợ quê Cao Lãnh. Kênh hút triệu view kéo tài trợ từ nhãn hàng F&B, homestay và bán tour trải nghiệm văn hóa mùa nước nổi (900k–1.5M/khách).
+          </p>
+          <div class="flywheel-stat">
+            🎯 Mục tiêu: 30–80 khách/tháng • Đóng góp: 30M – 60M/tháng
+          </div>
+        </div>
+
+        <!-- Bánh đà 4 -->
+        <div class="flywheel-card">
+          <span class="flywheel-badge" style="background: #DCFCE7; color: #166534;">Bánh Đà 4 • Đào Tạo & Scale</span>
+          <h3 class="flywheel-title">Học Viện Video AI & Nhân Bản Đội Ngũ</h3>
+          <p class="flywheel-desc">
+            Mở khóa đào tạo "Sáng tạo Video Thực chiến bằng AI" cho con em chủ doanh nghiệp và học sinh sinh viên Cao Lãnh. Vừa có học phí (3–5M/học viên), vừa tuyển chọn được thợ phụ cắt thô xuất sắc với chi phí tối ưu, giải phóng Co-founder khỏi bàn dựng.
+          </p>
+          <div class="flywheel-stat">
+            🎯 Mục tiêu: 1 lớp/tháng (8–12 học viên) • Đóng góp: 25M – 45M/tháng
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -775,37 +1103,161 @@
     </div>
   </section>
 
-  <!-- 3 Điều Khoản An Toàn Tuyệt Đối -->
+  <!-- 3 Kịch Bản Dòng Tiền Về Túi Thực Tế -->
+  <section class="scenario-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="hero-badge">📊 CHỨNG MINH TÀI CHÍNH BẰNG SỐ LIỆU</span>
+        <h2 class="section-title">3 Kịch Bản Tiền Thực Tế Về Túi Co-Founder</h2>
+        <p class="section-subtitle">
+          Chúng tôi không vẽ bánh vẽ. Đây là bảng tính dòng tiền thực tế sau khi đã trừ toàn bộ chi phí vận hành văn phòng và trích quỹ tái đầu tư thiết bị:
+        </p>
+      </div>
+
+      <div class="scenario-grid">
+        <!-- Kịch bản 1 -->
+        <div class="scenario-card">
+          <div>
+            <span class="flywheel-badge" style="background: #FEE2E2; color: #991B1B;">Kịch Bản 1 • Mùa Mưa Bão</span>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0; color: var(--on-surface);">Thị Trường Đóng Băng</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              Chỉ có 3 show tiệc nhỏ (36M) + 2 hợp đồng SME nhỏ (30M). Hoàn toàn không có tài trợ hay khóa học.
+            </p>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--on-surface-variant);">
+              Thu nhập thực nhận của anh em:
+            </div>
+            <div class="scenario-takehome" style="color: #991B1B;">24.000.000 ₫</div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant); margin-bottom: 1.25rem;">/ tháng tối thiểu an toàn</div>
+          </div>
+          <div style="background: #FEF2F2; padding: 1rem; border-radius: 1rem; font-size: 0.85rem; color: #7F1D1D;">
+            💡 <strong>So với làm một mình:</strong> Trước đây mùa mưa có tháng thu nhập chỉ 5–10 triệu mà vẫn phải trả tiền mặt bằng. Kịch bản này vẫn giúp anh em ấm no và an tâm tuyệt đối!
+          </div>
+        </div>
+
+        <!-- Kịch bản 2 -->
+        <div class="scenario-card scenario-featured">
+          <span class="scenario-ribbon">Khả Thi Nhất (Mục Tiêu 60 Ngày)</span>
+          <div>
+            <span class="flywheel-badge" style="background: var(--primary-container); color: var(--on-primary-container);">Kịch Bản 2 • Guồng Máy Vào Nhịp</span>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0; color: var(--on-surface);">Ổn Định 12 Tháng Quanh Năm</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              6 show cưới & thể thao VIP (90M) + 5 khách hàng Retainer OCOP (100M) + Booking kênh bản địa (15M) + 1 lớp đào tạo (24M).
+            </p>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--primary);">
+              Thu nhập thực nhận của anh em:
+            </div>
+            <div class="scenario-takehome">90.380.000 ₫</div>
+            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-bottom: 1.25rem;">
+              Tương đương ~1.08 TỶ VNĐ / năm trọn vẹn
+            </div>
+          </div>
+          <div style="background: #F0FDF4; padding: 1rem; border-radius: 1rem; font-size: 0.85rem; color: #166534;">
+            🚀 <strong>Lợi ích vượt bậc:</strong> Thu nhập tăng gấp 3 lần so với làm thợ độc lập; thời gian thức đêm dựng phim giảm 70% nhờ có AI và 2 thợ phụ gánh vác!
+          </div>
+        </div>
+
+        <!-- Kịch bản 3 -->
+        <div class="scenario-card">
+          <div>
+            <span class="flywheel-badge" style="background: #FEF3C7; color: #92400E;">Kịch Bản 3 • Bùng Nổ Sau 180 Ngày</span>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0; color: var(--on-surface);">Thủ Phủ Truyền Thông Miền Tây</h3>
+            <p style="font-size: 0.85rem; color: var(--on-surface-variant); margin-bottom: 1rem;">
+              Kênh bản địa triệu view, ký đầy tải 8 hợp đồng lớn (180M), 10 show VIP (160M), booking tài trợ tỉnh (50M), 2 khóa học AI (60M).
+            </p>
+            <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--tertiary);">
+              Thu nhập thực nhận của anh em:
+            </div>
+            <div class="scenario-takehome" style="color: var(--tertiary);">~168.000.000 ₫</div>
+            <div style="font-size: 0.85rem; color: var(--tertiary); font-weight: 700; margin-bottom: 1.25rem;">
+              Tương đương ~2 TỶ VNĐ / năm + 45% Cổ Phần
+            </div>
+          </div>
+          <div style="background: #FFFBEB; padding: 1rem; border-radius: 1rem; font-size: 0.85rem; color: #92400E;">
+            💎 <strong>Tài sản tích lũy:</strong> Đồng sở hữu công ty Agency hàng đầu Đồng Tháp có giá trị định giá hàng chục tỷ đồng!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Điều Khoản An Toàn Tuyệt Đối -->
   <section id="safety" class="safety-section">
     <div class="container">
       <div class="section-header">
         <span class="hero-badge">🛡️ BẢO VỆ AN TOÀN TÀI SẢN 100%</span>
-        <h2 class="section-title">3 Điều Khoản Ràng Buộc "Không Thể Thua" Cho Anh Em</h2>
-        <p class="section-subtitle">Chúng tôi hiểu nỗi lo lớn nhất của anh em thợ khi bắt tay làm ăn là bị mất máy, mất khách hoặc bị áp đặt. Đây là 3 cam kết bằng văn bản:</p>
+        <h2 class="section-title">4 Điều Khoản Ràng Buộc "Không Thể Thua" (No-Lose Guarantee)</h2>
+        <p class="section-subtitle">Chúng tôi hiểu nỗi lo lớn nhất của anh em thợ khi bắt tay làm ăn là bị mất máy, mất khách hoặc bị ép buộc. Đây là 4 cam kết sắt đá:</p>
       </div>
 
       <div class="safety-grid">
         <div class="safety-card">
           <div class="safety-number">01</div>
-          <h3 class="safety-title">Bảo Toàn Máy Móc & Thiết Bị</h3>
+          <h3 class="safety-title">Bảo Toàn 100% Quyền Sở Hữu Thiết Bị</h3>
           <p class="safety-desc">
-            Toàn bộ dàn máy Sony A7IV, FX3, ống kính G-Master, gimbal và flycam của anh em được định giá minh bạch hoặc công ty thuê lại trả tiền thuê hàng tháng. Nếu ngừng hợp tác, <strong>anh em mang 100% thiết bị của mình về</strong>, công ty không có quyền giữ lại bất kỳ món nào.
+            Toàn bộ dàn máy Sony A7IV, FX3, ống kính G-Master, gimbal và flycam của anh em là tài sản cá nhân tuyệt đối. Có biên bản xác nhận pháp lý riêng. Mọi hao mòn do show công ty đều được trích tiền từ quỹ công ty để bảo dưỡng, thay thế linh kiện chính hãng. Nếu ngừng hợp tác, <strong>anh em mang 100% máy móc về</strong> nguyên vẹn trong 24 giờ.
           </p>
         </div>
 
         <div class="safety-card">
           <div class="safety-number">02</div>
-          <h3 class="safety-title">Bảo Vệ Tệp Khách Quen Cũ</h3>
+          <h3 class="safety-title">Bảo Vệ Toàn Vẹn Tệp Khách Quen Cũ</h3>
           <p class="safety-desc">
-            Khách ruột của anh em từ trước tới nay vẫn là của anh em. Công ty không can thiệp, không thu phần trăm từ các mối quan hệ cá nhân cũ trừ khi anh em chủ động muốn đưa vào vận hành chung để chia tải công việc.
+            Mối quan hệ tiệc cưới gia đình, khách quen địa phương trước đây của anh em vẫn thuộc về anh em 100%. Công ty không can thiệp, không thu bất kỳ phần trăm nào từ show cá nhân cũ trừ khi anh em chủ động muốn đưa vào hệ thống để chia tải cho thợ phụ.
           </p>
         </div>
 
         <div class="safety-card">
           <div class="safety-number">03</div>
-          <h3 class="safety-title">6 Tháng Chạy Thử An Toàn (Probation)</h3>
+          <h3 class="safety-title">Bảo Hiểm Thu Nhập Sàn 90 Ngày</h3>
           <p class="safety-desc">
-            Hai bên có 6 tháng cùng chạy thử nghiệm mô hình. Trong thời gian này, anh em vẫn nhận đủ lương cứng + hoa hồng show mỗi tháng. Nếu sau 6 tháng thấy không hợp chí hướng, có quyền rút lui êm đẹp mà không chịu bất kỳ điều khoản phạt nào.
+            Trong 3 tháng đầu thử nghiệm, nếu thu nhập chia về từ công ty thấp hơn mức thu nhập bình quân của 3 tháng cùng kỳ năm ngoái của anh em, <strong>Lead Founder cam kết dùng tiền túi cá nhân bù đủ 100% khoản chênh lệch</strong>. Anh em bước vào liên minh này chỉ có bằng hoặc hơn, tuyệt đối không thể thua!
+          </p>
+        </div>
+
+        <div class="safety-card">
+          <div class="safety-number">04</div>
+          <h3 class="safety-title">Rút Lui Êm Đẹp Trong 24 Giờ (Clean Break)</h3>
+          <p class="safety-desc">
+            Chúng ta làm việc vì nghĩa tình và sự tôn trọng. Nếu sau 60 ngày cảm thấy văn hóa không phù hợp hoặc muốn quay về làm độc lập, anh em có quyền rút lui bất kỳ lúc nào với thông báo trước 14 ngày. Toàn bộ máy móc mang về ngay lập tức, bắt tay vui vẻ như anh em trong nhà.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lộ Trình 14 Ngày Bấm Máy Thật - Chia Tiền Tươi -->
+  <section class="roadmap-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="hero-badge">📅 HÀNH ĐỘNG THỰC CHIẾN</span>
+        <h2 class="section-title">Lộ Trình 14 Ngày Đầu Tiên: Bấm Máy Thật — Chia Tiền Tươi</h2>
+        <p class="section-subtitle">
+          Anh em mình không nói chuyện lý thuyết suông trên giấy. Hãy nhìn vào hành động cụ thể trong 2 tuần tới:
+        </p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card">
+          <span class="roadmap-day">Ngày 1</span>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--on-surface);">Cà Phê Xem Demo AI Tại Cao Lãnh</h3>
+          <p style="font-size: 0.9rem; color: var(--on-surface-variant); line-height: 1.6;">
+            Ngồi quán cafe quen bên hồ Khổng Tử hoặc bờ kè sông Tiền. Tôi mở laptop cho anh em xem tận mắt cách AI tự động viết kịch bản và cắt dựng video trong 30 phút. Hai bên rà soát danh mục thiết bị và thống nhất cách phối hợp.
+          </p>
+        </div>
+
+        <div class="roadmap-card">
+          <span class="roadmap-day">Ngày 3 – 7</span>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--on-surface);">Bấm Máy Show Pilot 60 Giây</h3>
+          <p style="font-size: 0.9rem; color: var(--on-surface-variant); line-height: 1.6;">
+            Chạy thử 1 video ngắn về một quán ăn ngon hoặc một cơ sở đặc sản OCOP Đồng Tháp. Anh em bấm máy 2 tiếng ngoài hiện trường, tôi đưa vào hệ thống Mekong CLI dựng hoàn chỉnh trong 60 phút. Ra thành phẩm lung linh ngay trong ngày!
+          </p>
+        </div>
+
+        <div class="roadmap-card" style="border: 2px solid var(--primary);">
+          <span class="roadmap-day" style="background: #FFD700; color: #062E23;">Ngày 8 – 14</span>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--primary);">Ký Hợp Đồng Đầu Tiên & Chia Tiền Tươi</h3>
+          <p style="font-size: 0.9rem; color: var(--on-surface-variant); line-height: 1.6;">
+            Dùng video mẫu này đi chào hàng và ký hợp đồng Retainer đầu tiên trị giá 15–20 triệu với một doanh nghiệp quen tại TP. Cao Lãnh hoặc Sa Đéc. <strong>Tiền cọc về tài khoản, chia tươi ngay tại bàn!</strong> Thấy tiền thật mới tiến tới bàn chuyện lâu dài.
           </p>
         </div>
       </div>
