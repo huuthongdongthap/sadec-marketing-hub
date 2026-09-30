@@ -10,8 +10,12 @@
  *   SUPABASE_URL=xxx SUPABASE_ANON_KEY=yyy node inject-env.js
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Read from environment variables
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
