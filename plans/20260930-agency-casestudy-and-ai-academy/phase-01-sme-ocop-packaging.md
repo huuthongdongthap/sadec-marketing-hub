@@ -24,6 +24,6 @@ Doanh nghiệp miền Tây (chủ vựa, cơ sở chế biến bột, nem chua, 
    - Đơn giá: 35.000.000 – 60.000.000 ₫/chiến dịch.
 
 ## 3. CHECKLIST
-- [ ] Xây dựng giao diện giới thiệu 4 gói dịch vụ trên trang chủ/dịch vụ
-- [ ] Thiết kế bảng báo giá so sánh trực quan minh bạch
-- [ ] Tích hợp nút đặt lịch tư vấn khảo sát tận vườn/xưởng tại Đồng Tháp
+- [x] Xây dựng giao diện giới thiệu 4 gói dịch vụ trên trang chủ/dịch vụ
+- [x] Thiết kế bảng báo giá so sánh trực quan minh bạch
+- [x] Tích hợp nút đặt lịch tư vấn khảo sát tận vườn/xưởng tại Đồng Tháp

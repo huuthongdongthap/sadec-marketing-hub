@@ -20,6 +20,6 @@ Thực hiện đúng tôn chỉ của Founder: *"Muốn dạy cho các Agency kh
    - **Kết quả:** Đạt tỷ lệ lấp đầy 92% trong 3 tháng liên tiếp, tiết kiệm hơn 40 triệu tiền hoa hồng OTA.
 
 ## 3. CHECKLIST
-- [ ] Xây dựng Component Showcase Case Study với hình ảnh minh chứng và chỉ số trực quan
-- [ ] Trình bày quy trình "Trước & Sau" (Before & After) rõ ràng
-- [ ] Gắn nhãn chứng nhận "Made in Dong Thap" kiêu hãnh
+- [x] Xây dựng Component Showcase Case Study với hình ảnh minh chứng và chỉ số trực quan
+- [x] Trình bày quy trình "Trước & Sau" (Before & After) rõ ràng
+- [x] Gắn nhãn chứng nhận "Made in Dong Thap" kiêu hãnh

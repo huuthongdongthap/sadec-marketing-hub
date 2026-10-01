@@ -8,7 +8,7 @@ Thực hiện nghiêm túc Hiến pháp Mekong CLI (Điều 49: Green Production
 - Xác thực HTTP 200 trên domain live
 
 ## 2. CHECKLIST
-- [ ] Chạy pipeline `npm run build`
-- [ ] Deploy lên Cloudflare Pages qua Wrangler CLI
-- [ ] Kiểm tra HTTP 200 live endpoints
-- [ ] Commit & Push nhánh git sạch sẽ
+- [x] Chạy pipeline `npm run build`
+- [x] Deploy lên Cloudflare Pages qua Wrangler CLI
+- [x] Kiểm tra HTTP 200 live endpoints
+- [x] Commit & Push nhánh git sạch sẽ

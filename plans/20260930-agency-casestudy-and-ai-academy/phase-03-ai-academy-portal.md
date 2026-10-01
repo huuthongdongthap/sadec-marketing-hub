@@ -26,5 +26,5 @@ Khai mở tiềm năng của thế hệ trẻ miền Tây. Thay vì dạy nhữn
 - **Học phí:** 4.500.000 – 6.500.000 ₫/khóa (4 tuần thực chiến).
 
 ## 4. CHECKLIST
-- [ ] Thiết kế trang landing page khóa học `/academy` hoặc section học viện trên Hub
-- [ ] Xây dựng form đăng ký tư vấn & nhận học bổng tài năng trẻ Đất Sen Hồng
+- [x] Thiết kế trang landing page khóa học `/academy` hoặc section học viện trên Hub
+- [x] Xây dựng form đăng ký tư vấn & nhận học bổng tài năng trẻ Đất Sen Hồng
