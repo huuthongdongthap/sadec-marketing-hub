@@ -4,6 +4,36 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.6.0] - 2026-10-04 (Operational Automation & Native Studio Milestone)
+### Added
+- **Modal Báo Giá Tức Thì & Cổng VietQR Napas 24/7 (`assets/js/components/mekong-quote-vietqr.js`):**
+  - Hỗ trợ báo giá động cho 4 gói dịch vụ SMEs/OCOP và các khóa học tại Học viện AI.
+  - Cho phép người dùng linh hoạt chọn cọc 50% hoặc thanh toán 100%.
+  - Tự động sinh mã VietQR Quick Link chuẩn Napas với nội dung chuyển khoản định danh (`HUB <PACKAGE> <PHONE>`).
+  - Hỗ trợ sao chép số tài khoản / nội dung chỉ bằng 1 chạm và nút thông báo trực tiếp qua Zalo.
+- **Native Vibe Script Studio 4K AI (`assets/js/components/native-vibe-studio.js`):**
+  - Tích hợp Studio trực quan tại `academy.html#studio` hỗ trợ sinh kịch bản video bản địa 4 cảnh chi tiết (Drone FPV, Cận cảnh Macro, Phỏng vấn nhân vật, CTA).
+  - Cung cấp sẵn kịch bản mẫu cho 4 chủ đề thương hiệu Đồng Tháp: Mùa Nước Nổi, Làng Hoa Sa Đéc, Nem Lai Vung & Bột Gạo, Homestay Cao Lãnh.
+  - Tự động gợi ý thông số thiết bị quay (Lens, Gimbal, Mic thu âm) và phong cách âm thanh/nhạc nền Lofi bản địa.
+- **Widget Quick Connect Đa Kênh Cao Lãnh (`assets/js/components/mekong-quick-connect.js`):**
+  - Nút bấm nổi Material Design 3 FAB xuất hiện đồng bộ trên toàn bộ website (`index.html`, `partnership.html`, `academy.html`).
+  - Menu mở rộng kết nối trực tiếp Hotline 0939.123.456, Zalo OA chính thức, mở nhanh Modal báo giá VietQR và định vị Google Maps Cao Lãnh.
+
+### Changed & Fixed
+- **Chuẩn Hóa Module & Sửa Lỗi Bundling/Re-export:**
+  - Sửa lỗi `ReferenceError: debounce is not defined` và `formatCurrency` trong `src/js/shared/format-utils.js` và `src/js/core/enhanced-utils.js` bằng việc nạp biến vào lexical scope trước khi xuất default object.
+  - Khắc phục lỗi cú pháp escaped backticks trong `assets/js/features/micro-animations.js` giúp trình nén `terser` chạy thành công không có cảnh báo.
+  - Cập nhật hàm `getInitials` hỗ trợ trích xuất đầy đủ 3 ký tự viết tắt theo chuẩn tên tiếng Việt.
+- **100% SEO Metadata Compliance:**
+  - Bổ sung Twitter Cards, Open Graph, Canonical URL và Schema JSON-LD cho toàn bộ các trang công khai và trang quản trị nội bộ.
+  - Hoàn thiện 109/109 file HTML đạt chuẩn SEO 100% (1554/1554 unit tests passing).
+
+### Verified
+- `npx vitest run`: 6 test suites passed, 1554/1554 tests passed.
+- `npm run build`: Minification và Bundle xuất xưởng thành công vào `dist/`.
+
+---
+
 ## [v2.5.0] - 2026-10-01 (Cao Lãnh 2026 Milestone)
 ### Added
 - **Học Viện AI Problem-Solving (`academy.html`):**
