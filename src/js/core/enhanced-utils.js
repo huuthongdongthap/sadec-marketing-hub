@@ -9,7 +9,7 @@
 
 // ===== RE-EXPORTS FROM SHARED =====
 // All format functions are now in shared/format-utils.js
-export {
+import {
     formatCurrency,
     formatCurrencyCompact,
     formatCurrencyVN,
@@ -21,6 +21,19 @@ export {
     debounce,
     throttle
 } from '../shared/format-utils.js';
+
+export {
+    formatCurrency,
+    formatCurrencyCompact,
+    formatCurrencyVN,
+    formatNumber,
+    formatDate,
+    formatDateTime,
+    formatRelativeTime,
+    truncate,
+    debounce,
+    throttle
+};
 
 // ===== ID GENERATION =====
 export function generateId(prefix = 'id') {
@@ -36,14 +49,15 @@ export function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function getInitials(name) {
+export function getInitials(name, limit = 3) {
     if (!name) return '';
     return name
         .split(' ')
+        .filter(Boolean)
         .map(n => n[0])
         .join('')
         .toUpperCase()
-        .slice(0, 2);
+        .slice(0, limit);
 }
 
 export function slugify(str) {
@@ -286,30 +300,3 @@ const MekongUtils = {
     MobileSidebar
 };
 export default MekongUtils;
-export {
-    generateId,
-    formatCurrency,
-    formatCurrencyCompact,
-    formatCurrencyVN,
-    formatDate,
-    formatDateTime,
-    formatRelativeTime,
-    formatNumber,
-    formatPercent,
-    truncate,
-    capitalize,
-    getInitials,
-    slugify,
-    groupBy,
-    sortBy,
-    sum,
-    average,
-    debounce,
-    throttle,
-    escapeHTML,
-    createElement,
-    Toast,
-    ThemeManager,
-    ScrollProgress,
-    MobileSidebar
-};

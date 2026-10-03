@@ -113,8 +113,9 @@ export function truncate(str, length = 50) {
 }
 
 // ===== PERFORMANCE UTILITIES =====
-// Re-export from consolidated function utilities
-export { debounce, throttle } from '../../../assets/js/utils/function.js';
+// Import from consolidated function utilities
+import { debounce, throttle } from '../../../assets/js/utils/function.js';
+export { debounce, throttle };
 
 // ===== EXPORTS =====
 export default {
