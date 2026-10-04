@@ -113,6 +113,10 @@
           <span class="material-symbols-outlined" style="color: #7C3AED;">pie_chart</span>
           <span>Đối Soát Doanh Thu</span>
         </button>
+        <button type="button" class="mqc-item" id="mqc-tracker-trigger">
+          <span class="material-symbols-outlined" style="color: #0284C7;">monitoring</span>
+          <span>Zalo Mini App Tracker</span>
+        </button>
         <a href="https://maps.google.com/?q=Cao+Lanh+Dong+Thap" target="_blank" class="mqc-item">
           <span class="material-symbols-outlined" style="color: #DC2626;">location_on</span>
           <span>Đại Bản Doanh Cao Lãnh</span>
@@ -145,32 +149,14 @@
       toggleMenu();
     };
 
-    document.getElementById('mqc-booking-trigger').onclick = () => {
-      toggleMenu();
-      if (typeof window.openMekongBookingModal === 'function') {
-        window.openMekongBookingModal('cinema-tour-1d');
-      } else {
-        window.location.href = 'academy.html#studio';
-      }
+    const bindTrigger = (id, fn, arg) => {
+      const el = document.getElementById(id);
+      if (el) el.onclick = () => { toggleMenu(); if (typeof window[fn] === 'function') window[fn](arg); };
     };
-
-    document.getElementById('mqc-quote-trigger').onclick = () => {
-      toggleMenu();
-      if (typeof window.openMekongQuoteModal === 'function') {
-        window.openMekongQuoteModal('ocop-brand');
-      } else {
-        window.location.href = 'index.html#services';
-      }
-    };
-
-    document.getElementById('mqc-split-trigger').onclick = () => {
-      toggleMenu();
-      if (typeof window.openMekongRevenueSplitModal === 'function') {
-        window.openMekongRevenueSplitModal('cinema-tour');
-      } else {
-        window.location.href = 'partnership.html';
-      }
-    };
+    bindTrigger('mqc-booking-trigger', 'openMekongBookingModal', 'cinema-tour-1d');
+    bindTrigger('mqc-quote-trigger', 'openMekongQuoteModal', 'ocop-brand');
+    bindTrigger('mqc-split-trigger', 'openMekongRevenueSplitModal', 'cinema-tour');
+    bindTrigger('mqc-tracker-trigger', 'openMekongTracker');
 
     document.addEventListener('click', (e) => {
       if (isOpen && !widget.contains(e.target)) {

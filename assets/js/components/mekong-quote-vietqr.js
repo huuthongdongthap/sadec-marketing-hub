@@ -58,15 +58,34 @@
             <button id="mq-opt-full" style="flex:1;padding:0.5rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.85rem;background:transparent;color:#555;">Trọn Gói (100%)</button>
           </div>
           <!-- VietQR Box -->
-          <div style="background:#F9FAF8;border:1.5px dashed #1B4D3E;border-radius:16px;padding:1rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div id="mq-qr-box" style="background:#F9FAF8;border:1.5px dashed #1B4D3E;border-radius:16px;padding:1rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
             <div style="font-size:0.8rem;font-weight:700;color:#B25E00;margin-bottom:0.4rem;">QUÉT MÃ VIETQR QUA MỌI APP NGÂN HÀNG</div>
-            <img id="mq-qr-img" src="" alt="VietQR" style="width:180px;height:180px;object-fit:contain;background:#fff;padding:4px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-            <div style="margin-top:0.6rem;font-size:1.15rem;font-weight:800;color:#1B4D3E;" id="mq-qr-amount">0 ₫</div>
-            <div style="font-size:0.82rem;color:#444;margin-top:0.35rem;">Nội dung: <strong id="mq-qr-memo" style="color:#991B1B;background:#FEE2E2;padding:2px 6px;border-radius:4px;">HUB</strong></div>
-            <div style="display:flex;gap:0.5rem;margin-top:0.75rem;">
-              <button id="mq-copy-acc" style="background:#E2E8F0;border:none;padding:0.4rem 0.8rem;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;">📋 Copy STK (${BANK_CONFIG.accountNo})</button>
-              <button id="mq-copy-memo" style="background:#E2E8F0;border:none;padding:0.4rem 0.8rem;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;">📋 Copy Cú Pháp</button>
+            <img id="mq-qr-img" src="" alt="VietQR" style="width:170px;height:170px;object-fit:contain;background:#fff;padding:4px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+            <div style="margin-top:0.5rem;font-size:1.15rem;font-weight:800;color:#1B4D3E;" id="mq-qr-amount">0 ₫</div>
+            <div style="font-size:0.82rem;color:#444;margin-top:0.3rem;">Nội dung: <strong id="mq-qr-memo" style="color:#991B1B;background:#FEE2E2;padding:2px 6px;border-radius:4px;">HUB</strong></div>
+            <div style="display:flex;gap:0.4rem;margin-top:0.6rem;flex-wrap:wrap;justify-content:center;">
+              <button id="mq-copy-acc" style="background:#E2E8F0;border:none;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;">📋 STK: ${BANK_CONFIG.accountNo}</button>
+              <button id="mq-copy-memo" style="background:#E2E8F0;border:none;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;">📋 Copy Cú Pháp</button>
+              <button id="mq-sim-pay" style="background:#DCFCE7;color:#16A34A;border:1px solid #16A34A;padding:0.35rem 0.65rem;border-radius:8px;font-size:0.78rem;font-weight:700;cursor:pointer;">⚡ Giả Lập Khớp Lệnh</button>
             </div>
+            <div id="mq-poll-status" style="font-size:0.75rem;color:#0284C7;margin-top:0.5rem;display:flex;align-items:center;gap:0.3rem;">
+              <span class="material-symbols-outlined" style="font-size:0.95rem;">sync</span> Đang lắng nghe tín hiệu giao dịch Napas 24/7...
+            </div>
+          </div>
+          <!-- Paid Receipt Box -->
+          <div id="mq-paid-box" style="display:none;background:#ECFDF5;border:2px solid #059669;border-radius:16px;padding:1.25rem;text-align:center;">
+            <div style="width:44px;height:44px;background:#059669;color:#fff;border-radius:22px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:0.4rem;">
+              <span class="material-symbols-outlined" style="font-size:1.6rem;">check</span>
+            </div>
+            <div style="font-weight:800;font-size:1.05rem;color:#065F46;">Giao Dịch Đã Khớp Lệnh Thành Công!</div>
+            <div style="font-size:0.8rem;color:#047857;margin-top:0.2rem;">Hệ thống đã nhận thanh toán và thông báo tới Co-founder phụ trách.</div>
+            <div style="background:#fff;border-radius:12px;padding:0.75rem;margin-top:0.75rem;font-size:0.8rem;text-align:left;display:flex;flex-direction:column;gap:0.3rem;border:1px solid #A7F3D0;">
+              <div><strong>Mã Giao Dịch:</strong> <span id="mq-rec-ref">#MB-882194</span></div>
+              <div><strong>Số Tiền:</strong> <span id="mq-rec-amt" style="color:#059669;font-weight:700;">0 ₫</span></div>
+              <div><strong>Thời Gian:</strong> <span id="mq-rec-time">2026-10-04</span></div>
+              <div><strong>Trạng Thái:</strong> <span style="background:#D1FAE5;color:#065F46;padding:2px 6px;border-radius:4px;font-weight:600;">Hợp Đồng Đã Kích Hoạt</span></div>
+            </div>
+            <button id="mq-reset-pay" style="margin-top:0.75rem;background:#059669;color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.8rem;font-weight:700;cursor:pointer;">Tạo Giao Dịch Mới</button>
           </div>
         </div>
         <div style="background:#F0F5EE;padding:1rem 1.5rem;display:flex;gap:0.75rem;justify-content:flex-end;">
@@ -132,6 +151,26 @@
       const memo = document.getElementById('mq-qr-memo').innerText;
       navigator.clipboard.writeText(memo);
       alert(`Đã sao chép nội dung: ${memo}`);
+    };
+
+    document.getElementById('mq-sim-pay').onclick = () => {
+      document.getElementById('mq-qr-box').style.display = 'none';
+      const paidBox = document.getElementById('mq-paid-box');
+      paidBox.style.display = 'block';
+      const amtText = document.getElementById('mq-qr-amount').innerText;
+      const memo = document.getElementById('mq-qr-memo').innerText;
+      const refCode = '#MB-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('mq-rec-amt').innerText = amtText;
+      document.getElementById('mq-rec-ref').innerText = refCode;
+      document.getElementById('mq-rec-time').innerText = new Date().toLocaleTimeString('vi-VN') + ' ' + new Date().toLocaleDateString('vi-VN');
+      const zaloText = encodeURIComponent(`Chào Mekong Agency, tôi đã chuyển khoản thành công ${amtText} cho mã [${refCode}], nội dung: ${memo}`);
+      document.getElementById('mq-zalo-confirm').href = `https://zalo.me/0939123456?text=${zaloText}`;
+    };
+
+    document.getElementById('mq-reset-pay').onclick = () => {
+      document.getElementById('mq-paid-box').style.display = 'none';
+      document.getElementById('mq-qr-box').style.display = 'flex';
+      updateView();
     };
 
     modal._updateView = updateView;

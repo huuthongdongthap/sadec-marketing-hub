@@ -1,0 +1,88 @@
+/* Mekong Zalo Tracker Component Styles - MD3 Design Tokens */
+.mzt-widget {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9997;
+  background: var(--md-sys-color-surface, #fff);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  border: 1px solid rgba(27,77,62,0.12);
+  font-family: inherit;
+  font-size: 0.85rem;
+  max-width: 420px;
+  width: calc(100vw - 48px);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mzt-widget.collapsed { transform: translateY(calc(100% + 24px)); opacity: 0; pointer-events: none; }
+.mzt-header {
+  background: linear-gradient(135deg, #1B4D3E 0%, #0D3B2E 100%);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.mzt-header h3 { margin: 0; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+.mzt-header h3 .material-symbols-outlined { color: #D4AF37; }
+.mzt-close-btn { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; line-height: 1; opacity: 0.8; }
+.mzt-close-btn:hover { opacity: 1; }
+.mzt-content { padding: 1rem 1.25rem; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+.mzt-stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; text-align: center; padding: 0.75rem; background: #F0F5EE; border-radius: 12px; margin-bottom: 0.5rem; }
+.mzt-stat-item { display: flex; flex-direction: column; }
+.mzt-stat-value { font-weight: 800; font-size: 1.1rem; color: #1B4D3E; }
+.mzt-stat-label { font-size: 0.65rem; color: #555; text-transform: uppercase; }
+.mzt-booking-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 16px; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
+.mzt-booking-card.active { border-color: #B25E00; box-shadow: 0 0 0 2px rgba(178,94,0,0.15); }
+.mzt-booking-card.completed { border-color: #BBF7D0; background: #F0FDF4; }
+.mzt-card-header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #F9FAF8; border-bottom: 1px solid #E5E7EB; }
+.mzt-booking-id { font-weight: 700; font-size: 0.8rem; color: #1B4D3E; font-family: monospace; }
+.mzt-status-badge { padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; }
+.mzt-card-body { padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; }
+.mzt-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.mzt-label { font-weight: 600; color: #555; min-width: 90px; }
+.mzt-value { color: #1B4D3E; }
+.mzt-progress-container { padding: 0 1rem 0.5rem; }
+.mzt-progress-bar { height: 4px; background: #E5E7EB; border-radius: 2px; overflow: hidden; position: relative; }
+.mzt-progress-bar::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: var(--progress); background: linear-gradient(90deg, #1B4D3E, #D4AF37); border-radius: 2px; transition: width 0.4s ease; }
+.mzt-progress-steps { display: flex; justify-content: space-between; margin-top: 0.5rem; position: relative; }
+.mzt-progress-steps::before { content: ''; position: absolute; top: 10px; left: 5%; right: 5%; height: 2px; background: #E5E7EB; z-index: 0; }
+.mzt-step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; position: relative; z-index: 1; }
+.mzt-step-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 2px solid #E5E7EB; display: flex; align-items: center; justify-content: center; color: #999; transition: all 0.3s; }
+.mzt-step.completed .mzt-step-dot { background: var(--step-color); border-color: var(--step-color); color: #fff; }
+.mzt-step.current .mzt-step-dot { background: var(--step-color); border-color: var(--step-color); color: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--step-color) 20%, transparent); animation: mztPulse 2s infinite; }
+.mzt-step.future .mzt-step-dot { background: #fff; border-color: #E5E7EB; color: #C0C9C2; }
+.mzt-step-label { font-size: 0.55rem; text-align: center; color: #666; line-height: 1.1; max-width: 60px; }
+.mzt-step.completed .mzt-step-label, .mzt-step.current .mzt-step-label { color: var(--step-color); font-weight: 600; }
+@keyframes mztPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--step-color) 40%, transparent); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+.mzt-finance-summary { padding: 0.75rem 1rem; background: #F9FAF8; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; }
+.mzt-finance-title { font-weight: 700; font-size: 0.8rem; color: #1B4D3E; margin-bottom: 0.5rem; }
+.mzt-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.75rem; font-size: 0.7rem; }
+.mzt-split-item { display: flex; justify-content: space-between; align-items: center; }
+.mzt-split-label { color: #555; }
+.mzt-split-amount { font-weight: 700; }
+.mzt-payout-badge { margin-top: 0.5rem; padding: 0.4rem 0.6rem; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; font-size: 0.7rem; color: #065F46; display: flex; align-items: center; gap: 0.35rem; }
+.mzt-timeline-toggle { padding: 0.5rem 1rem; background: #F9FAF8; border-top: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.8rem; color: #0284C7; font-weight: 600; cursor: pointer; }
+.mzt-timeline-toggle:hover { background: #EFF6FF; }
+.mzt-timeline { padding: 0.75rem 1rem; background: #fff; border-top: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 0.5rem; }
+.mzt-timeline-item { display: flex; gap: 0.75rem; font-size: 0.75rem; }
+.mzt-tl-time { color: #999; white-space: nowrap; font-family: monospace; font-size: 0.7rem; }
+.mzt-tl-content { color: #333; flex: 1; line-height: 1.4; }
+.mzt-actions { padding: 0.75rem 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; border-top: 1px solid #E5E7EB; background: #FAFAFA; }
+.mzt-btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.5rem 0.85rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; }
+.mzt-btn-primary { background: #1B4D3E; color: #fff; }
+.mzt-btn-primary:hover { background: #0D3B2E; }
+.mzt-btn-secondary { background: #E2E8F0; color: #475569; }
+.mzt-btn-secondary:hover { background: #CBD5E1; }
+.mzt-btn-success { background: #059669; color: #fff; }
+.mzt-btn-success:hover { background: #047857; }
+.mzt-fab { position: fixed; bottom: 24px; left: 24px; z-index: 9996; width: 56px; height: 56px; border-radius: 28px; background: linear-gradient(135deg, #1B4D3E 0%, #0D3B2E 100%); border: none; cursor: pointer; box-shadow: 0 6px 20px rgba(27,77,62,0.4); display: flex; align-items: center; justify-content: center; color: #fff; transition: transform 0.2s, box-shadow 0.2s; }
+.mzt-fab:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(27,77,62,0.5); }
+.mzt-fab .material-symbols-outlined { font-size: 1.5rem; }
+.mzt-badge { position: absolute; top: -4px; right: -4px; background: #DC2626; color: #fff; font-size: 0.65rem; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; padding: 0 4px; }
+@media (max-width: 480px) { .mzt-widget { left: 12px; right: 12px; bottom: 12px; max-width: none; width: auto; max-height: 80vh; } .mzt-fab { left: 12px; bottom: 12px; } .mzt-split-grid { grid-template-columns: 1fr; } }
