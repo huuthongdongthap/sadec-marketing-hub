@@ -25,9 +25,20 @@
 │ ├── Widget Quick Connect Nổi (Zalo OA, Hotline Cao Lãnh, Bản Đồ)       │
 │ └── Tối ưu hiệu năng Build Minify & 100% SEO Compliance Toàn Dự Án     │
 ├────────────────────────────────────────────────────────────────────────┤
-│ GIAI ĐOẠN 4: ZALO MINI APP & TỰ ĐỘNG ĐỐI SOÁT OCOP (Q1/2027) [TIẾP THEO]│
-│ ├── Tích hợp Zalo Mini App cho du khách đặt tour boutique & đặc sản    │
-│ ├── Webhook tự động đối soát VietQR với ngân hàng thương mại           │
+│ GIAI ĐOẠN 4: BOUTIQUE BOOKING & ĐỐI SOÁT MINH BẠCH (Q4/2026) [DONE]     │
+│ ├── Engine Đặt Lịch Tour 4K & Phân Bổ Ekip Thực Địa                    │
+│ ├── Bảng Đối Soát 6 Dòng Tiền & Tỷ Lệ Giải Ngân 4 Bên                  │
+│ └── Trực Quan Hóa Doanh Thu Co-Founder & Đối Tác Địa Phương            │
+├────────────────────────────────────────────────────────────────────────┤
+│ GIAI ĐOẠN 5: ZALO TRACKER & CONTENT ENGINE V2 (Q4/2026) [HOÀN THÀNH]   │
+│ ├── Zalo Mini App Tracking Simulator (8 bước thực địa & ví giải ngân)  │
+│ ├── Content Engine v2 (Kịch bản 60s, Phóng sự 10m, Bài PR Báo chí)     │
+│ ├── Cổng VietQR Napas với Giả Lập Khớp Lệnh & Biên Lai Điện Tử         │
+│ └── 100% Modularity (< 200 dòng/file) & Green Build Production         │
+├────────────────────────────────────────────────────────────────────────┤
+│ GIAI ĐOẠN 6: ZALO OA MINI APP PRODUCTION & BANK API WEBHOOK (Q1/2027)  │
+│ ├── Triển khai Zalo Mini App chính thức trên Zalo OA Đất Sen Hồng      │
+│ ├── Tích hợp Webhook SePay/MBBank tự động giải ngân thẳng vào STK      │
 │ └── Mở rộng mạng lưới đối tác OCOP 12 huyện thành Đồng Tháp            │
 └────────────────────────────────────────────────────────────────────────┘
 ```
@@ -63,10 +74,15 @@
 - [x] **Bảng Đối Soát Doanh Thu Co-Founder & OCOP (`assets/js/components/mekong-revenue-split.js`):** Minh bạch tỷ lệ phần trăm phân bổ dòng tiền 6 nguồn thu (Cinema Tour, Hợp đồng OCOP, Brand Sponsor, Affiliate) trực quan bằng biểu đồ màu và cam kết đối soát 24h.
 - [x] **Tích Hợp Trải Nghiệm Đa Điểm:** Gắn trigger đối soát dòng tiền và đặt lịch tại `index.html`, `partnership.html`, `academy.html` và Widget Quick Connect.
 
-### Phase 5: Zalo Mini App & Tự Động Webhook Đối Soát (Kế Hoạch Q1/2027)
-- [ ] **Zalo Mini App:** Cho phép du khách và chủ homestay đặt lịch boutique tour, tracking lịch quay trực tiếp qua Zalo.
-- [ ] **VietQR Webhook Reconciliation:** Kết nối webhook tự động chia sẻ doanh thu tức thì cho các điểm đến OCOP và tài khoản Co-founder.
-- [ ] **Content Engine v2:** Nâng cấp AI Agent hỗ trợ viết kịch bản phóng sự sâu về làng nghề truyền thống Sa Đéc & Cao Lãnh.
+### Phase 5: Zalo Tracker Simulator & Content Engine v2 (Status: 100% Hoàn Thành)
+- [x] **Zalo Mini App Tracking Simulator (`assets/js/components/mekong-zalo-tracker.js`):** Theo dõi tiến độ 8 bước quy trình quay chụp thực địa và trạng thái đối soát giải ngân tức thì cho Homestay & Du khách.
+- [x] **Content Engine v2 Đa Định Dạng (`assets/js/components/native-vibe-studio.js`):** Sản xuất kịch bản đa kênh (Video ngắn 60s, Phóng sự 10 phút, Bài PR báo chí) cho 4 chủ đề thương hiệu Đồng Tháp.
+- [x] **Khớp Lệnh VietQR Thời Gian Thực:** Tự động sinh biên lai điện tử `#MB-XXXXXX` và liên thông thông báo Zalo kích hoạt hợp đồng.
+- [x] **Tuân Thủ Kiến Trúc Modularity:** Tách riêng `mekong-zalo-tracker-data.js` và stylesheet, đảm bảo 100% file JavaScript < 200 dòng.
+
+### Phase 6: Zalo OA Mini App Production & Bank Webhook (Kế Hoạch Q1/2027)
+- [ ] **Zalo Mini App Production:** Đóng gói và phát hành ứng dụng Zalo Mini App chính thức lên nền tảng Zalo OA Đồng Tháp.
+- [ ] **Bank Webhook Direct Settlement:** Kết nối webhook ngân hàng thương mại tự động chia tách và giải ngân dòng tiền đến từng STK đối tác.
 
 ---
 
