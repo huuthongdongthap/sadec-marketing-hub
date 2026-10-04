@@ -725,6 +725,29 @@
           <button type="button" onclick="openMekongQuoteModal('campaign')" class="btn btn-outlined btn-sm" style="margin-top: 0.75rem; width: 100%; border-radius: 10px; font-weight: 700; font-size: 0.85rem; cursor: pointer;">Báo Giá & VietQR</button>
         </div>
       </div>
+
+      <!-- Action Row: Boutique Cinema Tour & Revenue Split -->
+      <div style="margin-top: 2.5rem; background: var(--md-sys-color-surface-container, #F0F5EE); border-radius: 20px; padding: 1.5rem 2rem; border: 1px solid rgba(27,77,62,0.15); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+        <div>
+          <div style="font-weight: 800; color: #1B4D3E; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span class="material-symbols-outlined" style="color: #D4AF37;">videocam</span>
+            Boutique Cinema Tour & Dịch Vụ Quay Thực Địa 4K
+          </div>
+          <p style="font-size: 0.85rem; color: #555; margin: 0.25rem 0 0; max-width: 650px;">
+            Trải nghiệm văn hoá Đất Sen Hồng kết hợp sản xuất video điện ảnh cá nhân hoá. Minh bạch đối soát 6 nguồn thu cùng Co-founder và đối tác bản địa.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button type="button" data-booking-trigger="cinema-tour-1d" class="btn btn-filled btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 12px; font-weight: 700; cursor: pointer;">
+            <span class="material-symbols-outlined" style="font-size: 1.1rem;">calendar_month</span>
+            Đặt Tour & Ekip
+          </button>
+          <button type="button" data-revenue-split-trigger="cinema-tour" class="btn btn-outlined btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 12px; font-weight: 700; cursor: pointer; background: #fff;">
+            <span class="material-symbols-outlined" style="font-size: 1.1rem;">pie_chart</span>
+            Đối Soát Dòng Tiền
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1224,6 +1247,10 @@
 
   <!-- Mekong Quote & VietQR Component -->
   <script src="assets/js/components/mekong-quote-vietqr.js" defer></script>
+
+  <!-- Mekong Booking Engine & Revenue Split Components -->
+  <script src="assets/js/components/mekong-booking-engine.js" defer></script>
+  <script src="assets/js/components/mekong-revenue-split.js" defer></script>
 
   <!-- Mekong Quick Connect Widget -->
   <script src="assets/js/components/mekong-quick-connect.js" defer></script>

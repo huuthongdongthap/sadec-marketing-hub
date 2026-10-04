@@ -4,6 +4,26 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.7.0] - 2026-10-04 (Boutique Booking Engine & Revenue Split Ledger)
+### Added
+- **Boutique Booking Engine (`assets/js/components/mekong-booking-engine.js`):**
+  - Đặt lịch trải nghiệm và cử ekip quay 4K thực địa cho 3 gói tour: Boutique Cinema Tour 1 Ngày (6.500.000 ₫), Ký Sự Điện Ảnh 2N1Đ Homestay (12.000.000 ₫), Quay Thực Địa Xưởng OCOP 4K (8.500.000 ₫).
+  - Lựa chọn 5 địa danh nổi bật của Đồng Tháp: Làng Hoa Sa Đéc, Làng Nghề Bột Sa Đéc, Vườn Quýt & Lò Nem Lai Vung, Rừng Tràm Gáo Giồng, Vườn Xoài Cát Chu Cao Lãnh & Sen Tháp Mười.
+  - Tự động tính cọc 50% giữ lịch ekip và chuyển thẳng dữ liệu sang cổng thanh toán VietQR với memo định danh.
+- **Bảng Đối Soát Doanh Thu Minh Bạch Co-Founder & OCOP (`assets/js/components/mekong-revenue-split.js`):**
+  - Mô phỏng và bóc tách cụ thể tỷ lệ phân bổ dòng tiền cho 4 nhóm hợp đồng: Boutique Cinema Tour, Hợp đồng sản xuất video OCOP, Brand Sponsorship, và OCOP Affiliate Commerce.
+  - Phân bổ thực tế tỷ lệ chi trả: Co-founder ekip sản xuất trực tiếp (35–50%), Homestay và nhà vườn bản địa (25–30%), Hậu cần & khấu hao thiết bị (20%), Quỹ phát triển AI Hub & khuyến nông (10–15%).
+  - Trực quan hóa tiến độ bằng Material Design 3 progress bars và cam kết giải ngân VietQR trong vòng 24h.
+- **Tích Hợp Giao Diện Đa Kênh:**
+  - Bổ sung nút CTA "Đặt Tour & Ekip" và "Đối Soát Dòng Tiền" trên `index.html` (phần Dịch vụ bản địa) và `partnership.html` (phần 3 Kịch bản doanh thu thực tế).
+  - Tích hợp liên kết mở nhanh trong Floating Action Button `mekong-quick-connect.js`.
+
+### Verified
+- `npx vitest run`: 6 test suites passed, 1554/1554 tests passed (100% Green).
+- `npm run build`: Minification and optimization succeeded into `dist/`.
+
+---
+
 ## [v2.6.0] - 2026-10-04 (Operational Automation & Native Studio Milestone)
 ### Added
 - **Modal Báo Giá Tức Thì & Cổng VietQR Napas 24/7 (`assets/js/components/mekong-quote-vietqr.js`):**
