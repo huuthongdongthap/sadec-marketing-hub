@@ -101,9 +101,17 @@
           <span class="material-symbols-outlined" style="color: #16A34A;">call</span>
           <span>Hotline: 0939.123.456</span>
         </a>
+        <button type="button" class="mqc-item" id="mqc-booking-trigger">
+          <span class="material-symbols-outlined" style="color: #059669;">videocam</span>
+          <span>Đặt Tour & Quay 4K</span>
+        </button>
         <button type="button" class="mqc-item" id="mqc-quote-trigger">
           <span class="material-symbols-outlined" style="color: #B25E00;">qr_code_2</span>
           <span>Báo Giá & VietQR</span>
+        </button>
+        <button type="button" class="mqc-item" id="mqc-split-trigger">
+          <span class="material-symbols-outlined" style="color: #7C3AED;">pie_chart</span>
+          <span>Đối Soát Doanh Thu</span>
         </button>
         <a href="https://maps.google.com/?q=Cao+Lanh+Dong+Thap" target="_blank" class="mqc-item">
           <span class="material-symbols-outlined" style="color: #DC2626;">location_on</span>
@@ -137,12 +145,30 @@
       toggleMenu();
     };
 
+    document.getElementById('mqc-booking-trigger').onclick = () => {
+      toggleMenu();
+      if (typeof window.openMekongBookingModal === 'function') {
+        window.openMekongBookingModal('cinema-tour-1d');
+      } else {
+        window.location.href = 'academy.html#studio';
+      }
+    };
+
     document.getElementById('mqc-quote-trigger').onclick = () => {
       toggleMenu();
       if (typeof window.openMekongQuoteModal === 'function') {
         window.openMekongQuoteModal('ocop-brand');
       } else {
         window.location.href = 'index.html#services';
+      }
+    };
+
+    document.getElementById('mqc-split-trigger').onclick = () => {
+      toggleMenu();
+      if (typeof window.openMekongRevenueSplitModal === 'function') {
+        window.openMekongRevenueSplitModal('cinema-tour');
+      } else {
+        window.location.href = 'partnership.html';
       }
     };
 

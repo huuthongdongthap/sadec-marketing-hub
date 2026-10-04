@@ -9,7 +9,10 @@
     'video-4k': { name: 'Xây Kênh Video 4K Bản Địa', price: 15000000, deposit: 7500000, desc: '8 video ngắn 4K/tháng, kịch bản độc quyền, tối ưu hóa thuật toán TikTok/Reels.' },
     'campaign': { name: 'Chiến Dịch Ra Mắt & Bùng Nổ', price: 35000000, deposit: 17500000, desc: 'Chiến dịch tổng lực 30 ngày: viral video, báo chí địa phương, mini game OCOP.' },
     'academy-basic': { name: 'Học Viện AI: Kỹ Năng Thế Kỷ 21', price: 3500000, deposit: 3500000, desc: 'Problem Deconstruction, Prompting thực chiến, Vibe coding cơ bản cho cá nhân.' },
-    'academy-pro': { name: 'Học Viện AI: Doanh Nghiệp 1 Người', price: 8500000, deposit: 4250000, desc: 'Đóng gói quy trình tự động hóa AI, quản trị kênh 4K, hỗ trợ kèm cặp 1-1 trong 60 ngày.' }
+    'academy-pro': { name: 'Học Viện AI: Doanh Nghiệp 1 Người', price: 8500000, deposit: 4250000, desc: 'Đóng gói quy trình tự động hóa AI, quản trị kênh 4K, hỗ trợ kèm cặp 1-1 trong 60 ngày.' },
+    'cinema-tour-1d': { name: 'Boutique Cinema Tour 1 Ngày', price: 6500000, deposit: 3250000, desc: 'Tour trải nghiệm Đồng Tháp + Ekip quay dựng 4K cá nhân hóa, 1 video 60s hoàn thiện.' },
+    'cinema-tour-2d': { name: 'Ký Sự Điện Ảnh 2N1Đ Homestay', price: 12000000, deposit: 6000000, desc: 'Trọn gói Homestay sinh thái + 2 video điện ảnh 4K + bộ ảnh nghệ thuật Đồng Tháp.' },
+    'ocop-shoot-1d': { name: 'Quay Thực Địa Xưởng OCOP 4K', price: 8500000, deposit: 4250000, desc: '1 ngày quay xưởng làng nghề Sa Đéc/Lai Vung, phỏng vấn nghệ nhân, 3 video 4K.' }
   };
 
   const BANK_CONFIG = { bankId: 'MB', accountNo: '0939123456', accountName: 'MEKONG AGENCY HUB' };

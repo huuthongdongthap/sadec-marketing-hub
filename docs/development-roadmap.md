@@ -58,9 +58,14 @@
 - [x] **Widget Quick Connect Đa Kênh:** Nút liên hệ nổi FAB kết nối Zalo OA, Hotline Cao Lãnh (0939.123.456), Google Maps và Modal báo giá phủ khắp `index.html`, `partnership.html`, `academy.html`.
 - [x] **Toàn Diện Hóa Chất Lượng Kỹ Thuật:** Khắc phục lỗi cú pháp minification trên `micro-animations.js`, đạt 100% SEO Compliance trên toàn bộ 109 file HTML (1554/1554 tests passing).
 
-### Phase 4: Zalo Mini App & Tự Động Đối Soát OCOP (Kế Hoạch Q1/2027)
+### Phase 4: Boutique Booking Engine & Bảng Đối Soát Doanh Thu Minh Bạch (Status: 100% Hoàn Thành)
+- [x] **Boutique Cinema Tour Booking Engine (`assets/js/components/mekong-booking-engine.js`):** Cho phép đặt lịch trải nghiệm và cử ekip 4K thực địa cho 3 gói tour tại 5 địa danh Đồng Tháp, tích hợp tính cọc 50% và liên thông VietQR.
+- [x] **Bảng Đối Soát Doanh Thu Co-Founder & OCOP (`assets/js/components/mekong-revenue-split.js`):** Minh bạch tỷ lệ phần trăm phân bổ dòng tiền 6 nguồn thu (Cinema Tour, Hợp đồng OCOP, Brand Sponsor, Affiliate) trực quan bằng biểu đồ màu và cam kết đối soát 24h.
+- [x] **Tích Hợp Trải Nghiệm Đa Điểm:** Gắn trigger đối soát dòng tiền và đặt lịch tại `index.html`, `partnership.html`, `academy.html` và Widget Quick Connect.
+
+### Phase 5: Zalo Mini App & Tự Động Webhook Đối Soát (Kế Hoạch Q1/2027)
 - [ ] **Zalo Mini App:** Cho phép du khách và chủ homestay đặt lịch boutique tour, tracking lịch quay trực tiếp qua Zalo.
-- [ ] **VietQR Webhook Reconciliation:** Kết nối cổng thanh toán tự động chia sẻ doanh thu tức thì cho các điểm đến OCOP.
+- [ ] **VietQR Webhook Reconciliation:** Kết nối webhook tự động chia sẻ doanh thu tức thì cho các điểm đến OCOP và tài khoản Co-founder.
 - [ ] **Content Engine v2:** Nâng cấp AI Agent hỗ trợ viết kịch bản phóng sự sâu về làng nghề truyền thống Sa Đéc & Cao Lãnh.
 
 ---
