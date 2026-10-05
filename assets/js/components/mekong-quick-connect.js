@@ -117,6 +117,14 @@
           <span class="material-symbols-outlined" style="color: #0284C7;">monitoring</span>
           <span>Zalo Mini App Tracker</span>
         </button>
+        <button type="button" class="mqc-item" id="mqc-webhook-trigger">
+          <span class="material-symbols-outlined" style="color: #059669;">bolt</span>
+          <span>Webhook Giải Ngân 24/7</span>
+        </button>
+        <button type="button" class="mqc-item" id="mqc-partner-trigger">
+          <span class="material-symbols-outlined" style="color: #D97706;">handshake</span>
+          <span>Đăng Ký Đối Tác OCOP</span>
+        </button>
         <a href="https://maps.google.com/?q=Cao+Lanh+Dong+Thap" target="_blank" class="mqc-item">
           <span class="material-symbols-outlined" style="color: #DC2626;">location_on</span>
           <span>Đại Bản Doanh Cao Lãnh</span>
@@ -157,6 +165,8 @@
     bindTrigger('mqc-quote-trigger', 'openMekongQuoteModal', 'ocop-brand');
     bindTrigger('mqc-split-trigger', 'openMekongRevenueSplitModal', 'cinema-tour');
     bindTrigger('mqc-tracker-trigger', 'openMekongTracker');
+    bindTrigger('mqc-webhook-trigger', 'openSettlementWebhookModal');
+    bindTrigger('mqc-partner-trigger', 'openPartnerOnboardingModal');
 
     document.addEventListener('click', (e) => {
       if (isOpen && !widget.contains(e.target)) {

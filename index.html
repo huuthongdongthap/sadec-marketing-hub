@@ -78,6 +78,9 @@
   }
   </script>
 
+  <!-- Mekong Settlement Webhook & OCOP Network Components -->
+  <link rel="stylesheet" href="assets/css/components/mekong-settlement-webhook.css">
+  <link rel="stylesheet" href="assets/css/components/mekong-ocop-network.css">
   <!-- Material Web Components -->
   <script type="importmap">
     {
@@ -750,10 +753,17 @@
             <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #0284C7;">monitoring</span>
             Theo Dõi Zalo Tracker
           </button>
+          <button type="button" onclick="if (typeof openSettlementWebhookModal === 'function') openSettlementWebhookModal();" class="btn btn-outlined btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 12px; font-weight: 700; cursor: pointer; background: #fff;">
+            <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #059669;">bolt</span>
+            Webhook Giải Ngân 24/7
+          </button>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Mạng Lưới Đối Tác OCOP 12 Huyện Thành Đồng Tháp -->
+  <section id="mon-mount-point" class="mon-section"></section>
 
   <!-- Case Study: Đồng Tháp -->
   <section class="section bg-container relative-z" id="case-study">
@@ -1259,6 +1269,13 @@
   <!-- Mekong Zalo Mini App Tracker Components -->
   <script src="assets/js/components/mekong-zalo-tracker-data.js" defer></script>
   <script src="assets/js/components/mekong-zalo-tracker.js" defer></script>
+
+  <!-- Mekong Settlement Webhook & OCOP Network Components -->
+  <script src="assets/js/components/mekong-settlement-webhook-data.js" defer></script>
+  <script src="assets/js/components/mekong-settlement-webhook.js" defer></script>
+  <script src="assets/js/components/mekong-ocop-network-data.js" defer></script>
+  <script src="assets/js/components/mekong-ocop-network.js" defer></script>
+  <script src="assets/js/components/mekong-partner-onboarding.js" defer></script>
 
   <!-- Mekong Quick Connect Widget -->
   <script src="assets/js/components/mekong-quick-connect.js" defer></script>
