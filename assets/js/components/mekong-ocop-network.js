@@ -1,6 +1,6 @@
 /**
  * Mekong OCOP Network Component
- * Trực quan hóa danh bạ mạng lưới đối tác bản địa 12 huyện thành Đồng Tháp
+ * Trực quan hóa danh bạ mạng lưới đối tác Đô thị & Vùng Sinh thái OCOP Đồng Tháp
  * Tuân thủ nghiêm ngặt quy tắc modularity (< 200 dòng/file).
  */
 (function() {
@@ -43,8 +43,9 @@
     const D = window.MekongOcopData;
     if (!D) return;
     const partners = D.filterPartners(selectedDistrict, selectedCategory);
+    const regions = D.REGIONS || D.DISTRICTS;
 
-    const districtPills = D.DISTRICTS.map(d =>
+    const districtPills = regions.map(d =>
       `<button class="mon-pill ${selectedDistrict === d.id ? 'active' : ''}" data-dist="${d.id}">${d.name}</button>`
     ).join('');
 
@@ -55,9 +56,9 @@
     container.innerHTML = `
       <div class="mon-container">
         <div class="mon-header">
-          <div class="mon-badge-hero"><span class="material-symbols-outlined" style="font-size:16px">spa</span> Mạng Lưới Đối Tác Bản Địa 2026</div>
-          <h2 style="font-size:2rem;font-weight:800;color:#0f172a;margin:0 0 0.5rem">12 Huyện Thành Đất Sen Hồng Liên Kết Marketing</h2>
-          <p style="color:#64748b;max-width:680px;margin:0 auto 1.5rem">Kết nối trực tiếp Hộ nông dân, Nhà vườn, Cơ sở OCOP với Đội ngũ Co-founder quay chụp 4K và Hệ sinh thái phân phối số.</p>
+          <div class="mon-badge-hero"><span class="material-symbols-outlined" style="font-size:16px">spa</span> Mạng Lưới OCOP Đất Sen Hồng 2026</div>
+          <h2 style="font-size:2rem;font-weight:800;color:#0f172a;margin:0 0 0.5rem">Mạng Lưới Đối Tác OCOP Đô Thị & Vùng Sinh Thái Đồng Tháp</h2>
+          <p style="color:#64748b;max-width:680px;margin:0 auto 1.5rem">Kết nối trực tiếp Hộ nông dân, Nhà vườn, HTX OCOP tại 3 Đô thị hạt nhân & các Vùng kinh tế sinh thái Đồng Tháp với Ekip quay chụp 4K và Hệ thống phân phối số.</p>
           <div class="mon-filter-row" id="mon-dist-filters">${districtPills}</div>
           <div class="mon-filter-row" id="mon-cat-filters">${categoryPills}</div>
         </div>

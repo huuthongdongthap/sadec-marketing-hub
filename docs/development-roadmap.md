@@ -36,11 +36,11 @@
 │ ├── Cổng VietQR Napas với Giả Lập Khớp Lệnh & Biên Lai Điện Tử         │
 │ └── 100% Modularity (< 200 dòng/file) & Green Build Production         │
 ├────────────────────────────────────────────────────────────────────────┤
-│ GIAI ĐOẠN 6: WEBHOOK GIẢI NGÂN & MẠNG LƯỚI OCOP 12 HUYỆN [HOÀN THÀNH]  │
+│ GIAI ĐOẠN 6: WEBHOOK GIẢI NGÂN & MẠNG LƯỚI OCOP ĐỒNG THÁP [HOÀN THÀNH] │
 │ ├── Engine Webhook SePay/MBBank tự động giải ngân 4 bên                │
-│ ├── Danh bạ Mạng lưới đối tác OCOP 12 huyện thành Đất Sen Hồng         │
+│ ├── Danh bạ Mạng lưới đối tác OCOP Đô thị & Vùng sinh thái Đồng Tháp   │
 │ ├── Cổng đăng ký gia nhập đối tác bản địa và dự toán doanh thu         │
-│ └── 100% Green Vitest (1564/1564 tests) & Modularity < 200 dòng/file   │
+│ └── 100% Green Vitest (1576/1576 tests) & Modularity < 200 dòng/file   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -81,11 +81,11 @@
 - [x] **Khớp Lệnh VietQR Thời Gian Thực:** Tự động sinh biên lai điện tử `#MB-XXXXXX` và liên thông thông báo Zalo kích hoạt hợp đồng.
 - [x] **Tuân Thủ Kiến Trúc Modularity:** Tách riêng `mekong-zalo-tracker-data.js` và stylesheet, đảm bảo 100% file JavaScript < 200 dòng.
 
-### Phase 6: Webhook Giải Ngân Tự Động & Mạng Lưới Đối Tác OCOP 12 Huyện Thành (Status: 100% Hoàn Thành)
+### Phase 6: Webhook Giải Ngân Tự Động & Mạng Lưới Đối Tác OCOP Đô Thị & Vùng Sinh Thái Đồng Tháp (Status: 100% Hoàn Thành)
 - [x] **Bank Webhook Direct Settlement Engine (`assets/js/components/mekong-settlement-webhook.js` & `data.js`):** Tích hợp engine giải lập nhận tín hiệu thanh toán SePay / MBBank / Napas 24/7, xác thực chữ ký bảo mật, và tự động phân bổ dòng tiền 4 bên minh bạch (30% Homestay, 35% Co-founder Ekip, 20% Thiết bị, 15% Quỹ AI Hub).
-- [x] **Mạng Lưới Đối Tác OCOP 12 Huyện Thành (`assets/js/components/mekong-ocop-network.js` & `data.js`):** Danh bạ & bộ lọc tương tác kết nối hộ nông dân, nhà vườn, làng nghề truyền thống và chủ thể OCOP 3★-5★ trên khắp 12 đơn vị hành chính tỉnh Đồng Tháp.
+- [x] **Mạng Lưới Đối Tác OCOP Đô Thị & Vùng Sinh Thái Đồng Tháp (`assets/js/components/mekong-ocop-network.js` & `data.js`):** Danh bạ & bộ lọc tương tác kết nối hộ nông dân, nhà vườn, làng nghề truyền thống và chủ thể OCOP 3★-5★ tại 3 đô thị hạt nhân (TP. Cao Lãnh, TP. Sa Đéc, TP. Hồng Ngự) và các vùng đô thị - sinh thái bản địa (Lai Vung, Tháp Mười, Tam Nông, Lấp Vò, Châu Thành, Thanh Bình, Tân Hồng...) theo quy hoạch mới nhất (chuẩn hóa không dùng danh xưng huyện cũ).
 - [x] **Cổng Đăng Ký Đối Tác Bản Địa (`assets/js/components/mekong-partner-onboarding.js`):** Modal tiếp nhận hồ sơ trực tuyến, dự phóng doanh thu gia tăng (+15M đến +25M ₫/tháng) và kích hoạt mã hồ sơ liên kết Zalo OA.
-- [x] **Tích Hợp Toàn Diện & Modularity:** Tích hợp đồng bộ vào FAB Quick Connect, 100% file JS < 200 dòng, bộ test Vitest 1564/1564 tests passed (100% Green).
+- [x] **Tích Hợp Toàn Diện & Modularity:** Tích hợp đồng bộ vào FAB Quick Connect, 100% file JS < 200 dòng, bộ test Vitest 1576/1576 tests passed (100% Green).
 
 ---
 

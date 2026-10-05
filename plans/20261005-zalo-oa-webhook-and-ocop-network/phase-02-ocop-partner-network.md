@@ -1,29 +1,28 @@
-# 🌾 PHASE 2: DANH BẠ MẠNG LƯỚI ĐỐI TÁC OCOP 12 HUYỆN THÀNH ĐỒNG THÁP
+# 🌾 PHASE 2: DANH BẠ MẠNG LƯỚI ĐỐI TÁC OCOP ĐÔ THỊ & VÙNG SINH THÁI ĐỒNG THÁP
 
-> **Mục tiêu:** Xây dựng danh bạ & mạng lưới đối tác OCOP bản địa kết nối 12 huyện, thị xã, thành phố Đất Sen Hồng với hệ sinh thái Sa Đéc & Cao Lãnh Marketing Hub.
+> **Mục tiêu:** Xây dựng danh bạ & mạng lưới đối tác OCOP bản địa kết nối 3 Đô thị hạt nhân và các Vùng kinh tế sinh thái Đất Sen Hồng với hệ sinh thái Sa Đéc & Cao Lãnh Marketing Hub (chuẩn hóa theo quy hoạch mới, bỏ danh xưng huyện cũ).
 
 ---
 
 ## 🛠️ CHI TIẾT KỸ THUẬT
 
-1. **Dataset Đối Tác 12 Huyện Thành (`assets/js/components/mekong-ocop-network-data.js`):**
-   * Định nghĩa 12 địa phương:
-     1. TP. Sa Đéc (Làng hoa trăm năm, Làng bột gạo truyền thống)
-     2. TP. Cao Lãnh (Xoài cát chu, Làng sinh thái ven sông)
-     3. TP. Hồng Ngự (Cá tra, Làng dệt choàng Long Khánh)
-     4. Huyện Lai Vung (Nem chua Lai Vung, Vườn quýt hồng)
-     5. Huyện Tháp Mười (Trà sen, Hạt sen sấy OCOP 4-5 sao)
-     6. Huyện Tam Nông (Gạo huyết rồng, Du lịch Vườn Quốc gia Tràm Chim)
-     7. Huyện Thanh Bình (Ớt cay Thanh Bình, Bắp non VietGAP)
-     8. Huyện Lấp Vò (Chiếu Định Yên Di sản Phi vật thể, Lò đường)
-     9. Huyện Tân Hồng (Nông nghiệp tuần hoàn, Sen bách diệp)
-     10. Huyện Châu Thành (Nhãn Châu Thành, Khoai lang tím)
-     11. Huyện Cao Lãnh (Vườn cây ăn trái Phong Hòa, Xoài cát Chu)
-     12. Huyện Hồng Ngự (Làng nghề nuôi cá bè, Lúa mùa nổi)
-   * Trường dữ liệu: `id`, `name`, `district`, `category`, `ocopRating` (3-5 sao), `featuredProduct`, `commissionRate`, `status` ('verified' | 'ready-for-tour'), `phone`, `avatar`.
+1. **Dataset Đối Tác Đô Thị & Vùng Sinh Thái (`assets/js/components/mekong-ocop-network-data.js`):**
+   * Định nghĩa các địa bàn theo không gian phát triển mới nhất của tỉnh Đồng Tháp:
+     1. TP. Sa Đéc (Làng hoa trăm năm, Làng bột gạo lọc truyền thống)
+     2. TP. Cao Lãnh (Thủ phủ Đất Sen Hồng, Xoài Cát Chu xuất khẩu)
+     3. TP. Hồng Ngự (Thủ phủ cá tra, Làng nghề Dệt Choàng Long Khánh)
+     4. Đô thị Lai Vung (Nem chua Lai Vung truyền thống, Vương quốc Quýt hồng)
+     5. Đô thị Tháp Mười (Thủ phủ Trà Sen, Hạt sen sấy OCOP 5 sao quốc gia Ecolotus)
+     6. Đô thị Tam Nông (Gạo Huyết Rồng hữu cơ, Du lịch sinh thái Vườn Quốc gia Tràm Chim)
+     7. Đô thị Thanh Bình (Ớt Chỉ Thiên xuất khẩu, Bắp non VietGAP phù sa bãi bồi)
+     8. Đô thị Lấp Vò (Di sản Chiếu Định Yên, Chợ Ma, Đô thị dịch vụ công nghiệp)
+     9. Đô thị Châu Thành (Vùng chuyên canh Nhãn Xuồng Idor, Khoai lang tím Phú Hựu)
+     10. Đô thị Tân Hồng (Nông nghiệp tuần hoàn, Sen Bách Diệp vùng trũng biên giới)
+     11. Vùng Mở Rộng Cao Lãnh (Vườn cây ăn trái Phong Hòa, Xoài Cát Chu ven sông)
+     12. Vùng Kinh Tế Hồng Ngự (Làng nghề nuôi cá bè sông Tiền, Lúa mùa nổi)
+   * Trường dữ liệu: `id`, `name`, `district`, `districtName`, `category`, `ocopRating` (3-5 sao), `product`, `commission`, `status` ('verified' | 'ready-for-tour'), `contact`, `address`.
 
 2. **Giao Diện Trực Quan (`assets/js/components/mekong-ocop-network.js`):**
-   * Bộ lọc nhanh theo địa phương (12 huyện thành) và ngành hàng (Ẩm thực & Nông sản, Lưu trú Homestay, Thủ công Di sản).
-   * Thẻ Card đối tác chuẩn Material Design 3 với huy hiệu OCOP, tỷ lệ chiết khấu minh bạch và nút liên hệ kết nối ngay.
-   * Drawer chi tiết đối tác: Lộ trình kết nối đoàn làm phim 4K, kịch bản video đề xuất và liên hệ Zalo.
+   * Bộ lọc nhanh theo địa phương (Đô thị & Vùng sinh thái) và ngành hàng (Ẩm thực & Nông sản OCOP, Lưu trú Homestay, Làng nghề & Di sản).
+   * Thẻ Card đối tác chuẩn Material Design 3 với huy hiệu OCOP, tỷ lệ chiết khấu minh bạch và nút liên hệ Zalo / đặt ekip 4K.
    * File size: < 200 dòng.

@@ -1,6 +1,6 @@
 /**
  * Mekong Settlement Webhook & OCOP Network Unit Tests
- * Kiểm thử logic giải ngân tự động 4 bên và danh bạ đối tác 12 huyện thành Đồng Tháp
+ * Kiểm thử logic giải ngân tự động 4 bên và danh bạ đối tác Đô thị & Vùng Sinh thái Đồng Tháp
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'fs';
@@ -41,7 +41,7 @@ describe('Bank Settlement Webhook Engine', () => {
   });
 });
 
-describe('Mekong OCOP Network 12 Huyện Thành', () => {
+describe('Mekong OCOP Network - Đô Thị & Vùng Sinh Thái Đồng Tháp', () => {
   it('should have OCOP data file under 200 lines', () => {
     const filePath = join(ROOT_DIR, 'assets/js/components/mekong-ocop-network-data.js');
     expect(existsSync(filePath)).toBe(true);
@@ -72,6 +72,22 @@ describe('Mekong OCOP Network 12 Huyện Thành', () => {
     const content = readFileSync(filePath, 'utf-8');
     const lines = content.split('\n').length;
     expect(lines).toBeLessThan(200);
+  });
+
+  it('should not contain legacy "Huyện " prefix in OCOP regions or partner names', () => {
+    const dataContent = readFileSync(join(ROOT_DIR, 'assets/js/components/mekong-ocop-network-data.js'), 'utf-8');
+    expect(dataContent).toContain('Đô thị Lai Vung');
+    expect(dataContent).toContain('Đô thị Tháp Mười');
+    expect(dataContent).toContain('Đô thị Tam Nông');
+    expect(dataContent).not.toMatch(/name:\s*'Huyện\s+/);
+    expect(dataContent).not.toMatch(/districtName:\s*'Huyện\s+/);
+  });
+
+  it('partner onboarding dropdown should not have "Huyện " options', () => {
+    const formContent = readFileSync(join(ROOT_DIR, 'assets/js/components/mekong-partner-onboarding.js'), 'utf-8');
+    expect(formContent).not.toMatch(/<option value="Huyện\s+/);
+    expect(formContent).toContain('Đô thị Lai Vung');
+    expect(formContent).toContain('TP. Cao Lãnh');
   });
 });
 
