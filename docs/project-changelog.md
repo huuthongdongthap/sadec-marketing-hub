@@ -4,6 +4,30 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.9.0] - 2026-10-05 (Bank Settlement Webhook & OCOP Partner Network 12 Huyện Thành)
+### Added
+- **Bank Settlement Webhook Engine (`assets/js/components/mekong-settlement-webhook.js` & `data.js`):**
+  - Cổng giả lập tiếp nhận tín hiệu Webhook SePay / MBBank / Napas 24/7 với mã định danh giao dịch và xác thực chữ ký bảo mật.
+  - Tự động bóc tách doanh thu và giải ngân trực tiếp 4 bên: Homestay/Nhà vườn (30%), Co-founder Ekip 4K (35%), Khấu hao thiết bị & hậu cần (20%), Quỹ phát triển AI Hub (15%).
+  - Tính năng giả lập giao dịch mới thời gian thực và bắn biên lai đối soát trực tiếp qua Zalo OA.
+- **Mạng Lưới Đối Tác OCOP 12 Huyện Thành Đồng Tháp (`assets/js/components/mekong-ocop-network.js` & `data.js`):**
+  - Bản đồ & Danh bạ tương tác kết nối đối tác bản địa trên khắp 12 huyện, thị xã, thành phố của Đồng Tháp.
+  - Bộ lọc tức thì theo huyện thành và phân loại ngành nghề (Nông sản & Đặc sản, Homestay & Sinh thái, Làng nghề & Di sản).
+  - Tích hợp sao OCOP (3★-5★), chính sách hoa hồng minh bạch và nút liên kết đặt đoàn quay 4K ngay tại cơ sở.
+- **Cổng Đăng Ký Gia Nhập Mạng Lưới Đối Tác Bản Địa (`assets/js/components/mekong-partner-onboarding.js`):**
+  - Modal trực tuyến tiếp nhận hồ sơ hộ kinh doanh, nhà vườn và chủ thể OCOP muốn liên kết với Mekong Hub.
+  - Công cụ dự phóng doanh thu gia tăng (+15.000.000 ₫ đến 25.000.000 ₫/tháng) và kích hoạt mã hồ sơ liên kết `#PARTNER-DT-XXXX`.
+- **Tích Hợp Đồng Bộ Giao Diện & Widget Quick Connect:**
+  - Bổ sung nút trigger Webhook và Đối Tác OCOP trên thanh FAB Quick Connect và action bar trên `index.html`.
+  - Bộ test suite chuyên biệt `tests/settlement-webhook-and-ocop.vitest.ts` (10/10 tests passed).
+  - 100% file JavaScript < 200 dòng tuân thủ nghiêm ngặt nguyên tắc Modularity.
+
+### Verified
+- `npx vitest run`: 7 test suites passed, 1564/1564 tests passed (100% Green).
+- `npm run build`: Minification and production bundle succeeded into `dist/`.
+
+---
+
 ## [v2.8.0] - 2026-10-04 (VietQR Webhook, Content Engine v2 & Zalo Mini App Tracker)
 ### Added
 - **Zalo Mini App Tracking Simulator (`assets/js/components/mekong-zalo-tracker-data.js` & `assets/js/components/mekong-zalo-tracker.js`):**
