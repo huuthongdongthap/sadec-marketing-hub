@@ -20,24 +20,24 @@
           <form class="mwh-content" id="mpo-form" style="gap:1rem">
             <div>
               <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;color:#334155">Tên Cơ Sở / Hộ Kinh Doanh *</label>
-              <input type="text" id="mpo-biz-name" required placeholder="Ví dụ: Vườn Quýt Hồng Ba Rạng, Homestay Tư Cá..." style="width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.9rem;box-sizing:border-box">
+              <input type="text" id="mpo-biz-name" required placeholder="Ví dụ: Vườn Quýt Ba Rạng, Homestay Tư Cá..." style="width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.9rem;box-sizing:border-box">
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
               <div>
-                <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;color:#334155">Huyện / Thành Phố *</label>
+                <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;color:#334155">Địa Bàn / Đô Thị *</label>
                 <select id="mpo-district" style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.9rem;background:#fff;box-sizing:border-box">
-                  <option value="TP. Sa Đéc">TP. Sa Đéc</option>
                   <option value="TP. Cao Lãnh">TP. Cao Lãnh</option>
+                  <option value="TP. Sa Đéc">TP. Sa Đéc</option>
                   <option value="TP. Hồng Ngự">TP. Hồng Ngự</option>
-                  <option value="Huyện Lai Vung">Huyện Lai Vung</option>
-                  <option value="Huyện Tháp Mười">Huyện Tháp Mười</option>
-                  <option value="Huyện Tam Nông">Huyện Tam Nông</option>
-                  <option value="Huyện Thanh Bình">Huyện Thanh Bình</option>
-                  <option value="Huyện Lấp Vò">Huyện Lấp Vò</option>
-                  <option value="Huyện Châu Thành">Huyện Châu Thành</option>
-                  <option value="Huyện Tân Hồng">Huyện Tân Hồng</option>
-                  <option value="Huyện Cao Lãnh">Huyện Cao Lãnh</option>
-                  <option value="Huyện Hồng Ngự">Huyện Hồng Ngự</option>
+                  <option value="Đô thị Lai Vung">Đô thị Lai Vung</option>
+                  <option value="Đô thị Tháp Mười">Đô thị Tháp Mười</option>
+                  <option value="Đô thị Tam Nông">Đô thị Tam Nông</option>
+                  <option value="Đô thị Lấp Vò">Đô thị Lấp Vò</option>
+                  <option value="Đô thị Châu Thành">Đô thị Châu Thành</option>
+                  <option value="Đô thị Thanh Bình">Đô thị Thanh Bình</option>
+                  <option value="Đô thị Tân Hồng">Đô thị Tân Hồng</option>
+                  <option value="Vùng Mở Rộng Cao Lãnh">Vùng Mở Rộng Cao Lãnh</option>
+                  <option value="Vùng Kinh Tế Hồng Ngự">Vùng Kinh Tế Hồng Ngự</option>
                 </select>
               </div>
               <div>

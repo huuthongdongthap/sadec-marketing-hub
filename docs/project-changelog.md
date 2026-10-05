@@ -4,6 +4,21 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.9.2] - 2026-10-05 (Urban Restructuring & Regional OCOP Modernization)
+### Added & Updated
+- **Chuẩn hóa không gian địa bàn & bỏ danh xưng Huyện cũ:**
+  - Đồng bộ theo định hướng Quy hoạch tỉnh Đồng Tháp và đề án sắp xếp không gian phát triển đô thị. Chuyển đổi toàn diện từ "12 huyện thành" sang hệ thống **3 Đô thị hạt nhân (TP. Cao Lãnh, TP. Sa Đéc, TP. Hồng Ngự) & các Vùng Đô thị - Sinh thái Kinh tế OCOP** (Lai Vung, Tháp Mười, Tam Nông, Lấp Vò, Châu Thành, Thanh Bình, Tân Hồng, Vùng mở rộng Cao Lãnh, Vùng kinh tế Hồng Ngự).
+  - Loại bỏ hoàn toàn tiền tố "Huyện" khỏi bộ lọc địa phương, thẻ đối tác, dropdown biểu mẫu đăng ký đối tác (`mekong-partner-onboarding.js`), và giao diện hiển thị (`mekong-ocop-network.js`).
+- **Dữ liệu OCOP tỉnh Đồng Tháp mới nhất:**
+  - Cập nhật thông tin các Hợp tác xã (HTX) và cơ sở sản xuất đạt chuẩn OCOP 3★-5★ tiêu biểu: HTX Xoài Mỹ Xương (5★), HTX Sen Tháp Mười Ecolotus (5★ Quốc Gia), HTX Hoa Kiểng Tân Quy Đông (4★), HTX Dệt Chiếu Định Yên Di Sản (4★), Làng nghề Dệt Choàng Long Khánh (4★)...
+  - Đảm bảo 100% file JavaScript tiếp tục tuân thủ nghiêm ngặt chuẩn modularity (< 200 dòng/file).
+- **Hệ thống Kiểm thử & Build:**
+  - Cập nhật test suite `tests/settlement-webhook-and-ocop.vitest.ts` kiểm thử quy chuẩn không còn tiền tố "Huyện", xác thực dữ liệu vùng đô thị.
+  - Kết quả kiểm thử: 8/8 suites, **1.576/1.576 tests passed (100% Green)**.
+  - Build production `dist/` hoàn tất không lỗi.
+
+---
+
 ## [v2.9.1] - 2026-10-05 (Architecture Refactoring & Strict Modularity Enforcement)
 ### Refactored & Optimized
 - **Tách module hóa `src/js/core/enhanced-utils.js` (302 dòng ➔ 184 dòng):**
