@@ -4,6 +4,29 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.9.1] - 2026-10-05 (Architecture Refactoring & Strict Modularity Enforcement)
+### Refactored & Optimized
+- **Tách module hóa `src/js/core/enhanced-utils.js` (302 dòng ➔ 184 dòng):**
+  - Trích xuất toàn bộ các lớp giao diện người dùng (`Toast`, `ThemeManager`, `ScrollProgress`, `MobileSidebar`) sang module chuyên biệt `src/js/core/enhanced-ui.js` (126 dòng).
+  - Đảm bảo tính nguyên vẹn của facade exports và backward compatibility 100%.
+- **Tách biệt Style & Logic của LoadingButton (`assets/js/components/loading-button.js` - 282 dòng ➔ 150 dòng):**
+  - Tách token màu sắc Material Design 3, kích thước và CSS rules sang `assets/js/components/loading-button-styles.js` (142 dòng).
+  - Web Component tập trung thuần túy vào lifecycle và quản lý trạng thái tải/disabled.
+- **Tách biệt Logic Sparkline SVG của KpiCard (`assets/js/components/kpi-card.js` - 269 dòng ➔ 76 dòng):**
+  - Chuyển thuật toán sinh SVG Sparkline diện tích và bảng màu ánh sáng neon vào `assets/js/components/kpi-card-helper.js` (169 dòng).
+  - Tối ưu hóa render loop và shadow DOM encapsulation.
+- **Khắc phục Flaky Test ID Generation (`assets/js/utils/id.js` & `enhanced-utils.js`):**
+  - Sử dụng `.substring(2, 11).padEnd(9, '0')` đảm bảo chuỗi định danh luôn chính xác 9 ký tự ngẫu nhiên trong mọi trường hợp base36.
+- **Bổ sung Unit Test Suite `tests/refactor-modularity-verification.vitest.ts`:**
+  - Xác nhận tự động 100% các file refactored duy trì nghiêm ngặt dưới 200 dòng/file.
+  - Kiểm thử 100 lần sinh ID liên tục không phát sinh lỗi độ dài chuỗi.
+
+### Verified
+- `npx vitest run`: 8 test suites passed, 1574/1574 tests passed (100% Green).
+- `npm run build`: Minification and production bundle succeeded into `dist/`.
+
+---
+
 ## [v2.9.0] - 2026-10-05 (Bank Settlement Webhook & OCOP Partner Network 12 Huyện Thành)
 ### Added
 - **Bank Settlement Webhook Engine (`assets/js/components/mekong-settlement-webhook.js` & `data.js`):**
