@@ -4,6 +4,23 @@ Tất cả các thay đổi đáng chú ý của dự án **Sa Đéc & Cao Lãnh
 
 ---
 
+## [v2.9.3] - 2026-10-13 (Phase 7: Mekong Media Vault 4K & Huong Sen AI Script Studio)
+### Added
+- **Mekong Media Vault 4K (`mekong-media-vault-data.js`, `mekong-media-vault.js`):**
+  - Ra mắt kho footage 4K S-Log3 ProRes bản quyền dành riêng cho Đất Sen Hồng (Tràm Chim, Sa Đéc, Cao Lãnh, Định Yên, Tháp Mười, Lai Vung...).
+  - Tích hợp 3 gói cấp phép bản quyền B2B (`social`: 490.000 ₫, `commercial`: 1.890.000 ₫, `exclusive`: 4.900.000 ₫) và thanh toán tự động qua VietQR + Zalo Webhook.
+  - Tích hợp lớp watermark bảo vệ bản quyền trực quan ngay trên modal xem trước.
+- **Hương Sen AI Script Studio (`huong-sen-ai-data.js`, `huong-sen-ai.js`):**
+  - Engine sinh kịch bản video ngắn Nam Bộ 3 hồi (Hook 0-3s, Storytelling 4-45s, CTA 46-60s) chuẩn ngôn từ bản địa miệt vườn.
+  - Hỗ trợ 3 phong cách văn phong: *Chân Chất Miệt Vườn*, *Thơ Mộng Nghệ Nhân*, *Hài Hước Ba Khía*.
+  - Tích hợp tính năng 1-click sao chép kịch bản vào CapCut và đặt ngay ekip quay 4K thực chiến.
+- **Tích hợp Đa Trang & Kiểm Thử:**
+  - Tích hợp đầy đủ trên `index.html`, `partnership.html`, `academy.html`.
+  - Bộ kiểm thử mới `tests/media-vault-and-huong-sen.vitest.ts` đạt 100% Green (11/11 tests).
+  - Đảm bảo 100% file JavaScript mới tuân thủ nghiêm ngặt hiến pháp Modularity (< 200 dòng/file).
+
+---
+
 ## [v2.9.2] - 2026-10-05 (Urban Restructuring & Regional OCOP Modernization)
 ### Added & Updated
 - **Chuẩn hóa không gian địa bàn & bỏ danh xưng Huyện cũ:**
