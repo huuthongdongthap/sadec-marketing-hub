@@ -757,6 +757,14 @@
             <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #059669;">bolt</span>
             Webhook Giải Ngân 24/7
           </button>
+          <button type="button" onclick="if (typeof openMediaVaultModal === 'function') openMediaVaultModal();" class="btn btn-outlined btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 12px; font-weight: 700; cursor: pointer; background: #fff;">
+            <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #4338ca;">movie</span>
+            Kho Footage 4K
+          </button>
+          <button type="button" onclick="if (typeof openHuongSenAiModal === 'function') openHuongSenAiModal();" class="btn btn-outlined btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 12px; font-weight: 700; cursor: pointer; background: #fff;">
+            <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #047857;">edit_note</span>
+            Hương Sen AI
+          </button>
         </div>
       </div>
     </div>
@@ -1276,6 +1284,12 @@
   <script src="assets/js/components/mekong-ocop-network-data.js" defer></script>
   <script src="assets/js/components/mekong-ocop-network.js" defer></script>
   <script src="assets/js/components/mekong-partner-onboarding.js" defer></script>
+
+  <!-- Mekong Media Vault 4K & Huong Sen AI Studio Components -->
+  <script src="assets/js/components/mekong-media-vault-data.js" defer></script>
+  <script src="assets/js/components/mekong-media-vault.js" defer></script>
+  <script src="assets/js/components/huong-sen-ai-data.js" defer></script>
+  <script src="assets/js/components/huong-sen-ai.js" defer></script>
 
   <!-- Mekong Quick Connect Widget -->
   <script src="assets/js/components/mekong-quick-connect.js" defer></script>

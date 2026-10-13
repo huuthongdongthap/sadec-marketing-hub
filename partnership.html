@@ -1461,10 +1461,18 @@
           </div>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 2.5rem;">
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;">
         <button type="button" class="btn btn-cta" data-revenue-split-trigger="cinema-tour" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; border-radius: 9999px; font-weight: 700; cursor: pointer;">
           <span class="material-symbols-outlined">pie_chart</span>
           Đối Soát Tỷ Lệ Phân Bổ Doanh Thu 6 Nguồn Thu Bản Địa
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="openMediaVaultModal()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 9999px; font-weight: 700; cursor: pointer;">
+          <span class="material-symbols-outlined">video_library</span>
+          Kho Footage 4K Bản Quyền (Media Vault)
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="openHuongSenAiModal()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 9999px; font-weight: 700; cursor: pointer;">
+          <span class="material-symbols-outlined">auto_awesome</span>
+          Hương Sen AI • Studio Kịch Bản Video Ngắn
         </button>
       </div>
     </div>
@@ -1694,6 +1702,12 @@
   <script src="assets/js/components/mekong-ocop-network-data.js" defer></script>
   <script src="assets/js/components/mekong-ocop-network.js" defer></script>
   <script src="assets/js/components/mekong-partner-onboarding.js" defer></script>
+
+  <!-- Mekong Media Vault 4K & Huong Sen AI Studio Components -->
+  <script src="assets/js/components/mekong-media-vault-data.js" defer></script>
+  <script src="assets/js/components/mekong-media-vault.js" defer></script>
+  <script src="assets/js/components/huong-sen-ai-data.js" defer></script>
+  <script src="assets/js/components/huong-sen-ai.js" defer></script>
 
   <!-- Mekong Quick Connect Widget -->
   <script src="assets/js/components/mekong-quick-connect.js" defer></script>
